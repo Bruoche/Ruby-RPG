@@ -6,13 +6,12 @@ class Pack
         @initial_monsters = Array.new
         if (player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) >= 1)
             nb_monsters = rand(1..player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + 1)
-            puts "Generating #{nb_monsters} monsters..."
         else
             nb_monsters = 1
         end
         for i in 1..nb_monsters do
             monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + player_level))
-            monster_damage = rand(BaseStats::BASE_DAMAGE.div(nb_monsters)..(BaseStats::BASE_DAMAGE + player_level))
+            monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + player_level))
             monster = Monster.new(monster_health, monster_damage)
             @monsters.push(monster)
             @initial_monsters.push(monster)
@@ -48,6 +47,15 @@ class Pack
         return power
     end
 
+    def get_spot_risk(player_discretion)
+		spot_risk = (get_power.div(10) - player_discretion) + 1
+        spot_risk = (spot_risk*100)/(get_power.div(10) + 1)
+        if spot_risk < 0
+            return 0
+        end
+		return spot_risk
+	end
+
     def is_plural()
         return @monsters.length > 1
     end
@@ -63,6 +71,11 @@ class Pack
             end
         end
         return @monsters.length == 0
+    end
+
+    def can_escape(player_agility)
+        perception_score = rand(get_room_power + 1)
+        return perception_score < player_agility
     end
 
     def attack(player)
@@ -88,6 +101,20 @@ class Pack
             end
         else
             hurt(0, damage)
+        end
+    end
+
+    def hurt_magic(power)
+        if (power > 0)
+            for i in 0..(@monters.length - 1)  do
+                hurt(index, rand(1..power))
+            end
+        else
+            if is_plural
+                puts "Dépourvu de puissance magique, vous ne parvenez pas à attaquer les ennemis."
+            else
+                puts "Dépourvu de puissance magique, vous ne parvenez pas à attaquer l'ennemi."
+            end
         end
     end
 

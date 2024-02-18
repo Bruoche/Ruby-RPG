@@ -9,9 +9,9 @@ class Game
     def initialize()
         @player = Player.new(
             BaseStats::BASE_HEALTH,
-            BaseStats::BASE_DAMAGE,
-            BaseStats::BASE_HEAL,
-            BaseStats::BASE_DISCRETION
+            BaseStats::BASE_STRENGTH,
+            BaseStats::BASE_INTELLIGENCE,
+            BaseStats::BASE_AGILITY
         )
         play
     end

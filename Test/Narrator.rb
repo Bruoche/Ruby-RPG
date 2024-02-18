@@ -50,6 +50,18 @@ class Narrator
         end
     end
 
+    def self.escape_scene()
+        puts "Ce combat ne valant plus la peine pour vous, vous vous échappez."
+    end
+
+    def self.fail_escape(is_plural)
+        if is_plural
+            puts "Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire."
+        else
+            puts "Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire."
+        end
+    end
+
     def self.victory_scene(was_plural, xp)
         puts
         if was_plural
@@ -70,14 +82,16 @@ class Narrator
         return user_input
     end
 
-    def self.ask_fight_action(player_status, monsters_description)
+    def self.ask_fight_action(player_status, monsters_description, escape_chances)
         puts
         puts player_status
         puts "Vous faites face à #{monsters_description}."
         puts
         puts "Que voulez-vous faire ?"
-        puts "      1) Attaquer"
-        puts "      2) Se soigner"
+        puts "      1) Attaque physique"
+        puts "      2) Attaque magique"
+        puts "      3) Se soigner"
+        puts "      4) Fuir... (#{escape_chances}% de chances de s'échapper)"
         return user_input
     end
 

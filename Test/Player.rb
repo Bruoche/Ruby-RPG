@@ -1,13 +1,13 @@
 require "Lifebar"
 class Player
-    def initialize(life, damage, heal, discretion)
+    def initialize(life, strength, intelligence, agility)
         @lifebar = Lifebar.new(life)
-        @damage = damage
-        @heal = heal
-        @discretion = discretion
+        @strength = strength
+        @intelligence = intelligence
+        @agility = agility
         @level = 0
         @current_xp = 0
-        @next_level = (life + heal) * damage
+        @next_level = (life + intelligence) * strength
     end
 
     def get_full_status()
@@ -15,7 +15,7 @@ class Player
     end
 
     def get_status()
-        return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@damage} dégats et pouvez soigner #{@heal} points de vie."
+        return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@strength} dégats et avez #{@intelligence} points de puissance magique."
     end
 
     def is_dead()
@@ -27,7 +27,7 @@ class Player
     end
 
     def get_discretion()
-        return @discretion
+        return @agility
     end
 
     def hurt(damage)
@@ -35,13 +35,17 @@ class Player
         @lifebar.damage(damage)
     end
 
-    def attack()
-        return @damage
+    def strength_attack()
+        return @strength
+    end
+
+    def magic_attack()
+        return @intelligence
     end
 
     def heal()
-        if (@heal > 0)
-            amount = rand(1..@heal)
+        if (@intelligence > 0)
+            amount = rand(1..@intelligence)
             puts "Vous vous soignez #{amount} points de vie."
             @lifebar.heal(amount)
         else
@@ -75,22 +79,22 @@ class Player
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats})"
                 puts "1) Vie"
-                puts "2) Dégats"
-                puts "3) Soins"
-                puts "4) Discretion"
+                puts "2) Force"
+                puts "3) Intelligence"
+                puts "4) Agilitée"
                 print "     >> "
                 case gets.chomp
                 when "1"
                     @lifebar.increment
                     break
                 when "2"
-                    @damage += 1
+                    @strength += 1
                     break
                 when "3"
-                    @heal += 2
+                    @intelligence += 2
                     break
                 when "4"
-                    @discretion += 1
+                    @agility += 1
                     break
                 else
                     puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"
