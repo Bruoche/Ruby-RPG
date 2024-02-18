@@ -3,6 +3,7 @@ require "Monster"
 class Pack
     def initialize(player_level)
         @monsters = Array.new
+        @initial_monsters = Array.new
         if (player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) >= 1)
             nb_monsters = rand(1..player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + 1)
             puts "Generating #{nb_monsters} monsters..."
