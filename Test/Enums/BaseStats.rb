@@ -1,0 +1,7 @@
+module BaseStats
+    BASE_HEALTH = 20
+    BASE_DAMAGE = 5
+    BASE_HEAL = 0
+    BASE_DISCRETION = 10
+    LEVELS_PER_EXTRA_MONSTER = 3
+end
