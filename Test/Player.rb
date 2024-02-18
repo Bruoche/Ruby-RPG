@@ -2,10 +2,10 @@ require "Lifebar"
 class Player
     def initialize(life, damage, heal, discretion)
         @lifebar = Lifebar.new(life)
-        @damage = damage + 5
+        @damage = damage
         @heal = heal
         @discretion = discretion
-        @level = 6
+        @level = 0
         @current_xp = 0
         @next_level = (life + heal) * damage
     end
@@ -65,30 +65,37 @@ class Player
             @level += 1
             @current_xp -= @next_level
             @next_level *= 2
-            stat_up
+            stat_up(BaseStats::NB_STATS_PER_LEVEL)
             @lifebar.heal(@lifebar.get_missing_life)
         end
     end
 
-    def stat_up()
-        puts "Quelle statistique souhaitez-vous augmenter ?"
-        puts "1) Vie"
-        puts "2) Dégats"
-        puts "3) Soins"
-        puts "4) Discretion"
-        print "     >> "
-        case gets.chomp
-        when "1"
-            @lifebar.increment
-        when "2"
-            @damage += 1
-        when "3"
-            @heal += 2
-        when "4"
-            @discretion += 1
-        else
-            puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"
-            stat_up
+    def stat_up(nb_stats)
+        for i in 1..nb_stats do
+            loop do
+                puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats})"
+                puts "1) Vie"
+                puts "2) Dégats"
+                puts "3) Soins"
+                puts "4) Discretion"
+                print "     >> "
+                case gets.chomp
+                when "1"
+                    @lifebar.increment
+                    break
+                when "2"
+                    @damage += 1
+                    break
+                when "3"
+                    @heal += 2
+                    break
+                when "4"
+                    @discretion += 1
+                    break
+                else
+                    puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"
+                end
+            end
         end
     end
 end

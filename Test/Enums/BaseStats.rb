@@ -4,4 +4,5 @@ module BaseStats
     BASE_HEAL = 0
     BASE_DISCRETION = 10
     LEVELS_PER_EXTRA_MONSTER = 3
+    NB_STATS_PER_LEVEL = 2
 end
