@@ -9,17 +9,20 @@ class Room
         @player = player
         @monsters = Pack.new(player.get_level)
     end
-    
+
     def describe()
         spot_risk = (get_room_power - @player.get_discretion) + 1
         spot_risk = (spot_risk*100)/(get_room_power + 1)
+        if spot_risk < 0
+            spot_risk = 0
+        end
         Narrator.describe_room(@player.get_full_status, @monsters.get_description, spot_risk)
     end
-    
+
     def get_monsters()
         return @monsters
     end
-    
+
     def propose_combat()
         case Narrator.ask_if_fight
         when "1"
@@ -32,13 +35,13 @@ class Room
             propose_combat
         end
     end
-    
+
     private
-    
+
     def get_room_power()
         return @monsters.get_power.div(10)
     end
-    
+
     def sneak()
         perception_score = rand(get_room_power + 1)
         if (perception_score < @player.get_discretion)

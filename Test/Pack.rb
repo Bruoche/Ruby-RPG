@@ -97,6 +97,7 @@ class Pack
         monster = @monsters[index]
         monster.hurt(damage)
         if monster.is_dead
+            puts "#{monster.get_gendered_the.capitalize} s'effondre sous vos coups."
             @monsters.delete(monster)
         end
     end
