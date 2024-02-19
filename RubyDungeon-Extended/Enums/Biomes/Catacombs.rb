@@ -1,32 +1,35 @@
 require_relative "../Vocabulary"
 require_relative "../Monsters/Goblin"
 require_relative "../Monsters/CaveCritter"
-require_relative "../Monsters/Slime"
 
-module EntranceF
+module CatacombsF
     NAMES = [
         Rooms::ROOM_F,
-        Rooms::ALCOVE_F
+        Rooms::ALCOVE_F,
+        Rooms::CHAMBER_F
     ].freeze
 
     PREFIXES = [
         Adjectives::SMALL_F,
-        Adjectives::TALL_F,
-        Adjectives::SPACIOUS_F
+        Adjectives::NARROW_F,
+        Adjectives::DRY_F,
+        Adjectives::DUSTY_F
     ].freeze
 
     SUFFIXES = [
-        Adjectives::WORRYING_F,
+        Adjectives::SCARY_F,
         Adjectives::COLD_F,
         Adjectives::HUMID_F,
         Adjectives::ISOLATED_F,
-        Adjectives::DARK_F
+        Adjectives::DARK_F,
+        Adjectives::SILENT_F
     ].freeze
 end
 
-module EntranceM
+module CatacombsM
     NAMES = [
         Rooms::CORRIDOR_M
+        Rooms::TUNNEL_M
     ].freeze
 
     PREFIXES = [
@@ -36,7 +39,7 @@ module EntranceM
     ].freeze
 
     SUFFIXES = [
-        Adjectives::WORRYING_M,
+        Adjectives::SCARY_M,
         Adjectives::COLD_M,
         Adjectives::HUMID_M,
         Adjectives::ISOLATED_M,
@@ -48,16 +51,15 @@ class Entrance
     FEMALE = EntranceF
     MALE = EntranceM
     BESTIARY = [
-        Goblin,
-        Slime,
+        Undead,
         CaveCritter
     ].freeze()
     def self.is_female
-        return [true, true, false].sample
+        return [true, false, false].sample
     end
     def self.describe
-        puts "Vous êtes entouré d'épais murs de pierres."
-        puts "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,"
-        puts "Mais les occasionnels courants d'air atteignants votre dos sont un rappel de votre proximitée avec la surface."
+        puts "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré."
+        puts "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quand à elle plus grande que jamais."
+        puts "L'air stagnant et la poussière vous donne une sensation de secheresse."
     end
 end

@@ -88,7 +88,7 @@ class Player
         for i in 1..nb_stats do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats})"
-                puts "1) Vie #{player}"
+                puts "1) Vie"
                 puts "2) Force"
                 puts "3) Intelligence"
                 puts "4) Agilitée"

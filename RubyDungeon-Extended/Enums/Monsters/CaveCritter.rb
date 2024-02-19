@@ -23,33 +23,9 @@ module CaveCritterF
     ].freeze
 end
 
-module CaveCritterM
-    NAMES = [
-        Monsters::SLIME_M
-    ].freeze
-
-    PREFIXES = [
-        Adjectives::SMALL_M,
-        Adjectives::BIG_M,
-        Adjectives::TALL_M
-    ].freeze
-
-    SUFFIXES = [
-        Adjectives::SCARY_M,
-        Adjectives::ANGRY_M,
-        Adjectives::WARY_M,
-        Adjectives::GREEN_M,
-        Adjectives::BLUISH_M,
-        Adjectives::GREYISH_M,
-        Adjectives::DARK_M
-    ].freeze
-end
-
-
 class CaveCritter
     FEMALE = CaveCritterF
-    MALE = CaveCritterM
     def self.is_female
-        return [true, false].sample
+        return true
     end
 end

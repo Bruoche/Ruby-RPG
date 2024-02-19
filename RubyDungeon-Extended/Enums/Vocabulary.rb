@@ -16,8 +16,10 @@ module Rooms
     # Female
         ROOM_F = "salle"
         ALCOVE_F = "pièce"
+        CHAMBER_F = "chambre"
     # Male
         CORRIDOR_M = "couloir"
+        TUNNEL_M = "tunnel"
 end
 
 module Adjectives
@@ -30,6 +32,7 @@ module Adjectives
     LONG_F = "longue"
     MUSCULAR_F = "musclée"
     WORRIED_F = "inquiète"
+    WORRYING_F = "inquiétante"
     TIRED_F = "fatiguée"
     ANGRY_F = "énervée"
     WARY_F = "méfiante"
@@ -45,6 +48,11 @@ module Adjectives
     HUMID_F = "humide"
     ISOLATED_F = "isolée"
     DARK_F = "sombre"
+    ANCIENT_F = "ancienne"
+    NARROW_F = "étroite"
+    DRY_F = "sèche"
+    DUSTY_F = "poussièreuse"
+    SILENT_F = "silencieuse"
     # Male
     SMALL_M = "petit"
     BIG_M = "gros"
@@ -54,6 +62,7 @@ module Adjectives
     LONG_M = "long"
     MUSCULAR_M = "musclé"
     WORRIED_M = "inquiet"
+    WORRYING_M = "inquiétant"
     TIRED_M = "fatigué"
     ANGRY_M = "énervé"
     WARY_M = "méfiant"
@@ -69,4 +78,9 @@ module Adjectives
     HUMID_M = "humide"
     ISOLATED_M = "isolé"
     DARK_M = "sombre"
+    ANCIENT_M = "ancien"
+    NARROW_M = "étroit"
+    DRY_M = "sec"
+    DUSTY_M = "poussiéreux"
+    SILENT_M = "silencieux"
 end
