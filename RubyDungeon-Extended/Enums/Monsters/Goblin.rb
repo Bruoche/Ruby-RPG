@@ -24,6 +24,7 @@ module GoblinF
         Adjectives::SMART_F,
         Adjectives::AGILE_F,
         Adjectives::JADED_F,
+        Adjectives::SCOUT_F,
         Adjectives::AUTHORITARIAN_F
     ].freeze
 end
@@ -52,6 +53,7 @@ module GoblinM
         Adjectives::SMART_M,
         Adjectives::AGILE_M,
         Adjectives::JADED_M,
+        Adjectives::SCOUT_M,
         Adjectives::AUTHORITARIAN_M
     ].freeze
 end

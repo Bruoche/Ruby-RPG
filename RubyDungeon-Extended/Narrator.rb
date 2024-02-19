@@ -3,14 +3,14 @@ class Narrator
         puts
         puts "          DEBUT DU JEU"
         puts
-        puts "Vous n'êtes pas exactement sûrs de la raison de votre venue en ce lieu,"
+        puts "Vous n'êtes pas exactement sûrs de la raison de votre venue en ce lieu."
         puts "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,"
-        puts "vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
+        puts "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
         puts
         puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
         puts
-        print "  (ecrivez n'importe quoi pour continuer...) >> "
-        gets
+        puts "  (pressez \"Entrée\" pour continuer...)"
+        user_input
     end
 
     def self.describe_room(player_status, the_room, monsters_description, spot_risk)
@@ -32,7 +32,7 @@ class Narrator
 
     def self.avoid_fight(the_monsters)
         puts
-        puts "Peu confiant.e en votre capacité à battre #{the_monsters}, vous avancez discretement vers la suite du donjon."
+        puts "Ne souhaitant pas combattre #{the_monsters}, vous avancez discretement vers la suite du donjon."
     end
 
     def self.fail_sneak(is_plural)

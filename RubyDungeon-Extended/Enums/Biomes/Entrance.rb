@@ -1,5 +1,6 @@
 require_relative "../Vocabulary"
 require_relative "../Monsters/Goblin"
+require_relative "../Monsters/CaveCritter"
 
 module EntranceF
     NAMES = [
@@ -46,7 +47,8 @@ class Entrance
     FEMALE = EntranceF
     MALE = EntranceM
     BESTIARY = [
-        Goblin
+        Goblin,
+        CaveCritter
     ].freeze()
     def self.is_female
         return [true, true, false].sample

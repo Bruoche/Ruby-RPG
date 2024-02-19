@@ -50,8 +50,9 @@ class Fight
     end
 
     def victory()
-        Narrator.victory_scene(@monsters.was_plural, @monsters.get_power)
-        @player.get_xp(@monsters.get_power)
+        xp_gained = @monsters.get_power
+        Narrator.victory_scene(@monsters.was_plural, xp_gained)
+        @player.get_xp(xp_gained)
         @player.patch_up
         Narrator.sneaking_transition()
         return GameStates::SNEAKING

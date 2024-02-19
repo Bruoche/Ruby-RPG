@@ -15,7 +15,7 @@ end
 module Rooms
     # Female
         ROOM_F = "salle"
-        ALCOVE_F = "piece"
+        ALCOVE_F = "pièce"
     # Male
         CORRIDOR_M = "couloir"
 end
@@ -39,6 +39,7 @@ module Adjectives
     SMART_F = "intelligente"
     AGILE_F = "agile"
     JADED_F = "blasée"
+    SCOUT_F = "éclaireuse"
     AUTHORITARIAN_F = "authoritaire"
     COLD_F = "froide"
     HUMID_F = "humide"
@@ -62,6 +63,7 @@ module Adjectives
     SMART_M = "intelligent"
     AGILE_M = "agile"
     JADED_M = "blasé"
+    SCOUT_M = "éclaireur"
     AUTHORITARIAN_M = "authoritaire"
     COLD_M = "froid"
     HUMID_M = "humide"
