@@ -29,19 +29,19 @@ module CaveCritterM
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_F,
-        Adjectives::BIG_F,
-        Adjectives::TALL_F
+        Adjectives::SMALL_M,
+        Adjectives::BIG_M,
+        Adjectives::TALL_M
     ].freeze
 
     SUFFIXES = [
-        Adjectives::SCARY_F,
-        Adjectives::ANGRY_F,
-        Adjectives::WARY_F,
-        Adjectives::GREEN_F,
-        Adjectives::BLUISH_F,
-        Adjectives::GREYISH_F,
-        Adjectives::DARK_F
+        Adjectives::SCARY_M,
+        Adjectives::ANGRY_M,
+        Adjectives::WARY_M,
+        Adjectives::GREEN_M,
+        Adjectives::BLUISH_M,
+        Adjectives::GREYISH_M,
+        Adjectives::DARK_M
     ].freeze
 end
 
