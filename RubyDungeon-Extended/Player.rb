@@ -88,22 +88,22 @@ class Player
         for i in 1..nb_stats do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats})"
-                puts "1) Vie"
-                puts "2) Force"
-                puts "3) Intelligence"
-                puts "4) Agilitée"
+                puts "1) Vie            (#{@lifebar.get_max_life} -> #{@lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
+                puts "2) Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
+                puts "3) Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
+                puts "4) Agilitée       (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
                 case Narrator.user_input
                 when "1"
-                    @lifebar.increment(2)
+                    @lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
                     break
                 when "2"
-                    @strength += 2
+                    @strength += BaseStats::STRENGTH_UPGRADE_PER_LEVEL
                     break
                 when "3"
-                    @intelligence += 3
+                    @intelligence += BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL
                     break
                 when "4"
-                    @agility += 2
+                    @agility += BaseStats::AGILITY_UPGRADE_PER_LEVEL
                     break
                 else
                     puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"
