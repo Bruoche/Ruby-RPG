@@ -95,16 +95,16 @@ class Player
                 print "     >> "
                 case gets.chomp
                 when "1"
-                    @lifebar.increment
+                    @lifebar.increment(2)
                     break
                 when "2"
-                    @strength += 1
+                    @strength += 2
                     break
                 when "3"
-                    @intelligence += 2
+                    @intelligence += 3
                     break
                 when "4"
-                    @agility += 1
+                    @agility += 2
                     break
                 else
                     puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"

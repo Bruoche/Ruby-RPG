@@ -107,8 +107,6 @@ class Narrator
         puts "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées."
     end
 
-    private
-
     def self.user_input()
         puts
         print "  >> "

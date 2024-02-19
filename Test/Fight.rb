@@ -26,7 +26,7 @@ class Fight
     end
 
     def player_turn()
-        case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, @player.get_spot_risk(@monsters.get_current_power))
+        case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, 100-@player.get_spot_risk(@monsters.get_current_power))
         when "1"
             @monsters.hurt_single(@player.strength_attack)
         when "2"

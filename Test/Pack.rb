@@ -10,8 +10,8 @@ class Pack
             nb_monsters = 1
         end
         for i in 1..nb_monsters do
-            monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + player_level))
-            monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + player_level))
+            monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + (player_level*BaseStats::NB_STATS_PER_LEVEL)))
+            monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + (player_level*BaseStats::NB_STATS_PER_LEVEL)))
             monster = Monster.new(monster_health, monster_damage)
             @monsters.push(monster)
             @initial_monsters.push(monster)
@@ -44,7 +44,8 @@ class Pack
         for monster in @initial_monsters do
             power += monster.get_power
         end
-        return power
+        bonus = power.div(10) * @initial_monsters.length
+        return power + bonus
     end
 
     def get_current_power()
@@ -85,7 +86,7 @@ class Pack
                 puts "      #{i}) #{@monsters[i-1].get_description.capitalize}"
             end
             loop do
-                input = gets.chomp.to_i
+                input = Narrator.user_input.to_iA&
                 if input.between?(1, @monsters.length)
                     hurt((input-1), damage)
                     break
