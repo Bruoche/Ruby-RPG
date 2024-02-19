@@ -1,12 +1,12 @@
 class Name
     VOWELS = ['a', 'e', 'i', 'o', 'u']
 
-    def Name(vocabulary, female = [true, false].sample)
-        @female = female
-        if (female)
-            @denomination = generate(vocabulary::NAMES_F, vocabulary::PRE_ADJECTIVES_F, vocabulary::POST_ADJECTIVES_F)
+    def initialize(vocabulary)
+        @female = vocabulary.is_female
+        if (@female)
+            @denomination = generate(vocabulary::FEMALE)
         else
-            @denomination = generate(vocabulary::NAMES_M, vocabulary::PRE_ADJECTIVES_M, vocabulary::POST_ADJECTIVES_M)
+            @denomination = generate(vocabulary::MALE)
         end
     end
 
@@ -19,7 +19,7 @@ class Name
     end
 
     def get_gendered_the()
-        if @denomination[0].in?(vowels)
+        if VOWELS.include?(@denomination[0])
             return "l'#{@denomination}"
         end
         if @female
@@ -29,13 +29,13 @@ class Name
         end
     end
 
-    def generate(names, pre_adjectives, post_adjectives)
-        name = names.sample
-        if [true, false, false].sample
-            name = "#{pre_adjectives.sample} #{name}"
+    def generate(gendered_vocabulary)
+        name = gendered_vocabulary::NAMES.sample
+        if (([true, false, false].sample) && (gendered_vocabulary::PREFIXES != nil))
+            name = "#{gendered_vocabulary::PREFIXES.sample} #{name}"
         end
-        if [true, false].sample
-            name = "#{name} #{post_adjectives.sample}"
+        if (([true, false].sample) && (gendered_vocabulary::SUFFIXES != nil))
+            name = "#{name} #{gendered_vocabulary::SUFFIXES.sample}"
         end
         return name
     end

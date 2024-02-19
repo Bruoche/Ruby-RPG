@@ -1,12 +1,12 @@
 require "Lifebar"
-require "Enums/MonsterNames"
+require "Enums/Monsters/Goblin"
 require "Name"
 
 class Monster
-    def initialize(life, damage)
+    def initialize(life, damage, name)
         @lifebar = Lifebar.new(life)
         @damage = damage
-        @name = Name.new(MonsterNames)
+        @name = name
     end
 
     def get_description()

@@ -4,15 +4,13 @@ class Pack
     def initialize(player_level)
         @monsters = Array.new
         @initial_monsters = Array.new
-        if (player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) >= 1)
-            nb_monsters = rand(1..player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + 1)
-        else
-            nb_monsters = 1
-        end
+        max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + 1
+        nb_monsters = rand(1..max_amount)
         for i in 1..nb_monsters do
-            monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + (player_level*BaseStats::NB_STATS_PER_LEVEL)))
-            monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + (player_level*BaseStats::NB_STATS_PER_LEVEL)))
-            monster = Monster.new(monster_health, monster_damage)
+            difficulty_bonus = player_level*BaseStats::NB_STATS_PER_LEVEL
+            monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + difficulty_bonus))
+            monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + difficulty_bonus))
+            monster = Monster.new(monster_health, monster_damage, Name.new(Goblin))
             @monsters.push(monster)
             @initial_monsters.push(monster)
         end
@@ -86,7 +84,7 @@ class Pack
                 puts "      #{i}) #{@monsters[i-1].get_description.capitalize}"
             end
             loop do
-                input = Narrator.user_input.to_iA&
+                input = Narrator.user_input.to_i
                 if input.between?(1, @monsters.length)
                     hurt((input-1), damage)
                     break
