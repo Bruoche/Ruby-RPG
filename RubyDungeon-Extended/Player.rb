@@ -88,12 +88,11 @@ class Player
         for i in 1..nb_stats do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats})"
-                puts "1) Vie"
+                puts "1) Vie #{player}"
                 puts "2) Force"
                 puts "3) Intelligence"
                 puts "4) Agilitée"
-                print "     >> "
-                case gets.chomp
+                case Narrator.user_input
                 when "1"
                     @lifebar.increment(2)
                     break

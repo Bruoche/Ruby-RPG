@@ -3,7 +3,10 @@ class Narrator
         puts
         puts "          DEBUT DU JEU"
         puts
-        puts "En quête de trésors et de connaissances, vous décidez de commencer votre périple dans un donjon ancien réputé sans fond."
+        puts "Vous n'êtes pas exactement sûrs de la raison de votre venue en ce lieu,"
+        puts "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,"
+        puts "vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
+        puts
         puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
         puts
         print "  (ecrivez n'importe quoi pour continuer...) >> "
@@ -111,7 +114,9 @@ class Narrator
         puts
         print "  >> "
         answer = gets.chomp
-        puts puts puts puts puts
+        for i in 0..40
+            puts
+        end
         return answer
     end
 end
