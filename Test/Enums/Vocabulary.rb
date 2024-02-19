@@ -12,21 +12,22 @@ module Monsters
     SKELLETON_M = "squelette"
 end
 
-module Prefixes
+module Rooms
+    # Female
+        ROOM_F = "salle"
+        ALCOVE_F = "piece"
+    # Male
+        CORRIDOR_M = "couloir"
+end
+
+module Adjectives
     # Female
     SMALL_F = "petite"
     BIG_F = "grosse"
     TALL_F = "grande"
     SCARY_F = "terrifiante"
-    # Male
-    SMALL_M = "petit"
-    BIG_M = "gros"
-    TALL_M = "grand"
-    SCARY_M = "terrifiant"
-end
-
-module Suffixes
-    # Female
+    SPACIOUS_F = "spacieuse"
+    LONG_F = "longue"
     MUSCULAR_F = "musclée"
     WORRIED_F = "inquiète"
     TIRED_F = "fatiguée"
@@ -39,7 +40,17 @@ module Suffixes
     AGILE_F = "agile"
     JADED_F = "blasée"
     AUTHORITARIAN_F = "authoritaire"
+    COLD_F = "froide"
+    HUMID_F = "humide"
+    ISOLATED_F = "isolée"
+    DARK_F = "sombre"
     # Male
+    SMALL_M = "petit"
+    BIG_M = "gros"
+    TALL_M = "grand"
+    SCARY_M = "terrifiant"
+    SPACIOUS_M = "spacieux"
+    LONG_M = "long"
     MUSCULAR_M = "musclé"
     WORRIED_M = "inquiet"
     TIRED_M = "fatigué"
@@ -52,4 +63,8 @@ module Suffixes
     AGILE_M = "agile"
     JADED_M = "blasé"
     AUTHORITARIAN_M = "authoritaire"
+    COLD_M = "froid"
+    HUMID_M = "humide"
+    ISOLATED_M = "isolé"
+    DARK_M = "sombre"
 end

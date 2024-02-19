@@ -1,6 +1,7 @@
 require 'Narrator'
 require 'Enums/GameStates'
 require 'Enums/BaseStats'
+require 'Enums/Biomes/Entrance'
 require 'Player'
 require 'Fight'
 require 'Room'
@@ -22,7 +23,7 @@ class Game
         while (@state != GameStates::DEAD)
             case @state
             when GameStates::SNEAKING
-                @current_room = Room.new(@player)
+                @current_room = Room.new(@player, Entrance)
                 @current_room.describe()
                 @state = @current_room.propose_combat()
             when GameStates::FIGHTING

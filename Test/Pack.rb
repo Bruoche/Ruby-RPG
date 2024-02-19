@@ -1,7 +1,7 @@
 require "Monster"
 
 class Pack
-    def initialize(player_level)
+    def initialize(player_level, bestiary)
         @monsters = Array.new
         @initial_monsters = Array.new
         max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + 1
@@ -10,7 +10,7 @@ class Pack
             difficulty_bonus = player_level*BaseStats::NB_STATS_PER_LEVEL
             monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + difficulty_bonus))
             monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + difficulty_bonus))
-            monster = Monster.new(monster_health, monster_damage, Name.new(Goblin))
+            monster = Monster.new(monster_health, monster_damage, Name.new(bestiary.sample))
             @monsters.push(monster)
             @initial_monsters.push(monster)
         end

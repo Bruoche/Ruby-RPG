@@ -3,15 +3,17 @@ require "Enums/GameStates"
 require "Enums/BaseStats"
 require "Player"
 require "Pack"
+require "Name"
 
 class Room
-    def initialize(player)
+    def initialize(player, biome)
+        @name = Name.new(biome)
         @player = player
-        @monsters = Pack.new(player.get_level)
+        @monsters = Pack.new(player.get_level, biome::BESTIARY)
     end
 
     def describe()
-        Narrator.describe_room(@player.get_full_status, @monsters.get_description, @player.get_spot_risk(@monsters.get_power))
+        Narrator.describe_room(@player.get_full_status, @name.get_gendered_the, @monsters.get_description, @player.get_spot_risk(@monsters.get_power))
     end
 
     def get_monsters()

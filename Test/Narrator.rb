@@ -4,17 +4,17 @@ class Narrator
         puts "          DEBUT DU JEU"
         puts
         puts "En quête de trésors et de connaissances, vous décidez de commencer votre périple dans un donjon ancien réputé sans fond."
-        puts "Armé.e de votre courage et d'une épée, vous entrez dans la première pièce consituant la grande batisse sombre."
+        puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
         puts
         print "  (ecrivez n'importe quoi pour continuer...) >> "
         gets
     end
 
-    def self.describe_room(player_status, monsters_description, spot_risk)
+    def self.describe_room(player_status, the_room, monsters_description, spot_risk)
         puts
         puts player_status
         puts
-        puts "Lorsque vous entrez dans la pièce obscure, vous voyez #{monsters_description}."
+        puts "Lorsque vous entrez dans #{the_room}, vous voyez #{monsters_description}."
         puts "Chances d'être détecté : #{spot_risk}\%"
     end
 

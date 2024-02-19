@@ -6,25 +6,25 @@ module GoblinF
     ].freeze
 
     PREFIXES = [
-        Prefixes::SMALL_F,
-        Prefixes::BIG_F,
-        Prefixes::TALL_F,
-        Prefixes::SCARY_F
+        Adjectives::SMALL_F,
+        Adjectives::BIG_F,
+        Adjectives::TALL_F,
+        Adjectives::SCARY_F
     ].freeze
 
     SUFFIXES = [
-        Suffixes::MUSCULAR_F,
-        Suffixes::WORRIED_F,
-        Suffixes::TIRED_F,
-        Suffixes::ANGRY_F,
-        Suffixes::WARY_F,
-        Suffixes::GREEN_F,
-        Suffixes::BLUISH_F,
-        Suffixes::GREYISH_F,
-        Suffixes::SMART_F,
-        Suffixes::AGILE_F,
-        Suffixes::JADED_F,
-        Suffixes::AUTHORITARIAN_F
+        Adjectives::MUSCULAR_F,
+        Adjectives::WORRIED_F,
+        Adjectives::TIRED_F,
+        Adjectives::ANGRY_F,
+        Adjectives::WARY_F,
+        Adjectives::GREEN_F,
+        Adjectives::BLUISH_F,
+        Adjectives::GREYISH_F,
+        Adjectives::SMART_F,
+        Adjectives::AGILE_F,
+        Adjectives::JADED_F,
+        Adjectives::AUTHORITARIAN_F
     ].freeze
 end
 
@@ -34,25 +34,25 @@ module GoblinM
     ].freeze
 
     PREFIXES = [
-        Prefixes::SMALL_M,
-        Prefixes::BIG_M,
-        Prefixes::TALL_M,
-        Prefixes::SCARY_M
+        Adjectives::SMALL_M,
+        Adjectives::BIG_M,
+        Adjectives::TALL_M,
+        Adjectives::SCARY_M
     ].freeze
 
     SUFFIXES = [
-        Suffixes::MUSCULAR_M,
-        Suffixes::WORRIED_M,
-        Suffixes::TIRED_M,
-        Suffixes::ANGRY_M,
-        Suffixes::WARY_M,
-        Suffixes::GREEN_M,
-        Suffixes::BLUISH_M,
-        Suffixes::GREYISH_M,
-        Suffixes::SMART_M,
-        Suffixes::AGILE_M,
-        Suffixes::JADED_M,
-        Suffixes::AUTHORITARIAN_M
+        Adjectives::MUSCULAR_M,
+        Adjectives::WORRIED_M,
+        Adjectives::TIRED_M,
+        Adjectives::ANGRY_M,
+        Adjectives::WARY_M,
+        Adjectives::GREEN_M,
+        Adjectives::BLUISH_M,
+        Adjectives::GREYISH_M,
+        Adjectives::SMART_M,
+        Adjectives::AGILE_M,
+        Adjectives::JADED_M,
+        Adjectives::AUTHORITARIAN_M
     ].freeze
 end
 
