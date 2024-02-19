@@ -4,8 +4,8 @@ class Pack
     def initialize(player_level, bestiary)
         @monsters = Array.new
         @initial_monsters = Array.new
-        max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + 1
-        nb_monsters = rand(1..max_amount)
+        max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+        nb_monsters = rand(1..(max_amount + 1))
         for i in 1..nb_monsters do
             difficulty_bonus = player_level*BaseStats::NB_STATS_PER_LEVEL
             monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + difficulty_bonus))
@@ -42,8 +42,8 @@ class Pack
         for monster in @initial_monsters do
             power += monster.get_power
         end
-        bonus = power.div(10) * @initial_monsters.length
-        return power + bonus
+        multi_encounter_bonus = power.div(10) * (@initial_monsters.length - 1)
+        return power + multi_encounter_bonus
     end
 
     def get_current_power()
