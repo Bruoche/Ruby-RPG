@@ -53,4 +53,9 @@ class Entrance
     def self.is_female
         return [true, true, false].sample
     end
+    def self.describe
+        puts "Vous êtes entouré d'épais murs de pierres."
+        puts "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,"
+        puts "Mais les occasionnels courants d'air atteignants votre dos sont un rappel de votre proximitée avec la surface."
+    end
 end

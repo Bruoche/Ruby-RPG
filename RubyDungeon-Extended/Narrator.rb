@@ -13,9 +13,11 @@ class Narrator
         user_input
     end
 
-    def self.describe_room(player_status, the_room, monsters_description, spot_risk)
+    def self.describe_room(player_status, the_room, monsters_description, spot_risk, describe_biome)
         puts
         puts player_status
+        puts
+        describe_biome.call
         puts
         puts "Lorsque vous entrez dans #{the_room}, vous voyez #{monsters_description}."
         puts "Chances d'être détecté : #{spot_risk}\%"
@@ -114,7 +116,7 @@ class Narrator
         puts
         print "  >> "
         answer = gets.chomp
-        for i in 0..40
+        40.times do
             puts
         end
         return answer

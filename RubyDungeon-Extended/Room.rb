@@ -8,12 +8,13 @@ require "Name"
 class Room
     def initialize(player, biome)
         @name = Name.new(biome)
+        @describe_biome = -> () {biome.describe}
         @player = player
         @monsters = Pack.new(player.get_level, biome::BESTIARY)
     end
 
     def describe()
-        Narrator.describe_room(@player.get_full_status, @name.get_gendered_the, @monsters.get_description, @player.get_spot_risk(@monsters.get_current_power))
+        Narrator.describe_room(@player.get_full_status, @name.get_gendered_the, @monsters.get_description, @player.get_spot_risk(@monsters.get_current_power), @describe_biome)
     end
 
     def get_monsters()
