@@ -31,11 +31,11 @@ class Pack
         return monsters_description
     end
 
-    def get_gendered_the()
+    def get_plural_the()
         if (was_plural)
             return "les monstres"
         else
-            return @initial_monsters[0].get_gendered_the
+            return @initial_monsters[0].get_name.get_gendered_the
         end
     end
 
@@ -122,7 +122,7 @@ class Pack
         monster = @monsters[index]
         monster.hurt(damage)
         if monster.is_dead
-            puts "#{monster.get_gendered_the.capitalize} s'effondre sous vos coups."
+            puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
             @monsters.delete(monster)
             return true
         end

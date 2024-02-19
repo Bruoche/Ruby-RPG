@@ -25,7 +25,7 @@ class Room
             return GameStates::FIGHTING
         when "2"
         if (@player.can_escape(@monsters.get_power))
-            Narrator.avoid_fight(@monsters.get_gendered_the)
+            Narrator.avoid_fight(@monsters.get_plural_the)
             return GameStates::SNEAKING
         else
             Narrator.fail_sneak(@monsters.is_plural)
