@@ -2,6 +2,7 @@ require_relative "../Vocabulary"
 require_relative "../Monsters/Goblin"
 require_relative "../Monsters/CaveCritter"
 require_relative "../Monsters/Slime"
+require_relative "./Catacombs"
 
 module EntranceF
     NAMES = [
@@ -56,8 +57,19 @@ class Entrance
         return [true, true, false].sample
     end
     def self.describe
-        puts "Vous êtes entouré d'épais murs de pierres."
+        puts "Vous êtes entouré.e d'épais murs de pierres."
         puts "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,"
         puts "Mais les occasionnels courants d'air atteignants votre dos sont un rappel de votre proximitée avec la surface."
+    end
+    def self.get_next
+        case rand(1..10)
+        when 1
+            puts
+            puts "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restraints descendant plus profondément dans la terre."
+            puts "Vous vous engouffrez dans ce qui semble être un lieu de repos pour les anciens habitants de ce donjon depuis longtemps disparus."
+            return Catacombs
+        else
+            return Entrance
+        end
     end
 end

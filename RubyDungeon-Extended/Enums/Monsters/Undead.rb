@@ -2,7 +2,7 @@ require_relative "../Vocabulary"
 
 module UndeadM
     NAMES = [
-        Monsters::SKELLETON_M
+        Monsters::SKELLETON_M,
         Monsters::ZOMBIE_M
     ].freeze
 
@@ -25,7 +25,7 @@ end
 
 
 class Undead
-    MALE = UndeadMM
+    MALE = UndeadM
     def self.is_female
         return false
     end

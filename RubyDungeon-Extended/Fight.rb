@@ -1,5 +1,4 @@
 require "Narrator"
-require "Enums/GameStates"
 
 class Fight
     def initialize(player, monsters)
@@ -55,17 +54,17 @@ class Fight
         @player.get_xp(xp_gained)
         @player.patch_up
         Narrator.sneaking_transition()
-        return GameStates::SNEAKING
+        return true
     end
 
 	def escape()
 		Narrator.escape_scene()
-		return GameStates::SNEAKING
+		return true
 	end
 
     def defeat()
         Narrator.death_scene(@monsters.is_plural)
-        return GameStates::DEAD
+        return false
     end
 
 end

@@ -1,5 +1,4 @@
 require 'Narrator'
-require 'Enums/GameStates'
 require 'Enums/BaseStats'
 require 'Enums/Biomes/Entrance'
 require 'Player'
@@ -19,19 +18,9 @@ class Game
 
     def play()
         Narrator.introduction
-        @state = GameStates::SNEAKING
-        while (@state != GameStates::DEAD)
-            case @state
-            when GameStates::SNEAKING
-                @current_room = Room.new(@player, Entrance)
-                @current_room.describe()
-                @state = @current_room.propose_combat()
-            when GameStates::FIGHTING
-                @state = Fight.new(@player, @current_room.get_monsters).fight(true)
-            else
-                puts "StateError. State #{@state} is not recognised."
-                @state = GameStates::SNEAKING
-            end
+        @current_room = Room.new(@player, Entrance)
+        while (@current_room != nil)
+            @current_room = @current_room.enter()
         end
     end
 end

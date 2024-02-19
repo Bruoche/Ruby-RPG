@@ -1,5 +1,5 @@
 require_relative "../Vocabulary"
-require_relative "../Monsters/Goblin"
+require_relative "../Monsters/Undead"
 require_relative "../Monsters/CaveCritter"
 
 module CatacombsF
@@ -19,7 +19,6 @@ module CatacombsF
     SUFFIXES = [
         Adjectives::SCARY_F,
         Adjectives::COLD_F,
-        Adjectives::HUMID_F,
         Adjectives::ISOLATED_F,
         Adjectives::DARK_F,
         Adjectives::SILENT_F
@@ -28,7 +27,7 @@ end
 
 module CatacombsM
     NAMES = [
-        Rooms::CORRIDOR_M
+        Rooms::CORRIDOR_M,
         Rooms::TUNNEL_M
     ].freeze
 
@@ -47,9 +46,9 @@ module CatacombsM
     ].freeze
 end
 
-class Entrance
-    FEMALE = EntranceF
-    MALE = EntranceM
+class Catacombs
+    FEMALE = CatacombsF
+    MALE = CatacombsM
     BESTIARY = [
         Undead,
         CaveCritter
@@ -60,6 +59,9 @@ class Entrance
     def self.describe
         puts "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré."
         puts "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quand à elle plus grande que jamais."
-        puts "L'air stagnant et la poussière vous donne une sensation de secheresse."
+        puts "L'air stagnant et la poussière vous donnent une sensation de secheresse."
+    end
+    def self.get_next
+        return Catacombs
     end
 end
