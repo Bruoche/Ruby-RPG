@@ -11,7 +11,7 @@ class Room
     end
 
     def describe()
-        Narrator.describe_room(@player.get_full_status, @monsters.get_description, @monsters.get_spot_risk(@player.get_discretion))
+        Narrator.describe_room(@player.get_full_status, @monsters.get_description, @player.get_spot_risk(@monsters.get_power))
     end
 
     def get_monsters()
@@ -24,7 +24,7 @@ class Room
             Narrator.start_fight(@monsters.is_plural)
             return GameStates::FIGHTING
         when "2"
-        if (@monsters.can_escape(@player))
+        if (@player.can_escape(@monsters.get_power))
             Narrator.avoid_fight(@monsters.get_gendered_the)
             return GameStates::SNEAKING
         else

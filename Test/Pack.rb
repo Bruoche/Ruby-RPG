@@ -47,14 +47,13 @@ class Pack
         return power
     end
 
-    def get_spot_risk(player_discretion)
-		spot_risk = (get_power.div(10) - player_discretion) + 1
-        spot_risk = (spot_risk*100)/(get_power.div(10) + 1)
-        if spot_risk < 0
-            return 0
+    def get_current_power()
+        power = 0
+        for monster in @monsters do
+            power += monster.get_power
         end
-		return spot_risk
-	end
+        return power
+    end
 
     def is_plural()
         return @monsters.length > 1
@@ -71,11 +70,6 @@ class Pack
             end
         end
         return @monsters.length == 0
-    end
-
-    def can_escape(player_agility)
-        perception_score = rand(get_room_power + 1)
-        return perception_score < player_agility
     end
 
     def attack(player)
@@ -106,8 +100,11 @@ class Pack
 
     def hurt_magic(power)
         if (power > 0)
-            for i in 0..(@monters.length - 1)  do
-                hurt(index, rand(1..power))
+            nb_killed = 0
+            for i in 0..(@monsters.length - 1)  do
+                if hurt(i - nb_killed, rand(1..power))
+                    nb_killed += 1
+                end
             end
         else
             if is_plural
@@ -126,6 +123,8 @@ class Pack
         if monster.is_dead
             puts "#{monster.get_gendered_the.capitalize} s'effondre sous vos coups."
             @monsters.delete(monster)
+            return true
         end
+        return false
     end
 end

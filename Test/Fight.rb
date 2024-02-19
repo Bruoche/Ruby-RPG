@@ -8,8 +8,12 @@ class Fight
     end
 
     def fight(can_play)
+        @escape = false
         if can_play
             player_turn
+            if @escape
+                return escape
+            end
         end
         if (@monsters.are_dead)
             return victory
@@ -22,7 +26,7 @@ class Fight
     end
 
     def player_turn()
-        case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, @monsters.get_spot_risk)
+        case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, @player.get_spot_risk(@monsters.get_current_power))
         when "1"
             @monsters.hurt_single(@player.strength_attack)
         when "2"
@@ -30,8 +34,8 @@ class Fight
         when "3"
             @player.heal
         when "4"
-            if @monsters.can_escape(@monsters.is_plural)
-                escape
+            if @player.can_escape(@monsters.get_current_power)
+                @escape = true
             else
                 Narrator.fail_escape(@monsters.is_plural)
             end

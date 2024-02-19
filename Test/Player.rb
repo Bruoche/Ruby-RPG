@@ -18,16 +18,26 @@ class Player
         return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@strength} dégats et avez #{@intelligence} points de puissance magique."
     end
 
-    def is_dead()
-        return @lifebar.is_empty
-    end
-
     def get_level()
         return @level
     end
 
-    def get_discretion()
-        return @agility
+    def get_spot_risk(monsters_power)
+		spot_risk = (monsters_power.div(10) - @agility) + 1
+        spot_risk = (spot_risk*100)/(monsters_power.div(10) + 1)
+        if spot_risk < 0
+            return 0
+        end
+		return spot_risk
+	end
+
+    def can_escape(monsters_power)
+        perception_score = rand(monsters_power.div(10) + 1)
+        return perception_score < @agility
+    end
+
+    def is_dead()
+        return @lifebar.is_empty
     end
 
     def hurt(damage)
