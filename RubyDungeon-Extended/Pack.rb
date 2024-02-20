@@ -17,6 +17,13 @@ class Pack
     end
 
     def get_description()
+        if are_dead
+            if was_plural
+                return "les cadavres des monstres que vous avez précédemment battus"
+            else
+                return "le cadavre du monstre que vous avez précédemment battu"
+            end
+        end
         monsters_description = ""
         for i in 0..(@monsters.length-1) do
             monsters_description += @monsters[i].get_description
