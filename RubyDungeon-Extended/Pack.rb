@@ -1,16 +1,16 @@
 require "Monster"
 
 class Pack
-    def initialize(player_level, bestiary)
+    def initialize(player_level, biome)
         @monsters = Array.new
         @initial_monsters = Array.new
-        max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+        max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + biome::MONSTER_AMOUNT_BONUS
         nb_monsters = rand(1..(max_amount + 1))
         for i in 1..nb_monsters do
-            difficulty_bonus = player_level*BaseStats::NB_STATS_PER_LEVEL
+            difficulty_bonus = (player_level*BaseStats::NB_STATS_PER_LEVEL) + biome::MONSTER_POWER_BONUS
             monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + difficulty_bonus))
             monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + difficulty_bonus))
-            monster = Monster.new(monster_health, monster_damage, Name.new(bestiary.sample))
+            monster = Monster.new(monster_health, monster_damage, Name.new(biome::BESTIARY.sample))
             @monsters.push(monster)
             @initial_monsters.push(monster)
         end
@@ -79,19 +79,8 @@ class Pack
 
     def hurt_single(damage)
         if (is_plural)
-            puts "Quel ennemi souhaitez-vous attaquer?"
-            for i in 1..@monsters.length
-                puts "      #{i}) #{@monsters[i-1].get_description.capitalize}"
-            end
-            loop do
-                input = Narrator.user_input.to_i
-                if input.between?(1, @monsters.length)
-                    hurt((input-1), damage)
-                    break
-                else
-                    Narrator.unsupported_choice_error
-                end
-            end
+            choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)})
+            hurt((choosen_ennemy), damage)
         else
             hurt(0, damage)
         end
@@ -115,6 +104,10 @@ class Pack
     end
 
     private
+
+    def to_string(monster)
+        return monster.get_description
+    end
 
     def hurt(index, damage)
         monster = @monsters[index]

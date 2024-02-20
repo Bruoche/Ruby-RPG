@@ -29,6 +29,10 @@ class Name
         end
     end
 
+    def is_female
+        return @female
+    end
+
     def generate(gendered_vocabulary)
         name = gendered_vocabulary::NAMES.sample
         if (([true, false, false].sample) && (gendered_vocabulary::PREFIXES != nil))

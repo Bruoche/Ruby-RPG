@@ -48,19 +48,30 @@ end
 class Entrance
     FEMALE = EntranceF
     MALE = EntranceM
+    MIN_EXITS = 1
+    MAX_EXITS = 3
     BESTIARY = [
         Goblin,
         Slime,
         CaveCritter
     ].freeze()
+    MONSTER_AMOUNT_BONUS = 0
+    MONSTER_POWER_BONUS = 0
+
     def self.is_female
         return [true, true, false].sample
     end
+
     def self.describe
         puts "Vous êtes entouré.e d'épais murs de pierres."
         puts "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,"
         puts "Mais les occasionnels courants d'air atteignants votre dos sont un rappel de votre proximitée avec la surface."
     end
+
+    def self.get_safe_room
+        return rand(1..10) < 3
+    end
+
     def self.get_next
         case rand(1..10)
         when 1

@@ -13,14 +13,28 @@ class Narrator
         user_input
     end
 
-    def self.describe_room(player_status, the_room, monsters_description, spot_risk, describe_biome)
+    def self.describe_monsters_room(player_status, describe_biome, a_room, monsters_description, spot_risk)
+        describe_room(player_status, describe_biome)
+        puts
+        puts "Lorsque vous entrez dans #{a_room}, vous voyez #{monsters_description}."
+        puts "Chances d'être détecté : #{spot_risk}\%"
+    end
+
+    def self.describe_empty_room(player_status, describe_biome, the_room, is_female)
+        describe_room(player_status, describe_biome)
+        puts
+        if is_female
+            puts "A votre surprise, lorsque vous entrez dans #{the_room}, vous la trouvez complètement vide."
+        else
+            puts "A votre surprise, lorsque vous entrez dans #{the_room}, vous le trouvez complètement vide."
+        end
+    end
+
+    def self.describe_room(player_status, describe_biome)
         puts
         puts player_status
         puts
         describe_biome.call
-        puts
-        puts "Lorsque vous entrez dans #{the_room}, vous voyez #{monsters_description}."
-        puts "Chances d'être détecté : #{spot_risk}\%"
     end
 
     def self.start_fight(is_plural)
@@ -78,6 +92,21 @@ class Narrator
 
     def self.sneaking_transition()
         puts "Vous continuez votre route dans le donjon et avancez vers la pièce suivante."
+    end
+
+    def self.ask(question, options, to_string)
+        puts question
+        for i in 1..options.length
+            puts "      #{i}) #{to_string.call(options[i-1])}"
+        end
+        loop do
+            input = user_input.to_i
+            if input.between?(1, options.length)
+                return input - 1
+            else
+                unsupported_choice_error
+            end
+        end
     end
 
     def self.ask_if_fight()
