@@ -29,6 +29,14 @@ class Name
         end
     end
 
+    def get_gendered_this()
+        if @female
+            return "cette #{@denomination}"
+        else
+            return "ce #{@denomination}"
+        end
+    end
+
     def is_female
         return @female
     end

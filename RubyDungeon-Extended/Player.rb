@@ -1,10 +1,13 @@
 require "Lifebar"
+require "Inventory"
+
 class Player
     def initialize(life, strength, intelligence, agility)
         @lifebar = Lifebar.new(life)
         @strength = strength
         @intelligence = intelligence
         @agility = agility
+        @inventory = Inventory.new()
         @level = 0
         @current_xp = 0
         @next_level = (life + intelligence) * strength
@@ -22,13 +25,13 @@ class Player
         return @level
     end
 
-    def get_spot_risk(monsters_power)
+    def get_escape_chances(monsters_power)
 		spot_risk = (monsters_power.div(10) - @agility) + 1
         spot_risk = (spot_risk*100)/(monsters_power.div(10) + 1)
-        if spot_risk < 0
-            return 0
+        if spot_risk <= 0
+            return 100
         end
-		return spot_risk
+		return 100 - spot_risk
 	end
 
     def can_escape(monsters_power)
@@ -65,10 +68,13 @@ class Player
 
     def patch_up()
         if (@lifebar.get_missing_life > 0)
-            puts "Une fois le combat terminé, Vous recherchez de quoi vous soigner dans la salle..."
-            amount = rand(@lifebar.get_missing_life)
+            amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
             puts "Vous vous soignez #{amount} points de vie."
             @lifebar.heal(amount)
+            return true
+        else
+            puts "Vous n'êtes pas blessés et n'avez donc pas besoin de vous soigner."
+            return false
         end
     end
 
@@ -82,6 +88,14 @@ class Player
             stat_up(BaseStats::NB_STATS_PER_LEVEL)
             @lifebar.heal(@lifebar.get_missing_life)
         end
+    end
+
+    def get_new_item(item)
+        @inventory.add(item)
+    end
+
+    def use_item()
+        @inventory.ask_use(self)
     end
 
     def stat_up(nb_stats)

@@ -13,14 +13,15 @@ class Narrator
         user_input
     end
 
-    def self.describe_monsters_room(player_status, describe_biome, the_room, monsters_description, spot_risk)
-        describe_room(player_status, describe_biome, the_room)
+    def self.describe_monsters_room(player_status, describe_biome, the_room, monsters_description)
+        describe_room(player_status, describe_biome)
+        print "Lorsque vous entrez dans #{the_room}, "
         puts "vous voyez #{monsters_description}."
-        puts "Chances d'être détecté : #{spot_risk}\%"
     end
 
     def self.describe_empty_room(player_status, describe_biome, the_room, is_female)
-        describe_room(player_status, describe_biome, the_room)
+        describe_room(player_status, describe_biome)
+        print "Lorsque vous entrez dans #{the_room}, "
         if is_female
             puts "vous la trouvez complètement vide."
         else
@@ -28,13 +29,22 @@ class Narrator
         end
     end
 
-    def self.describe_room(player_status, describe_biome, the_room)
+    def self.describe_current_room(player_status, describe_biome, a_room, monsters_description)
+        describe_room(player_status, describe_biome)
+        print "Vous êtes dans #{a_room}"
+        if monsters_description != nil
+            puts ", vous voyez #{monsters_description}"
+        else
+            puts " vide."
+        end
+    end
+
+    def self.describe_room(player_status, describe_biome)
         puts
         puts player_status
         puts
         describe_biome.call
         puts
-        print "Lorsque vous entrez dans #{the_room}, "
     end
 
     def self.start_fight(is_plural)
@@ -94,25 +104,28 @@ class Narrator
         puts "Vous continuez votre route dans le donjon et avancez vers la pièce suivante."
     end
 
-    def self.ask(question, options, to_string)
+    def self.ask(question, options, to_string, return_option = nil)
         puts question
-        for i in 1..options.length
-            puts "      #{i}) #{to_string.call(options[i-1]).capitalize}"
+        options = [return_option].concat options
+        for i in 0..(options.length - 1)
+            puts "      #{i}) #{to_string.call(options[i]).capitalize}"
         end
         loop do
             input = user_input.to_i
             if input.between?(1, options.length)
                 return input - 1
+            elsif input == 0
+                return return_option
             else
                 unsupported_choice_error
             end
         end
     end
 
-    def self.ask_if_fight()
+    def self.ask_if_fight(escape_chances)
         puts "Que voulez-vous faire ?"
         puts "      1) Combattre"
-        puts "      2) Fuir"
+        puts "      2) Passer discrètement (#{escape_chances}% de chances de réussite)"
         return user_input
     end
 
@@ -125,7 +138,7 @@ class Narrator
         puts "      1) Attaque physique"
         puts "      2) Attaque magique"
         puts "      3) Se soigner"
-        puts "      4) Fuir... (#{escape_chances}% de chances de s'échapper)"
+        puts "      4) Fuir... (#{escape_chances}% de chances de réussite)"
         return user_input
     end
 

@@ -87,9 +87,15 @@ class Pack
     def hurt_single(damage)
         if (is_plural)
             choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)})
-            hurt((choosen_ennemy), damage)
+            if choosen_ennemy != nil
+                hurt((choosen_ennemy), damage)
+                return true
+            else
+                return false
+            end
         else
             hurt(0, damage)
+            return true
         end
     end
 
@@ -113,7 +119,11 @@ class Pack
     private
 
     def to_string(monster)
-        return monster.get_description
+        if monster != nil
+            return monster.get_description
+        else
+            return "retour..."
+        end
     end
 
     def hurt(index, damage)

@@ -1,4 +1,5 @@
 require "Narrator"
+require "Enums/Items/Bandage"
 
 class Fight
     def initialize(player, monsters)
@@ -25,9 +26,12 @@ class Fight
     end
 
     def player_turn()
-        case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, 100-@player.get_spot_risk(@monsters.get_current_power))
+        case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, @player.get_escape_chances(@monsters.get_current_power))
         when "1"
-            @monsters.hurt_single(@player.strength_attack)
+            acted = @monsters.hurt_single(@player.strength_attack)
+            if not acted
+                player_turn
+            end
         when "2"
             @monsters.hurt_magic(@player.magic_attack)
         when "3"
@@ -52,8 +56,6 @@ class Fight
         xp_gained = @monsters.get_power
         Narrator.victory_scene(@monsters.was_plural, xp_gained)
         @player.get_xp(xp_gained)
-        @player.patch_up
-        Narrator.sneaking_transition()
         return true
     end
 

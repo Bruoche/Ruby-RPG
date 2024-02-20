@@ -2,6 +2,8 @@ require_relative "../Vocabulary"
 require_relative "../Monsters/Goblin"
 require_relative "../Monsters/CaveCritter"
 require_relative "../Monsters/Slime"
+require_relative "../Items/Bandage"
+require_relative "../Items/HealthPotion"
 require_relative "./Catacombs"
 
 module EntranceF
@@ -70,6 +72,19 @@ class Entrance
 
     def self.get_safe_room
         return rand(1..10) < 3
+    end
+
+    def self.get_loot()
+        loot = Array.new()
+        if rand(1..50) == 1
+            puts ["Vous voyez une potion de soin posée sur une table.", "Vous trouvez une potion de soin rangée dans une commode."].sample
+            loot.push(HealthPotion.new(rand(5..10)))
+        end
+        if rand(1..4) == 1
+            puts "Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."
+            loot.push(Bandage.new())
+        end
+        return loot
     end
 
     def self.get_next
