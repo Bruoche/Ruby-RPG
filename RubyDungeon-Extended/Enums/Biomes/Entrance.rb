@@ -80,7 +80,7 @@ class Entrance
             puts ["Vous voyez une potion de soin posée sur une table.", "Vous trouvez une potion de soin rangée dans une commode."].sample
             loot.push(HealthPotion.new(rand(5..10)))
         end
-        if rand(1..4) == 1
+        if rand(1..2) == 1
             puts "Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."
             loot.push(Bandage.new())
         end

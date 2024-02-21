@@ -106,6 +106,7 @@ class Room
                     Narrator.unsupported_choice_error
                     return ask_action
                 else
+                    Narrator.start_fight(@monsters.is_plural)
                     return fight_with_adventage(true)
                 end
             else

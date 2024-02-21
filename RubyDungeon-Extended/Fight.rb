@@ -37,6 +37,11 @@ class Fight
         when "3"
             @player.heal
         when "4"
+            used = @player.use_item
+            if not used
+                player_turn
+            end
+        when "5"
             if @player.can_escape(@monsters.get_current_power)
                 @escape = true
             else

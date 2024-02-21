@@ -33,16 +33,18 @@ module CatacombsM
 
     PREFIXES = [
         Adjectives::SMALL_M,
-        Adjectives::TALL_M,
-        Adjectives::LONG_M
+        Adjectives::LONG_M,
+        Adjectives::NARROW_M,
+        Adjectives::DRY_M,
+        Adjectives::DUSTY_M
     ].freeze
 
     SUFFIXES = [
         Adjectives::SCARY_M,
         Adjectives::COLD_M,
-        Adjectives::HUMID_M,
         Adjectives::ISOLATED_M,
-        Adjectives::DARK_M
+        Adjectives::DARK_M,
+        Adjectives::SILENT_M
     ].freeze
 end
 
@@ -70,6 +72,15 @@ class Catacombs
 
     def self.get_safe_room
         return rand(1..4) > 3
+    end
+
+    def self.get_loot()
+        loot = Array.new()
+        if rand(1..4) == 1
+            puts "Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."
+            loot.push(Bandage.new())
+        end
+        return loot
     end
 
     def self.get_next

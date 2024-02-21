@@ -1,5 +1,5 @@
 class Name
-    VOWELS = ['a', 'e', 'i', 'o', 'u']
+    VOWELS = ['a', 'à', 'e', 'é', 'è', 'i', 'î', 'o', 'ô', 'u', 'û']
 
     def initialize(vocabulary)
         @female = vocabulary.is_female

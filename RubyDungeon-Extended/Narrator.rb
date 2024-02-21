@@ -105,14 +105,14 @@ class Narrator
     end
 
     def self.ask(question, options, to_string, return_option = nil)
-        puts question
         options = [return_option].concat options
-        for i in 0..(options.length - 1)
-            puts "      #{i}) #{to_string.call(options[i]).capitalize}"
-        end
         loop do
+            puts question
+            for i in 0..(options.length - 1)
+                puts "      #{i}) #{to_string.call(options[i]).capitalize}"
+            end
             input = user_input.to_i
-            if input.between?(1, options.length)
+            if input.between?(1, options.length - 1)
                 return input - 1
             elsif input == 0
                 return return_option
@@ -138,7 +138,8 @@ class Narrator
         puts "      1) Attaque physique"
         puts "      2) Attaque magique"
         puts "      3) Se soigner"
-        puts "      4) Fuir... (#{escape_chances}% de chances de réussite)"
+        puts "      4) Utiliser un objet..."
+        puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
         return user_input
     end
 
