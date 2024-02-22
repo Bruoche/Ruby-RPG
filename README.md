@@ -1,4 +1,4 @@
-#Ruby Dungeon
+# Ruby Dungeon
 
   Bienvenue dans Ruby Dungeon, le dungeon-scroller textuel codé en Ruby.
 
