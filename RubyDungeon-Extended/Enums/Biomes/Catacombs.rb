@@ -49,6 +49,7 @@ module CatacombsM
 end
 
 class Catacombs
+    PICTURE = "catacombs"
     FEMALE = CatacombsF
     MALE = CatacombsM
     MIN_EXITS = 1

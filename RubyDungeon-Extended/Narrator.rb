@@ -1,26 +1,30 @@
+require "ASCIIPrinter"
+
 class Narrator
     def self.introduction
         puts
-        puts "          DEBUT DU JEU"
+        ASCIIPrinter.print("title")
         puts
-        puts "Vous n'êtes pas exactement sûrs de la raison de votre venue en ce lieu."
+        puts "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu."
         puts "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,"
         puts "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
         puts
         puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
         puts
+        ASCIIPrinter.print("dungeon_outside")
+        puts
         puts "  (pressez \"Entrée\" pour continuer...)"
         user_input
     end
 
-    def self.describe_monsters_room(player_status, describe_biome, the_room, monsters_description)
-        describe_room(player_status, describe_biome)
+    def self.describe_monsters_room(player_status, describe_biome, picture, the_room, monsters_description)
+        describe_room(player_status, describe_biome, picture)
         print "Lorsque vous entrez dans #{the_room}, "
         puts "vous voyez #{monsters_description}."
     end
 
-    def self.describe_empty_room(player_status, describe_biome, the_room, is_female)
-        describe_room(player_status, describe_biome)
+    def self.describe_empty_room(player_status, describe_biome, picture, the_room, is_female)
+        describe_room(player_status, describe_biome, picture)
         print "Lorsque vous entrez dans #{the_room}, "
         if is_female
             puts "vous la trouvez complètement vide."
@@ -29,8 +33,8 @@ class Narrator
         end
     end
 
-    def self.describe_current_room(player_status, describe_biome, a_room, monsters_description)
-        describe_room(player_status, describe_biome)
+    def self.describe_current_room(player_status, describe_biome, picture, a_room, monsters_description)
+        describe_room(player_status, describe_biome, picture)
         print "Vous êtes dans #{a_room}"
         if monsters_description != nil
             puts ", vous voyez #{monsters_description}"
@@ -39,9 +43,11 @@ class Narrator
         end
     end
 
-    def self.describe_room(player_status, describe_biome)
+    def self.describe_room(player_status, describe_biome, picture)
         puts
         puts player_status
+        puts
+        ASCIIPrinter.print(picture)
         puts
         describe_biome.call
         puts

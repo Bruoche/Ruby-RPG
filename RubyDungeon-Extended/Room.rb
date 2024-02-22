@@ -28,6 +28,7 @@ class Room
                 Narrator.describe_monsters_room(
                     @player.get_full_status,
                     -> (){@biome.describe},
+                    @biome::PICTURE,
                     @name.get_gendered_the,
                     @monsters.get_description
                 )
@@ -35,6 +36,7 @@ class Room
                 Narrator.describe_empty_room(
                     @player.get_full_status,
                     -> (){@biome.describe},
+                    @biome::PICTURE,
                     @name.get_gendered_a,
                     @name.is_female
                 )
@@ -49,6 +51,7 @@ class Room
             Narrator.describe_current_room(
                 @player.get_full_status,
                 -> (){@biome.describe},
+                @biome::PICTURE,
                 @name.get_gendered_a,
                 monsters_description
             )

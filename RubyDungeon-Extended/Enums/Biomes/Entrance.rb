@@ -48,6 +48,7 @@ module EntranceM
 end
 
 class Entrance
+    PICTURE = "entrance"
     FEMALE = EntranceF
     MALE = EntranceM
     MIN_EXITS = 1
