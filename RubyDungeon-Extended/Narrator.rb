@@ -13,6 +13,10 @@ class Narrator
         puts
         ASCIIPrinter.print("dungeon_outside")
         puts
+        pause_text
+    end
+
+    def self.pause_text
         puts "  (pressez \"Entrée\" pour continuer...)"
         user_input
     end

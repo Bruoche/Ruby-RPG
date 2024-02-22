@@ -16,7 +16,6 @@ class Room
         end
         @biome = biome
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))
-        puts @adjacent_rooms
         @adjacent_rooms[0] = precedent_room
         @precedent_room = 0
         @objects = nil

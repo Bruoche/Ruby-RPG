@@ -94,6 +94,7 @@ class Entrance
             puts
             puts "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restraints descendant plus profondément dans la terre."
             puts "Vous vous engouffrez dans ce qui semble être un lieu de repos pour les anciens habitants de ce donjon depuis longtemps disparus."
+            Narrator.pause_text
             return Catacombs
         else
             return Entrance
