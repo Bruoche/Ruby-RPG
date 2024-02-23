@@ -20,4 +20,8 @@ class Bandage
         used = target.patch_up
         @destroyed = used
     end
+
+    def get_save_data()
+        return "Bandage"
+    end
 end

@@ -19,6 +19,10 @@ class HealthPotion
     def use(target)
         puts "Vous buvez la potion de soin..."
         target.heal(@soin)
-        @destroyed = used
+        @destroyed = true
+    end
+
+    def get_save_data()
+        return "HealthPotion|#{@soin}"
     end
 end

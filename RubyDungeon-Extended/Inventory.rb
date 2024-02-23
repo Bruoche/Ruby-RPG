@@ -8,6 +8,29 @@ class Inventory
         @content.push(item)
     end
 
+    def get_save_data()
+        items = ""
+        for item in @content
+            items += "#{item.get_save_data}; "
+        end
+        return items
+    end
+
+    def load(items)
+        if items != nil
+            for item_with_paramters in items.split("; ")
+                object = item_with_paramters.split("|")[0]
+                parameters = item_with_paramters.split("|")[1]
+                if parameters != nil
+                    item = Object.const_get(object).new(*parameters.split(", ").map(&:to_i))
+                else
+                    item = Object.const_get(object).new()
+                end
+                @content.push(item)
+            end
+        end
+    end
+
     def ask_use(target)
         if (@content.length > 0)
             item_index = Narrator.ask("Quel objet souhaitez-vous utiliser?", @content, -> (item){to_string(item)})

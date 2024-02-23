@@ -2,15 +2,31 @@ require "Lifebar"
 require "Inventory"
 
 class Player
-    def initialize(life, strength, intelligence, agility)
-        @lifebar = Lifebar.new(life)
-        @strength = strength
-        @intelligence = intelligence
-        @agility = agility
+    def initialize(player_data)
         @inventory = Inventory.new()
-        @level = 0
-        @current_xp = 0
-        @next_level = (life + intelligence) * strength
+        @inventory.load(        player_data[:inventory])
+        @name =                 player_data[:name]
+        @lifebar = Lifebar.new( player_data[:health].to_i)
+        @strength =             player_data[:strength].to_i
+        @intelligence =         player_data[:intelligence].to_i
+        @agility =              player_data[:agility].to_i
+        @level =                player_data[:level].to_i
+        @current_xp =           player_data[:current_xp].to_i
+        @next_level =           player_data[:next_level].to_i
+    end
+
+    def get_save_data()
+        return {
+            "name": @name,
+            "health": @lifebar.get_max_life,
+            "strength": @strength,
+            "intelligence": @intelligence,
+            "agility": @agility,
+            "inventory": @inventory.get_save_data,
+            "level": @level,
+            "current_xp": @current_xp,
+            "next_level": @next_level
+        }
     end
 
     def get_full_status()
@@ -56,13 +72,18 @@ class Player
         return @intelligence
     end
 
-    def heal()
-        if (@intelligence > 0)
-            amount = rand(1..@intelligence)
-            puts "Vous vous soignez #{amount} points de vie."
+    def heal(amount = nil)
+        if amount != nil
+            puts "Vous obtenez #{amount} points de vie."
             @lifebar.heal(amount)
         else
-            puts "Vous ne savez pas comment vous soigner. Aucun point de vie n'est régénéré."
+            if (@intelligence > 0)
+                amount = rand(1..@intelligence)
+                puts "Vous vous soignez #{amount} points de vie."
+                @lifebar.heal(amount)
+            else
+                puts "Vous ne savez pas comment vous soigner. Aucun point de vie n'est régénéré."
+            end
         end
     end
 
@@ -73,7 +94,7 @@ class Player
             @lifebar.heal(amount)
             return true
         else
-            puts "Vous n'êtes pas blessés et n'avez donc pas besoin de vous soigner."
+            puts "Vous n'êtes pas blessé et n'avez donc pas besoin de vous soigner."
             return false
         end
     end
