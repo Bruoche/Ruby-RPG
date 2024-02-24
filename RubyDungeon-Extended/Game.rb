@@ -19,6 +19,9 @@ class Game
                 else
                     wanna_play = ask_continue
                 end
+                if not wanna_play
+                    break
+                end
             end
         end
     end

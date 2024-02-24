@@ -6,6 +6,9 @@ class SaveManager
     SAVE_DIRECTROY = "saves"
     EXTENSION = ".save"
     def self.save(variables, file_name)
+        if (file_name == "")
+            file_name = "nameless"
+        end
         save_directory = File.dirname("#{SAVE_DIRECTROY}/*")
         unless File.directory?(save_directory)
             FileUtils.mkdir_p(save_directory)
