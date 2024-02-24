@@ -68,7 +68,7 @@ class Narrator
 
     def self.avoid_fight(the_monsters)
         puts
-        puts "Ne souhaitant pas combattre #{the_monsters}, vous avancez discretement vers la suite du donjon."
+        puts "Ne souhaitant pas combattre #{the_monsters}, vous faites profil bas."
     end
 
     def self.fail_sneak(is_plural)
@@ -111,7 +111,7 @@ class Narrator
     end
 
     def self.sneaking_transition()
-        puts "Vous continuez votre route dans le donjon et avancez vers la pièce suivante."
+        puts "Vous reprenez votre exploration du donjon."
     end
 
     def self.ask(question, options, to_string, return_option = nil)
@@ -135,7 +135,7 @@ class Narrator
     def self.ask_if_fight(escape_chances)
         puts "Que voulez-vous faire ?"
         puts "      1) Combattre"
-        puts "      2) Passer discrètement (#{escape_chances}% de chances de réussite)"
+        puts "      2) Rester discret (#{escape_chances}% de chances de réussite)"
         return user_input
     end
 
@@ -147,7 +147,7 @@ class Narrator
         puts "Que voulez-vous faire ?"
         puts "      1) Attaque physique"
         puts "      2) Attaque magique"
-        puts "      3) Se soigner"
+        puts "      3) Sort de soin"
         puts "      4) Utiliser un objet..."
         puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
         return user_input

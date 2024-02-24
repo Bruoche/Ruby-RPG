@@ -12,7 +12,6 @@ module CatacombsF
     PREFIXES = [
         Adjectives::SMALL_F,
         Adjectives::NARROW_F,
-        Adjectives::DRY_F,
         Adjectives::DUSTY_F
     ].freeze
 
@@ -21,6 +20,7 @@ module CatacombsF
         Adjectives::COLD_F,
         Adjectives::ISOLATED_F,
         Adjectives::DARK_F,
+        Adjectives::DRY_F,
         Adjectives::SILENT_F
     ].freeze
 end
@@ -35,7 +35,6 @@ module CatacombsM
         Adjectives::SMALL_M,
         Adjectives::LONG_M,
         Adjectives::NARROW_M,
-        Adjectives::DRY_M,
         Adjectives::DUSTY_M
     ].freeze
 
@@ -44,6 +43,7 @@ module CatacombsM
         Adjectives::COLD_M,
         Adjectives::ISOLATED_M,
         Adjectives::DARK_M,
+        Adjectives::DRY_M,
         Adjectives::SILENT_M
     ].freeze
 end

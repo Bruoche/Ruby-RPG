@@ -68,7 +68,7 @@ class Entrance
     def self.describe
         puts "Vous êtes entouré.e d'épais murs de pierres."
         puts "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,"
-        puts "Mais les courants d'air atteignants votre dos sont un rappel de votre proximitée avec la surface."
+        puts "Mais les courants d'air atteignants votre dos sont un rappel de votre proximité avec la surface."
     end
 
     def self.get_safe_room
