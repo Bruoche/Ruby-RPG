@@ -1,5 +1,7 @@
 require 'Narrator'
+require 'ASCIIPrinter'
 require 'SaveManager'
+require 'Settings'
 require 'Enums/BaseStats'
 require 'Enums/Biomes/Entrance'
 require 'Player'
@@ -46,7 +48,8 @@ class Game
         puts
         puts "1) Nouvelle partie."
         puts "2) Continuer..."
-        puts "3) Quitter"
+        puts "3) Options"
+        puts "4) Quitter"
         case Narrator.user_input
         when "1"
             @player = Player.new({
@@ -76,11 +79,45 @@ class Game
                 main_menu
             end
         when "3"
+            asset_size_menu
+            main_menu
+        when "4"
             puts "Au revoir !"
             return false
         else
             Narrator.unsupported_choice_error
             main_menu
+        end
+    end
+
+    def asset_size_menu()
+        puts "Si vous voyez ce texte les images ont une taille acceptable."
+        3.times do
+            puts
+        end
+        ASCIIPrinter.print("example")
+        puts
+        puts "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut."
+        puts "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écrant."
+        puts
+        puts "Autrement, tentez de mettre les images en petites tailles,"
+        puts "ou de réduire la taille de police du texte de votre terminal si cela ne suffit pas."
+        puts
+        puts "Quelle taille d'image souhaitez-vous ?"
+        puts "0) Retour"
+        puts "1) Grande (recommandée)"
+        puts "2) Petite"
+        case Narrator.user_input
+        when "0"
+        when "1"
+            Settings.set_print_small(false)
+            asset_size_menu
+        when "2"
+            Settings.set_print_small(true)
+            asset_size_menu
+        else
+            Narrator.unsupported_choice_error
+            asset_size_menu
         end
     end
 
