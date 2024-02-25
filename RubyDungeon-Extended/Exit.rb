@@ -1,9 +1,3 @@
-require "Narrator"
-require "Enums/BaseStats"
-require "Player"
-require "Pack"
-require "Name"
-
 class Exit
     EXIT = "exit"
     def initialize(player)

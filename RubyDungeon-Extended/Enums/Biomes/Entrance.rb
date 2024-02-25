@@ -1,11 +1,3 @@
-require_relative "../Vocabulary"
-require_relative "../Monsters/Goblin"
-require_relative "../Monsters/CaveCritter"
-require_relative "../Monsters/Slime"
-require_relative "../Items/Bandage"
-require_relative "../Items/HealthPotion"
-require_relative "./Catacombs"
-
 module EntranceF
     NAMES = [
         Rooms::ROOM_F,

@@ -1,6 +1,3 @@
-require "Narrator"
-require "Enums/Items/Bandage"
-
 class Fight
     def initialize(player, monsters)
         @player = player

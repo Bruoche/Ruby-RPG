@@ -1,4 +1,3 @@
-require "SaveManager"
 class Settings
     PRINT_SMALL_SYM = :print_small
     DEFAULT_SETTINGS = {Settings::PRINT_SMALL_SYM => false}

@@ -1,5 +1,3 @@
-require "ASCIIPrinter"
-
 class Narrator
     def self.introduction
         puts

@@ -1,9 +1,3 @@
-require "Narrator"
-require "Enums/BaseStats"
-require "Player"
-require "Pack"
-require "Name"
-
 class Room
     RETURN_BUTTON = "retour"
     def initialize(player, biome, precedent_room = nil)

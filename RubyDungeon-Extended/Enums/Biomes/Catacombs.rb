@@ -1,7 +1,3 @@
-require_relative "../Vocabulary"
-require_relative "../Monsters/Undead"
-require_relative "../Monsters/CaveCritter"
-
 module CatacombsF
     NAMES = [
         Rooms::ROOM_F,

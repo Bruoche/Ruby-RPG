@@ -1,8 +1,3 @@
-require "fileutils"
-require "./Enums/Items/HealthPotion"
-require "./Enums/Items/Bandage"
-require "Settings"
-
 class SaveManager
     SAVE_DIRECTORY = "saves"
     EXTENSION = ".save"

@@ -30,7 +30,7 @@ class Game
             end
         end
     end
-    
+
     def propose_combat()
         case Narrator.ask_if_fight
         when "1"
@@ -43,13 +43,13 @@ class Game
             propose_combat
         end
     end
-    
+
     def generate_monster()
         monster_health = rand(BaseStats::BASE_HEALTH..(BaseStats::BASE_HEALTH + @player.get_level))
         monster_damage = rand(BaseStats::BASE_DAMAGE..(BaseStats::BASE_DAMAGE + @player.get_level))
         @monster = Monster.new(monster_health, monster_damage)
     end
-    
+
     def fight()
         player_turn
         if (@monster.is_dead)
@@ -58,7 +58,7 @@ class Game
             monster_turn
         end
     end
-    
+
     def player_turn()
         case Narrator.ask_fight_action(@player.get_status, @monster.get_description)
         when "1"
@@ -72,7 +72,7 @@ class Game
             player_turn
         end
     end
-    
+
     def monster_turn()
         @player.hurt(@monster.attack)
         if (@player.is_dead)
@@ -80,7 +80,7 @@ class Game
             @state = States::DEAD
         end
     end
-    
+
     def victory()
         Narrator.victory_scene(@monster.get_score)
         @player.get_xp(@monster.get_score)

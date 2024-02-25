@@ -1,5 +1,3 @@
-require "Monster"
-
 class Pack
     def initialize(player_level, biome)
         @monsters = Array.new

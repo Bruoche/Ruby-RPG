@@ -1,14 +1,3 @@
-require 'Narrator'
-require 'ASCIIPrinter'
-require 'SaveManager'
-require 'Settings'
-require 'Enums/BaseStats'
-require 'Enums/Biomes/Entrance'
-require 'Player'
-require 'Fight'
-require 'Room'
-require 'Exit'
-
 class Game
     def initialize()
         wanna_play = main_menu
@@ -42,7 +31,9 @@ class Game
     end
 
     def main_menu()
-        puts
+        10.times do
+            puts
+        end
         ASCIIPrinter.print("title")
         puts
         puts

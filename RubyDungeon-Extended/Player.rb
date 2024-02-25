@@ -1,6 +1,3 @@
-require "Lifebar"
-require "Inventory"
-
 class Player
     def initialize(player_data)
         @inventory = Inventory.new()

@@ -1,7 +1,3 @@
-require "Lifebar"
-require "Enums/Monsters/Goblin"
-require "Name"
-
 class Monster
     def initialize(life, damage, name)
         @lifebar = Lifebar.new(life)
