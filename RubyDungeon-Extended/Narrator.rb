@@ -16,6 +16,19 @@ class Narrator
         pause_text
     end
 
+    def self.introduction_return
+        puts
+        ASCIIPrinter.print("title")
+        puts
+        puts "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier."
+        puts "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance."
+        puts "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez, plus rien n'est pareil qu'avant."
+        puts
+        ASCIIPrinter.print("dungeon_outside")
+        puts
+        pause_text
+    end
+
     def self.pause_text
         puts "  (pressez \"Entrée\" pour continuer...)"
         user_input

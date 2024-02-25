@@ -106,7 +106,7 @@ class Player
             @level += 1
             @current_xp -= @next_level
             @next_level *= 2
-            stat_up(BaseStats::NB_STATS_PER_LEVEL)
+            stat_up(BaseStats::NB_STATS_PER_LEVEL + (@level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER + 1)))
             @lifebar.heal(@lifebar.get_missing_life)
         end
     end

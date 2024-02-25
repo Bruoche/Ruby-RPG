@@ -16,10 +16,11 @@ class Game
             loop do
                 @last_save = @player.get_save_data
                 survived = play
-                if survived
-                    wanna_play = main_menu
-                else
+                if not survived
                     wanna_play = ask_continue
+                end
+                if (survived) || (not wanna_play)
+                    wanna_play = main_menu
                 end
                 if not wanna_play
                     break
@@ -29,7 +30,6 @@ class Game
     end
 
     def play()
-        Narrator.introduction
         @current_room = Room.new(@player, Entrance, Exit.new(@player))
         while (@current_room != nil) && (@current_room != Exit::EXIT)
             @current_room = @current_room.enter()
@@ -63,6 +63,7 @@ class Game
                 "current_xp": 0,
                 "next_level": 100
             })
+            Narrator.introduction
             return true
         when "2"
             saves = SaveManager.get_saves()
@@ -70,6 +71,7 @@ class Game
                 save_index = Narrator.ask("Quelle sauvegarde charger ?", saves, -> (save){if save != nil then return save else return "Retour..." end})
                 if save_index != nil
                     @player = Player.new(SaveManager.load(saves[save_index]))
+                    Narrator.introduction_return
                     return true
                 else
                     main_menu

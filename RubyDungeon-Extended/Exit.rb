@@ -35,7 +35,7 @@ class Exit
         puts "Quel nom donner à votre sauvegarde ?"
         file_name = Narrator.user_input
         saves = SaveManager.get_saves
-        if (saves != nil) && (saves.include?(file_name))
+        if (saves != nil) && (saves.include?(file_name.downcase))
             if not confirm_save()
                 return ask_save
             end

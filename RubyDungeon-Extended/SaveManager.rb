@@ -16,7 +16,7 @@ class SaveManager
         unless File.directory?(save_directory)
             FileUtils.mkdir_p(save_directory)
         end
-        write("#{SAVE_DIRECTORY}/#{file_name}#{EXTENSION}", variables)
+        write("#{SAVE_DIRECTORY}/#{file_name.downcase}#{EXTENSION}", variables)
         puts "#{file_name} saved."
     end
 
@@ -34,7 +34,7 @@ class SaveManager
             saves = Dir["./#{SAVE_DIRECTORY}/*"]
             saves.reject! {|file_name| !file_name.end_with?(".save")}
             if saves != nil
-                saves = saves.map {|file_name| file_name.delete_prefix("./#{SAVE_DIRECTORY}/").delete_suffix("#{EXTENSION}")}
+                saves = saves.map {|file_name| file_name.delete_prefix("./#{SAVE_DIRECTORY}/").delete_suffix("#{EXTENSION}").downcase}
                 if saves != []
                     return saves
                 end
