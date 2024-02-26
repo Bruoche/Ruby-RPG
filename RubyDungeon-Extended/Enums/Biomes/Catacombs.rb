@@ -68,12 +68,12 @@ class Catacombs
     end
 
     def self.get_safe_room
-        return rand(1..4) > 3
+        return rand(1..5) > 4
     end
 
     def self.get_loot()
         loot = Array.new()
-        if rand(1..4) == 1
+        if rand(1..5) == 1
             puts "Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."
             loot.push(Bandage.new())
         end
@@ -81,6 +81,19 @@ class Catacombs
     end
 
     def self.get_next
-        return Catacombs
+        case rand(1..15)
+        when 1
+            puts
+            puts "Alors que vous enfonciez désespérément dans les catacombes,"
+            puts "Vous remarquez enfin un creux dans le mur similaire à celui par lequel vous êtes entrés."
+            puts "Lorsque vous vous y engouffrez, vous êtes acceuillis par des grands murs de pierres"
+            puts "qui ne sont pas sans rappeler ceux de l'entrée."
+            puts
+            puts "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
+            Narrator.pause_text
+            return OldDungeon
+        else
+            return Catacombs
+        end
     end
 end

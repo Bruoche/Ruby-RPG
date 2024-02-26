@@ -73,7 +73,7 @@ class Entrance
             puts ["Vous voyez une potion de soin posée sur une table.", "Vous trouvez une potion de soin rangée dans une commode."].sample
             loot.push(HealthPotion.new(rand(5..10)))
         end
-        if rand(1..2) == 1
+        if rand(1..3) == 1
             puts "Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."
             loot.push(Bandage.new())
         end
@@ -81,7 +81,7 @@ class Entrance
     end
 
     def self.get_next
-        case rand(1..10)
+        case rand(1..7)
         when 1
             puts
             puts "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restraints descendant plus profondément dans la terre."

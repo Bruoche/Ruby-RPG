@@ -4,22 +4,30 @@ module Monsters
     SPIDER_F = "araignée"
     BAT_F = "chauve-sourie"
     HARPIE_F = "harpie"
+    ZOMBIE_F = "mort-vivante"
+    PRISONNER_F = "prisonnière oubliée"
     # Male
     GOBLIN_M = "goblin"
     SLIME_M = "slime"
-    ZOMBIE_M = "zombie"
+    ZOMBIE_M = "mort-vivant"
     SPRIGGAN_M = "spriggan"
     SKELLETON_M = "squelette"
+    PRISONNER_M = "prisonnier oublié"
 end
 
 module Rooms
     # Female
-        ROOM_F = "salle"
-        ALCOVE_F = "pièce"
-        CHAMBER_F = "chambre"
+    ROOM_F = "salle"
+    ALCOVE_F = "pièce"
+    CHAMBER_F = "chambre"
+    CELL_F = "cellule"
+    TORTURE_CHAMBER_F = "chambre de torture"
+    GEOLLE_F = "geolle"
     # Male
-        CORRIDOR_M = "couloir"
-        TUNNEL_M = "tunnel"
+    CORRIDOR_M = "couloir"
+    TUNNEL_M = "tunnel"
+    REFECTORY_M = "réfectoire"
+    SLEEP_PLACE_M = "dortoir"
 end
 
 module Adjectives
@@ -53,6 +61,8 @@ module Adjectives
     DRY_F = "sèche"
     DUSTY_F = "poussièreuse"
     SILENT_F = "silencieuse"
+    STRANGE_F = "étrange"
+    RUINED_F = "en ruine"
     # Male
     SMALL_M = "petit"
     BIG_M = "gros"
@@ -83,4 +93,6 @@ module Adjectives
     DRY_M = "sec"
     DUSTY_M = "poussiéreux"
     SILENT_M = "silencieux"
+    STRANGE_M = "étrange"
+    RUINED_M = "en ruine"
 end

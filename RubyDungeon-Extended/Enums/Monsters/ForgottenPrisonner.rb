@@ -1,8 +1,8 @@
 require_relative "../Vocabulary"
 
-module UndeadF
+module ForgottenPrisonnerF
     NAMES = [
-        Monsters::ZOMBIE_F
+        Monsters::PRISONNER_F
     ].freeze
 
     PREFIXES = [
@@ -22,10 +22,9 @@ module UndeadF
     ].freeze
 end
 
-module UndeadM
+module ForgottenPrisonnerM
     NAMES = [
-        Monsters::SKELLETON_M,
-        Monsters::ZOMBIE_M
+        Monsters::PRISONNER_M
     ].freeze
 
     PREFIXES = [
@@ -46,10 +45,10 @@ module UndeadM
 end
 
 
-class Undead
-    MALE = UndeadM
-    FEMALE = UndeadF
+class ForgottenPrisonner
+    MALE = ForgottenPrisonnerF
+    FEMALE = ForgottenPrisonnerM
     def self.is_female
-        return [false, false, true].sample
+        return [false, true].sample
     end
 end
