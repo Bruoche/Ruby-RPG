@@ -123,7 +123,7 @@ class Player
                 puts "1) Vie            (#{@lifebar.get_max_life} -> #{@lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
                 puts "2) Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
                 puts "3) Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
-                puts "4) Agilitée       (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
+                puts "4) Agilité       (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
                 case Narrator.user_input
                 when "1"
                     @lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)

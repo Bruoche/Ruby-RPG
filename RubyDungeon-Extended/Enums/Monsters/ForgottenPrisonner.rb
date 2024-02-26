@@ -46,8 +46,8 @@ end
 
 
 class ForgottenPrisonner
-    MALE = ForgottenPrisonnerF
-    FEMALE = ForgottenPrisonnerM
+    FEMALE = ForgottenPrisonnerF
+    MALE = ForgottenPrisonnerM
     def self.is_female
         return [false, true].sample
     end
