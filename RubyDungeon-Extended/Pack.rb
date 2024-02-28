@@ -8,10 +8,10 @@ class Pack
             difficulty_bonus = biome::MONSTER_POWER_BONUS
             monster_health = rand(monster_type::BASE_HEALTH.div(nb_monsters)..(monster_type::BASE_HEALTH + difficulty_bonus))
             monster_damage = rand(monster_type::BASE_DAMAGE.div(nb_monsters)..(monster_type::BASE_DAMAGE + difficulty_bonus))
-            if monster_health = 0
+            if monster_health == 0
                 monster_health = 1
             end
-            if monster_damage = 0
+            if monster_damage == 0
                 monster_damage = 1
             end
             monster = Monster.new(monster_health, monster_damage, Name.new(monster_type))
