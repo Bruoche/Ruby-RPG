@@ -24,6 +24,8 @@ end
 
 class Slime
     MALE = SlimeM
+    BASE_HEALTH = BaseStats::BASE_HEALTH
+    BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
     def self.is_female
         return false
     end

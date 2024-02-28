@@ -1,14 +1,20 @@
 class Pack
-    def initialize(player_level, biome)
+    def initialize(biome)
         @monsters = Array.new
         @initial_monsters = Array.new
-        max_amount = player_level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER) + biome::MONSTER_AMOUNT_BONUS
-        nb_monsters = rand(1..(max_amount + 1))
+        nb_monsters = rand(1..(biome::MONSTER_AMOUNT_BONUS + 1))
         for i in 1..nb_monsters do
-            difficulty_bonus = (player_level*BaseStats::NB_STATS_PER_LEVEL) + biome::MONSTER_POWER_BONUS
-            monster_health = rand(BaseStats::BASE_HEALTH.div(nb_monsters)..(BaseStats::BASE_HEALTH + difficulty_bonus))
-            monster_damage = rand(BaseStats::BASE_STRENGTH.div(nb_monsters)..(BaseStats::BASE_STRENGTH + difficulty_bonus))
-            monster = Monster.new(monster_health, monster_damage, Name.new(biome::BESTIARY.sample))
+            monster_type = biome::BESTIARY.sample
+            difficulty_bonus = biome::MONSTER_POWER_BONUS
+            monster_health = rand(monster_type::BASE_HEALTH.div(nb_monsters)..(monster_type::BASE_HEALTH + difficulty_bonus))
+            monster_damage = rand(monster_type::BASE_DAMAGE.div(nb_monsters)..(monster_type::BASE_DAMAGE + difficulty_bonus))
+            if monster_health = 0
+                monster_health = 1
+            end
+            if monster_damage = 0
+                monster_damage = 1
+            end
+            monster = Monster.new(monster_health, monster_damage, Name.new(monster_type))
             @monsters.push(monster)
             @initial_monsters.push(monster)
         end

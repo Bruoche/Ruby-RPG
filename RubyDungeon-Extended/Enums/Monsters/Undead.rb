@@ -49,6 +49,8 @@ end
 class Undead
     MALE = UndeadM
     FEMALE = UndeadF
+    BASE_HEALTH = BaseStats::BASE_HEALTH+(BaseStats::BASE_HEALTH.div(4))
+    BASE_DAMAGE = BaseStats::BASE_STRENGTH
     def self.is_female
         return [false, false, true].sample
     end

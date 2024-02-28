@@ -6,7 +6,7 @@ class Room
         if biome.get_safe_room
             @monsters = nil
         else
-            @monsters = Pack.new(player.get_level, biome)
+            @monsters = Pack.new(biome)
         end
         @biome = biome
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))
@@ -120,7 +120,7 @@ class Room
             @precedent_room = next_room # Si nous revenons ça sera par là
             if @adjacent_rooms[next_room] == nil
                 current_room = self
-                @adjacent_rooms[next_room] = Room.new(@player, @biome.get_next, current_room)
+                @adjacent_rooms[next_room] = Room.new(@player, @biome.get_next(@player.get_level), current_room)
             end
             return @adjacent_rooms[next_room]
         end

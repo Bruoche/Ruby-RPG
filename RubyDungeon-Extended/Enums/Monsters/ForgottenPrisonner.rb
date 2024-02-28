@@ -48,6 +48,8 @@ end
 class ForgottenPrisonner
     FEMALE = ForgottenPrisonnerF
     MALE = ForgottenPrisonnerM
+    BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)
+    BASE_DAMAGE = BaseStats::BASE_STRENGTH+(BaseStats::BASE_STRENGTH.div(4))
     def self.is_female
         return [false, true].sample
     end

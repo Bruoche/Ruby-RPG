@@ -19,7 +19,12 @@ class Game
     end
 
     def play()
-        @current_room = Room.new(@player, Entrance, Exit.new(@player))
+        if @player.get_level < 3
+            biome = EntranceTuto
+        else
+            biome = Entrance
+        end
+        @current_room = Room.new(@player, biome, Exit.new(@player))
         while (@current_room != nil) && (@current_room != Exit::EXIT)
             @current_room = @current_room.enter()
         end

@@ -45,6 +45,7 @@ module CatacombsM
 end
 
 class Catacombs
+    EXPECTED_LEVEL = 7
     PICTURE = "catacombs"
     FEMALE = CatacombsF
     MALE = CatacombsM
@@ -52,10 +53,12 @@ class Catacombs
     MAX_EXITS = 2
     BESTIARY = [
         Undead,
+        Undead,
+        Undead,
         CaveCritter
     ].freeze()
-    MONSTER_AMOUNT_BONUS = 1
-    MONSTER_POWER_BONUS = 2
+    MONSTER_AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+    MONSTER_POWER_BONUS = EXPECTED_LEVEL*BaseStats::NB_STATS_PER_LEVEL
 
     def self.is_female
         return [true, false, false].sample
@@ -80,7 +83,7 @@ class Catacombs
         return loot
     end
 
-    def self.get_next
+    def self.get_next(player_level)
         case rand(1..15)
         when 1
             puts

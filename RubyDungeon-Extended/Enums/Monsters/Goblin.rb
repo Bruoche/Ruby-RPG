@@ -62,6 +62,8 @@ end
 class Goblin
     FEMALE = GoblinF
     MALE = GoblinM
+    BASE_HEALTH = BaseStats::BASE_HEALTH
+    BASE_DAMAGE = BaseStats::BASE_STRENGTH
     def self.is_female
         return [true, false].sample
     end

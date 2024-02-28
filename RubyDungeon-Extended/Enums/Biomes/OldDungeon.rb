@@ -49,6 +49,7 @@ module OldDungeonM
 end
 
 class OldDungeon
+    EXPECTED_LEVEL = 10
     PICTURE = "old_dungeon"
     FEMALE = OldDungeonF
     MALE = OldDungeonM
@@ -59,8 +60,8 @@ class OldDungeon
         Undead,
         ForgottenPrisonner
     ].freeze()
-    MONSTER_AMOUNT_BONUS = 1
-    MONSTER_POWER_BONUS = 2
+    MONSTER_AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+    MONSTER_POWER_BONUS = EXPECTED_LEVEL*BaseStats::NB_STATS_PER_LEVEL
 
     def self.is_female
         return [true, true, true, false].sample
@@ -97,7 +98,7 @@ class OldDungeon
         return loot
     end
 
-    def self.get_next
+    def self.get_next(player_level)
         return OldDungeon
     end
 end
