@@ -12,7 +12,7 @@ Le contenu du sous-dossier Correction, en revanche, est entièrement oubliable.
 
 ## Paramètres de terminal conseillés
 
-Afin que le jeu tourne dans des conditions optimales, il est conseillé que le terminal soit en *plein écran au démarrage et ai une police supportant les charactères spéciaux tel que ▓▓* (par exemple Liberation Mono).
+Afin que le jeu tourne dans des conditions optimales, il est conseillé que le terminal **soit en plein écran au démarrage** et **ai une police supportant les charactères spéciaux tel que ▓▓** (par exemple Liberation Mono).
 
 Vous pouvez modifier les paramètres du terminal par défaut de Windows 11 lorsque celui-ci est ouvert en faisant un clic droit sur la barre au sommet de la page, là où se trouvent les onglets, et en choisissant l'option "Paramètres".
 
