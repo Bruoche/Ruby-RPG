@@ -1,6 +1,6 @@
 # Ruby Dungeon
 
-  Bienvenue dans Ruby Dungeon, le dungeon-scroller textuel codé en Ruby.
+  Bienvenue dans Ruby Dungeon, le dungeon-crawler textuel codé en Ruby.
 
 ## Installation (Windows)
 
