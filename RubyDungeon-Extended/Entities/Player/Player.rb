@@ -52,21 +52,26 @@ class Player
         return perception_score < @agility
     end
 
+    def have(item)
+        return @inventory.have(item)
+    end
+
     def is_dead()
         return @lifebar.is_empty
     end
 
-    def hurt(damage)
+    def hurt(attack)
+        damage = attack.damage
         puts("Vous prenez #{damage} dégats.")
         @lifebar.damage(damage)
     end
 
     def strength_attack()
-        return @strength
+        return Attack.new(@strength, Attack::PHYSIC_TYPE)
     end
 
     def magic_attack()
-        return @intelligence
+        return Attack.new(@intelligence, Attack::MAGIC_TYPE)
     end
 
     def heal(amount = nil)

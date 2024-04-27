@@ -48,7 +48,8 @@ module OldDungeonM
     ].freeze
 end
 
-class OldDungeon
+class OldDungeon < Biome
+    SPECIAL = false
     EXPECTED_LEVEL = 10
     PICTURE = "old_dungeon"
     FEMALE = OldDungeonF
@@ -91,7 +92,7 @@ class OldDungeon
             puts "Vous remarquez des bagnes que vous pouvez déchirer afin de créer des bandages."
             loot.push(Bandage.new())
         end
-        if rand(1..50) == 1
+        if rand(1..20) == 1
             puts "Vous remarquez une clef accrochée à un des murs."
             loot.push(PrisonKey.new())
         end
@@ -99,6 +100,10 @@ class OldDungeon
     end
 
     def self.get_next(player_level)
-        return OldDungeon
+        if rand(50) == 1
+            return BossCell.new(@player)
+        else
+            return OldDungeon
+        end
     end
 end

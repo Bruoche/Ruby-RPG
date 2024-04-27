@@ -44,7 +44,8 @@ module CatacombsM
     ].freeze
 end
 
-class Catacombs
+class Catacombs < Biome
+    SPECIAL = false
     EXPECTED_LEVEL = 7
     PICTURE = "catacombs"
     FEMALE = CatacombsF

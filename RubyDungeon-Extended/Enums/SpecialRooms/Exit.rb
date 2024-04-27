@@ -1,6 +1,7 @@
 class Exit
+    SPECIAL = true;
     EXIT = "exit"
-    def initialize(player)
+    def initialize(player, precedent_room = nil)
         @player = player
     end
 

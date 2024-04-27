@@ -1,12 +1,18 @@
 class Name
     VOWELS = ['a', 'à', 'e', 'é', 'è', 'i', 'î', 'o', 'ô', 'u', 'û']
 
-    def initialize(vocabulary)
-        @female = vocabulary.is_female
-        if (@female)
-            @denomination = generate(vocabulary::FEMALE)
+    def initialize(vocabulary, female = nil)
+        if vocabulary.is_a? String
+            vocabulary = args
+            @female = vocabulary.is_female
+            if (@female)
+                @denomination = generate(vocabulary::FEMALE)
+            else
+                @denomination = generate(vocabulary::MALE)
+            end
         else
-            @denomination = generate(vocabulary::MALE)
+            @denomination = vocabulary
+            @female = female
         end
     end
 
@@ -37,12 +43,24 @@ class Name
         end
     end
 
+    def get_gendered_of()
+        if VOWELS.include?(@denomination[0])
+            return "de l'#{@denomination}"
+        end
+        if @female
+            return "de la #{@denomination}"
+        else
+            return "du #{@denomination}"
+        end
+    end
+
     def is_female
         return @female
     end
 
     def generate(gendered_vocabulary)
         name = gendered_vocabulary::NAMES.sample
+        puts "name of gendered_vocabulary is #{name}"
         if (([true, false, false].sample) && (gendered_vocabulary::PREFIXES != nil))
             name = "#{gendered_vocabulary::PREFIXES.sample} #{name}"
         end

@@ -2,21 +2,26 @@ class Pack
     def initialize(biome)
         @monsters = Array.new
         @initial_monsters = Array.new
-        nb_monsters = rand(1..(biome::MONSTER_AMOUNT_BONUS + 1))
-        for i in 1..nb_monsters do
-            monster_type = biome::BESTIARY.sample
-            difficulty_bonus = biome::MONSTER_POWER_BONUS
-            monster_health = rand(monster_type::BASE_HEALTH.div(nb_monsters)..(monster_type::BASE_HEALTH + difficulty_bonus))
-            monster_damage = rand(monster_type::BASE_DAMAGE.div(nb_monsters)..(monster_type::BASE_DAMAGE + difficulty_bonus))
-            if monster_health == 0
-                monster_health = 1
+        if (biome.kind_of? Biome)
+            nb_monsters = rand(1..(biome::MONSTER_AMOUNT_BONUS + 1))
+            for i in 1..nb_monsters do
+                monster_type = biome::BESTIARY.sample
+                difficulty_bonus = biome::MONSTER_POWER_BONUS
+                monster_health = rand(monster_type::BASE_HEALTH.div(nb_monsters)..(monster_type::BASE_HEALTH + difficulty_bonus))
+                monster_damage = rand(monster_type::BASE_DAMAGE.div(nb_monsters)..(monster_type::BASE_DAMAGE + difficulty_bonus))
+                if monster_health == 0
+                    monster_health = 1
+                end
+                if monster_damage == 0
+                    monster_damage = 1
+                end
+                monster = Monster.new(monster_health, monster_damage, Name.new(monster_type), "vous frappe")
+                @monsters.push(monster)
+                @initial_monsters.push(monster)
             end
-            if monster_damage == 0
-                monster_damage = 1
-            end
-            monster = Monster.new(monster_health, monster_damage, Name.new(monster_type))
-            @monsters.push(monster)
-            @initial_monsters.push(monster)
+        else
+            @monsters.concat biome[:monsters]
+            @initial_monsters.concat biome[:monsters]
         end
     end
 
@@ -51,7 +56,7 @@ class Pack
     def get_power()
         power = 0
         for monster in @initial_monsters do
-            power += monster.get_power
+            power += monster.get_xp
         end
         multi_encounter_bonus = power.div(10) * (@initial_monsters.length - 1)
         return power + multi_encounter_bonus
@@ -84,30 +89,30 @@ class Pack
 
     def attack(player)
         for monster in @monsters do
-            player.hurt(monster.attack)
+            monster.attack(player)
         end
     end
 
-    def hurt_single(damage)
+    def hurt_single(attack)
         if (is_plural)
             choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)})
             if choosen_ennemy != nil
-                hurt((choosen_ennemy), damage)
+                hurt((choosen_ennemy), attack)
                 return true
             else
                 return false
             end
         else
-            hurt(0, damage)
+            hurt(0, attack)
             return true
         end
     end
 
-    def hurt_magic(power)
-        if (power > 0)
+    def hurt_magic(attack)
+        if (attack.damage > 0)
             nb_killed = 0
             for i in 0..(@monsters.length - 1)  do
-                if hurt(i - nb_killed, rand(1..power))
+                if hurt(i - nb_killed, attack)
                     nb_killed += 1
                 end
             end
@@ -130,11 +135,10 @@ class Pack
         end
     end
 
-    def hurt(index, damage)
+    def hurt(index, attack)
         monster = @monsters[index]
-        monster.hurt(damage)
+        monster.hurt(attack)
         if monster.is_dead
-            puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
             @monsters.delete(monster)
             return true
         end

@@ -8,6 +8,10 @@ class Lifebar
         return @max_life
     end
 
+    def get_life()
+        return @current_life
+    end
+
     def get_missing_life()
         return @max_life - @current_life
     end

@@ -120,7 +120,12 @@ class Room
             @precedent_room = next_room # Si nous revenons ça sera par là
             if @adjacent_rooms[next_room] == nil
                 current_room = self
-                @adjacent_rooms[next_room] = Room.new(@player, @biome.get_next(@player.get_level), current_room)
+                next_biome = @biome.get_next(@player.get_level)
+                if next_biome::SPECIAL
+                    @adjacent_rooms[next_room] = next_biome.new(@player, current_room)
+                else
+                    @adjacent_rooms[next_room] = Room.new(@player, next_biome, current_room)
+                end
             end
             return @adjacent_rooms[next_room]
         end

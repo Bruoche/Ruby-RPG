@@ -102,7 +102,8 @@ class EntranceTuto
     end
 end
 
-class Entrance
+class Entrance < Biome
+    SPECIAL = false
     EXPECTED_LEVEL = 3
     PICTURE = "entrance"
     FEMALE = EntranceF

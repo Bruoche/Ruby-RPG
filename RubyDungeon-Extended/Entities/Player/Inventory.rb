@@ -8,6 +8,10 @@ class Inventory
         @content.push(item)
     end
 
+    def have(item_class)
+        return @content.any?(item_class);
+    end
+
     def get_save_data()
         items = ""
         for item in @content
