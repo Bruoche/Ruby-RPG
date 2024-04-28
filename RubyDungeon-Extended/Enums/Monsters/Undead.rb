@@ -25,6 +25,7 @@ end
 module UndeadM
     NAMES = [
         Monsters::SKELLETON_M,
+        Monsters::SKELLETON_M,
         Monsters::ZOMBIE_M
     ].freeze
 
@@ -49,9 +50,7 @@ end
 class Undead
     MALE = UndeadM
     FEMALE = UndeadF
+    FEMALE_CHANCES = 25
     BASE_HEALTH = BaseStats::BASE_HEALTH+(BaseStats::BASE_HEALTH.div(4))
     BASE_DAMAGE = BaseStats::BASE_STRENGTH
-    def self.is_female
-        return [false, false, true].sample
-    end
 end

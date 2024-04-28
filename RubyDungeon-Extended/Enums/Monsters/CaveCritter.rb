@@ -25,9 +25,7 @@ end
 
 class CaveCritter
     FEMALE = CaveCritterF
+    FEMALE_CHANCES = 100
     BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)
     BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
-    def self.is_female
-        return true
-    end
 end

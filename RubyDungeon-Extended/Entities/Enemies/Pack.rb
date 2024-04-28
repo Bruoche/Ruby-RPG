@@ -2,26 +2,17 @@ class Pack
     def initialize(biome)
         @monsters = Array.new
         @initial_monsters = Array.new
-        if (biome.kind_of? Biome)
-            nb_monsters = rand(1..(biome::MONSTER_AMOUNT_BONUS + 1))
-            for i in 1..nb_monsters do
+        monsters = biome.get_monsters
+        for monster in monsters;
+            if monster == nil
                 monster_type = biome::BESTIARY.sample
                 difficulty_bonus = biome::MONSTER_POWER_BONUS
-                monster_health = rand(monster_type::BASE_HEALTH.div(nb_monsters)..(monster_type::BASE_HEALTH + difficulty_bonus))
-                monster_damage = rand(monster_type::BASE_DAMAGE.div(nb_monsters)..(monster_type::BASE_DAMAGE + difficulty_bonus))
-                if monster_health == 0
-                    monster_health = 1
-                end
-                if monster_damage == 0
-                    monster_damage = 1
-                end
+                monster_health = get_random_stat(monster_type::BASE_HEALTH, monsters.length, difficulty_bonus)
+                monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
                 monster = Monster.new(monster_health, monster_damage, Name.new(monster_type), "vous frappe")
-                @monsters.push(monster)
-                @initial_monsters.push(monster)
             end
-        else
-            @monsters.concat biome[:monsters]
-            @initial_monsters.concat biome[:monsters]
+            @monsters.push(monster)
+            @initial_monsters.push(monster)
         end
     end
 
@@ -53,10 +44,19 @@ class Pack
         end
     end
 
-    def get_power()
+    def get_xp
+        xp = 0
+        for monster in @initial_monsters do
+            xp += monster.get_xp
+        end
+        multi_encounter_bonus = xp.div(10) * (@initial_monsters.length - 1)
+        return xp + multi_encounter_bonus
+    end
+
+    def get_power
         power = 0
         for monster in @initial_monsters do
-            power += monster.get_xp
+            power += monster.get_power
         end
         multi_encounter_bonus = power.div(10) * (@initial_monsters.length - 1)
         return power + multi_encounter_bonus
@@ -97,13 +97,13 @@ class Pack
         if (is_plural)
             choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)})
             if choosen_ennemy != nil
-                hurt((choosen_ennemy), attack)
-                return true
+                attacked = hurt((choosen_ennemy), attack)[:attacked]
+                return attacked
             else
                 return false
             end
         else
-            hurt(0, attack)
+            hurt(0, attack)[:dead]
             return true
         end
     end
@@ -112,7 +112,7 @@ class Pack
         if (attack.damage > 0)
             nb_killed = 0
             for i in 0..(@monsters.length - 1)  do
-                if hurt(i - nb_killed, attack)
+                if hurt(i - nb_killed, attack)[:dead]
                     nb_killed += 1
                 end
             end
@@ -135,13 +135,28 @@ class Pack
         end
     end
 
-    def hurt(index, attack)
-        monster = @monsters[index]
-        monster.hurt(attack)
-        if monster.is_dead
-            @monsters.delete(monster)
-            return true
+    def get_random_stat(base_stat, nb_monsters, difficulty_bonus)
+        stat = rand(base_stat.div(nb_monsters)..(base_stat + difficulty_bonus))
+        if stat == 0
+            stat = 1
         end
-        return false
+        return stat
+    end
+
+    def hurt(index, attack)
+        response = {}
+        monster = @monsters[index]
+        response[:dead] = false
+        response[:attacked] = monster.hurt(attack)
+        if response[:attacked] == false
+            return response
+        else
+            if monster.is_dead
+                puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
+                @monsters.delete(monster)
+                response[:dead] = true
+            end
+        end
+        return response
     end
 end

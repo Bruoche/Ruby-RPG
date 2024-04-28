@@ -50,6 +50,7 @@ class Monster
         end
         puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
         @lifebar.damage(damage)
+        return true
     end
 
     def attack(player)

@@ -1,7 +1,7 @@
 class HealthPotion
-    def initialize(soin)
+    def initialize(soin_min, soin_max = soin_min)
         @destroyed = false
-        @soin = soin
+        @soin = rand(soin_min..soin_max)
     end
 
     def get_name()

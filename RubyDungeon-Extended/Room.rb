@@ -3,7 +3,7 @@ class Room
     def initialize(player, biome, precedent_room = nil)
         @name = Name.new(biome)
         @player = player
-        if biome.get_safe_room
+        if biome.is_safe_room
             @monsters = nil
         else
             @monsters = Pack.new(biome)
@@ -13,6 +13,36 @@ class Room
         @adjacent_rooms[0] = precedent_room
         @precedent_room = 0
         @objects = nil
+    end
+
+    def enter()
+        @arrival = true
+        for requirement in @biome::ENTRY_REQUIREMENTS
+            if requirement.ignored?
+                return room_action
+            else
+                if requirement.can_enter?(@player)
+                    requirement.ask_enter
+                    puts "1) Oui"
+                    puts "2) Non"
+                    case Narrator.user_input
+                    when "1"
+                        requirement.entry_message
+                        return room_action
+                    when "2"
+                        requirement.no_entry_message
+                        return @adjacent_rooms[@precedent_room]
+                    else
+                        Narrator.unsupported_choice_error
+                        return enter
+                    end
+                else
+                    requirement.impossible_entry_message
+                    return @adjacent_rooms[@precedent_room]
+                end
+            end
+        end
+        return room_action
     end
 
     def describe()
@@ -57,11 +87,6 @@ class Room
 
     def get_denomination()
         return @name.get_gendered_a
-    end
-
-    def enter()
-        @arrival = true
-        room_action
     end
 
     def room_action()

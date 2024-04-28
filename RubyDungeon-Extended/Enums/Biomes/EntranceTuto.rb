@@ -1,46 +1,5 @@
-module EntranceF
-    NAMES = [
-        Rooms::ROOM_F,
-        Rooms::ALCOVE_F
-    ].freeze
-
-    PREFIXES = [
-        Adjectives::SMALL_F,
-        Adjectives::TALL_F,
-        Adjectives::SPACIOUS_F
-    ].freeze
-
-    SUFFIXES = [
-        Adjectives::WORRYING_F,
-        Adjectives::COLD_F,
-        Adjectives::HUMID_F,
-        Adjectives::ISOLATED_F,
-        Adjectives::DARK_F
-    ].freeze
-end
-
-module EntranceM
-    NAMES = [
-        Rooms::CORRIDOR_M
-    ].freeze
-
-    PREFIXES = [
-        Adjectives::SMALL_M,
-        Adjectives::TALL_M,
-        Adjectives::LONG_M
-    ].freeze
-
-    SUFFIXES = [
-        Adjectives::WORRYING_M,
-        Adjectives::COLD_M,
-        Adjectives::HUMID_M,
-        Adjectives::ISOLATED_M,
-        Adjectives::DARK_M
-    ].freeze
-end
-
-class Entrance < Biome
-    EXPECTED_LEVEL = 3
+class EntranceTuto < Biome
+    EXPECTED_LEVEL = 0
     PICTURE = "entrance"
     FEMALE = EntranceF
     MALE = EntranceM
@@ -51,6 +10,8 @@ class Entrance < Biome
         "Mais les courants d'air atteignants votre dos sont un rappel de votre proximité avec la surface."
     ]
     BESTIARY = [
+        Goblin,
+        Goblin,
         Goblin,
         Goblin,
         Slime,
@@ -81,8 +42,14 @@ class Entrance < Biome
                 "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restraints descendant plus profondément dans la terre.",
                 "Vous vous engouffrez dans ce qui semble être un lieu de repos pour les anciens habitants de ce donjon depuis longtemps disparus."
             ],
-            15,
+            10,
             Catacombs
+        ),
+        BiomeTransition.new(
+            nil,
+            100,
+            Entrance,
+            3
         )
     ]
 end

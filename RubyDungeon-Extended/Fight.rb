@@ -55,7 +55,7 @@ class Fight
     end
 
     def victory()
-        xp_gained = @monsters.get_power
+        xp_gained = @monsters.get_xp
         Narrator.victory_scene(@monsters.was_plural, xp_gained)
         @player.get_xp(xp_gained)
         return true

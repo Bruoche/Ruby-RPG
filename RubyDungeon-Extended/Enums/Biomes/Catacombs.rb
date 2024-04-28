@@ -45,59 +45,44 @@ module CatacombsM
 end
 
 class Catacombs < Biome
-    SPECIAL = false
     EXPECTED_LEVEL = 7
     PICTURE = "catacombs"
     FEMALE = CatacombsF
     MALE = CatacombsM
-    MIN_EXITS = 1
-    MAX_EXITS = 2
+    FEMALE_CHANCES = 30
+    DESCRIPTION = [
+        "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré.",
+        "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quand à elle plus grande que jamais.",
+        "L'air stagnant et la poussière vous donnent une sensation de secheresse."
+    ]
     BESTIARY = [
         Undead,
         Undead,
         Undead,
         CaveCritter
-    ].freeze()
-    MONSTER_AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
-    MONSTER_POWER_BONUS = EXPECTED_LEVEL*BaseStats::NB_STATS_PER_LEVEL
-
-    def self.is_female
-        return [true, false, false].sample
-    end
-
-    def self.describe
-        puts "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré."
-        puts "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quand à elle plus grande que jamais."
-        puts "L'air stagnant et la poussière vous donnent une sensation de secheresse."
-    end
-
-    def self.get_safe_room
-        return rand(1..5) > 4
-    end
-
-    def self.get_loot()
-        loot = Array.new()
-        if rand(1..5) == 1
-            puts "Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."
-            loot.push(Bandage.new())
-        end
-        return loot
-    end
-
-    def self.get_next(player_level)
-        case rand(1..15)
-        when 1
-            puts
-            puts "Alors que vous enfonciez désespérément dans les catacombes,"
-            puts "Vous remarquez enfin un creux dans le mur similaire à celui par lequel vous êtes entrés."
-            puts "Lorsque vous vous y engouffrez, vous êtes acceuillis par des grands murs de pierres"
-            puts "qui ne sont pas sans rappeler ceux de l'entrée."
-            puts
-            puts "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
-            Narrator.pause_text
-            return OldDungeon
-        else
-            return Catacombs
-        end
-    end
+    ]
+    SAFE_CHANCES = 80
+    LOOT = [
+        Loot.new(
+            ["Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."],
+            80,
+            Bandage
+        )
+    ]
+    MIN_EXITS = 1
+    MAX_EXITS = 2
+    TRANSITIONS = [
+        BiomeTransition.new(
+            [
+                "Alors que vous enfonciez désespérément dans les catacombes,",
+                "Vous remarquez enfin un creux dans le mur similaire à celui par lequel vous êtes entrés.",
+                "Lorsque vous vous y engouffrez, vous êtes acceuillis par des grands murs de pierres",
+                "qui ne sont pas sans rappeler ceux de l'entrée.",
+                "",
+                "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
+            ],
+            7,
+            OldDungeon
+        )
+    ]
 end

@@ -1,51 +1,74 @@
+module LostKnightM
+    NAMES = ["chevalier perdu"]
+end
+
+module LostKnightHeadF
+    NAMES = ["#{Bodyparts::HEAD_F} du chevalier perdu"]
+end
+
+module LostKnightRightArmM
+    NAMES = ["#{Bodyparts::ARM_M} #{Adjectives::RIGHT_M} du chevalier perdu"]
+end
+
+module LostKnightLeftArmM
+    NAMES = ["#{Bodyparts::ARM_M} #{Adjectives::LEFT_M} du chevalier perdu"]
+end
+
+class LostKnightHead
+    ID = "head"
+    FEMALE = LostKnightHeadF
+    FEMALE_CHANCES = 100
+end
+
+class LostKnightLeftArm
+    ID = "left_arm"
+    MALE = LostKnightLeftArmM
+    FEMALE_CHANCES = 0
+end
+
+class LostKnightRightArm
+    ID = "right_arm"
+    MALE = LostKnightRightArmM
+    FEMALE_CHANCES = 0
+end
+
 class LostKnight
-    def self.make(difficulty_bonus)
-        name = Name.new(
-            name: "#{Monsters::KNIGHT_M} #{Adjectives::LOST_M}",
-            female: false
+    EXPECTED_LEVEL = 10
+    AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+    POWER_BONUS = EXPECTED_LEVEL * BaseStats::NB_STATS_PER_LEVEL * AMOUNT_BONUS
+    MALE = LostKnightM
+    FEMALE_CHANCES = 0
+    WEAKPOINTS = [
+        Weakpoint.new(
+            BaseStats::BASE_HEALTH * 3 + POWER_BONUS,
+            LostKnightHead,
+            -> (head, boss) {death(head, boss)}
         )
-        @left_arm = Bodypart.new(
-            BaseStats::BASE_HEALTH.div(2) + difficulty_bonus,
-            BaseStats::BASE_STRENGTH.div(3) * 2 + difficulty_bonus,
-            Name.new(
-                name: "#{Bodyparts::ARM_M} #{Adjectives::LEFT_M} #{name.get_gendered_of}",
-                female: false
-            ),
+    ]
+    BODYPARTS = [
+        Bodypart.new(
+            BaseStats::BASE_HEALTH.div(2) + POWER_BONUS,
+            BaseStats::BASE_STRENGTH.div(3) * 2 + POWER_BONUS,
+            LostKnightLeftArm,
             "vous met un coup de coude",
             [],
             -> (arm, boss) {limb_loss(arm, boss)}
-        )
-        @right_arm = Bodypart.new(
-            BaseStats::BASE_HEALTH.div(2) + difficulty_bonus,
-            BaseStats::BASE_STRENGTH + difficulty_bonus,
-            Name.new(
-                name: "#{Bodyparts::ARM_M} #{Adjectives::RIGHT_M} #{name.get_gendered_of}",
-                female: false
-            ),
+        ),
+        Bodypart.new(
+            BaseStats::BASE_HEALTH.div(2) + POWER_BONUS,
+            BaseStats::BASE_STRENGTH + POWER_BONUS,
+            LostKnightRightArm,
             "vous assène un coup d'épée.",
             [
                 SpecialMove.new(25, -> (target, damage, boss) {slash(target, damage, boss)})
             ],
             -> (arm, boss) {main_arm_loss(arm, boss)}
-        )
-        @head = Weakpoint.new(
-            BaseStats::BASE_HEALTH.div(2) * 5 + difficulty_bonus,
-            Name.new(
-                name: "#{Bodyparts::HEAD_F} #{name.get_gendered_of}",
-                female: true
-            ),
-            -> (head, boss) {death(head, boss)}
-        )
-        return Boss.new(
-            [
-                @head
-            ],
-            [
-                @left_arm,
-                @right_arm
-            ],
-            name
-        )
+        ),
+    ]
+
+    def self.slash(target, damage, boss)
+        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+        target.hurt(Attack.new(rand(damage..damage*2), Attack::PHYSIC_TYPE))
     end
 
     def self.limb_loss(name, boss)
@@ -53,7 +76,7 @@ class LostKnight
     end
 
     def self.main_arm_loss(name, boss)
-        left_arm = boss.get(@left_arm)
+        left_arm = boss.get(LostKnightLeftArm::ID)
         if left_arm != nil
             limb_loss(name, boss)
             puts "#{boss.get_name.get_gendered_the} change son arme de main."
@@ -70,15 +93,12 @@ class LostKnight
         puts "#{boss.get_name.get_gendered_the} laisse son arme tomber au sol, impuissant."
     end
 
+    # death event
+
     def self.death(name, boss)
         puts "Le casque #{boss.get_name.get_gendered_of} s'enfonce sous vos coups,"
         puts "faisant raisonner un craquement sinistre en son coeur."
         puts
         puts "Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement."
-    end
-
-    def self.slash(target, damage, boss)
-        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
-        target.hurt(Attack.new(rand(damage..damage*2), Attack::PHYSIC_TYPE))
     end
 end

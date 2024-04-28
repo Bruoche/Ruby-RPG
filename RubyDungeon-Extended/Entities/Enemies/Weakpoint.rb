@@ -1,8 +1,13 @@
 class Weakpoint
     def initialize(life, name, death_event)
+        @id = name::ID
         @lifebar = Lifebar.new(life)
-        @name = name
+        @name = Name.new(name)
         @death_event = death_event
+    end
+
+    def is?(id)
+        return id == @id
     end
 
     def get_name()
@@ -26,7 +31,15 @@ class Weakpoint
     end
 
     def hurt(attack)
-        damage = attack.damage
+        case attack.type
+        when Attack::PHYSIC_TYPE
+            damage = attack.damage
+        when Attack::MAGIC_TYPE
+            damage = rand(attack.damage)
+        else
+            puts("<< unexpected damage type encountered >>")
+            damage = 0
+        end
         puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
         @lifebar.damage(damage)
     end

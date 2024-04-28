@@ -49,61 +49,56 @@ module OldDungeonM
 end
 
 class OldDungeon < Biome
-    SPECIAL = false
     EXPECTED_LEVEL = 10
     PICTURE = "old_dungeon"
     FEMALE = OldDungeonF
     MALE = OldDungeonM
-    MIN_EXITS = 0
-    MAX_EXITS = 2
+    FEMALE_CHANCES = 75
+    DESCRIPTION = [
+        "Vous êtes dans ce qui semble être une ancienne prison.",
+        "Bien que cet endroit soit un peu plus acceuillant que les catacombes, il ne l'est pas de beaucoup.",
+        "Vous êtes ainsi pris d'un sentiment de mal-aise dans ce lieu semblant porter le poids d'une histoire sombre."
+    ]
     BESTIARY = [
         Goblin,
         Undead,
         ForgottenPrisonner
-    ].freeze()
-    MONSTER_AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
-    MONSTER_POWER_BONUS = EXPECTED_LEVEL*BaseStats::NB_STATS_PER_LEVEL
-
-    def self.is_female
-        return [true, true, true, false].sample
-    end
-
-    def self.describe
-        puts "Vous êtes dans ce qui semble être une ancienne prison."
-        puts "Bien que cet endroit soit un peu plus acceuillant que les catacombes, il ne l'est pas de beaucoup."
-        puts "Vous êtes ainsi pris d'un sentiment de mal-aise dans ce lieu semblant porter le poids d'une histoire sombre."
-    end
-
-    def self.get_safe_room
-        return rand(1..3) > 2
-    end
-
-    def self.get_loot()
-        loot = Array.new()
-        if rand(1..20) == 1
-            puts [
+    ]
+    SAFE_CHANCES = 66
+    LOOT = [
+        Loot.new(
+            [
                 "Vous voyez une potion de soin posée sur une table au coté d'outils divers.",
                 "Vous trouvez une potion de soin rangée dans une meuble.",
                 "Vous remarquez une potion de soin oubliée au sol au coin de la pièce."
-            ].sample
-            loot.push(HealthPotion.new(rand(5..30)))
-        end
-        if rand(1..3) == 1
-            puts "Vous remarquez des bagnes que vous pouvez déchirer afin de créer des bandages."
-            loot.push(Bandage.new())
-        end
-        if rand(1..20) == 1
-            puts "Vous remarquez une clef accrochée à un des murs."
-            loot.push(PrisonKey.new())
-        end
-        return loot
-    end
-
-    def self.get_next(player_level)
-        if rand(50) == 1
-            return BossCell.new(@player)
-        else
-            return OldDungeon
-        end
-    end
+            ],
+            5,
+            HealthPotion,
+            [5, 30]
+        ),
+        Loot.new(
+            ["Vous remarquez des bagnes que vous pouvez déchirer afin de créer des bandages."],
+            30,
+            Bandage
+        ),
+        Loot.new(
+            ["Vous remarquez une clef accrochée à un des murs."],
+            2,
+            PrisonKey
+        )
+    ]
+    MIN_EXITS = 0
+    MAX_EXITS = 2
+    TRANSITIONS = [
+        BiomeTransition.new(
+            [
+                "Vous arrivez devant une grande porte métallique.",
+                "Malgré son grand âge et la rouille apparente, elle semble encore trop solide pour être forcée.",
+                "",
+                "En écoutant attentivement, vous pouvez entendre une respiration faiblarde transperçant subtilement la grande parroie metallique."
+            ],
+            5,
+            BossCell
+        )
+    ]
 end

@@ -1,16 +1,16 @@
 class Boss
-    def initialize(weakpoints, bodyparts, name)
-        @weakpoints = weakpoints
-        @bodyparts = bodyparts
-        @name = name
+    def initialize(boss)
+        @weakpoints = boss::WEAKPOINTS
+        @bodyparts = boss::BODYPARTS
+        @name = Name.new(boss)
         @initial_power = get_power
     end
 
-    def get_description()
-        return "#{@name.get_gendered_a} avec #{get_life} points de vies et #{get_damage} dégats."
+    def get_description
+        return "#{@name.get_gendered_a} avec #{get_life} points de vies et #{get_damage} dégats"
     end
 
-    def get_life()
+    def get_life
         life = 0
         max_life = 0
         for weakpoint in @weakpoints do
@@ -20,7 +20,7 @@ class Boss
         return "#{life}/#{max_life}"
     end
 
-    def get_damage()
+    def get_damage
         damage = 0
         for bodypart in @bodyparts do
             damage += bodypart.get_damage
@@ -28,11 +28,11 @@ class Boss
         return damage
     end
 
-    def get_name()
+    def get_name
         return @name
     end
 
-    def get_power()
+    def get_power
         power = 0
         nb_bodyparts = 0
         for bodypart in @bodyparts do
@@ -41,25 +41,30 @@ class Boss
         end
         health = 0
         for weakpoint in @weakpoints do
-            health += 1
+            health += weakpoint.get_max_life
         end
-        return power + health
+        return power + (health * nb_bodyparts)
     end
 
-    def get_xp()
+    def get_xp
         return @initial_power
     end
 
-    def get(bodypart)
+    def get(part_id)
         for currentBodypart in @bodyparts do
-            if currentBodypart == bodypart
-                return bodypart
+            if currentBodypart.is?(part_id)
+                return currentBodypart
+            end
+        end
+        for currentWeakpoint in @weakpoints do
+            if currentWeakpoint.is?(part_id)
+                return currentWeakpoint
             end
         end
         return nil
     end
 
-    def is_dead()
+    def is_dead
         for weakpoint in @weakpoints do
             if not weakpoint.is_dead
                 return false

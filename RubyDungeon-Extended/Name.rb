@@ -1,18 +1,12 @@
 class Name
     VOWELS = ['a', 'à', 'e', 'é', 'è', 'i', 'î', 'o', 'ô', 'u', 'û']
 
-    def initialize(vocabulary, female = nil)
-        if vocabulary.is_a? String
-            vocabulary = args
-            @female = vocabulary.is_female
-            if (@female)
-                @denomination = generate(vocabulary::FEMALE)
-            else
-                @denomination = generate(vocabulary::MALE)
-            end
+    def initialize(vocabulary)
+        @female = rand(1..100) <= vocabulary::FEMALE_CHANCES
+        if (@female)
+            @denomination = generate(vocabulary::FEMALE)
         else
-            @denomination = vocabulary
-            @female = female
+            @denomination = generate(vocabulary::MALE)
         end
     end
 
@@ -60,11 +54,10 @@ class Name
 
     def generate(gendered_vocabulary)
         name = gendered_vocabulary::NAMES.sample
-        puts "name of gendered_vocabulary is #{name}"
-        if (([true, false, false].sample) && (gendered_vocabulary::PREFIXES != nil))
+        if (([true, false, false].sample) && (gendered_vocabulary.const_defined?(:PREFIXES)))
             name = "#{gendered_vocabulary::PREFIXES.sample} #{name}"
         end
-        if (([true, false].sample) && (gendered_vocabulary::SUFFIXES != nil))
+        if (([true, false].sample) && (gendered_vocabulary.const_defined?(:SUFFIXES)))
             name = "#{name} #{gendered_vocabulary::SUFFIXES.sample}"
         end
         return name
