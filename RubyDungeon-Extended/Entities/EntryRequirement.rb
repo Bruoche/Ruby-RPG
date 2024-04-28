@@ -1,6 +1,6 @@
 class EntryRequirement
-    def initialize(ask_entry, entry_message, no_entry_message, impossible_entry_message, required_items, once = true)
-        @ask_enter = ask_entry
+    def initialize(ask_enter, entry_message, no_entry_message, impossible_entry_message, required_items, once = true)
+        @ask_enter = ask_enter
         @entry_message = entry_message
         @no_entry_message = no_entry_message
         @impossible_entry_message = impossible_entry_message

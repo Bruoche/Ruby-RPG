@@ -48,7 +48,7 @@ class LostKnight
     BODYPARTS = [
         Bodypart.new(
             BaseStats::BASE_HEALTH.div(2) + POWER_BONUS,
-            BaseStats::BASE_STRENGTH.div(3) * 2 + POWER_BONUS,
+            1 + POWER_BONUS/2,
             LostKnightLeftArm,
             "vous met un coup de coude",
             [],
@@ -56,7 +56,7 @@ class LostKnight
         ),
         Bodypart.new(
             BaseStats::BASE_HEALTH.div(2) + POWER_BONUS,
-            BaseStats::BASE_STRENGTH + POWER_BONUS,
+            BaseStats::BASE_STRENGTH + POWER_BONUS/2,
             LostKnightRightArm,
             "vous assène un coup d'épée.",
             [
@@ -67,7 +67,7 @@ class LostKnight
     ]
 
     def self.slash(target, damage, boss)
-        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+        puts "Le chevalier assène un coup d'épée puissant avec le seul objectif de trancher son ennemi."
         target.hurt(Attack.new(rand(damage..damage*2), Attack::PHYSIC_TYPE))
     end
 
@@ -97,7 +97,7 @@ class LostKnight
 
     def self.death(name, boss)
         puts "Le casque #{boss.get_name.get_gendered_of} s'enfonce sous vos coups,"
-        puts "faisant raisonner un craquement sinistre en son coeur."
+        puts "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur."
         puts
         puts "Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement."
     end

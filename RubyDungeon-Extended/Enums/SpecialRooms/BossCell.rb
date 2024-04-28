@@ -12,15 +12,15 @@ class BossCell < Biome
             "Essayer la clef de la prison sur la serrure ?",
             [
                 "Vous utilisez la clef de la prison afin d'ouvrir la grande porte.",
-                "Vous poussez sur la porte, ses gonds rouillé vous donnant une résistance forte.",
-                "En y mettant toutes vos forces, vous parvenez à forcer la porte ouverte.",
+                "Vous poussez sur la porte, ses gonds rouillés vous donnant du retord.",
+                "En y mettant toutes vos forces, vous parvenez néanmoins à forcer la porte ouverte.",
                 "",
                 "Lorsque vous pénétrez dans ce qui semble être une cellule de prison,",
-                "Vous pouvez voir au fond de la salle obscure un chevalier à l'armure endomagé par les batailles et l'age",
+                "Vous pouvez voir au fond de la salle obscure un chevalier à l'armure endomagée par les batailles et l'age",
                 "A peine couverte par les fins lambeau de ce qui devait être un noble surcôt."
             ],
             [
-                "Vous décidez qu'il ne vaut probablement mieux pas prendre le risque d'ouvrir la porte",
+                "Vous décidez qu'il ne vaut probablement mieux ne pas prendre le risque d'ouvrir la porte",
                 "Et décidez donc de revenir sur vos pas."
             ],
             [
