@@ -109,8 +109,8 @@ class Pack
                 return false
             end
         else
-            hurt(0, attack)[:dead]
-            return true
+            attacked = hurt(0, attack)[:attacked]
+            return attacked
         end
     end
 

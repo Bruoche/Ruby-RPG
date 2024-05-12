@@ -62,7 +62,7 @@ class LostKnight
     ]
 
     def self.slash(target, damage, boss)
-        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+        puts "Le chevalier assène un coup d'épée puissant avec le seul objectif de trancher son ennemi."
         target.hurt(Attack.new(rand(damage..damage*2), Attack::PHYSIC_TYPE))
     end
 
@@ -92,7 +92,7 @@ class LostKnight
 
     def self.death(name, boss)
         puts "Le casque #{boss.get_name.get_gendered_of} s'enfonce sous vos coups,"
-        puts "faisant raisonner un craquement sinistre en son coeur."
+        puts "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur."
         puts
         puts "Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement."
     end
