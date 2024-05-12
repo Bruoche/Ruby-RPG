@@ -1,11 +1,11 @@
 class EntryRequirement
-    def initialize(ask_entry, entry_message, no_entry_message, impossible_entry_message, required_items, once = true)
-        @ask_enter = ask_entry
-        @entry_message = entry_message
-        @no_entry_message = no_entry_message
-        @impossible_entry_message = impossible_entry_message
-        @required_items = required_items
-        @require_once = once
+    def initialize(biomeRequirement)
+        @ask_enter = biomeRequirement::ENTRY_QUESTION
+        @entry_message = biomeRequirement::ENTRY_MESSAGE
+        @no_entry_message = biomeRequirement::NO_ENTRY_MESSAGE
+        @impossible_entry_message = biomeRequirement::IMPOSSIBLE_ENTRY_MESSAGE
+        @required_items = biomeRequirement::REQUIRED_ITEMS
+        @require_once = biomeRequirement::ONCE
         @ignored = false
     end
 

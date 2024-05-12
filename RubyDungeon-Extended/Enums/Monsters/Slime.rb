@@ -23,6 +23,7 @@ module SlimeM
 end
 
 class Slime
+    IS_BOSS = false
     MALE = SlimeM
     FEMALE_CHANCES = 0
     BASE_HEALTH = BaseStats::BASE_HEALTH

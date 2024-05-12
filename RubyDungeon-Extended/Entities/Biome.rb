@@ -33,7 +33,7 @@ class Biome
         return Array.new(rand(1..nb_monsters_max))
     end
 
-    def self.get_loot()
+    def self.get_loot
         loots = Array.new()
         for loot in self::LOOT
             if loot.dropped?
@@ -41,6 +41,14 @@ class Biome
             end
         end
         return loots
+    end
+
+    def self.get_entry_requirements
+        requirements = Array.new()
+        for requirement in self::ENTRY_REQUIREMENTS
+            requirements.push(EntryRequirement.new(requirement))
+        end
+        return requirements
     end
 
     def self.get_next(player_level)

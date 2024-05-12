@@ -10,6 +10,12 @@ class Pack
                 monster_health = get_random_stat(monster_type::BASE_HEALTH, monsters.length, difficulty_bonus)
                 monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
                 monster = Monster.new(monster_health, monster_damage, Name.new(monster_type), "vous frappe")
+            else
+                if monster::IS_BOSS == false
+                    monster = Monster.new(monster)
+                else
+                    monster = Boss.new(monster)
+                end
             end
             @monsters.push(monster)
             @initial_monsters.push(monster)

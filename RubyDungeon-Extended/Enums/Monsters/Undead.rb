@@ -48,6 +48,7 @@ end
 
 
 class Undead
+    IS_BOSS = false
     MALE = UndeadM
     FEMALE = UndeadF
     FEMALE_CHANCES = 25

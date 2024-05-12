@@ -16,54 +16,49 @@ end
 
 class LostKnightHead
     ID = "head"
+    HEALTH = BaseStats::BASE_HEALTH * 3
     FEMALE = LostKnightHeadF
     FEMALE_CHANCES = 100
+    DEATH_EVENT = -> (head, boss) {LostKnight.death(head, boss)}
 end
 
 class LostKnightLeftArm
     ID = "left_arm"
+    HEALTH = BaseStats::BASE_HEALTH.div(2)
+    DAMAGE = BaseStats::BASE_STRENGTH.div(3) * 2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
+    BASE_MOVE = "vous met un coup de coude"
+    SPECIAL_MOVES = []
+    DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
 end
 
 class LostKnightRightArm
     ID = "right_arm"
+    HEALTH = BaseStats::BASE_HEALTH.div(2)
+    DAMAGE = BaseStats::BASE_STRENGTH
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
+    BASE_MOVE = "vous assène un coup d'épée."
+    SPECIAL_MOVES = [
+        SpecialMove.new(25, -> (target, damage, boss) {LostKnight.slash(target, damage, boss)})
+    ]
+    DEATH_EVENT = -> (arm, boss) {LostKnight.main_arm_loss(arm, boss)}
 end
 
 class LostKnight
+    IS_BOSS = true
     EXPECTED_LEVEL = 10
     AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
     POWER_BONUS = EXPECTED_LEVEL * BaseStats::NB_STATS_PER_LEVEL * AMOUNT_BONUS
     MALE = LostKnightM
     FEMALE_CHANCES = 0
     WEAKPOINTS = [
-        Weakpoint.new(
-            BaseStats::BASE_HEALTH * 3 + POWER_BONUS,
-            LostKnightHead,
-            -> (head, boss) {death(head, boss)}
-        )
+        LostKnightHead
     ]
     BODYPARTS = [
-        Bodypart.new(
-            BaseStats::BASE_HEALTH.div(2) + POWER_BONUS,
-            BaseStats::BASE_STRENGTH.div(3) * 2 + POWER_BONUS,
-            LostKnightLeftArm,
-            "vous met un coup de coude",
-            [],
-            -> (arm, boss) {limb_loss(arm, boss)}
-        ),
-        Bodypart.new(
-            BaseStats::BASE_HEALTH.div(2) + POWER_BONUS,
-            BaseStats::BASE_STRENGTH + POWER_BONUS,
-            LostKnightRightArm,
-            "vous assène un coup d'épée.",
-            [
-                SpecialMove.new(25, -> (target, damage, boss) {slash(target, damage, boss)})
-            ],
-            -> (arm, boss) {main_arm_loss(arm, boss)}
-        ),
+        LostKnightLeftArm,
+        LostKnightRightArm
     ]
 
     def self.slash(target, damage, boss)

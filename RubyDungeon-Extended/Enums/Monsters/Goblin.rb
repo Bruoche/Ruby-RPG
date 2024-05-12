@@ -60,6 +60,7 @@ end
 
 
 class Goblin
+    IS_BOSS = false
     FEMALE = GoblinF
     MALE = GoblinM
     FEMALE_CHANCES = 50

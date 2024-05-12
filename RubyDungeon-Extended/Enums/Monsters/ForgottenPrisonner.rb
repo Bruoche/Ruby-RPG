@@ -46,6 +46,7 @@ end
 
 
 class ForgottenPrisonner
+    IS_BOSS = false
     FEMALE = ForgottenPrisonnerF
     MALE = ForgottenPrisonnerM
     FEMALE_CHANCES = 50

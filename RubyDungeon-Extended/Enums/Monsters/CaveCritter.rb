@@ -24,6 +24,7 @@ module CaveCritterF
 end
 
 class CaveCritter
+    IS_BOSS = false
     FEMALE = CaveCritterF
     FEMALE_CHANCES = 100
     BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)

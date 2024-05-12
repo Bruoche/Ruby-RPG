@@ -1,7 +1,13 @@
 class Boss
     def initialize(boss)
-        @weakpoints = boss::WEAKPOINTS
-        @bodyparts = boss::BODYPARTS
+        @weakpoints = Array.new
+        for weakpoint in boss::WEAKPOINTS
+            @weakpoints.push(Weakpoint.new(weakpoint, boss::POWER_BONUS.div(boss::WEAKPOINTS.length)))
+        end
+        @bodyparts = Array.new
+        for bodypart in boss::BODYPARTS
+            @bodyparts.push(Bodypart.new(bodypart, boss::POWER_BONUS.div(boss::BODYPARTS.length)))
+        end
         @name = Name.new(boss)
         @initial_power = get_power
     end
@@ -47,7 +53,7 @@ class Boss
     end
 
     def get_xp
-        return @initial_power
+        return @initial_power * 2
     end
 
     def get(part_id)

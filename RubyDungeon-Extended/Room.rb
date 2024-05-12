@@ -13,11 +13,12 @@ class Room
         @adjacent_rooms[0] = precedent_room
         @precedent_room = 0
         @objects = nil
+        @requirements = @biome.get_entry_requirements
     end
 
     def enter()
         @arrival = true
-        for requirement in @biome::ENTRY_REQUIREMENTS
+        for requirement in @requirements
             if requirement.ignored?
                 return room_action
             else

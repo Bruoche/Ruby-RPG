@@ -1,9 +1,9 @@
 class Weakpoint
-    def initialize(life, name, death_event)
-        @id = name::ID
-        @lifebar = Lifebar.new(life)
-        @name = Name.new(name)
-        @death_event = death_event
+    def initialize(bossWeakpoint, power_bonus)
+        @id = bossWeakpoint::ID
+        @lifebar = Lifebar.new(bossWeakpoint::HEALTH + power_bonus)
+        @name = Name.new(bossWeakpoint)
+        @death_event = bossWeakpoint::DEATH_EVENT
     end
 
     def is?(id)

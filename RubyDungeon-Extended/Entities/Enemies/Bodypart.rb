@@ -1,9 +1,14 @@
 class Bodypart
-    def initialize(life, damage, name, basic_attack, special_moves, death_event)
-        @id = name::ID
-        @actor = Monster.new(life, damage, Name.new(name), basic_attack)
-        @special_moves = special_moves
-        @death_event = death_event
+    def initialize(bossBodypart, power_bonus)
+        @id = bossBodypart::ID
+        @actor = Monster.new(
+            bossBodypart::HEALTH + power_bonus,
+            bossBodypart::DAMAGE + power_bonus,
+            Name.new(bossBodypart),
+            bossBodypart::BASE_MOVE
+        )
+        @special_moves = bossBodypart::SPECIAL_MOVES
+        @death_event = bossBodypart::DEATH_EVENT
     end
 
     def is?(id)
