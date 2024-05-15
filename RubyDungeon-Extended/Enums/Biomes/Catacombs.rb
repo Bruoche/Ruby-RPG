@@ -65,7 +65,7 @@ class Catacombs < Biome
     LOOT = [
         Loot.new(
             ["Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."],
-            80,
+            40,
             Bandage
         )
     ]

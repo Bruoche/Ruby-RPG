@@ -65,11 +65,11 @@ class Entrance < Biome
             ],
             2,
             HealthPotion,
-            [5, 10]
+            [5, 20]
         ),
         Loot.new(
             ["Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."],
-            30,
+            15,
             Bandage
         )
     ]

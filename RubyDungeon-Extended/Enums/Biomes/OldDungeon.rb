@@ -74,11 +74,11 @@ class OldDungeon < Biome
             ],
             5,
             HealthPotion,
-            [5, 30]
+            [20, 75]
         ),
         Loot.new(
             ["Vous remarquez des bagnes que vous pouvez déchirer afin de créer des bandages."],
-            30,
+            15,
             Bandage
         ),
         Loot.new(
