@@ -124,7 +124,7 @@ class Boss
         target.hurt(attack)
         if target.is_dead
             target.death_event(self)
-            targets.delete(target)
+            targets.delete_at(targets.index(target))
             return true
         end
         return false

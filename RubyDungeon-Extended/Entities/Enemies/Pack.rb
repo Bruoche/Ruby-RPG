@@ -87,7 +87,7 @@ class Pack
     def are_dead()
         for monster in @monsters do
             if (monster.is_dead)
-                @monsters.delete(monster)
+                @monsters.delete_at(@monsters.index(monster))
             end
         end
         return @monsters.length == 0
@@ -159,7 +159,7 @@ class Pack
         else
             if monster.is_dead
                 puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
-                @monsters.delete(monster)
+                @monsters.delete_at(index)
                 response[:dead] = true
             end
         end

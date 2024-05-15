@@ -51,7 +51,7 @@ class Inventory
     def use(item, target)
         used = item.use(target)
         if item.is_destroyed()
-            @content.delete(item)
+            @content.delete_at(@content.index(item))
         end
         return used
     end

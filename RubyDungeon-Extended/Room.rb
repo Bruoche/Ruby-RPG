@@ -197,7 +197,7 @@ class Room
                     searched = true
                     choosen_object = @objects[choosen_index]
                     @player.get_new_item(choosen_object)
-                    @objects.delete(choosen_object)
+                    @objects.delete_at(choosen_index)
                     if @objects.length == 0
                         return searched
                     end
