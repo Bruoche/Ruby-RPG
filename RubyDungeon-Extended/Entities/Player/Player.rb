@@ -9,7 +9,6 @@ class Player
         @agility =              player_data[:agility].to_i
         @level =                player_data[:level].to_i
         @current_xp =           player_data[:current_xp].to_i
-        @next_level =           player_data[:next_level].to_i
     end
 
     def get_save_data()
@@ -21,13 +20,12 @@ class Player
             "agility": @agility,
             "inventory": @inventory.get_save_data,
             "level": @level,
-            "current_xp": @current_xp,
-            "next_level": @next_level
+            "current_xp": @current_xp
         }
     end
 
     def get_full_status()
-        return "Vous êtes un.e aventurier.e de niveau #{@level} (#{@current_xp}/#{@next_level}).\n" + get_status
+        return "Vous êtes un.e aventurier.e de niveau #{@level} (#{@current_xp}/#{required_xp}).\n" + get_status
     end
 
     def get_status()
@@ -36,6 +34,26 @@ class Player
 
     def get_level()
         return @level
+    end
+
+    def required_xp()
+        desired_level = @level + 1
+        puts "desired level = #{desired_level}"
+        nb_monsters_max = 1 + @level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+        puts "expected max monsters = #{nb_monsters_max}"
+        requirement_increase = Math::log10(desired_level*10).to_i
+        puts "requirement increase = #{requirement_increase}"
+        potential_health = get_potential_stat(BaseStats::BASE_HEALTH, BaseStats::HEALTH_UPGRADE_PER_LEVEL)
+        puts "potential_health = #{potential_health}"
+        potential_strength = get_potential_stat(BaseStats::BASE_STRENGTH, BaseStats::STRENGTH_UPGRADE_PER_LEVEL)
+        puts "potential_strength = #{potential_strength}"
+        potential_power = potential_health * potential_strength * nb_monsters_max
+        puts "potential power = #{potential_power}"
+        monster_pack_bonus = potential_power.div(10) * (nb_monsters_max-1)
+        puts "monster pack bonus = #{monster_pack_bonus}"
+        first_levels_increase = ((100*desired_level).round - 100)
+        puts "first level increase = #{first_levels_increase}"
+        return ((potential_power + monster_pack_bonus) * requirement_increase) + first_levels_increase
     end
 
     def get_escape_chances(monsters_power)
@@ -103,11 +121,10 @@ class Player
 
     def get_xp(amount)
         @current_xp += amount
-        while (@current_xp >= @next_level)
+        while (@current_xp >= required_xp)
             puts "Niveau supérieur !"
+            @current_xp -= required_xp
             @level += 1
-            @current_xp -= @next_level
-            @next_level *= 2
             stat_up(BaseStats::NB_STATS_PER_LEVEL + (@level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER + 1)))
             @lifebar.heal(@lifebar.get_missing_life)
         end
@@ -147,5 +164,11 @@ class Player
                 end
             end
         end
+    end
+
+    private
+
+    def get_potential_stat(base_stat, increase_rate)
+        return base_stat + (@level * BaseStats::NB_STATS_PER_LEVEL.div(2) * increase_rate + 1).div(2)
     end
 end
