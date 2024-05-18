@@ -38,22 +38,13 @@ class Player
 
     def required_xp()
         desired_level = @level + 1
-        puts "desired level = #{desired_level}"
         nb_monsters_max = 1 + @level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
-        puts "expected max monsters = #{nb_monsters_max}"
-        requirement_increase = Math::log10(desired_level*10).to_i
-        puts "requirement increase = #{requirement_increase}"
         potential_health = get_potential_stat(BaseStats::BASE_HEALTH, BaseStats::HEALTH_UPGRADE_PER_LEVEL)
-        puts "potential_health = #{potential_health}"
         potential_strength = get_potential_stat(BaseStats::BASE_STRENGTH, BaseStats::STRENGTH_UPGRADE_PER_LEVEL)
-        puts "potential_strength = #{potential_strength}"
         potential_power = potential_health * potential_strength * nb_monsters_max
-        puts "potential power = #{potential_power}"
         monster_pack_bonus = potential_power.div(10) * (nb_monsters_max-1)
-        puts "monster pack bonus = #{monster_pack_bonus}"
         first_levels_increase = ((100*desired_level).round - 100)
-        puts "first level increase = #{first_levels_increase}"
-        return ((potential_power + monster_pack_bonus) * requirement_increase) + first_levels_increase
+        return potential_power + monster_pack_bonus + first_levels_increase
     end
 
     def get_escape_chances(monsters_power)
@@ -125,7 +116,7 @@ class Player
             puts "Niveau supérieur !"
             @current_xp -= required_xp
             @level += 1
-            stat_up(BaseStats::NB_STATS_PER_LEVEL + (@level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER + 1)))
+            stat_up()
             @lifebar.heal(@lifebar.get_missing_life)
         end
     end
@@ -138,10 +129,10 @@ class Player
         @inventory.ask_use(self)
     end
 
-    def stat_up(nb_stats)
-        for i in 1..nb_stats do
+    def stat_up()
+        for i in 1..nb_stats_up do
             loop do
-                puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats})"
+                puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats_up})"
                 puts "1) Vie            (#{@lifebar.get_max_life} -> #{@lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
                 puts "2) Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
                 puts "3) Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
@@ -168,7 +159,11 @@ class Player
 
     private
 
+    def nb_stats_up(level = @level)
+        return BaseStats::NB_STATS_PER_LEVEL + (level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER))
+    end
+
     def get_potential_stat(base_stat, increase_rate)
-        return base_stat + (@level * BaseStats::NB_STATS_PER_LEVEL.div(2) * increase_rate + 1).div(2)
+        return base_stat + (@level * increase_rate.div(2) * nb_stats_up.div(2) + 1).div(2)
     end
 end
