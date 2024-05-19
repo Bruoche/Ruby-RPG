@@ -48,17 +48,23 @@ class Player
     end
 
     def get_escape_chances(monsters_power)
-		spot_risk = (monsters_power.div(10) - @agility) + 1
-        spot_risk = (spot_risk*100)/(monsters_power.div(10) + 1)
+        puts "agility = #{@agility}"
+        puts "monster power = #{monsters_power}"
+        puts "stealth_score = #{stealth_score}"
+        if (monsters_power == 0)
+            return 100
+        end
+		spot_risk = (monsters_power - stealth_score)
+        spot_risk = (spot_risk*100)/(monsters_power)
         if spot_risk <= 0
             return 100
         end
 		return 100 - spot_risk
-	end
+	  end
 
     def can_escape(monsters_power)
-        perception_score = rand(monsters_power.div(10) + 1)
-        return perception_score < @agility
+        perception_score = rand(monsters_power + 1)
+        return perception_score < stealth_score
     end
 
     def have(item)
@@ -158,6 +164,10 @@ class Player
     end
 
     private
+
+    def stealth_score
+        return (@agility**2).div(2)
+    end
 
     def nb_stats_up(level = @level)
         return BaseStats::NB_STATS_PER_LEVEL + (level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER))
