@@ -48,9 +48,6 @@ class Player
     end
 
     def get_escape_chances(monsters_power)
-        puts "agility = #{@agility}"
-        puts "monster power = #{monsters_power}"
-        puts "stealth_score = #{stealth_score}"
         if (monsters_power == 0)
             return 100
         end
