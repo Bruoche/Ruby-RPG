@@ -5,7 +5,14 @@ class SaveManager
     BASE_SETTINGS = ""
 
     def self.get_new_id()
-        # TODO make that shit
+        i = 0
+        loop do
+            if (get_saves.include? "#{i}#{EXTENSION}")
+                return i
+            else
+                i++
+            end
+        end
     end
 
     def self.save(variables, file_name)
