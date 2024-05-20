@@ -3,6 +3,7 @@ class SaveManager
     EXTENSION = ".save"
     SETTING = "settings"
     BASE_SETTINGS = ""
+
     def self.save(variables, file_name)
         if (file_name == "")
             file_name = "nameless"
@@ -16,10 +17,11 @@ class SaveManager
     end
 
     def self.load(file_name)
-        if File.file?("#{SAVE_DIRECTORY}/#{file_name}#{EXTENSION}")
-            return Hash[File.read("#{SAVE_DIRECTORY}/#{file_name}#{EXTENSION}").split("\n").map{|i|i.split(': ')}].transform_keys(&:to_sym)
+        path = "#{SAVE_DIRECTORY}/#{file_name}#{EXTENSION}"
+        if File.file?(path)
+            return Hash[File.read(path).split("\n").map{|i|i.split(': ')}].transform_keys(&:to_sym)
         else
-            puts "Aucun fichier nommé #{file_name}.save n'a pu être trouvé"
+            puts "Aucun fichier nommé #{file_name}#{EXTENSION} n'a pu être trouvé"
         end
     end
 

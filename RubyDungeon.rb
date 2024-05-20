@@ -12,5 +12,6 @@ Dir["RubyDungeon-Extended/*/Biomes/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*/*.rb"].each {|file| require(file)}
 
 require "fileutils"
+require "time"
 
 Game.new()

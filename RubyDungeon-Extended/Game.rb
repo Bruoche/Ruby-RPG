@@ -64,7 +64,18 @@ class Game
         when "2"
             saves = SaveManager.get_saves()
             if saves != nil
-                save_index = Narrator.ask("Quelle sauvegarde charger ?", saves, -> (save){if save != nil then return save else return "Retour..." end})
+                save_index = Narrator.ask_complex_element(
+                    "Quelle sauvegarde charger ?",
+                    saves,
+                    -> (save, index){
+                        if save != nil
+                            save_data = SaveManager.load(save)
+                            ASCIIPrinter.showCard(save_data, index)
+                        else
+                            puts "Retour..."
+                        end
+                    }
+                )
                 if save_index != nil
                     @player = Player.new(SaveManager.load(saves[save_index]))
                     Narrator.introduction_return

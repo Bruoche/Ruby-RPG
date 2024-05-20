@@ -126,21 +126,15 @@ class Narrator
     end
 
     def self.ask(question, options, to_string, return_option = nil)
-        options = [return_option].concat options
-        loop do
-            puts question
-            for i in 0..(options.length - 1)
-                puts "      #{i}) #{to_string.call(options[i]).capitalize}"
-            end
-            input = user_input.to_i
-            if input.between?(1, options.length - 1)
-                return input - 1
-            elsif input == 0
-                return return_option
-            else
-                unsupported_choice_error
-            end
-        end
+        ask_general(question, options, to_string, return_option,
+            -> (element, i, to_string) {puts "      #{i}) #{to_string.call(element).capitalize}"}
+        )
+    end
+
+    def self.ask_complex_element(question, options, print, return_option = nil)
+        ask_general(question, options, print, return_option,
+            -> (element, i, print) {print.call(element, i)}
+        )
     end
 
     def self.ask_if_fight(escape_chances)
@@ -184,5 +178,25 @@ class Narrator
             puts
         end
         return answer
+    end
+
+    private
+
+    def self.ask_general(question, options, to_string, return_option, print_operation)
+        options = [return_option].concat options
+        loop do
+            puts question
+            for i in 0..(options.length - 1)
+                print_operation.call(options[i], i, to_string)
+            end
+            input = user_input.to_i
+            if input.between?(1, options.length - 1)
+                return input - 1
+            elsif input == 0
+                return return_option
+            else
+                unsupported_choice_error
+            end
+        end
     end
 end

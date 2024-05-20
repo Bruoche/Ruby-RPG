@@ -1,17 +1,26 @@
 class Player
     def initialize(player_data)
         @inventory = Inventory.new()
-        @inventory.load(        player_data[:inventory])
-        @name =                 player_data[:name]
-        @lifebar = Lifebar.new( player_data[:health].to_i)
-        @strength =             player_data[:strength].to_i
-        @intelligence =         player_data[:intelligence].to_i
-        @agility =              player_data[:agility].to_i
-        @level =                player_data[:level].to_i
-        @current_xp =           player_data[:current_xp].to_i
+        @inventory.load(            player_data[:inventory])
+        @name =                     player_data[:name]
+        @lifebar = Lifebar.new(     player_data[:health].to_i)
+        @strength =                 player_data[:strength].to_i
+        @intelligence =             player_data[:intelligence].to_i
+        @agility =                  player_data[:agility].to_i
+        @level =                    player_data[:level].to_i
+        @current_xp =               player_data[:current_xp].to_i
+        time_passed_saved =         player_data[:time_played]
+        if time_passed_saved == nil
+            @time_played = Time.new(0)
+        else
+            @time_played = Time.parse(time_passed_saved)
+        end
+        @creation_timestamp = Time.now
+        puts "loading playtime as #{@time_played}"
     end
 
     def get_save_data()
+        puts "saving playtime as #{@time_played + time_passed}"
         return {
             "name": @name,
             "health": @lifebar.get_max_life,
@@ -20,8 +29,13 @@ class Player
             "agility": @agility,
             "inventory": @inventory.get_save_data,
             "level": @level,
-            "current_xp": @current_xp
+            "current_xp": @current_xp,
+            "time_played": @time_played + time_passed
         }
+    end
+
+    def time_passed
+        return Time.now - @creation_timestamp
     end
 
     def get_full_status()
