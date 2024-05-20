@@ -1,5 +1,5 @@
 class Player
-    def initialize(player_data)
+    def initialize(player_data, savefile = nil)
         @inventory = Inventory.new()
         @inventory.load(            player_data[:inventory])
         @name =                     player_data[:name]
@@ -17,6 +17,11 @@ class Player
         end
         @creation_timestamp = Time.now
         puts "loading playtime as #{@time_played}"
+        @savefile = savefile
+    end
+
+    def get_save()
+        return @savefile
     end
 
     def get_save_data()

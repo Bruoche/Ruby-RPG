@@ -77,7 +77,8 @@ class Game
                     }
                 )
                 if save_index != nil
-                    @player = Player.new(SaveManager.load(saves[save_index]))
+                    save = saves[save_index]
+                    @player = Player.new(SaveManager.load(save), save)
                     Narrator.introduction_return
                     return true
                 else

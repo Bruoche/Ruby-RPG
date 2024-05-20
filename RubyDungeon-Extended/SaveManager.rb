@@ -4,6 +4,10 @@ class SaveManager
     SETTING = "settings"
     BASE_SETTINGS = ""
 
+    def self.get_new_id()
+        # TODO make that shit
+    end
+
     def self.save(variables, file_name)
         if (file_name == "")
             file_name = "nameless"

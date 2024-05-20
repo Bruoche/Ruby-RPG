@@ -1,16 +1,12 @@
 class ASCIIPrinter
-    PREFIX = "Assets/"
+    PREFIX = "RubyDungeon-Extended/Assets/"
     SMALL_SUFFIX = "_small"
     def self.print(image_name)
-        image_path = "RubyDungeon-Extended/Assets/#{image_name}"
+        image_path = "#{PREFIX}#{image_name}"
         if Settings.print_small
-            image_path += "_small"
+            image_path += SMALL_SUFFIX
         end
-        if File.file?(image_path)
-            puts File.readlines(image_path)
-        else
-            puts "      (aucune image \"#{image_path}\" n'a été trouvée)"
-        end
+        puts get_image(image_path)
     end
 
     def self.showCard(player_data, index)
@@ -43,5 +39,15 @@ class ASCIIPrinter
         puts "|    ▄╖▒█▓▄▄▒▒▒╖╓    |     Strength : #{strength}        Inteligence : #{intelligence}   |"
         puts "| ▄████▒░░░░░▒▒▒▒▓█▄ |                                                             |"
         puts "|____________________|_____________________________________________________________|"
+    end
+
+    private
+
+    def self.get_image(image_path)
+      if File.file?(image_path)
+          return File.readlines(image_path)
+      else
+          return "      (aucune image \"#{image_path}\" n'a été trouvée)"
+      end
     end
 end

@@ -27,13 +27,9 @@ class Exit
     end
 
     def ask_save()
-        puts "Quel nom donner à votre sauvegarde ?"
-        file_name = Narrator.user_input
-        saves = SaveManager.get_saves
-        if (saves != nil) && (saves.include?(file_name.downcase))
-            if not confirm_save()
-                return ask_save
-            end
+        file_name = @player.get_save
+        if (file_name == nil) || (not confirm_save())
+            return SaveManager.get_new_id
         end
         return file_name
     end
