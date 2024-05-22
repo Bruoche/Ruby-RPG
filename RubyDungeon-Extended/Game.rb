@@ -49,17 +49,11 @@ class Game
         puts "4) Quitter"
         case Narrator.user_input
         when "1"
-            @player = Player.new({
-                "name": "Adventurer",
-                "health": BaseStats::BASE_HEALTH,
-                "strength": BaseStats::BASE_STRENGTH,
-                "intelligence": BaseStats::BASE_INTELLIGENCE,
-                "agility": BaseStats::BASE_AGILITY,
-                "inventory": "",
-                "level": 0,
-                "current_xp": 0,
-                "next_level": 100
-            })
+            character_creator = CharacterCreator.new();
+            @player = character_creator.make_character;
+            if @player == nil
+                main_menu
+            end
             Narrator.introduction
             return true
         when "2"

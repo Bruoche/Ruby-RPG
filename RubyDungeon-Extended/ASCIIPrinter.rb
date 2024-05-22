@@ -1,6 +1,7 @@
 class ASCIIPrinter
     PREFIX = "RubyDungeon-Extended/Assets/"
     SMALL_SUFFIX = "_small"
+    EMPTY_INDEX = "     "
     def self.print(image_name)
         image_path = "#{PREFIX}#{image_name}"
         if Settings.print_small
@@ -9,14 +10,16 @@ class ASCIIPrinter
         puts get_image(image_path)
     end
 
-    def self.showCard(player_data, index)
-        index = index.to_s.rjust(4)
-        name =                     player_data[:name].ljust(50)
-        health =                   player_data[:health].ljust(10)
-        strength =                 player_data[:strength].ljust(10)
-        intelligence =             player_data[:intelligence].ljust(10)
-        agility =                  player_data[:agility].ljust(10)
-        level =                    player_data[:level].ljust(5)
+    def self.showCard(player_data, index = EMPTY_INDEX)
+        if (index != EMPTY_INDEX)
+            index = index.to_s.rjust(4) + '|'
+        end
+        name =                     player_data[:name].to_s.ljust(50)
+        health =                   player_data[:health].to_s.ljust(10)
+        strength =                 player_data[:strength].to_s.ljust(10)
+        intelligence =             player_data[:intelligence].to_s.ljust(10)
+        agility =                  player_data[:agility].to_s.ljust(10)
+        level =                    player_data[:level].to_s.ljust(5)
         time_passed_saved =        player_data[:time_played]
         if time_passed_saved == nil
             time_played = '000:00:00'
@@ -28,7 +31,7 @@ class ASCIIPrinter
             time_played = "#{hours}:#{minutes}:#{seconds}"
         end
         puts " __________________________________________________________________________________"
-        puts "|#{index}| #{name}| Time played : #{time_played} |"
+        puts "|#{index} #{name}| Time played : #{time_played} |"
         puts "|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|"
         puts "|     g▓█▓▒▒▒▒▒@,    |                                               Level : #{level} |"
         puts "|    ▒╣▒▒▄▄▄▄▄▄╫╣░   |                                                             |"

@@ -20,7 +20,6 @@ class Player
             end
         end
         @creation_timestamp = Time.now
-        puts "loading playtime as #{@time_played}"
         @savefile = savefile
     end
 
@@ -29,7 +28,6 @@ class Player
     end
 
     def get_save_data()
-        puts "saving playtime as #{@time_played + time_passed}"
         return {
             "name": @name,
             "health": @lifebar.get_max_life,
@@ -80,7 +78,7 @@ class Player
             return 100
         end
 		return 100 - spot_risk
-	  end
+	end
 
     def can_escape(monsters_power)
         perception_score = rand(monsters_power + 1)

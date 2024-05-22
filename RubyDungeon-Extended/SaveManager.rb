@@ -24,7 +24,7 @@ class SaveManager
             FileUtils.mkdir_p(save_directory)
         end
         write("#{SAVE_DIRECTORY}/#{file_name.downcase}#{EXTENSION}", variables)
-        puts "#{file_name} saved."
+        puts "#{variables[:name]} saved."
     end
 
     def self.load(file_name)
