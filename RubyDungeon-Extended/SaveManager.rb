@@ -7,10 +7,10 @@ class SaveManager
     def self.get_new_id()
         i = 0
         loop do
-            if (get_saves.include? "#{i}#{EXTENSION}")
-                return i
+            if (!(get_saves.include? i.to_s))
+                return i.to_s
             else
-                i++
+                i += 1
             end
         end
     end

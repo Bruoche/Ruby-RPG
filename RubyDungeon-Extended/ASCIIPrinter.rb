@@ -39,6 +39,7 @@ class ASCIIPrinter
         puts "|    ▄╖▒█▓▄▄▒▒▒╖╓    |     Strength : #{strength}        Inteligence : #{intelligence}   |"
         puts "| ▄████▒░░░░░▒▒▒▒▓█▄ |                                                             |"
         puts "|____________________|_____________________________________________________________|"
+        puts ""
     end
 
     private

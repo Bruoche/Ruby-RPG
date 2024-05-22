@@ -13,7 +13,11 @@ class Player
         if time_passed_saved == nil
             @time_played = Time.new(0)
         else
-            @time_played = Time.parse(time_passed_saved)
+            if time_passed_saved.kind_of? String
+                @time_played = Time.parse(time_passed_saved)
+            else
+                @time_played = time_passed_saved
+            end
         end
         @creation_timestamp = Time.now
         puts "loading playtime as #{@time_played}"

@@ -29,14 +29,14 @@ class Exit
     def ask_save()
         file_name = @player.get_save
         if (file_name == nil) || (not confirm_save())
+            Narrator.pause_text
             return SaveManager.get_new_id
         end
         return file_name
     end
 
     def confirm_save()
-        puts "Ce nom de fichier est déjà occupé."
-        puts "Souhaitez-vous l'écraser ? (Y/N)"
+        puts "Souhaitez-vous écraser votre ancienne sauvegarde ? (Y/N)"
         choice = Narrator.user_input.downcase
         if choice == "y"
             return true
@@ -44,6 +44,7 @@ class Exit
             return false
         else
             Narrator.unsupported_choice_error
+            return confirm_save()
         end
     end
 end

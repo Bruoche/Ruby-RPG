@@ -4,6 +4,7 @@ class Game
         if wanna_play
             loop do
                 @last_save = @player.get_save_data
+                @save_file = @player.get_save
                 survived = play
                 if not survived
                     wanna_play = ask_continue
@@ -72,7 +73,8 @@ class Game
                             save_data = SaveManager.load(save)
                             ASCIIPrinter.showCard(save_data, index)
                         else
-                            puts "Retour..."
+                            puts
+                            puts "0) Retour..."
                         end
                     }
                 )
@@ -134,7 +136,7 @@ class Game
     def ask_continue()
         case Narrator.ask_continue
         when "1"
-            @player = Player.new(@last_save)
+            @player = Player.new(@last_save, @save_file)
             return true
         when "2"
             return false
