@@ -1,4 +1,5 @@
 $:.unshift File.dirname($0)
+require "RubyDungeon-Extended/ASCIIPrinter.rb"
 Dir["RubyDungeon-Extended/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/Entities/*/*.rb"].each {|file| require(file)}

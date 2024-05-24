@@ -7,20 +7,21 @@ class ASCIIPrinter
         if Settings.print_small
             image_path += SMALL_SUFFIX
         end
-        puts get_image(image_path)
+        puts ASCIIPicture.new(image_path).get_ascii
     end
 
     def self.showCard(player_data, index = EMPTY_INDEX)
         if (index != EMPTY_INDEX)
             index = index.to_s.rjust(4) + '|'
         end
-        name =                     player_data[:name].to_s.ljust(50)
-        health =                   player_data[:health].to_s.ljust(10)
-        strength =                 player_data[:strength].to_s.ljust(10)
-        intelligence =             player_data[:intelligence].to_s.ljust(10)
-        agility =                  player_data[:agility].to_s.ljust(10)
-        level =                    player_data[:level].to_s.ljust(5)
-        time_passed_saved =        player_data[:time_played]
+        name =                      player_data[:name].to_s.ljust(50)
+        health =                    player_data[:health].to_s.ljust(10)
+        strength =                  player_data[:strength].to_s.ljust(10)
+        intelligence =              player_data[:intelligence].to_s.ljust(10)
+        agility =                   player_data[:agility].to_s.ljust(10)
+        level =                     player_data[:level].to_s.ljust(5)
+        time_passed_saved =         player_data[:time_played]
+        icon_data =              player_data[:picture]
         if time_passed_saved == nil
             time_played = '000:00:00'
         else
@@ -30,28 +31,23 @@ class ASCIIPrinter
             seconds = parsed_time.sec.to_s.rjust(2, '0')
             time_played = "#{hours}:#{minutes}:#{seconds}"
         end
+        icon = PlayerIcon.new
+        if icon_data != nil
+            icon.load(icon_data)
+        end
+        picture = icon.get_picture.get_ascii
         puts " __________________________________________________________________________________"
         puts "|#{index} #{name}| Time played : #{time_played} |"
         puts "|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|"
-        puts "|     g▓█▓▒▒▒▒▒@,    |                                               Level : #{level} |"
-        puts "|    ▒╣▒▒▄▄▄▄▄▄╫╣░   |                                                             |"
-        puts "|    ╟█▀▀████▀▀▓▌`   |                                                             |"
-        puts "|   ╬▓█▌▒▒█▒▒╣▒╣░¡   |     Health : #{health}          Agility : #{agility}       |"
-        puts "|   ╙▓█████▒▒▓█▌░'   |                                                             |"
-        puts "|     ▀██▓▒░▒██╜     |                                                             |"
-        puts "|    ▄╖▒█▓▄▄▒▒▒╖╓    |     Strength : #{strength}        Inteligence : #{intelligence}   |"
-        puts "| ▄████▒░░░░░▒▒▒▒▓█▄ |                                                             |"
+        puts "| #{picture[0]} |                                               Level : #{level} |"
+        puts "| #{picture[1]} |                                                             |"
+        puts "| #{picture[2]} |                                                             |"
+        puts "| #{picture[3]} |     Health : #{health}          Agility : #{agility}       |"
+        puts "| #{picture[4]} |                                                             |"
+        puts "| #{picture[5]} |                                                             |"
+        puts "| #{picture[6]} |     Strength : #{strength}        Inteligence : #{intelligence}   |"
+        puts "| #{picture[7]} |                                                             |"
         puts "|____________________|_____________________________________________________________|"
         puts ""
-    end
-
-    private
-
-    def self.get_image(image_path)
-      if File.file?(image_path)
-          return File.readlines(image_path)
-      else
-          return "      (aucune image \"#{image_path}\" n'a été trouvée)"
-      end
     end
 end
