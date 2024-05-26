@@ -1,7 +1,9 @@
 class Player
     def initialize(player_data, savefile = nil)
-        @inventory = Inventory.new()
+        @inventory = Inventory.new
         @inventory.load(            player_data[:inventory])
+        @picture = PlayerIcon.new
+        @picture.load(              player_data[:picture])
         @name =                     player_data[:name]
         @lifebar = Lifebar.new(     player_data[:health].to_i)
         @strength =                 player_data[:strength].to_i
@@ -34,10 +36,11 @@ class Player
             "strength": @strength,
             "intelligence": @intelligence,
             "agility": @agility,
-            "inventory": @inventory.get_save_data,
             "level": @level,
             "current_xp": @current_xp,
-            "time_played": @time_played + time_passed
+            "time_played": @time_played + time_passed,
+            "inventory": @inventory.get_save_data,
+            "picture": @picture.get_save_data
         }
     end
 

@@ -7,6 +7,8 @@ class CharacterCreator
 
     def make_character()
         ask_name
+        @picture = PlayerIcon.new
+        @picture.customize
         return creation_menu
     end
 
@@ -34,7 +36,8 @@ class CharacterCreator
             "inventory": "",
             "level": 0,
             "current_xp": 0,
-            "next_level": 100
+            "next_level": 100,
+            "picture": @picture.get_save_data
         }
     end
 
@@ -43,16 +46,21 @@ class CharacterCreator
         puts "Est-ce qui vous êtes ?"
         puts "  0) Retour au menu principal"
         puts "  1) Changer de nom"
-        puts "  2) Confirmer"
+        puts "  2) Changer d'apparence"
+        puts "  3) Confirmer"
         case Narrator.user_input
         when "0"
             return confirm_quit
         when "1"
             ask_name
-            creation_menu
         when "2"
+            @picture.customize
+        when "3"
             return make_player
+        else
+            Narrator.unsupported_choice_error
         end
+        creation_menu
     end
 
     def confirm_quit

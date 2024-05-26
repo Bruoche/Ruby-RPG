@@ -183,6 +183,9 @@ class Narrator
     private
 
     def self.ask_general(question, options, to_string, return_option, print_operation)
+        if options.is_a? Hash
+            return ask_hash(question, options, to_string, return_option, print_operation)
+        end
         options = [return_option].concat options
         loop do
             puts question
@@ -192,6 +195,24 @@ class Narrator
             input = user_input.to_i
             if input.between?(1, options.length - 1)
                 return input - 1
+            elsif input == 0
+                return return_option
+            else
+                unsupported_choice_error
+            end
+        end
+    end
+
+    def self.ask_hash(question, hash, to_string, return_option, print_operation)
+        options = [return_option].concat hash.keys
+        loop do
+            puts question
+            for i in 0..(options.length - 1)
+                print_operation.call(options[i], i, to_string)
+            end
+            input = user_input.to_i
+            if input.between?(1, options.length - 1)
+                return options[input]
             elsif input == 0
                 return return_option
             else
