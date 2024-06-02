@@ -22,7 +22,7 @@ class ASCIIPicture
             line.each_char.with_index(0) do |char, x|
                 if char != TRANSPARENT_CHARACTER
                     if @picture[y] == nil
-                        @picture[y] = []
+                        @picture[y] = ''
                     end
                     if @picture[y].length > x
                         @picture[y][x] = char

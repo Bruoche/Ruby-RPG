@@ -1,103 +1,158 @@
 class PlayerIcon
-    DEFAULT_PICTURE = 'default'
+    BACKGROUND = 'empty_frame'
     ASSETS_PATH = ASCIIPrinter::PREFIX + 'PlayerCharacter/'
+    BASE_FOLDER = 'Bases/'
     BROWS_FOLDER = 'Brows/'
     EARS_FOLDER = 'Ears/'
     EYES_FOLDER = 'Eyes/'
     MOUTHS_FOLDER = 'Mouths/'
     NOSES_FOLDER = 'Noses/'
     HAIRSTYLES_FOLDER = 'Hairstyles/'
-    BASE_NAME = 'base'
+    FRONT_FOLDER = 'Front/'
+    BACK_FOLDER = 'Back/'
     TONES = {
         'pale': 'Light/',
         'mate': 'Half/',
         'noire': 'Dark/'
+    }
+    SIZES = {
+        'maigre': 'thin',
+        'moyenne': 'medium',
+        'large': 'large'
     }
     EYES_COLOR = {
         'blanc': 'light',
         'clair': 'half',
         'sombre': 'dark'
     }
-    HAIRSTYLES = {
+    EARS = {
+        'moyennes': 'ears1',
+        'rondes': 'ears2',
+        'larges': 'ears3',
+        'plates': 'ears4'
+    }
+    HAIRSTYLES_FRONT = {
         'chauve': 'Bald/',
-        'court': 'Hair1/'
+        'calvicie': 'Hair16/',
+        'rasé': 'Hair17/',
+        'plaqués': 'Hair14/',
+        'attachés': 'Hair6/',
+        'court': 'Hair1/',
+        'pointes': 'Hair13/',
+        'frange 1': 'Hair2/',
+        'frange 2': 'Hair3/',
+        'frange lisse': 'Hair4/',
+        'frange rideau courte': 'Hair5/',
+        'frange rideau': 'Hair12/',
+        'couvre-yeux': 'Hair7/',
+        'couvre-oeuil': 'Hair8/',
+        'meches droites': 'Hair9/',
+        'meches diagonales': 'Hair10/',
+        'meches larges': 'Hair11/',
+        'crête': 'Hair15/'
+    }
+    HAIRSTYLES_BACK = {
+        'aucun': 'Bald/',
+        'très court': 'Hair8/',
+        'court': 'Hair9/',
+        'carré': 'Hair5/',
+        'carré long dégradé': 'Hair1/',
+        'cheveux longs lisses': 'Hair2/',
+        'cheveux longs épais': 'Hair7/',
+        'queue de cheval': 'Hair3/',
+        'couettes': 'Hair4/',
+        'chignon': 'Hair6/'
     }
     HAIR_COLORS = {
         'blanc': 'white',
-        'blond': 'light',
-        'clair': 'half',
+        'clair': 'light',
+        'sombre': 'half',
         'noirs': 'dark'
     }
 
     def initialize
         @skintone = 'pale'
-        @ears = 'ears1'
+        @corpulence = 'moyenne'
+        @ears = 'moyennes'
         @brows = 'brows1'
         @eyes = 'Eyes1/'
         @eye_color = 'sombre'
         @nose = 'nose1'
         @mouth = 'mouth1'
-        @hairstyle = 'court'
-        @hair_color = 'blond'
+        @hairstyle_front = 'court'
+        @hairstyle_back = 'aucun'
+        @hair_color = 'clair'
     end
 
     def get_picture
-        picture = setup_picture(TONES[@skintone.to_sym]+BASE_NAME)
-        picture.superpose(setup_picture(TONES[@skintone.to_sym]+EARS_FOLDER+@ears))
+        picture = setup_picture(BACKGROUND)
+        picture.superpose(setup_picture(HAIRSTYLES_FOLDER+BACK_FOLDER+HAIRSTYLES_BACK[@hairstyle_back.to_sym]+HAIR_COLORS[@hair_color.to_sym]))
+        picture.superpose(setup_picture(TONES[@skintone.to_sym]+EARS_FOLDER+EARS[@ears.to_sym]))
+        picture.superpose(setup_picture(TONES[@skintone.to_sym]+BASE_FOLDER+SIZES[@corpulence.to_sym]))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+BROWS_FOLDER+@brows))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+EYES_FOLDER+@eyes+EYES_COLOR[@eye_color.to_sym]))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+NOSES_FOLDER+@nose))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+MOUTHS_FOLDER+@mouth))
-        picture.superpose(setup_picture(HAIRSTYLES_FOLDER+HAIRSTYLES[@hairstyle.to_sym]+HAIR_COLORS[@hair_color.to_sym]))
+        picture.superpose(setup_picture(HAIRSTYLES_FOLDER+FRONT_FOLDER+HAIRSTYLES_FRONT[@hairstyle_front.to_sym]+HAIR_COLORS[@hair_color.to_sym]))
         return picture
     end
 
     def get_save_data
-        return "#{@skintone}; #{@ears}; #{@brows}; #{@eyes}; #{@eye_color}; #{@nose}; #{@mouth}; #{@hairstyle}; #{@hair_color}; "
+        return "#{@skintone}; #{@corpulence} ; #{@ears}; #{@brows}; #{@eyes}; #{@eye_color}; #{@nose}; #{@mouth}; #{@hairstyle_front}; #{@hairstyle_back}; #{@hair_color}; "
     end
 
     def load(data)
         if data != nil
             features = data.split("; ")
-            skintone = features[0]
-            if TONES.has_key? skintone.to_sym
-                @skintone = skintone
-            end
-            @ears = features[1]
-            @brows = features[2]
-            @eyes = features[3]
-            eye_color = features[4]
-            if EYES_COLOR.has_key? eye_color.to_sym
-                @eye_color = eye_color
-            end
-            @nose = features[5]
-            @mouth = features[6]
-            hairstyle = features[7]
-            if HAIRSTYLES.has_key? hairstyle.to_sym
-                @hairstyle = hairstyle
-            end
-            hair_color = features[8]
-            if HAIR_COLORS.has_key? hair_color.to_sym
-                @hair_color = hair_color
-            end
+            @i = 0;
+            @skintone = get_feature(features, TONES, @skintone)
+            @corpulence = get_feature(features, SIZES, @corpulence)
+            @ears = get_feature(features, EARS, @ears)
+            @brows = features[@i]
+            @i += 1
+            @eyes = features[@i]
+            @i += 1
+            @eye_color = get_feature(features, EYES_COLOR, @eye_color)
+            @nose = features[@i]
+            @i += 1
+            @mouth = features[@i]
+            @i += 1
+            @hairstyle_front = get_feature(features, HAIRSTYLES_FRONT, @hairstyle_front)
+            @hairstyle_back = get_feature(features, HAIRSTYLES_BACK, @hairstyle_back)
+            @hair_color = get_feature(features, HAIR_COLORS, @hair_color)
         end
+    end
+
+    def get_feature(features, possible_features, precedent_feature)
+        feature = features[@i]
+        @i += 1
+        if (feature != nil) && (possible_features.has_key? feature.to_sym)
+            return feature
+        end
+        return precedent_feature
     end
 
     def customize
         show
         puts "Quel élément souhaitez-vous modifier ?"
-        puts "0) Retour..."
+        puts "0) Valider l'apparence"
         puts "1) Complexion"
-        puts "2) Les yeux"
-        puts "3) Les cheveux"
+        puts "2) Corpulence"
+        puts "3) Les yeux"
+        puts "4) Les oreilles"
+        puts "5) Les cheveux"
         case Narrator.user_input
         when "0"
             return
         when "1"
             @skintone = choose_color(TONES, @skintone)
         when "2"
-            eyes_menu
+            @corpulence = choose(SIZES, @corpulence, "Quelle corpulence souhaitez-vous ?", "Conserver la corpulence")
         when "3"
+            eyes_menu
+        when "4"
+            @ears = choose(EARS, @ears, "Quelles oreilles souhaitez-vous ?", "Conserver les oreilles")
+        when "5"
             hair_menu
         else
             Narrator.unsupported_choice_error
@@ -134,13 +189,30 @@ class PlayerIcon
         when "0"
             return
         when "1"
-            @hairstyle = choose_feature(HAIRSTYLES, @hairstyle)
+            hairstyle_menu
         when "2"
             @hair_color = choose_color(HAIR_COLORS, @hair_color);
         else
             Narrator.unsupported_choice_error
         end
         hair_menu
+    end
+
+    def hairstyle_menu
+        show
+        puts "Quel portion de votre coupe de cheveux souhaitez-vous modifier ?"
+        puts "0) Retour..."
+        puts "1) L'avant"
+        puts "2) L'arrière"
+        case Narrator.user_input
+        when "0"
+            return
+        when "1"
+            @hairstyle_front = choose(HAIRSTYLES_FRONT, @hairstyle_front, "Quelle coupe souhaitez-vous ?", "Conserver la coupe")
+        when "2"
+            @hairstyle_back = choose(HAIRSTYLES_BACK, @hairstyle_back, "Quelle coupe souhaitez-vous ?", "Conserver la coupe")
+        end
+        hairstyle_menu
     end
 
     def show
