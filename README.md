@@ -23,3 +23,12 @@ Une fois dans l'onglet des paramètres, vous pouvez changer :
 - L'affichage en plein écran dans Démarrage > Taille au lancement
 - La police d'écriture dans Profils > Par défault > Apparence > Type de police
 - La taille de police dans Profils > Par défault > Apparence > Taille de police
+
+
+
+### Note pour les devs
+
+Pour la mise à jour du fichier éxécutable après modification du code, veuillez éxécuter la commande
+``ocran RubyDungeon.rb --icon RubyDungeon-Extended/Assets/dungeon.ico``
+
+Puis sélectionnez l'option "quitter" lorsque le jeu se lancera
