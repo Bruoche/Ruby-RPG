@@ -1,11 +1,11 @@
 class CharacterCreator
     DEFAULT_NAME = "Nameless"
 
-    def initialize()
+    def initialize
         @name = DEFAULT_NAME
     end
 
-    def make_character()
+    def make_character
         ask_name
         @picture = PlayerIcon.new
         @picture.customize
@@ -22,7 +22,7 @@ class CharacterCreator
         @name = Narrator.user_input.to_s
     end
 
-    def make_player()
+    def make_player
         return Player.new(make_data)
     end
 
@@ -42,9 +42,9 @@ class CharacterCreator
     end
 
     def creation_menu
-        ASCIIPrinter.showCard(make_data)
+        ASCIIPrinter.show_card(make_data)
         puts "Est-ce qui vous êtes ?"
-        puts "  0) Retour au menu principal"
+        puts "  0) Annuler la création du personnage"
         puts "  1) Changer de nom"
         puts "  2) Changer d'apparence"
         puts "  3) Confirmer"
@@ -64,7 +64,7 @@ class CharacterCreator
     end
 
     def confirm_quit
-        puts "Êtes-vous sûr de vouloir revenir au menu principal ? (Y/N)"
+        puts "Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)"
         puts "Les modifications effectuées ne seront pas sauvegardées."
         case Narrator.user_input.downcase
         when "y"

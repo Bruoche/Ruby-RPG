@@ -18,7 +18,7 @@ class Biome
         end
     end
 
-    def self.describe()
+    def self.describe
         for line in self::DESCRIPTION
             puts line
         end
@@ -34,7 +34,7 @@ class Biome
     end
 
     def self.get_loot
-        loots = Array.new()
+        loots = Array.new
         for loot in self::LOOT
             if loot.dropped?
                 loots.push(loot.get_item)
@@ -44,7 +44,7 @@ class Biome
     end
 
     def self.get_entry_requirements
-        requirements = Array.new()
+        requirements = Array.new
         for requirement in self::ENTRY_REQUIREMENTS
             requirements.push(EntryRequirement.new(requirement))
         end

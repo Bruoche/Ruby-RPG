@@ -10,7 +10,7 @@ class Name
         end
     end
 
-    def get_gendered_a()
+    def get_gendered_a
         if @female
             return "une #{@denomination}"
         else
@@ -18,7 +18,7 @@ class Name
         end
     end
 
-    def get_gendered_the()
+    def get_gendered_the
         if VOWELS.include?(@denomination[0])
             return "l'#{@denomination}"
         end
@@ -29,7 +29,7 @@ class Name
         end
     end
 
-    def get_gendered_this()
+    def get_gendered_this
         if @female
             return "cette #{@denomination}"
         else
@@ -37,7 +37,7 @@ class Name
         end
     end
 
-    def get_gendered_of()
+    def get_gendered_of
         if VOWELS.include?(@denomination[0])
             return "de l'#{@denomination}"
         end

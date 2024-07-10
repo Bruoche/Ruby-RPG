@@ -4,15 +4,15 @@ class HealthPotion
         @soin = rand(soin_min..soin_max)
     end
 
-    def get_name()
+    def get_name
         return "une potion de soin"
     end
 
-    def get_description()
+    def get_description
         return "une potion de soin (restaure #{@soin} points de vie)"
     end
 
-    def is_destroyed()
+    def is_destroyed
         return @destroyed
     end
 
@@ -22,7 +22,7 @@ class HealthPotion
         @destroyed = true
     end
 
-    def get_save_data()
+    def get_save_data
         return "HealthPotion|#{@soin}"
     end
 end

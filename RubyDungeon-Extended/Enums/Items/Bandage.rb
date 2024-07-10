@@ -1,17 +1,17 @@
 class Bandage
-    def initialize()
+    def initialize
         @destroyed = false
     end
 
-    def get_name()
+    def get_name
         return "des bandages"
     end
 
-    def get_description()
+    def get_description
         return "des bandages (restaure une quantitée aléatoire de vos points de vies manquants)"
     end
 
-    def is_destroyed()
+    def is_destroyed
         return @destroyed
     end
 
@@ -21,7 +21,7 @@ class Bandage
         @destroyed = used
     end
 
-    def get_save_data()
+    def get_save_data
         return "Bandage"
     end
 end

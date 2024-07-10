@@ -100,7 +100,7 @@ class Narrator
         end
     end
 
-    def self.escape_scene()
+    def self.escape_scene
         puts "Ce combat ne valant plus la peine pour vous, vous vous échappez."
     end
 
@@ -121,7 +121,7 @@ class Narrator
         end
     end
 
-    def self.sneaking_transition()
+    def self.sneaking_transition
         puts "Vous reprenez votre exploration du donjon."
     end
 
@@ -158,19 +158,32 @@ class Narrator
         return user_input
     end
 
-    def self.ask_continue()
+    def self.ask_continue
         puts "Réessayer ?"
         puts "      1) Oui"
         puts "      2) Non"
         return user_input
     end
 
-    def self.unsupported_choice_error()
+    def self.ask_confirmation(question)
+        puts question
+        case Narrator.user_input.downcase
+        when "y"
+            return true
+        when "n"
+            return false
+        else
+            Narrator.unsupported_choice_error
+            return self.ask_confirmation
+        end
+    end
+
+    def self.unsupported_choice_error
         puts
         puts "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées."
     end
 
-    def self.user_input()
+    def self.user_input
         puts
         print "  >> "
         answer = gets.chomp

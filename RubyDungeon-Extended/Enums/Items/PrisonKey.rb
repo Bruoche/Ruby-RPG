@@ -1,16 +1,16 @@
 class PrisonKey
-    def initialize()
+    def initialize
     end
 
-    def get_name()
+    def get_name
         return "une clef"
     end
 
-    def get_description()
+    def get_description
         return "une clef (doit pouvoir ouvrir une porte quelque part)"
     end
 
-    def is_destroyed()
+    def is_destroyed
         return false
     end
 
@@ -18,7 +18,7 @@ class PrisonKey
         puts "Vous ne savez pas comment utiliser cet objet..."
     end
 
-    def get_save_data()
+    def get_save_data
         return "PrisonKey"
     end
 end

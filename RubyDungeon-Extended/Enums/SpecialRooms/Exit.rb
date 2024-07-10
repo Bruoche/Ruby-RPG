@@ -1,15 +1,14 @@
 class Exit
     SPECIAL = true;
     EXIT = "exit"
-    def initialize(player, precedent_room = nil)
-        @player = player
+    def initialize
     end
 
-    def get_denomination()
+    def get_denomination
         return "la sortie"
     end
 
-    def enter()
+    def enter
         puts
         ASCIIPrinter.print("dungeon_outside")
         puts
@@ -26,16 +25,16 @@ class Exit
         return EXIT
     end
 
-    def ask_save()
+    def ask_save
         file_name = @player.get_save
-        if (file_name == nil) || (not confirm_save())
+        if (file_name == nil) || (not confirm_save)
             Narrator.pause_text
             return SaveManager.get_new_id
         end
         return file_name
     end
 
-    def confirm_save()
+    def confirm_save
         puts "Souhaitez-vous écraser votre ancienne sauvegarde ? (Y/N)"
         choice = Narrator.user_input.downcase
         if choice == "y"
@@ -44,7 +43,7 @@ class Exit
             return false
         else
             Narrator.unsupported_choice_error
-            return confirm_save()
+            return confirm_save
         end
     end
 end

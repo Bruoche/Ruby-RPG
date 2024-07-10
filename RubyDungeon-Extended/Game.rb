@@ -1,10 +1,12 @@
 class Game
-    def initialize()
+    SURVIVED = true
+    WANNA_PLAY = true
+    CHARACTER_SELECTED = true
+
+    def initialize
         wanna_play = main_menu
         if wanna_play
             loop do
-                @last_save = @player.get_save_data
-                @save_file = @player.get_save
                 survived = play
                 if not survived
                     wanna_play = ask_continue
@@ -19,84 +21,139 @@ class Game
         end
     end
 
-    def play()
-        if @player.get_level < 3
+    def play
+        if @party.get_level < 3
             biome = EntranceTuto
         else
             biome = Entrance
         end
-        @current_room = Room.new(@player, biome, Exit.new(@player))
-        while (@current_room != nil) && (@current_room != Exit::EXIT)
-            @current_room = @current_room.enter()
-        end
-        if @current_room == Exit::EXIT
-            return true
-        else
-            return false
+        @party.set_room(Room.new(biome, Exit.new))
+        loop do
+            @party.take_turns
+            if (@party.died?)
+                return (not SURVIVED)
+            end
+            if (@party.exited?)
+                return SURVIVED
+            end
         end
     end
 
-    def main_menu()
+    def main_menu
         10.times do
             puts
         end
         ASCIIPrinter.print("title")
         puts
         puts
-        puts "1) Nouvelle partie."
-        puts "2) Continuer..."
-        puts "3) Options"
-        puts "4) Quitter"
+        puts "1) Entrer dans le donjon"
+        puts "2) Options"
+        puts "3) Quitter"
         case Narrator.user_input
         when "1"
-            character_creator = CharacterCreator.new();
-            @player = character_creator.make_character;
-            if @player == nil
-                main_menu
-            end
-            Narrator.introduction
-            return true
-        when "2"
-            saves = SaveManager.get_saves()
-            if saves != nil
-                save_index = Narrator.ask_complex_element(
-                    "Quelle sauvegarde charger ?",
-                    saves,
-                    -> (save, index){
-                        if save != nil
-                            save_data = SaveManager.load(save)
-                            ASCIIPrinter.showCard(save_data, index)
-                        else
-                            puts
-                            puts "0) Retour..."
-                        end
-                    }
-                )
-                if save_index != nil
-                    save = saves[save_index]
-                    @player = Player.new(SaveManager.load(save), save)
-                    Narrator.introduction_return
-                    return true
-                else
-                    main_menu
-                end
+            if select_characters
+                return WANNA_PLAY
             else
-                puts "Aucune sauvegarde n'a été trouvée..."
-                main_menu
+                return main_menu
             end
-        when "3"
+        when "2"
             asset_size_menu
             main_menu
-        when "4"
+        when "3"
             puts "Au revoir !"
-            return false
+            return (not WANNA_PLAY)
         else
             Narrator.unsupported_choice_error
             main_menu
         end
     end
 
-    def asset_size_menu()
+    def select_characters
+        first_player = get_character
+        if first_player == nil
+            return (not CHARACTER_SELECTED)
+        end
+        @party = Party.new([first_player])
+        loop do
+            puts "Aventuriers entrant dans le donjon : "
+            @party.show_cards
+            puts
+            puts
+            puts "0) Retour"
+            puts "1) Ajouter un membre à l'équipe"
+            index = 2
+            if (@party.size > 1)
+                puts "#{index}) Retirer un membre de l'équipe"
+                index += 1
+            end
+            puts "#{index}) Entrer dans le donjon"
+            case Narrator.user_input
+            when "0"
+                if Narrator.ask_confirmation("Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)/n Les personnages sélectionnés ne seront pas sauvegardés")
+                    return (not CHARACTER_SELECTED)
+                end
+            when "1"
+                new_player = get_character
+                if new_player != nil
+                    @party.add_player(new_player)
+                end
+            when "2"
+                @party.remove_player
+            when "3"
+                Narrator.introduction(@party)
+                return CHARACTER_SELECTED
+            else
+                Narrator.unsupported_choice_error
+            end
+        end
+    end
+
+    def get_character
+        saves = SaveManager.get_saves
+        character_creator = CharacterCreator.new
+        if (saves.length > 0)
+            puts "0) Retour"
+            puts "1) Nouveau personnage"
+            puts "2) Personnage existant"
+            case Narrator.user_input
+            when "0"
+                return nil
+            when "1"
+                new_character = character_creator.make_character
+                if new_character == nil
+                    return get_character
+                end
+                return new_character
+            when "2"
+                    save_index = Narrator.ask_complex_element(
+                        "Quelle sauvegarde charger ?",
+                        saves,
+                        -> (save, index){
+                            if save != nil
+                                save_data = SaveManager.load(save)
+                                ASCIIPrinter.show_card(save_data, index)
+                            else
+                                puts
+                                puts "0) Retour..."
+                            end
+                        }
+                    )
+                    if save_index != nil
+                        save = saves[save_index]
+                        return Player.new(SaveManager.load(save), save)
+                    else
+                        return get_character
+                    end
+            else
+                puts Narrator.unsupported_choice_error
+                return get_character
+            end
+        else
+            return character_creator.make_character
+        end
+    end
+
+    def asset_size_menu
         puts "Si vous voyez ce texte les images ont une taille acceptable."
         3.times do
             puts
@@ -127,10 +184,10 @@ class Game
         end
     end
 
-    def ask_continue()
+    def ask_continue
         case Narrator.ask_continue
         when "1"
-            @player = Player.new(@last_save, @save_file)
+            @player = Player.new(SaveManager.load(@save_file), @save_file)
             return true
         when "2"
             return false

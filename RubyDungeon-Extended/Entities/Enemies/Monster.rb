@@ -6,19 +6,19 @@ class Monster
         @basic_attack_message = basic_attack_message
     end
 
-    def get_description()
+    def get_description
         return "#{@name.get_gendered_a} avec #{@lifebar.life_to_string} points de vies et #{@damage} dégats"
     end
 
-    def get_description_the()
+    def get_description_the
         return "#{@name.get_gendered_the} avec #{@lifebar.life_to_string} points de vies et #{@damage} dégats"
     end
 
-    def get_name()
+    def get_name
         return @name
     end
 
-    def get_power()
+    def get_power
         return @lifebar.get_max_life * @damage
     end
 
@@ -26,7 +26,7 @@ class Monster
         return get_power
     end
 
-    def get_damage()
+    def get_damage
         return @damage
     end
 
@@ -34,7 +34,7 @@ class Monster
         @damage = damage
     end
 
-    def is_dead()
+    def is_dead
         return @lifebar.is_empty
     end
 

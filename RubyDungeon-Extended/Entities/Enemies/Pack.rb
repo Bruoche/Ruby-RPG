@@ -22,7 +22,7 @@ class Pack
         end
     end
 
-    def get_description()
+    def get_description
         if are_dead
             if was_plural
                 return "les cadavres des monstres que vous avez précédemment battus"
@@ -42,7 +42,7 @@ class Pack
         return monsters_description
     end
 
-    def get_plural_the()
+    def get_plural_the
         if (was_plural)
             return "les monstres"
         else
@@ -68,7 +68,7 @@ class Pack
         return power + multi_encounter_bonus
     end
 
-    def get_current_power()
+    def get_current_power
         power = 0
         for monster in @monsters do
             power += monster.get_power
@@ -76,15 +76,15 @@ class Pack
         return power
     end
 
-    def is_plural()
+    def is_plural
         return @monsters.length > 1
     end
 
-    def was_plural()
+    def was_plural
         return @initial_monsters.length > 1
     end
 
-    def are_dead()
+    def are_dead
         for monster in @monsters do
             if (monster.is_dead)
                 @monsters.delete_at(@monsters.index(monster))

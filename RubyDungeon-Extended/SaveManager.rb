@@ -4,7 +4,7 @@ class SaveManager
     SETTING = "settings"
     BASE_SETTINGS = ""
 
-    def self.get_new_id()
+    def self.get_new_id
         i = 0
         loop do
             if (!(get_saves.include? i.to_s))
@@ -36,7 +36,7 @@ class SaveManager
         end
     end
 
-    def self.get_saves()
+    def self.get_saves
         save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
         if File.directory?(save_directory)
             saves = Dir["./#{SAVE_DIRECTORY}/*"]
@@ -60,7 +60,7 @@ class SaveManager
         puts "#{SETTING} saved."
     end
 
-    def self.get_settings()
+    def self.get_settings
         if File.file?("#{SAVE_DIRECTORY}/#{SETTING}")
             return Hash[File.read("#{SAVE_DIRECTORY}/#{SETTING}").split("\n").map{|i|i.split(': ')}].transform_keys(&:to_sym)
         else

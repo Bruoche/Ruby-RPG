@@ -23,13 +23,14 @@ class Player
         end
         @creation_timestamp = Time.now
         @savefile = savefile
+        @exited = false
     end
 
-    def get_save()
+    def get_save
         return @savefile
     end
 
-    def get_save_data()
+    def get_save_data
         return {
             "name": @name,
             "health": @lifebar.get_max_life,
@@ -48,19 +49,19 @@ class Player
         return Time.now - @creation_timestamp
     end
 
-    def get_full_status()
+    def get_full_status
         return "Vous êtes un.e aventurier.e de niveau #{@level} (#{@current_xp}/#{required_xp}).\n" + get_status
     end
 
-    def get_status()
+    def get_status
         return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@strength} dégats et avez #{@intelligence} points de puissance magique."
     end
 
-    def get_level()
+    def get_level
         return @level
     end
 
-    def required_xp()
+    def required_xp
         desired_level = @level + 1
         nb_monsters_max = 1 + @level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
         potential_health = get_potential_stat(BaseStats::BASE_HEALTH, BaseStats::HEALTH_UPGRADE_PER_LEVEL)
@@ -92,8 +93,20 @@ class Player
         return @inventory.have(item)
     end
 
-    def is_dead()
+    def is_dead
         return @lifebar.is_empty
+    end
+
+    def exited?
+        return @exited
+    end
+
+    def act
+        # TODO
+    end
+
+    def set_room(room)
+        @room = room
     end
 
     def hurt(attack)
@@ -102,11 +115,11 @@ class Player
         @lifebar.damage(damage)
     end
 
-    def strength_attack()
+    def strength_attack
         return Attack.new(@strength, Attack::PHYSIC_TYPE)
     end
 
-    def magic_attack()
+    def magic_attack
         return Attack.new(@intelligence, Attack::MAGIC_TYPE)
     end
 
@@ -125,7 +138,7 @@ class Player
         end
     end
 
-    def patch_up()
+    def patch_up
         if (@lifebar.get_missing_life > 0)
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
             puts "Vous vous soignez #{amount} points de vie."
@@ -143,7 +156,7 @@ class Player
             puts "Niveau supérieur !"
             @current_xp -= required_xp
             @level += 1
-            stat_up()
+            stat_up
             @lifebar.heal(@lifebar.get_missing_life)
         end
     end
@@ -152,11 +165,11 @@ class Player
         @inventory.add(item)
     end
 
-    def use_item()
+    def use_item
         @inventory.ask_use(self)
     end
 
-    def stat_up()
+    def stat_up
         for i in 1..nb_stats_up do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats_up})"

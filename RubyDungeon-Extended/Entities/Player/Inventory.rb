@@ -1,6 +1,6 @@
 class Inventory
-    def initialize()
-        @content = Array.new()
+    def initialize
+        @content = Array.new
     end
 
     def add(item)
@@ -12,7 +12,7 @@ class Inventory
         return @content.any?(item_class);
     end
 
-    def get_save_data()
+    def get_save_data
         items = ""
         for item in @content
             items += "#{item.get_save_data}; "
@@ -28,7 +28,7 @@ class Inventory
                 if parameters != nil
                     item = Object.const_get(object).new(*parameters.split(", ").map(&:to_i))
                 else
-                    item = Object.const_get(object).new()
+                    item = Object.const_get(object).new
                 end
                 @content.push(item)
             end
@@ -50,7 +50,7 @@ class Inventory
 
     def use(item, target)
         used = item.use(target)
-        if item.is_destroyed()
+        if item.is_destroyed
             @content.delete_at(@content.index(item))
         end
         return used

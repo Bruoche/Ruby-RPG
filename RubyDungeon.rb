@@ -15,4 +15,4 @@ Dir["RubyDungeon-Extended/*/*/*.rb"].each {|file| require(file)}
 require "fileutils"
 require "time"
 
-Game.new()
+Game.new

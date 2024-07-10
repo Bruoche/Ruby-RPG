@@ -10,23 +10,23 @@ class Weakpoint
         return id == @id
     end
 
-    def get_name()
+    def get_name
         return @name
     end
 
-    def get_description()
+    def get_description
         return "#{@name.get_gendered_the} avec #{@lifebar.life_to_string} points de vies"
     end
 
-    def get_life()
+    def get_life
         return @lifebar.get_life
     end
 
-    def get_max_life()
+    def get_max_life
         return @lifebar.get_max_life
     end
 
-    def is_dead()
+    def is_dead
         return @lifebar.is_empty
     end
 

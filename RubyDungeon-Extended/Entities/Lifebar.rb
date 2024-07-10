@@ -4,23 +4,23 @@ class Lifebar
         @current_life = max_life
     end
 
-    def get_max_life()
+    def get_max_life
         return @max_life
     end
 
-    def get_life()
+    def get_life
         return @current_life
     end
 
-    def get_missing_life()
+    def get_missing_life
         return @max_life - @current_life
     end
 
-    def life_to_string()
+    def life_to_string
         return "#{@current_life}/#{@max_life}"
     end
 
-    def is_empty()
+    def is_empty
         if (@current_life <= 0)
             return true
         else

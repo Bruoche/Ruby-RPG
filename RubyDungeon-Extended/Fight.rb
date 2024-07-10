@@ -22,7 +22,7 @@ class Fight
         fight(true)
     end
 
-    def player_turn()
+    def player_turn
         case Narrator.ask_fight_action(@player.get_status, @monsters.get_description, @player.get_escape_chances(@monsters.get_current_power))
         when "1"
             acted = @monsters.hurt_single(@player.strength_attack)
@@ -50,23 +50,23 @@ class Fight
         end
     end
 
-    def monster_turn()
+    def monster_turn
         @monsters.attack(@player)
     end
 
-    def victory()
+    def victory
         xp_gained = @monsters.get_xp
         Narrator.victory_scene(@monsters.was_plural, xp_gained)
         @player.get_xp(xp_gained)
         return true
     end
 
-	def escape()
-		Narrator.escape_scene()
+	def escape
+		Narrator.escape_scene
 		return true
 	end
 
-    def defeat()
+    def defeat
         Narrator.death_scene(@monsters.is_plural)
         return false
     end

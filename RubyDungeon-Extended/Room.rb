@@ -1,8 +1,7 @@
 class Room
     RETURN_BUTTON = "retour"
-    def initialize(player, biome, precedent_room = nil)
+    def initialize(biome, precedent_room = nil)
         @name = Name.new(biome)
-        @player = player
         if biome.is_safe_room
             @monsters = nil
         else
@@ -16,7 +15,7 @@ class Room
         @requirements = @biome.get_entry_requirements
     end
 
-    def enter()
+    def enter
         @arrival = true
         for requirement in @requirements
             if requirement.ignored?
@@ -46,12 +45,12 @@ class Room
         return room_action
     end
 
-    def describe()
+    def describe
         if @arrival
             if (@monsters != nil)
                 Narrator.describe_monsters_room(
                     @player.get_full_status,
-                    -> (){@biome.describe},
+                    -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_the,
                     @monsters.get_description
@@ -59,7 +58,7 @@ class Room
             else
                 Narrator.describe_empty_room(
                     @player.get_full_status,
-                    -> (){@biome.describe},
+                    -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_a,
                     @name.is_female
@@ -74,7 +73,7 @@ class Room
             end
             Narrator.describe_current_room(
                 @player.get_full_status,
-                -> (){@biome.describe},
+                -> {@biome.describe},
                 @biome::PICTURE,
                 @name.get_gendered_a,
                 monsters_description
@@ -82,24 +81,24 @@ class Room
         end
     end
 
-    def get_monsters()
+    def get_monsters
         return @monsters
     end
 
-    def get_denomination()
+    def get_denomination
         return @name.get_gendered_a
     end
 
-    def room_action()
+    def room_action
         if (no_monsters)
-            return ask_action()
+            return ask_action
         else
-            return propose_combat()
+            return propose_combat
         end
     end
 
-    def ask_action()
-        describe()
+    def ask_action
+        describe
         puts "Que souhaitez-vous faire?"
         puts "      1) Aller à..."
         puts "      2) Fouiller #{@name.get_gendered_the}"
@@ -138,7 +137,7 @@ class Room
         end
     end
 
-    def propose_exploration()
+    def propose_exploration
         next_room = Narrator.ask("Où souhaitez-vous aller?", @adjacent_rooms, -> (room){to_string(room)}, RETURN_BUTTON)
         if next_room == RETURN_BUTTON
             return ask_action
@@ -157,8 +156,8 @@ class Room
         end
     end
 
-    def propose_combat()
-        describe()
+    def propose_combat
+        describe
         case Narrator.ask_if_fight(@player.get_escape_chances(@monsters.get_current_power))
         when "1"
             Narrator.start_fight(@monsters.is_plural)
@@ -177,7 +176,7 @@ class Room
         end
     end
 
-    def search()
+    def search
         if (@objects != nil) && (@objects.length == 0)
             puts "Vous avez déjà pris tout les objets à prendre dans #{@name.get_gendered_this}"
             return false
@@ -211,7 +210,7 @@ class Room
 
     private
 
-    def no_monsters()
+    def no_monsters
         return (@monsters == nil) || (@monsters.are_dead)
     end
 
