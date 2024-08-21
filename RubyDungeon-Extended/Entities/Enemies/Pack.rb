@@ -76,7 +76,7 @@ class Pack
         return power
     end
 
-    def is_plural
+    def plural?
         return @monsters.length > 1
     end
 
@@ -86,21 +86,21 @@ class Pack
 
     def are_dead
         for monster in @monsters do
-            if (monster.is_dead)
+            if (monster.died?)
                 @monsters.delete_at(@monsters.index(monster))
             end
         end
         return @monsters.length == 0
     end
 
-    def attack(player)
+    def attack(players)
         for monster in @monsters do
-            monster.attack(player)
+            monster.act(players, @monsters)
         end
     end
 
     def hurt_single(attack)
-        if (is_plural)
+        if (plural?)
             choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)})
             if choosen_ennemy != nil
                 attacked = hurt((choosen_ennemy), attack)[:attacked]
@@ -123,7 +123,7 @@ class Pack
                 end
             end
         else
-            if is_plural
+            if plural?
                 puts "Dépourvu de puissance magique, vous ne parvenez pas à attaquer les ennemis."
             else
                 puts "Dépourvu de puissance magique, vous ne parvenez pas à attaquer l'ennemi."
@@ -157,7 +157,7 @@ class Pack
         if response[:attacked] == false
             return response
         else
-            if monster.is_dead
+            if monster.died?
                 puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
                 @monsters.delete_at(index)
                 response[:dead] = true

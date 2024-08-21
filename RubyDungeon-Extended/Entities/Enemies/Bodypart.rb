@@ -27,8 +27,8 @@ class Bodypart
         return @actor.get_damage
     end
 
-    def is_dead
-        return @actor.is_dead
+    def died?
+        return @actor.died?
     end
 
     def add_special_move(special_move)

@@ -1,6 +1,8 @@
 class Room
     RETURN_BUTTON = "retour"
-    def initialize(biome, precedent_room = nil)
+
+    def initialize(biome, id, precedent_room = nil)
+        @id = id
         @name = Name.new(biome)
         if biome.is_safe_room
             @monsters = nil
@@ -16,7 +18,6 @@ class Room
     end
 
     def enter
-        @arrival = true
         for requirement in @requirements
             if requirement.ignored?
                 return room_action
@@ -45,8 +46,8 @@ class Room
         return room_action
     end
 
-    def describe
-        if @arrival
+    def describe(arrival)
+        if arrival
             if (@monsters != nil)
                 Narrator.describe_monsters_room(
                     @player.get_full_status,
@@ -61,7 +62,7 @@ class Room
                     -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_a,
-                    @name.is_female
+                    @name.female?
                 )
             end
             @arrival = false
@@ -81,107 +82,40 @@ class Room
         end
     end
 
+    def get_id
+        return @id
+    end
+
     def get_monsters
         return @monsters
+    end
+
+    def got_monsters?
+        return (@monsters == nil) || (@monsters.are_dead)
+    end
+
+    def get_monsters_plural_the
+        return @monsters.get_plural_the
     end
 
     def get_denomination
         return @name.get_gendered_a
     end
 
-    def room_action
-        if (no_monsters)
-            return ask_action
-        else
-            return propose_combat
-        end
+    def get_the_denomination
+        return @name.get_gendered_the
     end
 
-    def ask_action
-        describe
-        puts "Que souhaitez-vous faire?"
-        puts "      1) Aller à..."
-        puts "      2) Fouiller #{@name.get_gendered_the}"
-        puts "      3) Utiliser un objet"
-        if not no_monsters
-            puts "      4) Attaquer #{@monsters.get_plural_the}"
-        end
-        loop do
-            case Narrator.user_input
-            when "1"
-                return propose_exploration
-            when "2"
-                if search
-                    return room_action
-                else
-                    return ask_action
-                end
-            when "3"
-                if @player.use_item
-                    return room_action
-                else
-                    return ask_action
-                end
-            when "4"
-                if no_monsters
-                    Narrator.unsupported_choice_error
-                    return ask_action
-                else
-                    Narrator.start_fight(@monsters.is_plural)
-                    return fight_with_adventage(true)
-                end
-            else
-                Narrator.unsupported_choice_error
-                return ask_action
-            end
-        end
-    end
-
-    def propose_exploration
-        next_room = Narrator.ask("Où souhaitez-vous aller?", @adjacent_rooms, -> (room){to_string(room)}, RETURN_BUTTON)
-        if next_room == RETURN_BUTTON
-            return ask_action
-        else
-            @precedent_room = next_room # Si nous revenons ça sera par là
-            if @adjacent_rooms[next_room] == nil
-                current_room = self
-                next_biome = @biome.get_next(@player.get_level)
-                if next_biome::SPECIAL
-                    @adjacent_rooms[next_room] = next_biome.new(@player, current_room)
-                else
-                    @adjacent_rooms[next_room] = Room.new(@player, next_biome, current_room)
-                end
-            end
-            return @adjacent_rooms[next_room]
-        end
-    end
-
-    def propose_combat
-        describe
-        case Narrator.ask_if_fight(@player.get_escape_chances(@monsters.get_current_power))
-        when "1"
-            Narrator.start_fight(@monsters.is_plural)
-            return fight_with_adventage(true)
-        when "2"
-            if (@player.can_escape(@monsters.get_current_power))
-                Narrator.avoid_fight(@monsters.get_plural_the)
-                return ask_action
-            else
-                Narrator.fail_sneak(@monsters.is_plural)
-                return fight_with_adventage(false)
-            end
-        else
-            Narrator.unsupported_choice_error
-            propose_combat
-        end
+    def get_biome
+        return @biome.class.name
     end
 
     def search
+        searched = false
         if (@objects != nil) && (@objects.length == 0)
             puts "Vous avez déjà pris tout les objets à prendre dans #{@name.get_gendered_this}"
-            return false
+            return searched
         else
-            searched = false
             if @objects == nil
                 puts "Vous fouillez #{@name.get_gendered_the} pour tout objet pouvant vous être utile..."
                 @objects = @biome.get_loot
@@ -209,10 +143,6 @@ class Room
     end
 
     private
-
-    def no_monsters
-        return (@monsters == nil) || (@monsters.are_dead)
-    end
 
     def fight_with_adventage(player_first)
         survived = Fight.new(@player, @monsters).fight(player_first)

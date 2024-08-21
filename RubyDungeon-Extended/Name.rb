@@ -48,7 +48,7 @@ class Name
         end
     end
 
-    def is_female
+    def female?
         return @female
     end
 

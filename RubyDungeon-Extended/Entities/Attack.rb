@@ -13,4 +13,16 @@ class Attack
     def type
         return @type
     end
+
+    def damage_dealt
+        case @type
+        when Attack::PHYSIC_TYPE
+            return @damage
+        when Attack::MAGIC_TYPE
+            return rand(@damage)
+        else
+            puts("<< unexpected damage type encountered >>")
+            return 0
+        end
+    end
 end

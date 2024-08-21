@@ -20,7 +20,7 @@ class Party
 
     def died?
         for player in @players do
-            if !player.is_dead
+            if !player.died?
                 return false
             end
         end
@@ -30,12 +30,45 @@ class Party
     def exited?
         for player in @players do
             if !player.exited?
-                if !player.is_dead
+                if !player.died?
                     return false
                 end
             end
         end
         return true
+    end
+
+    def starting?
+        for player in @players do
+            if player.get_level > 0
+                return false
+            end
+        end
+        return true
+    end
+
+    def new_members?
+        for player in @players do
+            if player.get_level == 0
+                return true
+            end
+        end
+        return false
+    end
+
+    def get_fights
+        fights = {}
+        for player in @players do
+            if (not player.exited?) && (not player.died?)
+                if player.fighting?
+                    if (!fights.key?(player.room.get_id))
+                        fights[player.room.get_id] = []
+                    end
+                    fights[player.room.get_id].append(player)
+                end
+            end
+        end
+        return fights
     end
 
     def show_cards
@@ -95,7 +128,17 @@ class Party
 
     def take_turns
         for player in @players do
-            player.act
+            if (not player.exited?) && (not player.died?)
+                player.act
+                if player.just_won_fight
+                    xp_gained = player.get_room.get_monsters.get_xp
+                    Narrator.victory_scene(player.get_room.monsters.was_plural, xp_gained)
+                    for winning_player in get_fights{player.room.get_id} do
+                        winning_player.stop_fighting
+                        winning_player.get_xp(xp_gained)
+                    end
+                end
+            end
         end
     end
 end

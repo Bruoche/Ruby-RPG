@@ -70,9 +70,9 @@ class Boss
         return nil
     end
 
-    def is_dead
+    def died?
         for weakpoint in @weakpoints do
-            if not weakpoint.is_dead
+            if not weakpoint.died?
                 return false
             end
         end
@@ -122,7 +122,7 @@ class Boss
 
     def hurt_part(targets, target, attack)
         target.hurt(attack)
-        if target.is_dead
+        if target.died?
             target.death_event(self)
             targets.delete_at(targets.index(target))
             return true

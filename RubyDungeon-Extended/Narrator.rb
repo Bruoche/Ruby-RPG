@@ -1,26 +1,25 @@
 class Narrator
-    def self.introduction
+    def self.introduction(party)
         puts
         ASCIIPrinter.print("title")
         puts
-        puts "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu."
-        puts "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,"
-        puts "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
-        puts
-        puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
-        puts
-        ASCIIPrinter.print("dungeon_outside")
-        puts
-        pause_text
-    end
-
-    def self.introduction_return
-        puts
-        ASCIIPrinter.print("title")
-        puts
-        puts "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier."
-        puts "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance."
-        puts "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez, plus rien n'est pareil qu'avant."
+        if party.starting?
+            puts "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu."
+            puts "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,"
+            puts "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
+            puts
+            puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
+        else
+            if party.new_members?
+                puts "Après votre précédente expérience dans le donjon,"
+                puts "Vous avez décidés de revenir plus nombreux, de nouveaux membres s'ajoutant à votre escouade."
+                puts "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds, quoi qu'ils ne renferment."
+            else
+                puts "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier."
+                puts "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance."
+                puts "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez plus rien n'est pareil qu'avant."
+            end
+        end
         puts
         ASCIIPrinter.print("dungeon_outside")
         puts
@@ -34,14 +33,14 @@ class Narrator
 
     def self.describe_monsters_room(player_status, describe_biome, picture, the_room, monsters_description)
         describe_room(player_status, describe_biome, picture)
-        print "Lorsque vous entrez dans #{the_room}, "
+        puts "Lorsque vous entrez dans #{the_room}, "
         puts "vous voyez #{monsters_description}."
     end
 
-    def self.describe_empty_room(player_status, describe_biome, picture, the_room, is_female)
+    def self.describe_empty_room(player_status, describe_biome, picture, the_room, female)
         describe_room(player_status, describe_biome, picture)
         print "Lorsque vous entrez dans #{the_room}, "
-        if is_female
+        if female
             puts "vous la trouvez complètement vide."
         else
             puts "vous le trouvez complètement vide."
@@ -68,9 +67,9 @@ class Narrator
         puts
     end
 
-    def self.start_fight(is_plural)
+    def self.start_fight(plural)
         puts
-        if (is_plural)
+        if plural
             puts "Vous vous jettez sur les monstres se tenant face à vous."
         else
             puts "Vous vous jettez sur le monstre se tenant face à vous."
@@ -82,18 +81,18 @@ class Narrator
         puts "Ne souhaitant pas combattre #{the_monsters}, vous faites profil bas."
     end
 
-    def self.fail_sneak(is_plural)
+    def self.fail_sneak(plural)
         puts
-        if (is_plural)
+        if plural
             puts "Alors que vous tentez d'éviter les monstres, ceux-ci vous remarquent et se jettent sur vous."
         else
             puts "Alors que vous tentez d'éviter le monstre, celui-ci vous remarque et se jette sur vous."
         end
     end
 
-    def self.death_scene(is_plural)
+    def self.death_scene(plural)
         puts
-        if (is_plural)
+        if plural
             puts "Malheureusement, l'attaque des monstres a raison de vous, et vous vous effondrez au sol."
         else
             puts "Malheureusement, l'attaque du monstre a raison de vous, et vous vous effondrez au sol."
@@ -104,8 +103,8 @@ class Narrator
         puts "Ce combat ne valant plus la peine pour vous, vous vous échappez."
     end
 
-    def self.fail_escape(is_plural)
-        if is_plural
+    def self.fail_escape(plural)
+        if plural
             puts "Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire."
         else
             puts "Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire."
@@ -166,7 +165,12 @@ class Narrator
     end
 
     def self.ask_confirmation(question)
-        puts question
+        if !question.kind_of?(Array)
+            question = [question]
+        end
+        for line in question
+            puts line
+        end
         case Narrator.user_input.downcase
         when "y"
             return true

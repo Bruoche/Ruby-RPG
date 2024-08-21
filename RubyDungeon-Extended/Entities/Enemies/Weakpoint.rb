@@ -26,7 +26,7 @@ class Weakpoint
         return @lifebar.get_max_life
     end
 
-    def is_dead
+    def died?
         return @lifebar.is_empty
     end
 

@@ -22,12 +22,7 @@ class Game
     end
 
     def play
-        if @party.get_level < 3
-            biome = EntranceTuto
-        else
-            biome = Entrance
-        end
-        @party.set_room(Room.new(biome, Exit.new))
+        @party.set_room(World.get_instance.setup_entrance(@party.get_level))
         loop do
             @party.take_turns
             if (@party.died?)
@@ -35,6 +30,9 @@ class Game
             end
             if (@party.exited?)
                 return SURVIVED
+            end
+            @party.get_fights.each do |room, players|
+                World.get_instance.get_room(room).get_monsters.attack(players)
             end
         end
     end
@@ -81,15 +79,16 @@ class Game
             puts
             puts "0) Retour"
             puts "1) Ajouter un membre à l'équipe"
-            index = 2
+            index_enter_dungeon = 2
             if (@party.size > 1)
-                puts "#{index}) Retirer un membre de l'équipe"
-                index += 1
+                puts "2) Retirer un membre de l'équipe"
+            index_enter_dungeon += 1
             end
-            puts "#{index}) Entrer dans le donjon"
-            case Narrator.user_input
+            puts "#{index_enter_dungeon}) Entrer dans le donjon"
+            choosen_option = Narrator.user_input
+            case choosen_option
             when "0"
-                if Narrator.ask_confirmation("Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)/n Les personnages sélectionnés ne seront pas sauvegardés")
+                if Narrator.ask_confirmation(["Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)", "Les personnages sélectionnés ne seront pas sauvegardés"])
                     return (not CHARACTER_SELECTED)
                 end
             when "1"
@@ -97,13 +96,17 @@ class Game
                 if new_player != nil
                     @party.add_player(new_player)
                 end
-            when "2"
-                @party.remove_player
-            when "3"
-                Narrator.introduction(@party)
-                return CHARACTER_SELECTED
             else
-                Narrator.unsupported_choice_error
+                if (choosen_option == index_enter_dungeon.to_s)
+                    Narrator.introduction(@party)
+                    return CHARACTER_SELECTED
+                else
+                    if (@party.size > 1) && (choosen_option == "2")
+                        @party.remove_player
+                    else
+                        Narrator.unsupported_choice_error
+                    end
+                end
             end
         end
     end

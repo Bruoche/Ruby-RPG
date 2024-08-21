@@ -24,6 +24,7 @@ class Player
         @creation_timestamp = Time.now
         @savefile = savefile
         @exited = false
+        @fighting = false
     end
 
     def get_save
@@ -61,6 +62,10 @@ class Player
         return @level
     end
 
+    def get_remaining_life
+        return @lifebar.get_life
+    end
+
     def required_xp
         desired_level = @level + 1
         nb_monsters_max = 1 + @level.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
@@ -84,7 +89,7 @@ class Player
 		return 100 - spot_risk
 	end
 
-    def can_escape(monsters_power)
+    def can_escape?(monsters_power)
         perception_score = rand(monsters_power + 1)
         return perception_score < stealth_score
     end
@@ -93,7 +98,7 @@ class Player
         return @inventory.have(item)
     end
 
-    def is_dead
+    def died?
         return @lifebar.is_empty
     end
 
@@ -102,15 +107,126 @@ class Player
     end
 
     def act
-        # TODO
+        if (@fighting)
+            fight_action
+        else
+            if (not @room.got_monsters?)
+                ask_action
+            else
+                propose_combat
+            end
+        end
+    end
+
+    def ask_action
+        @room.describe
+        puts "Que souhaitez-vous faire?"
+        puts "      1) Aller à..."
+        puts "      2) Fouiller #{@room.get_the_denomination}"
+        puts "      3) Utiliser un objet"
+        if @room.got_monsters?
+            puts "      4) Attaquer #{@room.get_monsters_plural_the}"
+        end
+        loop do
+            case Narrator.user_input
+            when "1"
+                return propose_exploration
+            when "2"
+                if search
+                    return room_action
+                else
+                    return ask_action
+                end
+            when "3"
+                if use_item
+                    return room_action
+                else
+                    return ask_action
+                end
+            when "4"
+                if (not @room.got_monsters?)
+                    Narrator.unsupported_choice_error
+                    return ask_action
+                else
+                    Narrator.start_fight(@room.get_monsters.plural?)
+                    return fight_with_adventage(true)
+                end
+            else
+                Narrator.unsupported_choice_error
+                return ask_action
+            end
+        end
+    end
+
+    def propose_combat
+        describe
+        case Narrator.ask_if_fight(get_escape_chances(@room.get_monsters.get_current_power))
+        when "1"
+            Narrator.start_fight(@room.get_monsters.plural?)
+            return fight_with_adventage(true)
+        when "2"
+            if can_escape?(@room.get_monsters.get_current_power)
+                Narrator.avoid_fight(@room.get_monsters.get_plural_the)
+                return ask_action
+            else
+                Narrator.fail_sneak(@room.get_monsters.plural?)
+                return fight_with_adventage(false)
+            end
+        else
+            Narrator.unsupported_choice_error
+            propose_combat
+        end
+    end
+
+    def fight_action
+        case Narrator.ask_fight_action(get_status, @room.get_monsters.get_description, get_escape_chances(@room.get_monsters.get_current_power))
+        when "1"
+            acted = @room.get_monsters.hurt_single(strength_attack)
+            if not acted
+                fight_action
+            end
+        when "2"
+            @room.get_monsters.hurt_magic(magic_attack)
+        when "3"
+            heal
+        when "4"
+            used = use_item
+            if not used
+                fight_action
+            end
+        when "5"
+            if can_escape?(@room.get_monsters.get_current_power)
+                @fighting = false
+                ask_action
+            else
+                Narrator.fail_escape(@room.get_monsters.plural?)
+            end
+        else
+            Narrator.unsupported_choice_error
+            player_turn
+        end
+    end
+
+    def propose_exploration
+        next_room = Narrator.ask("Où souhaitez-vous aller?", @adjacent_rooms, -> (room){@room.to_string(room)}, RETURN_BUTTON)
+        if next_room == RETURN_BUTTON
+            return ask_action
+        else
+            @precedent_room = next_room # Si nous revenons ça sera par là
+            if @adjacent_rooms[next_room] == nil
+                @adjacent_rooms[next_room] = World.get_instance.get_new_room_id()
+            end
+            return @adjacent_rooms[next_room]
+        end
     end
 
     def set_room(room)
         @room = room
+        @arrival = true
     end
 
     def hurt(attack)
-        damage = attack.damage
+        damage = rand(attack.damage_dealt)
         puts("Vous prenez #{damage} dégats.")
         @lifebar.damage(damage)
     end
