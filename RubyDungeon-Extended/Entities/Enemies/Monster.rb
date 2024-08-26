@@ -1,17 +1,10 @@
 class Monster
-    CHOICE_PHYSICAL_ATTACK = 'strike'
-    CHOICE_MAGIC_ATTACK = 'magic_attack'
-    CHOICE_HEAL = 'heal'
-
-    def initialize(life, damage, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability) # TODO
+    def initialize(life, strength, intelligence, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability)
         @lifebar = Lifebar.new(life)
         @name = name
-        @strength = damage
+        @strength = strength
         @intelligence = intelligence
-        @basic_attack_messages = basic_attack_messages
-        @basic_attack_messages = magic_attack_messages
-        @heal_messages = heal_messages
-        @unpredictability = unpredictability
+        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, name.get_gendered_the, unpredictability)
     end
 
     def get_description
@@ -54,8 +47,13 @@ class Monster
         return @lifebar.is_empty
     end
 
+    def choose_target(players)
+        return @AI.choose_target(players, @strength)
+    end
+
     def hurt(attack)
-        puts("#{@name.get_gendered_the.capitalize} prend #{attack.damage_dealt} dégats.")
+        damage = attack.damage_dealt
+        puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
         @lifebar.damage(damage)
         return true
     end
@@ -65,92 +63,7 @@ class Monster
         @lifebar.heal(amount)
     end
 
-    def attack(players, pack)
-        if rand(100) > @unpredictability
-            if @intelligence > 0
-                average_spell_power = (@intelligence+1)/2
-                needyest_ally = self
-                for ally in @pack do
-                    if ally.get_missing_life >= needyest_ally.get_missing_life
-                        if !((ally.get_missing_life == needyest_ally.get_missing_life) && (ally.get_max_life > needyest_ally.get_missing_life))
-                            needyest_ally = ally
-                        end
-                    end
-                end
-                average_heal = needyest_ally.get_missing_life
-                if (potential_heal > average_spell_power)
-                    potential_heal = average_heal
-                end
-                potential_spell_damage = 0
-                for player in players do
-                    potential_damage = player.get_remaining_life
-                    if potential_damage > average_spell_power
-                        potential_damage = average_spell_power
-                    end
-                    potential_spell_damage += potential_damage
-                end
-            else
-                average_heal = 0
-                potential_spell_damage = 0
-            end
-            best_priority_score = 0
-            for player in players do
-                priority_score = player.get_remaining_life
-                if (@strength < priority_score)
-                    priority_score = @strength
-                end
-                priority_score += rand(player.get_max_life)
-                if (priority_score >= best_priority_score)
-                    priority_target = player
-                end
-            end
-            physical_damage = priority_target.get_remaining_life
-            if (physical_damage > @strength)
-                physical_damage = @strength
-            end
-            if (potential_spell_damage >= physical_damage)
-                if (potential_spell_damage >= potential_heal)
-                    magic_attack(players)
-                else
-                    heal_ally(needyest_ally)
-                end
-            end
-        else
-            choice = [CHOICE_PHYSICAL_ATTACK, CHOICE_MAGIC_ATTACK, CHOICE_HEAL].sample
-            if (@intelligence > 0) && (choice != CHOICE_PHYSICAL_ATTACK)
-                allies_to_heal = []
-                if (choice == CHOICE_HEAL)
-                    for ally in pack
-                        if ally.get_missing_life > 0
-                            allies_to_heal.add(ally)
-                        end
-                    end
-                end
-                if allies_to_heal.length > 0
-                    heal_ally(allies_to_heal.sample)
-                else
-                    magic_attack(players)
-                end
-            else
-                physical_attack(players.sample)
-            end
-        end
-    end
-
-    def magic_attack(players)
-        puts "#{@name.get_gendered_the.capitalize} #{@magic_attack_messages.sample}"
-        for player in players do
-            player.hurt(Attack.new(rand(@intelligence), Attack::MAGIC_TYPE))
-        end
-    end
-
-    def physical_attack(player)
-        puts "#{@name.get_gendered_the.capitalize} #{@basic_attack_messages.sample}"
-        player.hurt(Attack.new(@strength, Attack::PHYSIC_TYPE))
-    end
-
-    def heal_ally(ally)
-        puts "#{@name.get_gendered_the.capitalize} #{@heal_messages.sample}"
-        ally.heal(rand(1..@intelligence))
+    def act(players, pack)
+        @AI.act(players, pack, @strength, @intelligence)
     end
 end

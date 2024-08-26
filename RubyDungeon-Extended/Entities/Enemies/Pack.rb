@@ -9,7 +9,7 @@ class Pack
                 difficulty_bonus = biome::MONSTER_POWER_BONUS
                 monster_health = get_random_stat(monster_type::BASE_HEALTH, monsters.length, difficulty_bonus)
                 monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
-                monster = Monster.new(monster_health, monster_damage, Name.new(monster_type), "vous frappe")
+                monster = Monster.new(monster_health, monster_damage, 0, Name.new(monster_type), ["vous frappe"], ["lance un sort"], ["lance une aura de soin"], 0) # TODO superclass bestiary to actually implement intelligence
             else
                 if monster::IS_BOSS == false
                     monster = Monster.new(monster)
@@ -93,7 +93,7 @@ class Pack
         return @monsters.length == 0
     end
 
-    def attack(players)
+    def take_turns_against(players)
         for monster in @monsters do
             monster.act(players, @monsters)
         end

@@ -1,38 +1,29 @@
 class Game
-    SURVIVED = true
     WANNA_PLAY = true
     CHARACTER_SELECTED = true
 
     def initialize
         wanna_play = main_menu
-        if wanna_play
-            loop do
-                survived = play
-                if not survived
-                    wanna_play = ask_continue
-                end
-                if (survived) || (not wanna_play)
-                    wanna_play = main_menu
-                end
-                if not wanna_play
-                    break
-                end
+        while wanna_play
+            @party.save_unsaved
+            play
+            wanna_play = false
+            if @party.died?
+                wanna_play = ask_continue
+            end
+            if not wanna_play
+                wanna_play = main_menu
             end
         end
     end
 
     def play
-        @party.set_room(World.get_instance.setup_entrance(@party.get_level))
-        loop do
+        entrance = World.get_instance.generate_dungeon(@party)
+        @party.set_room(entrance)
+        while !(@party.died? || @party.exited?)
             @party.take_turns
-            if (@party.died?)
-                return (not SURVIVED)
-            end
-            if (@party.exited?)
-                return SURVIVED
-            end
             @party.get_fights.each do |room, players|
-                World.get_instance.get_room(room).get_monsters.attack(players)
+                World.get_instance.get_room(room).get_monsters.take_turns_against(players)
             end
         end
     end
@@ -128,25 +119,25 @@ class Game
                 end
                 return new_character
             when "2"
-                    save_index = Narrator.ask_complex_element(
-                        "Quelle sauvegarde charger ?",
-                        saves,
-                        -> (save, index){
-                            if save != nil
-                                save_data = SaveManager.load(save)
-                                ASCIIPrinter.show_card(save_data, index)
-                            else
-                                puts
-                                puts "0) Retour..."
-                            end
-                        }
-                    )
-                    if save_index != nil
-                        save = saves[save_index]
-                        return Player.new(SaveManager.load(save), save)
-                    else
-                        return get_character
-                    end
+                save_index = Narrator.ask_complex_element(
+                    "Quelle sauvegarde charger ?",
+                    saves,
+                    -> (save, index){
+                        if save != nil
+                            save_data = SaveManager.load(save)
+                            ASCIIPrinter.show_card(save_data, index)
+                        else
+                            puts
+                            puts "0) Retour..."
+                        end
+                    }
+                )
+                if save_index != nil
+                    save = saves[save_index]
+                    return Player.new(SaveManager.load(save), save)
+                else
+                    return get_character
+                end
             else
                 puts Narrator.unsupported_choice_error
                 return get_character
@@ -190,7 +181,7 @@ class Game
     def ask_continue
         case Narrator.ask_continue
         when "1"
-            @player = Player.new(SaveManager.load(@save_file), @save_file)
+            @party.load
             return true
         when "2"
             return false

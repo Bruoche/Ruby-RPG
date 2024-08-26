@@ -1,4 +1,6 @@
 class Narrator
+    RETURN_BUTTON = "retour"
+
     def self.introduction(party)
         puts
         ASCIIPrinter.print("title")
@@ -33,8 +35,7 @@ class Narrator
 
     def self.describe_monsters_room(player_status, describe_biome, picture, the_room, monsters_description)
         describe_room(player_status, describe_biome, picture)
-        puts "Lorsque vous entrez dans #{the_room}, "
-        puts "vous voyez #{monsters_description}."
+        puts "Lorsque vous entrez dans #{the_room}, vous voyez #{monsters_description}."
     end
 
     def self.describe_empty_room(player_status, describe_biome, picture, the_room, female)
@@ -134,6 +135,19 @@ class Narrator
         ask_general(question, options, print, return_option,
             -> (element, i, print) {print.call(element, i)}
         )
+    end
+
+    def self.confirm_save
+        puts "Souhaitez-vous écraser votre ancienne sauvegarde ? (Y/N)"
+        choice = Narrator.user_input.downcase
+        if choice == "y"
+            return true
+        elsif choice == "n"
+            return false
+        else
+            Narrator.unsupported_choice_error
+            return confirm_save
+        end
     end
 
     def self.ask_if_fight(escape_chances)

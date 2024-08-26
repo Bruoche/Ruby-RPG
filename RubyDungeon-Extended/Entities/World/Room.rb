@@ -1,6 +1,4 @@
 class Room
-    RETURN_BUTTON = "retour"
-
     def initialize(biome, id, precedent_room = nil)
         @id = id
         @name = Name.new(biome)
@@ -11,46 +9,55 @@ class Room
         end
         @biome = biome
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))
-        @adjacent_rooms[0] = precedent_room
-        @precedent_room = 0
+        if precedent_room != nil
+            @adjacent_rooms[0] = precedent_room.get_id
+        end
         @objects = nil
         @requirements = @biome.get_entry_requirements
     end
 
-    def enter
+    def allow_entry_for(player)
         for requirement in @requirements
             if requirement.ignored?
-                return room_action
+                return true
             else
-                if requirement.can_enter?(@player)
+                if requirement.can_enter?(player)
                     requirement.ask_enter
                     puts "1) Oui"
                     puts "2) Non"
                     case Narrator.user_input
                     when "1"
                         requirement.entry_message
-                        return room_action
+                        return true
                     when "2"
                         requirement.no_entry_message
-                        return @adjacent_rooms[@precedent_room]
+                        return false
                     else
                         Narrator.unsupported_choice_error
-                        return enter
+                        return allow_entry_for(player)
                     end
                 else
                     requirement.impossible_entry_message
-                    return @adjacent_rooms[@precedent_room]
+                    return false
                 end
             end
         end
-        return room_action
+        return true
     end
 
-    def describe(arrival)
-        if arrival
+    def exit_to(next_room)
+        if @adjacent_rooms[next_room] == nil
+            @adjacent_rooms[next_room] = World.get_instance.get_new_room_id(self)
+        end
+        next_room_instance = World.get_instance.get_room(@adjacent_rooms[next_room])
+        return next_room_instance
+    end
+
+    def describe(player)
+        if player.just_entered_room?
             if (@monsters != nil)
                 Narrator.describe_monsters_room(
-                    @player.get_full_status,
+                    player.get_full_status,
                     -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_the,
@@ -58,7 +65,7 @@ class Room
                 )
             else
                 Narrator.describe_empty_room(
-                    @player.get_full_status,
+                    player.get_full_status,
                     -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_a,
@@ -73,7 +80,7 @@ class Room
                 monsters_description = nil
             end
             Narrator.describe_current_room(
-                @player.get_full_status,
+                player.get_full_status,
                 -> {@biome.describe},
                 @biome::PICTURE,
                 @name.get_gendered_a,
@@ -91,7 +98,7 @@ class Room
     end
 
     def got_monsters?
-        return (@monsters == nil) || (@monsters.are_dead)
+        return !((@monsters == nil) || (@monsters.are_dead))
     end
 
     def get_monsters_plural_the
@@ -106,69 +113,51 @@ class Room
         return @name.get_gendered_the
     end
 
+    def get_this_denomination
+        return @name.get_gendered_this
+    end
+
     def get_biome
-        return @biome.class.name
+        return @biome
+    end
+
+    def get_adjacent_rooms
+        return @adjacent_rooms
+    end
+
+    def searched_before?
+        return @objects != nil
+    end
+
+    def get_loot
+        if !searched_before?
+            search
+        end
+        return @objects
     end
 
     def search
-        searched = false
-        if (@objects != nil) && (@objects.length == 0)
-            puts "Vous avez déjà pris tout les objets à prendre dans #{@name.get_gendered_this}"
-            return searched
-        else
-            if @objects == nil
-                puts "Vous fouillez #{@name.get_gendered_the} pour tout objet pouvant vous être utile..."
-                @objects = @biome.get_loot
-                searched = true
-            end
-            if @objects.length != 0
-                loop do
-                    choosen_index = Narrator.ask("Quels objets voulez-vous prendre?", @objects, ->(object){to_string_loot(object)})
-                    if choosen_index == nil
-                        return searched
-                    end
-                    searched = true
-                    choosen_object = @objects[choosen_index]
-                    @player.get_new_item(choosen_object)
-                    @objects.delete_at(choosen_index)
-                    if @objects.length == 0
-                        return searched
-                    end
-                end
-            else
-                puts "Vous ne trouvez rien de valeur."
-                return searched
-            end
+        if !searched_before?
+            puts "Vous fouillez #{@name.get_gendered_the} pour tout objet pouvant vous être utile..."
+            @objects = @biome.get_loot
         end
+        return @objects
     end
 
-    private
-
-    def fight_with_adventage(player_first)
-        survived = Fight.new(@player, @monsters).fight(player_first)
-        if survived
-            return ask_action
-        else
-            return nil
-        end
+    def take(choosen_object_index)
+        choosen_object = @objects[choosen_object_index]
+        @objects.delete_at(choosen_object_index)
+        return choosen_object
     end
 
-    def to_string(room)
-        case room
-        when RETURN_BUTTON
+    def to_string(room_id)
+        case room_id
+        when Narrator::RETURN_BUTTON
             return "rester dans #{@name.get_gendered_the}"
         when nil
             return "???"
         else
-            return room.get_denomination
-        end
-    end
-
-    def to_string_loot(object)
-        if object == nil
-            return "retour..."
-        else
-            return object.get_description
+            return World.get_instance.get_room(room_id).get_denomination
         end
     end
 end

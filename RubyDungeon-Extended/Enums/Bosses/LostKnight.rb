@@ -28,7 +28,7 @@ class LostKnightLeftArm
     DAMAGE = BaseStats::BASE_STRENGTH.div(3) * 2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
-    BASE_MOVE = "vous met un coup de coude"
+    BASE_MOVES = ["vous met un coup de coude"]
     SPECIAL_MOVES = []
     DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
 end
@@ -39,9 +39,9 @@ class LostKnightRightArm
     DAMAGE = BaseStats::BASE_STRENGTH
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
-    BASE_MOVE = "vous assène un coup d'épée."
+    BASE_MOVES = ["vous assène un coup d'épée."]
     SPECIAL_MOVES = [
-        SpecialMove.new(25, -> (target, damage, boss) {LostKnight.slash(target, damage, boss)})
+        SpecialMove.new(25, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]
     DEATH_EVENT = -> (arm, boss) {LostKnight.main_arm_loss(arm, boss)}
 end
@@ -61,9 +61,10 @@ class LostKnight
         LostKnightRightArm
     ]
 
-    def self.slash(target, damage, boss)
-        puts "Le chevalier assène un coup d'épée puissant avec le seul objectif de trancher son ennemi."
-        target.hurt(Attack.new(rand(damage..damage*2), Attack::PHYSIC_TYPE))
+    def self.slash(targets, allies, actor, boss)
+        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+        target = actor.choose_target(targets)
+        target.hurt(Attack.new(rand(actor.get_damage..actor.get_damage*2), Attack::PHYSIC_TYPE))
     end
 
     def self.limb_loss(name, boss)
@@ -76,7 +77,7 @@ class LostKnight
             limb_loss(name, boss)
             puts "#{boss.get_name.get_gendered_the} change son arme de main."
             puts "Il semble être pris d'une résolution soudaine et insoupsonnée."
-            left_arm.add_special_move(SpecialMove.new(50, -> (target, damage, boss) {slash(target, damage, boss)}))
+            left_arm.add_special_move(SpecialMove.new(50, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
             left_arm.set_death_event(-> (name, boss) {defenseless(name, boss)})
         else
             defenseless(name, boss)

@@ -1,5 +1,5 @@
 class Player
-    def initialize(player_data, savefile = nil)
+    def initialize(player_data, savefile = SaveManager::NO_EXISTING_SAVEFILE)
         @inventory = Inventory.new
         @inventory.load(            player_data[:inventory])
         @picture = PlayerIcon.new
@@ -25,10 +25,15 @@ class Player
         @savefile = savefile
         @exited = false
         @fighting = false
+        @just_entered_room = true
     end
 
     def get_save
         return @savefile
+    end
+
+    def set_save(savefile)
+        @savefile = savefile
     end
 
     def get_save_data
@@ -64,6 +69,10 @@ class Player
 
     def get_remaining_life
         return @lifebar.get_life
+    end
+
+    def get_max_life
+        return @lifebar.get_max_life
     end
 
     def required_xp
@@ -106,71 +115,98 @@ class Player
         return @exited
     end
 
-    def act
-        if (@fighting)
-            fight_action
+    def fighting?
+        return @fighting
+    end
+
+    def just_entered_room?
+        return @just_entered_room
+    end
+
+    def just_won_fight?
+        if @fighting
+            return !@room.got_monsters?
         else
-            if (not @room.got_monsters?)
-                ask_action
+            return false
+        end
+    end
+
+    def get_room
+        return @room
+    end
+
+    def act
+        if !(died? || exited?)
+            if @fighting
+                return fight_action
             else
-                propose_combat
+                if @room.got_monsters?
+                    return propose_combat
+                else
+                    return ask_action
+                end
             end
         end
     end
 
     def ask_action
-        @room.describe
+        @room.describe(self)
+        @just_entered_room = false
         puts "Que souhaitez-vous faire?"
         puts "      1) Aller à..."
         puts "      2) Fouiller #{@room.get_the_denomination}"
         puts "      3) Utiliser un objet"
+        puts "      4) Attendre"
         if @room.got_monsters?
             puts "      4) Attaquer #{@room.get_monsters_plural_the}"
         end
-        loop do
-            case Narrator.user_input
-            when "1"
-                return propose_exploration
-            when "2"
-                if search
-                    return room_action
-                else
-                    return ask_action
-                end
-            when "3"
-                if use_item
-                    return room_action
-                else
-                    return ask_action
-                end
-            when "4"
-                if (not @room.got_monsters?)
-                    Narrator.unsupported_choice_error
-                    return ask_action
-                else
-                    Narrator.start_fight(@room.get_monsters.plural?)
-                    return fight_with_adventage(true)
-                end
+        case Narrator.user_input
+        when "1"
+            propose_exploration
+        when "2"
+            if search
+                return
             else
-                Narrator.unsupported_choice_error
                 return ask_action
             end
+        when "3"
+            if use_item
+                return act
+            else
+                return ask_action
+            end
+        when "4"
+            return
+        when "5"
+            if (not @room.got_monsters?)
+                Narrator.unsupported_choice_error
+                return ask_action
+            else
+                Narrator.start_fight(@room.get_monsters.plural?)
+                @fighting = true
+                return fight_action
+            end
+        else
+            Narrator.unsupported_choice_error
+            return ask_action
         end
     end
 
     def propose_combat
-        describe
+        @room.describe(self)
         case Narrator.ask_if_fight(get_escape_chances(@room.get_monsters.get_current_power))
         when "1"
             Narrator.start_fight(@room.get_monsters.plural?)
-            return fight_with_adventage(true)
+            @fighting = true
+            return act
         when "2"
             if can_escape?(@room.get_monsters.get_current_power)
                 Narrator.avoid_fight(@room.get_monsters.get_plural_the)
                 return ask_action
             else
                 Narrator.fail_sneak(@room.get_monsters.plural?)
-                return fight_with_adventage(false)
+                @fighting = true
+                return
             end
         else
             Narrator.unsupported_choice_error
@@ -203,26 +239,66 @@ class Player
             end
         else
             Narrator.unsupported_choice_error
-            player_turn
+            fight_action
         end
+        return
+    end
+
+    def stop_fighting
+        @fighting = false
     end
 
     def propose_exploration
-        next_room = Narrator.ask("Où souhaitez-vous aller?", @adjacent_rooms, -> (room){@room.to_string(room)}, RETURN_BUTTON)
-        if next_room == RETURN_BUTTON
-            return ask_action
-        else
-            @precedent_room = next_room # Si nous revenons ça sera par là
-            if @adjacent_rooms[next_room] == nil
-                @adjacent_rooms[next_room] = World.get_instance.get_new_room_id()
+        next_room = Narrator.ask("Où souhaitez-vous aller?", @room.get_adjacent_rooms, -> (room){@room.to_string(room)}, Narrator::RETURN_BUTTON)
+        if next_room != Narrator::RETURN_BUTTON
+            next_room_instance = @room.exit_to(next_room)
+            if next_room_instance.allow_entry_for(self)
+                @room = next_room_instance
+                @just_entered_room = true
             end
-            return @adjacent_rooms[next_room]
+            act
+        else
+            ask_action
+        end
+    end
+
+    def search
+        searched_before = @room.searched_before?
+        available_items = @room.search
+        if available_items.length == 0
+            if searched_before
+                puts "Vous avez déjà pris tout les objets à prendre dans #{@room.get_this_denomination}"
+            else
+                puts "Vous ne trouvez rien de valeur."
+            end
+            return false
+        else
+            acted = false
+            loop do
+                choosen_object = Narrator.ask("Quels objets voulez-vous prendre?", @room.get_loot, ->(object){Loot.to_string(object)})
+                if choosen_object == nil
+                    return acted
+                end
+                acted = true
+                get_new_item(@room.take(choosen_object))
+                if @room.get_loot.length == 0
+                    return acted
+                end
+            end
         end
     end
 
     def set_room(room)
         @room = room
         @arrival = true
+    end
+
+    def set_save(savefile)
+        @savefile = savefile
+    end
+
+    def exit
+        @exited = true
     end
 
     def hurt(attack)
@@ -289,10 +365,10 @@ class Player
         for i in 1..nb_stats_up do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats_up})"
-                puts "1) Vie            (#{@lifebar.get_max_life} -> #{@lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
-                puts "2) Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
-                puts "3) Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
-                puts "4) Agilité       (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
+                puts "1) (ಇ) Vie            (#{@lifebar.get_max_life} -> #{@lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
+                puts "2) (ೞ) Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
+                puts "3) (೨) Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
+                puts "4) (ಖ) Agilité        (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
                 case Narrator.user_input
                 when "1"
                     @lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)

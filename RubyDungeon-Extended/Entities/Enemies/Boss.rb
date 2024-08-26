@@ -70,6 +70,10 @@ class Boss
         return nil
     end
 
+    def get_parts
+        return @bodyparts + @weakpoints
+    end
+
     def died?
         for weakpoint in @weakpoints do
             if not weakpoint.died?
@@ -130,13 +134,10 @@ class Boss
         return false
     end
 
-    def attack(player)
-        attacks = []
+    def act(players, pack)
         for bodypart in @bodyparts
-            attacks = bodypart.attack(player, self)
-            attacks.push(attacks)
+            bodypart.act(players, pack, self)
         end
-        return attacks
     end
 
     private

@@ -4,9 +4,9 @@ class SpecialMove
         @action = action
     end
 
-    def attempt(target, damage, boss)
+    def attempt(targets, allies, damage, boss)
         if (rand(100) < @probability)
-            return @action.call(target, damage, boss)
+            return @action.call(targets, allies, damage, boss)
         else
             return nil
         end

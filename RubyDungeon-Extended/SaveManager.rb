@@ -3,6 +3,7 @@ class SaveManager
     EXTENSION = ".save"
     SETTING = "settings"
     BASE_SETTINGS = ""
+    NO_EXISTING_SAVEFILE = nil
 
     def self.get_new_id
         i = 0
@@ -15,16 +16,24 @@ class SaveManager
         end
     end
 
-    def self.save(variables, file_name)
-        if (file_name == "")
-            file_name = "nameless"
+    def self.save(data, file_name = NO_EXISTING_SAVEFILE)
+        if (file_name == NO_EXISTING_SAVEFILE)
+            file_name = get_new_id
         end
         save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
         unless File.directory?(save_directory)
             FileUtils.mkdir_p(save_directory)
         end
-        write("#{SAVE_DIRECTORY}/#{file_name.downcase}#{EXTENSION}", variables)
-        puts "#{variables[:name]} saved."
+        write("#{SAVE_DIRECTORY}/#{file_name.downcase}#{EXTENSION}", data)
+        return file_name
+    end
+
+    def self.ask_save(player)
+        file_name = player.get_save
+        if (file_name == nil) || (not Narrator.confirm_save)
+            file_name = SaveManager.get_new_id
+        end
+        SaveManager.save(player.get_save_data, file_name)
     end
 
     def self.load(file_name)

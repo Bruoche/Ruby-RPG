@@ -13,4 +13,12 @@ class Loot
         puts @messages.sample
         return @item
     end
+
+    def self.to_string(object)
+        if object == nil
+            return "retour..."
+        else
+            return object.get_description
+        end
+    end
 end

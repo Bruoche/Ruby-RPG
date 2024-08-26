@@ -4,8 +4,12 @@ class Bodypart
         @actor = Monster.new(
             bossBodypart::HEALTH + power_bonus,
             bossBodypart::DAMAGE + power_bonus,
+            0,
             Name.new(bossBodypart),
-            bossBodypart::BASE_MOVE
+            bossBodypart::BASE_MOVES,
+            [""],
+            [""],
+            0
         )
         @special_moves = bossBodypart::SPECIAL_MOVES
         @death_event = bossBodypart::DEATH_EVENT
@@ -43,12 +47,12 @@ class Bodypart
         @death_event = death_event
     end
 
-    def attack(target, parent)
+    def act(targets, pack, parent)
         attacks = []
         for special_move in @special_moves
-            special_move.attempt(target, @actor.get_damage, parent)
+            special_move.attempt(targets, pack, @actor, parent)
         end
-        attacks.push(@actor.attack(target))
+        attacks.push(@actor.act(targets, pack))
     end
 
     def hurt(attack)

@@ -48,15 +48,15 @@ class ASCIIPrinter
         picture = icon.get_picture.get_ascii
         return [
             " __________________________________________________________________________________ ",
-            "|#{index} #{name}| Time played : #{time_played} |",
+            "|#{index} #{name} | Temps joué : #{time_played} |",
             "|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|",
-            "| #{picture[0].ljust(ICON_SIZE)} |                                               Level : #{level} |",
+            "| #{picture[0].ljust(ICON_SIZE)} |                                              Niveau : #{level} |",
             "| #{picture[1].ljust(ICON_SIZE)} |                                                             |",
             "| #{picture[2].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[3].ljust(ICON_SIZE)} |     Health : #{health}          Agility : #{agility}       |",
+            "| #{picture[3].ljust(ICON_SIZE)} |     Santé : #{health}           Agilité : #{agility}       |",
             "| #{picture[4].ljust(ICON_SIZE)} |                                                             |",
             "| #{picture[5].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[6].ljust(ICON_SIZE)} |     Strength : #{strength}        Inteligence : #{intelligence}   |",
+            "| #{picture[6].ljust(ICON_SIZE)} |     Force : #{strength}          Intemligence : #{intelligence}   |",
             "| #{picture[7].ljust(ICON_SIZE)} |                                                             |",
             "|____________________|_____________________________________________________________|"
         ]

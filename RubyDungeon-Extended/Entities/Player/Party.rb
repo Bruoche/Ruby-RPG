@@ -61,10 +61,10 @@ class Party
         for player in @players do
             if (not player.exited?) && (not player.died?)
                 if player.fighting?
-                    if (!fights.key?(player.room.get_id))
-                        fights[player.room.get_id] = []
+                    if (!fights.key?(player.get_room.get_id))
+                        fights[player.get_room.get_id] = []
                     end
-                    fights[player.room.get_id].append(player)
+                    fights[player.get_room.get_id].append(player)
                 end
             end
         end
@@ -120,6 +120,23 @@ class Party
         end
     end
 
+    def save_unsaved
+        for player in @players
+            if player.get_save == nil
+                save = SaveManager.save(player.get_save_data)
+                player.set_save(save)
+            end
+        end
+    end
+
+    def load
+        i = 0
+        for player in @players
+            @players[i] = Player.new(SaveManager.load(player.get_save), player.get_save)
+            i += 1
+        end
+    end
+
     def set_room(room)
         for player in @players do
             player.set_room(room)
@@ -130,10 +147,10 @@ class Party
         for player in @players do
             if (not player.exited?) && (not player.died?)
                 player.act
-                if player.just_won_fight
+                if player.just_won_fight?
                     xp_gained = player.get_room.get_monsters.get_xp
-                    Narrator.victory_scene(player.get_room.monsters.was_plural, xp_gained)
-                    for winning_player in get_fights{player.room.get_id} do
+                    Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
+                    for winning_player in get_fights[player.get_room.get_id] do
                         winning_player.stop_fighting
                         winning_player.get_xp(xp_gained)
                     end
