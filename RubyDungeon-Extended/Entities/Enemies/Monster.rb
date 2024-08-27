@@ -8,11 +8,11 @@ class Monster
     end
 
     def get_description
-        return "#{@name.get_gendered_a} avec #{@lifebar.life_to_string} points de vies et #{@strength} dégats"
+        return "#{@name.get_gendered_a} avec #{get_life_to_string} points de vies et #{get_damage} dégats"
     end
 
     def get_description_the
-        return "#{@name.get_gendered_the} avec #{@lifebar.life_to_string} points de vies et #{@strength} dégats"
+        return "#{@name.get_gendered_the} avec #{get_life_to_string} points de vies et #{get_damage} dégats"
     end
 
     def get_name
@@ -31,12 +31,20 @@ class Monster
         return @strength
     end
 
+    def get_life_to_string
+        return @lifebar.life_to_string
+    end
+
     def get_missing_life
         return @lifebar.get_missing_life
     end
 
     def get_max_life
         return @lifebar.get_max_life
+    end
+
+    def get_damage
+        return @strength
     end
 
     def set_damage(damage)
@@ -55,7 +63,7 @@ class Monster
         damage = attack.damage_dealt
         puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
         @lifebar.damage(damage)
-        return true
+        return Player::ACTED
     end
 
     def heal(amount)

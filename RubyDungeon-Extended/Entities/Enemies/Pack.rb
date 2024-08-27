@@ -3,18 +3,18 @@ class Pack
         @monsters = Array.new
         @initial_monsters = Array.new
         monsters = biome.get_monsters
-        for monster in monsters;
-            if monster == nil
+        for monster_data in monsters;
+            if monster_data == nil
                 monster_type = biome::BESTIARY.sample
                 difficulty_bonus = biome::MONSTER_POWER_BONUS
                 monster_health = get_random_stat(monster_type::BASE_HEALTH, monsters.length, difficulty_bonus)
                 monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
                 monster = Monster.new(monster_health, monster_damage, 0, Name.new(monster_type), ["vous frappe"], ["lance un sort"], ["lance une aura de soin"], 0) # TODO superclass bestiary to actually implement intelligence
             else
-                if monster::IS_BOSS == false
-                    monster = Monster.new(monster)
+                if monster_data::IS_BOSS == false
+                    monster = Monster.new(monster_data)
                 else
-                    monster = Boss.new(monster)
+                    monster = Boss.new(monster_data)
                 end
             end
             @monsters.push(monster)

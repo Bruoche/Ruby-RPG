@@ -15,7 +15,7 @@ class Loot
     end
 
     def self.to_string(object)
-        if object == nil
+        if object == Narrator::RETURN_BUTTON
             return "retour..."
         else
             return object.get_description

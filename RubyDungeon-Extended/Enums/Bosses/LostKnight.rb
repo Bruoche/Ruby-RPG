@@ -72,7 +72,7 @@ class LostKnight
     end
 
     def self.main_arm_loss(name, boss)
-        left_arm = boss.get(LostKnightLeftArm::ID)
+        left_arm = boss.get_part_by(LostKnightLeftArm::ID)
         if left_arm != nil
             limb_loss(name, boss)
             puts "#{boss.get_name.get_gendered_the} change son arme de main."

@@ -8,7 +8,7 @@ class Inventory
         @content.push(item)
     end
 
-    def have(item_class)
+    def have?(item_class)
         return @content.any?(item_class);
     end
 
@@ -38,10 +38,10 @@ class Inventory
     def ask_use(target)
         if (@content.length > 0)
             item_index = Narrator.ask("Quel objet souhaitez-vous utiliser?", @content, -> (item){to_string(item)})
-            if item_index != nil
+            if item_index != Narrator::RETURN_BUTTON
                 return use(@content[item_index], target)
             else
-                return false
+                return !Player::ACTED
             end
         else
             puts "Vous n'avez pas d'objets à utiliser."
@@ -59,7 +59,7 @@ class Inventory
     private
 
     def to_string(item)
-        if item == nil
+        if item == Narrator::RETURN_BUTTON
             return "retour..."
         else
             return item.get_description

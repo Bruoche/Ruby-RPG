@@ -15,7 +15,7 @@ class EntryRequirement
 
     def can_enter?(player)
         for required_item in @required_items
-            if not player.have(required_item)
+            if not player.have?(required_item)
                 return false
             end
         end

@@ -40,7 +40,7 @@ class Game
         puts "3) Quitter"
         case Narrator.user_input
         when "1"
-            if select_characters
+            if initialize_party == CHARACTER_SELECTED
                 return WANNA_PLAY
             else
                 return main_menu
@@ -57,46 +57,50 @@ class Game
         end
     end
 
-    def select_characters
+    def initialize_party
         first_player = get_character
         if first_player == nil
             return (not CHARACTER_SELECTED)
         end
         @party = Party.new([first_player])
-        loop do
-            puts "Aventuriers entrant dans le donjon : "
-            @party.show_cards
-            puts
-            puts
-            puts "0) Retour"
-            puts "1) Ajouter un membre à l'équipe"
-            index_enter_dungeon = 2
-            if (@party.size > 1)
-                puts "2) Retirer un membre de l'équipe"
-            index_enter_dungeon += 1
+        return select_characters
+    end
+
+    def select_characters
+        puts "Aventuriers entrant dans le donjon : "
+        @party.show_cards
+        puts
+        puts
+        puts "0) Retour"
+        puts "1) Ajouter un membre à l'équipe"
+        index_enter_dungeon = 2
+        if (@party.size > 1)
+            puts "2) Retirer un membre de l'équipe"
+        index_enter_dungeon += 1
+        end
+        puts "#{index_enter_dungeon}) Entrer dans le donjon"
+        choosen_option = Narrator.user_input
+        case choosen_option
+        when "0"
+            if Narrator.ask_confirmation(["Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)", "Les personnages sélectionnés ne seront pas sauvegardés"])
+                return (not CHARACTER_SELECTED)
             end
-            puts "#{index_enter_dungeon}) Entrer dans le donjon"
-            choosen_option = Narrator.user_input
-            case choosen_option
-            when "0"
-                if Narrator.ask_confirmation(["Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)", "Les personnages sélectionnés ne seront pas sauvegardés"])
-                    return (not CHARACTER_SELECTED)
-                end
-            when "1"
-                new_player = get_character
-                if new_player != nil
-                    @party.add_player(new_player)
-                end
+        when "1"
+            new_player = get_character
+            if new_player != nil
+                @party.add_player(new_player)
+                return select_characters
+            end
+        else
+            if (choosen_option == index_enter_dungeon.to_s)
+                Narrator.introduction(@party)
+                return CHARACTER_SELECTED
             else
-                if (choosen_option == index_enter_dungeon.to_s)
-                    Narrator.introduction(@party)
-                    return CHARACTER_SELECTED
+                if (@party.size > 1) && (choosen_option == "2")
+                    @party.remove_player
                 else
-                    if (@party.size > 1) && (choosen_option == "2")
-                        @party.remove_player
-                    else
-                        Narrator.unsupported_choice_error
-                    end
+                    Narrator.unsupported_choice_error
+                    return select_characters
                 end
             end
         end

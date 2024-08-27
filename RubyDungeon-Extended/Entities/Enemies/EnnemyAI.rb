@@ -72,7 +72,7 @@ class EnnemyAI
     end
 
     def calculate_potential_heal(pack, intelligence)
-        average_spell_power = (intelligence+1)/2
+        average_spell_power = Utils.average(intelligence)
         needyest_ally = self
         for ally in pack do
             if needyer_then?(needyest_ally, ally)
@@ -95,7 +95,7 @@ class EnnemyAI
     end
 
     def calculate_potential_spell_damage(players, intelligence)
-        average_spell_power = (intelligence+1)/2
+        average_spell_power = Utils.average(intelligence)
         potential_spell_damage = 0
         for player in players do
             potential_damage = player.get_remaining_life

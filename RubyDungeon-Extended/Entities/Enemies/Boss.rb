@@ -1,4 +1,6 @@
-class Boss
+class Boss < Monster
+    PART_KILLED = true
+
     def initialize(boss)
         @weakpoints = Array.new
         for weakpoint in boss::WEAKPOINTS
@@ -10,32 +12,6 @@ class Boss
         end
         @name = Name.new(boss)
         @initial_power = get_power
-    end
-
-    def get_description
-        return "#{@name.get_gendered_a} avec #{get_life} points de vies et #{get_damage} dégats"
-    end
-
-    def get_life
-        life = 0
-        max_life = 0
-        for weakpoint in @weakpoints do
-            life += weakpoint.get_life
-            max_life += weakpoint.get_max_life
-        end
-        return "#{life}/#{max_life}"
-    end
-
-    def get_damage
-        damage = 0
-        for bodypart in @bodyparts do
-            damage += bodypart.get_damage
-        end
-        return damage
-    end
-
-    def get_name
-        return @name
     end
 
     def get_power
@@ -56,7 +32,25 @@ class Boss
         return @initial_power * 2
     end
 
-    def get(part_id)
+    def get_damage
+        damage = 0
+        for bodypart in @bodyparts do
+            damage += bodypart.get_damage
+        end
+        return damage
+    end
+
+    def get_life_to_string
+        life = 0
+        max_life = 0
+        for weakpoint in @weakpoints do
+            life += weakpoint.get_life
+            max_life += weakpoint.get_max_life
+        end
+        return "#{life}/#{max_life}"
+    end
+
+    def get_part_by(part_id)
         for currentBodypart in @bodyparts do
             if currentBodypart.is?(part_id)
                 return currentBodypart
@@ -90,7 +84,7 @@ class Boss
             flattened_targets = all_targets.flatten
             if (flattened_targets.length > 1)
                 choosen_target = Narrator.ask("Quel membre souhaitez-vous viser?", flattened_targets, -> (bodypart){to_string(bodypart)})
-                if choosen_target != nil
+                if choosen_target != Narrator::RETURN_BUTTON
                     array_index = 0
                     while (choosen_target >= all_targets[array_index].length) do
                         choosen_target -= all_targets[array_index].length
@@ -99,9 +93,9 @@ class Boss
                     targets = all_targets[array_index]
                     target = targets[choosen_target]
                     hurt_part(targets, target, attack)
-                    return true
+                    return Player::ACTED
                 else
-                    return false
+                    return !Player::ACTED
                 end
             else
                 for targets in all_targets
@@ -109,14 +103,14 @@ class Boss
                         hurt_part(targets, target, attack)
                     end
                 end
-                return true
+                return Player::ACTED
             end
         when Attack::MAGIC_TYPE
             for targets in all_targets
                 i = 0
                 while i < targets.length
-                    $killed = hurt_part(targets, targets[i], attack)
-                    if not $killed
+                    hurt_part_result = hurt_part(targets, targets[i], attack)
+                    if hurt_part_result != PART_KILLED
                         i += 1
                     end
                 end
@@ -129,9 +123,9 @@ class Boss
         if target.died?
             target.death_event(self)
             targets.delete_at(targets.index(target))
-            return true
+            return PART_KILLED
         end
-        return false
+        return !PART_KILLED
     end
 
     def act(players, pack)
@@ -143,7 +137,7 @@ class Boss
     private
 
     def to_string(bodypart)
-        if bodypart != nil
+        if bodypart != Narrator::RETURN_BUTTON
             return bodypart.get_description
         else
             return "retour..."

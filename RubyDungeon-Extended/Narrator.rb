@@ -125,7 +125,7 @@ class Narrator
         puts "Vous reprenez votre exploration du donjon."
     end
 
-    def self.ask(question, options, to_string, return_option = nil)
+    def self.ask(question, options, to_string, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
             -> (element, i, to_string) {puts "      #{i}) #{to_string.call(element).capitalize}"}
         )

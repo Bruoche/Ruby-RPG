@@ -1,5 +1,4 @@
 class Party
-
     ROW_SPAN = 160
 
     def initialize(players)
@@ -82,7 +81,7 @@ class Party
                 end
             end
             x = 0
-            for line in ASCIIPrinter.get_card(player.get_save_data) do
+            for line in ASCIIPicture.get_card(player.get_save_data) do
                 if rows[x] == nil
                     rows[x] = ""
                 end
@@ -107,7 +106,7 @@ class Party
             "Quel membre de l'équipe supprimer ?",
             @players,
             -> (player, index){
-                if player != nil
+                if player != Narrator::RETURN_BUTTON
                     ASCIIPrinter.show_card(player.get_save_data, index)
                 else
                     puts
@@ -115,7 +114,7 @@ class Party
                 end
             }
         )
-        if player_index != nil
+        if player_index != Narrator::RETURN_BUTTON
             @players.delete_at(player_index)
         end
     end
@@ -152,7 +151,7 @@ class Party
                     Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
                     for winning_player in get_fights[player.get_room.get_id] do
                         winning_player.stop_fighting
-                        winning_player.get_xp(xp_gained)
+                        winning_player.give_xp(xp_gained)
                     end
                 end
             end
