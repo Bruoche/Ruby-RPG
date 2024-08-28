@@ -98,7 +98,7 @@ class PlayerIcon
     end
 
     def get_save_data
-        return "#{@skintone}; #{@corpulence} ; #{@ears}; #{@brows}; #{@eyes}; #{@eye_color}; #{@nose}; #{@mouth}; #{@hairstyle_front}; #{@hairstyle_back}; #{@hair_color}; "
+        return "#{@skintone}; #{@corpulence}; #{@ears}; #{@brows}; #{@eyes}; #{@eye_color}; #{@nose}; #{@mouth}; #{@hairstyle_front}; #{@hairstyle_back}; #{@hair_color}; "
     end
 
     def load(data)

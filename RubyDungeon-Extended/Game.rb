@@ -89,7 +89,6 @@ class Game
             new_player = get_character
             if new_player != nil
                 @party.add_player(new_player)
-                return select_characters
             end
         else
             if (choosen_option == index_enter_dungeon.to_s)
@@ -100,10 +99,10 @@ class Game
                     @party.remove_player
                 else
                     Narrator.unsupported_choice_error
-                    return select_characters
                 end
             end
         end
+        return select_characters
     end
 
     def get_character
@@ -127,7 +126,7 @@ class Game
                     "Quelle sauvegarde charger ?",
                     saves,
                     -> (save, index){
-                        if save != nil
+                        if save != Narrator::RETURN_BUTTON
                             save_data = SaveManager.load(save)
                             ASCIIPrinter.show_card(save_data, index)
                         else
@@ -136,7 +135,7 @@ class Game
                         end
                     }
                 )
-                if save_index != nil
+                if save_index != Narrator::RETURN_BUTTON
                     save = saves[save_index]
                     return Player.new(SaveManager.load(save), save)
                 else

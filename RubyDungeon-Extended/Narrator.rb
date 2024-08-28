@@ -131,7 +131,7 @@ class Narrator
         )
     end
 
-    def self.ask_complex_element(question, options, print, return_option = nil)
+    def self.ask_complex_element(question, options, print, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, print, return_option,
             -> (element, i, print) {print.call(element, i)}
         )

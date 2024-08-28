@@ -37,7 +37,7 @@ class EnnemyAI
         end
         priority_target = get_priority_physical_target(players, strength)
         physical_damage = calculate_physical_damage(priority_target, strength)
-        if (physical_damage + potential_heal + potential_spell_damage) != 0
+        if (physical_damage + potential_heal + potential_spell_damage) > 0
             if (potential_spell_damage >= physical_damage)
                 if (potential_spell_damage >= potential_heal)
                     magic_attack(players, intelligence)
@@ -140,7 +140,7 @@ class EnnemyAI
     def magic_attack(players, intelligence)
         puts "#{@denomination.capitalize} #{@magic_attack_messages.sample}"
         for player in players do
-            player.hurt(Attack.new(rand(intelligence), Attack::MAGIC_TYPE))
+            player.hurt(Attack.new(rand(0..intelligence), Attack::MAGIC_TYPE))
         end
     end
 

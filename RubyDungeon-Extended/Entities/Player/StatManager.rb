@@ -55,10 +55,10 @@ class StatManager
         for i in 1..nb_stats_up do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats_up})"
-                puts "1) (ಇ) Vie            (#{lifebar.get_max_life} -> #{lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
-                puts "2) (ೞ) Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
-                puts "3) (೨) Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
-                puts "4) (ಖ) Agilité        (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
+                puts "1) ♥ Vie            (#{lifebar.get_max_life} -> #{lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
+                puts "2) ♣ Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
+                puts "3) ♠ Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
+                puts "4) ♦ Agilité        (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
                 case Narrator.user_input
                 when "1"
                     lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
