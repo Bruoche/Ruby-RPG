@@ -243,14 +243,14 @@ class PlayerIcon
             question,
             elements,
             -> (element) {
-                if (element != nil)
+                if (element != Narrator::RETURN_BUTTON)
                     return element
                 else
                     return "#{return_label} #{current}"
                 end
             }
         )
-        if choosen_color != nil
+        if choosen_color != Narrator::RETURN_BUTTON
             return choosen_color
         else
             return current

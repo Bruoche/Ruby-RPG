@@ -38,6 +38,10 @@ class World
         return next_id
     end
 
+    def get_players_in(room)
+        return @party.get_players_in(room)
+    end
+
     private
 
     def initialize(level)

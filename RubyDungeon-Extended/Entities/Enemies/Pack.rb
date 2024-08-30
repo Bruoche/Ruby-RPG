@@ -101,7 +101,7 @@ class Pack
 
     def hurt_single(attack)
         if (plural?)
-            choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)})
+            choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)}, attack.source.get_name)
             if choosen_ennemy != Narrator::RETURN_BUTTON
                 attacked = hurt((choosen_ennemy), attack)[:attacked]
                 return attacked

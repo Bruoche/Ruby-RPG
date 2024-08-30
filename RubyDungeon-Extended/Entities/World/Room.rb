@@ -25,7 +25,7 @@ class Room
                     requirement.ask_enter
                     puts "1) Oui"
                     puts "2) Non"
-                    case Narrator.user_input
+                    case Narrator.user_input(player.get_name)
                     when "1"
                         requirement.entry_message
                         return true
@@ -57,7 +57,7 @@ class Room
         if player.just_entered_room?
             if (@monsters != nil)
                 Narrator.describe_monsters_room(
-                    player.get_full_status,
+                    player,
                     -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_the,
@@ -65,7 +65,7 @@ class Room
                 )
             else
                 Narrator.describe_empty_room(
-                    player.get_full_status,
+                    player,
                     -> {@biome.describe},
                     @biome::PICTURE,
                     @name.get_gendered_a,
@@ -80,7 +80,7 @@ class Room
                 monsters_description = nil
             end
             Narrator.describe_current_room(
-                player.get_full_status,
+                player,
                 -> {@biome.describe},
                 @biome::PICTURE,
                 @name.get_gendered_a,

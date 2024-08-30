@@ -1,5 +1,6 @@
 class Narrator
     RETURN_BUTTON = "retour"
+    NO_NAME_DISPLAYED = nil
 
     def self.introduction(party)
         puts
@@ -33,39 +34,71 @@ class Narrator
         user_input
     end
 
-    def self.describe_monsters_room(player_status, describe_biome, picture, the_room, monsters_description)
-        describe_room(player_status, describe_biome, picture)
-        puts "Lorsque vous entrez dans #{the_room}, vous voyez #{monsters_description}."
+    def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description)
+        describe_room(player, describe_biome, picture)
+        print "Lorsque vous entrez dans #{the_room}"
+        describe_monsters(player, monsters_description)
+        describe_allies(player)
     end
 
-    def self.describe_empty_room(player_status, describe_biome, picture, the_room, female)
-        describe_room(player_status, describe_biome, picture)
+    def self.describe_empty_room(player, describe_biome, picture, the_room, female)
+        describe_room(player, describe_biome, picture)
         print "Lorsque vous entrez dans #{the_room}, "
         if female
             puts "vous la trouvez complètement vide."
         else
             puts "vous le trouvez complètement vide."
         end
+        describe_allies(player)
     end
 
-    def self.describe_current_room(player_status, describe_biome, picture, a_room, monsters_description)
-        describe_room(player_status, describe_biome, picture)
+    def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description)
+        describe_room(player, describe_biome, picture)
         print "Vous êtes dans #{a_room}"
         if monsters_description != nil
-            puts ", vous voyez #{monsters_description}"
+            describe_monsters(player, monsters_description)
         else
             puts " vide."
         end
+        describe_allies(player)
     end
 
-    def self.describe_room(player_status, describe_biome, picture)
+    def self.describe_room(player, describe_biome, picture)
         puts
-        puts player_status
-        puts
-        ASCIIPrinter.print(picture)
+        ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)])
         puts
         describe_biome.call
         puts
+    end
+
+    def self.describe_monsters(player, monsters_description)
+        allies_fighting = []
+        allies = World.get_instance.get_players_in(player.get_room)
+        for ally in allies do
+            if (ally != player) && (ally.fighting?)
+                allies_fighting.append(ally.get_name)
+            end
+        end
+        if (allies_fighting.empty?)
+            puts ", vous voyez #{monsters_description}"
+        else
+            puts ", vous voyez #{Utils.enumerate(allies_fighting)} combattant #{monsters_description}"
+        end
+    end
+
+    def self.describe_allies(player)
+        potential_allies = World.get_instance.get_players_in(player.get_room)
+        allies = []
+        for ally in potential_allies
+            if (ally != player) && (!ally.fighting?)
+                allies.append(ally.get_name)
+            end
+        end
+        if allies.length == 1
+            puts "A vos cotés se trouve #{allies[0]}."
+        elsif allies.length > 1
+            puts "A vos cotés se trouvent #{Utils.enumerate(allies)}"
+        end
     end
 
     def self.start_fight(plural)
@@ -125,15 +158,17 @@ class Narrator
         puts "Vous reprenez votre exploration du donjon."
     end
 
-    def self.ask(question, options, to_string, return_option = Narrator::RETURN_BUTTON)
+    def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
-            -> (element, i, to_string) {puts "      #{i}) #{to_string.call(element).capitalize}"}
+            -> (element, i, to_string) {puts "      #{i}) #{to_string.call(element).capitalize}"},
+            player_name
         )
     end
 
-    def self.ask_complex_element(question, options, print, return_option = Narrator::RETURN_BUTTON)
+    def self.ask_complex_element(question, options, print, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, print, return_option,
-            -> (element, i, print) {print.call(element, i)}
+            -> (element, i, print) {print.call(element, i)},
+            player_name
         )
     end
 
@@ -150,16 +185,28 @@ class Narrator
         end
     end
 
-    def self.ask_if_fight(escape_chances)
+    def self.ask_if_fight(escape_chances, player_name)
         puts "Que voulez-vous faire ?"
         puts "      1) Combattre"
         puts "      2) Rester discret (#{escape_chances}% de chances de réussite)"
-        return user_input
+        return user_input(player_name)
     end
 
-    def self.ask_fight_action(player_status, monsters_description, escape_chances)
+    def self.ask_fight_action(player, monsters_description, escape_chances)
         puts
-        puts player_status
+        battle_cards = ASCIIRow.new
+        for ally in World.get_instance.get_players_in(player.get_room)
+            if ally.fighting?
+                battle_card = ASCIIPicture.new(ASCIIPicture.get_status(ally))
+                if ally == player
+                    battle_card.frame(ASCIIPicture::IMPORTANT_HORIZONTAL_FRAME, ASCIIPicture::IMPORTANT_VERTICAL_FRAME, ASCIIPicture::IMPORTANT_CORNER_PIECE)
+                else
+                    battle_card.frame
+                end
+                battle_cards.append(battle_card)
+            end
+        end
+        battle_cards.show
         puts "Vous faites face à #{monsters_description}."
         puts
         puts "Que voulez-vous faire ?"
@@ -168,7 +215,7 @@ class Narrator
         puts "      3) Sort de soin"
         puts "      4) Utiliser un objet..."
         puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
-        return user_input
+        return user_input(player.get_name)
     end
 
     def self.ask_continue
@@ -201,9 +248,14 @@ class Narrator
         puts "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées."
     end
 
-    def self.user_input
+    def self.user_input(name = NO_NAME_DISPLAYED)
         puts
-        print "  >> "
+        if name != NO_NAME_DISPLAYED
+            name_prefix = name + " : "
+        else
+            name_prefix = ""
+        end
+        print "  #{name_prefix}>> "
         answer = gets.chomp
         40.times do
             puts
@@ -213,7 +265,7 @@ class Narrator
 
     private
 
-    def self.ask_general(question, options, to_string, return_option, print_operation)
+    def self.ask_general(question, options, to_string, return_option, print_operation, player_name = NO_NAME_DISPLAYED)
         if options.is_a? Hash
             return ask_hash(question, options, to_string, return_option, print_operation)
         end
@@ -223,7 +275,7 @@ class Narrator
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
-            input = user_input.to_i
+            input = user_input(player_name).to_i
             if input.between?(1, options.length - 1)
                 return input - 1
             elsif input == 0
@@ -234,14 +286,14 @@ class Narrator
         end
     end
 
-    def self.ask_hash(question, hash, to_string, return_option, print_operation)
+    def self.ask_hash(question, hash, to_string, return_option, print_operation, player_name = NO_NAME_DISPLAYED)
         options = [return_option].concat hash.keys
         loop do
             puts question
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
-            input = user_input.to_i
+            input = user_input(player_name).to_i
             if input.between?(1, options.length - 1)
                 return options[input]
             elsif input == 0

@@ -40,20 +40,52 @@ class Player
         }
     end
 
-    def get_full_status
-        return "Vous êtes un.e aventurier.e de niveau #{@stats.level} (#{@stats.current_xp}/#{@stats.required_xp}).\n" + get_status
+    def get_icon
+        return @picture
     end
 
-    def get_status
-        return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@stats.strength} dégats et avez #{@stats.intelligence} points de puissance magique."
+    def get_name
+        return @name
     end
 
     def get_level
         return @stats.level
     end
 
+    def get_level_to_string
+        return @stats.level_to_string
+    end
+
+    def get_strength
+        return @stats.strength
+    end
+
+    def get_intelligence
+        return @stats.intelligence
+    end
+
+    def get_agility
+        return @stats.agility
+    end
+
+    def get_full_status
+        return "Vous êtes un.e aventurier.e de niveau #{@stats.level_to_string}.\n" + get_status
+    end
+
+    def get_status
+        return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@stats.strength} dégats et avez #{@stats.intelligence} points de puissance magique."
+    end
+
     def get_remaining_life
         return @lifebar.get_life
+    end
+
+    def healthbar(size)
+        return @lifebar.healthbar(size)
+    end
+
+    def health_to_string
+        return @lifebar.life_to_string
     end
 
     def get_max_life
@@ -131,26 +163,29 @@ class Player
 
     def hurt(attack)
         damage = rand(attack.damage_dealt)
-        puts("Vous prenez #{damage} dégats.")
+        puts("#{@name.capitalize} prend #{damage} dégats.")
         @lifebar.damage(damage)
+        if died?
+            puts "#{@name.capitalize} s'éffondre au sol."
+        end
     end
 
     def strength_attack
-        return Attack.new(@stats.strength, Attack::PHYSIC_TYPE)
+        return Attack.new(@stats.strength, Attack::PHYSIC_TYPE, self)
     end
 
     def magic_attack
-        return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE)
+        return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE, self)
     end
 
     def heal(amount = HEAL_SELF)
         if amount != HEAL_SELF
-            puts "Vous obtenez #{amount} points de vie."
+            puts "#{@name.capitalize} obtient #{amount} points de vie."
             @lifebar.heal(amount)
         else
             if (@stats.intelligence > 0)
                 amount = rand(1..@stats.intelligence)
-                puts "Vous vous soignez #{amount} points de vie."
+                puts "#{@name.capitalize} se soigne #{amount} points de vie."
                 @lifebar.heal(amount)
             else
                 puts "Vous ne savez pas comment vous soigner. Aucun point de vie n'est régénéré."
@@ -171,7 +206,7 @@ class Player
     end
 
     def give_xp(amount)
-        @stats.add_xp(amount, @lifebar)
+        @stats.add_xp(amount, @lifebar, @name)
     end
 
     def give_item(item)
@@ -179,7 +214,7 @@ class Player
     end
 
     def use_item
-        @inventory.ask_use(self)
+        @inventory.ask_use(self, @name)
     end
 
     private

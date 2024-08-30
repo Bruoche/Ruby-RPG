@@ -64,7 +64,7 @@ class LostKnight
     def self.slash(targets, allies, actor, boss)
         puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
         target = actor.choose_target(targets)
-        target.hurt(Attack.new(rand(actor.get_damage..actor.get_damage*2), Attack::PHYSIC_TYPE))
+        target.hurt(Attack.new(rand(actor.get_damage..actor.get_damage*2), Attack::PHYSIC_TYPE), actor)
     end
 
     def self.limb_loss(name, boss)

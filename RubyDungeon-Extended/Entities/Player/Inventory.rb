@@ -35,9 +35,9 @@ class Inventory
         end
     end
 
-    def ask_use(target)
+    def ask_use(target, character_name)
         if (@content.length > 0)
-            item_index = Narrator.ask("Quel objet souhaitez-vous utiliser?", @content, -> (item){to_string(item)})
+            item_index = Narrator.ask("Quel objet souhaitez-vous utiliser?", @content, -> (item){to_string(item)}, character_name)
             if item_index != Narrator::RETURN_BUTTON
                 return use(@content[item_index], target)
             else
@@ -45,6 +45,7 @@ class Inventory
             end
         else
             puts "Vous n'avez pas d'objets à utiliser."
+            return !Player::ACTED
         end
     end
 

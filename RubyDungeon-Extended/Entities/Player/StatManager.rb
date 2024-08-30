@@ -11,6 +11,10 @@ class StatManager
         return @level
     end
 
+    def level_to_string
+        return "#{@level} (#{@current_xp}/#{required_xp})"
+    end
+
     def current_xp
         return @current_xp
     end
@@ -38,20 +42,20 @@ class StatManager
         return potential_power + monster_pack_bonus + first_levels_increase
     end
 
-    def add_xp(amount, lifebar)
+    def add_xp(amount, lifebar, character_name)
         @current_xp += amount
         while (@current_xp >= required_xp)
             puts "Niveau supérieur !"
             @current_xp -= required_xp
             @level += 1
-            stat_up(lifebar)
+            stat_up(lifebar, character_name)
             lifebar.heal(lifebar.get_missing_life)
         end
     end
 
     private
 
-    def stat_up(lifebar)
+    def stat_up(lifebar, character_name)
         for i in 1..nb_stats_up do
             loop do
                 puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats_up})"
@@ -59,7 +63,7 @@ class StatManager
                 puts "2) ♣ Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
                 puts "3) ♠ Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
                 puts "4) ♦ Agilité        (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
-                case Narrator.user_input
+                case Narrator.user_input(character_name)
                 when "1"
                     lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
                     break

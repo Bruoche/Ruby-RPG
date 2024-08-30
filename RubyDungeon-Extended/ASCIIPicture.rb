@@ -2,9 +2,27 @@ class ASCIIPicture
     TRANSPARENT_CHARACTER = 'X'
     EMPTY_INDEX = "     "
     ICON_SIZE = 18
+    ICON_HEIGHT = 7
+    DEFAULT_VERTICAL_FRAME = "|"
+    DEFAULT_HORIZONTAL_FRAME = "─"
+    DEFAULT_CORNER_PIECE = " "
+    IMPORTANT_HORIZONTAL_FRAME = "═"
+    IMPORTANT_VERTICAL_FRAME = "║"
+    IMPORTANT_CORNER_PIECE = "█"
 
-    def initialize(picture_path, single_line = false)
-        @picture = read(picture_path, single_line);
+    def initialize(picture_path_or_ascii, single_line = false)
+        if picture_path_or_ascii.kind_of?(Array)
+            @picture = picture_path_or_ascii
+        else
+            @picture = read(picture_path_or_ascii, single_line);
+        end
+        @height = @picture.length
+        @width = 0
+        for line in @picture
+            if line.length > @width
+                @width = line.length
+            end
+        end
     end
 
     def read(picture_path, single_line = false)
@@ -13,6 +31,14 @@ class ASCIIPicture
         else
             return ["      (aucune image \"#{picture_path}\" n'a été trouvée)"]
         end
+    end
+
+    def width
+        return @width
+    end
+
+    def height
+        return @height
     end
 
     def get_ascii
@@ -33,7 +59,60 @@ class ASCIIPicture
                     end
                 end
             end
+            if line.length > @width
+                @width = line.length
+            end
         end
+        @height = @picture.length
+    end
+
+    def juxtapose(picture)
+        picture.get_ascii.each.with_index(0) do |line, y|
+            if @picture[y] == nil
+                @picture[y] = ""
+            end
+            @picture[y] = @picture[y].ljust(@width) + line
+        end
+        @width += picture.width
+        if picture.height > @height
+            @height = height
+        end
+    end
+
+    def frame(horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME, corner_piece = DEFAULT_CORNER_PIECE)
+        new_picture = [corner_piece + (horizontal_line * @width) + corner_piece]
+        @picture.each.with_index(0) do |line, y|
+            new_picture.append(vertical_line + line.ljust(@width) + vertical_line)
+        end
+        new_picture.append(corner_piece + (horizontal_line * @width) + corner_piece)
+        @picture = new_picture
+        @width += 2
+        @height += 2
+    end
+
+
+    def self.get_status(player)
+        picture = player.get_icon.get_picture.get_ascii
+        return [
+            picture[0].ljust(ICON_SIZE),
+            picture[1].ljust(ICON_SIZE),
+            picture[2].ljust(ICON_SIZE),
+            picture[3].ljust(ICON_SIZE),
+            picture[4].ljust(ICON_SIZE),
+            picture[5].ljust(ICON_SIZE),
+            picture[6].ljust(ICON_SIZE),
+            picture[7].ljust(ICON_SIZE),
+            " " + ("‾" * (ICON_SIZE - 2)),
+            Utils.truncate(" " + player.get_name, ICON_SIZE),
+            " Niv. #{player.get_level_to_string}",
+            "",
+            " " + player.healthbar(ICON_SIZE - 2),
+            " (#{player.health_to_string} ♥)",
+            "",
+            " ♣ " + player.get_strength.to_s,
+            " ♠ " + player.get_intelligence.to_s,
+            " ♦ " + player.get_agility.to_s
+        ]
     end
 
     def self.get_card(player_data, index = EMPTY_INDEX)

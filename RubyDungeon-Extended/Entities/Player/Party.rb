@@ -1,5 +1,4 @@
 class Party
-    ROW_SPAN = 160
 
     def initialize(players)
         @players = players
@@ -55,6 +54,16 @@ class Party
         return false
     end
 
+    def get_players_in(room)
+        players_in_room = []
+        for player in @players do
+            if room == player.get_room
+                players_in_room.append(player)
+            end
+        end
+        return players_in_room
+    end
+
     def get_fights
         fights = {}
         for player in @players do
@@ -71,30 +80,11 @@ class Party
     end
 
     def show_cards
-        cards = []
-        rows = []
+        cards = ASCIIRow.new
         for player in @players do
-            for row in rows do
-                if row.length > ROW_SPAN
-                    cards.append(rows)
-                    rows = []
-                end
-            end
-            x = 0
-            for line in ASCIIPicture.get_card(player.get_save_data) do
-                if rows[x] == nil
-                    rows[x] = ""
-                end
-                rows[x] += "       " + line
-                x += 1
-            end
+            cards.append(ASCIIPicture.new(ASCIIPicture.get_card(player.get_save_data)))
         end
-        cards.append(rows)
-        for rows in cards do
-            for line in rows do
-                puts line
-            end
-        end
+        cards.show
     end
 
     def add_player(player)

@@ -134,13 +134,13 @@ class EnnemyAI
 
     def physical_attack(player, strength)
         puts "#{@denomination.capitalize} #{@basic_attack_messages.sample}"
-        player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE))
+        player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, self))
     end
 
     def magic_attack(players, intelligence)
         puts "#{@denomination.capitalize} #{@magic_attack_messages.sample}"
         for player in players do
-            player.hurt(Attack.new(rand(0..intelligence), Attack::MAGIC_TYPE))
+            player.hurt(Attack.new(rand(0..intelligence), Attack::MAGIC_TYPE, self))
         end
     end
 

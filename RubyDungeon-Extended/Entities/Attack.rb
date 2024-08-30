@@ -1,9 +1,10 @@
 class Attack
     PHYSIC_TYPE = 0
     MAGIC_TYPE = 1
-    def initialize(damage, type)
+    def initialize(damage, type, source)
         @damage = damage
         @type = type
+        @source = source
     end
 
     def damage
@@ -12,6 +13,10 @@ class Attack
 
     def type
         return @type
+    end
+
+    def source
+        return @source
     end
 
     def damage_dealt

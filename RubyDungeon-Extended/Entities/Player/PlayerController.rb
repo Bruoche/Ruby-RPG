@@ -51,7 +51,7 @@ class PlayerController
         if @player.get_room.got_monsters?
             puts "      5) Attaquer #{@player.get_room.get_monsters_plural_the}"
         end
-        case Narrator.user_input
+        case Narrator.user_input(@player.get_name)
         when "1"
             propose_exploration
         when "2"
@@ -85,7 +85,7 @@ class PlayerController
 
     def propose_combat
         @player.get_room.describe(@player)
-        case Narrator.ask_if_fight(@player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
+        case Narrator.ask_if_fight(@player.get_escape_chances(@player.get_room.get_monsters.get_current_power), @player.get_name)
         when "1"
             Narrator.start_fight(@player.get_room.get_monsters.plural?)
             @fighting = true
@@ -106,7 +106,7 @@ class PlayerController
     end
 
     def fight_action
-        case Narrator.ask_fight_action(@player.get_status, @player.get_room.get_monsters.get_description, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
+        case Narrator.ask_fight_action(@player, @player.get_room.get_monsters.get_description, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
         when "1"
             acted = @player.get_room.get_monsters.hurt_single(@player.strength_attack)
             if not acted
@@ -136,7 +136,7 @@ class PlayerController
     end
 
     def propose_exploration
-        next_room = Narrator.ask("Où souhaitez-vous aller?", @player.get_room.get_adjacent_rooms, -> (room){@player.get_room.to_string(room)}, Narrator::RETURN_BUTTON)
+        next_room = Narrator.ask("Où souhaitez-vous aller?", @player.get_room.get_adjacent_rooms, -> (room){@player.get_room.to_string(room)}, @player.get_name)
         if next_room != Narrator::RETURN_BUTTON
             next_room_instance = @player.get_room.exit_to(next_room)
             if next_room_instance.allow_entry_for(@player)
@@ -162,7 +162,7 @@ class PlayerController
         else
             acted = false
             loop do
-                choosen_object = Narrator.ask("Quels objets voulez-vous prendre?", @player.get_room.get_loot, ->(object){Loot.to_string(object)})
+                choosen_object = Narrator.ask("Quels objets voulez-vous prendre?", @player.get_room.get_loot, ->(object){Loot.to_string(object)}, @player.get_name)
                 if choosen_object == nil
                     return acted
                 end

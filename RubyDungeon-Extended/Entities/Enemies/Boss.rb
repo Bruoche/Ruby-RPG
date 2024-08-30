@@ -83,7 +83,7 @@ class Boss < Monster
         when Attack::PHYSIC_TYPE
             flattened_targets = all_targets.flatten
             if (flattened_targets.length > 1)
-                choosen_target = Narrator.ask("Quel membre souhaitez-vous viser?", flattened_targets, -> (bodypart){to_string(bodypart)})
+                choosen_target = Narrator.ask("Quel membre souhaitez-vous viser?", flattened_targets, -> (bodypart){to_string(bodypart)}, attack.source.get_name)
                 if choosen_target != Narrator::RETURN_BUTTON
                     array_index = 0
                     while (choosen_target >= all_targets[array_index].length) do
