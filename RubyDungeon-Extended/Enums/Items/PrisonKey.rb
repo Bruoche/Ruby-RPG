@@ -14,11 +14,16 @@ class PrisonKey
         return false
     end
 
-    def use(target)
+    def use(target, user)
         puts "Vous ne savez pas comment utiliser cet objet..."
+        return !Player::ACTED
     end
 
     def get_save_data
         return "PrisonKey"
+    end
+
+    def usable_on_others?
+        return true
     end
 end

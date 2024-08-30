@@ -115,7 +115,10 @@ class PlayerController
         when "2"
             @player.get_room.get_monsters.hurt_magic(@player.magic_attack)
         when "3"
-            @player.heal
+            acted = @player.heal_spell
+            if not acted
+                fight_action
+            end
         when "4"
             used = @player.use_item
             if not used

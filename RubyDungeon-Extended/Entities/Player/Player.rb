@@ -1,6 +1,5 @@
 class Player
     ACTED = true
-    HEAL_SELF = nil
 
     def initialize(player_data, savefile = SaveManager::NO_EXISTING_SAVEFILE)
         @inventory = Inventory.new
@@ -178,29 +177,59 @@ class Player
         return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE, self)
     end
 
-    def heal(amount = HEAL_SELF)
-        if amount != HEAL_SELF
-            puts "#{@name.capitalize} obtient #{amount} points de vie."
-            @lifebar.heal(amount)
+    def heal_spell
+        if (@stats.intelligence > 0)
+            potential_allies = World.get_instance.get_players_in(@room)
+            allies = []
+            for ally in potential_allies
+                if (ally != self) && (ally.fighting?)
+                    allies.append(ally)
+                end
+            end
+            if allies.empty?
+                return cast_heal_on(self)
+            else
+                allies.unshift(self)
+                target_index = Narrator.ask("Qui souhaitez-vous soigner ?", allies, -> (player){to_string(player)}, @name)
+                if target_index != Narrator::RETURN_BUTTON
+                    return cast_heal_on(allies[target_index])
+                else
+                    return !ACTED
+                end
+            end
         else
-            if (@stats.intelligence > 0)
-                amount = rand(1..@stats.intelligence)
+            puts "Vous ne savez pas comment vous soigner."
+            return !ACTED
+        end
+    end
+
+    def cast_heal_on(target)
+        if (@stats.intelligence > 0)
+            amount = rand(1..@stats.intelligence)
+            if target == self
                 puts "#{@name.capitalize} se soigne #{amount} points de vie."
                 @lifebar.heal(amount)
             else
-                puts "Vous ne savez pas comment vous soigner. Aucun point de vie n'est régénéré."
+                puts "#{@name.capitalize} soigne #{target.get_name}."
+                target.heal(amount)
             end
+            return ACTED
         end
+    end
+
+    def heal(amount = HEAL_SELF)
+        puts "#{@name.capitalize} obtient #{amount} points de vie."
+        @lifebar.heal(amount)
     end
 
     def patch_up
         if (@lifebar.get_missing_life > 0)
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
-            puts "Vous vous soignez #{amount} points de vie."
+            puts "#{@name.capitalize} récupère #{amount} points de vie."
             @lifebar.heal(amount)
             return true
         else
-            puts "Vous n'êtes pas blessé et n'avez donc pas besoin de vous soigner."
+            puts "#{@name.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
             return false
         end
     end
@@ -210,11 +239,24 @@ class Player
     end
 
     def give_item(item)
+        puts "#{@name} obtiens #{item.get_name}."
         @inventory.add(item)
     end
 
     def use_item
-        @inventory.ask_use(self, @name)
+        return @inventory.inventory(self)
+    end
+
+    def to_string(player)
+        if player == Narrator::RETURN_BUTTON
+            return "annuler..."
+        else
+            if player == self
+                return "vous-même"
+            else
+                return player.get_name
+            end
+        end
     end
 
     private

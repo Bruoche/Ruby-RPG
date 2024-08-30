@@ -1,5 +1,5 @@
 class Narrator
-    RETURN_BUTTON = "retour"
+    RETURN_BUTTON = "return_button"
     NO_NAME_DISPLAYED = nil
 
     def self.introduction(party)
