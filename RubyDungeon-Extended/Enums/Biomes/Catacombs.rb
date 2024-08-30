@@ -52,7 +52,7 @@ class Catacombs < Biome
     FEMALE_CHANCES = 30
     DESCRIPTION = [
         "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré.",
-        "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quand à elle plus grande que jamais.",
+        "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quant à elle plus grande que jamais.",
         "L'air stagnant et la poussière vous donnent une sensation de secheresse."
     ]
     BESTIARY = [

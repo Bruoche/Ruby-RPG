@@ -1,6 +1,6 @@
 module Monsters
     # Female
-    BAT_F = "chauve-sourie"
+    BAT_F = "chauve-souris"
     GOBLIN_F = "gobline"
     HARPIE_F = "harpie"
     KNIGHT_F = "chevalière"
