@@ -9,6 +9,8 @@ class ASCIIPicture
     IMPORTANT_HORIZONTAL_FRAME = "═"
     IMPORTANT_VERTICAL_FRAME = "║"
     IMPORTANT_CORNER_PIECE = "█"
+    DEAD_HORIZONTAL_FRAME = "∙"
+    DEAD_VERTICAL_FRAME = ":"
 
     def initialize(picture_path_or_ascii, single_line = false)
         if picture_path_or_ascii.kind_of?(Array)

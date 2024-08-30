@@ -133,7 +133,7 @@ class EnnemyAI
     end
 
     def physical_attack(player, strength)
-        puts "#{@denomination.capitalize} #{@basic_attack_messages.sample}"
+        puts "#{@denomination.capitalize} #{@basic_attack_messages.sample % [player.get_name]}"
         player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, self))
     end
 

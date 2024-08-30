@@ -80,24 +80,44 @@ class Narrator
             end
         end
         if (allies_fighting.empty?)
-            puts ", vous voyez #{monsters_description}"
+            puts ", vous voyez #{monsters_description}."
         else
-            puts ", vous voyez #{Utils.enumerate(allies_fighting)} combattant #{monsters_description}"
+            puts ", vous voyez #{Utils.enumerate(allies_fighting)} combattant #{monsters_description}."
         end
     end
 
     def self.describe_allies(player)
         potential_allies = World.get_instance.get_players_in(player.get_room)
         allies = []
+        dead_allies = []
         for ally in potential_allies
             if (ally != player) && (!ally.fighting?)
-                allies.append(ally.get_name)
+                if ally.died?
+                    dead_allies.append(ally.get_name)
+                else
+                    allies.append(ally.get_name)
+                end
             end
         end
-        if allies.length == 1
-            puts "A vos cotés se trouve #{allies[0]}."
-        elsif allies.length > 1
-            puts "A vos cotés se trouvent #{Utils.enumerate(allies)}"
+        if allies.empty?
+            if dead_allies.length == 1
+                puts "Le corps de #{dead_allies[0]} gie sur le sol."
+            elsif dead_allies.length > 1
+                puts "Les corps de #{Utils.enumerate(dead_allies)} gient sur le sol."
+            end
+        else
+            if allies.length == 1
+                print "A vos cotés se trouve #{allies[0]}"
+            elsif allies.length > 1
+                print "A vos cotés se trouvent #{Utils.enumerate(allies)}"
+            end
+            if dead_allies.empty?
+                puts "."
+            elsif dead_allies.length == 1
+                puts "et le corps de #{dead_allies[0]}."
+            else
+                puts "et les corps de #{Utils.enumerate(dead_allies)}."
+            end
         end
     end
 
@@ -201,7 +221,11 @@ class Narrator
                 if ally == player
                     battle_card.frame(ASCIIPicture::IMPORTANT_HORIZONTAL_FRAME, ASCIIPicture::IMPORTANT_VERTICAL_FRAME, ASCIIPicture::IMPORTANT_CORNER_PIECE)
                 else
-                    battle_card.frame
+                    if ally.died?
+                        battle_card.frame(ASCIIPicture::DEAD_HORIZONTAL_FRAME, ASCIIPicture::DEAD_VERTICAL_FRAME)
+                    else
+                        battle_card.frame
+                    end
                 end
                 battle_cards.append(battle_card)
             end

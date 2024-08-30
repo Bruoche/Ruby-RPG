@@ -29,7 +29,7 @@ class Biome
     end
 
     def self.get_monsters
-        nb_monsters_max = 1 + self::MONSTER_AMOUNT_BONUS
+        nb_monsters_max = ((1 + self::MONSTER_AMOUNT_BONUS) * Math.sqrt(World.get_instance.nb_players)).truncate
         return Array.new(rand(1..nb_monsters_max))
     end
 

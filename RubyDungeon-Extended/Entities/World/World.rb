@@ -42,6 +42,10 @@ class World
         return @party.get_players_in(room)
     end
 
+    def nb_players
+        return @party.size
+    end
+
     private
 
     def initialize(level)

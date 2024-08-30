@@ -35,6 +35,9 @@ class Lifebar
 
     def damage(amount)
         @current_life -= amount
+        if @current_life < 0
+            @current_life = 0
+        end
     end
 
     def heal(amount)

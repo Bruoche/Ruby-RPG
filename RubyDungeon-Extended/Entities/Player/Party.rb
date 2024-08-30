@@ -67,7 +67,7 @@ class Party
     def get_fights
         fights = {}
         for player in @players do
-            if (not player.exited?) && (not player.died?)
+            if (not player.exited?)
                 if player.fighting?
                     if (!fights.key?(player.get_room.get_id))
                         fights[player.get_room.get_id] = []
