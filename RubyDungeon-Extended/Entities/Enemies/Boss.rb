@@ -17,12 +17,12 @@ class Boss < Monster
     def get_power
         power = 0
         nb_bodyparts = 0
-        for bodypart in @bodyparts do
+        for bodypart in @bodyparts
             power += bodypart.get_power
             nb_bodyparts += 1
         end
         health = 0
-        for weakpoint in @weakpoints do
+        for weakpoint in @weakpoints
             health += weakpoint.get_max_life
         end
         return power + (health * nb_bodyparts)
@@ -34,7 +34,7 @@ class Boss < Monster
 
     def get_damage
         damage = 0
-        for bodypart in @bodyparts do
+        for bodypart in @bodyparts
             damage += bodypart.get_damage
         end
         return damage
@@ -43,7 +43,7 @@ class Boss < Monster
     def get_life_to_string
         life = 0
         max_life = 0
-        for weakpoint in @weakpoints do
+        for weakpoint in @weakpoints
             life += weakpoint.get_life
             max_life += weakpoint.get_max_life
         end
@@ -51,12 +51,12 @@ class Boss < Monster
     end
 
     def get_part_by(part_id)
-        for currentBodypart in @bodyparts do
+        for currentBodypart in @bodyparts
             if currentBodypart.is?(part_id)
                 return currentBodypart
             end
         end
-        for currentWeakpoint in @weakpoints do
+        for currentWeakpoint in @weakpoints
             if currentWeakpoint.is?(part_id)
                 return currentWeakpoint
             end
@@ -69,7 +69,7 @@ class Boss < Monster
     end
 
     def died?
-        for weakpoint in @weakpoints do
+        for weakpoint in @weakpoints
             if not weakpoint.died?
                 return false
             end
@@ -86,7 +86,7 @@ class Boss < Monster
                 choosen_target = Narrator.ask("Quel membre souhaitez-vous viser?", flattened_targets, -> (bodypart){to_string(bodypart)}, attack.source.get_name)
                 if choosen_target != Narrator::RETURN_BUTTON
                     array_index = 0
-                    while (choosen_target >= all_targets[array_index].length) do
+                    while (choosen_target >= all_targets[array_index].length)
                         choosen_target -= all_targets[array_index].length
                         array_index += 1
                     end

@@ -1,8 +1,8 @@
 class Loot
-    def initialize(messages, drop_chance, item, item_parameters = [])
+    def initialize(messages, drop_chance, item, item_parameters = [], amount = 1)
         @messages = messages
         @drop_chance = drop_chance
-        @item = item.new(*item_parameters)
+        @items = Bundle.new(item.new(*item_parameters), amount)
     end
 
     def dropped?
@@ -11,14 +11,14 @@ class Loot
 
     def get_item
         puts @messages.sample
-        return @item
+        return @items
     end
 
     def self.to_string(object)
         if object == Narrator::RETURN_BUTTON
             return "retour..."
         else
-            return object.get_description
+            return object.get_name
         end
     end
 end

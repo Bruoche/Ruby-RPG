@@ -238,9 +238,9 @@ class Player
         @stats.add_xp(amount, @lifebar, @name)
     end
 
-    def give_item(item)
-        puts "#{@name} obtiens #{item.get_name}."
-        @inventory.add(item)
+    def give_item(bundle)
+        puts "#{@name} obtiens #{bundle.get_name}."
+        @inventory.add(bundle)
     end
 
     def use_item

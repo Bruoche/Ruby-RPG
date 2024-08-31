@@ -1,18 +1,11 @@
-class Bandage
-    def initialize
-        @destroyed = false
-    end
+class Bandage < Item
+    NAME = "des bandages"
 
-    def get_name
-        return "des bandages"
+    def initialize
     end
 
     def get_description
-        return "des bandages (restaure une quantitée aléatoire de vos points de vies manquants)"
-    end
-
-    def is_destroyed
-        return @destroyed
+        return "restaure une quantitée aléatoire de vos points de vies manquants"
     end
 
     def use(target, user)
@@ -24,13 +17,5 @@ class Bandage
         used = target.patch_up
         @destroyed = used
         return used
-    end
-
-    def get_save_data
-        return "Bandage"
-    end
-
-    def usable_on_others?
-        return true
     end
 end

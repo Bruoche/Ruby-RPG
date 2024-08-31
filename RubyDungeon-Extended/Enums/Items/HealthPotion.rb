@@ -1,19 +1,12 @@
-class HealthPotion
+class HealthPotion < Item
+    NAME = "une potion de soin"
+
     def initialize(soin_min, soin_max = soin_min)
-        @destroyed = false
         @soin = rand(soin_min..soin_max)
     end
 
-    def get_name
-        return "une potion de soin"
-    end
-
     def get_description
-        return "une potion de soin (restaure #{@soin} points de vie)"
-    end
-
-    def is_destroyed
-        return @destroyed
+        return "restaure #{@soin} points de vie"
     end
 
     def use(target, user)
@@ -28,10 +21,6 @@ class HealthPotion
     end
 
     def get_save_data
-        return "HealthPotion|#{@soin}"
-    end
-
-    def usable_on_others?
-        return true
+        return "#{self.class.name}|#{@soin}"
     end
 end

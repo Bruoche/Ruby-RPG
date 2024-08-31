@@ -74,7 +74,7 @@ class Narrator
     def self.describe_monsters(player, monsters_description)
         allies_fighting = []
         allies = World.get_instance.get_players_in(player.get_room)
-        for ally in allies do
+        for ally in allies
             if (ally != player) && (ally.fighting?)
                 allies_fighting.append(ally.get_name)
             end
@@ -193,7 +193,7 @@ class Narrator
     end
 
     def self.confirm_save
-        puts "Souhaitez-vous écraser votre ancienne sauvegarde ? (Y/N)"
+        puts "Souhaitez-vous sauvegarder sur une copie du personnage actuel ? (Y/N)"
         choice = Narrator.user_input.downcase
         if choice == "y"
             return true

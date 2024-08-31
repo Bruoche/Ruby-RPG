@@ -31,7 +31,7 @@ class Pack
             end
         end
         monsters_description = ""
-        for i in 0..(@monsters.length-1) do
+        for i in 0..(@monsters.length-1)
             monsters_description += @monsters[i].get_description
             if (i < (@monsters.length - 2))
                 monsters_description += ", "
@@ -52,7 +52,7 @@ class Pack
 
     def get_xp
         xp = 0
-        for monster in @initial_monsters do
+        for monster in @initial_monsters
             xp += monster.get_xp
         end
         multi_encounter_bonus = xp.div(10) * (@initial_monsters.length - 1)
@@ -61,7 +61,7 @@ class Pack
 
     def get_power
         power = 0
-        for monster in @initial_monsters do
+        for monster in @initial_monsters
             power += monster.get_power
         end
         multi_encounter_bonus = power.div(10) * (@initial_monsters.length - 1)
@@ -70,7 +70,7 @@ class Pack
 
     def get_current_power
         power = 0
-        for monster in @monsters do
+        for monster in @monsters
             power += monster.get_power
         end
         return power
@@ -85,7 +85,7 @@ class Pack
     end
 
     def are_dead
-        for monster in @monsters do
+        for monster in @monsters
             if (monster.died?)
                 @monsters.delete_at(@monsters.index(monster))
             end
@@ -94,7 +94,7 @@ class Pack
     end
 
     def take_turns_against(players)
-        for monster in @monsters do
+        for monster in @monsters
             monster.act(players, @monsters)
         end
     end
@@ -117,7 +117,7 @@ class Pack
     def hurt_magic(attack)
         if (attack.damage > 0)
             nb_killed = 0
-            for i in 0..(@monsters.length - 1)  do
+            for i in 0..(@monsters.length - 1)
                 if hurt(i - nb_killed, attack)[:dead]
                     nb_killed += 1
                 end

@@ -20,7 +20,7 @@ class Utils
             last_string = array_of_string.pop();
             returned_string = ""
             first = true
-            for string in array_of_string do
+            for string in array_of_string
                 if !first
                     returned_string << ", "
                 else

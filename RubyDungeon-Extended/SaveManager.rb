@@ -30,7 +30,7 @@ class SaveManager
 
     def self.ask_save(player)
         file_name = player.get_save
-        if (file_name == nil) || (not Narrator.confirm_save)
+        if (file_name == nil) || (Narrator.confirm_save)
             file_name = SaveManager.get_new_id
         end
         SaveManager.save(player.get_save_data, file_name)
