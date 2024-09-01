@@ -32,10 +32,10 @@ class Boss < Monster
         return @initial_power * 2
     end
 
-    def get_damage
+    def get_strength
         damage = 0
         for bodypart in @bodyparts
-            damage += bodypart.get_damage
+            damage += bodypart.get_strength
         end
         return damage
     end

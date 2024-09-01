@@ -123,6 +123,9 @@ class EnnemyAI
             if (strength < priority_score)
                 priority_score = strength
             end
+            if strength >= player.get_remaining_life
+                priority_score = priority_score * 2
+            end
             priority_score += rand(player.get_max_life)
             if (priority_score >= best_priority_score)
                 priority_target = player

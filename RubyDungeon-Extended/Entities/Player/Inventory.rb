@@ -15,7 +15,7 @@ class Inventory
 
     def have?(item)
         for bundle in @bundles
-            if @bundles.contain?(item);
+            if bundle.contain?(item);
                 return true
             end
         end

@@ -1,8 +1,7 @@
 require_relative "../Vocabulary"
 
-module CaveCritterF
+module BatF
     NAMES = [
-        Monsters::SPIDER_F,
         Monsters::BAT_F
     ].freeze
 
@@ -23,10 +22,11 @@ module CaveCritterF
     ].freeze
 end
 
-class CaveCritter
+class Bat
     IS_BOSS = false
-    FEMALE = CaveCritterF
+    FEMALE = BatF
     FEMALE_CHANCES = 100
     BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)
     BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
+    PICTURE = "bat"
 end

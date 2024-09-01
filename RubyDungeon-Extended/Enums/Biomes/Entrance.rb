@@ -53,8 +53,11 @@ class Entrance < Biome
     BESTIARY = [
         Goblin,
         Goblin,
+        Goblin,
         Slime,
-        CaveCritter
+        Slime,
+        Spider,
+        Bat
     ]
     SAFE_CHANCES = 30
     LOOT = [

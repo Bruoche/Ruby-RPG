@@ -97,6 +97,10 @@ class Room
         return @monsters
     end
 
+    def get_monster_cards
+        return @monsters.get_cards
+    end
+
     def got_monsters?
         return !((@monsters == nil) || (@monsters.are_dead))
     end

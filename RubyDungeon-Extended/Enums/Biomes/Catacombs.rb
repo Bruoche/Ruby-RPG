@@ -58,8 +58,9 @@ class Catacombs < Biome
     BESTIARY = [
         Undead,
         Undead,
-        Undead,
-        CaveCritter
+        Skeletton,
+        Skeletton,
+        Bat
     ]
     SAFE_CHANCES = 80
     LOOT = [

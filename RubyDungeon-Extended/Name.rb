@@ -10,6 +10,10 @@ class Name
         end
     end
 
+    def as_text
+        return @denomination
+    end
+
     def get_gendered_a
         if @female
             return "une #{@denomination}"

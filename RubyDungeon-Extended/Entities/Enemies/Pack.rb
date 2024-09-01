@@ -1,4 +1,5 @@
 class Pack
+    PICTURE_PREFIX = "Ennemies/"
     def initialize(biome)
         @monsters = Array.new
         @initial_monsters = Array.new
@@ -9,7 +10,14 @@ class Pack
                 difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
                 monster_health = get_random_stat(monster_type::BASE_HEALTH, monsters.length, difficulty_bonus)
                 monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
-                monster = Monster.new(monster_health, monster_damage, 0, Name.new(monster_type), ["frappe %s"], ["lance un sort"], ["lance une aura de soin"], 0) # TODO superclass bestiary to actually implement intelligence
+                name = Name.new(monster_type)
+                if name.female?
+                    suffix = "_f"
+                else
+                    suffix = "_m"
+                end
+                picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + monster_type::PICTURE + suffix)
+                monster = Monster.new(monster_health, monster_damage, 0, name, ["frappe %s"], ["lance un sort"], ["lance une aura de soin"], 0, picture)
             else
                 if monster_data::IS_BOSS == false
                     monster = Monster.new(monster_data)
@@ -20,6 +28,14 @@ class Pack
             @monsters.push(monster)
             @initial_monsters.push(monster)
         end
+    end
+
+    def get_cards
+        monster_cards = ASCIIRow.new
+        for monster in @monsters
+            monster_cards.append(ASCIIPicture.new(ASCIIPicture.monster_card(monster)))
+        end
+        return monster_cards
     end
 
     def get_description
@@ -41,6 +57,23 @@ class Pack
         end
         return monsters_description
     end
+
+    def enumerate
+        if @monsters.empty?
+            return "rien"
+        end
+        monsters_description = ""
+        for i in 0..(@monsters.length-1)
+            monsters_description += @monsters[i].get_name.get_gendered_a
+            if (i < (@monsters.length - 2))
+                monsters_description += ", "
+            elsif (i < (@monsters.length - 1))
+                monsters_description += " et "
+            end
+        end
+        return monsters_description
+    end
+
 
     def get_plural_the
         if (was_plural)

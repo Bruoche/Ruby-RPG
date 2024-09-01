@@ -66,4 +66,5 @@ class Goblin
     FEMALE_CHANCES = 50
     BASE_HEALTH = BaseStats::BASE_HEALTH
     BASE_DAMAGE = BaseStats::BASE_STRENGTH
+    PICTURE = "goblin"
 end

@@ -213,11 +213,11 @@ class Narrator
     end
 
     def self.ask_fight_action(player, monsters_description, escape_chances)
-        puts
+        player.get_room.get_monster_cards.show
         battle_cards = ASCIIRow.new
         for ally in World.get_instance.get_players_in(player.get_room)
             if ally.fighting?
-                battle_card = ASCIIPicture.new(ASCIIPicture.get_status(ally))
+                battle_card = ASCIIPicture.new(ASCIIPicture.battle_card(ally))
                 if ally == player
                     battle_card.frame(ASCIIPicture::IMPORTANT_HORIZONTAL_FRAME, ASCIIPicture::IMPORTANT_VERTICAL_FRAME, ASCIIPicture::IMPORTANT_CORNER_PIECE)
                 else

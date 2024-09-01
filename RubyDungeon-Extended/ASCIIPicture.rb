@@ -3,6 +3,8 @@ class ASCIIPicture
     EMPTY_INDEX = "     "
     ICON_SIZE = 18
     ICON_HEIGHT = 7
+    MONSTER_CARD_WIDTH = 32
+    MONSTER_HEALTH_MARGIN = 4
     DEFAULT_VERTICAL_FRAME = "|"
     DEFAULT_HORIZONTAL_FRAME = "─"
     DEFAULT_CORNER_PIECE = " "
@@ -12,7 +14,7 @@ class ASCIIPicture
     DEAD_HORIZONTAL_FRAME = "∙"
     DEAD_VERTICAL_FRAME = ":"
 
-    def initialize(picture_path_or_ascii, single_line = false)
+    def initialize(picture_path_or_ascii, single_line = true)
         if picture_path_or_ascii.kind_of?(Array)
             @picture = picture_path_or_ascii
         else
@@ -90,6 +92,35 @@ class ASCIIPicture
         @picture = new_picture
         @width += 2
         @height += 2
+    end
+
+    def self.monster_card(monster)
+        picture = monster.get_picture.get_ascii
+        stat_string = "♣ #{monster.get_strength}"
+        monster_info = ASCIIPicture.new([
+            (" " * (MONSTER_CARD_WIDTH - monster.get_name.as_text.length).div(2)) + monster.get_name.as_text.capitalize,
+            (" " * MONSTER_HEALTH_MARGIN) + monster.healthbar(MONSTER_CARD_WIDTH - (MONSTER_HEALTH_MARGIN * 2)) + (" " * MONSTER_HEALTH_MARGIN),
+            (" " * MONSTER_HEALTH_MARGIN) + "(#{monster.get_life_to_string} ♥)",
+            "",
+            (" " * (MONSTER_CARD_WIDTH - stat_string.length).div(2)) + stat_string
+        ])
+        monster_info.frame
+        return picture + monster_info.get_ascii
+    end
+
+
+    def self.battle_card(player)
+        picture = player.get_icon.get_picture.get_ascii
+        return [
+            picture[0].ljust(ICON_SIZE) + " | " + Utils.truncate(" " + player.get_name, ICON_SIZE),
+            picture[1].ljust(ICON_SIZE) + " | ",
+            picture[2].ljust(ICON_SIZE) + " | " + player.healthbar(ICON_SIZE - 2),
+            picture[3].ljust(ICON_SIZE) + " | " + "(#{player.health_to_string} ♥)",
+            picture[4].ljust(ICON_SIZE) + " | ",
+            picture[5].ljust(ICON_SIZE) + " | " + " ♣ " + player.get_strength.to_s,
+            picture[6].ljust(ICON_SIZE) + " | " + " ♠ " + player.get_intelligence.to_s,
+            picture[7].ljust(ICON_SIZE) + " | " + " ♦ " + player.get_agility.to_s
+        ]
     end
 
 

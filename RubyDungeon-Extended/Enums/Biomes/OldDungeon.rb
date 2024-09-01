@@ -62,6 +62,9 @@ class OldDungeon < Biome
     BESTIARY = [
         Goblin,
         Undead,
+        Skeletton,
+        ForgottenPrisonner,
+        ForgottenPrisonner,
         ForgottenPrisonner
     ]
     SAFE_CHANCES = 66

@@ -1,32 +1,33 @@
 require_relative "../Vocabulary"
 
-module SlimeM
+module SkelettonM
     NAMES = [
-        Monsters::SLIME_M
+        Monsters::SKELLETON_M
     ].freeze
 
     PREFIXES = [
         Adjectives::SMALL_M,
         Adjectives::BIG_M,
-        Adjectives::TALL_M
+        Adjectives::TALL_M,
+        Adjectives::ANCIENT_M
     ].freeze
 
     SUFFIXES = [
         Adjectives::SCARY_M,
         Adjectives::ANGRY_M,
         Adjectives::WARY_M,
-        Adjectives::GREEN_M,
-        Adjectives::BLUISH_M,
         Adjectives::GREYISH_M,
-        Adjectives::DARK_M
+        Adjectives::DARK_M,
+        Adjectives::TIRED_M
     ].freeze
 end
 
-class Slime
+
+class Skeletton
     IS_BOSS = false
-    MALE = SlimeM
+    MALE = SkelettonM
     FEMALE_CHANCES = 0
-    BASE_HEALTH = BaseStats::BASE_HEALTH
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
-    PICTURE = "slime"
+    BASE_HEALTH = BaseStats::BASE_HEALTH+(BaseStats::BASE_HEALTH.div(4))
+    BASE_DAMAGE = BaseStats::BASE_STRENGTH
+    PICTURE = "skeletton"
 end

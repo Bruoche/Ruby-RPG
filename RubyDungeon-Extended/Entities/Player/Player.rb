@@ -227,10 +227,10 @@ class Player
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
             puts "#{@name.capitalize} récupère #{amount} points de vie."
             @lifebar.heal(amount)
-            return true
+            return ACTED
         else
             puts "#{@name.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
-            return false
+            return !ACTED
         end
     end
 

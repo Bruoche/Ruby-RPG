@@ -9,7 +9,8 @@ class Bodypart
             bossBodypart::BASE_MOVES,
             [""],
             [""],
-            0
+            0,
+            ASCIIPicture.new([])
         )
         @special_moves = bossBodypart::SPECIAL_MOVES
         @death_event = bossBodypart::DEATH_EVENT
@@ -27,8 +28,8 @@ class Bodypart
         return @actor.get_power
     end
 
-    def get_damage
-        return @actor.get_damage
+    def get_strength
+        return @actor.get_strength
     end
 
     def died?
@@ -39,8 +40,8 @@ class Bodypart
         @special_moves.push(special_move)
     end
 
-    def set_damage(damage)
-        @actor.set_damage(damage)
+    def set_strength(damage)
+        @actor.set_strength(damage)
     end
 
     def set_death_event(death_event)

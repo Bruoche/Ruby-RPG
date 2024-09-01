@@ -106,7 +106,7 @@ class PlayerController
     end
 
     def fight_action
-        case Narrator.ask_fight_action(@player, @player.get_room.get_monsters.get_description, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
+        case Narrator.ask_fight_action(@player, @player.get_room.get_monsters.enumerate, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
         when "1"
             acted = @player.get_room.get_monsters.hurt_single(@player.strength_attack)
             if not acted
@@ -166,7 +166,7 @@ class PlayerController
             acted = false
             loop do
                 choosen_object = Narrator.ask("Quels objets voulez-vous prendre?", @player.get_room.get_loot, ->(object){Loot.to_string(object)}, @player.get_name)
-                if choosen_object == nil
+                if choosen_object == Narrator::RETURN_BUTTON
                     return acted
                 end
                 acted = true

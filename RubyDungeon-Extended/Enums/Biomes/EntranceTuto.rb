@@ -15,7 +15,8 @@ class EntranceTuto < Biome
         Goblin,
         Goblin,
         Slime,
-        CaveCritter
+        Spider,
+        Bat
     ]
     SAFE_CHANCES = 30
     LOOT = [

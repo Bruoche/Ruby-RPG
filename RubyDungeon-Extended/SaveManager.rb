@@ -53,6 +53,7 @@ class SaveManager
             if saves != nil
                 saves = saves.map {|file_name| file_name.delete_prefix("./#{SAVE_DIRECTORY}/").delete_suffix("#{EXTENSION}").downcase}
                 if saves != []
+                    saves = saves.sort_by {|e| e.split(/(\d+)/).map {|a| a =~ /\d+/ ? a.to_i : a }}
                     return saves
                 end
             end
