@@ -4,6 +4,7 @@ class ASCIIPicture
     ICON_SIZE = 18
     ICON_HEIGHT = 7
     MONSTER_CARD_WIDTH = 32
+    BOSS_CARD_WIDTH = 64
     MONSTER_HEALTH_MARGIN = 4
     DEFAULT_VERTICAL_FRAME = "|"
     DEFAULT_HORIZONTAL_FRAME = "─"
@@ -95,14 +96,19 @@ class ASCIIPicture
     end
 
     def self.monster_card(monster)
+        if monster.is_a?(Boss)
+            width = BOSS_CARD_WIDTH
+        else
+            width = MONSTER_CARD_WIDTH
+        end
         picture = monster.get_picture.get_ascii
         stat_string = "♣ #{monster.get_strength}"
         monster_info = ASCIIPicture.new([
-            (" " * (MONSTER_CARD_WIDTH - monster.get_name.as_text.length).div(2)) + monster.get_name.as_text.capitalize,
-            (" " * MONSTER_HEALTH_MARGIN) + monster.healthbar(MONSTER_CARD_WIDTH - (MONSTER_HEALTH_MARGIN * 2)) + (" " * MONSTER_HEALTH_MARGIN),
+            (" " * Utils.positive((width - monster.get_name.as_text.length).div(2))) + monster.get_name.as_text.capitalize,
+            (" " * MONSTER_HEALTH_MARGIN) + monster.healthbar(width - (MONSTER_HEALTH_MARGIN * 2)) + (" " * MONSTER_HEALTH_MARGIN),
             (" " * MONSTER_HEALTH_MARGIN) + "(#{monster.get_life_to_string} ♥)",
             "",
-            (" " * (MONSTER_CARD_WIDTH - stat_string.length).div(2)) + stat_string
+            (" " * Utils.positive((width - stat_string.length).div(2))) + stat_string
         ])
         monster_info.frame
         return picture + monster_info.get_ascii

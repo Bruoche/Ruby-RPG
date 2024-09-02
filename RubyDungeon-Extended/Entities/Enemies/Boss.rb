@@ -1,5 +1,6 @@
 class Boss < Monster
     PART_KILLED = true
+    PICTURE_PREFIX = "Boss/"
 
     def initialize(boss)
         @weakpoints = Array.new
@@ -12,6 +13,7 @@ class Boss < Monster
         end
         @name = Name.new(boss)
         @initial_power = get_power
+        @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + boss::PICTURE)
     end
 
     def get_power
@@ -48,6 +50,26 @@ class Boss < Monster
             max_life += weakpoint.get_max_life
         end
         return "#{life}/#{max_life}"
+    end
+
+    def get_current_life
+        life = 0
+        for weakpoint in @weakpoints
+            life += weakpoint.get_life
+        end
+        return life
+    end
+
+    def get_max_life
+        max_life = 0
+        for weakpoint in @weakpoints
+            max_life += weakpoint.get_max_life
+        end
+        return max_life
+    end
+
+    def healthbar(size)
+        return Lifebar.healthbar_for(get_current_life, get_max_life, size)
     end
 
     def get_part_by(part_id)

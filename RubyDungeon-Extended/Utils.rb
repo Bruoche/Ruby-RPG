@@ -31,4 +31,12 @@ class Utils
             return returned_string + " et " + last_string
         end
     end
+
+    def self.positive(number)
+        if number < 0
+            return 0
+        else
+            return number
+        end
+    end
 end

@@ -1,4 +1,6 @@
 class Room
+    MONSTER_PRESENT_PICTURE_SUFFIX = "_occupied"
+
     def initialize(biome, id, precedent_room = nil)
         @id = id
         @name = Name.new(biome)
@@ -56,10 +58,14 @@ class Room
     def describe(player)
         if player.just_entered_room?
             if (@monsters != nil)
+                picture = @biome::PICTURE
+                if got_monsters?
+                    picture += MONSTER_PRESENT_PICTURE_SUFFIX
+                end
                 Narrator.describe_monsters_room(
                     player,
                     -> {@biome.describe},
-                    @biome::PICTURE,
+                    picture,
                     @name.get_gendered_the,
                     @monsters.get_description
                 )

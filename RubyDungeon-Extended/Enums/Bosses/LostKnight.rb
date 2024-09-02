@@ -53,6 +53,7 @@ class LostKnight
     POWER_BONUS = EXPECTED_LEVEL * BaseStats::NB_STATS_PER_LEVEL * AMOUNT_BONUS
     MALE = LostKnightM
     FEMALE_CHANCES = 0
+    PICTURE = "lost_knight"
     WEAKPOINTS = [
         LostKnightHead
     ]
@@ -64,7 +65,7 @@ class LostKnight
     def self.slash(targets, allies, actor, boss)
         puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
         target = actor.choose_target(targets)
-        target.hurt(Attack.new(rand(actor.get_strength..actor.get_strength*2), Attack::PHYSIC_TYPE), actor)
+        target.hurt(Attack.new(rand(actor.get_strength..actor.get_strength*2), Attack::PHYSIC_TYPE, actor))
     end
 
     def self.limb_loss(name, boss)
