@@ -281,7 +281,7 @@ class Narrator
         end
         print "  #{name_prefix}>> "
         answer = gets.chomp
-        40.times do
+        TTY::Screen.height.times do
             puts
         end
         return answer

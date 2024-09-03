@@ -1,5 +1,4 @@
 class ASCIIRow
-    ROW_SPAN = 200
     DEFAULT_SPACING_BETWEEN = 3
 
     def initialize(inbetween_space = DEFAULT_SPACING_BETWEEN)
@@ -16,7 +15,7 @@ class ASCIIRow
         current_width = 0
         row = []
         for picture in @pictures
-            if ((current_width + @space.length + picture.width) < ROW_SPAN) || (current_width <= 0)
+            if ((current_width + @space.length + picture.width) < (TTY::Screen.width - 1)) || (current_width <= 0)
                 row.append(picture)
                 current_width += @space.length + picture.width
             else

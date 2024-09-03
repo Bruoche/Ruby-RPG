@@ -1,4 +1,5 @@
 $:.unshift File.dirname($0)
+
 require "RubyDungeon-Extended/ASCIIPrinter.rb"
 Dir["RubyDungeon-Extended/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*.rb"].each {|file| require(file)}
@@ -16,5 +17,6 @@ Dir["RubyDungeon-Extended/*/*/*.rb"].each {|file| require(file)}
 
 require "fileutils"
 require "time"
+require "tty-screen"
 
 Game.new

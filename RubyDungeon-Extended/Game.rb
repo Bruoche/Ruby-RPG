@@ -49,7 +49,6 @@ class Game
             asset_size_menu
             main_menu
         when "3"
-            puts "Au revoir !"
             return (not WANNA_PLAY)
         else
             Narrator.unsupported_choice_error
