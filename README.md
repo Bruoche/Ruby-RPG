@@ -12,11 +12,14 @@ Le contenu du sous-dossier Correction, en revanche, est entièrement oubliable.
 
 ## Paramètres de terminal conseillés
 
-Afin que le jeu tourne dans des conditions optimales, il est conseillé que le terminal **soit en plein écran au démarrage** et **ai une police supportant les charactères spéciaux tel que ▓▓** (par exemple Liberation Mono).
+Afin que le jeu tourne dans des conditions optimales, il est conseillé que le terminal **soit en plein écran au démarrage**.
 
-Vous pouvez modifier les paramètres du terminal par défaut de Windows 11 lorsque celui-ci est ouvert en faisant un clic droit sur la barre au sommet de la page, là où se trouvent les onglets, et en choisissant l'option "Paramètres".
+Il est également conseillé d'utiliser la police d'écriture "Consola" pour un affichage optimal du jeu.
 
-Enfin, si vous possédez un petit écran, lors du lancement du jeu veuillez vous rendre dans le menu "Options" afin de vous assurer que les images sont paramétrés avec la bonne taille.
+Vous pouvez modifier les paramètres du terminal par défaut de Windows 11 lorsque celui-ci est ouvert (cmd) en faisant un clic droit sur la barre au sommet de la page, là où se trouvent les onglets, et en choisissant l'option "Paramètres".
+Vous pouvez également activer et désactiver le plein écran via le raccourcis **Alt + Entrée**
+
+Enfin, si vous possédez un petit écran, lors du lancement du jeu veuillez vous rendre dans le menu "Options" afin de vous assurer que les images sont paramétrées avec la bonne taille.
 Si même l'affichage des images en petit ne permet pas de rendre le jeu lisible entièrement dans votre écran, tentez de réduire la police d'écriture de votre terminal dans ses options égalements.
 
 Une fois dans l'onglet des paramètres, vous pouvez changer :
