@@ -5,7 +5,11 @@ class Bundle
     end
 
     def get_name
-        return @item.get_name + " " + get_string_numbering
+        suffix = get_string_numbering
+        if suffix != ""
+            suffix = " " + suffix
+        end
+        return @item.get_name + suffix
     end
 
     def get_description
