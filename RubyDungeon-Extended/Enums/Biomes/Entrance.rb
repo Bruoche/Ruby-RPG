@@ -45,6 +45,7 @@ class Entrance < Biome
     FEMALE = EntranceF
     MALE = EntranceM
     FEMALE_CHANCES = 60
+    BACKTRACK_CHANCES = 10
     DESCRIPTION = [
         "Vous êtes entouré.e d'épais murs de pierres.",
         "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,",
@@ -85,7 +86,7 @@ class Entrance < Biome
                 "Vous vous engouffrez dans ce qui semble être un lieu de repos pour les anciens habitants de ce donjon depuis longtemps disparus."
             ],
             15,
-            Catacombs
+            "Catacombs"
         )
     ]
 end

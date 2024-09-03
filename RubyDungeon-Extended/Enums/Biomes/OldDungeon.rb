@@ -54,6 +54,7 @@ class OldDungeon < Biome
     FEMALE = OldDungeonF
     MALE = OldDungeonM
     FEMALE_CHANCES = 75
+    BACKTRACK_CHANCES = 5
     DESCRIPTION = [
         "Vous êtes dans ce qui semble être une ancienne prison.",
         "Bien que cet endroit soit un peu plus acceuillant que les catacombes, il ne l'est pas de beaucoup.",
@@ -101,7 +102,12 @@ class OldDungeon < Biome
                 "En écoutant attentivement, vous pouvez entendre une respiration faiblarde transperçant subtilement la grande parroie metallique."
             ],
             5,
-            BossCell
+            "BossCell"
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            1,
+            "Catacombs"
         )
     ]
 end

@@ -50,6 +50,7 @@ class Catacombs < Biome
     FEMALE = CatacombsF
     MALE = CatacombsM
     FEMALE_CHANCES = 30
+    BACKTRACK_CHANCES = 25
     DESCRIPTION = [
         "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré.",
         "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quant à elle plus grande que jamais.",
@@ -83,7 +84,20 @@ class Catacombs < Biome
                 "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
             ],
             7,
-            OldDungeon
+            "OldDungeon"
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            3,
+            "Entrance",
+            3
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            3,
+            "EntranceTuto",
+            0,
+            3
         )
     ]
 end

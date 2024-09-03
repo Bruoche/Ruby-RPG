@@ -14,6 +14,9 @@ class Biome
                 unless child.const_defined?(:ENTRY_REQUIREMENTS)
                     child.const_set(:ENTRY_REQUIREMENTS, [])
                 end
+                unless child.const_defined?(:BACKTRACK_CHANCES)
+                    child.const_set(:BACKTRACK_CHANCES, 0)
+                end
             end
         end
     end

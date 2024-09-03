@@ -1,5 +1,6 @@
 class Room
     MONSTER_PRESENT_PICTURE_SUFFIX = "_occupied"
+    UNEXPLORED_ROOM = nil
 
     def initialize(biome, id, precedent_room = nil)
         @id = id
@@ -48,7 +49,7 @@ class Room
     end
 
     def exit_to(next_room)
-        if @adjacent_rooms[next_room] == nil
+        if @adjacent_rooms[next_room] == UNEXPLORED_ROOM
             @adjacent_rooms[next_room] = World.get_instance.get_new_room_id(self)
         end
         next_room_instance = World.get_instance.get_room(@adjacent_rooms[next_room])
@@ -139,6 +140,15 @@ class Room
         return @objects != nil
     end
 
+    def backtrackable?
+        for room in @adjacent_rooms
+            if room == UNEXPLORED_ROOM
+                return true
+            end
+        end
+        return false
+    end
+
     def get_loot
         if !searched_before?
             search
@@ -158,6 +168,18 @@ class Room
         choosen_object = @objects[choosen_object_index]
         @objects.delete_at(choosen_object_index)
         return choosen_object
+    end
+
+    def set_adjacent_to(other_room_id)
+        possible_adjacence = []
+        i = 0
+        for room_id in @adjacent_rooms
+            if room_id == UNEXPLORED_ROOM
+                possible_adjacence.append(i)
+            end
+            i += 1
+        end
+        @adjacent_rooms[possible_adjacence.sample] = other_room_id
     end
 
     def to_string(room_id)
