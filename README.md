@@ -23,9 +23,9 @@ Enfin, si vous possédez un petit écran, lors du lancement du jeu veuillez vous
 Si même l'affichage des images en petit ne permet pas de rendre le jeu lisible entièrement dans votre écran, tentez de réduire la police d'écriture de votre terminal dans ses options égalements.
 
 Une fois dans l'onglet des paramètres, vous pouvez changer :
-- L'affichage en plein écran dans Démarrage > Taille au lancement
-- La police d'écriture dans Profils > Par défault > Apparence > Type de police
-- La taille de police dans Profils > Par défault > Apparence > Taille de police
+- L'affichage en plein écran dans **Démarrage > Taille au lancement**
+- La police d'écriture dans **Profils > Par défault > Apparence > Type de police**
+- La taille de police dans **Profils > Par défault > Apparence > Taille de police**
 
 
 
