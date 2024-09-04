@@ -1,6 +1,6 @@
 class ASCIIPicture
     TRANSPARENT_CHARACTER = 'X'
-    EMPTY_INDEX = "     "
+    EMPTY_INDEX = "    "
     ICON_SIZE = 18
     ICON_HEIGHT = 7
     MONSTER_CARD_WIDTH = 32
@@ -158,7 +158,7 @@ class ASCIIPicture
         if (index != EMPTY_INDEX)
             index = index.to_s.rjust(4) + '|'
         end
-        name =                      player_data[:name].to_s.ljust(50)
+        name =                      Utils.truncate(player_data[:name].to_s, 50).ljust(50)
         health =                    player_data[:health].to_s.ljust(10)
         strength =                  player_data[:strength].to_s.ljust(10)
         intelligence =              player_data[:intelligence].to_s.ljust(10)

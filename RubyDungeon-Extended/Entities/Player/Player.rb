@@ -44,7 +44,7 @@ class Player
     end
 
     def get_name
-        return @name
+        return Utils.truncate(@name, TTY::Screen.width.div(2))
     end
 
     def get_level
@@ -162,10 +162,10 @@ class Player
 
     def hurt(attack)
         damage = rand(attack.damage_dealt)
-        puts("#{@name.capitalize} prend #{damage} dégats.")
+        puts("#{get_name.capitalize} prend #{damage} dégats.")
         @lifebar.damage(damage)
         if died?
-            puts "#{@name.capitalize} s'éffondre au sol."
+            puts "#{get_name.capitalize} s'éffondre au sol."
         end
     end
 
@@ -190,7 +190,7 @@ class Player
                 return cast_heal_on(self)
             else
                 allies.unshift(self)
-                target_index = Narrator.ask("Qui souhaitez-vous soigner ?", allies, -> (player){to_string(player)}, @name)
+                target_index = Narrator.ask("Qui souhaitez-vous soigner ?", allies, -> (player){to_string(player)}, get_name)
                 if target_index != Narrator::RETURN_BUTTON
                     return cast_heal_on(allies[target_index])
                 else
@@ -207,10 +207,10 @@ class Player
         if (@stats.intelligence > 0)
             amount = rand(1..@stats.intelligence)
             if target == self
-                puts "#{@name.capitalize} se soigne #{amount} points de vie."
+                puts "#{get_name.capitalize} se soigne #{amount} points de vie."
                 @lifebar.heal(amount)
             else
-                puts "#{@name.capitalize} soigne #{target.get_name}."
+                puts "#{get_name.capitalize} soigne #{target.get_name}."
                 target.heal(amount)
             end
             return ACTED
@@ -218,28 +218,28 @@ class Player
     end
 
     def heal(amount = HEAL_SELF)
-        puts "#{@name.capitalize} obtient #{amount} points de vie."
+        puts "#{get_name.capitalize} obtient #{amount} points de vie."
         @lifebar.heal(amount)
     end
 
     def patch_up
         if (@lifebar.get_missing_life > 0)
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
-            puts "#{@name.capitalize} récupère #{amount} points de vie."
+            puts "#{get_name.capitalize} récupère #{amount} points de vie."
             @lifebar.heal(amount)
             return ACTED
         else
-            puts "#{@name.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
+            puts "#{get_name.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
             return !ACTED
         end
     end
 
     def give_xp(amount)
-        @stats.add_xp(amount, @lifebar, @name)
+        @stats.add_xp(amount, @lifebar, get_name)
     end
 
     def give_item(bundle)
-        puts "#{@name} obtiens #{bundle.get_name}."
+        puts "#{get_name} obtiens #{bundle.get_name}."
         @inventory.add(bundle)
     end
 

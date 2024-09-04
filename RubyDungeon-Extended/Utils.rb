@@ -7,7 +7,8 @@ class Utils
 
     def self.truncate(string, size)
         if string.length > size
-            return "#{string[0..size-3]}..."
+            cutoff_suffix = "..."
+            return string[0..size-(cutoff_suffix.length + 1)] + cutoff_suffix
         else
             return string
         end

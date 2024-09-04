@@ -1,5 +1,5 @@
 class CharacterCreator
-    DEFAULT_NAME = "Nameless"
+    DEFAULT_NAME = nil
 
     def initialize
         @name = DEFAULT_NAME
@@ -19,7 +19,17 @@ class CharacterCreator
         if (@name != DEFAULT_NAME)
             puts "Nom actuel : #{@name}"
         end
-        @name = Narrator.user_input.to_s
+        choosen_name = Narrator.user_input.to_s
+        if choosen_name == ""
+            puts "Le nom ne peux être vide."
+            return ask_name
+        end
+        name_pattern = Regexp.new('^[a-zA-ZÀ-ÖØ-öø-ÿ0-9 \-\'"]+$')
+        if !(name_pattern.match?(choosen_name))
+            puts "Les noms ne peuvent pas contenir de caractères spéciaux."
+            return ask_name
+        end
+        @name = choosen_name
     end
 
     def make_player
