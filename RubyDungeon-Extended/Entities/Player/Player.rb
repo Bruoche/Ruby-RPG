@@ -161,9 +161,14 @@ class Player
     end
 
     def hurt(attack)
-        damage = rand(attack.damage_dealt)
-        puts("#{get_name.capitalize} prend #{damage} dégats.")
-        @lifebar.damage(damage)
+        dodge_score = rand(@stats.agility.div(2))
+        damage = attack.damage_dealt
+        if dodge_score > damage
+            dodge_score = damage
+        end
+        damage_taken = damage - dodge_score
+        puts("#{get_name.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé)")
+        @lifebar.damage(damage_taken)
         if died?
             puts "#{get_name.capitalize} s'éffondre au sol."
         end
