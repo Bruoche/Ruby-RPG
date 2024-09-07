@@ -3,6 +3,7 @@ class PrisonKey < Item
     USABLE_ON_OTHERS = false
 
     def initialize
+        @value = 0
     end
 
     def get_description

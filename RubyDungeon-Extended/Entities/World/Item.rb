@@ -1,4 +1,6 @@
 class Item
+    PICTURE_PREFIX = "Items/"
+
     def self.inherited(child)
         child.instance_variable_set(:@destroyed, false)
         TracePoint.trace(:end) do |t|
@@ -6,12 +8,23 @@ class Item
                 unless child.const_defined?(:USABLE_ON_OTHERS)
                     child.const_set(:USABLE_ON_OTHERS, true)
                 end
+                unless child.const_defined?(:PICTURE)
+                    child.const_set(:PICTURE, "generic")
+                end
             end
         end
     end
 
     def get_name
         return self.class::NAME
+    end
+
+    def get_value
+        return @value
+    end
+
+    def get_picture
+        return ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + self.class::PICTURE)
     end
 
     def destroyed?

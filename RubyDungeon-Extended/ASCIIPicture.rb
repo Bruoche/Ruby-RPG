@@ -3,6 +3,7 @@ class ASCIIPicture
     EMPTY_INDEX = "    "
     ICON_SIZE = 18
     ICON_HEIGHT = 7
+    ITEM_ICON_WIDTH = 32
     MONSTER_CARD_WIDTH = 32
     BOSS_CARD_WIDTH = 64
     MONSTER_HEALTH_MARGIN = 4
@@ -14,6 +15,7 @@ class ASCIIPicture
     IMPORTANT_CORNER_PIECE = "█"
     DEAD_HORIZONTAL_FRAME = "∙"
     DEAD_VERTICAL_FRAME = ":"
+    NO_INDEX = nil
 
     def initialize(picture_path_or_ascii, single_line = true)
         if picture_path_or_ascii.kind_of?(Array)
@@ -196,5 +198,20 @@ class ASCIIPicture
             "| #{picture[7].ljust(ICON_SIZE)} |                                                             |",
             "|____________________|_____________________________________________________________|"
         ]
+    end
+
+    def self.get_selling_card(item, index = NO_INDEX)
+        if index != NO_INDEX
+            index_string = "#{index}) "
+        else
+            index_string = ""
+        end
+        text_card = ASCIIPicture.new([
+            Utils.truncate(index_string + item.get_name.capitalize, (ITEM_ICON_WIDTH - 2)),
+            "Price : #{item.get_value} ¤",
+            ""
+        ] + Utils.multiline(" " + item.get_description.capitalize, (ITEM_ICON_WIDTH - 2)))
+        text_card.frame(" ", " ")
+        return item.get_picture.get_ascii + text_card.get_ascii
     end
 end

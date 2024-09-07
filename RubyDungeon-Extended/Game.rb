@@ -4,15 +4,19 @@ class Game
 
     def initialize
         wanna_play = main_menu
-        while wanna_play
+        if wanna_play
+            @party.shop
             @party.save_unsaved
-            play
-            wanna_play = false
-            if @party.died?
-                wanna_play = ask_continue
-            end
-            if not wanna_play
-                wanna_play = main_menu
+            Narrator.introduction(@party)
+            while wanna_play
+                play
+                wanna_play = false
+                if @party.died?
+                    wanna_play = ask_continue
+                end
+                if not wanna_play
+                    wanna_play = main_menu
+                end
             end
         end
     end
@@ -91,7 +95,6 @@ class Game
             end
         else
             if (choosen_option == index_enter_dungeon.to_s)
-                Narrator.introduction(@party)
                 return CHARACTER_SELECTED
             else
                 if (@party.size > 1) && (choosen_option == "2")

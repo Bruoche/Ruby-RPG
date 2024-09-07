@@ -2,6 +2,7 @@ class Bandage < Item
     NAME = "des bandages"
 
     def initialize
+        @value = 0
     end
 
     def get_description

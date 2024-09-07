@@ -132,6 +132,12 @@ class Party
         end
     end
 
+    def shop
+        for player in @players do
+            Shop.propose_purchases_to(player)
+        end
+    end
+
     def take_turns
         for player in @players do
             if (not player.exited?) && (not player.died?)

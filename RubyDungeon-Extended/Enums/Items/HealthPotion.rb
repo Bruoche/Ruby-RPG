@@ -1,8 +1,10 @@
 class HealthPotion < Item
     NAME = "une potion de soin"
+    PICTURE = "health_potion"
 
     def initialize(soin_min, soin_max = soin_min)
         @soin = rand(soin_min..soin_max)
+        @value = @soin.div(2)
     end
 
     def get_description

@@ -12,6 +12,14 @@ class Bundle
         return @item.get_name + suffix
     end
 
+    def get_value
+        return @item.get_value * @quantity
+    end
+
+    def get_individual_value
+        return @item.get_value
+    end
+
     def get_description
         numbering = get_string_numbering
         if numbering != ""
@@ -22,6 +30,10 @@ class Bundle
             description = " (#{description})"
         end
         return "#{numbering}#{@item.get_name}#{description}"
+    end
+
+    def get_picture
+        return @item.get_picture
     end
 
     def get_item
