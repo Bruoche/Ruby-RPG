@@ -1,5 +1,6 @@
 class ASCIIPrinter
     PREFIX = "RubyDungeon-Extended/Assets/"
+    UNSCALABLE_PREFIX = "NotScalable/"
     SMALL_SUFFIX = "_small"
 
     def self.print(image_names)
