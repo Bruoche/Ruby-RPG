@@ -67,8 +67,19 @@ class Catacombs < Biome
     LOOT = [
         Loot.new(
             ["Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."],
-            40,
+            25,
             Bandage
+        ),
+        Loot.new(
+            [
+                "Vous remarquez qu'une des hurnes possèdes quelques pièce en son fond",
+                "Vous voyez quelques pièces posées en offrande sur une des dépouilles entreposée en ce lieu"
+            ],
+            10,
+            Coins,
+            [],
+            2,
+            4
         )
     ]
     MIN_EXITS = 1

@@ -152,7 +152,9 @@ class ASCIIPicture
             "",
             " ♣ " + player.get_strength.to_s,
             " ♠ " + player.get_intelligence.to_s,
-            " ♦ " + player.get_agility.to_s
+            " ♦ " + player.get_agility.to_s,
+            "",
+            " #{player.get_quantity_of(Shop::CURRENCY)} ¤"
         ]
     end
 
@@ -200,7 +202,7 @@ class ASCIIPicture
         ]
     end
 
-    def self.get_selling_card(item, index = NO_INDEX)
+    def self.get_selling_card(item, index = NO_INDEX, price_percentage = 100)
         if index != NO_INDEX
             index_string = "#{index}) "
         else
@@ -208,7 +210,7 @@ class ASCIIPicture
         end
         text_card = ASCIIPicture.new([
             Utils.truncate(index_string + item.get_name.capitalize, (ITEM_ICON_WIDTH - 2)),
-            "Price : #{item.get_value} ¤",
+            "Price : #{item.get_value(price_percentage)} ¤",
             ""
         ] + Utils.multiline(" " + item.get_description.capitalize, (ITEM_ICON_WIDTH - 2)))
         text_card.frame(" ", " ")

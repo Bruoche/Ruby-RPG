@@ -1,8 +1,10 @@
 class Loot
-    def initialize(messages, drop_chance, item, item_parameters = [], amount = 1)
+    def initialize(messages, drop_chance, item, item_parameters = [], amount_min = 1, amount_max = amount_min)
         @messages = messages
         @drop_chance = drop_chance
-        @items = Bundle.new(item.new(*item_parameters), amount)
+        @item = item.new(*item_parameters)
+        @amount_min = amount_min
+        @amount_max = amount_max
     end
 
     def dropped?
@@ -11,7 +13,7 @@ class Loot
 
     def get_item
         puts @messages.sample
-        return @items
+        return Bundle.new(@item, rand(@amount_min..@amount_max))
     end
 
     def self.to_string(object)

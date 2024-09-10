@@ -13,13 +13,35 @@ class Inventory
         @bundles.append(item_bundle)
     end
 
-    def have?(item)
+    def remove(item, quantity = 1)
+        for bundle in @bundles
+            if bundle.contain?(item)
+                bundle.remove(quantity)
+                if bundle.depleted?
+                    @bundles.delete_at(@bundles.index(bundle))
+                end
+            end
+        end
+    end
+
+    def have?(item, quantity = 1)
         for bundle in @bundles
             if bundle.contain?(item);
-                return true
+                if bundle.get_quantity >= quantity
+                    return true
+                end
             end
         end
         return false
+    end
+
+    def count(item)
+        for bundle in @bundles
+            if bundle.contain?(item)
+                return bundle.get_quantity
+            end
+        end
+        return 0
     end
 
     def get_save_data
@@ -46,7 +68,7 @@ class Inventory
     end
 
     def inventory(player)
-        if (@bundles.length > 0)
+        if @bundles.length > 0
             bundle_index = Narrator.ask("Quel objet souhaitez-vous utiliser ?", @bundles, -> (bundle){to_string(bundle)}, player.get_name)
             if bundle_index != Narrator::RETURN_BUTTON
                 bundle = @bundles[bundle_index]
@@ -69,6 +91,19 @@ class Inventory
             puts "Vous n'avez pas d'objets à utiliser."
             return !Player::ACTED
         end
+    end
+
+    def see_inventory
+        if @bundles.length > 0
+            puts "Vous possédez : "
+            for bundle in @bundles
+                puts "    - " + to_string(bundle).capitalize
+            end
+        else
+            puts "Vous n'avez pas d'objets à utiliser."
+        end
+        puts
+        Narrator.pause_text
     end
 
     def ask_usage(player, bundle, allies)
@@ -148,6 +183,62 @@ class Inventory
         return !Player::ACTED
     end
 
+    def choose_bundle_to_sell(player)
+        sellable_bundles = get_sellable_items
+        bundle_index = Narrator.ask_complex_element(
+            "Quel objet souhaitez-vous vendre ?",
+            sellable_bundles, -> (bundle, index){
+                if bundle == Narrator::RETURN_BUTTON
+                    puts "0) Retour..."
+                else
+                    item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
+                    item_frame.frame
+                    puts item_frame.get_ascii
+                end
+            },
+            player.get_name
+        )
+        if bundle_index != Narrator::RETURN_BUTTON
+            bundle = sellable_bundles[bundle_index]
+            if bundle.get_quantity > 1
+                amount = choose_amount_to_sell(bundle, player)
+            else
+                amount = 1
+            end
+            if amount > 0
+                return Bundle.new(bundle.get_item, amount)
+            end
+        end
+        return nil
+    end
+
+    def choose_amount_to_sell(bundle, player)
+        puts "Combien de #{bundle.get_name} souhaitez-vous vendre ?"
+        amount = Narrator::user_input(player.get_name)
+        if amount != amount.to_i.to_s
+            Narrator.unsupported_choice_error
+            return choose_bundle_to_sell(bundle, player)
+        end
+        amount = amount.to_i
+        if amount < 0
+            puts "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif."
+            return give(bundle, reciever, player)
+        end
+        if amount > bundle.get_quantity
+            amount = bundle.get_quantity
+        end
+        return amount
+    end
+
+    def get_sellable_items
+        sellable_bundles = []
+        for bundle in @bundles
+            if bundle.get_value > 0
+                sellable_bundles.append(bundle)
+            end
+        end
+        return sellable_bundles
+    end
 
     private
 

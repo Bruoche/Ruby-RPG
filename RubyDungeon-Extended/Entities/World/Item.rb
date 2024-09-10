@@ -19,8 +19,8 @@ class Item
         return self.class::NAME
     end
 
-    def get_value
-        return @value
+    def get_value(percentage = 100)
+        return (@value * percentage).div(100)
     end
 
     def get_picture

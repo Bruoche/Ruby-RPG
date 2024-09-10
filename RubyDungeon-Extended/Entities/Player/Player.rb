@@ -108,8 +108,12 @@ class Player
         return perception_score < stealth_score
     end
 
-    def have?(item)
-        return @inventory.have?(item)
+    def have?(item, quantity = 1)
+        return @inventory.have?(item, quantity)
+    end
+
+    def get_quantity_of(item)
+        return @inventory.count(item)
     end
 
     def died?
@@ -243,6 +247,10 @@ class Player
         @stats.add_xp(amount, @lifebar, get_name)
     end
 
+    def see_items
+        @inventory.see_inventory
+    end
+
     def give_item(bundle)
         puts "#{get_name} obtiens #{bundle.get_name}."
         @inventory.add(bundle)
@@ -250,6 +258,14 @@ class Player
 
     def use_item
         return @inventory.inventory(self)
+    end
+
+    def remove_item(item, quantity = 1)
+        @inventory.remove(item, quantity)
+    end
+
+    def choose_item_to_sell
+        @inventory.choose_bundle_to_sell(self)
     end
 
     def to_string(player)

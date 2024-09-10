@@ -1,21 +1,24 @@
 class Game
     WANNA_PLAY = true
     CHARACTER_SELECTED = true
+    RETAIL_PERCENT = 90
 
     def initialize
-        wanna_play = main_menu
-        if wanna_play
-            @party.shop
-            @party.save_unsaved
-            Narrator.introduction(@party)
-            while wanna_play
-                play
-                wanna_play = false
-                if @party.died?
-                    wanna_play = ask_continue
-                end
-                if not wanna_play
-                    wanna_play = main_menu
+        wanna_play = true
+        while wanna_play
+            wanna_play = main_menu
+            if wanna_play
+                Narrator.introduction_shop
+                @party.shop
+                @party.save_unsaved
+                Narrator.introduction(@party)
+                wanna_continue = true
+                while wanna_continue
+                    play
+                    wanna_continue = false
+                    if @party.died?
+                        wanna_continue = ask_continue
+                    end
                 end
             end
         end
@@ -81,7 +84,7 @@ class Game
             puts "2) Retirer un membre de l'équipe"
         index_enter_dungeon += 1
         end
-        puts "#{index_enter_dungeon}) Entrer dans le donjon"
+        puts "#{index_enter_dungeon}) Commencer le voyage"
         choosen_option = Narrator.user_input
         case choosen_option
         when "0"

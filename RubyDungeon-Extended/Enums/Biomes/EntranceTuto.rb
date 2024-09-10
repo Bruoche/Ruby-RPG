@@ -34,6 +34,17 @@ class EntranceTuto < Biome
             ["Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."],
             20,
             Bandage
+        ),
+        Loot.new(
+            [
+                "Vous trouvez quelques pièces posées sur une table",
+                "Vous voyez une petite bourse posée sur une étagère"
+            ],
+            25,
+            Coins,
+            [],
+            1,
+            3
         )
     ]
     MIN_EXITS = 1

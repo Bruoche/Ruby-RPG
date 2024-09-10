@@ -133,8 +133,9 @@ class Party
     end
 
     def shop
+        shop = Shop.new
         for player in @players do
-            Shop.propose_purchases_to(player)
+            shop.propose_purchases_to(player)
         end
     end
 

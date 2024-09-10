@@ -2,6 +2,14 @@ class Narrator
     RETURN_BUTTON = "return_button"
     NO_NAME_DISPLAYED = nil
 
+    def self.introduction_shop
+        puts
+        puts "Sur votre chemin vers le donjon,"
+        puts "Vous décidez de faire une courte halte auprès d'une échoppe pour voir les équipements que vous pourriez employer, anticipant ce qui vous attend."
+        puts
+        pause_text
+    end
+
     def self.introduction(party)
         puts
         ASCIIPrinter.print("title")
@@ -263,7 +271,7 @@ class Narrator
             return false
         else
             Narrator.unsupported_choice_error
-            return self.ask_confirmation
+            return self.ask_confirmation(question)
         end
     end
 

@@ -12,12 +12,12 @@ class Bundle
         return @item.get_name + suffix
     end
 
-    def get_value
-        return @item.get_value * @quantity
+    def get_value(percentage = 100)
+        return @item.get_value(percentage) * @quantity
     end
 
-    def get_individual_value
-        return @item.get_value
+    def get_individual_value(percentage = 100)
+        return @item.get_value(percentage)
     end
 
     def get_description
@@ -27,7 +27,7 @@ class Bundle
         end
         description = @item.get_description
         if description != ""
-            description = " (#{description})"
+            description = ", #{description}"
         end
         return "#{numbering}#{@item.get_name}#{description}"
     end
