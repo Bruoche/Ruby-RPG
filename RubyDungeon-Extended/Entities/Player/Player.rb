@@ -28,15 +28,15 @@ class Player
         return {
             "name": @name,
             "health": @lifebar.get_max_life,
-            "strength": @stats.strength,
+            "strength": @stats.raw_strength,
             "intelligence": @stats.intelligence,
-            "agility": @stats.agility,
+            "agility": @stats.raw_agility,
             "level": @stats.level,
             "current_xp": @stats.current_xp,
             "time_played": @time_played.current_value,
             "inventory": @inventory.get_save_data,
             "picture": @picture.get_save_data
-        }
+        }.merge(@stats.get_equippment.get_save_data)
     end
 
     def get_icon

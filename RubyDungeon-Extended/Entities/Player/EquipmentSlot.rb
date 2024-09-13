@@ -1,8 +1,9 @@
 class EquipmentSlot
     NO_ARMOR_EQUIPPED = nil
 
-    def initialize(type, equippedArmor = NO_ARMOR_EQUIPPED)
+    def initialize(type, save_id, equippedArmor = NO_ARMOR_EQUIPPED)
         @type = type
+        @save_id = save_id
         @equippedArmor = equippedArmor
     end
 
@@ -46,6 +47,24 @@ class EquipmentSlot
             return @equippedArmor.get_icon
         else
             return nil
+        end
+    end
+
+    def get_save_id
+        return @save_id
+    end
+
+    def get_save_data
+        if @equippedArmor != NO_ARMOR_EQUIPPED
+            return @equippedArmor.get_save_data
+        else
+            return nil
+        end
+    end
+
+    def load(item_data)
+        if item_data != nil
+            @equippedArmor = Item.load(item_data)
         end
     end
 

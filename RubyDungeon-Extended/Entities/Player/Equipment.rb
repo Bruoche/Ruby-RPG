@@ -6,10 +6,10 @@ class Equipment
 
     def initialize
         @slots = [
-            EquipmentSlot.new(Helmet),
-            EquipmentSlot.new(Plastron),
-            EquipmentSlot.new(Gauntlets),
-            EquipmentSlot.new(Greaves)
+            EquipmentSlot.new(Helmet, :helmet),
+            EquipmentSlot.new(Plastron, :plastron),
+            EquipmentSlot.new(Gauntlets, :gauntlets),
+            EquipmentSlot.new(Greaves, :greaves)
         ]
     end
 
@@ -56,6 +56,20 @@ class Equipment
             end
         end
         return false
+    end
+
+    def get_save_data
+        save_data = {}
+        for slot in @slots
+            save_data[slot.get_save_id] = slot.get_save_data
+        end
+        return save_data
+    end
+
+    def load(equipment_data)
+        for slot in @slots
+            slot.load(equipment_data[slot.get_save_id])
+        end
     end
 
     def equip(armor, player_name)

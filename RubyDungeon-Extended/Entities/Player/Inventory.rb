@@ -33,14 +33,8 @@ class Inventory
 
     def load(items)
         if items != nil
-            items.split("; ").tally.each do |item_with_paramters, amount|
-                object = item_with_paramters.split("|")[0]
-                parameters = item_with_paramters.split("|")[1]
-                if parameters != nil
-                    item = Object.const_get(object).new(*parameters.split(", "))
-                else
-                    item = Object.const_get(object).new
-                end
+            items.split("; ").tally.each do |item_data, amount|
+                item = Item.load(item_data)
                 @bundles.push(Bundle.new(item, amount))
             end
         end

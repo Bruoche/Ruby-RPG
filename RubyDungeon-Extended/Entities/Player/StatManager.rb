@@ -1,11 +1,12 @@
 class StatManager
     def load(player_data)
+        @equipment = Equipment.new
         @strength =                 player_data[:strength].to_i
         @intelligence =             player_data[:intelligence].to_i
         @agility =                  player_data[:agility].to_i
         @level =                    player_data[:level].to_i
         @current_xp =               player_data[:current_xp].to_i
-        @equipment = Equipment.new
+        @equipment.load(            player_data)
     end
 
     def level
@@ -37,6 +38,10 @@ class StatManager
         return "#{@strength}#{penality_text(strength_penality)}"
     end
 
+    def raw_strength
+        return @strength
+    end
+
     def intelligence
         return @intelligence
     end
@@ -48,9 +53,13 @@ class StatManager
     def agility_penality
         penality = @equipment.get_penality
         if penality > @agility
-            penality = agility
+            penality = @agility
         end
         return penality
+    end
+
+    def raw_agility
+        return @agility
     end
 
     def agility_to_string

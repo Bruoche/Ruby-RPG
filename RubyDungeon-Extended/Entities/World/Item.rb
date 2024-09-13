@@ -48,4 +48,14 @@ class Item
         puts "Vous ne savez pas comment utiliser cet objet..."
         return !Player::ACTED
     end
+
+    def self.load(item_data)
+        object = item_data.split("|")[0]
+        parameters = item_data.split("|")[1]
+        if parameters != nil
+            return Object.const_get(object).new(*parameters.split(", "))
+        else
+            return Object.const_get(object).new
+        end
+    end
 end
