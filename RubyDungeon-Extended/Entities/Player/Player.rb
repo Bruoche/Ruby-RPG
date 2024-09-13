@@ -40,7 +40,11 @@ class Player
     end
 
     def get_icon
-        return @picture
+        returned_picture = @picture.get_picture
+        for armor_picture in @stats.get_equippment.get_pictures
+            returned_picture.superpose(armor_picture)
+        end
+        return returned_picture
     end
 
     def get_name
@@ -59,12 +63,24 @@ class Player
         return @stats.strength
     end
 
+    def get_strength_to_string
+        return @stats.strength_to_string
+    end
+
     def get_intelligence
         return @stats.intelligence
     end
 
     def get_agility
         return @stats.agility
+    end
+
+    def get_agility_to_string
+        return @stats.agility_to_string
+    end
+
+    def get_defense_to_string
+        return @stats.defense_to_string
     end
 
     def get_full_status
@@ -170,8 +186,18 @@ class Player
         if dodge_score > damage
             dodge_score = damage
         end
-        damage_taken = damage - dodge_score
-        puts("#{get_name.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé)")
+        damage_recieved = damage - dodge_score
+        defense_score = @stats.defense
+        if defense_score > damage_recieved
+            defense_score = damage_recieved
+        end
+        damage_taken = damage_recieved - defense_score
+        if defense_score > 0
+            defense_text = ", #{defense_score} paré"
+        else
+            defense_text = ""
+        end
+        puts("#{get_name.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
         @lifebar.damage(damage_taken)
         if died?
             puts "#{get_name.capitalize} s'éffondre au sol."
@@ -262,6 +288,14 @@ class Player
 
     def remove_item(item, quantity = 1)
         @inventory.remove(item, quantity)
+    end
+
+    def equip(item)
+        return @stats.get_equippment.equip(item, @name)
+    end
+
+    def manage_equipment
+        return @stats.get_equippment.manage(@inventory, @name)
     end
 
     def choose_item_to_sell

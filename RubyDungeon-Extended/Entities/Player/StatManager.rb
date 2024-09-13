@@ -5,6 +5,7 @@ class StatManager
         @agility =                  player_data[:agility].to_i
         @level =                    player_data[:level].to_i
         @current_xp =               player_data[:current_xp].to_i
+        @equipment = Equipment.new
     end
 
     def level
@@ -20,7 +21,20 @@ class StatManager
     end
 
     def strength
-        return @strength
+        return @strength - strength_penality
+    end
+
+    def strength_penality
+        total_penality = @equipment.get_penality
+        if total_penality > @agility
+            return ((total_penality - @agility) * BaseStats::STRENGTH_PENALITY_PERCENTAGE).div(100)
+        else
+            return 0
+        end
+    end
+
+    def strength_to_string
+        return "#{@strength}#{penality_text(strength_penality)}"
     end
 
     def intelligence
@@ -28,7 +42,40 @@ class StatManager
     end
 
     def agility
-        return @agility
+        return @agility - agility_penality
+    end
+
+    def agility_penality
+        penality = @equipment.get_penality
+        if penality > @agility
+            penality = agility
+        end
+        return penality
+    end
+
+    def agility_to_string
+        return "#{@agility}#{penality_text(agility_penality)}"
+    end
+
+    def penality_text(penality_score)
+        if penality_score > 0
+            return " (-#{penality_score})"
+        else
+            return ""
+        end
+    end
+
+    def defense
+        return @equipment.get_defense
+    end
+
+    def defense_to_string
+        physical_defense = @equipment.get_defense
+        if physical_defense > 0
+            return " ⛊  #{physical_defense}"
+        else
+            return ""
+        end
     end
 
     def required_xp
@@ -40,6 +87,10 @@ class StatManager
         monster_pack_bonus = potential_power.div(10) * (nb_monsters_max-1)
         first_levels_increase = ((100*desired_level).round - 100)
         return potential_power + monster_pack_bonus + first_levels_increase
+    end
+
+    def get_equippment
+        return @equipment
     end
 
     def add_xp(amount, lifebar, character_name)

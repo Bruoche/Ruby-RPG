@@ -118,22 +118,22 @@ class ASCIIPicture
 
 
     def self.battle_card(player)
-        picture = player.get_icon.get_picture.get_ascii
+        picture = player.get_icon.get_ascii
         return [
             picture[0].ljust(ICON_SIZE) + " | " + Utils.truncate(" " + player.get_name, ICON_SIZE),
             picture[1].ljust(ICON_SIZE) + " | ",
             picture[2].ljust(ICON_SIZE) + " | " + player.healthbar(ICON_SIZE - 2),
             picture[3].ljust(ICON_SIZE) + " | " + "(#{player.health_to_string} ♥)",
             picture[4].ljust(ICON_SIZE) + " | ",
-            picture[5].ljust(ICON_SIZE) + " | " + " ♣ " + player.get_strength.to_s,
+            picture[5].ljust(ICON_SIZE) + " | " + " ♣ " + player.get_strength_to_string,
             picture[6].ljust(ICON_SIZE) + " | " + " ♠ " + player.get_intelligence.to_s,
-            picture[7].ljust(ICON_SIZE) + " | " + " ♦ " + player.get_agility.to_s
+            picture[7].ljust(ICON_SIZE) + " | " + " ♦ " + player.get_agility_to_string
         ]
     end
 
 
     def self.get_status(player)
-        picture = player.get_icon.get_picture.get_ascii
+        picture = player.get_icon.get_ascii
         return [
             picture[0].ljust(ICON_SIZE),
             picture[1].ljust(ICON_SIZE),
@@ -150,9 +150,9 @@ class ASCIIPicture
             " " + player.healthbar(ICON_SIZE - 2),
             " (#{player.health_to_string} ♥)",
             "",
-            " ♣ " + player.get_strength.to_s,
-            " ♠ " + player.get_intelligence.to_s,
-            " ♦ " + player.get_agility.to_s,
+            (" ♣ " + player.get_strength_to_string).ljust(ICON_SIZE.div(2)) + player.get_defense_to_string,
+            (" ♠ " + player.get_intelligence.to_s).ljust(ICON_SIZE.div(2)),
+            " ♦ " + player.get_agility_to_string,
             "",
             " #{player.get_quantity_of(Shop::CURRENCY)} ¤"
         ]
@@ -204,15 +204,20 @@ class ASCIIPicture
 
     def self.get_selling_card(item, index = NO_INDEX, price_percentage = 100)
         if index != NO_INDEX
-            index_string = "#{index}) "
+            index_string = "#{index} | "
         else
             index_string = ""
         end
+        if price_percentage > 0
+            price_string = "Price : #{item.get_value(price_percentage)} ¤"
+        else
+            price_string = ""
+        end
         text_card = ASCIIPicture.new([
-            Utils.truncate(index_string + item.get_name.capitalize, (ITEM_ICON_WIDTH - 2)),
-            "Price : #{item.get_value(price_percentage)} ¤",
+            Utils.truncate(index_string + item.get_name.capitalize, (ITEM_ICON_WIDTH - 2)).ljust(ITEM_ICON_WIDTH - 2),
+            price_string,
             ""
-        ] + Utils.multiline(" " + item.get_description.capitalize, (ITEM_ICON_WIDTH - 2)))
+        ] + Utils.multiline(" " + item.get_card_description.capitalize, (ITEM_ICON_WIDTH - 2)))
         text_card.frame(" ", " ")
         return item.get_picture.get_ascii + text_card.get_ascii
     end

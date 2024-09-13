@@ -1,0 +1,5 @@
+module MediumArmor
+    WEIGHT_PERCENTAGE = 50
+    PROTECTION_PERCENTAGE = 80
+    PRICE_PERCENTAGE = 120
+end

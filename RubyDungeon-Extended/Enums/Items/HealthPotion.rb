@@ -3,7 +3,7 @@ class HealthPotion < Item
     PICTURE = "health_potion"
 
     def initialize(soin_min, soin_max = soin_min)
-        @soin = rand(soin_min..soin_max)
+        @soin = rand(soin_min.to_i..soin_max.to_i)
         @value = @soin.div(2)
     end
 

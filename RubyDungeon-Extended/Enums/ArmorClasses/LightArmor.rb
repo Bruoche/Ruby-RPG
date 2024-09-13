@@ -1,0 +1,5 @@
+module LightArmor
+    WEIGHT_PERCENTAGE = 25
+    PROTECTION_PERCENTAGE = 60
+    PRICE_PERCENTAGE = 140
+end

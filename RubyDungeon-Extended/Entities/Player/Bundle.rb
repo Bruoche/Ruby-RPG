@@ -20,16 +20,28 @@ class Bundle
         return @item.get_value(percentage)
     end
 
-    def get_description
+    def get_description(override_description = "")
         numbering = get_string_numbering
         if numbering != ""
             numbering = numbering + " "
         end
-        description = @item.get_description
+        if override_description != ""
+            description = override_description
+        else
+            description = @item.get_description
+        end
         if description != ""
             description = ", #{description}"
         end
         return "#{numbering}#{@item.get_name}#{description}"
+    end
+
+    def get_card_description
+        if @item.is_a? Armor
+            return get_description(@item.get_card_description)
+        else
+            return get_description
+        end
     end
 
     def get_picture

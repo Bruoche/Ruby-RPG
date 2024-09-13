@@ -3,27 +3,6 @@ class Inventory
         @bundles = Array.new
     end
 
-    def add(item_bundle)
-        for bundle in @bundles
-            if bundle.contain?(item_bundle.get_item)
-                bundle.add(item_bundle.get_quantity)
-                return
-            end
-        end
-        @bundles.append(item_bundle)
-    end
-
-    def remove(item, quantity = 1)
-        for bundle in @bundles
-            if bundle.contain?(item)
-                bundle.remove(quantity)
-                if bundle.depleted?
-                    @bundles.delete_at(@bundles.index(bundle))
-                end
-            end
-        end
-    end
-
     def have?(item, quantity = 1)
         for bundle in @bundles
             if bundle.contain?(item);
@@ -58,11 +37,32 @@ class Inventory
                 object = item_with_paramters.split("|")[0]
                 parameters = item_with_paramters.split("|")[1]
                 if parameters != nil
-                    item = Object.const_get(object).new(*parameters.split(", ").map(&:to_i))
+                    item = Object.const_get(object).new(*parameters.split(", "))
                 else
                     item = Object.const_get(object).new
                 end
                 @bundles.push(Bundle.new(item, amount))
+            end
+        end
+    end
+
+    def add(item_bundle)
+        for bundle in @bundles
+            if bundle.contain?(item_bundle.get_item)
+                bundle.add(item_bundle.get_quantity)
+                return
+            end
+        end
+        @bundles.append(item_bundle)
+    end
+
+    def remove(item, quantity = 1)
+        for bundle in @bundles
+            if bundle.contain?(item)
+                bundle.remove(quantity)
+                if bundle.depleted?
+                    @bundles.delete_at(@bundles.index(bundle))
+                end
             end
         end
     end
@@ -106,10 +106,25 @@ class Inventory
         Narrator.pause_text
     end
 
+    def get_all(item_type)
+        well_typed_items = []
+        for bundle in @bundles
+            if bundle.get_item.is_a? item_type
+                well_typed_items.append(bundle)
+            end
+        end
+        return well_typed_items
+    end
+
     def ask_usage(player, bundle, allies)
+        if bundle.get_item.is_a? Armor
+            usage_text = "Equiper"
+        else
+            usage_text = "Utiliser"
+        end
         puts "Que souhaitez faire avec #{bundle.get_name} ?"
         puts "0) Annuler..."
-        puts "1) Utiliser"
+        puts "1) #{usage_text}"
         puts "2) Donner"
         case Narrator.user_input(player.get_name)
         when "0"
@@ -125,22 +140,32 @@ class Inventory
     end
 
     def ask_use(player, bundle, allies)
-        allies.unshift(player)
-        if bundle.usable_on_others?
-            if allies.length > 1
-                ally_index = Narrator.ask("Sur qui utiliser #{bundle.get_name} ?", allies, ->(ally){player.to_string(ally)})
-                if ally_index == Narrator::RETURN_BUTTON
-                    return !Player::ACTED
+        if bundle.get_item.is_a? Armor
+            equippment = bundle.get_item
+            precedent_equipment = player.equip(equippment)
+            remove(equippment)
+            if precedent_equipment != EquipmentSlot::NO_ARMOR_EQUIPPED
+                add(Bundle.new(precedent_equipment, 1))
+            end
+            return !Player::ACTED
+        else
+            allies.unshift(player)
+            if bundle.usable_on_others?
+                if allies.length > 1
+                    ally_index = Narrator.ask("Sur qui utiliser #{bundle.get_name} ?", allies, ->(ally){player.to_string(ally)})
+                    if ally_index == Narrator::RETURN_BUTTON
+                        return !Player::ACTED
+                    else
+                        target = allies[ally_index]
+                    end
                 else
-                    target = allies[ally_index]
+                    target = player
                 end
             else
                 target = player
             end
-        else
-            target = player
+            return use(bundle, target, player)
         end
-        return use(bundle, target, player)
     end
 
     def use(bundle, target, user)

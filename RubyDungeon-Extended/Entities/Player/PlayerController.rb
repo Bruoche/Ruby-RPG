@@ -46,7 +46,7 @@ class PlayerController
         puts "Que souhaitez-vous faire?"
         puts "      1) Aller à..."
         puts "      2) Fouiller #{@player.get_room.get_the_denomination}"
-        puts "      3) Utiliser un objet"
+        puts "      3) Faire un inventaire"
         puts "      4) Attendre"
         if @player.get_room.got_monsters?
             puts "      5) Attaquer #{@player.get_room.get_monsters_plural_the}"
@@ -61,11 +61,7 @@ class PlayerController
                 return ask_action
             end
         when "3"
-            if @player.use_item
-                return act
-            else
-                return ask_action
-            end
+            return status
         when "4"
             return
         when "5"
@@ -80,6 +76,32 @@ class PlayerController
         else
             Narrator.unsupported_choice_error
             return ask_action
+        end
+    end
+
+    def status
+        puts "Que souhaitez-vous faire ?"
+        puts "      0) Retour"
+        puts "      1) Utiliser un objet"
+        puts "      2) Gérer l'equipement"
+        case Narrator.user_input
+        when "0"
+            return ask_action
+        when "1"
+            if @player.use_item
+                return
+            else
+                return status
+            end
+        when "2"
+            if @player.manage_equipment
+                return
+            else
+                return status
+            end
+        else
+            Narrator.unsupported_choice_error
+            return status
         end
     end
 

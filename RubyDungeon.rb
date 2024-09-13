@@ -3,9 +3,10 @@ $:.unshift File.dirname($0)
 require "RubyDungeon-Extended/ASCIIPrinter.rb"
 Dir["RubyDungeon-Extended/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*.rb"].each {|file| require(file)}
+Dir["RubyDungeon-Extended/*/ArmorTypes/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*/Item.rb"].each {|file| require(file)}
-Dir["RubyDungeon-Extended/Enums/*/Coins.rb"].each {|file| require(file)}
-Dir["RubyDungeon-Extended/Entities/*/Monster.rb"].each {|file| require(file)}
+Dir["RubyDungeon-Extended/*/*/Coins.rb"].each {|file| require(file)}
+Dir["RubyDungeon-Extended/*/*/Monster.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/Entities/*/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/Items/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/EntryRequirements/*.rb"].each {|file| require(file)}
