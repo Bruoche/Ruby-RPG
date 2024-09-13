@@ -36,12 +36,12 @@ class Player
             "time_played": @time_played.current_value,
             "inventory": @inventory.get_save_data,
             "picture": @picture.get_save_data
-        }.merge(@stats.get_equippment.get_save_data)
+        }.merge(@stats.get_equipment.get_save_data)
     end
 
     def get_icon
         returned_picture = @picture.get_picture
-        for armor_picture in @stats.get_equippment.get_pictures
+        for armor_picture in @stats.get_equipment.get_pictures
             returned_picture.superpose(armor_picture)
         end
         return returned_picture
@@ -274,6 +274,7 @@ class Player
     end
 
     def see_items
+        @stats.get_equipment.see_equipment
         @inventory.see_inventory
     end
 
@@ -291,11 +292,11 @@ class Player
     end
 
     def equip(item)
-        return @stats.get_equippment.equip(item, @name)
+        return @stats.get_equipment.equip(item, @name)
     end
 
     def manage_equipment
-        return @stats.get_equippment.manage(@inventory, @name)
+        return @stats.get_equipment.manage(@inventory, @name)
     end
 
     def choose_item_to_sell

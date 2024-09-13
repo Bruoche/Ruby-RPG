@@ -98,7 +98,7 @@ class StatManager
         return potential_power + monster_pack_bonus + first_levels_increase
     end
 
-    def get_equippment
+    def get_equipment
         return @equipment
     end
 

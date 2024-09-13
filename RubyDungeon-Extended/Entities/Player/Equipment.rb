@@ -49,6 +49,18 @@ class Equipment
         return armor_pictures
     end
 
+    def see_equipment
+        puts "Equipement actuel : "
+        slots_row = ASCIIRow.new
+        for slot in @slots
+            slot_card = slot.get_card
+            slot_card.frame
+            slots_row.append(slot_card)
+        end
+        slots_row.show
+        puts
+    end
+
     def got_equipment?
         for slot in @slots
             if !slot.empty?
@@ -82,15 +94,7 @@ class Equipment
     end
 
     def manage(inventory, player_name)
-        puts "Equipement actuel : "
-        slots_row = ASCIIRow.new
-        for slot in @slots
-            slot_card = slot.get_card
-            slot_card.frame
-            slots_row.append(slot_card)
-        end
-        slots_row.show
-        puts
+        see_equipment
         puts "Que voulez-vous faire ?"
         puts "    0) Retour"
         puts "    1) Equiper une nouvelle pièce d'armure"

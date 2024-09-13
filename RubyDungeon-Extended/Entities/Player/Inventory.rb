@@ -135,9 +135,9 @@ class Inventory
 
     def ask_use(player, bundle, allies)
         if bundle.get_item.is_a? Armor
-            equippment = bundle.get_item
-            precedent_equipment = player.equip(equippment)
-            remove(equippment)
+            equipment = bundle.get_item
+            precedent_equipment = player.equip(equipment)
+            remove(equipment)
             if precedent_equipment != EquipmentSlot::NO_ARMOR_EQUIPPED
                 add(Bundle.new(precedent_equipment, 1))
             end
