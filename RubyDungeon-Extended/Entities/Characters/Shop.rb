@@ -17,7 +17,7 @@ class Shop
         show_sign
         show_sold_items
         question_box = ASCIIPicture.new([
-            "Que souhaitez-vous faire ?",
+            "Que souhaitez-vous faire ? (#{player.get_quantity_of(CURRENCY)} ¤)",
             "",
             "0) Sortir du magasin",
             "1) Acheter...",

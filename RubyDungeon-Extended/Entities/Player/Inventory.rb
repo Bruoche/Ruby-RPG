@@ -204,29 +204,34 @@ class Inventory
 
     def choose_bundle_to_sell(player)
         sellable_bundles = get_sellable_items
-        bundle_index = Narrator.ask_complex_element(
-            "Quel objet souhaitez-vous vendre ?",
-            sellable_bundles, -> (bundle, index){
-                if bundle == Narrator::RETURN_BUTTON
-                    puts "0) Retour..."
+        if sellable_bundles.length > 0
+            bundle_index = Narrator.ask_complex_element(
+                "Quel objet souhaitez-vous vendre ?",
+                sellable_bundles, -> (bundle, index){
+                    if bundle == Narrator::RETURN_BUTTON
+                        puts "0) Retour..."
+                    else
+                        item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
+                        item_frame.frame
+                        puts item_frame.get_ascii
+                    end
+                },
+                player.get_name
+            )
+            if bundle_index != Narrator::RETURN_BUTTON
+                bundle = sellable_bundles[bundle_index]
+                if bundle.get_quantity > 1
+                    amount = choose_amount_to_sell(bundle, player)
                 else
-                    item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
-                    item_frame.frame
-                    puts item_frame.get_ascii
+                    amount = 1
                 end
-            },
-            player.get_name
-        )
-        if bundle_index != Narrator::RETURN_BUTTON
-            bundle = sellable_bundles[bundle_index]
-            if bundle.get_quantity > 1
-                amount = choose_amount_to_sell(bundle, player)
-            else
-                amount = 1
+                if amount > 0
+                    return Bundle.new(bundle.get_item, amount)
+                end
             end
-            if amount > 0
-                return Bundle.new(bundle.get_item, amount)
-            end
+        else
+            puts "Aucun objet à vendre"
+            Narrator.pause_text
         end
         return nil
     end
