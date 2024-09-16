@@ -181,7 +181,7 @@ class Player
     end
 
     def hurt(attack)
-        dodge_score = rand(@stats.agility.div(2))
+        dodge_score = rand(0..@stats.agility.div(2))
         damage = attack.damage_dealt
         if dodge_score > damage
             dodge_score = damage
