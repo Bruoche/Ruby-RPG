@@ -1,4 +1,4 @@
-class DressGauntlets < ArmorPiece
+class DressGauntlets
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Gauntlets

@@ -1,4 +1,4 @@
-class LeatherHelm < ArmorPiece
+class LeatherHelm
     LEVEL = 10
     WEIGHTCLASS = MediumArmor
     TYPE = Helmet

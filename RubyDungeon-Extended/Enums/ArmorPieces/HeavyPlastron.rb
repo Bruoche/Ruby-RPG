@@ -1,4 +1,4 @@
-class HeavyPlastron < ArmorPiece
+class HeavyPlastron
     LEVEL = 20
     WEIGHTCLASS = HeavyArmor
     TYPE = Plastron

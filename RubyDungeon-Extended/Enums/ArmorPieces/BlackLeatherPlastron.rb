@@ -1,4 +1,4 @@
-class BlackLeatherPlastron < ArmorPiece
+class BlackLeatherPlastron
     LEVEL = 20
     WEIGHTCLASS = LightArmor
     TYPE = Plastron

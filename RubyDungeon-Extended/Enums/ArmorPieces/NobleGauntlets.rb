@@ -1,4 +1,4 @@
-class NobleGauntlets < ArmorPiece
+class NobleGauntlets
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Gauntlets

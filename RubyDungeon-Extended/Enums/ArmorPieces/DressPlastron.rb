@@ -1,4 +1,4 @@
-class DressPlastron < ArmorPiece
+class DressPlastron
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Plastron

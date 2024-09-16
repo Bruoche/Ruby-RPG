@@ -1,4 +1,4 @@
-class NobleGreaves < ArmorPiece
+class NobleGreaves
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Greaves

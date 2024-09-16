@@ -1,4 +1,4 @@
-class LeatherGauntlets < ArmorPiece
+class LeatherGauntlets
     LEVEL = 10
     WEIGHTCLASS = MediumArmor
     TYPE = Gauntlets

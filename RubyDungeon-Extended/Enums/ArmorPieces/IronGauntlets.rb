@@ -1,4 +1,4 @@
-class IronGauntlets < ArmorPiece
+class IronGauntlets
     LEVEL = 20
     WEIGHTCLASS = MediumArmor
     TYPE = Gauntlets

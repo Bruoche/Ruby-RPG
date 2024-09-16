@@ -1,4 +1,4 @@
-class NobleHelm < ArmorPiece
+class NobleHelm
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Helmet

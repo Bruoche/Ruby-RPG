@@ -1,4 +1,4 @@
-class IronHelm < ArmorPiece
+class IronHelm
     LEVEL = 20
     WEIGHTCLASS = MediumArmor
     TYPE = Helmet

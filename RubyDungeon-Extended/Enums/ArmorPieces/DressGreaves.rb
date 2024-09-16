@@ -1,4 +1,4 @@
-class DressGreaves < ArmorPiece
+class DressGreaves
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Greaves

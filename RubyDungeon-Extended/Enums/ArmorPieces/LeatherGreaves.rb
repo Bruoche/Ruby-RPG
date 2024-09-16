@@ -1,4 +1,4 @@
-class LeatherGreaves < ArmorPiece
+class LeatherGreaves
     LEVEL = 10
     WEIGHTCLASS = MediumArmor
     TYPE = Greaves

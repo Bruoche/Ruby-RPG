@@ -1,4 +1,4 @@
-class IronGreaves < ArmorPiece
+class IronGreaves
     LEVEL = 20
     WEIGHTCLASS = MediumArmor
     TYPE = Greaves

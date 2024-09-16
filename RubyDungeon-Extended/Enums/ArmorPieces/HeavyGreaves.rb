@@ -1,4 +1,4 @@
-class HeavyGreaves < ArmorPiece
+class HeavyGreaves
     LEVEL = 20
     WEIGHTCLASS = HeavyArmor
     TYPE = Greaves

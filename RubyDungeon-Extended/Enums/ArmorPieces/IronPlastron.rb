@@ -1,4 +1,4 @@
-class IronPlastron < ArmorPiece
+class IronPlastron
     LEVEL = 20
     WEIGHTCLASS = MediumArmor
     TYPE = Plastron

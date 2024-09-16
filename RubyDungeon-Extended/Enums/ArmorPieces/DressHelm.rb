@@ -1,4 +1,4 @@
-class DressHelm < ArmorPiece
+class DressHelm
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Helmet

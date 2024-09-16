@@ -1,4 +1,4 @@
-class LeatherPlastron < ArmorPiece
+class LeatherPlastron
     LEVEL = 10
     WEIGHTCLASS = MediumArmor
     TYPE = Plastron

@@ -1,4 +1,4 @@
-class BlackLeatherGauntlets < ArmorPiece
+class BlackLeatherGauntlets
     LEVEL = 20
     WEIGHTCLASS = LightArmor
     TYPE = Gauntlets

@@ -1,4 +1,4 @@
-class NoblePlastron < ArmorPiece
+class NoblePlastron
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Plastron

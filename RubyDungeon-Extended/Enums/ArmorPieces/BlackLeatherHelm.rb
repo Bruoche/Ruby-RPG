@@ -1,4 +1,4 @@
-class BlackLeatherHelm < ArmorPiece
+class BlackLeatherHelm
     LEVEL = 20
     WEIGHTCLASS = LightArmor
     TYPE = Helmet

@@ -1,4 +1,4 @@
-class HeavyHelm < ArmorPiece
+class HeavyHelm
     LEVEL = 20
     WEIGHTCLASS = HeavyArmor
     TYPE = Helmet

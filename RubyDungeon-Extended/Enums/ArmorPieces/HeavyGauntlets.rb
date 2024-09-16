@@ -1,4 +1,4 @@
-class HeavyGauntlets < ArmorPiece
+module HeavyGauntlets
     LEVEL = 20
     WEIGHTCLASS = HeavyArmor
     TYPE = Gauntlets

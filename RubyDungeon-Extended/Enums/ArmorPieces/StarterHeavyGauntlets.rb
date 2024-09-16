@@ -1,4 +1,4 @@
-class StarterHeavyGauntlets < ArmorPiece
+class StarterHeavyGauntlets
     LEVEL = 10
     WEIGHTCLASS = HeavyArmor
     TYPE = Gauntlets

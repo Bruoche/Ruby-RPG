@@ -1,4 +1,4 @@
-class BlackLeatherGreaves < ArmorPiece
+class BlackLeatherGreaves
     LEVEL = 20
     WEIGHTCLASS = LightArmor
     TYPE = Greaves

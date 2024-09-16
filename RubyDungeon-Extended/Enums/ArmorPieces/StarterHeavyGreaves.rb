@@ -1,4 +1,4 @@
-class StarterHeavyGreaves < ArmorPiece
+class StarterHeavyGreaves
     LEVEL = 10
     WEIGHTCLASS = HeavyArmor
     TYPE = Greaves
