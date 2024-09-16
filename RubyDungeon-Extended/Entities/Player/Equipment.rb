@@ -124,13 +124,9 @@ class Equipment
             "Quel pièce d'armure souhaitez-vous équiper?",
             available_equipments,
             -> (equipment, index){
-                if equipment == Narrator::RETURN_BUTTON
-                    puts "0) Annuler..."
-                else
-                    equipment_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(equipment, index, 0))
-                    equipment_card.frame
-                    puts equipment_card.get_ascii
-                end
+                equipment_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(equipment, index, 0))
+                equipment_card.frame
+                return equipment_card
             },
             player_name
         )
@@ -151,14 +147,10 @@ class Equipment
         equipment_index = Narrator.ask_complex_element(
             "Quel pièce d'armure souhaitez-vous retirer?",
             removable_slots,
-            -> (slot, index){
-                if slot == Narrator::RETURN_BUTTON
-                    puts "0) Retour..."
-                else
-                    removable_card = slot.get_card(index)
-                    removable_card.frame
-                    puts removable_card.get_ascii
-                end
+            -> (slot, index) {
+                removable_card = slot.get_card(index)
+                removable_card.frame
+                return removable_card
             },
             player_name
         )

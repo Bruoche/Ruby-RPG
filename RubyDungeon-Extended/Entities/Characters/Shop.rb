@@ -71,13 +71,9 @@ class Shop
             "Quel objet souhaitez-vous acheter ?",
             @inventory,
             -> (item, index) {
-                if item == Narrator::RETURN_BUTTON
-                    puts "0) Retour..."
-                else
-                    item_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(item, index))
-                    item_card.frame
-                    puts item_card.get_ascii
-                end
+                item_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(item, index))
+                item_card.frame
+                return item_card
             },
             player.get_name
         )

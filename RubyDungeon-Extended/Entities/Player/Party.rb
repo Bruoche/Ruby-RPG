@@ -96,12 +96,7 @@ class Party
             "Quel membre de l'équipe supprimer ?",
             @players,
             -> (player, index){
-                if player != Narrator::RETURN_BUTTON
-                    ASCIIPrinter.show_card(player.get_save_data, index)
-                else
-                    puts
-                    puts "0) Annuler"
-                end
+                return ASCIIPicture.new(ASCIIPicture.get_card(player.get_save_data, index))
             }
         )
         if player_index != Narrator::RETURN_BUTTON

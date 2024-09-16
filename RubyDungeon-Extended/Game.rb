@@ -131,13 +131,8 @@ class Game
                     "Quelle sauvegarde charger ?",
                     saves,
                     -> (save, index){
-                        if save != Narrator::RETURN_BUTTON
-                            save_data = SaveManager.load(save)
-                            ASCIIPrinter.show_card(save_data, index)
-                        else
-                            puts
-                            puts "0) Retour..."
-                        end
+                        save_data = SaveManager.load(save)
+                        return ASCIIPicture.new(ASCIIPicture.get_card(save_data, index))
                     }
                 )
                 if save_index != Narrator::RETURN_BUTTON

@@ -208,13 +208,9 @@ class Inventory
             bundle_index = Narrator.ask_complex_element(
                 "Quel objet souhaitez-vous vendre ?",
                 sellable_bundles, -> (bundle, index){
-                    if bundle == Narrator::RETURN_BUTTON
-                        puts "0) Retour..."
-                    else
-                        item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
-                        item_frame.frame
-                        puts item_frame.get_ascii
-                    end
+                    item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
+                    item_frame.frame
+                    return item_frame
                 },
                 player.get_name
             )

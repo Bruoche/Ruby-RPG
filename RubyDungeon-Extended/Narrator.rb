@@ -193,11 +193,25 @@ class Narrator
         )
     end
 
-    def self.ask_complex_element(question, options, print, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
-        ask_general(question, options, print, return_option,
-            -> (element, i, print) {print.call(element, i)},
-            player_name
-        )
+    def self.ask_complex_element(question, options, getter, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
+        options = [return_option].concat options
+        loop do
+            puts question
+            puts "    0) Retour..."
+            options_row = ASCIIRow.new
+            for i in 1..(options.length - 1)
+                options_row.append(getter.call(options[i], i))
+            end
+            options_row.show
+            input = user_input(player_name).to_i
+            if input.between?(1, options.length - 1)
+                return input - 1
+            elsif input == 0
+                return return_option
+            else
+                unsupported_choice_error
+            end
+        end
     end
 
     def self.confirm_save
