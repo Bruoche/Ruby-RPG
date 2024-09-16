@@ -41,11 +41,11 @@ class Equipment
 
     def get_pictures
         armor_pictures = []
-        for slot in @slots
+        @slots.reverse_each { |slot|
             if slot.have_picture?
                 armor_pictures.append(slot.get_picture)
             end
-        end
+        }
         return armor_pictures
     end
 

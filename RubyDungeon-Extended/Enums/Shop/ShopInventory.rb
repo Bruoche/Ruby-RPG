@@ -1,5 +1,17 @@
 module ShopInventory
     ITEM_LIST = [
+        Bundle.new(Armor.new(*HeavyHelm::get_attributes), 1),
+        Bundle.new(Armor.new(*IronHelm::get_attributes), 1),
+        Bundle.new(Armor.new(*BlackLeatherHelm::get_attributes), 1),
+        Bundle.new(Armor.new(*HeavyPlastron::get_attributes), 1),
+        Bundle.new(Armor.new(*IronPlastron::get_attributes), 1),
+        Bundle.new(Armor.new(*BlackLeatherPlastron::get_attributes), 1),
+        Bundle.new(Armor.new(*HeavyGauntlets::get_attributes), 1),
+        Bundle.new(Armor.new(*IronGauntlets::get_attributes), 1),
+        Bundle.new(Armor.new(*BlackLeatherGauntlets::get_attributes), 1),
+        Bundle.new(Armor.new(*HeavyGreaves::get_attributes), 1),
+        Bundle.new(Armor.new(*IronGreaves::get_attributes), 1),
+        Bundle.new(Armor.new(*BlackLeatherGreaves::get_attributes), 1),
         Bundle.new(Armor.new(*StarterHeavyHelm::get_attributes), 1),
         Bundle.new(Armor.new(*LeatherHelm::get_attributes), 1),
         Bundle.new(Armor.new(*DressHelm::get_attributes), 1),
