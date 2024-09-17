@@ -113,7 +113,7 @@ class Game
     def get_character
         saves = SaveManager.get_saves
         character_creator = CharacterCreator.new
-        if (saves.length > 0)
+        if (saves != nil) && (saves.length > 0)
             puts "0) Retour"
             puts "1) Nouveau personnage"
             puts "2) Personnage existant"

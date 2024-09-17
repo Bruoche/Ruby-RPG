@@ -7,8 +7,9 @@ class SaveManager
 
     def self.get_new_id
         i = 0
+        saves = get_saves
         loop do
-            if (!(get_saves.include? i.to_s))
+            if (saves == nil) || (!(saves.include? i.to_s))
                 return i.to_s
             else
                 i += 1
