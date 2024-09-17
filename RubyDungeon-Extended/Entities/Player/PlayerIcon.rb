@@ -7,6 +7,10 @@ class PlayerIcon
     EYES_FOLDER = 'Eyes/'
     MOUTHS_FOLDER = 'Mouths/'
     NOSES_FOLDER = 'Noses/'
+    BEARDS_FOLDER = 'FacialHair/'
+    CHIN_FOLDER = 'Beards/'
+    MOUSTACHE_FOLDER = 'Moustaches/'
+    SIDEBURNS_FOLDER = 'Sideburns/'
     HAIRSTYLES_FOLDER = 'Hairstyles/'
     FRONT_FOLDER = 'Front/'
     BACK_FOLDER = 'Back/'
@@ -30,6 +34,59 @@ class PlayerIcon
         'rondes': 'ears2',
         'larges': 'ears3',
         'plates': 'ears4'
+    }
+    NOSES = {
+        'petit rond': 'nose2',
+        'fin': 'nose4',
+        'moyen': 'nose1',
+        'large': 'nose3'
+    }
+    BROWS = {
+        'aucun': 'brows6',
+        'ronds': 'brows5',
+        'minis': 'brows4',
+        'moyens': 'brows1',
+        'larges': 'brows2',
+        'mono-sourcil': 'brows3'
+    }
+    BEARDS = {
+        'aucune': 'None/',
+        'barbiche': 'Beard1/',
+        'mini-bouc': 'Beard2/',
+        'bouc': 'Beard3/',
+        'bouc fin': 'Beard4/',
+        'bouc en pointe': 'Beard5/',
+        'bouc long': 'Beard6/',
+        'bouc large': 'Beard7/',
+        'petite barbe': 'Beard8/',
+        'barbe': 'Beard9/',
+        'barbe longue': 'Beard10/'
+    }
+    MOUSTACHES = {
+        'aucune': 'None/',
+        'fine': 'Moustache1/',
+        'broussaille': 'Moustache2/',
+        'fer à cheval': 'Moustache3/',
+        'Fu Manchu': 'Moustache4/',
+        'brosse': 'Moustache5/',
+        'crayon': 'Moustache6/',
+        'française': 'Moustache7/',
+        'crochet': 'Moustache8/',
+        'guidon': 'Moustache9/'
+    }
+    SIDEBURNS = {
+        'aucuns': 'None/',
+        'prépubaires': 'Sideburn1/',
+        'prépubaires longue': 'Sideburn2/',
+        'début de pousse': 'Sideburn3/',
+        'fines': 'Sideburn4/',
+        'coupées court': 'Sideburn9/',
+        'pointes': 'Sideburn5/',
+        'moyennes': 'Sideburn6/',
+        'large': 'Sideburn7/',
+        'longues': 'Sideburn8/',
+        'complètes': 'Sideburn10/',
+        'complètes longues': 'Sideburn11/'
     }
     HAIRSTYLES_FRONT = {
         'chauve': 'Bald/',
@@ -74,14 +131,18 @@ class PlayerIcon
         @skintone = 'pale'
         @corpulence = 'moyenne'
         @ears = 'moyennes'
-        @brows = 'brows1'
+        @brows = 'moyens'
         @eyes = 'Eyes1/'
         @eye_color = 'sombre'
-        @nose = 'nose1'
+        @nose = 'moyen'
         @mouth = 'mouth1'
         @hairstyle_front = 'court'
         @hairstyle_back = 'aucun'
         @hair_color = 'clair'
+        @beard_color = 'clair'
+        @beard = 'aucune'
+        @moustache = 'aucune'
+        @sideburns = 'aucuns'
     end
 
     def get_picture
@@ -89,16 +150,19 @@ class PlayerIcon
         picture.superpose(setup_picture(HAIRSTYLES_FOLDER+BACK_FOLDER+HAIRSTYLES_BACK[@hairstyle_back.to_sym]+HAIR_COLORS[@hair_color.to_sym]))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+EARS_FOLDER+EARS[@ears.to_sym]))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+BASE_FOLDER+SIZES[@corpulence.to_sym]))
-        picture.superpose(setup_picture(TONES[@skintone.to_sym]+BROWS_FOLDER+@brows))
+        picture.superpose(setup_picture(TONES[@skintone.to_sym]+BROWS_FOLDER+BROWS[@brows.to_sym]))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+EYES_FOLDER+@eyes+EYES_COLOR[@eye_color.to_sym]))
-        picture.superpose(setup_picture(TONES[@skintone.to_sym]+NOSES_FOLDER+@nose))
+        picture.superpose(setup_picture(TONES[@skintone.to_sym]+NOSES_FOLDER+NOSES[@nose.to_sym]))
         picture.superpose(setup_picture(TONES[@skintone.to_sym]+MOUTHS_FOLDER+@mouth))
+        picture.superpose(setup_picture(BEARDS_FOLDER+SIDEBURNS_FOLDER+SIDEBURNS[@sideburns.to_sym]+HAIR_COLORS[@beard_color.to_sym]))
+        picture.superpose(setup_picture(BEARDS_FOLDER+CHIN_FOLDER+BEARDS[@beard.to_sym]+HAIR_COLORS[@beard_color.to_sym]))
+        picture.superpose(setup_picture(BEARDS_FOLDER+MOUSTACHE_FOLDER+MOUSTACHES[@moustache.to_sym]+HAIR_COLORS[@beard_color.to_sym]))
         picture.superpose(setup_picture(HAIRSTYLES_FOLDER+FRONT_FOLDER+HAIRSTYLES_FRONT[@hairstyle_front.to_sym]+HAIR_COLORS[@hair_color.to_sym]))
         return picture
     end
 
     def get_save_data
-        return "#{@skintone}; #{@corpulence}; #{@ears}; #{@brows}; #{@eyes}; #{@eye_color}; #{@nose}; #{@mouth}; #{@hairstyle_front}; #{@hairstyle_back}; #{@hair_color}; "
+        return "#{@skintone}; #{@corpulence}; #{@ears}; #{@brows}; #{@eyes}; #{@eye_color}; #{@nose}; #{@mouth}; #{@hairstyle_front}; #{@hairstyle_back}; #{@hair_color}; #{@sideburns}; #{@beard}; #{@moustache}; #{@beard_color}; "
     end
 
     def load(data)
@@ -108,18 +172,20 @@ class PlayerIcon
             @skintone = get_feature(features, TONES, @skintone)
             @corpulence = get_feature(features, SIZES, @corpulence)
             @ears = get_feature(features, EARS, @ears)
-            @brows = features[@i]
-            @i += 1
+            @brows = get_feature(features, BROWS, @brows)
             @eyes = features[@i]
             @i += 1
             @eye_color = get_feature(features, EYES_COLOR, @eye_color)
-            @nose = features[@i]
-            @i += 1
+            @nose = get_feature(features, NOSES, @nose)
             @mouth = features[@i]
             @i += 1
             @hairstyle_front = get_feature(features, HAIRSTYLES_FRONT, @hairstyle_front)
             @hairstyle_back = get_feature(features, HAIRSTYLES_BACK, @hairstyle_back)
             @hair_color = get_feature(features, HAIR_COLORS, @hair_color)
+            @sideburns = get_feature(features, SIDEBURNS, @sideburns)
+            @beard = get_feature(features, BEARDS, @beard)
+            @moustache = get_feature(features, MOUSTACHES, @moustache)
+            @beard_color = get_feature(features, HAIR_COLORS, @beard_color)
         end
     end
 
@@ -138,9 +204,12 @@ class PlayerIcon
         puts "0) Valider l'apparence"
         puts "1) Complexion"
         puts "2) Corpulence"
-        puts "3) Les yeux"
+        puts "3) Couleur des yeux"
         puts "4) Les oreilles"
-        puts "5) Les cheveux"
+        puts "5) Le nez"
+        puts "6) Les sourcils"
+        puts "7) Pilosité faciale"
+        puts "8) Les cheveux"
         case Narrator.user_input
         when "0"
             return
@@ -149,10 +218,16 @@ class PlayerIcon
         when "2"
             @corpulence = choose(SIZES, @corpulence, "Quelle corpulence souhaitez-vous ?", "Conserver la corpulence")
         when "3"
-            eyes_menu
+            @eye_color = choose_color(EYES_COLOR, @eye_color);
         when "4"
             @ears = choose(EARS, @ears, "Quelles oreilles souhaitez-vous ?", "Conserver les oreilles")
         when "5"
+            @nose = choose(NOSES, @nose, "Quel nez souhaitez-vous ?", "Conserver le nez")
+        when "6"
+            @brows = choose(BROWS, @brows, "Quelle forme de sourcil souhaitez-vous ?", "Conserver les sourcils")
+        when "7"
+            beard_menu
+        when "8"
             hair_menu
         else
             Narrator.unsupported_choice_error
@@ -160,23 +235,29 @@ class PlayerIcon
         customize
     end
 
-    def eyes_menu
+    def beard_menu
         show
         puts "Quel élément souhaitez-vous modifier ?"
         puts "0) Retour..."
-        puts "1) La forme"
-        puts "2) La couleur"
+        puts "1) La moustache"
+        puts "2) Le menton"
+        puts "3) Les pattes"
+        puts "4) La couleur"
         case Narrator.user_input
         when "0"
             return
         when "1"
-            puts "nuh huh"
+            @moustache = choose(MOUSTACHES, @moustache, "Quelle moustache souhaitez-vous ?", "Conserver la moustache")
         when "2"
-            @eye_color = choose_color(EYES_COLOR, @eye_color);
+            @beard = choose(BEARDS, @beard, "Quelle barbe souhaitez-vous sur le menton ?", "Conserver la barbe")
+        when "3"
+            @sideburns = choose(SIDEBURNS, @sideburns, "Quelle pattes souhaitez-vous ?", "Conserver les pattes")
+        when "4"
+            @beard_color = choose_color(HAIR_COLORS, @beard_color);
         else
             Narrator.unsupported_choice_error
         end
-        eyes_menu
+        beard_menu
     end
 
     def hair_menu
