@@ -2,6 +2,7 @@ class SaveManager
     SAVE_DIRECTORY = "saves"
     EXTENSION = ".save"
     SETTING = "settings"
+    LOGS = "logs"
     BASE_SETTINGS = ""
     NO_EXISTING_SAVEFILE = nil
 
@@ -79,10 +80,28 @@ class SaveManager
         end
     end
 
+    def self.log(error)
+        save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
+        unless File.directory?(save_directory)
+            FileUtils.mkdir_p(save_directory)
+        end
+        path = "#{SAVE_DIRECTORY}/#{LOGS}"
+        if File.file?(path)
+            current_content = File.read(path)
+        else
+            current_content = ""
+        end
+        write(path, current_content + "\n[#{Time.now.utc.strftime('%m/%d/%Y %H:%M %p')}] Error - #{error.class} : #{error.message} \n    #{error.backtrace.join("\n    ")}")
+    end
+
     def self.write(path, content)
         file = File.open(path, "w")
-        content.each do |name, value|
-            file.write("#{name}: #{value}\n")
+        if content.is_a? String
+            file.write(content)
+        else
+            content.each do |name, value|
+                file.write("#{name}: #{value}\n")
+            end
         end
         file.close
     end

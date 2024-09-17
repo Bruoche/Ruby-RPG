@@ -30,7 +30,12 @@ class Game
         while !(@party.died? || @party.exited?)
             @party.take_turns
             @party.get_fights.each do |room, players|
-                World.get_instance.get_room(room).get_monsters.take_turns_against(players)
+                begin
+                    World.get_instance.get_room(room).get_monsters.take_turns_against(players)
+                rescue => unexpected_exception
+                    puts "<< an unexpected error occured >>"
+                    SaveManager.log(unexpected_exception)
+                end
             end
         end
     end

@@ -27,16 +27,21 @@ class PlayerController
     end
 
     def act
-        if !(@player.died? || @player.exited?)
-            if @fighting
-                return fight_action
-            else
-                if @player.get_room.got_monsters?
-                    return propose_combat
+        begin
+            if !(@player.died? || @player.exited?)
+                if @fighting
+                    return fight_action
                 else
-                    return ask_action
+                    if @player.get_room.got_monsters?
+                        return propose_combat
+                    else
+                        return ask_action
+                    end
                 end
             end
+        rescue => unexpected_exception
+            puts "<< an unexpected error occured >>"
+            SaveManager.log(unexpected_exception)
         end
     end
 
