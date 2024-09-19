@@ -161,6 +161,7 @@ class Player
     end
 
     def act
+        MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
         @controller.act
     end
 
@@ -197,10 +198,20 @@ class Player
         else
             defense_text = ""
         end
+        if damage_taken > 0
+            SoundManager.play("player_hurt")
+        elsif defense_score > 0
+            SoundManager.play("parry")
+        else
+            SoundManager.play("dodge")
+        end
         puts("#{get_name.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
+        sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage_taken)
         if died?
+            SoundManager.play("player_death")
             puts "#{get_name.capitalize} s'éffondre au sol."
+            sleep Settings::BATTLE_ACTION_PAUSE
         end
     end
 
@@ -209,6 +220,14 @@ class Player
     end
 
     def magic_attack
+        if @stats.intelligence > 0
+            SoundManager.play("magic_charge")
+        else
+            SoundManager.play("spell_fart")
+            puts "Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts."
+        end
+        puts "#{get_name.capitalize} lance une attaque magique."
+        sleep Settings::BATTLE_ACTION_PAUSE
         return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE, self)
     end
 
@@ -241,6 +260,7 @@ class Player
     def cast_heal_on(target)
         if (@stats.intelligence > 0)
             amount = rand(1..@stats.intelligence)
+            SoundManager.play("heal_spell")
             if target == self
                 puts "#{get_name.capitalize} se soigne #{amount} points de vie."
                 @lifebar.heal(amount)
@@ -248,6 +268,7 @@ class Player
                 puts "#{get_name.capitalize} soigne #{target.get_name}."
                 target.heal(amount)
             end
+            sleep Settings::BATTLE_ACTION_PAUSE
             return ACTED
         end
     end

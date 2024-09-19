@@ -1,6 +1,7 @@
 class Settings
     PRINT_SMALL_SYM = :print_small
     DEFAULT_SETTINGS = {Settings::PRINT_SMALL_SYM => false}
+    BATTLE_ACTION_PAUSE = 0.3
 
     def self.print_small
         update_settings

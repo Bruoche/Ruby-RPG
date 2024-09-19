@@ -155,12 +155,6 @@ class Pack
                     nb_killed += 1
                 end
             end
-        else
-            if plural?
-                puts "Dépourvu de puissance magique, vous ne parvenez pas à attaquer les ennemis."
-            else
-                puts "Dépourvu de puissance magique, vous ne parvenez pas à attaquer l'ennemi."
-            end
         end
     end
 
@@ -191,7 +185,9 @@ class Pack
             return response
         else
             if monster.died?
+                SoundManager.play("ennemy_death")
                 puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
+                sleep Settings::BATTLE_ACTION_PAUSE
                 @monsters.delete_at(index)
                 response[:dead] = true
             end

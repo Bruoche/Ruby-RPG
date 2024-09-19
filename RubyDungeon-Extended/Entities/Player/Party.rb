@@ -145,6 +145,7 @@ class Party
                         winning_player.stop_fighting
                         winning_player.give_xp(xp_gained)
                     end
+                    MusicManager.get_instance.start
                 end
             end
         end

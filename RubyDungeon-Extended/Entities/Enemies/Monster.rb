@@ -66,7 +66,9 @@ class Monster
 
     def hurt(attack)
         damage = attack.damage_dealt
+        SoundManager.play("ennemy_hurt")
         puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
+        sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage)
         return Player::ACTED
     end

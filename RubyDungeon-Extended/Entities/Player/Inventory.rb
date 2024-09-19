@@ -237,7 +237,7 @@ class Inventory
         amount = Narrator::user_input(player.get_name)
         if amount != amount.to_i.to_s
             Narrator.unsupported_choice_error
-            return choose_bundle_to_sell(bundle, player)
+            return choose_amount_to_sell(bundle, player)
         end
         amount = amount.to_i
         if amount < 0

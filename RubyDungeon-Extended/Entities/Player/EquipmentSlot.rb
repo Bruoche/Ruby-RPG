@@ -99,12 +99,14 @@ class EquipmentSlot
         precedent_armor = @equippedArmor
         @equippedArmor = armor
         puts "#{player_name.capitalize} s'équipe d'#{@equippedArmor.get_long_name}"
+        SoundManager.play("equip")
         return precedent_armor
     end
 
     def unequip
         removed_armor = @equippedArmor
         @equippedArmor = NO_ARMOR_EQUIPPED
+        SoundManager.play("unequip")
         return removed_armor
     end
 

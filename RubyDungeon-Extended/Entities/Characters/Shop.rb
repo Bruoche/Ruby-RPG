@@ -40,6 +40,7 @@ class Shop
             if sold_bundle != nil && Narrator.ask_confirmation("Êtes-vous sûr de vouloir vendre #{sold_bundle.get_name} pour #{sold_bundle.get_value(RETAIL_PERCENT)} pièces ? (y/n)")
                 player.remove_item(sold_bundle.get_item, sold_bundle.get_quantity)
                 player.give_item(Bundle.new(CURRENCY, sold_bundle.get_value(RETAIL_PERCENT)))
+                SoundManager.play("shop_bell_sell")
                 return propose_purchases_to(player, SOLD_DIALOG)
             end
         when "3"
@@ -83,7 +84,8 @@ class Shop
             if player.have?(CURRENCY, price)
                 if Narrator::ask_confirmation("Êtes-vous sûr de vouloîr acheter #{item_bundle.get_name} pour #{price} pièces ? (y/n)")
                     player.remove_item(CURRENCY, price)
-                    player.give_item(item_bundle)
+                    player.give_item(Bundle.new(item_bundle.get_item, item_bundle.get_quantity))
+                    SoundManager.play("shop_bell_buy")
                     return propose_purchases_to(player, BUY_DIALOG)
                 end
             else

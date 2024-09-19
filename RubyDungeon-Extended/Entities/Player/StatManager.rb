@@ -105,6 +105,8 @@ class StatManager
     def add_xp(amount, lifebar, character_name)
         @current_xp += amount
         while (@current_xp >= required_xp)
+            MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+            SoundManager.play("level_up")
             puts "Niveau supérieur !"
             @current_xp -= required_xp
             @level += 1
@@ -140,6 +142,7 @@ class StatManager
                     puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"
                 end
             end
+            SoundManager.play("stat_up")
         end
     end
 

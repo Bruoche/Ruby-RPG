@@ -18,8 +18,9 @@ Dir["RubyDungeon-Extended/*/Biomes/OldDungeon.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/Biomes/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*/*.rb"].each {|file| require(file)}
 
-require "fileutils"
-require "time"
-require "tty-screen"
+require "fileutils" # Manage files
+require "time" # get current time
+require "tty-screen" # get window width
+require 'ruby2d' # play sounds
 
 Game.new

@@ -30,8 +30,10 @@ class PlayerController
         begin
             if !(@player.died? || @player.exited?)
                 if @fighting
+                    MusicManager.get_instance.set_state(MusicManager::FIGHTING)
                     return fight_action
                 else
+                    MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
                     if @player.get_room.got_monsters?
                         return propose_combat
                     else
@@ -172,6 +174,7 @@ class PlayerController
             if next_room_instance.allow_entry_for(@player)
                 @player.set_room(next_room_instance)
                 @just_entered_room = true
+                SoundManager.play("footsteps")
             end
             act
         else
@@ -198,6 +201,7 @@ class PlayerController
                 end
                 acted = true
                 @player.give_item(@player.get_room.take(choosen_object))
+                SoundManager.play("taking_object")
                 if @player.get_room.get_loot.length == 0
                     return acted
                 end
