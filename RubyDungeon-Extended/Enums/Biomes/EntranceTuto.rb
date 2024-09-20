@@ -1,10 +1,11 @@
 class EntranceTuto < Biome
     EXPECTED_LEVEL = 0
     PICTURE = "entrance"
+    EXPLORATION_TRACK = "Dungeon Entrance"
     FEMALE = EntranceF
     MALE = EntranceM
     FEMALE_CHANCES = 60
-    BACKTRACK_CHANCES = 10
+    BACKTRACK_CHANCES = 5
     DESCRIPTION = [
         "Vous êtes entouré.e d'épais murs de pierres.",
         "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,",

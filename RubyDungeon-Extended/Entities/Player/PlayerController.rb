@@ -31,11 +31,13 @@ class PlayerController
             if !(@player.died? || @player.exited?)
                 if @fighting
                     MusicManager.get_instance.set_state(MusicManager::FIGHTING)
-                    return fight_action
+                    fight_action
+                    return Player::ACTED
                 else
                     MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
                     if @player.get_room.got_monsters?
-                        return propose_combat
+                        propose_combat
+                        return Player::ACTED
                     else
                         return ask_action
                     end
@@ -61,16 +63,17 @@ class PlayerController
         case Narrator.user_input(@player.get_name)
         when "1"
             propose_exploration
+            return !Player::ACTED
         when "2"
             if search
-                return
+                return Player::ACTED
             else
                 return ask_action
             end
         when "3"
             return status
         when "4"
-            return
+            return Player::ACTED
         when "5"
             if (not @player.get_room.got_monsters?)
                 Narrator.unsupported_choice_error
@@ -96,13 +99,13 @@ class PlayerController
             return ask_action
         when "1"
             if @player.use_item
-                return
+                return Player::ACTED
             else
                 return status
             end
         when "2"
             if @player.manage_equipment
-                return
+                return Player::ACTED
             else
                 return status
             end
@@ -176,7 +179,7 @@ class PlayerController
                 @just_entered_room = true
                 SoundManager.play("footsteps")
             end
-            act
+            return
         else
             ask_action
         end

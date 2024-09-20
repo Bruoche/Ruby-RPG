@@ -47,10 +47,11 @@ end
 class Catacombs < Biome
     EXPECTED_LEVEL = 7
     PICTURE = "catacombs"
+    EXPLORATION_TRACK = "Crypt"
     FEMALE = CatacombsF
     MALE = CatacombsM
     FEMALE_CHANCES = 30
-    BACKTRACK_CHANCES = 25
+    BACKTRACK_CHANCES = 10
     DESCRIPTION = [
         "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré.",
         "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quant à elle plus grande que jamais.",
@@ -105,7 +106,7 @@ class Catacombs < Biome
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
-            3,
+            1,
             "EntranceTuto",
             0,
             3

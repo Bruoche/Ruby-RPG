@@ -161,8 +161,11 @@ class Player
     end
 
     def act
-        MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
-        @controller.act
+        acted = false
+        while !acted
+            MusicManager.get_instance.set_ambiance(@room.get_biome::EXPLORATION_TRACK, "Dungeon Entrance Battle theme")
+            acted = @controller.act
+        end
     end
 
     def stop_fighting

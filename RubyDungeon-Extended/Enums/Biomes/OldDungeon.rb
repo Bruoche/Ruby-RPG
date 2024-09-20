@@ -51,6 +51,7 @@ end
 class OldDungeon < Biome
     EXPECTED_LEVEL = 10
     PICTURE = "old_dungeon"
+    EXPLORATION_TRACK = "Prison"
     FEMALE = OldDungeonF
     MALE = OldDungeonM
     FEMALE_CHANCES = 75
