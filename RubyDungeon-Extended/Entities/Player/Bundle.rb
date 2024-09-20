@@ -16,6 +16,14 @@ class Bundle
         return @item.get_value(percentage) * @quantity
     end
 
+    def get_value_to_string(percentage = 100)
+        if @quantity > 1
+            return "#{get_value(percentage)} (#{@item.get_value(percentage)} x #{@quantity})"
+        else
+            return get_value(percentage).to_s
+        end
+    end
+
     def get_individual_value(percentage = 100)
         return @item.get_value(percentage)
     end

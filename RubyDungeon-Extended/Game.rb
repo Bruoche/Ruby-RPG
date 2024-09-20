@@ -170,7 +170,7 @@ class Game
         ASCIIPrinter.print("example")
         puts
         puts "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut."
-        puts "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écrant."
+        puts "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écran."
         puts
         puts "Autrement, tentez de mettre les images en petites tailles,"
         puts "ou de réduire la taille de police du texte de votre terminal si cela ne suffit pas."

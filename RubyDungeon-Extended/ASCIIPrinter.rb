@@ -3,19 +3,18 @@ class ASCIIPrinter
     UNSCALABLE_PREFIX = "NotScalable/"
     SMALL_SUFFIX = "_small"
 
-    def self.print(image_names)
-        if !image_names.kind_of?(Array)
-            image_names = [image_names]
+    def self.print(image_or_names)
+        if !image_or_names.kind_of?(Array)
+            image_or_names = [image_or_names]
         end
         first_image = true
-        for image_name in image_names
-            if image_name.kind_of?(Array)
-                image_path = image_name
-            else
+        for image_or_name in image_or_names
+            image_path = image_or_name
+            if !image_or_name.kind_of?(Array)
                 if Settings.print_small
                     image_path += SMALL_SUFFIX
                 end
-                image_path = "#{PREFIX}#{image_name}"
+                image_path = "#{PREFIX}#{image_or_name}"
             end
             if first_image
                 image = ASCIIPicture.new(image_path, true)

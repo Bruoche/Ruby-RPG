@@ -209,7 +209,7 @@ class ASCIIPicture
             index_string = ""
         end
         if price_percentage > 0
-            price_string = "Price : #{item.get_value(price_percentage)} ¤"
+            price_string = "Prix : #{item.get_value_to_string(price_percentage)} ¤"
         else
             price_string = ""
         end
