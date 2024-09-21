@@ -3,13 +3,15 @@ class Boss < Monster
     PICTURE_PREFIX = "Boss/"
 
     def initialize(boss)
+        multiplayer_scaling = Math.sqrt(World.get_instance.nb_players)
+        power_bonus = (boss::POWER_BONUS * multiplayer_scaling).truncate
         @weakpoints = Array.new
         for weakpoint in boss::WEAKPOINTS
-            @weakpoints.push(Weakpoint.new(weakpoint, boss::POWER_BONUS.div(boss::WEAKPOINTS.length)))
+            @weakpoints.push(Weakpoint.new(weakpoint, power_bonus.div(boss::WEAKPOINTS.length)))
         end
         @bodyparts = Array.new
         for bodypart in boss::BODYPARTS
-            @bodyparts.push(Bodypart.new(bodypart, boss::POWER_BONUS.div(boss::BODYPARTS.length)))
+            @bodyparts.push(Bodypart.new(bodypart, power_bonus.div(boss::BODYPARTS.length)))
         end
         @name = Name.new(boss)
         @initial_power = get_power

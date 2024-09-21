@@ -62,8 +62,7 @@ class PlayerController
         end
         case Narrator.user_input(@player.get_name)
         when "1"
-            propose_exploration
-            return !Player::ACTED
+            return propose_exploration
         when "2"
             if search
                 return Player::ACTED
@@ -179,7 +178,11 @@ class PlayerController
                 @just_entered_room = true
                 SoundManager.play("footsteps")
             end
-            return
+            if next_room_instance.get_biome::SPECIAL
+                return Player::ACTED
+            else
+                return !Player::ACTED
+            end
         else
             ask_action
         end

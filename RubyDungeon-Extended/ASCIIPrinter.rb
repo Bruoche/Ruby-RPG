@@ -9,18 +9,21 @@ class ASCIIPrinter
         end
         first_image = true
         for image_or_name in image_or_names
-            image_path = image_or_name
             if !image_or_name.kind_of?(Array)
                 if Settings.print_small
-                    image_path += SMALL_SUFFIX
+                    name = image_or_name + SMALL_SUFFIX
+                else
+                    name = image_or_name
                 end
-                image_path = "#{PREFIX}#{image_or_name}"
+                image_or_path = "#{PREFIX}#{name}"
+            else
+                image_or_path = image_or_name
             end
             if first_image
-                image = ASCIIPicture.new(image_path, true)
+                image = ASCIIPicture.new(image_or_path, true)
                 first_image = false
             else
-                image.juxtapose(ASCIIPicture.new(image_path, true))
+                image.juxtapose(ASCIIPicture.new(image_or_path, true))
             end
         end
         puts image.get_ascii

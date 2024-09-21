@@ -10,6 +10,10 @@ class Exit
         return @id
     end
 
+    def get_biome
+        return self.class
+    end
+
     def get_denomination
         return "la sortie"
     end

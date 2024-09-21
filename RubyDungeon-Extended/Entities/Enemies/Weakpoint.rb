@@ -40,7 +40,9 @@ class Weakpoint
             puts("<< unexpected damage type encountered >>")
             damage = 0
         end
+        SoundManager.play("ennemy_hurt")
         puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
+        sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage)
     end
 
