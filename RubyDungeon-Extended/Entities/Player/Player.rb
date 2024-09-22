@@ -1,5 +1,6 @@
 class Player
     ACTED = true
+    WANNA_MANAGE_EQUIPMENT = true
 
     def initialize(player_data, savefile = SaveManager::NO_EXISTING_SAVEFILE)
         @inventory = Inventory.new
@@ -306,7 +307,9 @@ class Player
 
     def see_items
         @stats.get_equipment.see_equipment
-        @inventory.see_inventory
+        if @inventory.see_inventory == WANNA_MANAGE_EQUIPMENT
+            manage_equipment
+        end
     end
 
     def give_item(bundle)

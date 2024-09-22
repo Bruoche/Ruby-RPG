@@ -97,7 +97,18 @@ class Inventory
             puts "Vous n'avez pas d'objets à utiliser."
         end
         puts
-        Narrator.pause_text
+        puts "Que voulez-vous faire ?"
+        puts "    0) Retour..."
+        puts "    1) Gérer l'équipement"
+        case Narrator.user_input
+        when "0"
+            return !Player::WANNA_MANAGE_EQUIPMENT
+        when "1"
+            return Player::WANNA_MANAGE_EQUIPMENT
+        else
+            Narrator.unsupported_choice_error
+            see_inventory
+        end
     end
 
     def get_all(item_type)
