@@ -266,29 +266,36 @@ class Player
             SoundManager.play("heal_spell")
             if target == self
                 puts "#{get_name.capitalize} se soigne #{amount} points de vie."
+                sleep Settings::BATTLE_ACTION_PAUSE
                 @lifebar.heal(amount)
             else
                 puts "#{get_name.capitalize} soigne #{target.get_name}."
+                sleep Settings::BATTLE_ACTION_PAUSE
                 target.heal(amount)
             end
-            sleep Settings::BATTLE_ACTION_PAUSE
             return ACTED
         end
     end
 
     def heal(amount = HEAL_SELF)
+        SoundManager.play("player_heal")
         puts "#{get_name.capitalize} obtient #{amount} points de vie."
+        sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.heal(amount)
     end
 
     def patch_up
         if (@lifebar.get_missing_life > 0)
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
+            SoundManager.play("player_heal")
             puts "#{get_name.capitalize} récupère #{amount} points de vie."
+            sleep Settings::BATTLE_ACTION_PAUSE
             @lifebar.heal(amount)
             return ACTED
         else
+            SoundManager.play("spell_fart")
             puts "#{get_name.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
+            sleep Settings::BATTLE_ACTION_PAUSE
             return !ACTED
         end
     end
