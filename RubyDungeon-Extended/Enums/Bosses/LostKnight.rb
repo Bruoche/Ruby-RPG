@@ -63,21 +63,29 @@ class LostKnight
     ]
 
     def self.slash(targets, allies, actor, boss)
+        SoundManager.play("swoosh")
         puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+        sleep Settings::BATTLE_ACTION_PAUSE
         target = actor.choose_target(targets)
         target.hurt(Attack.new(rand(actor.get_strength..actor.get_strength*2), Attack::PHYSIC_TYPE, actor))
     end
 
     def self.limb_loss(name, boss)
+        SoundManager.play("ennemy_death")
         puts "#{name.get_gendered_the} se brise sous vos coups."
+        sleep Settings::BATTLE_ACTION_PAUSE
     end
 
     def self.main_arm_loss(name, boss)
         left_arm = boss.get_part_by(LostKnightLeftArm::ID)
         if left_arm != nil
             limb_loss(name, boss)
+            SoundManager.play("taking_object")
             puts "#{boss.get_name.get_gendered_the} change son arme de main."
+            sleep Settings::BATTLE_ACTION_PAUSE
+            SoundManager.play("equip")
             puts "Il semble être pris d'une résolution soudaine et insoupsonnée."
+            sleep Settings::BATTLE_ACTION_PAUSE
             left_arm.add_special_move(SpecialMove.new(50, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
             left_arm.set_death_event(-> (name, boss) {defenseless(name, boss)})
         else
@@ -87,15 +95,21 @@ class LostKnight
 
     def self.defenseless(name, boss)
         limb_loss(name, boss)
+        SoundManager.play("unequip")
         puts "#{boss.get_name.get_gendered_the} laisse son arme tomber au sol, impuissant."
+        sleep Settings::BATTLE_ACTION_PAUSE
     end
 
     # death event
 
     def self.death(name, boss)
+        SoundManager.play("ennemy_death")
         puts "Le casque #{boss.get_name.get_gendered_of} s'enfonce sous vos coups,"
         puts "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur."
+        sleep Settings::BATTLE_ACTION_PAUSE
+        SoundManager.play("player_death")
         puts
         puts "Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement."
+        sleep Settings::BATTLE_ACTION_PAUSE
     end
 end
