@@ -1,6 +1,6 @@
 class ASCIIPicture
     TRANSPARENT_CHARACTER = 'X'
-    EMPTY_INDEX = "    "
+    EMPTY_INDEX = "     "
     ICON_SIZE = 18
     ICON_HEIGHT = 7
     ITEM_ICON_WIDTH = 32
@@ -119,13 +119,15 @@ class ASCIIPicture
 
     def self.battle_card(player)
         picture = player.get_icon.get_ascii
+        strength_string = " ♣ " + player.get_strength_to_string
+        physical_defense_string = player.get_defense_to_string.rjust((ICON_SIZE - 2) - strength_string.length)
         return [
             picture[0].ljust(ICON_SIZE) + " | " + Utils.truncate(" " + player.get_name, ICON_SIZE),
             picture[1].ljust(ICON_SIZE) + " | ",
-            picture[2].ljust(ICON_SIZE) + " | " + player.healthbar(ICON_SIZE - 2),
+            picture[2].ljust(ICON_SIZE) + " | " + player.healthbar(ICON_SIZE - 2) + " ",
             picture[3].ljust(ICON_SIZE) + " | " + "(#{player.health_to_string} ♥)",
             picture[4].ljust(ICON_SIZE) + " | ",
-            picture[5].ljust(ICON_SIZE) + " | " + " ♣ " + player.get_strength_to_string,
+            picture[5].ljust(ICON_SIZE) + " | " + strength_string + physical_defense_string,
             picture[6].ljust(ICON_SIZE) + " | " + " ♠ " + player.get_intelligence.to_s,
             picture[7].ljust(ICON_SIZE) + " | " + " ♦ " + player.get_agility_to_string
         ]
