@@ -167,6 +167,7 @@ class Inventory
         if bundle.depleted?
             @bundles.delete_at(@bundles.index(bundle))
         end
+        return used
     end
 
     def give_item(bundle, allies, giver)
