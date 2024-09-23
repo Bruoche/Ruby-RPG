@@ -11,6 +11,9 @@ class Item
                 unless child.const_defined?(:PICTURE)
                     child.const_set(:PICTURE, "generic")
                 end
+                unless child.const_defined?(:DROP_CHANCE_SCALABLE)
+                    child.const_set(:DROP_CHANCE_SCALABLE, true)
+                end
             end
         end
     end
@@ -38,6 +41,10 @@ class Item
 
     def usable_on_others?
         return self.class::USABLE_ON_OTHERS
+    end
+
+    def drop_chance_scalable?
+        return self.class::DROP_CHANCE_SCALABLE
     end
 
     def get_save_data

@@ -31,13 +31,11 @@ class PlayerController
             if !(@player.died? || @player.exited?)
                 if @fighting
                     MusicManager.get_instance.set_state(MusicManager::FIGHTING)
-                    fight_action
-                    return Player::ACTED
+                    return fight_action
                 else
                     MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
                     if @player.get_room.got_monsters?
-                        propose_combat
-                        return Player::ACTED
+                        return propose_combat
                     else
                         return ask_action
                     end
@@ -120,7 +118,7 @@ class PlayerController
         when "1"
             Narrator.start_fight(@player.get_room.get_monsters.plural?)
             @fighting = true
-            return act
+            return !Player::ACTED
         when "2"
             if @player.can_escape?(@player.get_room.get_monsters.get_current_power)
                 Narrator.avoid_fight(@player.get_room.get_monsters.get_plural_the)
@@ -128,7 +126,7 @@ class PlayerController
             else
                 Narrator.fail_sneak(@player.get_room.get_monsters.plural?)
                 @fighting = true
-                return
+                return Player::ACTED
             end
         else
             Narrator.unsupported_choice_error
@@ -158,7 +156,7 @@ class PlayerController
         when "5"
             if @player.can_escape?(@player.get_room.get_monsters.get_current_power)
                 @fighting = false
-                ask_action
+                return ask_action
             else
                 Narrator.fail_escape(@player.get_room.get_monsters.plural?)
             end
@@ -166,7 +164,7 @@ class PlayerController
             Narrator.unsupported_choice_error
             fight_action
         end
-        return
+        return Player::ACTED
     end
 
     def propose_exploration
