@@ -48,6 +48,7 @@ class Catacombs < Biome
     EXPECTED_LEVEL = 7
     PICTURE = "catacombs"
     EXPLORATION_TRACK = "Crypt"
+    COMBAT_TRACK = "Dungeon Entrance Battle theme"
     FEMALE = CatacombsF
     MALE = CatacombsM
     FEMALE_CHANCES = 30

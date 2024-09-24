@@ -164,7 +164,7 @@ class Player
     def act
         acted = false
         while !acted
-            MusicManager.get_instance.set_ambiance(@room.get_biome::EXPLORATION_TRACK, "Dungeon Entrance Battle theme")
+            MusicManager.get_instance.set_ambiance(@room.get_biome::EXPLORATION_TRACK, @room.get_biome::COMBAT_TRACK)
             acted = @controller.act
         end
     end

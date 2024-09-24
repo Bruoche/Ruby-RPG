@@ -43,6 +43,7 @@ class Entrance < Biome
     EXPECTED_LEVEL = 3
     PICTURE = "entrance"
     EXPLORATION_TRACK = "Dungeon Entrance"
+    COMBAT_TRACK = "Dungeon Entrance Battle theme"
     FEMALE = EntranceF
     MALE = EntranceM
     FEMALE_CHANCES = 60

@@ -20,6 +20,9 @@ class Biome
                 unless child.const_defined?(:EXPLORATION_TRACK)
                     child.const_set(:EXPLORATION_TRACK, MusicManager::NO_MUSIC)
                 end
+                unless child.const_defined?(:COMBAT_TRACK)
+                    child.const_set(:COMBAT_TRACK, MusicManager::NO_MUSIC)
+                end
             end
         end
     end

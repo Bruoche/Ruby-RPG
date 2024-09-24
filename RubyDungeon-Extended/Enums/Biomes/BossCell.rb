@@ -7,6 +7,7 @@ end
 class BossCell < Biome
     EXPECTED_LEVEL = 10
     PICTURE = "prisonner_knight"
+    COMBAT_TRACK = "Dog"
     ENTRY_REQUIREMENTS = [
         BossCellRequireKey
     ]

@@ -52,6 +52,7 @@ class OldDungeon < Biome
     EXPECTED_LEVEL = 10
     PICTURE = "old_dungeon"
     EXPLORATION_TRACK = "Prison"
+    COMBAT_TRACK = "Dungeon Entrance Battle theme"
     FEMALE = OldDungeonF
     MALE = OldDungeonM
     FEMALE_CHANCES = 75
