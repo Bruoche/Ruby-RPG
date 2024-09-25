@@ -11,6 +11,9 @@ class Loot
     def dropped?
         if @item_class::DROP_CHANCE_SCALABLE
             number_of_chances = World.get_instance.nb_players - Math.sqrt(World.get_instance.nb_players).truncate
+            if number_of_chances <= 0
+                number_of_chances = 1
+            end
         else
             number_of_chances = 1
         end

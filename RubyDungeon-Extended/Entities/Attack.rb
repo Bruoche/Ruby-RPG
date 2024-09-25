@@ -24,7 +24,10 @@ class Attack
         when Attack::PHYSIC_TYPE
             return @damage
         when Attack::MAGIC_TYPE
-            return rand(@damage)
+            first_roll = rand(@damage)
+            second_roll = rand(@damage)
+            best_roll = first_roll > second_roll ? first_roll : second_roll
+            return best_roll
         else
             puts("<< unexpected damage type encountered >>")
             return 0

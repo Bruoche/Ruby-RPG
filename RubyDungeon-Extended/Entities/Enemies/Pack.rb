@@ -149,9 +149,14 @@ class Pack
 
     def hurt_magic(attack)
         if (attack.damage > 0)
+            shared_attack = Attack.new(
+                (attack.damage/(1 + (BaseStats::SPELL_DAMAGE_GROUP_DIVISOR_COEFF * (@monsters.length - 1)))).truncate,
+                attack.type,
+                attack.source
+            )
             nb_killed = 0
             for i in 0..(@monsters.length - 1)
-                if hurt(i - nb_killed, attack)[:dead]
+                if hurt(i - nb_killed, shared_attack)[:dead]
                     nb_killed += 1
                 end
             end
