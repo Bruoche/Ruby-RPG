@@ -130,10 +130,15 @@ class Boss < Monster
                 return Player::ACTED
             end
         when Attack::MAGIC_TYPE
+            shared_attack = Attack.new(
+                (attack.damage/(1 + (BaseStats::SPELL_DAMAGE_BODYPARTS_DIVISOR_COEFF * ((@weakpoints.length + @bodyparts.length) - 1)))).truncate,
+                attack.type,
+                attack.source
+            )
             for targets in all_targets
                 i = 0
                 while i < targets.length
-                    hurt_part_result = hurt_part(targets, targets[i], attack)
+                    hurt_part_result = hurt_part(targets, targets[i], shared_attack)
                     if hurt_part_result != PART_KILLED
                         i += 1
                     end
