@@ -30,7 +30,8 @@ class Exit
         puts "Vous quittez l'étrange batisse."
         puts "Vous avez survécu."
         puts
-        SaveManager.ask_save(player)
+        SaveManager.save_player(player)
+        Narrator.pause_text
         player.exit
         return true
     end

@@ -10,6 +10,13 @@ class Game
             MusicManager.get_instance.set_ambiance("Title screen")
             wanna_play = main_menu
             if wanna_play
+                MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+                Narrator.introduction_shop
+                MusicManager.get_instance.set_ambiance("Merchant")
+                @party.shop
+                @party.save
+                MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
+                Narrator.introduction(@party)
                 wanna_continue = true
                 while wanna_continue
                     play
@@ -24,13 +31,6 @@ class Game
     end
 
     def play
-        MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
-        Narrator.introduction_shop
-        MusicManager.get_instance.set_ambiance("Merchant")
-        @party.shop
-        @party.save_unsaved
-        MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
-        Narrator.introduction(@party)
         entrance = World.get_instance.generate_dungeon(@party)
         @party.set_room(entrance)
         while !(@party.died? || @party.exited?)

@@ -104,12 +104,10 @@ class Party
         end
     end
 
-    def save_unsaved
+    def save
         for player in @players
-            if player.get_save == nil
-                save = SaveManager.save(player.get_save_data)
-                player.set_save(save)
-            end
+            save = SaveManager.save_player(player)
+            player.set_save(save)
         end
     end
 
