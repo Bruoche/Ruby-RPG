@@ -214,6 +214,30 @@ class Narrator
         end
     end
 
+    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
+        options_pages = ASCIIPaginator.new
+        for i in 1..(options.length)
+            options_pages.append(getter.call(options[i - 1], i))
+        end
+        loop do
+            options_pages.show(2)
+            puts
+            puts question
+            input = user_input(player_name)
+            if input.to_i.between?(1, options.length)
+                return input.to_i - 1
+            elsif input.capitalize == "A"
+                options_pages.page_down
+            elsif input.capitalize == "Z"
+                options_pages.page_up
+            elsif input == "0"
+                return return_option
+            else
+                unsupported_choice_error
+            end
+        end
+    end
+
     def self.confirm_save
         puts "Souhaitez-vous sauvegarder sur une copie du personnage actuel ? (Y/N)"
         choice = Narrator.user_input.downcase

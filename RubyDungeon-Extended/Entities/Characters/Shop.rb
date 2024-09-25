@@ -19,10 +19,9 @@ class Shop
             "Que souhaitez-vous faire ? (#{player.get_quantity_of(CURRENCY)} ¤)",
             "",
             "0) Sortir du magasin",
-            "1) Consulter les objects à vendre",
-            "2) Acheter...",
-            "3) Vendre...",
-            "4) Consulter l'inventaire"
+            "1) Acheter...",
+            "2) Vendre...",
+            "3) Consulter l'inventaire"
         ])
         question_box.frame(" ", " ")
         @shopkeeper.show
@@ -31,13 +30,11 @@ class Shop
         when "0"
             return TRANSACTION_DONE
         when "1"
-            show_sold_items
-        when "2"
             done = ask_bought_item(player)
             if done
                 return TRANSACTION_DONE
             end
-        when "3"
+        when "2"
             sold_bundle = player.choose_item_to_sell
             if sold_bundle != nil && Narrator.ask_confirmation("Êtes-vous sûr de vouloir vendre #{sold_bundle.get_name} pour #{sold_bundle.get_value(RETAIL_PERCENT)} pièces ? (y/n)")
                 player.remove_item(sold_bundle.get_item, sold_bundle.get_quantity)
@@ -45,7 +42,7 @@ class Shop
                 SoundManager.play("shop_bell_sell")
                 return propose_purchases_to(player, SOLD_DIALOG)
             end
-        when "4"
+        when "3"
             player.see_items
         else
             Narrator.unsupported_choice_error
@@ -60,17 +57,29 @@ class Shop
     end
 
     def show_sold_items
-        sold_items = ASCIIRow.new
+        sold_items = ASCIIPaginator.new
         for item in @inventory
             item_display = ASCIIPicture.new(ASCIIPicture.get_selling_card(item))
             item_display.frame
             sold_items.append(item_display)
         end
-        sold_items.show_paginated
+        loop do
+            sold_items.show
+            case Narrator.user_input.capitalize
+            when "0"
+                break
+            when "A"
+                sold_items.page_down
+            when "Z"
+                sold_items.page_up
+            else
+                Narrator.unsupported_choice_error
+            end
+        end
     end
 
     def ask_bought_item(player)
-        item_index = Narrator.ask_complex_element(
+        item_index = Narrator.ask_paginated(
             "Quel objet souhaitez-vous acheter ?",
             @inventory,
             -> (item, index) {
