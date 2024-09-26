@@ -24,6 +24,7 @@ class BiomeTransition
     def get_next_biome
         puts
         if @message != NO_MESSAGE
+            MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
             for line in @message
                 puts line
             end

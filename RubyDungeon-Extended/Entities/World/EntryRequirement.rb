@@ -31,6 +31,8 @@ class EntryRequirement
             @ignored = true
         end
         puts @entry_message
+        puts
+        Narrator.pause_text
     end
 
     def no_entry_message
@@ -39,5 +41,7 @@ class EntryRequirement
 
     def impossible_entry_message
         puts @impossible_entry_message
+        puts
+        Narrator.pause_text
     end
 end
