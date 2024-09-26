@@ -57,12 +57,12 @@ class Room
     end
 
     def describe(player)
+        picture = @biome::PICTURE
+        if got_monsters?
+            picture += MONSTER_PRESENT_PICTURE_SUFFIX
+        end
         if player.just_entered_room?
             if (@monsters != nil)
-                picture = @biome::PICTURE
-                if got_monsters?
-                    picture += MONSTER_PRESENT_PICTURE_SUFFIX
-                end
                 Narrator.describe_monsters_room(
                     player,
                     -> {@biome.describe},
@@ -89,7 +89,7 @@ class Room
             Narrator.describe_current_room(
                 player,
                 -> {@biome.describe},
-                @biome::PICTURE,
+                picture,
                 @name.get_gendered_a,
                 monsters_description
             )

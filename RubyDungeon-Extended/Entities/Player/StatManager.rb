@@ -28,7 +28,11 @@ class StatManager
     def strength_penality
         total_penality = @equipment.get_penality
         if total_penality > @agility
-            return ((total_penality - @agility) * BaseStats::STRENGTH_PENALITY_PERCENTAGE).div(100)
+            strength_penality = ((total_penality - @agility) * BaseStats::STRENGTH_PENALITY_PERCENTAGE).div(100)
+            if strength_penality > @strength
+                strength_penality = @strength
+            end
+            return strength_penality
         else
             return 0
         end
