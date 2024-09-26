@@ -214,8 +214,8 @@ class Narrator
         end
     end
 
-    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
-        options_pages = ASCIIPaginator.new
+    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON)
+        options_pages = ASCIIPaginator.new(ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first)
         for i in 1..(options.length)
             options_pages.append(getter.call(options[i - 1], i))
         end

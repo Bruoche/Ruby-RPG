@@ -51,7 +51,7 @@ class ASCIIPaginator
         if next_page_accessible?
             @current_page = @current_page + 1
         else
-            Narrator.unsupported_choice_error
+            puts "Impossible de passer à la page suivante. Page maximale atteinte."
         end
     end
 
@@ -59,7 +59,7 @@ class ASCIIPaginator
         if precedent_page_accessible?
             @current_page = @current_page - 1
         else
-            Narrator.unsupported_choice_error
+            puts "Impossible de passer à la page précédente. Page minimale atteinte."
         end
     end
 

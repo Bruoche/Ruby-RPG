@@ -7,7 +7,7 @@ module BossCellRequireKey
         "",
         "Lorsque vous pénétrez dans ce qui semble être une cellule de prison,",
         "Vous pouvez voir au fond de la salle obscure un chevalier à l'armure endomagée par les batailles et l'age",
-        "A peine couverte par les fins lambeau de ce qui devait être un noble surcôt."
+        "A peine couverte par les fins lambeaux de ce qui devait être un noble surcôt."
     ]
     NO_ENTRY_MESSAGE = [
         "Vous décidez qu'il ne vaut probablement mieux ne pas prendre le risque d'ouvrir la porte",

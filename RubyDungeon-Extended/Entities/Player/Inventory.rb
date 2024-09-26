@@ -217,7 +217,7 @@ class Inventory
     def choose_bundle_to_sell(player)
         sellable_bundles = get_sellable_items
         if sellable_bundles.length > 0
-            bundle_index = Narrator.ask_complex_element(
+            bundle_index = Narrator.ask_paginated(
                 "Quel objet souhaitez-vous vendre ?",
                 sellable_bundles, -> (bundle, index){
                     item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))

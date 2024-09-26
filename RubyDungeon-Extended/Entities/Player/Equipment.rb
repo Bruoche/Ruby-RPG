@@ -120,7 +120,7 @@ class Equipment
 
     def ask_equip(inventory, player_name)
         available_equipments = inventory.get_all(Armor)
-        equipment_index = Narrator.ask_complex_element(
+        equipment_index = Narrator.ask_paginated(
             "Quel pièce d'armure souhaitez-vous équiper?",
             available_equipments,
             -> (equipment, index){
@@ -128,7 +128,8 @@ class Equipment
                 equipment_card.frame
                 return equipment_card
             },
-            player_name
+            player_name,
+            true
         )
         if equipment_index == Narrator::RETURN_BUTTON
             return !Player::ACTED

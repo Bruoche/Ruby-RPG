@@ -139,13 +139,15 @@ class Game
                 end
                 return new_character
             when "2"
-                save_index = Narrator.ask_complex_element(
+                save_index = Narrator.ask_paginated(
                     "Quelle sauvegarde charger ?",
                     saves,
                     -> (save, index){
                         save_data = SaveManager.load(save)
                         return ASCIIPicture.new(ASCIIPicture.get_card(save_data, index))
-                    }
+                    },
+                    Narrator::NO_NAME_DISPLAYED,
+                    true
                 )
                 if save_index != Narrator::RETURN_BUTTON
                     save = saves[save_index]
