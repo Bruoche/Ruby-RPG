@@ -181,10 +181,12 @@ class PlayerController
         searched_before = @player.get_room.searched_before?
         available_items = @player.get_room.search
         if available_items.length == 0
+            SoundManager.play("spell_fart")
             if searched_before
                 puts "Vous avez déjà pris tout les objets à prendre dans #{@player.get_room.get_this_denomination}"
             else
                 puts "Vous ne trouvez rien de valeur."
+                sleep Settings::BATTLE_ACTION_PAUSE
             end
             return false
         else

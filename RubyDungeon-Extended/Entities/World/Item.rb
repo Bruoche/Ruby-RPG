@@ -53,7 +53,14 @@ class Item
 
     def use(target, user)
         puts "Vous ne savez pas comment utiliser cet objet..."
+        SoundManager.play("spell_fart")
+        sleep Settings::BATTLE_ACTION_PAUSE
         return !Player::ACTED
+    end
+
+    def play_sound
+        SoundManager.play(self.class::SOUND)
+        sleep Settings::BATTLE_ACTION_PAUSE
     end
 
     def self.load(item_data)

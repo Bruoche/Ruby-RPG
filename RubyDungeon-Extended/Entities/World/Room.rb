@@ -158,7 +158,14 @@ class Room
 
     def search
         if !searched_before?
-            puts "Vous fouillez #{@name.get_gendered_the} pour tout objet pouvant vous être utile..."
+            SoundManager.play("searching")
+            print "Vous fouillez #{@name.get_gendered_the} pour tout objet pouvant vous être utile"
+            3.times do
+                sleep Settings::BATTLE_ACTION_PAUSE
+                print "."
+            end
+            puts
+            sleep Settings::BATTLE_ACTION_PAUSE
             @objects = @biome.get_loot
         end
         return @objects

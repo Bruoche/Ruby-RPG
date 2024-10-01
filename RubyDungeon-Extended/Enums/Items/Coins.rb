@@ -1,5 +1,6 @@
 class Coins < Item
     NAME = "des pièces d'or"
+    SOUND = "gold_coins"
     USABLE_ON_OTHERS = false
 
     def initialize

@@ -1,5 +1,6 @@
 class PrisonKey < Item
     NAME = "une clef"
+    SOUND = "key"
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = false
 

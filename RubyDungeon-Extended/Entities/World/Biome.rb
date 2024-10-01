@@ -46,7 +46,10 @@ class Biome
         loots = Array.new
         for loot in self::LOOT
             if loot.dropped?
-                loots.push(loot.get_item)
+                bundle = loot.get_item
+                bundle.get_item.play_sound
+                sleep Settings::BATTLE_ACTION_PAUSE
+                loots.push(bundle)
             end
         end
         return loots

@@ -1,5 +1,6 @@
 class Bandage < Item
     NAME = "des bandages"
+    SOUND = "bandage"
 
     def initialize
         @value = 0
@@ -15,6 +16,7 @@ class Bandage < Item
         else
             puts "#{user.get_name.capitalize} utilise des bandages pour soigner les blessures de #{target.get_name}..."
         end
+        play_sound
         used = target.patch_up
         @destroyed = used
         return used

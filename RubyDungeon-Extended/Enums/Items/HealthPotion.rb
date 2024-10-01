@@ -1,5 +1,6 @@
 class HealthPotion < Item
     NAME = "une potion de soin"
+    SOUND = "potion"
     PICTURE = "health_potion"
 
     def initialize(soin_min, soin_max = soin_min)
@@ -17,6 +18,7 @@ class HealthPotion < Item
         else
             puts "#{user.get_name.capitalize} donne une potion de soin à #{target.get_name.capitalize}..."
         end
+        play_sound
         target.heal(@soin)
         @destroyed = true
         return Player::ACTED
