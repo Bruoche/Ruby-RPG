@@ -326,7 +326,20 @@ class Narrator
             name_prefix = ""
         end
         print "  #{name_prefix}>> "
-        answer = gets.chomp
+        begin
+            answer = gets.chomp
+        rescue SystemExit, Interrupt => e
+            loop do
+                puts "Êtes vous sûr de vouloir fermer le jeu ? (y/n)"
+                puts "Toute progression non sauvegardée sera perdue."
+                case user_input.capitalize
+                when "Y"
+                    raise e
+                when "N"
+                    return user_input
+                end
+            end
+        end
         TTY::Screen.height.times do
             puts
         end
