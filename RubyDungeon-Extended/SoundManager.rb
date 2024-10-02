@@ -4,7 +4,9 @@ class SoundManager
     EXTENSION = ".wav"
 
     def self.play(sound_name)
-        sound = Sound.new(SOUND_FOLDER + SFX_FOLDER + sound_name + EXTENSION)
-        sound.play
+        if Settings.sound_effects
+            sound = Sound.new(SOUND_FOLDER + SFX_FOLDER + sound_name + EXTENSION)
+            sound.play
+        end
     end
 end

@@ -65,7 +65,7 @@ class Game
                 return main_menu
             end
         when "2"
-            asset_size_menu
+            options_menu
             main_menu
         when "3"
             return (not WANNA_PLAY)
@@ -164,6 +164,25 @@ class Game
         end
     end
 
+    def options_menu
+        loop do
+            puts "Que souhaitez-vous faire ?"
+            puts "    0) Retour..."
+            puts "    1) Modifier la hauteur des images"
+            puts "    2) Modifier l'audio"
+            case Narrator.user_input
+            when "0"
+                return
+            when "1"
+                asset_size_menu
+            when "2"
+                sound_menu
+            else
+                Narrator.unsupported_choice_error
+            end
+        end
+    end
+
     def asset_size_menu
         puts "Si vous voyez ce texte les images ont une taille acceptable."
         3.times do
@@ -192,6 +211,67 @@ class Game
         else
             Narrator.unsupported_choice_error
             asset_size_menu
+        end
+    end
+
+    def sound_menu
+        loop do
+            puts "Volume de musique : #{Settings.music_volume}%"
+            puts
+            puts "Effets sonores : #{Settings.sound_effects ? "Oui" : "Non"}"
+            puts
+            puts
+            puts
+            puts "Que souhaitez-vous faire ?"
+            puts "    0) Retour..."
+            puts "    1) Modifier le volume de la musique"
+            puts "    2) Activier/Désactiver les effets sonores"
+            case Narrator.user_input
+            when "0"
+                return
+            when "1"
+                music_volume_menu
+            when "2"
+                sound_effects_menu
+            else
+                Narrator.unsupported_choice_error
+            end
+        end
+    end
+
+    def music_volume_menu
+        puts "Quel volume souhaitez-vous ? (volume actuel : #{Settings.music_volume}%)"
+        new_volume = Narrator.user_input
+        if new_volume.to_i.to_s != new_volume
+            Narrator.unsupported_choice_error
+            return music_volume_menu
+        else
+            new_volume = new_volume.to_i
+        end
+        if new_volume < 0
+            new_volume = 0
+        end
+        if new_volume > 100
+            new_volume = 100
+        end
+        Settings.set_music_volume(new_volume)
+    end
+
+    def sound_effects_menu
+        puts "Souhaitez-vous des effets sonores ?"
+        puts "    0) Retour..."
+        puts "    1) Oui"
+        puts "    2) Non"
+        case Narrator.user_input
+        when "0"
+        when "1"
+            Settings.set_sound_effects(true)
+            SoundManager.play("stat_up")
+        when "2"
+            Settings.set_sound_effects(false)
+        else
+            Narrator.unsupported_choice_error
+            sound_effects_menu
         end
     end
 
