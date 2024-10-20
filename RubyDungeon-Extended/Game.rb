@@ -4,8 +4,9 @@ class Game
     RETAIL_PERCENT = 90
 
     def initialize
-        wanna_play = true
-        while wanna_play
+        warning_pop_up
+        game_running = true
+        while game_running
             MusicManager.get_instance.start
             MusicManager.get_instance.set_ambiance("Title screen")
             wanna_play = main_menu
@@ -45,6 +46,35 @@ class Game
             end
         end
         MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+    end
+
+    def warning_pop_up
+        if Settings.warning_pop_up_enabled
+            loop do
+                puts [
+                    "",
+                    "Attention :",
+                    "Mourrir dans ce jeu perdra toute votre progression en cours dans le donjon.",
+                    "Sortez du donjon pour sauvegarder votre progression.",
+                    "",
+                    "Info sur le terminal :",
+                    "Presser [Ctrl + C] fermera le jeu.",
+                    "Presser [Alt + Entrée] met le jeu en plein écran.",
+                    "",
+                    "1) Ok",
+                    "2) Ne plus me le rappeler"
+                ]
+                case Narrator.user_input
+                when "1"
+                    return
+                when "2"
+                    Settings.set_warning_pop_up_enabled(false)
+                    return
+                else
+                    Narrator.unsupported_choice_error
+                end
+            end
+        end
     end
 
     def main_menu

@@ -1,5 +1,5 @@
 $:.unshift File.dirname($0)
-
+puts "Loading..."
 require "RubyDungeon-Extended/ASCIIPrinter.rb"
 Dir["RubyDungeon-Extended/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*.rb"].each {|file| require(file)}
@@ -22,5 +22,7 @@ require "fileutils" # Manage files
 require "time" # get current time
 require "tty-screen" # get window width
 require 'ruby2d' # play sounds
-
+TTY::Screen.height.times do
+    puts
+end
 Game.new
