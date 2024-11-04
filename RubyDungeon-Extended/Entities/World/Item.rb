@@ -14,6 +14,9 @@ class Item
                 unless child.const_defined?(:DROP_CHANCE_SCALABLE)
                     child.const_set(:DROP_CHANCE_SCALABLE, true)
                 end
+                unless child.const_defined?(:DROP_QUANTITY_SCALABLE)
+                    child.const_set(:DROP_QUANTITY_SCALABLE, child::DROP_CHANCE_SCALABLE)
+                end
             end
         end
     end

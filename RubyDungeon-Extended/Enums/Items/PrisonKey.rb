@@ -2,7 +2,8 @@ class PrisonKey < Item
     NAME = "une clef"
     SOUND = "key"
     USABLE_ON_OTHERS = false
-    DROP_CHANCE_SCALABLE = false
+    DROP_CHANCE_SCALABLE = true
+    DROP_QUANTITY_SCALABLE = false
 
     def initialize
         @value = 0

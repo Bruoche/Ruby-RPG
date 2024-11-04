@@ -5,8 +5,8 @@ class Game
 
     def initialize
         warning_pop_up
-        game_running = true
-        while game_running
+        wanna_play = true
+        while wanna_play
             MusicManager.get_instance.start
             MusicManager.get_instance.set_ambiance("Title screen")
             wanna_play = main_menu

@@ -41,7 +41,7 @@ class Loot
     private
 
     def max_amount
-        if @item_class::DROP_CHANCE_SCALABLE
+        if @item_class::DROP_QUANTITY_SCALABLE
             return (@amount_max * Math.sqrt(World.get_instance.nb_players)).truncate
         else
             return @amount_max
