@@ -9,11 +9,11 @@ class Monster
     end
 
     def get_description
-        return "#{@name.get_gendered_a} avec #{get_life_to_string} points de vies et #{get_strength} dégats"
+        return "#{@name.get_gendered_a} avec #{get_current_life} points de vies et #{get_strength} dégats"
     end
 
     def get_description_the
-        return "#{@name.get_gendered_the} avec #{get_life_to_string} points de vies et #{get_strength} dégats"
+        return "#{@name.get_gendered_the} avec #{get_current_life} points de vies et #{get_strength} dégats"
     end
 
     def get_name
@@ -42,6 +42,10 @@ class Monster
 
     def healthbar(size)
         return @lifebar.healthbar(size)
+    end
+
+    def get_current_life
+        return @lifebar.get_life
     end
 
     def get_missing_life
