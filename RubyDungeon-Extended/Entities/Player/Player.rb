@@ -173,6 +173,11 @@ class Player
         @controller.stop_fighting
     end
 
+    def escape
+        @controller.stop_fighting
+        @controller.ask_action
+    end
+
     def exit
         @controller.exit
     end

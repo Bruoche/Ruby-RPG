@@ -259,7 +259,51 @@ class Narrator
     end
 
     def self.ask_fight_action(player, monsters_description, escape_chances)
-        player.get_room.get_monster_cards.show
+        monster_cards_pages = player.get_room.get_monster_cards
+        loop do
+            monster_cards_pages.show(25)
+            puts
+            show_player_battle_cards(player)
+            puts "Vous faites face à #{monsters_description}."
+            puts
+            puts "Que voulez-vous faire ?"
+            puts "      1) Attaque physique"
+            puts "      2) Attaque magique"
+            puts "      3) Sort de soin"
+            puts "      4) Utiliser un objet..."
+            puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
+            input = user_input(player.get_name)
+            case input
+            when "1"
+                return player.get_room.get_monsters.hurt_single(player.strength_attack)
+            when "2"
+                player.get_room.get_monsters.hurt_magic(player.magic_attack)
+                return Player::ACTED
+            when "3"
+                return player.heal_spell
+            when "4"
+                return player.use_item
+            when "5"
+                if player.can_escape?(player.get_room.get_monsters.get_current_power)
+                    escape_scene
+                    return player.escape
+                else
+                    fail_escape(player.get_room.get_monsters.plural?)
+                    return Player::ACTED
+                end
+            else
+                if input.capitalize == "A"
+                    monster_cards_pages.page_down
+                elsif input.capitalize == "Z"
+                    monster_cards_pages.page_up
+                else
+                    unsupported_choice_error
+                end
+            end
+        end
+    end
+
+    def self.show_player_battle_cards(player)
         battle_cards = ASCIIRow.new
         for ally in World.get_instance.get_players_in(player.get_room)
             if ally.fighting?
@@ -277,15 +321,6 @@ class Narrator
             end
         end
         battle_cards.show
-        puts "Vous faites face à #{monsters_description}."
-        puts
-        puts "Que voulez-vous faire ?"
-        puts "      1) Attaque physique"
-        puts "      2) Attaque magique"
-        puts "      3) Sort de soin"
-        puts "      4) Utiliser un objet..."
-        puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
-        return user_input(player.get_name)
     end
 
     def self.ask_continue

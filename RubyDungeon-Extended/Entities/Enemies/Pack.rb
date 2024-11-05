@@ -31,7 +31,7 @@ class Pack
     end
 
     def get_cards
-        monster_cards = ASCIIRow.new
+        monster_cards = ASCIIPaginator.new
         for monster in @monsters
             monster_cards.append(ASCIIPicture.new(ASCIIPicture.monster_card(monster)))
         end

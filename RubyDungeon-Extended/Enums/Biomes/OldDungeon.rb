@@ -78,7 +78,7 @@ class OldDungeon < Biome
                 "Vous trouvez une potion de soin rangée dans une meuble.",
                 "Vous remarquez une potion de soin oubliée au sol au coin de la pièce."
             ],
-            5,
+            10,
             HealthPotion,
             [20, 75]
         ),
@@ -89,7 +89,7 @@ class OldDungeon < Biome
         ),
         Loot.new(
             ["Vous remarquez une clef accrochée à un des murs."],
-            2,
+            5,
             PrisonKey
         )
     ]

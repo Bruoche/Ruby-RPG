@@ -18,9 +18,10 @@ class ASCIIPaginator
         for row in @pages[@current_page]
             @rows.print_row(row)
         end
-        puts
-        puts get_scroll_bar
-        puts "Page #{@current_page + 1}/#{@pages.length}"
+        if @pages.length > 1
+            puts get_scroll_bar
+            puts "Page #{@current_page + 1}/#{@pages.length}"
+        end
     end
 
     def get_scroll_bar

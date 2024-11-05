@@ -137,27 +137,7 @@ class PlayerController
     end
 
     def fight_action
-        case Narrator.ask_fight_action(@player, @player.get_room.get_monsters.enumerate, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
-        when "1"
-            return @player.get_room.get_monsters.hurt_single(@player.strength_attack)
-        when "2"
-            @player.get_room.get_monsters.hurt_magic(@player.magic_attack)
-        when "3"
-            return @player.heal_spell
-        when "4"
-            return @player.use_item
-        when "5"
-            if @player.can_escape?(@player.get_room.get_monsters.get_current_power)
-                @fighting = false
-                return !Player::ACTED
-            else
-                Narrator.fail_escape(@player.get_room.get_monsters.plural?)
-            end
-        else
-            Narrator.unsupported_choice_error
-            return fight_action
-        end
-        return Player::ACTED
+        return Narrator.ask_fight_action(@player, @player.get_room.get_monsters.enumerate, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
     end
 
     def propose_exploration
