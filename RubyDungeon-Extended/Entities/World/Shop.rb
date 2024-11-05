@@ -3,7 +3,7 @@ class Shop
     NOT_ENOUGH_FUNDS_DIALOG = "Navrès, mais %s pièces d'or ne seront pas suffisantes..."
     ONE_NOT_ENOUGH_DIALOG = "Navrès, mais une pièce d'or ne sera pas suffisante..."
     NO_MONEY_DIALOG = "Mes excuses, mais sans argent vous ne pourrez pas acheter quoi que ce soit dans ce magasin."
-    SOLD_DIALOG = "Un plaisir de faire avec vous."
+    SOLD_DIALOG = "Un plaisir de faire affaire avec vous."
     TRANSACTION_DONE = true
     RETAIL_PERCENT = 90
     CURRENCY = Coins.new
@@ -80,7 +80,7 @@ class Shop
 
     def ask_bought_item(player)
         item_index = Narrator.ask_paginated(
-            "Quel objet souhaitez-vous acheter ?",
+            "Quel objet souhaitez-vous acheter ? (#{player.get_quantity_of(CURRENCY)} ¤)",
             @inventory,
             -> (item, index) {
                 item_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(item, index))
