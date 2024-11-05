@@ -5,28 +5,38 @@ class Game
 
     def initialize
         warning_pop_up
-        wanna_play = true
-        while wanna_play
+        game_running = true
+        while game_running
             MusicManager.get_instance.start
             MusicManager.get_instance.set_ambiance("Title screen")
             wanna_play = main_menu
             if wanna_play
-                MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
-                Narrator.introduction_shop
-                MusicManager.get_instance.set_ambiance("Merchant")
-                @party.shop
-                @party.save
-                MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
-                Narrator.introduction(@party)
-                wanna_continue = true
-                while wanna_continue
-                    play
-                    if @party.died?
-                        wanna_continue = ask_continue
+                while wanna_play
+                    MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+                    Narrator.introduction_shop
+                    MusicManager.get_instance.set_ambiance("Merchant")
+                    @party.shop
+                    @party.save
+                    MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
+                    Narrator.introduction(@party)
+                    wanna_continue = true
+                    while wanna_continue
+                        play
+                        if @party.died?
+                            wanna_continue = ask_continue
+                        else
+                            wanna_continue = false
+                        end
+                    end
+                    if ask_play_again
+                        @party.load
+                        wanna_play = true
                     else
-                        wanna_continue = false
+                        wanna_play = false
                     end
                 end
+            else
+                game_running = false
             end
         end
     end
@@ -315,6 +325,22 @@ class Game
         else
             Narrator.unsupported_choice_error
             ask_continue
+        end
+    end
+
+    def ask_play_again
+        loop do
+            puts "Que souhaitez-vous faire?"
+            puts "    a) Retourner au magasin"
+            puts "    b) Partir au menu principal"
+            case Narrator.user_input.capitalize
+            when "A"
+                return true
+            when "B"
+                return false
+            else
+                Narrator.unsupported_choice_error
+            end
         end
     end
 end
