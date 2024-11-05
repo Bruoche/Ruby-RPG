@@ -74,7 +74,7 @@ class Catacombs < Biome
         ),
         Loot.new(
             [
-                "Vous remarquez qu'une des hurnes possèdes quelques pièce en son fond",
+                "Vous remarquez qu'une des urnes possèdes quelques pièce en son fond",
                 "Vous voyez quelques pièces posées en offrande sur une des dépouilles entreposée en ce lieu"
             ],
             10,
