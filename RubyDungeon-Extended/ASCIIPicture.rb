@@ -106,7 +106,7 @@ class ASCIIPicture
         picture = monster.get_picture.get_ascii
         stat_string = "♣ #{monster.get_strength}"
         monster_info = ASCIIPicture.new([
-            (" " * Utils.positive((width - monster.get_name.as_text.length).div(2))) + monster.get_name.as_text.capitalize,
+            (" " * Utils.positive((width - monster.get_name.as_text.length).div(2))) + Utils.truncate(monster.get_name.as_text.capitalize, width),
             (" " * MONSTER_HEALTH_MARGIN) + monster.healthbar(width - (MONSTER_HEALTH_MARGIN * 2)) + (" " * MONSTER_HEALTH_MARGIN),
             (" " * MONSTER_HEALTH_MARGIN) + "(#{monster.get_life_to_string} ♥)",
             "",
