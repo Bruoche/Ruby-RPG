@@ -306,10 +306,26 @@ class Player
     end
 
     def see_items
-        @stats.get_equipment.see_equipment
-        if @inventory.see_inventory == WANNA_MANAGE_EQUIPMENT
-            manage_equipment
+        loop do
+            print_inventory
+            puts
+            puts "Que voulez-vous faire ?"
+            puts "    0) Retour..."
+            puts "    1) Gérer l'équipement"
+            case Narrator.user_input
+            when "0"
+                return
+            when "1"
+                manage_equipment
+            else
+                Narrator.unsupported_choice_error
+            end
         end
+    end
+
+    def print_inventory
+        @stats.get_equipment.see_equipment
+        @inventory.see_inventory
     end
 
     def give_item(bundle)

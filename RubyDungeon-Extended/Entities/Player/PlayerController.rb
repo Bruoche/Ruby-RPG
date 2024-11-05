@@ -87,6 +87,8 @@ class PlayerController
     end
 
     def status
+        @player.print_inventory
+        puts
         puts "Que souhaitez-vous faire ?"
         puts "      0) Retour"
         puts "      1) Utiliser un objet"
