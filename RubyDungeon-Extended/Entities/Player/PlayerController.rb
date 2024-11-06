@@ -87,6 +87,7 @@ class PlayerController
     end
 
     def status
+        puts
         @player.print_inventory
         puts
         puts "Que souhaitez-vous faire ?"
@@ -97,10 +98,22 @@ class PlayerController
         when "0"
             return ask_action
         when "1"
-            if @player.use_item
+            item_response = @player.use_item
+            if [true, false].include? item_response
+                player_acted = item_response
+                close_inventory = item_response
+            else
+                player_acted = item_response[Item::RESPONSE_PLAYER_ACTED]
+                close_inventory = item_response[Item::RESPONSE_CLOSE_INVENTORY]
+            end
+            if player_acted
                 return Player::ACTED
             else
-                return status
+                if close_inventory
+                    return !Player::ACTED
+                else
+                    return status
+                end
             end
         when "2"
             if @player.manage_equipment

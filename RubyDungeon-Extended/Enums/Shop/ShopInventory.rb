@@ -31,5 +31,6 @@ module ShopInventory
         Bundle.new(Armor.new(IronHelm), 1),
         Bundle.new(Armor.new(HeavyHelm), 1),
         Bundle.new(Armor.new(BlackLeatherHelm), 1),
+        Bundle.new(Teleporter.new, 1)
     ].freeze
 end

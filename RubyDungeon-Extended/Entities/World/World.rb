@@ -10,9 +10,9 @@ class World
             biome = Entrance
         end
         biome_id = biome.name
-        entrance = Room.new(biome, RoomID.new(biome_id, 0), exit)
-        @rooms = {Exit.name => [exit], biome_id => [entrance]}
-        return entrance
+        @entrance = Room.new(biome, RoomID.new(biome_id, 0), exit)
+        @rooms = {Exit.name => [exit], biome_id => [@entrance]}
+        return @entrance
     end
 
     def self.get_instance
@@ -21,6 +21,10 @@ class World
 
     def get_room(room_id)
         return @rooms[room_id.get_biome][room_id.get_id]
+    end
+
+    def get_entrance
+        return @entrance
     end
 
     def backtrackable_rooms_for(room_id, next_biome_id)
@@ -57,6 +61,10 @@ class World
             end
             return next_id
         end
+    end
+
+    def get_all_players
+        return @party.get_players
     end
 
     def get_players_in(room)

@@ -1,5 +1,7 @@
 class Item
     PICTURE_PREFIX = "Items/"
+    RESPONSE_PLAYER_ACTED = "player_acted?"
+    RESPONSE_CLOSE_INVENTORY = "close_inventory?"
 
     def self.inherited(child)
         child.instance_variable_set(:@destroyed, false)

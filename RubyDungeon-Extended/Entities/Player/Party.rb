@@ -4,6 +4,10 @@ class Party
         @players = players
     end
 
+    def get_players
+        return @players
+    end
+
     def size
         return @players.length
     end
