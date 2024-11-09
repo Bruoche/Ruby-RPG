@@ -46,7 +46,7 @@ class LostKnightRightArm
     DEATH_EVENT = -> (arm, boss) {LostKnight.main_arm_loss(arm, boss)}
 end
 
-class LostKnight
+class LostKnight < Bestiary
     IS_BOSS = true
     EXPECTED_LEVEL = 12
     AMOUNT_BONUS = EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
@@ -54,6 +54,20 @@ class LostKnight
     MALE = LostKnightM
     FEMALE_CHANCES = 0
     PICTURE = "lost_knight"
+    LOOTS = [
+        Loot.new(
+            ["Sur la dépouille du chevalier vous trouvez une large bourse accorchée sur sa ceinture."],
+            100,
+            Coins,
+            [],
+            40
+        ),
+        Loot.new(
+            ["Dans un plis de son plastron vous remarquez également une note dépassant."],
+            100,
+            DevNote
+        )
+    ]
     WEAKPOINTS = [
         LostKnightHead
     ]

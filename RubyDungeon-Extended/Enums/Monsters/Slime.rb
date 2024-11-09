@@ -22,8 +22,7 @@ module SlimeM
     ].freeze
 end
 
-class Slime
-    IS_BOSS = false
+class Slime < Bestiary
     MALE = SlimeM
     FEMALE_CHANCES = 0
     BASE_HEALTH = BaseStats::BASE_HEALTH

@@ -59,12 +59,23 @@ module GoblinM
 end
 
 
-class Goblin
-    IS_BOSS = false
+class Goblin < Bestiary
     FEMALE = GoblinF
     MALE = GoblinM
     FEMALE_CHANCES = 50
     BASE_HEALTH = BaseStats::BASE_HEALTH
     BASE_DAMAGE = BaseStats::BASE_STRENGTH
     PICTURE = "goblin"
+    LOOTS = [
+        Loot.new(
+            [
+                "En fouillant le corps du goblin vous remarquez une petite bourse accrochée à sa ceinture."
+            ],
+            33,
+            Coins,
+            [],
+            2,
+            3
+        )
+    ]
 end

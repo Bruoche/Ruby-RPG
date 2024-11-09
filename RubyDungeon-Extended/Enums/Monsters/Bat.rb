@@ -22,8 +22,7 @@ module BatF
     ].freeze
 end
 
-class Bat
-    IS_BOSS = false
+class Bat < Bestiary
     FEMALE = BatF
     FEMALE_CHANCES = 100
     BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)

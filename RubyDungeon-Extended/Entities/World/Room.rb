@@ -17,6 +17,7 @@ class Room
         end
         @objects = nil
         @requirements = @biome.get_entry_requirements
+        @monster_loots = []
     end
 
     def allow_entry_for(player)
@@ -156,6 +157,10 @@ class Room
         return @objects
     end
 
+    def add_loot(loot)
+        @monster_loots.append(loot)
+    end
+
     def search
         if !searched_before?
             SoundManager.play("searching")
@@ -167,6 +172,14 @@ class Room
             puts
             sleep Settings::BATTLE_ACTION_PAUSE
             @objects = @biome.get_loot
+        end
+        for loot in @monster_loots
+            if loot.dropped?
+                bundle = loot.get_item
+                bundle.get_item.play_sound
+                sleep Settings::BATTLE_ACTION_PAUSE
+                @objects.append(bundle)
+            end
         end
         return @objects
     end

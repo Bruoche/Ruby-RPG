@@ -17,7 +17,7 @@ class Pack
                     suffix = "_m"
                 end
                 picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + monster_type::PICTURE + suffix)
-                monster = Monster.new(monster_health, monster_damage, 0, name, ["frappe %s"], ["lance un sort"], ["lance une aura de soin"], 0, picture)
+                monster = Monster.new(monster_health, monster_damage, 0, name, ["frappe %s"], ["lance un sort"], ["lance une aura de soin"], 0, picture, monster_type::LOOTS)
             else
                 if monster_data::IS_BOSS == false
                     monster = Monster.new(monster_data)
@@ -194,6 +194,9 @@ class Pack
                 puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
                 sleep Settings::BATTLE_ACTION_PAUSE
                 @monsters.delete_at(index)
+                for loot in monster.get_loots
+                    attack.source.get_room.add_loot(loot)
+                end
                 response[:dead] = true
             end
         end

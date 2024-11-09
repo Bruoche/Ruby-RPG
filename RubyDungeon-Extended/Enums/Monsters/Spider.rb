@@ -22,8 +22,7 @@ module SpiderF
     ].freeze
 end
 
-class Spider
-    IS_BOSS = false
+class Spider < Bestiary
     FEMALE = SpiderF
     FEMALE_CHANCES = 100
     BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)

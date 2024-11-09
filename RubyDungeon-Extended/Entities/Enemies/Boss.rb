@@ -16,6 +16,7 @@ class Boss < Monster
         @name = Name.new(boss)
         @initial_power = get_power
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + boss::PICTURE)
+        @loots = boss::LOOTS
     end
 
     def get_power

@@ -45,8 +45,7 @@ module UndeadM
 end
 
 
-class Undead
-    IS_BOSS = false
+class Undead < Bestiary
     MALE = UndeadM
     FEMALE = UndeadF
     FEMALE_CHANCES = 50

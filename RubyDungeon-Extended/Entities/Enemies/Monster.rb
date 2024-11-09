@@ -1,11 +1,12 @@
 class Monster
-    def initialize(life, strength, intelligence, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability, picture)
+    def initialize(life, strength, intelligence, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability, picture, loots = [])
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
         @intelligence = intelligence
         @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, name.get_gendered_the, unpredictability)
         @picture = picture
+        @loots = loots
     end
 
     def get_description
@@ -22,6 +23,10 @@ class Monster
 
     def get_picture
         return @picture
+    end
+
+    def get_loots
+        return @loots
     end
 
     def get_power

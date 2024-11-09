@@ -23,8 +23,7 @@ module SkelettonM
 end
 
 
-class Skeletton
-    IS_BOSS = false
+class Skeletton < Bestiary
     MALE = SkelettonM
     FEMALE_CHANCES = 0
     BASE_HEALTH = BaseStats::BASE_HEALTH+(BaseStats::BASE_HEALTH.div(4))
