@@ -1,6 +1,6 @@
 class DevNote < Item
     NAME = "note d'au revoir"
-    SOUND = "bandage"
+    SOUND = "paper"
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = false
 
@@ -27,6 +27,7 @@ class DevNote < Item
         puts "     En espérant que ça ne soit qu'un Au revoir,"
         puts "       - Bruoche"
         puts
+        play_sound
         Narrator.pause_text
         return !Player::ACTED
     end

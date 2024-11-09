@@ -181,6 +181,7 @@ class Room
                 @objects.append(bundle)
             end
         end
+        @monster_loots = []
         return @objects
     end
 
