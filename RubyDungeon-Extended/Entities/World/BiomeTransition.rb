@@ -22,13 +22,11 @@ class BiomeTransition
     end
 
     def get_next_biome
-        puts
+        Narrator.add_space_of(1)
         if @message != NO_MESSAGE
             MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
-            for line in @message
-                puts line
-            end
-            puts
+            Narrator.write(@message)
+            Narrator.add_space_of(1)
             Narrator.pause_text
         end
         return Object.const_get(@biome)

@@ -19,17 +19,10 @@ class Exit
     end
 
     def allow_entry_for(player)
-        puts
+        Narrator.add_space_of(1)
         ASCIIPrinter.print("dungeon_outside")
-        puts
-        if (player.get_level == 0)
-            print "Trop effrayé.e par les terreurs du donjon, "
-        else
-            print "En ayant terminé avec le donjon, "
-        end
-        puts "Vous quittez l'étrange batisse."
-        puts "Vous avez survécu."
-        puts
+        Narrator.add_space_of(1)
+        Narrator.exit_dungeon(player.get_level == 0)
         SaveManager.save_player(player)
         Narrator.pause_text
         player.exit

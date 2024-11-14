@@ -50,7 +50,7 @@ class ASCIIRow
                 end
                 line_to_print = line_to_print + @space + picture_line.ljust(picture.width)
             end
-            puts line_to_print
+            Narrator.write(line_to_print)
             y += 1
         end
     end

@@ -191,7 +191,7 @@ class Pack
         else
             if monster.died?
                 SoundManager.play("ennemy_death")
-                puts "#{monster.get_name.get_gendered_the.capitalize} s'effondre sous vos coups."
+                Narrator.monster_death(monster.get_name.get_gendered_the)
                 sleep Settings::BATTLE_ACTION_PAUSE
                 @monsters.delete_at(index)
                 for loot in monster.get_loots

@@ -76,14 +76,14 @@ class Monster
     def hurt(attack)
         damage = attack.damage_dealt
         SoundManager.play("ennemy_hurt")
-        puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
+        Narrator.hurt(@name.get_gendered_the, damage)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage)
         return Player::ACTED
     end
 
     def heal(amount)
-        puts("#{@name.get_gendered_the.capitalize} récupère #{amount} points de vie.")
+        Narrator.heal(@name.get_gendered_the, amount)
         @lifebar.heal(amount)
     end
 

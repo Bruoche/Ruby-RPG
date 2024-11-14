@@ -200,16 +200,7 @@ class PlayerIcon
 
     def customize
         show
-        puts "Quel élément souhaitez-vous modifier ?"
-        puts "0) Valider l'apparence"
-        puts "1) Complexion"
-        puts "2) Corpulence"
-        puts "3) Couleur des yeux"
-        puts "4) Les oreilles"
-        puts "5) Le nez"
-        puts "6) Les sourcils"
-        puts "7) Pilosité faciale"
-        puts "8) Les cheveux"
+        Narrator.character_creation_options
         case Narrator.user_input
         when "0"
             return
@@ -237,12 +228,7 @@ class PlayerIcon
 
     def beard_menu
         show
-        puts "Quel élément souhaitez-vous modifier ?"
-        puts "0) Retour..."
-        puts "1) La moustache"
-        puts "2) Le menton"
-        puts "3) Les pattes"
-        puts "4) La couleur"
+        Narrator.beard_options
         case Narrator.user_input
         when "0"
             return
@@ -262,10 +248,7 @@ class PlayerIcon
 
     def hair_menu
         show
-        puts "Quel élément souhaitez-vous modifier ?"
-        puts "0) Retour..."
-        puts "1) La coupe"
-        puts "2) La couleur"
+        Narrator.hair_options
         case Narrator.user_input
         when "0"
             return
@@ -281,10 +264,7 @@ class PlayerIcon
 
     def hairstyle_menu
         show
-        puts "Quel portion de votre coupe de cheveux souhaitez-vous modifier ?"
-        puts "0) Retour..."
-        puts "1) L'avant"
-        puts "2) L'arrière"
+        Narrator.hairstyle_options
         case Narrator.user_input
         when "0"
             return
@@ -298,11 +278,9 @@ class PlayerIcon
 
     def show
         for line in get_picture.get_ascii
-            puts "    "+line
+            Narrator.write("    "+line)
         end
-        puts
-        puts
-        puts
+        Narrator.add_space_of(3)
     end
 
     private

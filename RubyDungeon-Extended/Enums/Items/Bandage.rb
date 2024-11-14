@@ -12,9 +12,9 @@ class Bandage < Item
 
     def use(target, user)
         if target == user
-            puts "#{user.get_name.capitalize} utilise ses bandages pour soigner ses blessures..."
+            Narrator.bandage_use_self(user.get_name)
         else
-            puts "#{user.get_name.capitalize} utilise des bandages pour soigner les blessures de #{target.get_name}..."
+            Narrator.bandage_use_other(user.get_name, target.get_name)
         end
         play_sound
         used = target.patch_up

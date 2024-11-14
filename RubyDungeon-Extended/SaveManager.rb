@@ -44,7 +44,7 @@ class SaveManager
         if File.file?(path)
             return Hash[File.read(path).split("\n").map{|i|i.split(': ')}].transform_keys(&:to_sym)
         else
-            puts "Aucun fichier nommé #{file_name}#{EXTENSION} n'a pu être trouvé"
+            Narrator.no_file_found_error(file_name, EXTENSION)
         end
     end
 
@@ -70,7 +70,6 @@ class SaveManager
             FileUtils.mkdir_p(save_directory)
         end
         write("#{SAVE_DIRECTORY}/#{SETTING}", settings)
-        puts "#{SETTING} saved."
     end
 
     def self.get_settings

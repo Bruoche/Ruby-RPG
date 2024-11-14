@@ -23,25 +23,25 @@ class EntryRequirement
     end
 
     def ask_enter
-        puts @ask_enter
+        Narrator.write(@ask_enter)
     end
 
     def entry_message
         if @require_once
             @ignored = true
         end
-        puts @entry_message
-        puts
+        Narrator.write(@entry_message)
+        Narrator.add_space_of(1)
         Narrator.pause_text
     end
 
     def no_entry_message
-        puts @no_entry_message
+        Narrator.write(@no_entry_message)
     end
 
     def impossible_entry_message
-        puts @impossible_entry_message
-        puts
+        Narrator.write(@impossible_entry_message)
+        Narrator.add_space_of(1)
         Narrator.pause_text
     end
 end

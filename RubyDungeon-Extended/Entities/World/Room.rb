@@ -27,8 +27,7 @@ class Room
             else
                 if requirement.can_enter?(player)
                     requirement.ask_enter
-                    puts "1) Oui"
-                    puts "2) Non"
+                    Narrator.yes_or_no
                     case Narrator.user_input(player.get_name)
                     when "1"
                         requirement.entry_message
@@ -164,12 +163,12 @@ class Room
     def search
         if !searched_before?
             SoundManager.play("searching")
-            print "Vous fouillez #{@name.get_gendered_the} pour tout objet pouvant vous être utile"
+            Narrator.searching(@name.get_gendered_the)
             3.times do
                 sleep Settings::BATTLE_ACTION_PAUSE
-                print "."
+                Narrator.write_same_line(".")
             end
-            puts
+            Narrator.add_space_of(1)
             sleep Settings::BATTLE_ACTION_PAUSE
             @objects = @biome.get_loot
         end

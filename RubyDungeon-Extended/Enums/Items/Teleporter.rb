@@ -16,13 +16,12 @@ class Teleporter < Item
 
     def use(target, user)
         if user.fighting?
-            puts "Alors que vous tentez d'aggriper l'artéfact pour vous échapper, vos adversaires vous en empêchent."
+            Narrator.teleporter_fail
             SoundManager.play("spell_fart")
             sleep Settings::BATTLE_ACTION_PAUSE
             return Player::ACTED
         else
-            puts "Lorsque vous prenez la pierre en votre main, une douce chaleur en émane."
-            puts
+            Narrator.teleporter_start
             choosen_destination = choose_destination(user)
             if choosen_destination != NO_DESTINATION
                 user.set_room(choosen_destination)
@@ -37,15 +36,13 @@ class Teleporter < Item
 
     def choose_destination(user)
         loop do
-            puts "Où souhaitez vous aller ?"
-            puts "    0) Annuler"
-            puts "    1) La sortie"
+            Narrator.teleporter_ask_destination
             index = 2
             available_allies = []
             for player in World.get_instance.get_all_players do
                 if player != user
                     if !player.exited?
-                        puts "    #{index}) Rejoindre #{player.get_name}"
+                        Narrator.teleporter_ask_destination_allies(index, player.get_name)
                         available_allies.append(player)
                         index += 1
                     end

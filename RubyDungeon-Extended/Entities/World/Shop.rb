@@ -52,7 +52,7 @@ class Shop
 
     def show_sign
         for line in ASCIIPicture.new(ASCIIPrinter::PREFIX + ASCIIPrinter::UNSCALABLE_PREFIX + "shop_sign").get_ascii
-            puts Utils.center(line, TTY::Screen.width)
+            Narrator.write(Utils.center(line, TTY::Screen.width))
         end
     end
 

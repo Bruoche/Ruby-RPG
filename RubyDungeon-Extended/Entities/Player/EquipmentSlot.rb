@@ -72,7 +72,7 @@ class EquipmentSlot
         if can_equip?(armor)
             precedent_armor = @equippedArmor
             if precedent_armor != NO_ARMOR_EQUIPPED
-                puts "Êtes-vous sûr de vouloir remplacer votre armure actuelle par #{armor.get_name} ? (y/n)"
+                Narrator.ask_armor_replacement_confirmation(armor.get_name)
                 armor_comparison = ASCIIRow.new
                 current_armor_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(precedent_armor, ASCIIPicture::NO_INDEX, 0))
                 new_armor_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(armor, ASCIIPicture::NO_INDEX, 0))
@@ -98,8 +98,8 @@ class EquipmentSlot
     def equip(armor, player_name)
         precedent_armor = @equippedArmor
         @equippedArmor = armor
-        puts "#{player_name.capitalize} s'équipe d'#{@equippedArmor.get_long_name}"
         SoundManager.play("equip")
+        Narrator.equip_armor(player_name, @equippedArmor.get_long_name)
         return precedent_armor
     end
 

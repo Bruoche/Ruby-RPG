@@ -214,12 +214,12 @@ class Player
         else
             SoundManager.play("dodge")
         end
-        puts("#{get_name.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
+        Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage_taken)
         if died?
             SoundManager.play("player_death")
-            puts "#{get_name.capitalize} s'éffondre au sol."
+            Narrator.player_death(get_name)
             sleep Settings::BATTLE_ACTION_PAUSE
         end
     end
@@ -231,11 +231,11 @@ class Player
     def magic_attack
         if @stats.intelligence > 0
             SoundManager.play("magic_charge")
+            Narrator.player_spell_cast(get_name)
         else
             SoundManager.play("spell_fart")
-            puts "Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts."
+            Narrator.player_spell_fail
         end
-        puts "#{get_name.capitalize} lance une attaque magique."
         sleep Settings::BATTLE_ACTION_PAUSE
         return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE, self)
     end
@@ -261,7 +261,7 @@ class Player
                 end
             end
         else
-            puts "Vous ne savez pas comment vous soigner."
+            Narrator.heal_spell_fail
             return !ACTED
         end
     end
@@ -271,11 +271,11 @@ class Player
             amount = rand(1..@stats.intelligence)
             SoundManager.play("heal_spell")
             if target == self
-                puts "#{get_name.capitalize} se soigne #{amount} points de vie."
+                Narrator.self_heal(get_name, get_name)
                 sleep Settings::BATTLE_ACTION_PAUSE
                 @lifebar.heal(amount)
             else
-                puts "#{get_name.capitalize} soigne #{target.get_name}."
+                Narrator.heal_spell_cast(get_name, target.get_name)
                 sleep Settings::BATTLE_ACTION_PAUSE
                 target.heal(amount)
             end
@@ -285,7 +285,7 @@ class Player
 
     def heal(amount = HEAL_SELF)
         SoundManager.play("player_heal")
-        puts "#{get_name.capitalize} obtient #{amount} points de vie."
+        Narrator.heal(get_name, amount)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.heal(amount)
     end
@@ -294,13 +294,13 @@ class Player
         if (@lifebar.get_missing_life > 0)
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
             SoundManager.play("player_heal")
-            puts "#{get_name.capitalize} récupère #{amount} points de vie."
+            Narrator.heal(get_name, amount)
             sleep Settings::BATTLE_ACTION_PAUSE
             @lifebar.heal(amount)
             return ACTED
         else
             SoundManager.play("spell_fart")
-            puts "#{get_name.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
+            Narrator.dont_need_heal(get_name)
             sleep Settings::BATTLE_ACTION_PAUSE
             return !ACTED
         end
@@ -313,10 +313,7 @@ class Player
     def see_items
         loop do
             print_inventory
-            puts
-            puts "Que voulez-vous faire ?"
-            puts "    0) Retour..."
-            puts "    1) Gérer l'équipement"
+            Narrator.shop_inventory_options
             case Narrator.user_input
             when "0"
                 return
@@ -334,7 +331,7 @@ class Player
     end
 
     def give_item(bundle)
-        puts "#{get_name} obtiens #{bundle.get_name}."
+        Narrator.obtain_item(get_name, bundle.get_name)
         @inventory.add(bundle)
     end
 

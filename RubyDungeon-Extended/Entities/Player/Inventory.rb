@@ -82,19 +82,19 @@ class Inventory
                 return !Player::ACTED
             end
         else
-            puts "Vous n'avez pas d'objets à utiliser."
+            Narrator.no_items_to_use
             return !Player::ACTED
         end
     end
 
     def see_inventory
         if @bundles.length > 0
-            puts "Vous possédez : "
+            Narrator.item_possessed_title
             for bundle in @bundles
-                puts "    - " + to_string(bundle).capitalize
+                Narrator.list(to_string(bundle))
             end
         else
-            puts "Vous n'avez pas d'objets à utiliser."
+            Narrator.no_items_to_use
         end
     end
 
@@ -114,10 +114,7 @@ class Inventory
         else
             usage_text = "Utiliser"
         end
-        puts "Que souhaitez faire avec #{bundle.get_name} ?"
-        puts "0) Annuler..."
-        puts "1) #{usage_text}"
-        puts "2) Donner"
+        Narrator.usage_options(bundle.get_name, usage_text)
         case Narrator.user_input(player.get_name)
         when "0"
             return !Player::ACTED
@@ -180,7 +177,7 @@ class Inventory
 
     def give(bundle, reciever, giver)
         if bundle.get_quantity > 1
-            puts "Combien de #{bundle.get_name} souhaitez-vous donner ?"
+            Narrator.ask_quantity_given(bundle.get_name)
             amount = Narrator::user_input(giver.get_name)
             if amount != amount.to_i.to_s
                 Narrator.unsupported_choice_error
@@ -188,7 +185,7 @@ class Inventory
             end
             amount = amount.to_i
             if amount < 0
-                puts "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif."
+                Narrator.negative_quantity_error
                 return give(bundle, reciever, giver)
             end
         else
@@ -225,14 +222,14 @@ class Inventory
                 end
             end
         else
-            puts "Aucun objet à vendre"
+            Narrator.no_items_to_sell
             Narrator.pause_text
         end
         return nil
     end
 
     def choose_amount_to_sell(bundle, player)
-        puts "Combien de #{bundle.get_name} souhaitez-vous vendre ?"
+        Narrator.ask_quantity_sold(bundle.get_name)
         amount = Narrator::user_input(player.get_name)
         if amount != amount.to_i.to_s
             Narrator.unsupported_choice_error
@@ -240,7 +237,7 @@ class Inventory
         end
         amount = amount.to_i
         if amount < 0
-            puts "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif."
+            Narrator.negative_quantity_error
             return give(bundle, reciever, player)
         end
         if amount > bundle.get_quantity

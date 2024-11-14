@@ -29,7 +29,7 @@ class Attack
             best_roll = first_roll > second_roll ? first_roll : second_roll
             return best_roll
         else
-            puts("<< unexpected damage type encountered >>")
+            Narrator.unexpected_damage_type_error
             return 0
         end
     end

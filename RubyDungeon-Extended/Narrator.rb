@@ -2,11 +2,263 @@ class Narrator
     RETURN_BUTTON = "return_button"
     NO_NAME_DISPLAYED = nil
 
+    def self.add_space_of(height)
+        height.times do
+            puts
+        end
+    end
+
+    def self.write(text)
+        puts text
+    end
+
+    def self.write_same_line(text)
+        print text
+    end
+
+    def self.warning_pop_up
+        puts [
+            "",
+            "Attention :",
+            "Mourrir dans ce jeu perdra toute votre progression en cours dans le donjon.",
+            "Sortez du donjon pour sauvegarder votre progression.",
+            "",
+            "Info sur le terminal :",
+            "Presser [Ctrl + C] fermera le jeu.",
+            "Presser [Alt + Entrée] met le jeu en plein écran.",
+            "",
+            "1) Ok",
+            "2) Ne plus me le rappeler"
+        ]
+    end
+
+    def self.main_menu_options
+        puts [
+            "",
+            "",
+            "1) Entrer dans le donjon",
+            "2) Options",
+            "3) Quitter"
+        ]
+    end
+
+    def self.select_characters_options(party)
+        puts "Aventuriers entrant dans le donjon : "
+        party.show_cards
+        puts [
+            "",
+            "",
+            "0) Retour",
+            "1) Ajouter un membre à l'équipe"
+        ]
+    end
+
+    def self.remove_party_member_option
+        puts "2) Retirer un membre de l'équipe"
+    end
+
+    def self.start_travel_option(index)
+        puts "#{index}) Commencer le voyage"
+    end
+
+    def self.new_or_old_character
+        puts [
+            "0) Retour",
+            "1) Nouveau personnage",
+            "2) Personnage existant"
+        ]
+    end
+
+    def self.character_creation_options
+        puts [
+            "Quel élément souhaitez-vous modifier ?",
+            "0) Valider l'apparence",
+            "1) Complexion",
+            "2) Corpulence",
+            "3) Couleur des yeux",
+            "4) Les oreilles",
+            "5) Le nez",
+            "6) Les sourcils",
+            "7) Pilosité faciale",
+            "8) Les cheveux"
+        ]
+    end
+
+    def self.beard_options
+        puts [
+            "Quel élément souhaitez-vous modifier ?",
+            "0) Retour...",
+            "1) La moustache",
+            "2) Le menton",
+            "3) Les pattes",
+            "4) La couleur"
+        ]
+    end
+
+    def self.hair_options
+        puts [
+            "Quel élément souhaitez-vous modifier ?",
+            "0) Retour...",
+            "1) La coupe",
+            "2) La couleur"
+        ]
+    end
+
+    def self.hairstyle_options
+        puts [
+            "Quel portion de votre coupe de cheveux souhaitez-vous modifier ?",
+            "0) Retour...",
+            "1) L'avant",
+            "2) L'arrière"
+        ]
+    end
+
+    def self.options_selection
+        puts [
+            "Que souhaitez-vous faire ?",
+            "    0) Retour...",
+            "    1) Modifier la hauteur des images",
+            "    2) Modifier l'audio"
+        ]
+    end
+
+    def self.asset_size_verification_line
+        puts "Si vous voyez ce texte les images ont une taille acceptable."
+    end
+
+    def self.sound_options
+        puts "Volume de musique : #{Settings.music_volume}%"
+        puts
+        puts "Effets sonores : #{Settings.sound_effects ? "Oui" : "Non"}"
+        add_space_of(3)
+        puts [
+            "Que souhaitez-vous faire ?",
+            "    0) Retour...",
+            "    1) Modifier le volume de la musique",
+            "    2) Activier/Désactiver les effets sonores"
+        ]
+    end
+
+    def self.asset_size_options
+        puts [
+            "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut.",
+            "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écran.",
+            "",
+            "Autrement, tentez de mettre les images en petites tailles,",
+            "ou de réduire la taille de police du texte de votre terminal si cela ne suffit pas.",
+            "",
+            "Quelle taille d'image souhaitez-vous ?",
+            "0) Retour",
+            "1) Grande (recommandée)",
+            "2) Petite"
+        ]
+    end
+
+    def self.current_equipment_title
+        puts "Equipement actuel : "
+    end
+
+    def self.equipment_options(wear_equipment)
+        puts [
+            "Que voulez-vous faire ?",
+            "    0) Retour",
+            "    1) Equiper une nouvelle pièce d'armure"
+        ]
+        if wear_equipment
+            puts "    2) Retirer une pièce d'armure"
+        end
+    end
+
+    def self.inventory_options
+        puts [
+            "",
+            "Que souhaitez-vous faire ?",
+            "      0) Retour",
+            "      1) Utiliser un objet",
+            "      2) Gérer l'equipement"
+        ]
+    end
+
+    def self.shop_inventory_options
+        puts [
+            "",
+            "Que voulez-vous faire ?",
+            "    0) Retour...",
+            "    1) Gérer l'équipement"
+        ]
+    end
+
+    def self.player_options(room_name)
+        puts [
+            "Que souhaitez-vous faire?",
+            "      1) Aller à..."
+        ]
+        puts "      2) Fouiller #{room_name}"
+        puts [
+            "      3) Faire un inventaire",
+            "      4) Attendre"
+        ]
+    end
+
+    def self.player_option_fight(monster_denomination)
+        puts "      5) Attaquer #{@player.get_room.get_monsters_plural_the}"
+    end
+
+    def self.stat_options(
+        current_stat, total_stats,
+        current_life, life_increase,
+        current_strength, strength_increase,
+        current_intelligence, intelligence_increase,
+        current_agility, agility_increase)
+        puts "Quelle statistique souhaitez-vous augmenter ? (#{current_stat}/#{total_stats})"
+        puts "1) ♥ Vie            (#{current_life} -> #{current_life + life_increase})"
+        puts "2) ♣ Force          (#{current_strength} -> #{current_strength + strength_increase})"
+        puts "3) ♠ Intelligence   (#{current_intelligence} -> #{current_intelligence + intelligence_increase})"
+        puts "4) ♦ Agilité        (#{current_agility} -> #{current_agility + agility_increase})"
+    end
+
+    def self.teleporter_ask_destination
+        puts [
+            "Où souhaitez vous aller ?",
+            "    0) Annuler",
+            "    1) La sortie"
+        ]
+    end
+
+    def self.teleporter_ask_destination_allies(index, ally_name)
+        puts "    #{index}) Rejoindre #{ally_name}"
+    end
+
+    def self.yes_or_no
+        puts [
+            "1) Oui",
+            "2) Non"
+        ]
+    end
+
+    def self.no_items_to_use
+        puts "Vous n'avez pas d'objets à utiliser."
+    end
+
+    def self.no_items_to_sell
+        puts "Aucun objet à vendre"
+    end
+
+    def self.item_possessed_title
+        puts "Vous possédez : "
+    end
+
+    def self.list(thing)
+        puts "    - " + thing.capitalize
+    end
+
     def self.introduction_shop
-        puts
-        puts "Sur votre chemin vers le donjon,"
-        puts "Vous décidez de faire une courte halte auprès d'une échoppe pour voir les équipements que vous pourriez employer, anticipant ce qui vous attend."
-        puts
+        puts [
+            "",
+            "Sur votre chemin vers le donjon,",
+            "Vous décidez de faire une courte halte auprès d'une échoppe pour voir les équipements que vous pourriez employer, anticipant ce qui vous attend.",
+            ""
+        ]
         pause_text
     end
 
@@ -15,26 +267,51 @@ class Narrator
         ASCIIPrinter.print("title")
         puts
         if party.starting?
-            puts "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu."
-            puts "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,"
-            puts "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond."
-            puts
-            puts "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
+            puts [
+                "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
+                "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
+                "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond.",
+                "",
+                "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
+            ]
         else
             if party.new_members?
-                puts "Après votre précédente expérience dans le donjon,"
-                puts "Vous avez décidés de revenir plus nombreux, de nouveaux membres s'ajoutant à votre escouade."
-                puts "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds, quoi qu'ils ne renferment."
+                puts [
+                    "Après votre précédente expérience dans le donjon,",
+                    "Vous avez décidés de revenir plus nombreux, de nouveaux membres s'ajoutant à votre escouade.",
+                    "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds, quoi qu'ils ne renferment."
+                ]
             else
-                puts "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier."
-                puts "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance."
-                puts "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez plus rien n'est pareil qu'avant."
+                puts [
+                    "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier.",
+                    "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance.",
+                    "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez plus rien n'est pareil qu'avant."
+                ]
             end
         end
         puts
         ASCIIPrinter.print("dungeon_outside")
         puts
         pause_text
+    end
+
+    def self.thank_for_playing
+        puts [
+            "Vous ouvrez le petit papier soigneusement plié, et en lisez le contenu : ",
+            "",
+            "",
+            "      Félicitation !",
+            "    Vous avez terminé la démo de Ruby Dungeon et battu son boss.",
+            "    J'éspère sincérement que vous avez aimé mon jeu, et vous remercie d'avoir joué jusqu'au bout.",
+            "",
+            "     Libre à vous de faire ce que bon vous semble dans les donjons maintenant, il n'y a pas de secrets supplémentaires à trouver.",
+            "   Le jeu complet sortira, j'espère, d'ici quelques mois et votre sauvegarde sera toujours compatible avec ce dernier.",
+            "   (il faudra simplement que vous mettiez le dossier \"save\" dans les dossiers du jeu complet quand il sortira).",
+            "",
+            "     En espérant que ça ne soit qu'un Au revoir,",
+            "       - Bruoche",
+            ""
+        ]
     end
 
     def self.pause_text
@@ -186,6 +463,406 @@ class Narrator
         puts "Vous reprenez votre exploration du donjon."
     end
 
+    def self.exit_dungeon(did_nothing)
+        if (did_nothing)
+            print "Trop effrayé.e par les terreurs du donjon, "
+        else
+            print "En ayant terminé avec le donjon, "
+        end
+        puts [
+            "Vous quittez l'étrange batisse.",
+            "Vous avez survécu.",
+            ""
+        ]
+    end
+
+    def self.hurt(denomination, damage)
+        puts("#{denomination.capitalize} prend #{damage} dégats.")
+    end
+
+    def self.detailed_hurt(denomination, damage_taken, damage, dodge_score, defense_text)
+        puts("#{denomination.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
+    end
+
+    def self.heal(denomination, amount)
+        puts("#{denomination.capitalize} récupère #{amount} points de vie.")
+    end
+
+    def self.dont_need_heal(denomination)
+        puts "#{denomination.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
+    end
+
+    def self.heal_spell_fail
+        puts "Vous ne savez pas comment vous soigner."
+    end
+
+    def self.heal_spell_cast(denomination, target)
+        puts "#{denomination.capitalize} soigne #{target}."
+    end
+
+    def self.self_heal(denomination, amount)
+        puts "#{denomination.capitalize} se soigne #{amount} points de vie."
+    end
+
+    def self.player_spell_fail
+        puts "Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts."
+    end
+
+    def self.player_spell_cast(denomination)
+        puts "#{denomination.capitalize} lance une attaque magique."
+    end
+
+    def self.monster_death(denomination)
+        puts "#{denomination.capitalize} s'effondre sous vos coups."
+    end
+
+    def self.player_death(denomination)
+        puts "#{denomination.capitalize} s'éffondre au sol."
+    end
+
+    def self.obtain_item(denomination, item_name)
+        puts "#{denomination.capitalize} obtiens #{item_name}."
+    end
+
+    def self.remove_armor(denomination, item_name)
+        puts "#{denomination.capitalize} retire #{item_name}."
+    end
+
+    def self.equip_armor(denomination, item_name)
+        puts "#{denomination.capitalize} s'équipe d'#{item_name}."
+    end
+
+    def self.searching(room_name)
+        print "Vous fouillez #{room_name} pour tout objet pouvant vous être utile"
+    end
+
+    def self.everything_taken_already(denomination)
+        puts "Vous avez déjà pris tout les objets à prendre dans #{denomination}."
+    end
+
+    def self.nothing_found
+        puts "Vous ne trouvez rien de valeur."
+    end
+
+    def self.level_up
+        puts "Niveau supérieur !"
+    end
+
+    def self.unknown_use
+        puts "Vous ne savez pas comment utiliser cet objet..."
+    end
+
+    def self.bandage_use_self(user_name)
+        puts "#{user_name.capitalize} utilise ses bandages pour soigner ses blessures..."
+    end
+
+    def self.bandage_use_other(user_name, target_name)
+        puts "#{user_name.capitalize} utilise des bandages pour soigner les blessures de #{target_name}..."
+    end
+
+    def self.toss_coin
+        print "Vous lancez la pièce dans les airs"
+    end
+
+    def self.coin_toss_suspense
+        print "La pièce retombe et roule sur elle-même avant de se stabiliser"
+    end
+
+    def self.coin_toss(result)
+        puts "La pièce est tombée sur #{result}."
+    end
+
+    def self.health_potion_use_self(user_name)
+        puts "#{user_name.capitalize} bois une potion de soin..."
+    end
+
+    def self.health_potion_use_other(user_name, target_name)
+        puts "#{user_name.capitalize} donne une potion de soin à #{target_name}..."
+    end
+
+    def self.teleporter_fail
+        puts "Alors que vous tentez d'aggriper l'artéfact pour vous échapper, vos adversaires vous en empêchent."
+    end
+
+    def self.teleporter_start
+        puts "Lorsque vous prenez la pierre en votre main, une douce chaleur en émane."
+        puts
+    end
+
+    def self.knight_slash
+        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+    end
+
+    def self.knight_limb_loss(limb_name)
+        puts "#{limb_name.capitalize} se brise sous vos coups."
+    end
+
+    def self.knight_change_weapon_side(boss_name)
+        puts "#{boss_name.capitalize} change son arme de main."
+    end
+
+    def self.knight_phase_change
+        puts "Il semble être pris d'une résolution soudaine et insoupsonnée."
+    end
+
+    def self.knight_defenseless(boss_name)
+        puts "#{boss_name.capitalize} laisse son arme tomber au sol, impuissant."
+    end
+
+    def self.knight_death1(boss_name)
+        puts [
+            "Le casque #{boss_name} s'enfonce sous vos coups,",
+            "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur."
+        ]
+    end
+
+    def self.knight_death2
+        puts
+        puts "Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement."
+    end
+
+    def self.show_player_battle_cards(player)
+        battle_cards = ASCIIRow.new
+        for ally in World.get_instance.get_players_in(player.get_room)
+            if ally.fighting?
+                battle_card = ASCIIPicture.new(ASCIIPicture.battle_card(ally))
+                if ally == player
+                    battle_card.frame(ASCIIPicture::IMPORTANT_HORIZONTAL_FRAME, ASCIIPicture::IMPORTANT_VERTICAL_FRAME, ASCIIPicture::IMPORTANT_CORNER_PIECE)
+                else
+                    if ally.died?
+                        battle_card.frame(ASCIIPicture::DEAD_HORIZONTAL_FRAME, ASCIIPicture::DEAD_VERTICAL_FRAME)
+                    else
+                        battle_card.frame
+                    end
+                end
+                battle_cards.append(battle_card)
+            end
+        end
+        battle_cards.show
+    end
+
+    def self.put_scrollbar(scroll_bar, current_page, nb_pages)
+        puts scroll_bar
+        puts "Page #{current_page + 1}/#{nb_pages}"
+    end
+
+    def self.ask_name(current_name)
+        puts "Quel est votre nom ?"
+        if (current_name != CharacterCreator::DEFAULT_NAME)
+            puts "Nom actuel : #{current_name}"
+        end
+    end
+
+    def self.ask_confirm_character
+        puts [
+            "Est-ce qui vous êtes ?",
+            "  0) Annuler la création du personnage",
+            "  1) Changer de nom",
+            "  2) Changer d'apparence",
+            "  3) Confirmer"
+        ]
+    end
+
+    def self.ask_play_again
+        loop do
+            puts [
+                "Que souhaitez-vous faire?",
+                "    a) Retourner au magasin",
+                "    b) Partir au menu principal"
+            ]
+            case Narrator.user_input.capitalize
+            when "A"
+                return true
+            when "B"
+                return false
+            else
+                Narrator.unsupported_choice_error
+            end
+        end
+    end
+
+    def self.ask_desired_volume
+        puts "Quel volume souhaitez-vous ? (volume actuel : #{Settings.music_volume}%)"
+    end
+
+    def self.ask_if_sound_effects
+        puts [
+            "Souhaitez-vous des effets sonores ?",
+            "    0) Retour...",
+            "    1) Oui",
+            "    2) Non"
+        ]
+    end
+
+    def self.usage_options(item_name, usage_text)
+        puts "Que souhaitez faire avec #{item_name} ?"
+        puts "0) Annuler..."
+        puts "1) #{usage_text}"
+        puts "2) Donner"
+    end
+
+    def self.ask_quantity_given(item_name)
+        puts "Combien de #{item_name} souhaitez-vous donner ?"
+    end
+
+    def self.ask_quantity_sold(item_name)
+        puts "Combien de #{item_name} souhaitez-vous vendre ?"
+    end
+
+    def self.ask_if_fight(escape_chances, player_name)
+        puts [
+            "Que voulez-vous faire ?",
+            "      1) Combattre"
+        ]
+        puts "      2) Rester discret (#{escape_chances}% de chances de réussite)"
+        return user_input(player_name)
+    end
+
+    def self.ask_fight_action(player, monsters_description, escape_chances)
+        monster_cards_pages = player.get_room.get_monster_cards
+        loop do
+            monster_cards_pages.show(25)
+            puts
+            show_player_battle_cards(player)
+            puts "Vous faites face à #{monsters_description}."
+            puts
+            puts [
+                "Que voulez-vous faire ?",
+                "      1) Attaque physique",
+                "      2) Attaque magique",
+                "      3) Sort de soin",
+                "      4) Utiliser un objet..."
+            ]
+            puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
+            input = user_input(player.get_name)
+            case input
+            when "1"
+                return player.get_room.get_monsters.hurt_single(player.strength_attack)
+            when "2"
+                player.get_room.get_monsters.hurt_magic(player.magic_attack)
+                return Player::ACTED
+            when "3"
+                return player.heal_spell
+            when "4"
+                return player.use_item
+            when "5"
+                if player.can_escape?(player.get_room.get_monsters.get_current_power)
+                    escape_scene
+                    return player.escape
+                else
+                    fail_escape(player.get_room.get_monsters.plural?)
+                    return Player::ACTED
+                end
+            else
+                if input.capitalize == "A"
+                    monster_cards_pages.page_down
+                elsif input.capitalize == "Z"
+                    monster_cards_pages.page_up
+                else
+                    unsupported_choice_error
+                end
+            end
+        end
+    end
+
+    def self.ask_continue
+        puts [
+            "Réessayer ?",
+            "      1) Oui",
+            "      2) Non"
+        ]
+        return user_input
+    end
+
+    def self.ask_armor_replacement_confirmation(armor_name)
+        puts "Êtes-vous sûr de vouloir remplacer votre armure actuelle par #{armor_name} ? (y/n)"
+    end
+
+    def self.ask_confirmation(question)
+        if !question.kind_of?(Array)
+            question = [question]
+        end
+        for line in question
+            puts line
+        end
+        case Narrator.user_input.downcase
+        when "y"
+            return true
+        when "n"
+            return false
+        else
+            Narrator.unsupported_choice_error
+            return self.ask_confirmation(question)
+        end
+    end
+
+    def self.unsupported_choice_error
+        puts
+        puts "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées."
+    end
+
+    def self.page_up_impossible_error
+        puts "Impossible de passer à la page suivante. Page maximale atteinte."
+    end
+
+    def self.page_down_impossible_error
+        puts "Impossible de passer à la page précédente. Page minimale atteinte."
+    end
+
+    def self.empty_name_error
+        puts "Le nom ne peux être vide."
+    end
+
+    def self.forbiden_char_error
+        puts "Les noms ne peuvent pas contenir de caractères spéciaux."
+    end
+
+    def self.no_file_found_error(fine_name)
+        puts "Aucun fichier nommé #{file_name} n'a pu être trouvé."
+    end
+
+    def self.negative_quantity_error
+        puts "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif."
+    end
+
+    def self.unexpected_damage_type_error
+        puts("<< unexpected damage type encountered >>")
+    end
+
+    def self.unexpected_error
+        puts "<< an unexpected error occured >>"
+    end
+
+    def self.user_input(name = NO_NAME_DISPLAYED)
+        puts
+        if name != NO_NAME_DISPLAYED
+            name_prefix = name + " : "
+        else
+            name_prefix = ""
+        end
+        print "  #{name_prefix}>> "
+        begin
+            answer = gets.chomp
+        rescue SystemExit, Interrupt => e
+            loop do
+                puts [
+                    "Êtes vous sûr de vouloir fermer le jeu ? (y/n)",
+                    "Toute progression non sauvegardée sera perdue."
+                ]
+                case user_input.capitalize
+                when "Y"
+                    raise e
+                when "N"
+                    return user_input
+                end
+            end
+        end
+        TTY::Screen.height.times do
+            puts
+        end
+        return answer
+    end
+
     def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
             -> (element, i, to_string) {puts "      #{i}) #{to_string.call(element).capitalize}"},
@@ -236,149 +913,6 @@ class Narrator
                 unsupported_choice_error
             end
         end
-    end
-
-    def self.confirm_save
-        puts "Souhaitez-vous sauvegarder sur une copie du personnage actuel ? (Y/N)"
-        choice = Narrator.user_input.downcase
-        if choice == "y"
-            return true
-        elsif choice == "n"
-            return false
-        else
-            Narrator.unsupported_choice_error
-            return confirm_save
-        end
-    end
-
-    def self.ask_if_fight(escape_chances, player_name)
-        puts "Que voulez-vous faire ?"
-        puts "      1) Combattre"
-        puts "      2) Rester discret (#{escape_chances}% de chances de réussite)"
-        return user_input(player_name)
-    end
-
-    def self.ask_fight_action(player, monsters_description, escape_chances)
-        monster_cards_pages = player.get_room.get_monster_cards
-        loop do
-            monster_cards_pages.show(25)
-            puts
-            show_player_battle_cards(player)
-            puts "Vous faites face à #{monsters_description}."
-            puts
-            puts "Que voulez-vous faire ?"
-            puts "      1) Attaque physique"
-            puts "      2) Attaque magique"
-            puts "      3) Sort de soin"
-            puts "      4) Utiliser un objet..."
-            puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
-            input = user_input(player.get_name)
-            case input
-            when "1"
-                return player.get_room.get_monsters.hurt_single(player.strength_attack)
-            when "2"
-                player.get_room.get_monsters.hurt_magic(player.magic_attack)
-                return Player::ACTED
-            when "3"
-                return player.heal_spell
-            when "4"
-                return player.use_item
-            when "5"
-                if player.can_escape?(player.get_room.get_monsters.get_current_power)
-                    escape_scene
-                    return player.escape
-                else
-                    fail_escape(player.get_room.get_monsters.plural?)
-                    return Player::ACTED
-                end
-            else
-                if input.capitalize == "A"
-                    monster_cards_pages.page_down
-                elsif input.capitalize == "Z"
-                    monster_cards_pages.page_up
-                else
-                    unsupported_choice_error
-                end
-            end
-        end
-    end
-
-    def self.show_player_battle_cards(player)
-        battle_cards = ASCIIRow.new
-        for ally in World.get_instance.get_players_in(player.get_room)
-            if ally.fighting?
-                battle_card = ASCIIPicture.new(ASCIIPicture.battle_card(ally))
-                if ally == player
-                    battle_card.frame(ASCIIPicture::IMPORTANT_HORIZONTAL_FRAME, ASCIIPicture::IMPORTANT_VERTICAL_FRAME, ASCIIPicture::IMPORTANT_CORNER_PIECE)
-                else
-                    if ally.died?
-                        battle_card.frame(ASCIIPicture::DEAD_HORIZONTAL_FRAME, ASCIIPicture::DEAD_VERTICAL_FRAME)
-                    else
-                        battle_card.frame
-                    end
-                end
-                battle_cards.append(battle_card)
-            end
-        end
-        battle_cards.show
-    end
-
-    def self.ask_continue
-        puts "Réessayer ?"
-        puts "      1) Oui"
-        puts "      2) Non"
-        return user_input
-    end
-
-    def self.ask_confirmation(question)
-        if !question.kind_of?(Array)
-            question = [question]
-        end
-        for line in question
-            puts line
-        end
-        case Narrator.user_input.downcase
-        when "y"
-            return true
-        when "n"
-            return false
-        else
-            Narrator.unsupported_choice_error
-            return self.ask_confirmation(question)
-        end
-    end
-
-    def self.unsupported_choice_error
-        puts
-        puts "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées."
-    end
-
-    def self.user_input(name = NO_NAME_DISPLAYED)
-        puts
-        if name != NO_NAME_DISPLAYED
-            name_prefix = name + " : "
-        else
-            name_prefix = ""
-        end
-        print "  #{name_prefix}>> "
-        begin
-            answer = gets.chomp
-        rescue SystemExit, Interrupt => e
-            loop do
-                puts "Êtes vous sûr de vouloir fermer le jeu ? (y/n)"
-                puts "Toute progression non sauvegardée sera perdue."
-                case user_input.capitalize
-                when "Y"
-                    raise e
-                when "N"
-                    return user_input
-                end
-            end
-        end
-        TTY::Screen.height.times do
-            puts
-        end
-        return answer
     end
 
     private

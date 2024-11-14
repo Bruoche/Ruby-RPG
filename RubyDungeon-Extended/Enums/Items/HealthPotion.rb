@@ -14,9 +14,9 @@ class HealthPotion < Item
 
     def use(target, user)
         if target == user
-            puts "#{user.get_name.capitalize} bois une potion de soin..."
+            Narrator.health_potion_use_self(user.get_name)
         else
-            puts "#{user.get_name.capitalize} donne une potion de soin à #{target.get_name.capitalize}..."
+            Narrator.health_potion_use_other(user.get_name, target.get_name)
         end
         play_sound
         target.heal(@soin)

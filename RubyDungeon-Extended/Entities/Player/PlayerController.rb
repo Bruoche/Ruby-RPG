@@ -42,7 +42,7 @@ class PlayerController
                 end
             end
         rescue => unexpected_exception
-            puts "<< an unexpected error occured >>"
+            Narrator.unexpected_error
             SaveManager.log(unexpected_exception)
         end
     end
@@ -50,13 +50,9 @@ class PlayerController
     def ask_action
         @player.get_room.describe(@player)
         @just_entered_room = false
-        puts "Que souhaitez-vous faire?"
-        puts "      1) Aller à..."
-        puts "      2) Fouiller #{@player.get_room.get_the_denomination}"
-        puts "      3) Faire un inventaire"
-        puts "      4) Attendre"
+        Narrator.player_options(@player.get_room.get_the_denomination)
         if @player.get_room.got_monsters?
-            puts "      5) Attaquer #{@player.get_room.get_monsters_plural_the}"
+            Narrator.player_option_fight
         end
         case Narrator.user_input(@player.get_name)
         when "1"
@@ -87,13 +83,9 @@ class PlayerController
     end
 
     def status
-        puts
+        Narrator.add_space_of(1)
         @player.print_inventory
-        puts
-        puts "Que souhaitez-vous faire ?"
-        puts "      0) Retour"
-        puts "      1) Utiliser un objet"
-        puts "      2) Gérer l'equipement"
+        Narrator.inventory_options
         case Narrator.user_input
         when "0"
             return ask_action
@@ -178,9 +170,9 @@ class PlayerController
         if available_items.length == 0
             SoundManager.play("spell_fart")
             if searched_before
-                puts "Vous avez déjà pris tout les objets à prendre dans #{@player.get_room.get_this_denomination}"
+                Narrator.everything_taken_already(@player.get_room.get_this_denomination)
             else
-                puts "Vous ne trouvez rien de valeur."
+                Narrator.nothing_found
                 sleep Settings::BATTLE_ACTION_PAUSE
             end
             return false

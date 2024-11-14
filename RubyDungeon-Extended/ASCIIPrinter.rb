@@ -26,13 +26,11 @@ class ASCIIPrinter
                 image.juxtapose(ASCIIPicture.new(image_or_path, true))
             end
         end
-        puts image.get_ascii
+        Narrator.write(image.get_ascii)
     end
 
     def self.show_card(player_data, index = ASCIIPicture::EMPTY_INDEX)
-        for line in ASCIIPicture.get_card(player_data, index)
-            puts line
-        end
-        puts
+        Narrator.write(ASCIIPicture.get_card(player_data, index))
+        Narrator.add_space_of(1)
     end
 end

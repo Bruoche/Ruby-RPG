@@ -26,7 +26,7 @@ class Loot
     end
 
     def get_item
-        puts @messages.sample
+        Narrator.write(@messages.sample)
         return Bundle.new(@item_class.new(*@parameters), rand(@amount_min..max_amount))
     end
 

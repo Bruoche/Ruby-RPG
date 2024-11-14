@@ -50,7 +50,7 @@ class Equipment
     end
 
     def see_equipment
-        puts "Equipement actuel : "
+        Narrator.current_equipment_title
         slots_row = ASCIIRow.new
         for slot in @slots
             slot_card = slot.get_card
@@ -58,7 +58,7 @@ class Equipment
             slots_row.append(slot_card)
         end
         slots_row.show
-        puts
+        Narrator.add_space_of(1)
     end
 
     def got_equipment?
@@ -95,12 +95,7 @@ class Equipment
 
     def manage(inventory, player_name)
         see_equipment
-        puts "Que voulez-vous faire ?"
-        puts "    0) Retour"
-        puts "    1) Equiper une nouvelle pièce d'armure"
-        if got_equipment?
-            puts "    2) Retirer une pièce d'armure"
-        end
+        Narrator.equipment_options(got_equipment?)
         case Narrator.user_input
         when "0"
             return !Player::ACTED
@@ -157,7 +152,7 @@ class Equipment
         )
         if equipment_index != Narrator::RETURN_BUTTON
             removed_item = removable_slots[equipment_index].unequip
-            puts "#{player_name.capitalize} retire #{removed_item.get_long_name}"
+            Narrator.remove_armor(player_name, removed_item.get_long_name)
             inventory.add(Bundle.new(removed_item, 1))
         end
     end

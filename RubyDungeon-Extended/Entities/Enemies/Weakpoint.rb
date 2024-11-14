@@ -37,11 +37,11 @@ class Weakpoint
         when Attack::MAGIC_TYPE
             damage = rand(attack.damage)
         else
-            puts("<< unexpected damage type encountered >>")
+            Narrator.unexpected_damage_type_error
             damage = 0
         end
         SoundManager.play("ennemy_hurt")
-        puts("#{@name.get_gendered_the.capitalize} prend #{damage} dégats.")
+        Narrator.hurt(@name.get_gendered_the, damage)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage)
     end

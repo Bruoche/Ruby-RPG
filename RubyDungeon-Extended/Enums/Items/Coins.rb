@@ -14,7 +14,7 @@ class Coins < Item
     end
 
     def use(target, user)
-        print "Vous lancez la pièce dans les airs"
+        Narrator.toss_coin
         SoundManager.play("coin_toss")
         if [true, false].sample
             result = "face"
@@ -23,21 +23,20 @@ class Coins < Item
         end
         sleep COIN_TOSS_DURATION/4
         3.times do
-            print "."
+            Narrator.write_same_line(".")
             sleep COIN_TOSS_DURATION/4
         end
-        puts
-        print "La pièce retombe et roule sur elle-même avant de se stabiliser"
+        Narrator.add_space_of(1)
+        Narrator.coin_toss_suspense
         sleep SUSPENSE_DURATION/4
         3.times do
-            print "."
+            Narrator.write_same_line(".")
             sleep SUSPENSE_DURATION/4
         end
-        puts
-        puts
-        puts "La pièce est tombée sur #{result}."
+        Narrator.add_space_of(2)
+        Narrator.coin_toss(result)
         SoundManager.play("coin_toss_result")
-        puts
+        Narrator.add_space_of(1)
         Narrator.pause_text
         return !Player::ACTED
     end

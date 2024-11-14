@@ -28,9 +28,7 @@ class Biome
     end
 
     def self.describe
-        for line in self::DESCRIPTION
-            puts line
-        end
+        Narrator.write(self::DESCRIPTION)
     end
 
     def self.is_safe_room

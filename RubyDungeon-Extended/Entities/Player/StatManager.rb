@@ -111,7 +111,7 @@ class StatManager
         while (@current_xp >= required_xp)
             MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
             SoundManager.play("level_up")
-            puts "Niveau supérieur !"
+            Narrator.level_up
             @current_xp -= required_xp
             @level += 1
             stat_up(lifebar, character_name)
@@ -124,11 +124,18 @@ class StatManager
     def stat_up(lifebar, character_name)
         for i in 1..nb_stats_up do
             loop do
-                puts "Quelle statistique souhaitez-vous augmenter ? (#{i}/#{nb_stats_up})"
-                puts "1) ♥ Vie            (#{lifebar.get_max_life} -> #{lifebar.get_max_life + BaseStats::HEALTH_UPGRADE_PER_LEVEL})"
-                puts "2) ♣ Force          (#{@strength} -> #{@strength + BaseStats::STRENGTH_UPGRADE_PER_LEVEL})"
-                puts "3) ♠ Intelligence   (#{@intelligence} -> #{@intelligence + BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL})"
-                puts "4) ♦ Agilité        (#{@agility} -> #{@agility + BaseStats::AGILITY_UPGRADE_PER_LEVEL})"
+                Narrator.stat_options(
+                    i,
+                    nb_stats_up,
+                    lifebar.get_max_life,
+                    BaseStats::HEALTH_UPGRADE_PER_LEVEL,
+                    @strength,
+                    BaseStats::STRENGTH_UPGRADE_PER_LEVEL,
+                    @intelligence,
+                    BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL,
+                    @agility,
+                    BaseStats::AGILITY_UPGRADE_PER_LEVEL
+                )
                 case Narrator.user_input(character_name)
                 when "1"
                     lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
@@ -143,7 +150,7 @@ class StatManager
                     @agility += BaseStats::AGILITY_UPGRADE_PER_LEVEL
                     break
                 else
-                    puts "Choix invalide. Veuillez simplement renseigner le chiffre correspondant à votre choix"
+                    Narrator.unsupported_choice_error
                 end
             end
             SoundManager.play("stat_up")

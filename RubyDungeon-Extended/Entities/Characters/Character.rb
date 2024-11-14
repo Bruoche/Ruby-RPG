@@ -15,7 +15,7 @@ class Character
     end
 
     def show
-        puts @picture.get_ascii
+        Narrator.write(@picture.get_ascii)
     end
 
     def put_intro_with_action(question_box, player, dialog = DEFAULT_DIALOG)
@@ -29,7 +29,7 @@ class Character
         end
         dialog_box = make_dialog_box(dialog, (TTY::Screen.width - (question_box.width)))
         dialog_box.juxtapose(question_box)
-        puts dialog_box.get_ascii
+        Narrator.write(dialog_box.get_ascii)
     end
 
     def make_dialog_box(dialog, width = TTY::Screen.width)

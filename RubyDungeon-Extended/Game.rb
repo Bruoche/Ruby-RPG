@@ -28,7 +28,7 @@ class Game
                             wanna_continue = false
                         end
                     end
-                    if ask_play_again
+                    if Narrator.ask_play_again
                         @party.load
                         wanna_play = true
                     else
@@ -50,7 +50,7 @@ class Game
                 begin
                     World.get_instance.get_room(room).get_monsters.take_turns_against(players)
                 rescue => unexpected_exception
-                    puts "<< an unexpected error occured >>"
+                    Narrator.unexpected_error
                     SaveManager.log(unexpected_exception)
                 end
             end
@@ -61,19 +61,7 @@ class Game
     def warning_pop_up
         if Settings.warning_pop_up_enabled
             loop do
-                puts [
-                    "",
-                    "Attention :",
-                    "Mourrir dans ce jeu perdra toute votre progression en cours dans le donjon.",
-                    "Sortez du donjon pour sauvegarder votre progression.",
-                    "",
-                    "Info sur le terminal :",
-                    "Presser [Ctrl + C] fermera le jeu.",
-                    "Presser [Alt + Entrée] met le jeu en plein écran.",
-                    "",
-                    "1) Ok",
-                    "2) Ne plus me le rappeler"
-                ]
+                Narrator.warning_pop_up
                 case Narrator.user_input
                 when "1"
                     return
@@ -88,15 +76,9 @@ class Game
     end
 
     def main_menu
-        10.times do
-            puts
-        end
+        Narrator.add_space_of(10)
         ASCIIPrinter.print("title")
-        puts
-        puts
-        puts "1) Entrer dans le donjon"
-        puts "2) Options"
-        puts "3) Quitter"
+        Narrator.main_menu_options
         case Narrator.user_input
         when "1"
             if initialize_party == CHARACTER_SELECTED
@@ -125,22 +107,17 @@ class Game
     end
 
     def select_characters
-        puts "Aventuriers entrant dans le donjon : "
-        @party.show_cards
-        puts
-        puts
-        puts "0) Retour"
-        puts "1) Ajouter un membre à l'équipe"
+        Narrator.select_characters_options(@party)
         index_enter_dungeon = 2
         if (@party.size > 1)
-            puts "2) Retirer un membre de l'équipe"
-        index_enter_dungeon += 1
+            Narrator.remove_party_member_option
+            index_enter_dungeon += 1
         end
-        puts "#{index_enter_dungeon}) Commencer le voyage"
+        Narrator.start_travel_option(index_enter_dungeon)
         choosen_option = Narrator.user_input
         case choosen_option
         when "0"
-            if Narrator.ask_confirmation(["Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)", "Les personnages sélectionnés ne seront pas sauvegardés"])
+            if Narrator.ask_confirmation(["Êtes-vous sûr de vouloir revenir en arrière ? (y/n)", "Les personnages sélectionnés ne seront pas sauvegardés"])
                 return (not CHARACTER_SELECTED)
             end
         when "1"
@@ -166,9 +143,7 @@ class Game
         saves = SaveManager.get_saves
         character_creator = CharacterCreator.new
         if (saves != nil) && (saves.length > 0)
-            puts "0) Retour"
-            puts "1) Nouveau personnage"
-            puts "2) Personnage existant"
+            Narrator.new_or_old_character
             case Narrator.user_input
             when "0"
                 return nil
@@ -196,7 +171,7 @@ class Game
                     return get_character
                 end
             else
-                puts Narrator.unsupported_choice_error
+                Narrator.unsupported_choice_error
                 return get_character
             end
         else
@@ -206,10 +181,7 @@ class Game
 
     def options_menu
         loop do
-            puts "Que souhaitez-vous faire ?"
-            puts "    0) Retour..."
-            puts "    1) Modifier la hauteur des images"
-            puts "    2) Modifier l'audio"
+            Narrator.options_selection
             case Narrator.user_input
             when "0"
                 return
@@ -224,22 +196,10 @@ class Game
     end
 
     def asset_size_menu
-        puts "Si vous voyez ce texte les images ont une taille acceptable."
-        3.times do
-            puts
-        end
+        Narrator.asset_size_verification_line
+        Narrator.add_space_of(3)
         ASCIIPrinter.print("example")
-        puts
-        puts "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut."
-        puts "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écran."
-        puts
-        puts "Autrement, tentez de mettre les images en petites tailles,"
-        puts "ou de réduire la taille de police du texte de votre terminal si cela ne suffit pas."
-        puts
-        puts "Quelle taille d'image souhaitez-vous ?"
-        puts "0) Retour"
-        puts "1) Grande (recommandée)"
-        puts "2) Petite"
+        Narrator.asset_size_options
         case Narrator.user_input
         when "0"
         when "1"
@@ -256,16 +216,7 @@ class Game
 
     def sound_menu
         loop do
-            puts "Volume de musique : #{Settings.music_volume}%"
-            puts
-            puts "Effets sonores : #{Settings.sound_effects ? "Oui" : "Non"}"
-            puts
-            puts
-            puts
-            puts "Que souhaitez-vous faire ?"
-            puts "    0) Retour..."
-            puts "    1) Modifier le volume de la musique"
-            puts "    2) Activier/Désactiver les effets sonores"
+            Narrator.sound_options
             case Narrator.user_input
             when "0"
                 return
@@ -280,7 +231,7 @@ class Game
     end
 
     def music_volume_menu
-        puts "Quel volume souhaitez-vous ? (volume actuel : #{Settings.music_volume}%)"
+        Narrator.ask_desired_volume
         new_volume = Narrator.user_input
         if new_volume.to_i.to_s != new_volume
             Narrator.unsupported_choice_error
@@ -298,10 +249,7 @@ class Game
     end
 
     def sound_effects_menu
-        puts "Souhaitez-vous des effets sonores ?"
-        puts "    0) Retour..."
-        puts "    1) Oui"
-        puts "    2) Non"
+        Narrator.ask_if_sound_effects
         case Narrator.user_input
         when "0"
         when "1"
@@ -325,22 +273,6 @@ class Game
         else
             Narrator.unsupported_choice_error
             ask_continue
-        end
-    end
-
-    def ask_play_again
-        loop do
-            puts "Que souhaitez-vous faire?"
-            puts "    a) Retourner au magasin"
-            puts "    b) Partir au menu principal"
-            case Narrator.user_input.capitalize
-            when "A"
-                return true
-            when "B"
-                return false
-            else
-                Narrator.unsupported_choice_error
-            end
         end
     end
 end

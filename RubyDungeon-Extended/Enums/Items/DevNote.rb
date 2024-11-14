@@ -13,20 +13,7 @@ class DevNote < Item
     end
 
     def use(target, user)
-        puts "Vous ouvrez le petit papier soigneusement plié, et en lisez le contenu : "
-        puts
-        puts
-        puts "      Félicitation !"
-        puts "    Vous avez terminé la démo de Ruby Dungeon et battu son boss."
-        puts "    J'éspère sincérement que vous avez aimé mon jeu, et vous remercie d'avoir joué jusqu'au bout."
-        puts
-        puts "     Libre à vous de faire ce que bon vous semble dans les donjons maintenant, il n'y a pas de secrets supplémentaires à trouver."
-        puts "   Le jeu complet sortira, j'espère, d'ici quelques mois et votre sauvegarde sera toujours compatible avec ce dernier."
-        puts "   (il faudra simplement que vous mettiez le dossier \"save\" dans les dossiers du jeu complet quand il sortira)."
-        puts
-        puts "     En espérant que ça ne soit qu'un Au revoir,"
-        puts "       - Bruoche"
-        puts
+        Narrator.thank_for_playing
         play_sound
         Narrator.pause_text
         return !Player::ACTED

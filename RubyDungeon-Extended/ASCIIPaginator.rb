@@ -19,8 +19,7 @@ class ASCIIPaginator
             @rows.print_row(row)
         end
         if @pages.length > 1
-            puts get_scroll_bar
-            puts "Page #{@current_page + 1}/#{@pages.length}"
+            Narrator.put_scrollbar(get_scroll_bar, @current_page, @pages.length)
         end
     end
 
@@ -52,7 +51,7 @@ class ASCIIPaginator
         if next_page_accessible?
             @current_page = @current_page + 1
         else
-            puts "Impossible de passer à la page suivante. Page maximale atteinte."
+            Narrator.page_up_impossible_error
         end
     end
 
@@ -60,7 +59,7 @@ class ASCIIPaginator
         if precedent_page_accessible?
             @current_page = @current_page - 1
         else
-            puts "Impossible de passer à la page précédente. Page minimale atteinte."
+            Narrator.page_down_impossible_error
         end
     end
 

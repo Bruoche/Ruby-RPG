@@ -15,18 +15,15 @@ class CharacterCreator
     private
 
     def ask_name
-        puts "Quel est votre nom ?"
-        if (@name != DEFAULT_NAME)
-            puts "Nom actuel : #{@name}"
-        end
+        Narrator.ask_name(@name)
         choosen_name = Narrator.user_input.to_s
         if choosen_name == ""
-            puts "Le nom ne peux être vide."
+            Narrator.empty_name_error
             return ask_name
         end
         name_pattern = Regexp.new('^[a-zA-ZÀ-ÖØ-öø-ÿ0-9 \-\'"]+$')
         if !(name_pattern.match?(choosen_name))
-            puts "Les noms ne peuvent pas contenir de caractères spéciaux."
+            Narrator.forbiden_char_error
             return ask_name
         end
         @name = choosen_name
@@ -53,14 +50,17 @@ class CharacterCreator
 
     def creation_menu
         ASCIIPrinter.show_card(make_data)
-        puts "Est-ce qui vous êtes ?"
-        puts "  0) Annuler la création du personnage"
-        puts "  1) Changer de nom"
-        puts "  2) Changer d'apparence"
-        puts "  3) Confirmer"
+        Narrator.ask_confirm_character
         case Narrator.user_input
         when "0"
-            return confirm_quit
+            if Narrator.ask_confirmation([
+                "Êtes-vous sûr de vouloir revenir en arrière ? (y/n)",
+                "Les modifications effectuées ne seront pas sauvegardées."
+            ])
+                return nil
+            else
+                return creation_menu
+            end
         when "1"
             ask_name
         when "2"
@@ -74,8 +74,7 @@ class CharacterCreator
     end
 
     def confirm_quit
-        puts "Êtes-vous sûr de vouloir revenir en arrière ? (Y/N)"
-        puts "Les modifications effectuées ne seront pas sauvegardées."
+
         case Narrator.user_input.downcase
         when "y"
             return nil

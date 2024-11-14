@@ -137,20 +137,20 @@ class EnnemyAI
 
     def physical_attack(player, strength)
         SoundManager.play("swoosh")
-        puts "#{@denomination.capitalize} #{@basic_attack_messages.sample % [player.get_name]}"
+        Narrator.write("#{@denomination.capitalize} #{@basic_attack_messages.sample % [player.get_name]}")
         sleep Settings::BATTLE_ACTION_PAUSE
         player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, self))
     end
 
     def magic_attack(players, intelligence)
-        puts "#{@denomination.capitalize} #{@magic_attack_messages.sample}"
+        Narrator.write("#{@denomination.capitalize} #{@magic_attack_messages.sample}")
         for player in players do
             player.hurt(Attack.new(rand(0..intelligence), Attack::MAGIC_TYPE, self))
         end
     end
 
     def heal_ally(ally, intelligence)
-        puts "#{@denomination.capitalize} #{@heal_messages.sample}"
+        Narrator.write("#{@denomination.capitalize} #{@heal_messages.sample}")
         ally.heal(rand(1..intelligence))
     end
 end
