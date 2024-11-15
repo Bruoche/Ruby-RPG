@@ -9,7 +9,11 @@ class Narrator
     end
 
     def self.write(text)
-        puts text
+        if text.kind_of?(Array)
+            puts text
+        else
+            puts Locale.get_localized(text)
+        end
     end
 
     def self.write_same_line(text)
@@ -17,7 +21,7 @@ class Narrator
     end
 
     def self.warning_pop_up
-        puts [
+        Narrator.write([
             "",
             "Attention :",
             "Mourrir dans ce jeu perdra toute votre progression en cours dans le donjon.",
@@ -29,48 +33,42 @@ class Narrator
             "",
             "1) Ok",
             "2) Ne plus me le rappeler"
-        ]
+        ])
     end
 
     def self.main_menu_options
-        puts [
-            "",
-            "",
-            "1) Entrer dans le donjon",
-            "2) Options",
-            "3) Quitter"
-        ]
+        Narrator.write(Locale::KEY_MAIN_MENU_OPTIONS)
     end
 
     def self.select_characters_options(party)
-        puts "Aventuriers entrant dans le donjon : "
+        Narrator.write("Aventuriers entrant dans le donjon : ")
         party.show_cards
-        puts [
+        Narrator.write([
             "",
             "",
             "0) Retour",
             "1) Ajouter un membre à l'équipe"
-        ]
+        ])
     end
 
     def self.remove_party_member_option
-        puts "2) Retirer un membre de l'équipe"
+        Narrator.write("2) Retirer un membre de l'équipe")
     end
 
     def self.start_travel_option(index)
-        puts "#{index}) Commencer le voyage"
+        Narrator.write("#{index}) Commencer le voyage")
     end
 
     def self.new_or_old_character
-        puts [
+        Narrator.write([
             "0) Retour",
             "1) Nouveau personnage",
             "2) Personnage existant"
-        ]
+        ])
     end
 
     def self.character_creation_options
-        puts [
+        Narrator.write([
             "Quel élément souhaitez-vous modifier ?",
             "0) Valider l'apparence",
             "1) Complexion",
@@ -81,66 +79,66 @@ class Narrator
             "6) Les sourcils",
             "7) Pilosité faciale",
             "8) Les cheveux"
-        ]
+        ])
     end
 
     def self.beard_options
-        puts [
+        Narrator.write([
             "Quel élément souhaitez-vous modifier ?",
             "0) Retour...",
             "1) La moustache",
             "2) Le menton",
             "3) Les pattes",
             "4) La couleur"
-        ]
+        ])
     end
 
     def self.hair_options
-        puts [
+        Narrator.write([
             "Quel élément souhaitez-vous modifier ?",
             "0) Retour...",
             "1) La coupe",
             "2) La couleur"
-        ]
+        ])
     end
 
     def self.hairstyle_options
-        puts [
+        Narrator.write([
             "Quel portion de votre coupe de cheveux souhaitez-vous modifier ?",
             "0) Retour...",
             "1) L'avant",
             "2) L'arrière"
-        ]
+        ])
     end
 
     def self.options_selection
-        puts [
+        Narrator.write([
             "Que souhaitez-vous faire ?",
             "    0) Retour...",
             "    1) Modifier la hauteur des images",
             "    2) Modifier l'audio"
-        ]
+        ])
     end
 
     def self.asset_size_verification_line
-        puts "Si vous voyez ce texte les images ont une taille acceptable."
+        Narrator.write("Si vous voyez ce texte les images ont une taille acceptable.")
     end
 
     def self.sound_options
-        puts "Volume de musique : #{Settings.music_volume}%"
-        puts
-        puts "Effets sonores : #{Settings.sound_effects ? "Oui" : "Non"}"
+        Narrator.write("Volume de musique : #{Settings.music_volume}%")
+        Narrator.add_space_of(1)
+        Narrator.write("Effets sonores : #{Settings.sound_effects ? "Oui" : "Non"}")
         add_space_of(3)
-        puts [
+        Narrator.write([
             "Que souhaitez-vous faire ?",
             "    0) Retour...",
             "    1) Modifier le volume de la musique",
             "    2) Activier/Désactiver les effets sonores"
-        ]
+        ])
     end
 
     def self.asset_size_options
-        puts [
+        Narrator.write([
             "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut.",
             "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écran.",
             "",
@@ -151,57 +149,57 @@ class Narrator
             "0) Retour",
             "1) Grande (recommandée)",
             "2) Petite"
-        ]
+        ])
     end
 
     def self.current_equipment_title
-        puts "Equipement actuel : "
+        Narrator.write("Equipement actuel : ")
     end
 
     def self.equipment_options(wear_equipment)
-        puts [
+        Narrator.write([
             "Que voulez-vous faire ?",
             "    0) Retour",
             "    1) Equiper une nouvelle pièce d'armure"
-        ]
+        ])
         if wear_equipment
-            puts "    2) Retirer une pièce d'armure"
+            Narrator.write("    2) Retirer une pièce d'armure")
         end
     end
 
     def self.inventory_options
-        puts [
+        Narrator.write([
             "",
             "Que souhaitez-vous faire ?",
             "      0) Retour",
             "      1) Utiliser un objet",
             "      2) Gérer l'equipement"
-        ]
+        ])
     end
 
     def self.shop_inventory_options
-        puts [
+        Narrator.write([
             "",
             "Que voulez-vous faire ?",
             "    0) Retour...",
             "    1) Gérer l'équipement"
-        ]
+        ])
     end
 
     def self.player_options(room_name)
-        puts [
+        Narrator.write([
             "Que souhaitez-vous faire?",
             "      1) Aller à..."
-        ]
-        puts "      2) Fouiller #{room_name}"
-        puts [
+        ])
+        Narrator.write("      2) Fouiller #{room_name}")
+        Narrator.write([
             "      3) Faire un inventaire",
             "      4) Attendre"
-        ]
+        ])
     end
 
     def self.player_option_fight(monster_denomination)
-        puts "      5) Attaquer #{@player.get_room.get_monsters_plural_the}"
+        Narrator.write("      5) Attaquer #{@player.get_room.get_monsters_plural_the}")
     end
 
     def self.stat_options(
@@ -210,93 +208,93 @@ class Narrator
         current_strength, strength_increase,
         current_intelligence, intelligence_increase,
         current_agility, agility_increase)
-        puts "Quelle statistique souhaitez-vous augmenter ? (#{current_stat}/#{total_stats})"
-        puts "1) ♥ Vie            (#{current_life} -> #{current_life + life_increase})"
-        puts "2) ♣ Force          (#{current_strength} -> #{current_strength + strength_increase})"
-        puts "3) ♠ Intelligence   (#{current_intelligence} -> #{current_intelligence + intelligence_increase})"
-        puts "4) ♦ Agilité        (#{current_agility} -> #{current_agility + agility_increase})"
+        Narrator.write("Quelle statistique souhaitez-vous augmenter ? (#{current_stat}/#{total_stats})")
+        Narrator.write("1) ♥ Vie            (#{current_life} -> #{current_life + life_increase})")
+        Narrator.write("2) ♣ Force          (#{current_strength} -> #{current_strength + strength_increase})")
+        Narrator.write("3) ♠ Intelligence   (#{current_intelligence} -> #{current_intelligence + intelligence_increase})")
+        Narrator.write("4) ♦ Agilité        (#{current_agility} -> #{current_agility + agility_increase})")
     end
 
     def self.teleporter_ask_destination
-        puts [
+        Narrator.write([
             "Où souhaitez vous aller ?",
             "    0) Annuler",
             "    1) La sortie"
-        ]
+        ])
     end
 
     def self.teleporter_ask_destination_allies(index, ally_name)
-        puts "    #{index}) Rejoindre #{ally_name}"
+        Narrator.write("    #{index}) Rejoindre #{ally_name}")
     end
 
     def self.yes_or_no
-        puts [
+        Narrator.write([
             "1) Oui",
             "2) Non"
-        ]
+        ])
     end
 
     def self.no_items_to_use
-        puts "Vous n'avez pas d'objets à utiliser."
+        Narrator.write("Vous n'avez pas d'objets à utiliser.")
     end
 
     def self.no_items_to_sell
-        puts "Aucun objet à vendre"
+        Narrator.write("Aucun objet à vendre")
     end
 
     def self.item_possessed_title
-        puts "Vous possédez : "
+        Narrator.write("Vous possédez : ")
     end
 
     def self.list(thing)
-        puts "    - " + thing.capitalize
+        Narrator.write("    - " + thing.capitalize)
     end
 
     def self.introduction_shop
-        puts [
+        Narrator.write([
             "",
             "Sur votre chemin vers le donjon,",
             "Vous décidez de faire une courte halte auprès d'une échoppe pour voir les équipements que vous pourriez employer, anticipant ce qui vous attend.",
             ""
-        ]
+        ])
         pause_text
     end
 
     def self.introduction(party)
-        puts
+        Narrator.add_space_of(1)
         ASCIIPrinter.print("title")
-        puts
+        Narrator.add_space_of(1)
         if party.starting?
-            puts [
+            Narrator.write([
                 "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
                 "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
                 "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond.",
                 "",
                 "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
-            ]
+            ])
         else
             if party.new_members?
-                puts [
+                Narrator.write([
                     "Après votre précédente expérience dans le donjon,",
                     "Vous avez décidés de revenir plus nombreux, de nouveaux membres s'ajoutant à votre escouade.",
                     "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds, quoi qu'ils ne renferment."
-                ]
+                ])
             else
-                puts [
+                Narrator.write([
                     "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier.",
                     "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance.",
                     "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez plus rien n'est pareil qu'avant."
-                ]
+                ])
             end
         end
-        puts
+        Narrator.add_space_of(1)
         ASCIIPrinter.print("dungeon_outside")
-        puts
+        Narrator.add_space_of(1)
         pause_text
     end
 
     def self.thank_for_playing
-        puts [
+        Narrator.write([
             "Vous ouvrez le petit papier soigneusement plié, et en lisez le contenu : ",
             "",
             "",
@@ -311,11 +309,11 @@ class Narrator
             "     En espérant que ça ne soit qu'un Au revoir,",
             "       - Bruoche",
             ""
-        ]
+        ])
     end
 
     def self.pause_text
-        puts "  (pressez \"Entrée\" pour continuer...)"
+        Narrator.write("  (pressez \"Entrée\" pour continuer...)")
         user_input
     end
 
@@ -330,9 +328,9 @@ class Narrator
         describe_room(player, describe_biome, picture)
         print "Lorsque vous entrez dans #{the_room}, "
         if female
-            puts "vous la trouvez complètement vide."
+            Narrator.write("vous la trouvez complètement vide.")
         else
-            puts "vous le trouvez complètement vide."
+            Narrator.write("vous le trouvez complètement vide.")
         end
         describe_allies(player)
     end
@@ -343,17 +341,17 @@ class Narrator
         if monsters_description != nil
             describe_monsters(player, monsters_description)
         else
-            puts " vide."
+            Narrator.write(" vide.")
         end
         describe_allies(player)
     end
 
     def self.describe_room(player, describe_biome, picture)
-        puts
+        Narrator.add_space_of(1)
         ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)])
-        puts
+        Narrator.add_space_of(1)
         describe_biome.call
-        puts
+        Narrator.add_space_of(1)
     end
 
     def self.describe_monsters(player, monsters_description)
@@ -365,9 +363,9 @@ class Narrator
             end
         end
         if (allies_fighting.empty?)
-            puts ", vous voyez #{monsters_description}."
+            Narrator.write(", vous voyez #{monsters_description}.")
         else
-            puts ", vous voyez #{Utils.enumerate(allies_fighting)} combattant #{monsters_description}."
+            Narrator.write(", vous voyez #{Utils.enumerate(allies_fighting)} combattant #{monsters_description}.")
         end
     end
 
@@ -386,9 +384,9 @@ class Narrator
         end
         if allies.empty?
             if dead_allies.length == 1
-                puts "Le corps de #{dead_allies[0]} gie sur le sol."
+                Narrator.write("Le corps de #{dead_allies[0]} gie sur le sol.")
             elsif dead_allies.length > 1
-                puts "Les corps de #{Utils.enumerate(dead_allies)} gient sur le sol."
+                Narrator.write("Les corps de #{Utils.enumerate(dead_allies)} gient sur le sol.")
             end
         else
             if allies.length == 1
@@ -397,70 +395,70 @@ class Narrator
                 print "A vos cotés se trouvent #{Utils.enumerate(allies)}"
             end
             if dead_allies.empty?
-                puts "."
+                Narrator.write(".")
             elsif dead_allies.length == 1
-                puts "et le corps de #{dead_allies[0]}."
+                Narrator.write("et le corps de #{dead_allies[0]}.")
             else
-                puts "et les corps de #{Utils.enumerate(dead_allies)}."
+                Narrator.write("et les corps de #{Utils.enumerate(dead_allies)}.")
             end
         end
     end
 
     def self.start_fight(plural)
-        puts
+        Narrator.add_space_of(1)
         if plural
-            puts "Vous vous jettez sur les monstres se tenant face à vous."
+            Narrator.write("Vous vous jettez sur les monstres se tenant face à vous.")
         else
-            puts "Vous vous jettez sur le monstre se tenant face à vous."
+            Narrator.write("Vous vous jettez sur le monstre se tenant face à vous.")
         end
     end
 
     def self.avoid_fight(the_monsters)
-        puts
-        puts "Ne souhaitant pas combattre #{the_monsters}, vous faites profil bas."
+        Narrator.add_space_of(1)
+        Narrator.write("Ne souhaitant pas combattre #{the_monsters}, vous faites profil bas.")
     end
 
     def self.fail_sneak(plural)
-        puts
+        Narrator.add_space_of(1)
         if plural
-            puts "Alors que vous tentez d'éviter les monstres, ceux-ci vous remarquent et se jettent sur vous."
+            Narrator.write("Alors que vous tentez d'éviter les monstres, ceux-ci vous remarquent et se jettent sur vous.")
         else
-            puts "Alors que vous tentez d'éviter le monstre, celui-ci vous remarque et se jette sur vous."
+            Narrator.write("Alors que vous tentez d'éviter le monstre, celui-ci vous remarque et se jette sur vous.")
         end
     end
 
     def self.death_scene(plural)
-        puts
+        Narrator.add_space_of(1)
         if plural
-            puts "Malheureusement, l'attaque des monstres a raison de vous, et vous vous effondrez au sol."
+            Narrator.write("Malheureusement, l'attaque des monstres a raison de vous, et vous vous effondrez au sol.")
         else
-            puts "Malheureusement, l'attaque du monstre a raison de vous, et vous vous effondrez au sol."
+            Narrator.write("Malheureusement, l'attaque du monstre a raison de vous, et vous vous effondrez au sol.")
         end
     end
 
     def self.escape_scene
-        puts "Ce combat ne valant plus la peine pour vous, vous vous échappez."
+        Narrator.write("Ce combat ne valant plus la peine pour vous, vous vous échappez.")
     end
 
     def self.fail_escape(plural)
         if plural
-            puts "Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire."
+            Narrator.write("Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire.")
         else
-            puts "Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire."
+            Narrator.write("Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire.")
         end
     end
 
     def self.victory_scene(was_plural, xp)
-        puts
+        Narrator.add_space_of(1)
         if was_plural
-            puts "Victoire ! Tout les monstres sont morts et vous obtenez #{xp} points d'expérience."
+            Narrator.write("Victoire ! Tout les monstres sont morts et vous obtenez #{xp} points d'expérience.")
         else
-            puts "Victoire ! Le monstre meurt et vous laisse #{xp} points d'expérience."
+            Narrator.write("Victoire ! Le monstre meurt et vous laisse #{xp} points d'expérience.")
         end
     end
 
     def self.sneaking_transition
-        puts "Vous reprenez votre exploration du donjon."
+        Narrator.write("Vous reprenez votre exploration du donjon.")
     end
 
     def self.exit_dungeon(did_nothing)
@@ -469,67 +467,67 @@ class Narrator
         else
             print "En ayant terminé avec le donjon, "
         end
-        puts [
+        Narrator.write([
             "Vous quittez l'étrange batisse.",
             "Vous avez survécu.",
             ""
-        ]
+        ])
     end
 
     def self.hurt(denomination, damage)
-        puts("#{denomination.capitalize} prend #{damage} dégats.")
+        Narrator.write("#{denomination.capitalize} prend #{damage} dégats.")
     end
 
     def self.detailed_hurt(denomination, damage_taken, damage, dodge_score, defense_text)
-        puts("#{denomination.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
+        Narrator.write("#{denomination.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
     end
 
     def self.heal(denomination, amount)
-        puts("#{denomination.capitalize} récupère #{amount} points de vie.")
+        Narrator.write("#{denomination.capitalize} récupère #{amount} points de vie.")
     end
 
     def self.dont_need_heal(denomination)
-        puts "#{denomination.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e."
+        Narrator.write("#{denomination.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e.")
     end
 
     def self.heal_spell_fail
-        puts "Vous ne savez pas comment vous soigner."
+        Narrator.write("Vous ne savez pas comment vous soigner.")
     end
 
     def self.heal_spell_cast(denomination, target)
-        puts "#{denomination.capitalize} soigne #{target}."
+        Narrator.write("#{denomination.capitalize} soigne #{target}.")
     end
 
     def self.self_heal(denomination, amount)
-        puts "#{denomination.capitalize} se soigne #{amount} points de vie."
+        Narrator.write("#{denomination.capitalize} se soigne #{amount} points de vie.")
     end
 
     def self.player_spell_fail
-        puts "Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts."
+        Narrator.write("Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts.")
     end
 
     def self.player_spell_cast(denomination)
-        puts "#{denomination.capitalize} lance une attaque magique."
+        Narrator.write("#{denomination.capitalize} lance une attaque magique.")
     end
 
     def self.monster_death(denomination)
-        puts "#{denomination.capitalize} s'effondre sous vos coups."
+        Narrator.write("#{denomination.capitalize} s'effondre sous vos coups.")
     end
 
     def self.player_death(denomination)
-        puts "#{denomination.capitalize} s'éffondre au sol."
+        Narrator.write("#{denomination.capitalize} s'éffondre au sol.")
     end
 
     def self.obtain_item(denomination, item_name)
-        puts "#{denomination.capitalize} obtiens #{item_name}."
+        Narrator.write("#{denomination.capitalize} obtiens #{item_name}.")
     end
 
     def self.remove_armor(denomination, item_name)
-        puts "#{denomination.capitalize} retire #{item_name}."
+        Narrator.write("#{denomination.capitalize} retire #{item_name}.")
     end
 
     def self.equip_armor(denomination, item_name)
-        puts "#{denomination.capitalize} s'équipe d'#{item_name}."
+        Narrator.write("#{denomination.capitalize} s'équipe d'#{item_name}.")
     end
 
     def self.searching(room_name)
@@ -537,27 +535,27 @@ class Narrator
     end
 
     def self.everything_taken_already(denomination)
-        puts "Vous avez déjà pris tout les objets à prendre dans #{denomination}."
+        Narrator.write("Vous avez déjà pris tout les objets à prendre dans #{denomination}.")
     end
 
     def self.nothing_found
-        puts "Vous ne trouvez rien de valeur."
+        Narrator.write("Vous ne trouvez rien de valeur.")
     end
 
     def self.level_up
-        puts "Niveau supérieur !"
+        Narrator.write("Niveau supérieur !")
     end
 
     def self.unknown_use
-        puts "Vous ne savez pas comment utiliser cet objet..."
+        Narrator.write("Vous ne savez pas comment utiliser cet objet...")
     end
 
     def self.bandage_use_self(user_name)
-        puts "#{user_name.capitalize} utilise ses bandages pour soigner ses blessures..."
+        Narrator.write("#{user_name.capitalize} utilise ses bandages pour soigner ses blessures...")
     end
 
     def self.bandage_use_other(user_name, target_name)
-        puts "#{user_name.capitalize} utilise des bandages pour soigner les blessures de #{target_name}..."
+        Narrator.write("#{user_name.capitalize} utilise des bandages pour soigner les blessures de #{target_name}...")
     end
 
     def self.toss_coin
@@ -569,56 +567,56 @@ class Narrator
     end
 
     def self.coin_toss(result)
-        puts "La pièce est tombée sur #{result}."
+        Narrator.write("La pièce est tombée sur #{result}.")
     end
 
     def self.health_potion_use_self(user_name)
-        puts "#{user_name.capitalize} bois une potion de soin..."
+        Narrator.write("#{user_name.capitalize} bois une potion de soin...")
     end
 
     def self.health_potion_use_other(user_name, target_name)
-        puts "#{user_name.capitalize} donne une potion de soin à #{target_name}..."
+        Narrator.write("#{user_name.capitalize} donne une potion de soin à #{target_name}...")
     end
 
     def self.teleporter_fail
-        puts "Alors que vous tentez d'aggriper l'artéfact pour vous échapper, vos adversaires vous en empêchent."
+        Narrator.write("Alors que vous tentez d'aggriper l'artéfact pour vous échapper, vos adversaires vous en empêchent.")
     end
 
     def self.teleporter_start
-        puts "Lorsque vous prenez la pierre en votre main, une douce chaleur en émane."
-        puts
+        Narrator.write("Lorsque vous prenez la pierre en votre main, une douce chaleur en émane.")
+        Narrator.add_space_of(1)
     end
 
     def self.knight_slash
-        puts "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi."
+        Narrator.write("Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi.")
     end
 
     def self.knight_limb_loss(limb_name)
-        puts "#{limb_name.capitalize} se brise sous vos coups."
+        Narrator.write("#{limb_name.capitalize} se brise sous vos coups.")
     end
 
     def self.knight_change_weapon_side(boss_name)
-        puts "#{boss_name.capitalize} change son arme de main."
+        Narrator.write("#{boss_name.capitalize} change son arme de main.")
     end
 
     def self.knight_phase_change
-        puts "Il semble être pris d'une résolution soudaine et insoupsonnée."
+        Narrator.write("Il semble être pris d'une résolution soudaine et insoupsonnée.")
     end
 
     def self.knight_defenseless(boss_name)
-        puts "#{boss_name.capitalize} laisse son arme tomber au sol, impuissant."
+        Narrator.write("#{boss_name.capitalize} laisse son arme tomber au sol, impuissant.")
     end
 
     def self.knight_death1(boss_name)
-        puts [
+        Narrator.write([
             "Le casque #{boss_name} s'enfonce sous vos coups,",
             "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur."
-        ]
+        ])
     end
 
     def self.knight_death2
-        puts
-        puts "Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement."
+        Narrator.add_space_of(1)
+        Narrator.write("Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement.")
     end
 
     def self.show_player_battle_cards(player)
@@ -642,34 +640,34 @@ class Narrator
     end
 
     def self.put_scrollbar(scroll_bar, current_page, nb_pages)
-        puts scroll_bar
-        puts "Page #{current_page + 1}/#{nb_pages}"
+        Narrator.write(scroll_bar)
+        Narrator.write("Page #{current_page + 1}/#{nb_pages}")
     end
 
     def self.ask_name(current_name)
-        puts "Quel est votre nom ?"
+        Narrator.write("Quel est votre nom ?")
         if (current_name != CharacterCreator::DEFAULT_NAME)
-            puts "Nom actuel : #{current_name}"
+            Narrator.write("Nom actuel : #{current_name}")
         end
     end
 
     def self.ask_confirm_character
-        puts [
+        Narrator.write([
             "Est-ce qui vous êtes ?",
             "  0) Annuler la création du personnage",
             "  1) Changer de nom",
             "  2) Changer d'apparence",
             "  3) Confirmer"
-        ]
+        ])
     end
 
     def self.ask_play_again
         loop do
-            puts [
+            Narrator.write([
                 "Que souhaitez-vous faire?",
                 "    a) Retourner au magasin",
                 "    b) Partir au menu principal"
-            ]
+            ])
             case Narrator.user_input.capitalize
             when "A"
                 return true
@@ -682,39 +680,39 @@ class Narrator
     end
 
     def self.ask_desired_volume
-        puts "Quel volume souhaitez-vous ? (volume actuel : #{Settings.music_volume}%)"
+        Narrator.write("Quel volume souhaitez-vous ? (volume actuel : #{Settings.music_volume}%)")
     end
 
     def self.ask_if_sound_effects
-        puts [
+        Narrator.write([
             "Souhaitez-vous des effets sonores ?",
             "    0) Retour...",
             "    1) Oui",
             "    2) Non"
-        ]
+        ])
     end
 
     def self.usage_options(item_name, usage_text)
-        puts "Que souhaitez faire avec #{item_name} ?"
-        puts "0) Annuler..."
-        puts "1) #{usage_text}"
-        puts "2) Donner"
+        Narrator.write("Que souhaitez faire avec #{item_name} ?")
+        Narrator.write("0) Annuler...")
+        Narrator.write("1) #{usage_text}")
+        Narrator.write("2) Donner")
     end
 
     def self.ask_quantity_given(item_name)
-        puts "Combien de #{item_name} souhaitez-vous donner ?"
+        Narrator.write("Combien de #{item_name} souhaitez-vous donner ?")
     end
 
     def self.ask_quantity_sold(item_name)
-        puts "Combien de #{item_name} souhaitez-vous vendre ?"
+        Narrator.write("Combien de #{item_name} souhaitez-vous vendre ?")
     end
 
     def self.ask_if_fight(escape_chances, player_name)
-        puts [
+        Narrator.write([
             "Que voulez-vous faire ?",
             "      1) Combattre"
-        ]
-        puts "      2) Rester discret (#{escape_chances}% de chances de réussite)"
+        ])
+        Narrator.write("      2) Rester discret (#{escape_chances}% de chances de réussite)")
         return user_input(player_name)
     end
 
@@ -722,18 +720,18 @@ class Narrator
         monster_cards_pages = player.get_room.get_monster_cards
         loop do
             monster_cards_pages.show(25)
-            puts
+            Narrator.add_space_of(1)
             show_player_battle_cards(player)
-            puts "Vous faites face à #{monsters_description}."
-            puts
-            puts [
+            Narrator.write("Vous faites face à #{monsters_description}.")
+            Narrator.add_space_of(1)
+            Narrator.write([
                 "Que voulez-vous faire ?",
                 "      1) Attaque physique",
                 "      2) Attaque magique",
                 "      3) Sort de soin",
                 "      4) Utiliser un objet..."
-            ]
-            puts "      5) Fuir... (#{escape_chances}% de chances de réussite)"
+            ])
+            Narrator.write("      5) Fuir... (#{escape_chances}% de chances de réussite)")
             input = user_input(player.get_name)
             case input
             when "1"
@@ -766,16 +764,16 @@ class Narrator
     end
 
     def self.ask_continue
-        puts [
+        Narrator.write([
             "Réessayer ?",
             "      1) Oui",
             "      2) Non"
-        ]
+        ])
         return user_input
     end
 
     def self.ask_armor_replacement_confirmation(armor_name)
-        puts "Êtes-vous sûr de vouloir remplacer votre armure actuelle par #{armor_name} ? (y/n)"
+        Narrator.write("Êtes-vous sûr de vouloir remplacer votre armure actuelle par #{armor_name} ? (y/n)")
     end
 
     def self.ask_confirmation(question)
@@ -783,7 +781,7 @@ class Narrator
             question = [question]
         end
         for line in question
-            puts line
+            Narrator.write(line)
         end
         case Narrator.user_input.downcase
         when "y"
@@ -797,44 +795,44 @@ class Narrator
     end
 
     def self.unsupported_choice_error
-        puts
-        puts "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées."
+        Narrator.add_space_of(1)
+        Narrator.write("Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées.")
     end
 
     def self.page_up_impossible_error
-        puts "Impossible de passer à la page suivante. Page maximale atteinte."
+        Narrator.write("Impossible de passer à la page suivante. Page maximale atteinte.")
     end
 
     def self.page_down_impossible_error
-        puts "Impossible de passer à la page précédente. Page minimale atteinte."
+        Narrator.write("Impossible de passer à la page précédente. Page minimale atteinte.")
     end
 
     def self.empty_name_error
-        puts "Le nom ne peux être vide."
+        Narrator.write("Le nom ne peux être vide.")
     end
 
     def self.forbiden_char_error
-        puts "Les noms ne peuvent pas contenir de caractères spéciaux."
+        Narrator.write("Les noms ne peuvent pas contenir de caractères spéciaux.")
     end
 
     def self.no_file_found_error(fine_name)
-        puts "Aucun fichier nommé #{file_name} n'a pu être trouvé."
+        Narrator.write("Aucun fichier nommé #{file_name} n'a pu être trouvé.")
     end
 
     def self.negative_quantity_error
-        puts "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif."
+        Narrator.write("Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif.")
     end
 
     def self.unexpected_damage_type_error
-        puts("<< unexpected damage type encountered >>")
+        Narrator.write("<< unexpected damage type encountered >>")
     end
 
     def self.unexpected_error
-        puts "<< an unexpected error occured >>"
+        Narrator.write("<< an unexpected error occured >>")
     end
 
     def self.user_input(name = NO_NAME_DISPLAYED)
-        puts
+        Narrator.add_space_of(1)
         if name != NO_NAME_DISPLAYED
             name_prefix = name + " : "
         else
@@ -845,10 +843,10 @@ class Narrator
             answer = gets.chomp
         rescue SystemExit, Interrupt => e
             loop do
-                puts [
+                Narrator.write([
                     "Êtes vous sûr de vouloir fermer le jeu ? (y/n)",
                     "Toute progression non sauvegardée sera perdue."
-                ]
+                ])
                 case user_input.capitalize
                 when "Y"
                     raise e
@@ -858,14 +856,14 @@ class Narrator
             end
         end
         TTY::Screen.height.times do
-            puts
+            Narrator.add_space_of(1)
         end
         return answer
     end
 
     def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
-            -> (element, i, to_string) {puts "      #{i}) #{to_string.call(element).capitalize}"},
+            -> (element, i, to_string) {Narrator.write("      #{i}) #{to_string.call(element).capitalize}")},
             player_name
         )
     end
@@ -873,8 +871,8 @@ class Narrator
     def self.ask_complex_element(question, options, getter, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         options = [return_option].concat options
         loop do
-            puts question
-            puts "    0) Retour..."
+            Narrator.write(question)
+            Narrator.write("    0) Retour...")
             options_row = ASCIIRow.new
             for i in 1..(options.length - 1)
                 options_row.append(getter.call(options[i], i))
@@ -898,8 +896,8 @@ class Narrator
         end
         loop do
             options_pages.show(2)
-            puts
-            puts question
+            Narrator.add_space_of(1)
+            Narrator.write(question)
             input = user_input(player_name)
             if input.to_i.between?(1, options.length)
                 return input.to_i - 1
@@ -923,7 +921,7 @@ class Narrator
         end
         options = [return_option].concat options
         loop do
-            puts question
+            Narrator.write(question)
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
@@ -941,7 +939,7 @@ class Narrator
     def self.ask_hash(question, hash, to_string, return_option, print_operation, player_name = NO_NAME_DISPLAYED)
         options = [return_option].concat hash.keys
         loop do
-            puts question
+            Narrator.write(question)
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
