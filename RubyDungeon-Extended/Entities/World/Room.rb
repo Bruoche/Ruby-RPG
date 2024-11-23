@@ -1,5 +1,5 @@
 class Room
-    MONSTER_PRESENT_PICTURE_SUFFIX = "_occupied"
+    MONSTER_PRESENT_PICTURE_SUFFIX = '_occupied'
     UNEXPLORED_ROOM = nil
 
     def initialize(biome, id, precedent_room = nil)
@@ -29,10 +29,10 @@ class Room
                     requirement.ask_enter
                     Narrator.yes_or_no
                     case Narrator.user_input(player.get_name)
-                    when "1"
+                    when '1'
                         requirement.entry_message
                         return true
-                    when "2"
+                    when '2'
                         requirement.no_entry_message
                         return false
                     else
@@ -162,11 +162,11 @@ class Room
 
     def search
         if !searched_before?
-            SoundManager.play("searching")
+            SoundManager.play('searching')
             Narrator.searching(@name.get_gendered_the)
             3.times do
                 sleep Settings::BATTLE_ACTION_PAUSE
-                Narrator.write_same_line(".")
+                Narrator.write_same_line('.')
             end
             Narrator.add_space_of(1)
             sleep Settings::BATTLE_ACTION_PAUSE
@@ -205,9 +205,9 @@ class Room
     def to_string(room_id)
         case room_id
         when Narrator::RETURN_BUTTON
-            return "rester dans #{@name.get_gendered_the}"
+            return format(Locale.get_localized(Locale::KEY_STAY_IN), @name.get_gendered_the)
         when nil
-            return "???"
+            return '???'
         else
             return World.get_instance.get_room(room_id).get_denomination
         end

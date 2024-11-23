@@ -1,7 +1,7 @@
 class Teleporter < Item
-    NAME = "un télé-cristal"
-    SOUND = "key"
-    PICTURE = "teleporter"
+    NAME = Locale::KEY_TELEPORTER_NAME
+    SOUND = 'key'
+    PICTURE = 'teleporter'
     USABLE_ON_OTHERS = false
     TELEPORT_DURATION = 1.2
     NO_DESTINATION = nil
@@ -11,13 +11,13 @@ class Teleporter < Item
     end
 
     def get_description
-        return "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés."
+        return Locale::KEY_TELEPORTER_DESCRIPTION
     end
 
     def use(target, user)
         if user.fighting?
             Narrator.teleporter_fail
-            SoundManager.play("spell_fart")
+            SoundManager.play('spell_fart')
             sleep Settings::BATTLE_ACTION_PAUSE
             return Player::ACTED
         else
@@ -25,7 +25,7 @@ class Teleporter < Item
             choosen_destination = choose_destination(user)
             if choosen_destination != NO_DESTINATION
                 user.set_room(choosen_destination)
-                SoundManager.play("teleport")
+                SoundManager.play('teleport')
                 sleep TELEPORT_DURATION
                 return {Item::RESPONSE_PLAYER_ACTED => !Player::ACTED, Item::RESPONSE_CLOSE_INVENTORY => true}
             else
@@ -50,9 +50,9 @@ class Teleporter < Item
             end
             choosen_destination = Narrator.user_input
             case choosen_destination
-            when "0"
+            when '0'
                 return NO_DESTINATION
-            when "1"
+            when '1'
                 return World.get_instance.get_entrance
             else
                 choosen_ally = choosen_destination.to_i - 2

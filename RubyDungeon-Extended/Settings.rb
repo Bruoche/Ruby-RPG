@@ -5,20 +5,20 @@ class Settings
     SOUND_EFFECTS_SYM = :sound_effects
     LOCALE_SYM = :locale
     DEFAULT_SETTINGS = {
-        Settings::POP_UP_ON_START_SYM => "true",
-        Settings::PRINT_SMALL_SYM => "false",
+        Settings::POP_UP_ON_START_SYM => 'true',
+        Settings::PRINT_SMALL_SYM => 'false',
         Settings::MUSIC_VOLUME_SYM => 80,
-        Settings::SOUND_EFFECTS_SYM => "true",
+        Settings::SOUND_EFFECTS_SYM => 'true',
         Settings::LOCALE_SYM => Locale::ID_FR
     }
     BATTLE_ACTION_PAUSE = 0.3
 
     def self.warning_pop_up_enabled
-        return get_setting(POP_UP_ON_START_SYM) == "true"
+        return get_setting(POP_UP_ON_START_SYM) == 'true'
     end
 
     def self.print_small
-        return get_setting(PRINT_SMALL_SYM) == "true"
+        return get_setting(PRINT_SMALL_SYM) == 'true'
     end
 
     def self.music_volume
@@ -26,7 +26,7 @@ class Settings
     end
 
     def self.sound_effects
-        return get_setting(SOUND_EFFECTS_SYM) == "true"
+        return get_setting(SOUND_EFFECTS_SYM) == 'true'
     end
 
     def self.locale
@@ -50,7 +50,8 @@ class Settings
     end
 
     def self.set_locale(locale)
-        set_setting(LOCALE_SYM)
+        set_setting(LOCALE_SYM, locale)
+    end
 
     private
 

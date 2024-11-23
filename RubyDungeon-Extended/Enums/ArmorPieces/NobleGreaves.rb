@@ -2,8 +2,8 @@ class NobleGreaves
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Greaves
-    NAME = "poulaines nobles"
-    DESCRIPTION = "de longues chaussures noires. Très à la mode actuellemnt"
-    PICTURE = "greaves_l10m"
-    ICON = ""
+    NAME = Locale::KEY_NOBLE_GREAVES_NAME
+    DESCRIPTION = Locale::KEY_NOBLE_GREAVES_DESC
+    PICTURE = 'greaves_l10m'
+    ICON = ''
 end

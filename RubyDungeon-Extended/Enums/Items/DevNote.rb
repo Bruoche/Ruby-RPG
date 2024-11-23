@@ -1,6 +1,6 @@
 class DevNote < Item
-    NAME = "note d'au revoir"
-    SOUND = "paper"
+    NAME = Locale::KEY_DEVNOTE_NAME
+    SOUND = 'paper'
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = false
 
@@ -9,7 +9,7 @@ class DevNote < Item
     end
 
     def get_description
-        return "merci d'avoir joué"
+        return Locale::KEY_DEVNOTE_DESCRIPTION
     end
 
     def use(target, user)

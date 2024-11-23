@@ -25,18 +25,18 @@ class ASCIIPaginator
 
     def get_scroll_bar
         if precedent_page_accessible?
-            left_arrow = "< a) Page précédente | "
+            left_arrow = Locale.get_localized(Locale::KEY_PRECEDENT_PAGE)
         else
-            left_arrow = "< a) (indisponible)  | "
+            left_arrow = Locale.get_localized(Locale::KEY_PRECEDENT_PAGE_UNAVAILABLE)
         end
         if next_page_accessible?
-            right_arrow = " |  z) Page suivante >"
+            right_arrow = Locale.get_localized(Locale::KEY_NEXT_PAGE)
         else
-            right_arrow = " | z) (indisponible) >"
+            right_arrow = Locale.get_localized(Locale::KEY_NEXT_PAGE_UNAVAILABLE)
         end
-        return_button = " [ 0) Retour ] "
+        return_button = Locale.get_localized(Locale::KEY_RETURN_BUTTON)
         bar_length = (TTY::Screen.width - (left_arrow.length + return_button.length + right_arrow.length)).div(2)
-        return left_arrow + "-" * bar_length + return_button + "-" * bar_length + right_arrow
+        return left_arrow + '-' * bar_length + return_button + '-' * bar_length + right_arrow
     end
 
     def precedent_page_accessible?

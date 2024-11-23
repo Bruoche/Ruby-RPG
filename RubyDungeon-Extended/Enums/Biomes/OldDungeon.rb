@@ -1,67 +1,63 @@
 module OldDungeonF
     NAMES = [
-        Rooms::ROOM_F,
-        Rooms::ALCOVE_F,
-        Rooms::CELL_F,
-        Rooms::TORTURE_CHAMBER_F,
-        Rooms::GEOLLE_F
+        Locale::KEY_ROOM,
+        Locale::KEY_ALCOVE,
+        Locale::KEY_CELL,
+        Locale::KEY_TORTURE_CHAMBER,
+        Locale::KEY_GEOLLE
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_F,
-        Adjectives::TALL_F,
-        Adjectives::NARROW_F,
-        Adjectives::STRANGE_F
+        Locale::KEY_SMALL_F,
+        Locale::KEY_TALL_F,
+        Locale::KEY_NARROW_F,
+        Locale::KEY_STRANGE_F
     ].freeze
 
     SUFFIXES = [
-        Adjectives::WORRYING_F,
-        Adjectives::COLD_F,
-        Adjectives::ISOLATED_F,
-        Adjectives::DARK_F,
-        Adjectives::DUSTY_F,
-        Adjectives::RUINED_F
+        Locale::KEY_WORRYING_F,
+        Locale::KEY_COLD_F,
+        Locale::KEY_ISOLATED_F,
+        Locale::KEY_DARK_F,
+        Locale::KEY_DUSTY_F,
+        Locale::KEY_RUINED_F
     ].freeze
 end
 
 module OldDungeonM
     NAMES = [
-        Rooms::CORRIDOR_M,
-        Rooms::REFECTORY_M,
-        Rooms::SLEEP_PLACE_M,
+        Locale::KEY_CORRIDOR,
+        Locale::KEY_REFECTORY,
+        Locale::KEY_SLEEP_PLACE,
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_M,
-        Adjectives::TALL_M,
-        Adjectives::NARROW_M,
-        Adjectives::STRANGE_M
+        Locale::KEY_SMALL_M,
+        Locale::KEY_TALL_M,
+        Locale::KEY_NARROW_M,
+        Locale::KEY_STRANGE_M
     ].freeze
 
     SUFFIXES = [
-        Adjectives::WORRYING_M,
-        Adjectives::COLD_M,
-        Adjectives::ISOLATED_M,
-        Adjectives::DARK_M,
-        Adjectives::DUSTY_M,
-        Adjectives::RUINED_M
+        Locale::KEY_WORRYING_M,
+        Locale::KEY_COLD_M,
+        Locale::KEY_ISOLATED_M,
+        Locale::KEY_DARK_M,
+        Locale::KEY_DUSTY_M,
+        Locale::KEY_RUINED_M
     ].freeze
 end
 
 class OldDungeon < Biome
     EXPECTED_LEVEL = 10
-    PICTURE = "old_dungeon"
-    EXPLORATION_TRACK = "Prison"
-    COMBAT_TRACK = "Dungeon Entrance Battle theme"
+    PICTURE = 'old_dungeon'
+    EXPLORATION_TRACK = 'Prison'
+    COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = OldDungeonF
     MALE = OldDungeonM
     FEMALE_CHANCES = 75
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = [
-        "Vous êtes dans ce qui semble être une ancienne prison.",
-        "Bien que cet endroit soit un peu plus acceuillant que les catacombes, il ne l'est pas de beaucoup.",
-        "Vous êtes ainsi pris d'un sentiment de mal-aise dans ce lieu semblant porter le poids d'une histoire sombre."
-    ]
+    DESCRIPTION = Locale::KEY_PRISON_DESCRIPTION
     BESTIARY = [
         Goblin,
         Undead,
@@ -73,22 +69,18 @@ class OldDungeon < Biome
     SAFE_CHANCES = 66
     LOOT = [
         Loot.new(
-            [
-                "Vous voyez une potion de soin posée sur une table au coté d'outils divers.",
-                "Vous trouvez une potion de soin rangée dans une meuble.",
-                "Vous remarquez une potion de soin oubliée au sol au coin de la pièce."
-            ],
+            Locale::KEY_PRISON_LOOT_HEALTH_POTION,
             10,
             HealthPotion,
             [20, 75]
         ),
         Loot.new(
-            ["Vous remarquez des bagnes que vous pouvez déchirer afin de créer des bandages."],
+            Locale::KEY_PRISON_LOOT_BANDAGE,
             15,
             Bandage
         ),
         Loot.new(
-            ["Vous remarquez une clef accrochée à un des murs."],
+            Locale::KEY_PRISON_LOOT_KEY,
             5,
             PrisonKey
         )
@@ -97,19 +89,14 @@ class OldDungeon < Biome
     MAX_EXITS = 2
     TRANSITIONS = [
         BiomeTransition.new(
-            [
-                "Vous arrivez devant une grande porte métallique.",
-                "Malgré son grand âge et la rouille apparente, elle semble encore trop solide pour être forcée.",
-                "",
-                "En écoutant attentivement, vous pouvez entendre une respiration faiblarde transperçant subtilement la grande parroie metallique."
-            ],
+            Locale::KEY_PRISON_TRANSITION_CELL,
             5,
-            "BossCell"
+            'BossCell'
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             1,
-            "Catacombs"
+            'Catacombs'
         )
     ]
 end

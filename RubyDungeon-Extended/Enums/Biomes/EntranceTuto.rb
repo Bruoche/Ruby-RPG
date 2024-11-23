@@ -1,17 +1,13 @@
 class EntranceTuto < Biome
     EXPECTED_LEVEL = 0
-    PICTURE = "entrance"
-    EXPLORATION_TRACK = "Dungeon Entrance"
-    COMBAT_TRACK = "Dungeon Entrance Battle theme"
+    PICTURE = 'entrance'
+    EXPLORATION_TRACK = 'Dungeon Entrance'
+    COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = EntranceF
     MALE = EntranceM
     FEMALE_CHANCES = 60
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = [
-        "Vous êtes entouré.e d'épais murs de pierres.",
-        "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,",
-        "Mais les courants d'air atteignants votre dos sont un rappel de votre proximité avec la surface."
-    ]
+    DESCRIPTION = Locale::KEY_ENTRANCE_DESCRIPTION
     BESTIARY = [
         Goblin,
         Goblin,
@@ -24,24 +20,18 @@ class EntranceTuto < Biome
     SAFE_CHANCES = 30
     LOOT = [
         Loot.new(
-            [
-                "Vous voyez une potion de soin posée sur une table.",
-                "Vous trouvez une potion de soin rangée dans une commode."
-            ],
+            Locale::KEY_ENTRANCE_LOOT_HEALTH_POTION,
             2,
             HealthPotion,
             [5, 20]
         ),
         Loot.new(
-            ["Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."],
+            Locale::KEY_ENTRANCE_LOOT_BANDAGE,
             20,
             Bandage
         ),
         Loot.new(
-            [
-                "Vous trouvez quelques pièces posées sur une table",
-                "Vous voyez une petite bourse posée sur une étagère"
-            ],
+            Locale::KEY_ENTRANCE_LOOT_COINS,
             25,
             Coins,
             [],
@@ -53,17 +43,14 @@ class EntranceTuto < Biome
     MAX_EXITS = 3
     TRANSITIONS = [
         BiomeTransition.new(
-            [
-                "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restreints descendant plus profondément dans la terre.",
-                "Vous vous engouffrez dans ce qui semble être un lieu de repos pour les anciens habitants de ce donjon depuis longtemps disparus."
-            ],
+            Locale::KEY_ENTRANCE_TRANSITION_CATACOMBS,
             10,
-            "Catacombs"
+            'Catacombs'
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             100,
-            "Entrance",
+            'Entrance',
             3
         )
     ]

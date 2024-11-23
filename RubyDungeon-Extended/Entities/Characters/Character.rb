@@ -1,5 +1,5 @@
 class Character
-    FOLDER_PREFIX = "Characters/"
+    FOLDER_PREFIX = 'Characters/'
     MIN_DIALOG_HEIGHT = 5
     PERCENT_MARGIN_RIGHT_DIALOG = 20
     DEFAULT_DIALOG = nil
@@ -21,9 +21,9 @@ class Character
     def put_intro_with_action(question_box, player, dialog = DEFAULT_DIALOG)
         if dialog == DEFAULT_DIALOG
             if @character_met.include?(player)
-                dialog = @idle_dialog.sample
+                dialog = Locale.get_localized(@idle_dialog).sample
             else
-                dialog = @intro_dialog
+                dialog = Locale.get_localized(@intro_dialog)
                 @character_met.append(player)
             end
         end
@@ -34,12 +34,12 @@ class Character
 
     def make_dialog_box(dialog, width = TTY::Screen.width)
         used_width = width - (4 + (TTY::Screen.width * PERCENT_MARGIN_RIGHT_DIALOG).div(100))
-        multiline_dialog = Utils.multiline(dialog, used_width)
+        multiline_dialog = Utils.multiline(Locale.get_localized(dialog), used_width)
         while multiline_dialog.length < MIN_DIALOG_HEIGHT
-            multiline_dialog.append(" " * used_width)
+            multiline_dialog.append(' ' * used_width)
         end
         dialog_box = ASCIIPicture.new(multiline_dialog)
-        dialog_box.frame(" ", " ")
+        dialog_box.frame(' ', ' ')
         dialog_box.frame
         return dialog_box
     end

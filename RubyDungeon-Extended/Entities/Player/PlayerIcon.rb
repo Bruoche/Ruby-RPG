@@ -167,7 +167,7 @@ class PlayerIcon
 
     def load(data)
         if data != nil
-            features = data.split("; ")
+            features = data.split('; ')
             @i = 0;
             @skintone = get_feature(features, TONES, @skintone)
             @corpulence = get_feature(features, SIZES, @corpulence)
@@ -202,23 +202,23 @@ class PlayerIcon
         show
         Narrator.character_creation_options
         case Narrator.user_input
-        when "0"
+        when '0'
             return
-        when "1"
+        when '1'
             @skintone = choose_color(TONES, @skintone)
-        when "2"
-            @corpulence = choose(SIZES, @corpulence, "Quelle corpulence souhaitez-vous ?", "Conserver la corpulence")
-        when "3"
+        when '2'
+            @corpulence = choose(SIZES, @corpulence, Locale::KEY_ASK_CORPULENCE, Locale.get_localized(Locale::KEY_KEEP_CORPULENCE))
+        when '3'
             @eye_color = choose_color(EYES_COLOR, @eye_color);
-        when "4"
-            @ears = choose(EARS, @ears, "Quelles oreilles souhaitez-vous ?", "Conserver les oreilles")
-        when "5"
-            @nose = choose(NOSES, @nose, "Quel nez souhaitez-vous ?", "Conserver le nez")
-        when "6"
-            @brows = choose(BROWS, @brows, "Quelle forme de sourcil souhaitez-vous ?", "Conserver les sourcils")
-        when "7"
+        when '4'
+            @ears = choose(EARS, @ears, Locale::KEY_ASK_EARS, Locale.get_localized(Locale::KEY_KEEP_EARS))
+        when '5'
+            @nose = choose(NOSES, @nose, Locale::KEY_ASK_NOSE, Locale.get_localized(Locale::KEY_KEEP_NOSE))
+        when '6'
+            @brows = choose(BROWS, @brows, Locale::KEY_ASK_EYEBROWS, Locale.get_localized(Locale::KEY_KEEP_EYEBROWS))
+        when '7'
             beard_menu
-        when "8"
+        when '8'
             hair_menu
         else
             Narrator.unsupported_choice_error
@@ -230,15 +230,15 @@ class PlayerIcon
         show
         Narrator.beard_options
         case Narrator.user_input
-        when "0"
+        when '0'
             return
-        when "1"
-            @moustache = choose(MOUSTACHES, @moustache, "Quelle moustache souhaitez-vous ?", "Conserver la moustache")
-        when "2"
-            @beard = choose(BEARDS, @beard, "Quelle barbe souhaitez-vous sur le menton ?", "Conserver la barbe")
-        when "3"
-            @sideburns = choose(SIDEBURNS, @sideburns, "Quelle pattes souhaitez-vous ?", "Conserver les pattes")
-        when "4"
+        when '1'
+            @moustache = choose(MOUSTACHES, @moustache, Locale::KEY_ASK_MOUSTACHE, Locale.get_localized(Locale::KEY_KEEP_MOUSTACHE))
+        when '2'
+            @beard = choose(BEARDS, @beard, Locale::KEY_ASK_BEARD, Locale.get_localized(Locale::KEY_KEEP_BEARD))
+        when '3'
+            @sideburns = choose(SIDEBURNS, @sideburns, Locale::KEY_ASK_SIDEBURNS, Locale.get_localized(Locale::KEY_KEEP_SIDEBURNS))
+        when '4'
             @beard_color = choose_color(HAIR_COLORS, @beard_color);
         else
             Narrator.unsupported_choice_error
@@ -250,11 +250,11 @@ class PlayerIcon
         show
         Narrator.hair_options
         case Narrator.user_input
-        when "0"
+        when '0'
             return
-        when "1"
+        when '1'
             hairstyle_menu
-        when "2"
+        when '2'
             @hair_color = choose_color(HAIR_COLORS, @hair_color);
         else
             Narrator.unsupported_choice_error
@@ -266,19 +266,19 @@ class PlayerIcon
         show
         Narrator.hairstyle_options
         case Narrator.user_input
-        when "0"
+        when '0'
             return
-        when "1"
-            @hairstyle_front = choose(HAIRSTYLES_FRONT, @hairstyle_front, "Quelle coupe souhaitez-vous ?", "Conserver la coupe")
-        when "2"
-            @hairstyle_back = choose(HAIRSTYLES_BACK, @hairstyle_back, "Quelle coupe souhaitez-vous ?", "Conserver la coupe")
+        when '1'
+            @hairstyle_front = choose(HAIRSTYLES_FRONT, @hairstyle_front, Locale::KEY_ASK_HAIRCUT, Locale.get_localized(Locale::KEY_KEEP_HAIRSTYLE))
+        when '2'
+            @hairstyle_back = choose(HAIRSTYLES_BACK, @hairstyle_back, Locale::KEY_ASK_HAIRCUT, Locale.get_localized(Locale::KEY_KEEP_HAIRSTYLE))
         end
         hairstyle_menu
     end
 
     def show
         for line in get_picture.get_ascii
-            Narrator.write("    "+line)
+            Narrator.write('    ' + line)
         end
         Narrator.add_space_of(3)
     end
@@ -290,11 +290,11 @@ class PlayerIcon
     end
 
     def choose_feature(features, current)
-        choose(features, current, "Quel trait souhaitez vous ?", "Conserver le trait")
+        choose(features, current, Locale::KEY_ASK_FEATURE, Locale.get_localized(Locale::KEY_KEEP_FEATURE))
     end
 
     def choose_color(colors, current)
-        choose(colors, current, "Quelle couleur ?", "Conserver la couleur")
+        choose(colors, current, Locale::KEY_ASK_COLOR, Locale.get_localized(Locale::KEY_KEEP_COLOR))
     end
 
     def choose(elements, current, question, return_label)
@@ -305,7 +305,7 @@ class PlayerIcon
                 if (element != Narrator::RETURN_BUTTON)
                     return element
                 else
-                    return "#{return_label} #{current}"
+                    return return_label + ' ' + Locale.get_localized(current)
                 end
             }
         )

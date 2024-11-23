@@ -26,13 +26,13 @@ class Loot
     end
 
     def get_item
-        Narrator.write(@messages.sample)
+        Narrator.write(Locale.get_localized(@messages).sample)
         return Bundle.new(@item_class.new(*@parameters), rand(@amount_min..max_amount))
     end
 
     def self.to_string(object)
         if object == Narrator::RETURN_BUTTON
-            return "retour..."
+            return Locale.get_localized(Locale::KEY_GO_BACK)
         else
             return object.get_name
         end

@@ -2,8 +2,8 @@ module HeavyGauntlets
     LEVEL = 20
     WEIGHTCLASS = HeavyArmor
     TYPE = Gauntlets
-    NAME = "gants renforcés"
-    DESCRIPTION = "des gants en cuirs renforcés par des plaques de métal offrant une bonne protection malgrès leur poids"
-    PICTURE = "gauntlets_h20"
-    ICON = ""
+    NAME = Locale::KEY_HEAVY_GAUNTLET_NAME
+    DESCRIPTION = Locale::KEY_HEAVY_GAUNTLET_DESC
+    PICTURE = 'gauntlets_h20'
+    ICON = ''
 end

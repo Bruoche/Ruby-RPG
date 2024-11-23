@@ -1,9 +1,9 @@
 class SaveManager
-    SAVE_DIRECTORY = "saves"
-    EXTENSION = ".save"
-    SETTING = "settings"
-    LOGS = "logs"
-    BASE_SETTINGS = ""
+    SAVE_DIRECTORY = 'saves'
+    EXTENSION = '.save'
+    SETTING = 'settings'
+    LOGS = 'logs'
+    BASE_SETTINGS = ''
     NO_EXISTING_SAVEFILE = nil
 
     def self.get_new_id
@@ -22,7 +22,7 @@ class SaveManager
         if (file_name == NO_EXISTING_SAVEFILE)
             file_name = get_new_id
         end
-        save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
+        save_directory = File.dirname(SAVE_DIRECTORY + '/*')
         unless File.directory?(save_directory)
             FileUtils.mkdir_p(save_directory)
         end
@@ -49,12 +49,12 @@ class SaveManager
     end
 
     def self.get_saves
-        save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
+        save_directory = File.dirname(SAVE_DIRECTORY + '/*')
         if File.directory?(save_directory)
             saves = Dir["./#{SAVE_DIRECTORY}/*"]
-            saves.reject! {|file_name| !file_name.end_with?(".save")}
+            saves.reject! {|file_name| !file_name.end_with?(EXTENSION)}
             if saves != nil
-                saves = saves.map {|file_name| file_name.delete_prefix("./#{SAVE_DIRECTORY}/").delete_suffix("#{EXTENSION}").downcase}
+                saves = saves.map {|file_name| file_name.delete_prefix("./#{SAVE_DIRECTORY}/").delete_suffix(EXTENSION).downcase}
                 if saves != []
                     saves = saves.sort_by {|e| e.split(/(\d+)/).map {|a| a =~ /\d+/ ? a.to_i : a }}
                     return saves
@@ -65,7 +65,7 @@ class SaveManager
     end
 
     def self.save_settings(settings)
-        save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
+        save_directory = File.dirname(SAVE_DIRECTORY + '/*')
         unless File.directory?(save_directory)
             FileUtils.mkdir_p(save_directory)
         end
@@ -89,7 +89,7 @@ class SaveManager
         if File.file?(path)
             current_content = File.read(path)
         else
-            current_content = ""
+            current_content = ''
         end
         write(path, current_content + "\n[#{Time.now.utc.strftime('%m/%d/%Y %H:%M %p')}] Error - #{error.class} : #{error.message} \n    #{error.backtrace.join("\n    ")}")
     end

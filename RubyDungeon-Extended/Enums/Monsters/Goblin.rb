@@ -1,60 +1,58 @@
-require_relative "../Vocabulary"
-
 module GoblinF
     NAMES = [
-        Monsters::GOBLIN_F
+        Locale::KEY_GOBLIN_F
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_F,
-        Adjectives::BIG_F,
-        Adjectives::TALL_F,
-        Adjectives::SCARY_F
+        Locale::KEY_SMALL_F,
+        Locale::KEY_BIG_F,
+        Locale::KEY_TALL_F,
+        Locale::KEY_SCARY_F
     ].freeze
 
     SUFFIXES = [
-        Adjectives::MUSCULAR_F,
-        Adjectives::WORRIED_F,
-        Adjectives::TIRED_F,
-        Adjectives::ANGRY_F,
-        Adjectives::WARY_F,
-        Adjectives::GREEN_F,
-        Adjectives::BLUISH_F,
-        Adjectives::GREYISH_F,
-        Adjectives::SMART_F,
-        Adjectives::AGILE_F,
-        Adjectives::JADED_F,
-        Adjectives::SCOUT_F,
-        Adjectives::AUTHORITARIAN_F
+        Locale::KEY_MUSCULAR_F,
+        Locale::KEY_WORRIED_F,
+        Locale::KEY_TIRED_F,
+        Locale::KEY_ANGRY_F,
+        Locale::KEY_WARY_F,
+        Locale::KEY_GREEN_F,
+        Locale::KEY_BLUISH_F,
+        Locale::KEY_GREYISH_F,
+        Locale::KEY_SMART_F,
+        Locale::KEY_AGILE_F,
+        Locale::KEY_JADED_F,
+        Locale::KEY_SCOUT_F,
+        Locale::KEY_AUTHORITARIAN_F
     ].freeze
 end
 
 module GoblinM
     NAMES = [
-        Monsters::GOBLIN_M
+        Locale::KEY_GOBLIN_M
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_M,
-        Adjectives::BIG_M,
-        Adjectives::TALL_M,
-        Adjectives::SCARY_M
+        Locale::KEY_SMALL_M,
+        Locale::KEY_BIG_M,
+        Locale::KEY_TALL_M,
+        Locale::KEY_SCARY_M
     ].freeze
 
     SUFFIXES = [
-        Adjectives::MUSCULAR_M,
-        Adjectives::WORRIED_M,
-        Adjectives::TIRED_M,
-        Adjectives::ANGRY_M,
-        Adjectives::WARY_M,
-        Adjectives::GREEN_M,
-        Adjectives::BLUISH_M,
-        Adjectives::GREYISH_M,
-        Adjectives::SMART_M,
-        Adjectives::AGILE_M,
-        Adjectives::JADED_M,
-        Adjectives::SCOUT_M,
-        Adjectives::AUTHORITARIAN_M
+        Locale::KEY_MUSCULAR_M,
+        Locale::KEY_WORRIED_M,
+        Locale::KEY_TIRED_M,
+        Locale::KEY_ANGRY_M,
+        Locale::KEY_WARY_M,
+        Locale::KEY_GREEN_M,
+        Locale::KEY_BLUISH_M,
+        Locale::KEY_GREYISH_M,
+        Locale::KEY_SMART_M,
+        Locale::KEY_AGILE_M,
+        Locale::KEY_JADED_M,
+        Locale::KEY_SCOUT_M,
+        Locale::KEY_AUTHORITARIAN_M
     ].freeze
 end
 
@@ -65,12 +63,10 @@ class Goblin < Bestiary
     FEMALE_CHANCES = 50
     BASE_HEALTH = BaseStats::BASE_HEALTH
     BASE_DAMAGE = BaseStats::BASE_STRENGTH
-    PICTURE = "goblin"
+    PICTURE = 'goblin'
     LOOTS = [
         Loot.new(
-            [
-                "En fouillant le corps du goblin vous remarquez une petite bourse accrochée à sa ceinture."
-            ],
+            Locale::KEY_GOBLIN_LOOT_COINS,
             33,
             Coins,
             [],

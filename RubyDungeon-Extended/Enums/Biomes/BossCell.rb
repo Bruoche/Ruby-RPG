@@ -1,21 +1,19 @@
 module BossCellF
     NAMES = [
-        "cellule lugubre"
+        Locale::KEY_DISMAL_CELL
     ]
 end
 
 class BossCell < Biome
     EXPECTED_LEVEL = 10
-    PICTURE = "prisonner_knight"
-    COMBAT_TRACK = "Dog"
+    PICTURE = 'prisonner_knight'
+    COMBAT_TRACK = 'Dog'
     ENTRY_REQUIREMENTS = [
         BossCellRequireKey
     ]
     FEMALE = BossCellF
     FEMALE_CHANCES = 100
-    DESCRIPTION = [
-        "Vous êtes au milleu d'une geolle sombre, des chaines brisées jonchent le sol."
-    ]
+    DESCRIPTION = Locale::KEY_DISMAL_CELL_DESCRIPTION
     SAFE_CHANCES = 0
     LOOT = []
     MIN_EXITS = 0

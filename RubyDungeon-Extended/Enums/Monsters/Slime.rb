@@ -1,24 +1,22 @@
-require_relative "../Vocabulary"
-
 module SlimeM
     NAMES = [
-        Monsters::SLIME_M
+        Locale::KEY_SLIME
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_M,
-        Adjectives::BIG_M,
-        Adjectives::TALL_M
+        Locale::KEY_SMALL_M,
+        Locale::KEY_BIG_M,
+        Locale::KEY_TALL_M
     ].freeze
 
     SUFFIXES = [
-        Adjectives::SCARY_M,
-        Adjectives::ANGRY_M,
-        Adjectives::WARY_M,
-        Adjectives::GREEN_M,
-        Adjectives::BLUISH_M,
-        Adjectives::GREYISH_M,
-        Adjectives::DARK_M
+        Locale::KEY_SCARY_M,
+        Locale::KEY_ANGRY_M,
+        Locale::KEY_WARY_M,
+        Locale::KEY_GREEN_M,
+        Locale::KEY_BLUISH_M,
+        Locale::KEY_GREYISH_M,
+        Locale::KEY_DARK_M
     ].freeze
 end
 
@@ -27,5 +25,5 @@ class Slime < Bestiary
     FEMALE_CHANCES = 0
     BASE_HEALTH = BaseStats::BASE_HEALTH
     BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
-    PICTURE = "slime"
+    PICTURE = 'slime'
 end

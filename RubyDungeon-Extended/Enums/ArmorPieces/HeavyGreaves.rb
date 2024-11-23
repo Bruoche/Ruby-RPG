@@ -2,8 +2,8 @@ class HeavyGreaves
     LEVEL = 20
     WEIGHTCLASS = HeavyArmor
     TYPE = Greaves
-    NAME = "bottes renforcées"
-    DESCRIPTION = "des bottes en cuirs couvertes par de larges plaques métalliques les alourdissant considérablement"
-    PICTURE = "greaves_h20"
-    ICON = ""
+    NAME = Locale::KEY_HEAVY_GREAVES_NAME
+    DESCRIPTION = Locale::KEY_HEAVY_GAUNTLET_DESC
+    PICTURE = 'greaves_h20'
+    ICON = ''
 end

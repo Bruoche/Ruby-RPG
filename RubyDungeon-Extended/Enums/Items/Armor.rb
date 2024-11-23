@@ -1,5 +1,5 @@
 class Armor < Item
-    ICON_PREFIX = "Armor/"
+    ICON_PREFIX = 'Armor/'
 
     def initialize(armor_data)
         if armor_data.is_a? String
@@ -56,19 +56,25 @@ class Armor < Item
     end
 
     def get_name
-        return @name
+        return Locale::get_localized(@name)
     end
 
     def get_long_name
-        return @type::ARTICLE + " " + @name
+        return Locale::get_localized(@type::ARTICLE) + ' ' + Locale::get_localized(@name)
     end
 
     def get_description
-        return @description + ", protège de #{@defense} dégats et pèse #{@weight} Kg"
+        return Locale.get_localized(@description) + format(Locale.get_localized(Locale::KEY_ARMOR_DESCRIPTION), {
+            Locale::F_KEY_DEFENSE => @defense,
+            Locale::F_KEY_WEIGHT => @weight
+        })
     end
 
     def get_card_description
-        return @description + "\n\n♣ #{@defense}\n#{@weight} Kg"
+        return Locale.get_localized(@description) + format(Locale.get_localized(Locale::KEY_ARMOR_CARD_DESCRIPTION), {
+            Locale::F_KEY_DEFENSE => @defense,
+            Locale::F_KEY_WEIGHT => @weight
+        })
     end
 
     def get_penality

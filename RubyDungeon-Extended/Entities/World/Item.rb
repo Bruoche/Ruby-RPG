@@ -1,7 +1,7 @@
 class Item
-    PICTURE_PREFIX = "Items/"
-    RESPONSE_PLAYER_ACTED = "player_acted?"
-    RESPONSE_CLOSE_INVENTORY = "close_inventory?"
+    PICTURE_PREFIX = 'Items/'
+    RESPONSE_PLAYER_ACTED = 'player_acted?'
+    RESPONSE_CLOSE_INVENTORY = 'close_inventory?'
 
     def self.inherited(child)
         child.instance_variable_set(:@destroyed, false)
@@ -11,7 +11,7 @@ class Item
                     child.const_set(:USABLE_ON_OTHERS, true)
                 end
                 unless child.const_defined?(:PICTURE)
-                    child.const_set(:PICTURE, "generic")
+                    child.const_set(:PICTURE, 'generic')
                 end
                 unless child.const_defined?(:DROP_CHANCE_SCALABLE)
                     child.const_set(:DROP_CHANCE_SCALABLE, true)
@@ -24,7 +24,7 @@ class Item
     end
 
     def get_name
-        return self.class::NAME
+        return Locale.get_localized(self.class::NAME)
     end
 
     def get_value(percentage = 100)
@@ -58,7 +58,7 @@ class Item
 
     def use(target, user)
         Narrator.unknown_use
-        SoundManager.play("spell_fart")
+        SoundManager.play('spell_fart')
         sleep Settings::BATTLE_ACTION_PAUSE
         return !Player::ACTED
     end
@@ -69,10 +69,10 @@ class Item
     end
 
     def self.load(item_data)
-        object = item_data.split("|")[0]
-        parameters = item_data.split("|")[1]
+        object = item_data.split('|')[0]
+        parameters = item_data.split('|')[1]
         if parameters != nil
-            return Object.const_get(object).new(*parameters.split(", "))
+            return Object.const_get(object).new(*parameters.split(', '))
         else
             return Object.const_get(object).new
         end

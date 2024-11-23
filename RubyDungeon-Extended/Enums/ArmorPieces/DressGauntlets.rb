@@ -2,8 +2,8 @@ class DressGauntlets
     LEVEL = 10
     WEIGHTCLASS = LightArmor
     TYPE = Gauntlets
-    NAME = "brassières discrète"
-    DESCRIPTION = "des gants en cuir raffinés protégeant décemment les mains de leurs porteur"
-    PICTURE = "gauntlets_l10f"
-    ICON = ""
+    NAME = Locale::KEY_DRESS_GAUNTLET_NAME
+    DESCRIPTION = Locale::KEY_DRESS_GAUNTLET_DESC
+    PICTURE = 'gauntlets_l10f'
+    ICON = ''
 end

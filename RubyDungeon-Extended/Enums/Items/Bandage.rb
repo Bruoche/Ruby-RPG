@@ -1,13 +1,13 @@
 class Bandage < Item
-    NAME = "des bandages"
-    SOUND = "bandage"
+    NAME = Locale::KEY_BANDAGES_NAME
+    SOUND = 'bandage'
 
     def initialize
         @value = 0
     end
 
     def get_description
-        return "restaure une quantitée aléatoire de vos points de vies manquants"
+        return Locale::KEY_BANDAGES_DESCRIPTION
     end
 
     def use(target, user)

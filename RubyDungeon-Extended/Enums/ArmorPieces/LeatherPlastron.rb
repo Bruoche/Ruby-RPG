@@ -2,8 +2,8 @@ class LeatherPlastron
     LEVEL = 10
     WEIGHTCLASS = MediumArmor
     TYPE = Plastron
-    NAME = "plastron en cuir"
-    DESCRIPTION = "un plastron en cuir durci rudimentaire protégeant décemment pour son poids"
-    PICTURE = "plastron_m10"
-    ICON = "m10"
+    NAME = Locale::KEY_LEATHER_PLASTRON_NAME
+    DESCRIPTION = Locale::KEY_LEATHER_PLASTRON_DESC
+    PICTURE = 'plastron_m10'
+    ICON = 'm10'
 end

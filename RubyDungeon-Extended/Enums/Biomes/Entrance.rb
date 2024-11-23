@@ -1,58 +1,54 @@
 module EntranceF
     NAMES = [
-        Rooms::ROOM_F,
-        Rooms::ALCOVE_F
+        Locale::KEY_ROOM,
+        Locale::KEY_ALCOVE
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_F,
-        Adjectives::TALL_F,
-        Adjectives::SPACIOUS_F
+        Locale::KEY_SMALL_F,
+        Locale::KEY_TALL_F,
+        Locale::KEY_SPACIOUS_F
     ].freeze
 
     SUFFIXES = [
-        Adjectives::WORRYING_F,
-        Adjectives::COLD_F,
-        Adjectives::HUMID_F,
-        Adjectives::ISOLATED_F,
-        Adjectives::DARK_F
+        Locale::KEY_WORRYING_F,
+        Locale::KEY_COLD_F,
+        Locale::KEY_HUMID_F,
+        Locale::KEY_ISOLATED_F,
+        Locale::KEY_DARK_F
     ].freeze
 end
 
 module EntranceM
     NAMES = [
-        Rooms::CORRIDOR_M
+        Locale::KEY_CORRIDOR
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_M,
-        Adjectives::TALL_M,
-        Adjectives::LONG_M
+        Locale::KEY_SMALL_M,
+        Locale::KEY_TALL_M,
+        Locale::KEY_LONG_M
     ].freeze
 
     SUFFIXES = [
-        Adjectives::WORRYING_M,
-        Adjectives::COLD_M,
-        Adjectives::HUMID_M,
-        Adjectives::ISOLATED_M,
-        Adjectives::DARK_M
+        Locale::KEY_WORRYING_M,
+        Locale::KEY_COLD_M,
+        Locale::KEY_HUMID_M,
+        Locale::KEY_ISOLATED_M,
+        Locale::KEY_DARK_M
     ].freeze
 end
 
 class Entrance < Biome
     EXPECTED_LEVEL = 3
-    PICTURE = "entrance"
-    EXPLORATION_TRACK = "Dungeon Entrance"
-    COMBAT_TRACK = "Dungeon Entrance Battle theme"
+    PICTURE = 'entrance'
+    EXPLORATION_TRACK = 'Dungeon Entrance'
+    COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = EntranceF
     MALE = EntranceM
     FEMALE_CHANCES = 60
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = [
-        "Vous êtes entouré.e d'épais murs de pierres.",
-        "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,",
-        "Mais les courants d'air atteignants votre dos sont un rappel de votre proximité avec la surface."
-    ]
+    DESCRIPTION = Locale::KEY_ENTRANCE_DESCRIPTION
     BESTIARY = [
         Goblin,
         Goblin,
@@ -65,24 +61,18 @@ class Entrance < Biome
     SAFE_CHANCES = 30
     LOOT = [
         Loot.new(
-            [
-                "Vous voyez une potion de soin posée sur une table.",
-                "Vous trouvez une potion de soin rangée dans une commode."
-            ],
+            Locale::KEY_ENTRANCE_LOOT_HEALTH_POTION,
             2,
             HealthPotion,
             [5, 20]
         ),
         Loot.new(
-            ["Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."],
+            Locale::KEY_ENTRANCE_LOOT_BANDAGE,
             15,
             Bandage
         ),
         Loot.new(
-            [
-                "Vous trouvez quelques pièces posées sur une table",
-                "Vous voyez une petite bourse posée sur une étagère"
-            ],
+            Locale::KEY_ENTRANCE_LOOT_COINS,
             25,
             Coins,
             [],
@@ -94,12 +84,9 @@ class Entrance < Biome
     MAX_EXITS = 3
     TRANSITIONS = [
         BiomeTransition.new(
-            [
-                "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restreints descendant plus profondément dans la terre.",
-                "Vous vous engouffrez dans ce qui semble être un lieu de repos pour les anciens habitants de ce donjon depuis longtemps disparus."
-            ],
+            Locale::KEY_ENTRANCE_TRANSITION_CATACOMBS,
             15,
-            "Catacombs"
+            'Catacombs'
         )
     ]
 end

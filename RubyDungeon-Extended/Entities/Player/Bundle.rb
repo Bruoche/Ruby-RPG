@@ -6,10 +6,10 @@ class Bundle
 
     def get_name
         suffix = get_string_numbering
-        if suffix != ""
-            suffix = " " + suffix
+        if suffix != ''
+            suffix = ' ' + suffix
         end
-        return @item.get_name + suffix
+        return Locale.get_localized(@item.get_name) + suffix
     end
 
     def get_value(percentage = 100)
@@ -28,20 +28,20 @@ class Bundle
         return @item.get_value(percentage)
     end
 
-    def get_description(override_description = "")
+    def get_description(override_description = '')
         numbering = get_string_numbering
-        if numbering != ""
-            numbering = numbering + " "
+        if numbering != ''
+            numbering = numbering + ' '
         end
-        if override_description != ""
-            description = override_description
+        if override_description != ''
+            description = Locale.get_localized(override_description)
         else
-            description = @item.get_description
+            description = Locale.get_localized(@item.get_description)
         end
-        if description != ""
-            description = ", #{description}"
+        if description != ''
+            description = ', ' + description
         end
-        return "#{numbering}#{@item.get_name}#{description}"
+        return "#{numbering}#{Locale.get_localized(@item.get_name)}#{description}"
     end
 
     def get_card_description
@@ -68,15 +68,15 @@ class Bundle
         if @quantity != 1
             return "(x#{@quantity})"
         else
-            return ""
+            return ''
         end
     end
 
     def get_save_data
         if @quantity > 0
-            return (@item.get_save_data + "; ") * @quantity
+            return (@item.get_save_data + '; ') * @quantity
         else
-            return ""
+            return ''
         end
     end
 

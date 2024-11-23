@@ -24,7 +24,7 @@ class Inventory
     end
 
     def get_save_data
-        items = ""
+        items = ''
         for bundle in @bundles
             items += bundle.get_save_data
         end
@@ -33,7 +33,7 @@ class Inventory
 
     def load(items)
         if items != nil
-            items.split("; ").tally.each do |item_data, amount|
+            items.split('; ').tally.each do |item_data, amount|
                 item = Item.load(item_data)
                 @bundles.push(Bundle.new(item, amount))
             end
@@ -63,7 +63,7 @@ class Inventory
 
     def inventory(player)
         if @bundles.length > 0
-            bundle_index = Narrator.ask("Quel objet souhaitez-vous utiliser ?", @bundles, -> (bundle){to_string(bundle)}, player.get_name)
+            bundle_index = Narrator.ask(Locale::KEY_ASK_ITEM_TO_USE, @bundles, -> (bundle){to_string(bundle)}, player.get_name)
             if bundle_index != Narrator::RETURN_BUTTON
                 bundle = @bundles[bundle_index]
                 potential_allies = World.get_instance.get_players_in(player.get_room)
@@ -110,17 +110,17 @@ class Inventory
 
     def ask_usage(player, bundle, allies)
         if bundle.get_item.is_a? Armor
-            usage_text = "Equiper"
+            usage_text = Locale.get_localized(Locale::KEY_USAGE_EQUIP)
         else
-            usage_text = "Utiliser"
+            usage_text = Locale.get_localized(Locale::KEY_USAGE_USE)
         end
         Narrator.usage_options(bundle.get_name, usage_text)
         case Narrator.user_input(player.get_name)
-        when "0"
+        when '0'
             return !Player::ACTED
-        when "1"
+        when '1'
             return ask_use(player, bundle, allies)
-        when "2"
+        when '2'
             return give_item(bundle, allies, player)
         else
             Narrator.unsupported_choice_error
@@ -141,7 +141,7 @@ class Inventory
             allies.unshift(player)
             if bundle.usable_on_others?
                 if allies.length > 1
-                    ally_index = Narrator.ask("Sur qui utiliser #{bundle.get_name} ?", allies, ->(ally){player.to_string(ally)})
+                    ally_index = Narrator.ask(format(Locale.get_localized(Locale::KEY_ASK_ITEM_TARGET), bundle.get_name), allies, ->(ally){player.to_string(ally)})
                     if ally_index == Narrator::RETURN_BUTTON
                         return !Player::ACTED
                     else
@@ -166,7 +166,7 @@ class Inventory
     end
 
     def give_item(bundle, allies, giver)
-        ally_index = Narrator.ask("A qui donner #{bundle.get_name} ?", allies, ->(ally){giver.to_string(ally)})
+        ally_index = Narrator.ask(format(Locale.get_localized(Locale::KEY_ASK_GIFT_TARGET), bundle.get_name), allies, ->(ally){giver.to_string(ally)})
         if ally_index == Narrator::RETURN_BUTTON
             return ask_usage(giver, bundle, allies)
         else
@@ -202,7 +202,7 @@ class Inventory
         sellable_bundles = get_sellable_items
         if sellable_bundles.length > 0
             bundle_index = Narrator.ask_paginated(
-                "Quel objet souhaitez-vous vendre ?",
+                Locale::KEY_ASK_ITEM_TO_SELL,
                 sellable_bundles, -> (bundle, index){
                     item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
                     item_frame.frame
@@ -260,7 +260,7 @@ class Inventory
 
     def to_string(item)
         if item == Narrator::RETURN_BUTTON
-            return "retour..."
+            return Locale.get_localized(Locale::KEY_GO_BACK)
         else
             return item.get_description
         end

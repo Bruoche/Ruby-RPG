@@ -17,7 +17,7 @@ class CharacterCreator
     def ask_name
         Narrator.ask_name(@name)
         choosen_name = Narrator.user_input.to_s
-        if choosen_name == ""
+        if choosen_name == ''
             Narrator.empty_name_error
             return ask_name
         end
@@ -35,16 +35,16 @@ class CharacterCreator
 
     def make_data
         return {
-            "name": @name,
-            "health": BaseStats::BASE_HEALTH,
-            "strength": BaseStats::BASE_STRENGTH,
-            "intelligence": BaseStats::BASE_INTELLIGENCE,
-            "agility": BaseStats::BASE_AGILITY,
-            "inventory": "",
-            "level": 0,
-            "current_xp": 0,
-            "next_level": 100,
-            "picture": @picture.get_save_data
+            'name': @name,
+            'health': BaseStats::BASE_HEALTH,
+            'strength': BaseStats::BASE_STRENGTH,
+            'intelligence': BaseStats::BASE_INTELLIGENCE,
+            'agility': BaseStats::BASE_AGILITY,
+            'inventory': '',
+            'level': 0,
+            'current_xp': 0,
+            'next_level': 100,
+            'picture': @picture.get_save_data
         }
     end
 
@@ -52,20 +52,17 @@ class CharacterCreator
         ASCIIPrinter.show_card(make_data)
         Narrator.ask_confirm_character
         case Narrator.user_input
-        when "0"
-            if Narrator.ask_confirmation([
-                "Êtes-vous sûr de vouloir revenir en arrière ? (y/n)",
-                "Les modifications effectuées ne seront pas sauvegardées."
-            ])
+        when '0'
+            if Narrator.ask_confirmation(Locale::KEY_UNSAVED_RETURN_CONFIRM)
                 return nil
             else
                 return creation_menu
             end
-        when "1"
+        when '1'
             ask_name
-        when "2"
+        when '2'
             @picture.customize
-        when "3"
+        when '3'
             return make_player
         else
             Narrator.unsupported_choice_error
@@ -76,9 +73,9 @@ class CharacterCreator
     def confirm_quit
 
         case Narrator.user_input.downcase
-        when "y"
+        when 'y'
             return nil
-        when "n"
+        when 'n'
             return creation_menu
         else
             Narrator.unsupported_choice_error

@@ -1,5 +1,5 @@
 class Pack
-    PICTURE_PREFIX = "Ennemies/"
+    PICTURE_PREFIX = 'Ennemies/'
     def initialize(biome)
         @monsters = Array.new
         @initial_monsters = Array.new
@@ -12,12 +12,23 @@ class Pack
                 monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
                 name = Name.new(monster_type)
                 if name.female?
-                    suffix = "_f"
+                    suffix = '_f'
                 else
-                    suffix = "_m"
+                    suffix = '_m'
                 end
                 picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + monster_type::PICTURE + suffix)
-                monster = Monster.new(monster_health, monster_damage, 0, name, ["frappe %s"], ["lance un sort"], ["lance une aura de soin"], 0, picture, monster_type::LOOTS)
+                monster = Monster.new(
+                    monster_health,
+                    monster_damage,
+                    0,
+                    name,
+                    [Locale.get_localized(Locale::KEY_MONSTER_STRIKE)],
+                    [Locale.get_localized(Locale::KEY_MONSTER_SPELL)],
+                    [Locale.get_localized(Locale::KEY_MONSTER_HEAL)],
+                    0,
+                    picture,
+                    monster_type::LOOTS
+                )
             else
                 if monster_data::IS_BOSS == false
                     monster = Monster.new(monster_data)
@@ -41,18 +52,18 @@ class Pack
     def get_description
         if are_dead
             if was_plural
-                return "les cadavres des monstres que vous avez précédemment battus"
+                return Locale.get_localized(Locale::KEY_MONSTER_BODIES)
             else
-                return "le cadavre du monstre que vous avez précédemment battu"
+                return Locale.get_localized(Locale::KEY_MONSTER_BODY)
             end
         end
-        monsters_description = ""
+        monsters_description = ''
         for i in 0..(@monsters.length-1)
             monsters_description += @monsters[i].get_description
             if (i < (@monsters.length - 2))
-                monsters_description += ", "
+                monsters_description += ', '
             elsif (i < (@monsters.length - 1))
-                monsters_description += " et "
+                monsters_description += ' et '
             end
         end
         return monsters_description
@@ -60,15 +71,15 @@ class Pack
 
     def enumerate
         if @monsters.empty?
-            return "rien"
+            return Locale::KEY_NOTHING
         end
-        monsters_description = ""
+        monsters_description = ''
         for i in 0..(@monsters.length-1)
             monsters_description += @monsters[i].get_name.get_gendered_a
             if (i < (@monsters.length - 2))
-                monsters_description += ", "
+                monsters_description += ', '
             elsif (i < (@monsters.length - 1))
-                monsters_description += " et "
+                monsters_description += ' et '
             end
         end
         return monsters_description
@@ -77,7 +88,7 @@ class Pack
 
     def get_plural_the
         if (was_plural)
-            return "les monstres"
+            return Locale.get_localized(Locale::KEY_THE_MONSTERS)
         else
             return @initial_monsters[0].get_name.get_gendered_the
         end
@@ -134,7 +145,7 @@ class Pack
 
     def hurt_single(attack)
         if (plural?)
-            choosen_ennemy = Narrator.ask("Quel ennemi souhaitez-vous attaquer?", @monsters, -> (monster){to_string(monster)}, attack.source.get_name)
+            choosen_ennemy = Narrator.ask(Locale::KEY_ASK_MONSTER_AIMED_AT, @monsters, -> (monster){to_string(monster)}, attack.source.get_name)
             if choosen_ennemy != Narrator::RETURN_BUTTON
                 attacked = hurt((choosen_ennemy), attack)[:attacked]
                 return attacked
@@ -169,7 +180,7 @@ class Pack
         if monster != Narrator::RETURN_BUTTON
             return monster.get_description
         else
-            return "retour..."
+            return Locale.get_localized(Locale::KEY_GO_BACK)
         end
     end
 
@@ -190,7 +201,7 @@ class Pack
             return response
         else
             if monster.died?
-                SoundManager.play("ennemy_death")
+                SoundManager.play('ennemy_death')
                 Narrator.monster_death(monster.get_name.get_gendered_the)
                 sleep Settings::BATTLE_ACTION_PAUSE
                 @monsters.delete_at(index)

@@ -27,16 +27,16 @@ class Player
 
     def get_save_data
         return {
-            "name": @name,
-            "health": @lifebar.get_max_life,
-            "strength": @stats.raw_strength,
-            "intelligence": @stats.intelligence,
-            "agility": @stats.raw_agility,
-            "level": @stats.level,
-            "current_xp": @stats.current_xp,
-            "time_played": @time_played.current_value,
-            "inventory": @inventory.get_save_data,
-            "picture": @picture.get_save_data
+            'name': @name,
+            'health': @lifebar.get_max_life,
+            'strength': @stats.raw_strength,
+            'intelligence': @stats.intelligence,
+            'agility': @stats.raw_agility,
+            'level': @stats.level,
+            'current_xp': @stats.current_xp,
+            'time_played': @time_played.current_value,
+            'inventory': @inventory.get_save_data,
+            'picture': @picture.get_save_data
         }.merge(@stats.get_equipment.get_save_data)
     end
 
@@ -82,14 +82,6 @@ class Player
 
     def get_defense_to_string
         return @stats.defense_to_string
-    end
-
-    def get_full_status
-        return "Vous êtes un.e aventurier.e de niveau #{@stats.level_to_string}.\n" + get_status
-    end
-
-    def get_status
-        return "Vous avez #{@lifebar.life_to_string} points de vies, faites #{@stats.strength} dégats et avez #{@stats.intelligence} points de puissance magique."
     end
 
     def get_remaining_life
@@ -203,22 +195,22 @@ class Player
         end
         damage_taken = damage_recieved - defense_score
         if defense_score > 0
-            defense_text = ", #{defense_score} paré"
+            defense_text = ', ' + defense_score.to_s + Locale::get_localized(Locale::KEY_PARRIED)
         else
-            defense_text = ""
+            defense_text = ''
         end
         if damage_taken > 0
-            SoundManager.play("player_hurt")
+            SoundManager.play('player_hurt')
         elsif defense_score > 0
-            SoundManager.play("parry")
+            SoundManager.play('parry')
         else
-            SoundManager.play("dodge")
+            SoundManager.play('dodge')
         end
         Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage_taken)
         if died?
-            SoundManager.play("player_death")
+            SoundManager.play('player_death')
             Narrator.player_death(get_name)
             sleep Settings::BATTLE_ACTION_PAUSE
         end
@@ -230,10 +222,10 @@ class Player
 
     def magic_attack
         if @stats.intelligence > 0
-            SoundManager.play("magic_charge")
+            SoundManager.play('magic_charge')
             Narrator.player_spell_cast(get_name)
         else
-            SoundManager.play("spell_fart")
+            SoundManager.play('spell_fart')
             Narrator.player_spell_fail
         end
         sleep Settings::BATTLE_ACTION_PAUSE
@@ -253,7 +245,7 @@ class Player
                 return cast_heal_on(self)
             else
                 allies.unshift(self)
-                target_index = Narrator.ask("Qui souhaitez-vous soigner ?", allies, -> (player){to_string(player)}, get_name)
+                target_index = Narrator.ask(Locale::KEY_ASK_HEAL_TARGET, allies, -> (player){to_string(player)}, get_name)
                 if target_index != Narrator::RETURN_BUTTON
                     return cast_heal_on(allies[target_index])
                 else
@@ -269,7 +261,7 @@ class Player
     def cast_heal_on(target)
         if (@stats.intelligence > 0)
             amount = rand(1..@stats.intelligence)
-            SoundManager.play("heal_spell")
+            SoundManager.play('heal_spell')
             if target == self
                 Narrator.self_heal(get_name, get_name)
                 sleep Settings::BATTLE_ACTION_PAUSE
@@ -284,7 +276,7 @@ class Player
     end
 
     def heal(amount = HEAL_SELF)
-        SoundManager.play("player_heal")
+        SoundManager.play('player_heal')
         Narrator.heal(get_name, amount)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.heal(amount)
@@ -293,13 +285,13 @@ class Player
     def patch_up
         if (@lifebar.get_missing_life > 0)
             amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
-            SoundManager.play("player_heal")
+            SoundManager.play('player_heal')
             Narrator.heal(get_name, amount)
             sleep Settings::BATTLE_ACTION_PAUSE
             @lifebar.heal(amount)
             return ACTED
         else
-            SoundManager.play("spell_fart")
+            SoundManager.play('spell_fart')
             Narrator.dont_need_heal(get_name)
             sleep Settings::BATTLE_ACTION_PAUSE
             return !ACTED
@@ -315,9 +307,9 @@ class Player
             print_inventory
             Narrator.shop_inventory_options
             case Narrator.user_input
-            when "0"
+            when '0'
                 return
-            when "1"
+            when '1'
                 manage_equipment
             else
                 Narrator.unsupported_choice_error
@@ -357,10 +349,10 @@ class Player
 
     def to_string(player)
         if player == Narrator::RETURN_BUTTON
-            return "annuler..."
+            return Locale.get_localized(Locale::KEY_ABORT)
         else
             if player == self
-                return "vous-même"
+                return Locale.get_localized(Locale::KEY_YOURSELF)
             else
                 return player.get_name
             end

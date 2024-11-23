@@ -2,8 +2,8 @@ class LeatherGreaves
     LEVEL = 10
     WEIGHTCLASS = MediumArmor
     TYPE = Greaves
-    NAME = "chaussures en cuir"
-    DESCRIPTION = "de simples chaussures en cuir ne protégeant que contre la rugosité du sol"
-    PICTURE = "greaves_m10"
-    ICON = ""
+    NAME = Locale::KEY_LEATHER_GREAVES_NAME
+    DESCRIPTION = Locale::KEY_LEATHER_GREAVES_DESC
+    PICTURE = 'greaves_m10'
+    ICON = ''
 end

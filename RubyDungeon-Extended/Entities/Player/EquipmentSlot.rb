@@ -79,10 +79,10 @@ class EquipmentSlot
                 current_armor_frame.frame
                 new_armor_frame.frame
                 armor_comparison.append(current_armor_frame)
-                armor_comparison.append(ASCIIPicture.new(["", "", "", "", "", "-\\", "-/"]))
+                armor_comparison.append(ASCIIPicture.new(['', '', '', '', '', '-\\', '-/']))
                 armor_comparison.append(new_armor_frame)
                 armor_comparison.show
-                if Narrator.ask_confirmation("")
+                if Narrator.ask_confirmation('')
                     return equip(armor, player_name)
                 else
                     return armor
@@ -98,7 +98,7 @@ class EquipmentSlot
     def equip(armor, player_name)
         precedent_armor = @equippedArmor
         @equippedArmor = armor
-        SoundManager.play("equip")
+        SoundManager.play('equip')
         Narrator.equip_armor(player_name, @equippedArmor.get_long_name)
         return precedent_armor
     end
@@ -106,20 +106,20 @@ class EquipmentSlot
     def unequip
         removed_armor = @equippedArmor
         @equippedArmor = NO_ARMOR_EQUIPPED
-        SoundManager.play("unequip")
+        SoundManager.play('unequip')
         return removed_armor
     end
 
     def get_card(index = ASCIIPicture::NO_INDEX)
         if @equippedArmor == NO_ARMOR_EQUIPPED
-            upper_space = Array.new(11, " " * ASCIIPicture::ITEM_ICON_WIDTH)
-            text = Utils.multiline(Utils.center("Pas d'armure équipé pour #{@type::NAME}", ASCIIPicture::ITEM_ICON_WIDTH), ASCIIPicture::ITEM_ICON_WIDTH)
-            lower_space = Array.new(11 - text.length, " " * ASCIIPicture::ITEM_ICON_WIDTH)
+            upper_space = Array.new(11, ' ' * ASCIIPicture::ITEM_ICON_WIDTH)
+            text = Utils.multiline(Utils.center(format(Locale.get_localized(Locale::KEY_NO_ARMOR_EQUIPPED), @type::NAME), ASCIIPicture::ITEM_ICON_WIDTH), ASCIIPicture::ITEM_ICON_WIDTH)
+            lower_space = Array.new(11 - text.length, ' ' * ASCIIPicture::ITEM_ICON_WIDTH)
             picture = ASCIIPicture.new(upper_space + text + lower_space)
         else
             picture = ASCIIPicture.new(ASCIIPicture.get_selling_card(@equippedArmor, index, 0))
         end
-        picture.frame(" ", " ")
+        picture.frame(' ', ' ')
         return picture
     end
 end

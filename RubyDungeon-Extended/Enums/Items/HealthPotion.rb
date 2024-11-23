@@ -1,7 +1,7 @@
 class HealthPotion < Item
-    NAME = "une potion de soin"
-    SOUND = "potion"
-    PICTURE = "health_potion"
+    NAME = Locale::KEY_HEALTH_POTION_NAME
+    SOUND = 'potion'
+    PICTURE = 'health_potion'
 
     def initialize(soin_min, soin_max = soin_min)
         @soin = rand(soin_min.to_i..soin_max.to_i)
@@ -9,7 +9,7 @@ class HealthPotion < Item
     end
 
     def get_description
-        return "restaure #{@soin} points de vie"
+        return format(Locale.get_localized(Locale::KEY_HEALTH_POTION_DESCRIPTION), @soin)
     end
 
     def use(target, user)

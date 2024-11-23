@@ -1,21 +1,21 @@
 module LostKnightM
-    NAMES = ["chevalier perdu"]
+    NAMES = [Locale::KEY_KNIGHT_NAME]
 end
 
 module LostKnightHeadF
-    NAMES = ["#{Bodyparts::HEAD_F} du chevalier perdu"]
+    NAMES = [Locale::KEY_KNIGHT_HEAD]
 end
 
 module LostKnightRightArmM
-    NAMES = ["#{Bodyparts::ARM_M} #{Adjectives::RIGHT_M} du chevalier perdu"]
+    NAMES = [Locale::KEY_KNIGHT_RIGHT_ARM]
 end
 
 module LostKnightLeftArmM
-    NAMES = ["#{Bodyparts::ARM_M} #{Adjectives::LEFT_M} du chevalier perdu"]
+    NAMES = [Locale::KEY_KNIGHT_LEFT_ARM]
 end
 
 class LostKnightHead
-    ID = "head"
+    ID = 'head'
     HEALTH = BaseStats::BASE_HEALTH * 3
     FEMALE = LostKnightHeadF
     FEMALE_CHANCES = 100
@@ -23,23 +23,23 @@ class LostKnightHead
 end
 
 class LostKnightLeftArm
-    ID = "left_arm"
+    ID = 'left_arm'
     HEALTH = BaseStats::BASE_HEALTH.div(2)
     DAMAGE = BaseStats::BASE_STRENGTH.div(3) * 2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
-    BASE_MOVES = ["vous met un coup de coude"]
+    BASE_MOVES = Locale::KEY_KNIGHT_LEFT_ATTACK
     SPECIAL_MOVES = []
     DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
 end
 
 class LostKnightRightArm
-    ID = "right_arm"
+    ID = 'right_arm'
     HEALTH = BaseStats::BASE_HEALTH.div(2)
     DAMAGE = BaseStats::BASE_STRENGTH
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
-    BASE_MOVES = ["vous assène un coup d'épée."]
+    BASE_MOVES = Locale::KEY_KNIGHT_RIGHT_ATTACK
     SPECIAL_MOVES = [
         SpecialMove.new(25, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]
@@ -53,17 +53,17 @@ class LostKnight < Bestiary
     POWER_BONUS = EXPECTED_LEVEL * BaseStats::NB_STATS_PER_LEVEL * AMOUNT_BONUS
     MALE = LostKnightM
     FEMALE_CHANCES = 0
-    PICTURE = "lost_knight"
+    PICTURE = 'lost_knight'
     LOOTS = [
         Loot.new(
-            ["Sur la dépouille du chevalier vous trouvez une large bourse accorchée sur sa ceinture."],
+            Locale::KEY_KNIGHT_LOOT_COINS,
             100,
             Coins,
             [],
             40
         ),
         Loot.new(
-            ["Dans un plis de son plastron vous remarquez également une note dépassant."],
+            Locale::KEY_KNIGHT_LOOT_NOTE,
             100,
             DevNote
         )
@@ -77,7 +77,7 @@ class LostKnight < Bestiary
     ]
 
     def self.slash(targets, allies, actor, boss)
-        SoundManager.play("swoosh")
+        SoundManager.play('swoosh')
         Narrator.knight_slash
         sleep Settings::BATTLE_ACTION_PAUSE
         target = actor.choose_target(targets)
@@ -85,7 +85,7 @@ class LostKnight < Bestiary
     end
 
     def self.limb_loss(name, boss)
-        SoundManager.play("ennemy_death")
+        SoundManager.play('ennemy_death')
         Narrator.knight_limb_loss(name.get_gendered_the)
         sleep Settings::BATTLE_ACTION_PAUSE
     end
@@ -94,10 +94,10 @@ class LostKnight < Bestiary
         left_arm = boss.get_part_by(LostKnightLeftArm::ID)
         if left_arm != nil
             limb_loss(name, boss)
-            SoundManager.play("taking_object")
+            SoundManager.play('taking_object')
             Narrator.knight_change_weapon_side(boss.get_name.get_gendered_the)
             sleep Settings::BATTLE_ACTION_PAUSE
-            SoundManager.play("equip")
+            SoundManager.play('equip')
             Narrator.knight_phase_change
             sleep Settings::BATTLE_ACTION_PAUSE
             left_arm.add_special_move(SpecialMove.new(50, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
@@ -109,7 +109,7 @@ class LostKnight < Bestiary
 
     def self.defenseless(name, boss)
         limb_loss(name, boss)
-        SoundManager.play("unequip")
+        SoundManager.play('unequip')
         Narrator.knight_defenseless(boss.get_name.get_gendered_the)
         sleep Settings::BATTLE_ACTION_PAUSE
     end
@@ -117,10 +117,10 @@ class LostKnight < Bestiary
     # death event
 
     def self.death(name, boss)
-        SoundManager.play("ennemy_death")
+        SoundManager.play('ennemy_death')
         Narrator.knight_death1(boss.get_name.get_gendered_of)
         sleep Settings::BATTLE_ACTION_PAUSE
-        SoundManager.play("player_death")
+        SoundManager.play('player_death')
         Narrator.knight_death2
         sleep Settings::BATTLE_ACTION_PAUSE
     end

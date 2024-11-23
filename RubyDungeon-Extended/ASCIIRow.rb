@@ -3,7 +3,7 @@ class ASCIIRow
 
     def initialize(inbetween_space = DEFAULT_SPACING_BETWEEN)
         @pictures = []
-        @space = " " * inbetween_space
+        @space = ' ' * inbetween_space
     end
 
     def append(picture)
@@ -40,13 +40,13 @@ class ASCIIRow
         y = 0
         while more_lines_to_do
             more_lines_to_do = false
-            line_to_print = ""
+            line_to_print = ''
             for picture in row
                 picture_line = picture.get_ascii[y]
                 if picture_line != nil
                     more_lines_to_do = true
                 else
-                    picture_line = ""
+                    picture_line = ''
                 end
                 line_to_print = line_to_print + @space + picture_line.ljust(picture.width)
             end

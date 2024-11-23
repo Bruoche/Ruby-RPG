@@ -2,8 +2,8 @@ class BlackLeatherGreaves
     LEVEL = 20
     WEIGHTCLASS = LightArmor
     TYPE = Greaves
-    NAME = "jambières de cuir noir"
-    DESCRIPTION = "de fines jambières en une sorte de cuir noir souple étant extrêment léger mais pourtant incroyablement solide"
-    PICTURE = "greaves_l20"
-    ICON = ""
+    NAME = Locale::KEY_BLACK_LEATHER_GREAVES_NAME
+    DESCRIPTION = Locale::KEY_BLACK_LEATHER_GREAVES_DESC
+    PICTURE = 'greaves_l20'
+    ICON = ''
 end

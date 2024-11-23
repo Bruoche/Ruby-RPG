@@ -74,7 +74,7 @@ class StatManager
         if penality_score > 0
             return " (-#{penality_score})"
         else
-            return ""
+            return ''
         end
     end
 
@@ -85,9 +85,9 @@ class StatManager
     def defense_to_string
         physical_defense = @equipment.get_defense
         if physical_defense > 0
-            return " ⛊  #{physical_defense}"
+            return ' ⛊  ' + physical_defense.to_s
         else
-            return ""
+            return ''
         end
     end
 
@@ -110,7 +110,7 @@ class StatManager
         @current_xp += amount
         while (@current_xp >= required_xp)
             MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
-            SoundManager.play("level_up")
+            SoundManager.play('level_up')
             Narrator.level_up
             @current_xp -= required_xp
             @level += 1
@@ -137,23 +137,23 @@ class StatManager
                     BaseStats::AGILITY_UPGRADE_PER_LEVEL
                 )
                 case Narrator.user_input(character_name)
-                when "1"
+                when '1'
                     lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
                     break
-                when "2"
+                when '2'
                     @strength += BaseStats::STRENGTH_UPGRADE_PER_LEVEL
                     break
-                when "3"
+                when '3'
                     @intelligence += BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL
                     break
-                when "4"
+                when '4'
                     @agility += BaseStats::AGILITY_UPGRADE_PER_LEVEL
                     break
                 else
                     Narrator.unsupported_choice_error
                 end
             end
-            SoundManager.play("stat_up")
+            SoundManager.play('stat_up')
         end
     end
 

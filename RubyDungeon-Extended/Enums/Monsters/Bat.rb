@@ -1,24 +1,22 @@
-require_relative "../Vocabulary"
-
 module BatF
     NAMES = [
-        Monsters::BAT_F
+        Locale::KEY_BAT
     ].freeze
 
     PREFIXES = [
-        Adjectives::SMALL_F,
-        Adjectives::BIG_F,
-        Adjectives::TALL_F
+        Locale::KEY_SMALL_F,
+        Locale::KEY_BIG_F,
+        Locale::KEY_TALL_F
     ].freeze
 
     SUFFIXES = [
-        Adjectives::SCARY_F,
-        Adjectives::ANGRY_F,
-        Adjectives::WARY_F,
-        Adjectives::GREEN_F,
-        Adjectives::BLUISH_F,
-        Adjectives::GREYISH_F,
-        Adjectives::DARK_F
+        Locale::KEY_SCARY_F,
+        Locale::KEY_ANGRY_F,
+        Locale::KEY_WARY_F,
+        Locale::KEY_GREEN_F,
+        Locale::KEY_BLUISH_F,
+        Locale::KEY_GREYISH_F,
+        Locale::KEY_DARK_F
     ].freeze
 end
 
@@ -27,5 +25,5 @@ class Bat < Bestiary
     FEMALE_CHANCES = 100
     BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)
     BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
-    PICTURE = "bat"
+    PICTURE = 'bat'
 end

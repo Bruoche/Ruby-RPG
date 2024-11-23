@@ -1,7 +1,7 @@
 class ASCIIPrinter
-    PREFIX = "RubyDungeon-Extended/Assets/"
-    UNSCALABLE_PREFIX = "NotScalable/"
-    SMALL_SUFFIX = "_small"
+    PREFIX = 'RubyDungeon-Extended/Assets/'
+    UNSCALABLE_PREFIX = 'NotScalable/'
+    SMALL_SUFFIX = '_small'
 
     def self.print(image_or_names)
         if !image_or_names.kind_of?(Array)
@@ -15,7 +15,7 @@ class ASCIIPrinter
                 else
                     name = image_or_name
                 end
-                image_or_path = "#{PREFIX}#{name}"
+                image_or_path = PREFIX + name
             else
                 image_or_path = image_or_name
             end

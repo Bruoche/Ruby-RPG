@@ -15,7 +15,10 @@ class Weakpoint
     end
 
     def get_description
-        return "#{@name.get_gendered_the} avec #{@lifebar.life_to_string} points de vies"
+        return format(Locale.get_localized(Locale::KEY_WEAKPOINT_DESCRIPTION), {
+            Locale::F_KEY_SUBJECT => @name.get_gendered_the,
+            Locale::F_KEY_LIFE => @lifebar.life_to_string
+        })
     end
 
     def get_life
@@ -40,7 +43,7 @@ class Weakpoint
             Narrator.unexpected_damage_type_error
             damage = 0
         end
-        SoundManager.play("ennemy_hurt")
+        SoundManager.play('ennemy_hurt')
         Narrator.hurt(@name.get_gendered_the, damage)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage)

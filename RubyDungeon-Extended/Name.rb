@@ -16,39 +16,39 @@ class Name
 
     def get_gendered_a
         if @female
-            return "une #{@denomination}"
+            return Locale.get_localized(Locale::KEY_A_F) + @denomination
         else
-            return "un #{@denomination}"
+            return Locale.get_localized(Locale::KEY_A_M) + @denomination
         end
     end
 
     def get_gendered_the
         if VOWELS.include?(@denomination[0])
-            return "l'#{@denomination}"
+            return Locale.get_localized(Locale::KEY_THE_N) + @denomination
         end
         if @female
-            return "la #{@denomination}"
+            return Locale.get_localized(Locale::KEY_THE_F) + @denomination
         else
-            return "le #{@denomination}"
+            return Locale.get_localized(Locale::KEY_THE_M) + @denomination
         end
     end
 
     def get_gendered_this
         if @female
-            return "cette #{@denomination}"
+            return Locale.get_localized(Locale::KEY_THIS_F) + @denomination
         else
-            return "ce #{@denomination}"
+            return Locale.get_localized(Locale::KEY_THIS_M) + @denomination
         end
     end
 
     def get_gendered_of
         if VOWELS.include?(@denomination[0])
-            return "de l'#{@denomination}"
+            return Locale.get_localized(Locale::KEY_OF_N) + @denomination
         end
         if @female
-            return "de la #{@denomination}"
+            return Locale.get_localized(Locale::KEY_OF_F) + @denomination
         else
-            return "du #{@denomination}"
+            return Locale.get_localized(Locale::KEY_OF_M) + @denomination
         end
     end
 
@@ -57,13 +57,17 @@ class Name
     end
 
     def generate(gendered_vocabulary)
-        name = gendered_vocabulary::NAMES.sample
+        name = Locale.get_localized(gendered_vocabulary::NAMES.sample)
         if (([true, false, false].sample) && (gendered_vocabulary.const_defined?(:PREFIXES)))
-            name = "#{gendered_vocabulary::PREFIXES.sample} #{name}"
+            prefix = Locale.get_localized(gendered_vocabulary::PREFIXES.sample)
         end
         if (([true, false].sample) && (gendered_vocabulary.const_defined?(:SUFFIXES)))
-            name = "#{name} #{gendered_vocabulary::SUFFIXES.sample}"
+            suffix = Locale.get_localized(gendered_vocabulary::SUFFIXES.sample)
         end
-        return name
+        return format(Locale.get_localized(Locale::KEY_NAME_TEMPLATE), {
+            Locale::F_KEY_NAME => name,
+            Locale::F_KEY_PREFIX => prefix,
+            Locale::F_KEY_SUFFIX => suffix
+        }).strip
     end
 end

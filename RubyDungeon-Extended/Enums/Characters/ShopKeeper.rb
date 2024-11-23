@@ -1,11 +1,8 @@
 module ShopKeeper
-    NAME = "Tenancier"
-    INTRO_DIALOG = "Bonjour voyageur.\nJe vous prie, n'hésitez pas à observer mes marchandises ci-dessus et à me dire si quoi que ce soit attise votre curiosité."
-    IDLE_DIALOGS = [
-        "Alors, quelque chose vous interesse dans mon étalage ?",
-        "Dites-moi si vous avez besoin de quoi que ce soit"
-    ]
+    NAME = Locale::KEY_SHOPKEEPER_NAME
+    INTRO_DIALOG = Locale::KEY_SHOPKEEPER_INTRO_DIALOG
+    IDLE_DIALOGS = Locale::KEY_SHOPKEEPER_IDLE_DIALOGS
     DIALOGS = []
     UNKNOWN_DIALOGS = []
-    PICTURE = "merchant"
+    PICTURE = 'merchant'
 end

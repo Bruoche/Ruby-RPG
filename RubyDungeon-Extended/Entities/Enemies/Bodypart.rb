@@ -7,8 +7,8 @@ class Bodypart
             0,
             Name.new(bossBodypart),
             bossBodypart::BASE_MOVES,
-            [""],
-            [""],
+            [''],
+            [''],
             0,
             ASCIIPicture.new([])
         )

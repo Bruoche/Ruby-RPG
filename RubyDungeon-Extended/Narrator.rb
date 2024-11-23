@@ -1,5 +1,5 @@
 class Narrator
-    RETURN_BUTTON = "return_button"
+    RETURN_BUTTON = 'return_button'
     NO_NAME_DISPLAYED = nil
 
     def self.add_space_of(height)
@@ -17,23 +17,11 @@ class Narrator
     end
 
     def self.write_same_line(text)
-        print text
+        print Locale.get_localized(text)
     end
 
     def self.warning_pop_up
-        Narrator.write([
-            "",
-            "Attention :",
-            "Mourrir dans ce jeu perdra toute votre progression en cours dans le donjon.",
-            "Sortez du donjon pour sauvegarder votre progression.",
-            "",
-            "Info sur le terminal :",
-            "Presser [Ctrl + C] fermera le jeu.",
-            "Presser [Alt + Entrée] met le jeu en plein écran.",
-            "",
-            "1) Ok",
-            "2) Ne plus me le rappeler"
-        ])
+        Narrator.write(Locale::KEY_WARNING_POP_UP)
     end
 
     def self.main_menu_options
@@ -41,165 +29,91 @@ class Narrator
     end
 
     def self.select_characters_options(party)
-        Narrator.write("Aventuriers entrant dans le donjon : ")
+        Narrator.write(Locale::KEY_PARTY_LIST_TITLE)
         party.show_cards
-        Narrator.write([
-            "",
-            "",
-            "0) Retour",
-            "1) Ajouter un membre à l'équipe"
-        ])
+        Narrator.write(Locale::KEY_PARTY_MANAGE_OPTIONS)
     end
 
     def self.remove_party_member_option
-        Narrator.write("2) Retirer un membre de l'équipe")
+        Narrator.write(Locale::KEY_PARTY_MANAGE_REMOVE_OPTION)
     end
 
     def self.start_travel_option(index)
-        Narrator.write("#{index}) Commencer le voyage")
+        Narrator.write('    ' + index.to_s + Locale.get_localized(Locale::KEY_START_TRAVEL_OPTION))
     end
 
     def self.new_or_old_character
-        Narrator.write([
-            "0) Retour",
-            "1) Nouveau personnage",
-            "2) Personnage existant"
-        ])
+        Narrator.write(Locale::KEY_NEW_OR_OLD_CHARACTER)
     end
 
     def self.character_creation_options
-        Narrator.write([
-            "Quel élément souhaitez-vous modifier ?",
-            "0) Valider l'apparence",
-            "1) Complexion",
-            "2) Corpulence",
-            "3) Couleur des yeux",
-            "4) Les oreilles",
-            "5) Le nez",
-            "6) Les sourcils",
-            "7) Pilosité faciale",
-            "8) Les cheveux"
-        ])
+        Narrator.write(Locale::KEY_CHARACTER_CREATION_OPTIONS)
     end
 
     def self.beard_options
-        Narrator.write([
-            "Quel élément souhaitez-vous modifier ?",
-            "0) Retour...",
-            "1) La moustache",
-            "2) Le menton",
-            "3) Les pattes",
-            "4) La couleur"
-        ])
+        Narrator.write(Locale::KEY_CHARACTER_CREATION_BEARD_OPTIONS)
     end
 
     def self.hair_options
-        Narrator.write([
-            "Quel élément souhaitez-vous modifier ?",
-            "0) Retour...",
-            "1) La coupe",
-            "2) La couleur"
-        ])
+        Narrator.write(Locale::KEY_CHARACTER_CREATION_HAIR_OPTIONS)
     end
 
     def self.hairstyle_options
-        Narrator.write([
-            "Quel portion de votre coupe de cheveux souhaitez-vous modifier ?",
-            "0) Retour...",
-            "1) L'avant",
-            "2) L'arrière"
-        ])
+        Narrator.write(Locale::KEY_CHARACTER_CREATION_HAIRSTYLE_OPTIONS)
     end
 
     def self.options_selection
-        Narrator.write([
-            "Que souhaitez-vous faire ?",
-            "    0) Retour...",
-            "    1) Modifier la hauteur des images",
-            "    2) Modifier l'audio"
-        ])
+        Narrator.write(Locale::KEY_SETTINGS_OPTIONS)
     end
 
     def self.asset_size_verification_line
-        Narrator.write("Si vous voyez ce texte les images ont une taille acceptable.")
-    end
-
-    def self.sound_options
-        Narrator.write("Volume de musique : #{Settings.music_volume}%")
-        Narrator.add_space_of(1)
-        Narrator.write("Effets sonores : #{Settings.sound_effects ? "Oui" : "Non"}")
-        add_space_of(3)
-        Narrator.write([
-            "Que souhaitez-vous faire ?",
-            "    0) Retour...",
-            "    1) Modifier le volume de la musique",
-            "    2) Activier/Désactiver les effets sonores"
-        ])
+        Narrator.write(Locale::KEY_ASSET_SIZE_VERIFICATION)
     end
 
     def self.asset_size_options
-        Narrator.write([
-            "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut.",
-            "Si tel est le cas, alors votre taille d'image est bonne pour votre taille d'écran.",
-            "",
-            "Autrement, tentez de mettre les images en petites tailles,",
-            "ou de réduire la taille de police du texte de votre terminal si cela ne suffit pas.",
-            "",
-            "Quelle taille d'image souhaitez-vous ?",
-            "0) Retour",
-            "1) Grande (recommandée)",
-            "2) Petite"
-        ])
+        Narrator.write(Locale::KEY_ASSET_SIZE_OPTIONS)
+    end
+
+    def self.sound_options
+        Narrator.write(Locale.get_localized(Locale::KEY_CURRENT_MUSIC_VOLUME) + Settings.music_volume.to_s + '%')
+        Narrator.add_space_of(1)
+        Narrator.write(Locale.get_localized(Locale::KEY_CURRENT_SOUND_EFFECTS) + (Settings.sound_effects ? Locale.get_localized(Locale::KEY_YES) : Locale.get_localized(Locale::KEY_NO)))
+        add_space_of(3)
+        Narrator.write(Locale::KEY_SOUND_OPTIONS)
+    end
+
+    def self.language_options
+        Narrator.write(format(Locale.get_localized(Locale::KEY_LANGUAGE_SETTINGS_TITLE), Locale.get_localized(Settings.locale)))
+        Narrator.write(Locale::KEY_GO_BACK_ENUMERATED)
     end
 
     def self.current_equipment_title
-        Narrator.write("Equipement actuel : ")
+        Narrator.write(Locale::KEY_CURRENT_EQUIPMENT_TITLE)
     end
 
     def self.equipment_options(wear_equipment)
-        Narrator.write([
-            "Que voulez-vous faire ?",
-            "    0) Retour",
-            "    1) Equiper une nouvelle pièce d'armure"
-        ])
+        Narrator.write(Locale::KEY_EQUIPMENT_OPTIONS)
         if wear_equipment
-            Narrator.write("    2) Retirer une pièce d'armure")
+            Narrator.write(Locale::KEY_EQUIPMENT_REMOVE_OPTION)
         end
     end
 
     def self.inventory_options
-        Narrator.write([
-            "",
-            "Que souhaitez-vous faire ?",
-            "      0) Retour",
-            "      1) Utiliser un objet",
-            "      2) Gérer l'equipement"
-        ])
+        Narrator.write(Locale::KEY_INVENTORY_OPTIONS)
     end
 
     def self.shop_inventory_options
-        Narrator.write([
-            "",
-            "Que voulez-vous faire ?",
-            "    0) Retour...",
-            "    1) Gérer l'équipement"
-        ])
+        Narrator.write(Locale::KEY_INVENTORY_OPTIONS_SHOP)
     end
 
     def self.player_options(room_name)
-        Narrator.write([
-            "Que souhaitez-vous faire?",
-            "      1) Aller à..."
-        ])
-        Narrator.write("      2) Fouiller #{room_name}")
-        Narrator.write([
-            "      3) Faire un inventaire",
-            "      4) Attendre"
-        ])
+        Narrator.write(Locale::KEY_PLAYER_OPTIONS_FIRST)
+        Narrator.write(Locale.get_localized(Locale::KEY_PLAYER_OPTIONS_SEARCH) + room_name)
+        Narrator.write(Locale::KEY_PLAYER_OPTIONS_SECOND)
     end
 
     def self.player_option_fight(monster_denomination)
-        Narrator.write("      5) Attaquer #{@player.get_room.get_monsters_plural_the}")
+        Narrator.write(Locale.get_localized(Locale::KEY_PLAYER_FIGHT_OPTION) + monster_denomination)
     end
 
     def self.stat_options(
@@ -208,140 +122,118 @@ class Narrator
         current_strength, strength_increase,
         current_intelligence, intelligence_increase,
         current_agility, agility_increase)
-        Narrator.write("Quelle statistique souhaitez-vous augmenter ? (#{current_stat}/#{total_stats})")
-        Narrator.write("1) ♥ Vie            (#{current_life} -> #{current_life + life_increase})")
-        Narrator.write("2) ♣ Force          (#{current_strength} -> #{current_strength + strength_increase})")
-        Narrator.write("3) ♠ Intelligence   (#{current_intelligence} -> #{current_intelligence + intelligence_increase})")
-        Narrator.write("4) ♦ Agilité        (#{current_agility} -> #{current_agility + agility_increase})")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_STAT_UP_TITLE), {
+            Locale::F_KEY_CURRENT => current_stat,
+            Locale::F_KEY_TOTAL => total_stats
+        }))
+        Narrator.write(format(Locale.get_localized(Locale::KEY_STAT_UP_HEALTH), {
+            Locale::F_KEY_CURRENT => current_life,
+            Locale::F_KEY_NEW => current_life + life_increase
+        }))
+        Narrator.write(format(Locale.get_localized(Locale::KEY_STAT_UP_STRENGTH), {
+            Locale::F_KEY_CURRENT => current_strength,
+            Locale::F_KEY_NEW => current_strength + strength_increase
+        }))
+        Narrator.write(format(Locale::get_localized(Locale::KEY_STAT_UP_INTELLIGENCE), {
+            Locale::F_KEY_CURRENT => current_intelligence,
+            Locale::F_KEY_NEW => current_intelligence + intelligence_increase
+        }))
+        Narrator.write(format(Locale::get_localized(Locale::KEY_STAT_UP_AGILITY), {
+            Locale::F_KEY_CURRENT => current_agility,
+            Locale::F_KEY_NEW => current_agility + agility_increase
+        }))
     end
 
     def self.teleporter_ask_destination
-        Narrator.write([
-            "Où souhaitez vous aller ?",
-            "    0) Annuler",
-            "    1) La sortie"
-        ])
+        Narrator.write(Locale::KEY_TELEPORT_OPTIONS)
     end
 
     def self.teleporter_ask_destination_allies(index, ally_name)
-        Narrator.write("    #{index}) Rejoindre #{ally_name}")
+        enumerate(Locale.get_localized(Locale::KEY_TELEPORT_JOIN_OPTION) + ally_name, index)
     end
 
     def self.yes_or_no
-        Narrator.write([
-            "1) Oui",
-            "2) Non"
-        ])
+        Narrator.write(Locale::KEY_YES_OR_NO)
     end
 
     def self.no_items_to_use
-        Narrator.write("Vous n'avez pas d'objets à utiliser.")
+        Narrator.write(Locale::KEY_NO_ITEMS_TO_USE)
     end
 
     def self.no_items_to_sell
-        Narrator.write("Aucun objet à vendre")
+        Narrator.write(Locale::KEY_NO_ITEMS_TO_SELL)
     end
 
     def self.item_possessed_title
-        Narrator.write("Vous possédez : ")
+        Narrator.write(Locale::KEY_INVENTORY_TITLE)
     end
 
     def self.list(thing)
-        Narrator.write("    - " + thing.capitalize)
+        Narrator.write('    - ' + thing.capitalize)
+    end
+
+    def self.enumerate(thing, number)
+        Narrator.write('    ' + number.to_s + ') ' + thing.capitalize)
     end
 
     def self.introduction_shop
-        Narrator.write([
-            "",
-            "Sur votre chemin vers le donjon,",
-            "Vous décidez de faire une courte halte auprès d'une échoppe pour voir les équipements que vous pourriez employer, anticipant ce qui vous attend.",
-            ""
-        ])
+        Narrator.write(Locale::KEY_SHOP_INTRO)
         pause_text
     end
 
     def self.introduction(party)
         Narrator.add_space_of(1)
-        ASCIIPrinter.print("title")
+        ASCIIPrinter.print('title')
         Narrator.add_space_of(1)
         if party.starting?
-            Narrator.write([
-                "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
-                "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
-                "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond.",
-                "",
-                "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
-            ])
+            Narrator.write(Locale::KEY_FIRST_INTRO)
         else
             if party.new_members?
-                Narrator.write([
-                    "Après votre précédente expérience dans le donjon,",
-                    "Vous avez décidés de revenir plus nombreux, de nouveaux membres s'ajoutant à votre escouade.",
-                    "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds, quoi qu'ils ne renferment."
-                ])
+                Narrator.write(Locale::KEY_NEW_MEMBERS_INTRO)
             else
-                Narrator.write([
-                    "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier.",
-                    "Un besoin d'y retourner et découvrir ce qui se cache plus profondémment, d'en déterrer les trésors et d'en prendre la puissance.",
-                    "Vous ouvrez la grande porte de la tour mystérieuse, mais, à votre surprise lorsque vous y pénétrez plus rien n'est pareil qu'avant."
-                ])
+                Narrator.write(Locale::KEY_RETURN_INTRO)
             end
         end
         Narrator.add_space_of(1)
-        ASCIIPrinter.print("dungeon_outside")
+        ASCIIPrinter.print('dungeon_outside')
         Narrator.add_space_of(1)
         pause_text
     end
 
     def self.thank_for_playing
-        Narrator.write([
-            "Vous ouvrez le petit papier soigneusement plié, et en lisez le contenu : ",
-            "",
-            "",
-            "      Félicitation !",
-            "    Vous avez terminé la démo de Ruby Dungeon et battu son boss.",
-            "    J'éspère sincérement que vous avez aimé mon jeu, et vous remercie d'avoir joué jusqu'au bout.",
-            "",
-            "     Libre à vous de faire ce que bon vous semble dans les donjons maintenant, il n'y a pas de secrets supplémentaires à trouver.",
-            "   Le jeu complet sortira, j'espère, d'ici quelques mois et votre sauvegarde sera toujours compatible avec ce dernier.",
-            "   (il faudra simplement que vous mettiez le dossier \"save\" dans les dossiers du jeu complet quand il sortira).",
-            "",
-            "     En espérant que ça ne soit qu'un Au revoir,",
-            "       - Bruoche",
-            ""
-        ])
+        Narrator.write(Locale::KEY_THANK_YOU_NOTE)
     end
 
     def self.pause_text
-        Narrator.write("  (pressez \"Entrée\" pour continuer...)")
+        Narrator.write(Locale::KEY_PRESS_CONTINUE)
         user_input
     end
 
     def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description)
         describe_room(player, describe_biome, picture)
-        print "Lorsque vous entrez dans #{the_room}"
+        write_same_line(Locale.get_localized(Locale::KEY_ENTER_ROOM) + the_room)
         describe_monsters(player, monsters_description)
         describe_allies(player)
     end
 
     def self.describe_empty_room(player, describe_biome, picture, the_room, female)
         describe_room(player, describe_biome, picture)
-        print "Lorsque vous entrez dans #{the_room}, "
+        write_same_line(Locale.get_localized(Locale::KEY_ENTER_ROOM) + the_room)
         if female
-            Narrator.write("vous la trouvez complètement vide.")
+            Narrator.write(Locale::KEY_EMPTY_ROOM_F)
         else
-            Narrator.write("vous le trouvez complètement vide.")
+            Narrator.write(Locale::KEY_EMPTY_ROOM_M)
         end
         describe_allies(player)
     end
 
     def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description)
         describe_room(player, describe_biome, picture)
-        print "Vous êtes dans #{a_room}"
+        write_same_line(Locale.get_localized(Locale::KEY_IN_A_ROOM) + a_room)
         if monsters_description != nil
             describe_monsters(player, monsters_description)
         else
-            Narrator.write(" vide.")
+            Narrator.write(Locale::KEY_IS_EMPTY)
         end
         describe_allies(player)
     end
@@ -363,9 +255,12 @@ class Narrator
             end
         end
         if (allies_fighting.empty?)
-            Narrator.write(", vous voyez #{monsters_description}.")
+            Narrator.write(format(Locale.get_localized(Locale::KEY_MONSTER_ROOM), monsters_description))
         else
-            Narrator.write(", vous voyez #{Utils.enumerate(allies_fighting)} combattant #{monsters_description}.")
+            Narrator.write(format(Locale.get_localized(Locale::KEY_MONSTER_ROOM_FIGHTING), {
+                Locale::F_KEY_ALLIES => Utils.enumerate(allies_fighting),
+                Locale::F_KEY_ENNEMIES => monsters_description
+            }))
         end
     end
 
@@ -384,22 +279,22 @@ class Narrator
         end
         if allies.empty?
             if dead_allies.length == 1
-                Narrator.write("Le corps de #{dead_allies[0]} gie sur le sol.")
+                Narrator.write(format(Locale.get_localized(Locale::KEY_DEAD_ALLY), dead_allies[0]))
             elsif dead_allies.length > 1
-                Narrator.write("Les corps de #{Utils.enumerate(dead_allies)} gient sur le sol.")
+                Narrator.write(format(Locale.get_localized(Locale::KEY_DEAD_ALLIES), Utils.enumerate(dead_allies)))
             end
         else
             if allies.length == 1
-                print "A vos cotés se trouve #{allies[0]}"
+                write_same_line(Locale.get_localized(Locale::KEY_ALLY_ASIDE) + allies[0])
             elsif allies.length > 1
-                print "A vos cotés se trouvent #{Utils.enumerate(allies)}"
+                write_same_line(Locale.get_localized(Locale::KEY_ALLIES_ASIDE) + Utils.enumerate(allies))
             end
             if dead_allies.empty?
-                Narrator.write(".")
+                Narrator.write('.')
             elsif dead_allies.length == 1
-                Narrator.write("et le corps de #{dead_allies[0]}.")
+                Narrator.write(Locale.get_localized(Locale::KEY_AND_DEAD_ALLY), dead_allies[0])
             else
-                Narrator.write("et les corps de #{Utils.enumerate(dead_allies)}.")
+                Narrator.write(Locale.get_localized(Locale::KEY_AND_DEAD_ALLIES), Utils.enumerate(dead_allies))
             end
         end
     end
@@ -407,216 +302,243 @@ class Narrator
     def self.start_fight(plural)
         Narrator.add_space_of(1)
         if plural
-            Narrator.write("Vous vous jettez sur les monstres se tenant face à vous.")
+            Narrator.write(Locale::KEY_ATTACK_MONSTERS)
         else
-            Narrator.write("Vous vous jettez sur le monstre se tenant face à vous.")
+            Narrator.write(Locale::KEY_ATTACK_MONSTER)
         end
     end
 
     def self.avoid_fight(the_monsters)
         Narrator.add_space_of(1)
-        Narrator.write("Ne souhaitant pas combattre #{the_monsters}, vous faites profil bas.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_AVOID_FIGHT), the_monsters))
     end
 
     def self.fail_sneak(plural)
         Narrator.add_space_of(1)
         if plural
-            Narrator.write("Alors que vous tentez d'éviter les monstres, ceux-ci vous remarquent et se jettent sur vous.")
+            Narrator.write(Locale::KEY_FAIL_ESCAPE_PLURAL)
         else
-            Narrator.write("Alors que vous tentez d'éviter le monstre, celui-ci vous remarque et se jette sur vous.")
+            Narrator.write(Locale::KEY_FAIL_ESCAPE_SINGLE)
         end
     end
 
     def self.death_scene(plural)
         Narrator.add_space_of(1)
         if plural
-            Narrator.write("Malheureusement, l'attaque des monstres a raison de vous, et vous vous effondrez au sol.")
+            Narrator.write(Locale::KEY_GAME_OVER_PLURAL)
         else
-            Narrator.write("Malheureusement, l'attaque du monstre a raison de vous, et vous vous effondrez au sol.")
+            Narrator.write(Locale::KEY_GAME_OVER_SINGLE)
         end
     end
 
     def self.escape_scene
-        Narrator.write("Ce combat ne valant plus la peine pour vous, vous vous échappez.")
+        Narrator.write(Locale::KEY_ESCAPE)
     end
 
     def self.fail_escape(plural)
         if plural
-            Narrator.write("Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire.")
+            Narrator.write(Locale::KEY_ESCAPE_FAIL_PLURAL)
         else
-            Narrator.write("Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire.")
+            Narrator.write(Locale::KEY_ESCAPE_FAIL_SINGLE)
         end
     end
 
     def self.victory_scene(was_plural, xp)
         Narrator.add_space_of(1)
         if was_plural
-            Narrator.write("Victoire ! Tout les monstres sont morts et vous obtenez #{xp} points d'expérience.")
+            Narrator.write(format(Locale.get_localized(Locale::KEY_VICTORY_PLURAL), xp))
         else
-            Narrator.write("Victoire ! Le monstre meurt et vous laisse #{xp} points d'expérience.")
+            Narrator.write(format(Locale.get_localized(Locale::KEY_VICTORY_SINGLE), xp))
         end
     end
 
     def self.sneaking_transition
-        Narrator.write("Vous reprenez votre exploration du donjon.")
+        Narrator.write(Locale::KEY_EXPLORATION_CONTINUE)
     end
 
     def self.exit_dungeon(did_nothing)
         if (did_nothing)
-            print "Trop effrayé.e par les terreurs du donjon, "
+            write_same_line(Locale::KEY_EXIT_SCARED)
         else
-            print "En ayant terminé avec le donjon, "
+            write_same_line(Locale::KEY_EXIT_DONE)
         end
-        Narrator.write([
-            "Vous quittez l'étrange batisse.",
-            "Vous avez survécu.",
-            ""
-        ])
+        Narrator.write(Locale::KEY_EXIT_SURVIVED)
     end
 
     def self.hurt(denomination, damage)
-        Narrator.write("#{denomination.capitalize} prend #{damage} dégats.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_HURT_MESSAGE), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_AMOUNT => damage
+        }))
     end
 
     def self.detailed_hurt(denomination, damage_taken, damage, dodge_score, defense_text)
-        Narrator.write("#{denomination.capitalize} prend #{damage_taken} dégats. (#{damage} reçu, #{dodge_score} esquivé#{defense_text})")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_DETAILED_HURT_MESSAGE), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_AMOUNT => damage_taken,
+            Locale::F_KEY_TOTAL => damage,
+            Locale::F_KEY_DODGED => dodge_score,
+            Locale::F_KEY_PARRIED => defense_text
+        }))
     end
 
     def self.heal(denomination, amount)
-        Narrator.write("#{denomination.capitalize} récupère #{amount} points de vie.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_HEAL_MESSAGE), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_AMOUNT => amount
+        }))
     end
 
     def self.dont_need_heal(denomination)
-        Narrator.write("#{denomination.capitalize} n'est pas blessé.e et n'a donc pas besoin d'être soigné.e.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_DONT_NEED_HEAL), denomination.capitalize))
     end
 
     def self.heal_spell_fail
-        Narrator.write("Vous ne savez pas comment vous soigner.")
+        Narrator.write(Locale::KEY_HEAL_FAIL_MESSAGE)
     end
 
     def self.heal_spell_cast(denomination, target)
-        Narrator.write("#{denomination.capitalize} soigne #{target}.")
+        Narrator.write(format((Locale.get_localized(Locale::KEY_HEAL_SPELL_MESSAGE)), {
+            Locale::F_KEY_SOURCE => denomination.capitalize,
+            Locale::F_KEY_TARGET => target
+        }))
     end
 
     def self.self_heal(denomination, amount)
-        Narrator.write("#{denomination.capitalize} se soigne #{amount} points de vie.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_SELF_HEAL_MESSAGE), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_AMOUNT => amount
+        }))
     end
 
     def self.player_spell_fail
-        Narrator.write("Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts.")
+        Narrator.write(Locale::KEY_SPELL_FAIL)
     end
 
     def self.player_spell_cast(denomination)
-        Narrator.write("#{denomination.capitalize} lance une attaque magique.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_SPELL_CAST), denomination.capitalize))
     end
 
     def self.monster_death(denomination)
-        Narrator.write("#{denomination.capitalize} s'effondre sous vos coups.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_MONSTER_DEATH), denomination.capitalize))
     end
 
     def self.player_death(denomination)
-        Narrator.write("#{denomination.capitalize} s'éffondre au sol.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_PLAYER_DEATH), denomination.capitalize))
     end
 
     def self.obtain_item(denomination, item_name)
-        Narrator.write("#{denomination.capitalize} obtiens #{item_name}.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_OBTAIN_ITEM), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_ITEM => item_name
+        }))
     end
 
     def self.remove_armor(denomination, item_name)
-        Narrator.write("#{denomination.capitalize} retire #{item_name}.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_REMOVE_ARMOR), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_ITEM => item_name
+        }))
     end
 
     def self.equip_armor(denomination, item_name)
-        Narrator.write("#{denomination.capitalize} s'équipe d'#{item_name}.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_EQUIP_ARMOR), {
+            Locale::F_KEY_TARGET => denomination.capitalize,
+            Locale::F_KEY_ITEM => item_name
+        }))
     end
 
     def self.searching(room_name)
-        print "Vous fouillez #{room_name} pour tout objet pouvant vous être utile"
+        write_same_line(format(Locale.get_localized(Locale::KEY_SEARCHING), room_name))
     end
 
     def self.everything_taken_already(denomination)
-        Narrator.write("Vous avez déjà pris tout les objets à prendre dans #{denomination}.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_ALREADY_TAKEN), denomination))
     end
 
     def self.nothing_found
-        Narrator.write("Vous ne trouvez rien de valeur.")
+        Narrator.write(Locale::KEY_NOTHING_FOUND)
     end
 
     def self.level_up
-        Narrator.write("Niveau supérieur !")
+        Narrator.write(Locale::KEY_LEVEL_UP)
     end
 
     def self.unknown_use
-        Narrator.write("Vous ne savez pas comment utiliser cet objet...")
+        Narrator.write(Locale::KEY_UNKNOWN_USE)
     end
 
     def self.bandage_use_self(user_name)
-        Narrator.write("#{user_name.capitalize} utilise ses bandages pour soigner ses blessures...")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_BANDAGE_USE_SELF), user_name.capitalize))
     end
 
     def self.bandage_use_other(user_name, target_name)
-        Narrator.write("#{user_name.capitalize} utilise des bandages pour soigner les blessures de #{target_name}...")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_BANDAGE_USE_OTHER), {
+            Locale::F_KEY_SOURCE => user_name.capitalize,
+            Locale::F_KEY_TARGET => target_name
+        }))
     end
 
     def self.toss_coin
-        print "Vous lancez la pièce dans les airs"
+        write_same_line(Locale::KEY_TOSS_COIN)
     end
 
     def self.coin_toss_suspense
-        print "La pièce retombe et roule sur elle-même avant de se stabiliser"
+        write_same_line(Locale::KEY_COIN_TOSS_SUSPENSE)
     end
 
     def self.coin_toss(result)
-        Narrator.write("La pièce est tombée sur #{result}.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_COIN_TOSS_RESULT), result))
     end
 
     def self.health_potion_use_self(user_name)
-        Narrator.write("#{user_name.capitalize} bois une potion de soin...")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_HEALTH_POTION_USE_SELF), user_name.capitalize))
     end
 
     def self.health_potion_use_other(user_name, target_name)
-        Narrator.write("#{user_name.capitalize} donne une potion de soin à #{target_name}...")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_HEALTH_POTION_USE_OTHER), {
+            Locale::F_KEY_SOURCE => user_name.capitalize,
+            Locale::F_KEY_TARGET => target_name
+        }))
     end
 
     def self.teleporter_fail
-        Narrator.write("Alors que vous tentez d'aggriper l'artéfact pour vous échapper, vos adversaires vous en empêchent.")
+        Narrator.write(Locale::KEY_TELEPORTER_FAIL)
     end
 
     def self.teleporter_start
-        Narrator.write("Lorsque vous prenez la pierre en votre main, une douce chaleur en émane.")
+        Narrator.write(Locale::KEY_TELEPORTER_START)
         Narrator.add_space_of(1)
     end
 
     def self.knight_slash
-        Narrator.write("Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi.")
+        Narrator.write(Locale::KEY_KNIGHT_SLASH)
     end
 
     def self.knight_limb_loss(limb_name)
-        Narrator.write("#{limb_name.capitalize} se brise sous vos coups.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_LIMB_LOSS), limb_name.capitalize))
     end
 
     def self.knight_change_weapon_side(boss_name)
-        Narrator.write("#{boss_name.capitalize} change son arme de main.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_CHANGE_WEAPON_SIDE), boss_name.capitalize))
     end
 
     def self.knight_phase_change
-        Narrator.write("Il semble être pris d'une résolution soudaine et insoupsonnée.")
+        Narrator.write(Locale::KEY_KNIGHT_PHASE_CHANGE)
     end
 
     def self.knight_defenseless(boss_name)
-        Narrator.write("#{boss_name.capitalize} laisse son arme tomber au sol, impuissant.")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_DEFENSELESS), boss_name.capitalize))
     end
 
     def self.knight_death1(boss_name)
-        Narrator.write([
-            "Le casque #{boss_name} s'enfonce sous vos coups,",
-            "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur."
-        ])
+        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_DEATH_FIRST), boss_name))
+        Narrator.write(Locale::KEY_KNIGHT_DEATH_SECOND)
     end
 
     def self.knight_death2
         Narrator.add_space_of(1)
-        Narrator.write("Le chevalier reste immobile quelques instants, avant de s'effondrer soudainement.")
+        Narrator.write(Locale::KEY_KNIGHT_DEATH_THIRD)
     end
 
     def self.show_player_battle_cards(player)
@@ -641,37 +563,27 @@ class Narrator
 
     def self.put_scrollbar(scroll_bar, current_page, nb_pages)
         Narrator.write(scroll_bar)
-        Narrator.write("Page #{current_page + 1}/#{nb_pages}")
+        Narrator.write(Locale.get_localized(Locale::KEY_PAGE) + " #{current_page + 1}/#{nb_pages}")
     end
 
     def self.ask_name(current_name)
-        Narrator.write("Quel est votre nom ?")
+        Narrator.write(Locale::KEY_ASK_NAME)
         if (current_name != CharacterCreator::DEFAULT_NAME)
-            Narrator.write("Nom actuel : #{current_name}")
+            Narrator.write(Locale.get_localized(Locale::KEY_CURRENT_NAME) + current_name)
         end
     end
 
     def self.ask_confirm_character
-        Narrator.write([
-            "Est-ce qui vous êtes ?",
-            "  0) Annuler la création du personnage",
-            "  1) Changer de nom",
-            "  2) Changer d'apparence",
-            "  3) Confirmer"
-        ])
+        Narrator.write(Locale::KEY_ASK_CONFIRM_CHARACTER)
     end
 
     def self.ask_play_again
         loop do
-            Narrator.write([
-                "Que souhaitez-vous faire?",
-                "    a) Retourner au magasin",
-                "    b) Partir au menu principal"
-            ])
+            Narrator.write(Locale::KEY_ASK_SHOP)
             case Narrator.user_input.capitalize
-            when "A"
+            when 'A'
                 return true
-            when "B"
+            when 'B'
                 return false
             else
                 Narrator.unsupported_choice_error
@@ -680,39 +592,31 @@ class Narrator
     end
 
     def self.ask_desired_volume
-        Narrator.write("Quel volume souhaitez-vous ? (volume actuel : #{Settings.music_volume}%)")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_ASK_VOLUME), Settings.music_volume))
     end
 
     def self.ask_if_sound_effects
-        Narrator.write([
-            "Souhaitez-vous des effets sonores ?",
-            "    0) Retour...",
-            "    1) Oui",
-            "    2) Non"
-        ])
+        Narrator.write(Locale::KEY_ASK_SOUND_EFFECTS)
     end
 
     def self.usage_options(item_name, usage_text)
-        Narrator.write("Que souhaitez faire avec #{item_name} ?")
-        Narrator.write("0) Annuler...")
-        Narrator.write("1) #{usage_text}")
-        Narrator.write("2) Donner")
+        Narrator.write(format(Locale::get_localized(Locale::KEY_ASK_USE), item_name))
+        Narrator.write(Locale::KEY_ABORT_ENUMERATED)
+        Narrator.write("    1) #{usage_text}")
+        Narrator.write(Locale::KEY_GIVE_OPTION)
     end
 
     def self.ask_quantity_given(item_name)
-        Narrator.write("Combien de #{item_name} souhaitez-vous donner ?")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_ASK_QUANTITY_GIVEN), item_name))
     end
 
     def self.ask_quantity_sold(item_name)
-        Narrator.write("Combien de #{item_name} souhaitez-vous vendre ?")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_ASK_QUANTITY_SOLD), item_name))
     end
 
     def self.ask_if_fight(escape_chances, player_name)
-        Narrator.write([
-            "Que voulez-vous faire ?",
-            "      1) Combattre"
-        ])
-        Narrator.write("      2) Rester discret (#{escape_chances}% de chances de réussite)")
+        Narrator.write(Locale::KEY_PROPOSE_COMBAT)
+        Narrator.write(format(Locale.get_localized(Locale::KEY_PROPOSE_SNEAK), escape_chances))
         return user_input(player_name)
     end
 
@@ -722,28 +626,22 @@ class Narrator
             monster_cards_pages.show(25)
             Narrator.add_space_of(1)
             show_player_battle_cards(player)
-            Narrator.write("Vous faites face à #{monsters_description}.")
+            Narrator.write(format(Locale.get_localized(Locale::KEY_DESCRIBE_ENNEMIES), monsters_description))
             Narrator.add_space_of(1)
-            Narrator.write([
-                "Que voulez-vous faire ?",
-                "      1) Attaque physique",
-                "      2) Attaque magique",
-                "      3) Sort de soin",
-                "      4) Utiliser un objet..."
-            ])
-            Narrator.write("      5) Fuir... (#{escape_chances}% de chances de réussite)")
+            Narrator.write(Locale::KEY_FIGHT_ACTIONS)
+            Narrator.write(format(Locale.get_localized(Locale::KEY_ESCAPE_COMBAT), escape_chances))
             input = user_input(player.get_name)
             case input
-            when "1"
+            when '1'
                 return player.get_room.get_monsters.hurt_single(player.strength_attack)
-            when "2"
+            when '2'
                 player.get_room.get_monsters.hurt_magic(player.magic_attack)
                 return Player::ACTED
-            when "3"
+            when '3'
                 return player.heal_spell
-            when "4"
+            when '4'
                 return player.use_item
-            when "5"
+            when '5'
                 if player.can_escape?(player.get_room.get_monsters.get_current_power)
                     escape_scene
                     return player.escape
@@ -752,9 +650,9 @@ class Narrator
                     return Player::ACTED
                 end
             else
-                if input.capitalize == "A"
+                if input.capitalize == 'A'
                     monster_cards_pages.page_down
-                elsif input.capitalize == "Z"
+                elsif input.capitalize == 'Z'
                     monster_cards_pages.page_up
                 else
                     unsupported_choice_error
@@ -764,16 +662,12 @@ class Narrator
     end
 
     def self.ask_continue
-        Narrator.write([
-            "Réessayer ?",
-            "      1) Oui",
-            "      2) Non"
-        ])
+        Narrator.write(Locale::KEY_TRY_AGAIN)
         return user_input
     end
 
     def self.ask_armor_replacement_confirmation(armor_name)
-        Narrator.write("Êtes-vous sûr de vouloir remplacer votre armure actuelle par #{armor_name} ? (y/n)")
+        Narrator.write(format(Locale.get_localized(Locale::KEY_ARMOR_CHANGE_CONFIRMATION), armor_name))
     end
 
     def self.ask_confirmation(question)
@@ -784,9 +678,9 @@ class Narrator
             Narrator.write(line)
         end
         case Narrator.user_input.downcase
-        when "y"
+        when 'y'
             return true
-        when "n"
+        when 'n'
             return false
         else
             Narrator.unsupported_choice_error
@@ -796,61 +690,58 @@ class Narrator
 
     def self.unsupported_choice_error
         Narrator.add_space_of(1)
-        Narrator.write("Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées.")
+        Narrator.write(Locale::KEY_UNSUPPORTED_CHOICE_ERROR)
     end
 
     def self.page_up_impossible_error
-        Narrator.write("Impossible de passer à la page suivante. Page maximale atteinte.")
+        Narrator.write(Locale::KEY_PAGE_UP_IMPOSSIBLE_ERROR)
     end
 
     def self.page_down_impossible_error
-        Narrator.write("Impossible de passer à la page précédente. Page minimale atteinte.")
+        Narrator.write(Locale::KEY_PAGE_DOWN_IMPOSSIBLE_ERROR)
     end
 
     def self.empty_name_error
-        Narrator.write("Le nom ne peux être vide.")
+        Narrator.write(Locale::KEY_EMPTY_NAME_ERROR)
     end
 
     def self.forbiden_char_error
-        Narrator.write("Les noms ne peuvent pas contenir de caractères spéciaux.")
+        Narrator.write(Locale::KEY_FORBIDDEN_CHAR_ERROR)
     end
 
-    def self.no_file_found_error(fine_name)
-        Narrator.write("Aucun fichier nommé #{file_name} n'a pu être trouvé.")
+    def self.no_file_found_error(file_name)
+        Narrator.write(format(Locale.get_localized(Locale::KEY_NO_FILE_FOUND_ERROR), file_name))
     end
 
     def self.negative_quantity_error
-        Narrator.write("Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif.")
+        Narrator.write(Locale::KEY_NEGATIVE_QUANTITY_ERROR)
     end
 
     def self.unexpected_damage_type_error
-        Narrator.write("<< unexpected damage type encountered >>")
+        Narrator.write(Locale::KEY_UNEXPECTED_DAMAGE_TYPE_ERROR)
     end
 
     def self.unexpected_error
-        Narrator.write("<< an unexpected error occured >>")
+        Narrator.write(Locale::KEY_UNEXPECTED_ERROR)
     end
 
     def self.user_input(name = NO_NAME_DISPLAYED)
         Narrator.add_space_of(1)
         if name != NO_NAME_DISPLAYED
-            name_prefix = name + " : "
+            name_prefix = name + ' : '
         else
-            name_prefix = ""
+            name_prefix = ''
         end
-        print "  #{name_prefix}>> "
+        write_same_line("  #{name_prefix}>> ")
         begin
             answer = gets.chomp
         rescue SystemExit, Interrupt => e
             loop do
-                Narrator.write([
-                    "Êtes vous sûr de vouloir fermer le jeu ? (y/n)",
-                    "Toute progression non sauvegardée sera perdue."
-                ])
+                Narrator.write(Locale::KEY_CLOSE_GAME_CONFIRM)
                 case user_input.capitalize
-                when "Y"
+                when 'Y'
                     raise e
-                when "N"
+                when 'N'
                     return user_input
                 end
             end
@@ -863,7 +754,7 @@ class Narrator
 
     def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
-            -> (element, i, to_string) {Narrator.write("      #{i}) #{to_string.call(element).capitalize}")},
+            -> (element, i, to_string) {Narrator.write("    #{i}) #{to_string.call(element).capitalize}")},
             player_name
         )
     end
@@ -872,7 +763,7 @@ class Narrator
         options = [return_option].concat options
         loop do
             Narrator.write(question)
-            Narrator.write("    0) Retour...")
+            Narrator.write(Locale::KEY_GO_BACK_ENUMERATED)
             options_row = ASCIIRow.new
             for i in 1..(options.length - 1)
                 options_row.append(getter.call(options[i], i))
@@ -901,11 +792,11 @@ class Narrator
             input = user_input(player_name)
             if input.to_i.between?(1, options.length)
                 return input.to_i - 1
-            elsif input.capitalize == "A"
+            elsif input.capitalize == 'A'
                 options_pages.page_down
-            elsif input.capitalize == "Z"
+            elsif input.capitalize == 'Z'
                 options_pages.page_up
-            elsif input == "0"
+            elsif input == '0'
                 return return_option
             else
                 unsupported_choice_error

@@ -1,5 +1,5 @@
 class MusicManager
-    MUSIC_FOLDER = "Osts/"
+    MUSIC_FOLDER = 'Osts/'
     FIGHTING = true
     FADEOUT_TIME = 500
     NO_MUSIC = nil

@@ -1,7 +1,7 @@
 class Equipment
-    HELMET_ID = "helmet"
-    PLASTRON_ID = "plastron"
-    GAUNTLETS_ID = "gauntlets"
+    HELMET_ID = 'helmet'
+    PLASTRON_ID = 'plastron'
+    GAUNTLETS_ID = 'gauntlets'
 
 
     def initialize
@@ -97,11 +97,11 @@ class Equipment
         see_equipment
         Narrator.equipment_options(got_equipment?)
         case Narrator.user_input
-        when "0"
+        when '0'
             return !Player::ACTED
-        when "1"
+        when '1'
             ask_equip(inventory, player_name)
-        when "2"
+        when '2'
             if got_equipment?
                 ask_remove(inventory, player_name)
             else
@@ -116,7 +116,7 @@ class Equipment
     def ask_equip(inventory, player_name)
         available_equipments = inventory.get_all(Armor)
         equipment_index = Narrator.ask_paginated(
-            "Quel pièce d'armure souhaitez-vous équiper?",
+            Locale::KEY_ASK_EQUIPPED_ARMOR,
             available_equipments,
             -> (equipment, index){
                 equipment_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(equipment, index, 0))
@@ -141,7 +141,7 @@ class Equipment
     def ask_remove(inventory, player_name)
         removable_slots = get_taken_slots
         equipment_index = Narrator.ask_complex_element(
-            "Quel pièce d'armure souhaitez-vous retirer?",
+            Locale::KEY_ASK_REMOVED_ARMOR,
             removable_slots,
             -> (slot, index) {
                 removable_card = slot.get_card(index)

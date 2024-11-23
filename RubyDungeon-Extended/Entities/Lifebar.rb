@@ -18,7 +18,7 @@ class Lifebar
 
     def healthbar(total_health_points)
         health_points = (@current_life * total_health_points).div(@max_life)
-        return ("█" * health_points) + ("░" * (total_health_points - health_points))
+        return ('█' * health_points) + ('░' * (total_health_points - health_points))
     end
 
     def life_to_string
@@ -54,6 +54,6 @@ class Lifebar
 
     def self.healthbar_for(amount, max, total_health_points)
         health_points = (amount * total_health_points).div(max)
-        return ("█" * health_points) + ("░" * (total_health_points - health_points))
+        return ('█' * health_points) + ('░' * (total_health_points - health_points))
     end
 end

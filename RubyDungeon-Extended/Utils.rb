@@ -7,7 +7,7 @@ class Utils
 
     def self.truncate(string, size)
         if string.length > size
-            cutoff_suffix = "..."
+            cutoff_suffix = '...'
             return string[0..size-(cutoff_suffix.length + 1)] + cutoff_suffix
         else
             return string
@@ -19,17 +19,17 @@ class Utils
             return array_of_string[0]
         else
             last_string = array_of_string.pop();
-            returned_string = ""
+            returned_string = ''
             first = true
             for string in array_of_string
                 if !first
-                    returned_string << ", "
+                    returned_string << ', '
                 else
                     first = false
                 end
                 returned_string << string
             end
-            return returned_string + " et " + last_string
+            return returned_string + ' et ' + last_string
         end
     end
 
@@ -42,12 +42,12 @@ class Utils
     end
 
     def self.center(string, width)
-        return (" " * Utils.positive((width - string.length).div(2))) + string
+        return (' ' * Utils.positive((width - string.length).div(2))) + string
     end
 
     def self.multiline(string, width)
         multiline_string = []
-        current_string = ""
+        current_string = ''
         for paragraph in string.split("\n")
             first = true
             for word in paragraph.split
@@ -55,17 +55,17 @@ class Utils
                     if first
                         first = false
                     else
-                        word = " " + word
+                        word = ' ' + word
                     end
                     current_string = current_string + word
                 else
-                    if current_string != ""
+                    if current_string != ''
                         multiline_string.append(current_string)
                         current_string = word
                     else
                         for chunk in word.scan(/.{1,#{width - 1}}/)
                             if chunk.length != 1
-                                multiline_string.append(chunk + "-")
+                                multiline_string.append(chunk + '-')
                             else
                                 multiline_string[-1] = multiline_string.last[0...-1] + chunk
                             end
@@ -74,7 +74,7 @@ class Utils
                 end
             end
             multiline_string.append(current_string)
-            current_string = ""
+            current_string = ''
         end
         return multiline_string
     end

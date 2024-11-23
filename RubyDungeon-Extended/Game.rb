@@ -8,16 +8,16 @@ class Game
         game_running = true
         while game_running
             MusicManager.get_instance.start
-            MusicManager.get_instance.set_ambiance("Title screen")
+            MusicManager.get_instance.set_ambiance('Title screen')
             wanna_play = main_menu
             if wanna_play
                 while wanna_play
                     MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
                     Narrator.introduction_shop
-                    MusicManager.get_instance.set_ambiance("Merchant")
+                    MusicManager.get_instance.set_ambiance('Merchant')
                     @party.shop
                     @party.save
-                    MusicManager.get_instance.set_ambiance("Dungeon Entrance", "Dungeon Entrance Battle theme")
+                    MusicManager.get_instance.set_ambiance('Dungeon Entrance', 'Dungeon Entrance Battle theme')
                     Narrator.introduction(@party)
                     wanna_continue = true
                     while wanna_continue
@@ -63,9 +63,9 @@ class Game
             loop do
                 Narrator.warning_pop_up
                 case Narrator.user_input
-                when "1"
+                when '1'
                     return
-                when "2"
+                when '2'
                     Settings.set_warning_pop_up_enabled(false)
                     return
                 else
@@ -77,19 +77,19 @@ class Game
 
     def main_menu
         Narrator.add_space_of(10)
-        ASCIIPrinter.print("title")
+        ASCIIPrinter.print('title')
         Narrator.main_menu_options
         case Narrator.user_input
-        when "1"
+        when '1'
             if initialize_party == CHARACTER_SELECTED
                 return WANNA_PLAY
             else
                 return main_menu
             end
-        when "2"
+        when '2'
             options_menu
             main_menu
-        when "3"
+        when '3'
             return (not WANNA_PLAY)
         else
             Narrator.unsupported_choice_error
@@ -116,11 +116,11 @@ class Game
         Narrator.start_travel_option(index_enter_dungeon)
         choosen_option = Narrator.user_input
         case choosen_option
-        when "0"
-            if Narrator.ask_confirmation(["Êtes-vous sûr de vouloir revenir en arrière ? (y/n)", "Les personnages sélectionnés ne seront pas sauvegardés"])
+        when '0'
+            if Narrator.ask_confirmation(Locale::KEY_CHARACTER_UNSAVED_RETURN_CONFIRM)
                 return (not CHARACTER_SELECTED)
             end
-        when "1"
+        when '1'
             new_player = get_character
             if new_player != nil
                 @party.add_player(new_player)
@@ -129,7 +129,7 @@ class Game
             if (choosen_option == index_enter_dungeon.to_s)
                 return CHARACTER_SELECTED
             else
-                if (@party.size > 1) && (choosen_option == "2")
+                if (@party.size > 1) && (choosen_option == '2')
                     @party.remove_player
                 else
                     Narrator.unsupported_choice_error
@@ -145,17 +145,17 @@ class Game
         if (saves != nil) && (saves.length > 0)
             Narrator.new_or_old_character
             case Narrator.user_input
-            when "0"
+            when '0'
                 return nil
-            when "1"
+            when '1'
                 new_character = character_creator.make_character
                 if new_character == nil
                     return get_character
                 end
                 return new_character
-            when "2"
+            when '2'
                 save_index = Narrator.ask_paginated(
-                    "Quelle sauvegarde charger ?",
+                    'Quelle sauvegarde charger ?',
                     saves,
                     -> (save, index){
                         save_data = SaveManager.load(save)
@@ -183,12 +183,14 @@ class Game
         loop do
             Narrator.options_selection
             case Narrator.user_input
-            when "0"
+            when '0'
                 return
-            when "1"
+            when '1'
                 asset_size_menu
-            when "2"
+            when '2'
                 sound_menu
+            when '3'
+                language_menu
             else
                 Narrator.unsupported_choice_error
             end
@@ -198,14 +200,14 @@ class Game
     def asset_size_menu
         Narrator.asset_size_verification_line
         Narrator.add_space_of(3)
-        ASCIIPrinter.print("example")
+        ASCIIPrinter.print('example')
         Narrator.asset_size_options
         case Narrator.user_input
-        when "0"
-        when "1"
+        when '0'
+        when '1'
             Settings.set_print_small(false)
             asset_size_menu
-        when "2"
+        when '2'
             Settings.set_print_small(true)
             asset_size_menu
         else
@@ -218,14 +220,36 @@ class Game
         loop do
             Narrator.sound_options
             case Narrator.user_input
-            when "0"
+            when '0'
                 return
-            when "1"
+            when '1'
                 music_volume_menu
-            when "2"
+            when '2'
                 sound_effects_menu
             else
                 Narrator.unsupported_choice_error
+            end
+        end
+    end
+
+    def language_menu
+        loop do
+            Narrator.language_options
+            index = 1
+            for available_locale in Locale::AVAILABLE_LOCALES
+                Narrator.enumerate(Locale.get_localized(available_locale), index)
+                index += 1
+            end
+            choosen_locale = Narrator.user_input.to_i
+            if (choosen_locale > 0) && (choosen_locale <= Locale::AVAILABLE_LOCALES.length)
+                Settings.set_locale(Locale::AVAILABLE_LOCALES[choosen_locale - 1])
+                return
+            else
+                if choosen_locale == 0
+                    return
+                else
+                    Narrator.unsupported_choice_error
+                end
             end
         end
     end
@@ -251,11 +275,11 @@ class Game
     def sound_effects_menu
         Narrator.ask_if_sound_effects
         case Narrator.user_input
-        when "0"
-        when "1"
+        when '0'
+        when '1'
             Settings.set_sound_effects(true)
-            SoundManager.play("stat_up")
-        when "2"
+            SoundManager.play('stat_up')
+        when '2'
             Settings.set_sound_effects(false)
         else
             Narrator.unsupported_choice_error
@@ -265,10 +289,10 @@ class Game
 
     def ask_continue
         case Narrator.ask_continue
-        when "1"
+        when '1'
             @party.load
             return true
-        when "2"
+        when '2'
             return false
         else
             Narrator.unsupported_choice_error

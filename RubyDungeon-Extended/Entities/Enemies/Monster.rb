@@ -10,11 +10,19 @@ class Monster
     end
 
     def get_description
-        return "#{@name.get_gendered_a} avec #{get_current_life} points de vies et #{get_strength} dégats"
+        return format(Locale.get_localized(Locale::KEY_MONSTER_DESCRIPTION), {
+            Locale::F_KEY_SUBJECT => @name.get_gendered_a,
+            Locale::F_KEY_LIFE => get_current_life,
+            Locale::F_KEY_STRENGTH => get_strength
+        })
     end
 
     def get_description_the
-        return "#{@name.get_gendered_the} avec #{get_current_life} points de vies et #{get_strength} dégats"
+        return format(Locale.get_localized(Locale::KEY_MONSTER_DESCRIPTION), {
+            Locale::F_KEY_SUBJECT => @name.get_gendered_the,
+            Locale::F_KEY_LIFE => get_current_life,
+            Locale::F_KEY_STRENGTH => get_strength
+        })
     end
 
     def get_name
@@ -75,7 +83,7 @@ class Monster
 
     def hurt(attack)
         damage = attack.damage_dealt
-        SoundManager.play("ennemy_hurt")
+        SoundManager.play('ennemy_hurt')
         Narrator.hurt(@name.get_gendered_the, damage)
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage)

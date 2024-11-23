@@ -136,8 +136,8 @@ class EnnemyAI
     end
 
     def physical_attack(player, strength)
-        SoundManager.play("swoosh")
-        Narrator.write("#{@denomination.capitalize} #{@basic_attack_messages.sample % [player.get_name]}")
+        SoundManager.play('swoosh')
+        Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages).sample % [player.get_name]}")
         sleep Settings::BATTLE_ACTION_PAUSE
         player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, self))
     end
