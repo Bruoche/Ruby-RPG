@@ -28,7 +28,7 @@ class LostKnightLeftArm
     DAMAGE = BaseStats::BASE_STRENGTH.div(3) * 2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
-    BASE_MOVES = Locale::KEY_KNIGHT_LEFT_ATTACK
+    BASE_MOVES = [Locale::KEY_KNIGHT_LEFT_ATTACK]
     SPECIAL_MOVES = []
     DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
 end
@@ -39,7 +39,7 @@ class LostKnightRightArm
     DAMAGE = BaseStats::BASE_STRENGTH
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
-    BASE_MOVES = Locale::KEY_KNIGHT_RIGHT_ATTACK
+    BASE_MOVES = [Locale::KEY_KNIGHT_RIGHT_ATTACK]
     SPECIAL_MOVES = [
         SpecialMove.new(25, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]

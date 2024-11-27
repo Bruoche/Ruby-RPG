@@ -6,13 +6,13 @@ class Bodypart
             bossBodypart::DAMAGE + power_bonus,
             0,
             Name.new(bossBodypart),
-            bossBodypart::BASE_MOVES,
+            bossBodypart::BASE_MOVES.map(&:clone),
             [''],
             [''],
             0,
             ASCIIPicture.new([])
         )
-        @special_moves = bossBodypart::SPECIAL_MOVES
+        @special_moves = bossBodypart::SPECIAL_MOVES.map(&:clone)
         @death_event = bossBodypart::DEATH_EVENT
     end
 
@@ -37,7 +37,7 @@ class Bodypart
     end
 
     def add_special_move(special_move)
-        @special_moves.push(special_move)
+        @special_moves.append(special_move)
     end
 
     def set_strength(damage)
@@ -49,11 +49,10 @@ class Bodypart
     end
 
     def act(targets, pack, parent)
-        attacks = []
         for special_move in @special_moves
             special_move.attempt(targets, pack, @actor, parent)
         end
-        attacks.push(@actor.act(targets, pack))
+        @actor.act(targets, pack)
     end
 
     def hurt(attack)
