@@ -264,7 +264,8 @@ class FR
             "    2) Non"
         ],
         Locale::KEY_NO_ITEMS_TO_USE => "Vous n'avez pas d'objets à utiliser.",
-        Locale::KEY_NO_ITEMS_TO_SELL => "Aucun objet à vendre",
+        Locale::KEY_NO_ITEMS_TO_SELL => "Aucun objet à vendre.",
+        Locale::KEY_NO_ITEMS_TO_EQUIP => "Aucun objet à équiper.",
         Locale::KEY_INVENTORY_TITLE => "Vous possédez : ",
         Locale::KEY_SHOP_INTRO => [
             "",

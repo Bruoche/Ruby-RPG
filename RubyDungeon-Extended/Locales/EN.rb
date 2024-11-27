@@ -265,6 +265,7 @@ class EN
         ],
         Locale::KEY_NO_ITEMS_TO_USE => "You have no items to use.",
         Locale::KEY_NO_ITEMS_TO_SELL => "No items to sell",
+        Locale::KEY_NO_ITEMS_TO_EQUIP => "No items to equip.",
         Locale::KEY_INVENTORY_TITLE => "You posses : ",
         Locale::KEY_SHOP_INTRO => [
             "",

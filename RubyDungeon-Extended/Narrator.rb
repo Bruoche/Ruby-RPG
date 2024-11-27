@@ -164,6 +164,10 @@ class Narrator
         Narrator.write(Locale::KEY_NO_ITEMS_TO_SELL)
     end
 
+    def self.no_items_to_equip
+        Narrator.write(Locale::KEY_NO_ITEMS_TO_EQUIP)
+    end
+
     def self.item_possessed_title
         Narrator.write(Locale::KEY_INVENTORY_TITLE)
     end

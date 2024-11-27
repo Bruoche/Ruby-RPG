@@ -115,26 +115,31 @@ class Equipment
 
     def ask_equip(inventory, player_name)
         available_equipments = inventory.get_all(Armor)
-        equipment_index = Narrator.ask_paginated(
-            Locale::KEY_ASK_EQUIPPED_ARMOR,
-            available_equipments,
-            -> (equipment, index){
-                equipment_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(equipment, index, 0))
-                equipment_card.frame
-                return equipment_card
-            },
-            player_name,
-            true
-        )
-        if equipment_index == Narrator::RETURN_BUTTON
-            return !Player::ACTED
-        else
-            choosen_armor = available_equipments[equipment_index].get_item
-            removed_armor = equip(choosen_armor, player_name)
-            inventory.remove(choosen_armor)
-            if removed_armor != EquipmentSlot::NO_ARMOR_EQUIPPED
-                inventory.add(Bundle.new(removed_armor, 1))
+        if (available_equipments.length > 0)
+            equipment_index = Narrator.ask_paginated(
+                Locale::KEY_ASK_EQUIPPED_ARMOR,
+                available_equipments,
+                -> (equipment, index){
+                    equipment_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(equipment, index, 0))
+                    equipment_card.frame
+                    return equipment_card
+                },
+                player_name,
+                true
+            )
+            if equipment_index == Narrator::RETURN_BUTTON
+                return !Player::ACTED
+            else
+                choosen_armor = available_equipments[equipment_index].get_item
+                removed_armor = equip(choosen_armor, player_name)
+                inventory.remove(choosen_armor)
+                if removed_armor != EquipmentSlot::NO_ARMOR_EQUIPPED
+                    inventory.add(Bundle.new(removed_armor, 1))
+                end
             end
+        else
+            Narrator.no_items_to_equip
+            Narrator.pause_text
         end
     end
 

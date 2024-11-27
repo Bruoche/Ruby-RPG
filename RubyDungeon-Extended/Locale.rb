@@ -163,6 +163,7 @@ class Locale
     KEY_YES_OR_NO = :yes_or_no
     KEY_NO_ITEMS_TO_USE = :no_items_to_use
     KEY_NO_ITEMS_TO_SELL = :no_items_to_sell
+    KEY_NO_ITEMS_TO_EQUIP = :no_items_to_equip
     KEY_INVENTORY_TITLE = :inventory_title
     KEY_SHOP_INTRO = :shop_intro
     KEY_FIRST_INTRO = :first_intro
