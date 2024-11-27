@@ -70,7 +70,7 @@ class Goblin < Bestiary
             33,
             Coins,
             [],
-            2,
+            1,
             3
         )
     ]
