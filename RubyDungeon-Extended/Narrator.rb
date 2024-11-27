@@ -218,7 +218,7 @@ class Narrator
 
     def self.describe_empty_room(player, describe_biome, picture, the_room, female)
         describe_room(player, describe_biome, picture)
-        write_same_line(Locale.get_localized(Locale::KEY_ENTER_ROOM) + the_room)
+        write_same_line(Locale.get_localized(Locale::KEY_ENTER_ROOM) + the_room + " ")
         if female
             Narrator.write(Locale::KEY_EMPTY_ROOM_F)
         else

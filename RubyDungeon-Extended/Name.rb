@@ -68,6 +68,6 @@ class Name
             Locale::F_KEY_NAME => name,
             Locale::F_KEY_PREFIX => prefix,
             Locale::F_KEY_SUFFIX => suffix
-        }).strip
+        }).split.join(' ')
     end
 end

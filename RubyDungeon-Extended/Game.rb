@@ -155,7 +155,7 @@ class Game
                 return new_character
             when '2'
                 save_index = Narrator.ask_paginated(
-                    'Quelle sauvegarde charger ?',
+                    Locale::KEY_ASK_SAVE,
                     saves,
                     -> (save, index){
                         save_data = SaveManager.load(save)

@@ -108,6 +108,7 @@ class Locale
     KEY_WORRYING_M = :worrying_m
     # Other
     KEY_NAME_TEMPLATE = :name_template
+    KEY_AND_SPACED = :and_spaced
     KEY_PAGE = :page
     KEY_A_F = :a_f
     KEY_A_M = :a_m
@@ -443,6 +444,7 @@ class Locale
     KEY_TELEPORTER_DESCRIPTION = :teleporter_description
     KEY_GOBLIN_LOOT_COINS = :goblin_loot_coins
     KEY_THE_EXIT = :the_exit
+    KEY_ASK_SAVE = :ask_save
 
     F_KEY_CURRENT = :current
     F_KEY_TOTAL = :total

@@ -105,6 +105,7 @@ class FR
         Locale::KEY_WORRYING_M => "inquiétant",
         # Other
         Locale::KEY_NAME_TEMPLATE => "%{#{Locale::F_KEY_PREFIX}} %{#{Locale::F_KEY_NAME}} %{#{Locale::F_KEY_SUFFIX}}",
+        Locale::KEY_AND_SPACED => " et ",
         Locale::KEY_PAGE => "Page",
         Locale::KEY_A_F => "une ",
         Locale::KEY_A_M => "un ",
@@ -681,6 +682,7 @@ class FR
         Locale::KEY_TELEPORTER_NAME => "un télé-cristal",
         Locale::KEY_TELEPORTER_DESCRIPTION => "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés.",
         Locale::KEY_GOBLIN_LOOT_COINS => ["En fouillant le corps du goblin vous remarquez une petite bourse accrochée à sa ceinture."],
-        Locale::KEY_THE_EXIT => "la sortie"
+        Locale::KEY_THE_EXIT => "la sortie",
+        Locale::KEY_ASK_SAVE => "Quelle sauvegarde charger ?"
     }
 end

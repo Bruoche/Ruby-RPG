@@ -29,7 +29,7 @@ class Utils
                 end
                 returned_string << string
             end
-            return returned_string + ' et ' + last_string
+            return returned_string + Locale.get_localized(Locale::KEY_AND_SPACED) + last_string
         end
     end
 

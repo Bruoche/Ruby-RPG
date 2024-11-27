@@ -63,7 +63,7 @@ class Pack
             if (i < (@monsters.length - 2))
                 monsters_description += ', '
             elsif (i < (@monsters.length - 1))
-                monsters_description += ' et '
+                monsters_description += Locale.get_localized(Locale::KEY_AND_SPACED)
             end
         end
         return monsters_description
@@ -79,7 +79,7 @@ class Pack
             if (i < (@monsters.length - 2))
                 monsters_description += ', '
             elsif (i < (@monsters.length - 1))
-                monsters_description += ' et '
+                monsters_description += Locale.get_localized(Locale::KEY_AND_SPACED)
             end
         end
         return monsters_description
