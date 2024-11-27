@@ -240,16 +240,24 @@ class EN
             "    2) Existing character"
         ],
         Locale::KEY_CHARACTER_CREATION_OPTIONS => [
-            "What do you want to change?",
+            "What do you want to customize?",
             "    0) Confirm appearance",
+            "    1) Body",
+            "    2) Facial features",
+            "    3) Facial hair",
+            "    4) Hairs"
+        ],
+        Locale::KEY_BODY_OPTIONS => [
+            "What do you want to customize?",
             "    1) Skin color",
             "    2) Corpulence",
-            "    3) Eye color",
-            "    4) Ears",
-            "    5) Nose",
-            "    6) Eyebrows",
-            "    7) Facial hair",
-            "    8) Hairs"
+        ],
+        Locale::KEY_FEATURES_OPTIONS => [
+            "What feature do you want to change?",
+            "    1) Eye color",
+            "    2) Ears",
+            "    3) Nose",
+            "    4) Eyebrows",
         ],
         Locale::KEY_CHARACTER_CREATION_BEARD_OPTIONS => [
             "What do you want to change?",

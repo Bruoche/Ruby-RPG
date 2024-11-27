@@ -216,6 +216,8 @@ class Locale
     KEY_START_TRAVEL_OPTION = :start_travel_option
     KEY_NEW_OR_OLD_CHARACTER = :new_or_old_character
     KEY_CHARACTER_CREATION_OPTIONS = :character_creation_options
+    KEY_FEATURES_OPTIONS = :features_options
+    KEY_BODY_OPTIONS = :body_options
     KEY_CHARACTER_CREATION_BEARD_OPTIONS = :character_creation_beard_options
     KEY_CHARACTER_CREATION_HAIR_OPTIONS = :character_creation_hair_options
     KEY_CHARACTER_CREATION_HAIRSTYLE_OPTIONS = :character_creation_hairstyle_options

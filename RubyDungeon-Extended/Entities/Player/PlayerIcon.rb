@@ -205,25 +205,53 @@ class PlayerIcon
         when '0'
             return
         when '1'
-            @skintone = choose_color(TONES, @skintone)
+            body_menu
         when '2'
-            @corpulence = choose(SIZES, @corpulence, Locale::KEY_ASK_CORPULENCE, Locale.get_localized(Locale::KEY_KEEP_CORPULENCE))
+            features_menu
         when '3'
-            @eye_color = choose_color(EYES_COLOR, @eye_color);
-        when '4'
-            @ears = choose(EARS, @ears, Locale::KEY_ASK_EARS, Locale.get_localized(Locale::KEY_KEEP_EARS))
-        when '5'
-            @nose = choose(NOSES, @nose, Locale::KEY_ASK_NOSE, Locale.get_localized(Locale::KEY_KEEP_NOSE))
-        when '6'
-            @brows = choose(BROWS, @brows, Locale::KEY_ASK_EYEBROWS, Locale.get_localized(Locale::KEY_KEEP_EYEBROWS))
-        when '7'
             beard_menu
-        when '8'
+        when '4'
             hair_menu
         else
             Narrator.unsupported_choice_error
         end
         customize
+    end
+
+    def body_menu
+        show
+        Narrator.body_options
+        case Narrator.user_input
+        when '0'
+            return
+        when '1'
+            @skintone = choose_color(TONES, @skintone)
+        when '2'
+            @corpulence = choose(SIZES, @corpulence, Locale::KEY_ASK_CORPULENCE, Locale.get_localized(Locale::KEY_KEEP_CORPULENCE))
+        else
+            Narrator.unsupported_choice_error
+        end
+        body_menu
+    end
+
+    def features_menu
+        show
+        Narrator.features_options
+        case Narrator.user_input
+        when '0'
+            return
+        when '1'
+            @eye_color = choose_color(EYES_COLOR, @eye_color);
+        when '2'
+            @ears = choose(EARS, @ears, Locale::KEY_ASK_EARS, Locale.get_localized(Locale::KEY_KEEP_EARS))
+        when '3'
+            @nose = choose(NOSES, @nose, Locale::KEY_ASK_NOSE, Locale.get_localized(Locale::KEY_KEEP_NOSE))
+        when '4'
+            @brows = choose(BROWS, @brows, Locale::KEY_ASK_EYEBROWS, Locale.get_localized(Locale::KEY_KEEP_EYEBROWS))
+        else
+            Narrator.unsupported_choice_error
+        end
+        features_menu
     end
 
     def beard_menu

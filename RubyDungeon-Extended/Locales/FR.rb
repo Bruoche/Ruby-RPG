@@ -242,14 +242,22 @@ class FR
         Locale::KEY_CHARACTER_CREATION_OPTIONS => [
             "Quel élément souhaitez-vous modifier ?",
             "    0) Valider l'apparence",
+            "    1) Corps",
+            "    2) Traits du visage",
+            "    3) Pilosité faciale",
+            "    4) Cheveux"
+        ],
+        Locale::KEY_BODY_OPTIONS => [
+            "Quel élément souhaitez-vous modifier ?",
             "    1) Couleur de peau",
             "    2) Corpulence",
-            "    3) Couleur des yeux",
-            "    4) Les oreilles",
-            "    5) Le nez",
-            "    6) Les sourcils",
-            "    7) Pilosité faciale",
-            "    8) Les cheveux"
+        ],
+        Locale::KEY_FEATURES_OPTIONS => [
+            "Quelle trait du visage souhaitez-vous modifier ?",
+            "    1) Couleur des yeux",
+            "    2) Les oreilles",
+            "    3) Le nez",
+            "    4) Les sourcils",
         ],
         Locale::KEY_CHARACTER_CREATION_BEARD_OPTIONS => [
             "Quel élément souhaitez-vous modifier ?",

@@ -50,6 +50,14 @@ class Narrator
         Narrator.write(Locale::KEY_CHARACTER_CREATION_OPTIONS)
     end
 
+    def self.features_options
+        Narrator.write(Locale::KEY_FEATURES_OPTIONS)
+    end
+
+    def self.body_options
+        Narrator.write(Locale::KEY_BODY_OPTIONS)
+    end
+
     def self.beard_options
         Narrator.write(Locale::KEY_CHARACTER_CREATION_BEARD_OPTIONS)
     end
