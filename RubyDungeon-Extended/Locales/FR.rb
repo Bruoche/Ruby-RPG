@@ -366,14 +366,14 @@ class FR
         Locale::KEY_FIRST_INTRO => [
             "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
             "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
-            "Vous êtes maintenant au pieds d'un donjon antique réputé comme étant sans fond.",
+            "Vous êtes maintenant au pieds d'un donjon étrange et réputé comme étant sans fond.",
             "",
             "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
         ],
         Locale::KEY_NEW_MEMBERS_INTRO => [
             "Après votre précédente expérience dans le donjon,",
             "Vous avez décidés de revenir plus nombreux, de nouveaux membres s'ajoutant à votre escouade.",
-            "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds, quoi qu'ils ne renferment."
+            "Ces donjons vous obsèdent, et il vous faut en découvrir les tréfonds quoi qu'ils ne renferment."
         ],
         Locale::KEY_RETURN_INTRO => [
             "Malgré que vous ayez survécus au donjon, quelque chose en vous semblait appelé par ce dernier.",
@@ -700,6 +700,10 @@ class FR
         Locale::KEY_ENTRANCE_LOOT_COINS => [
             "Vous trouvez quelques pièces posées sur une table",
             "Vous voyez une petite bourse posée sur une étagère"
+        ],
+        Locale::KEY_ENTRANCE_LOOT_HEALTH_POTION => [
+            "Vous voyez une potion de soin posée sur une table.",
+            "Vous trouvez une potion de soin rangée dans une commode."
         ],
         Locale::KEY_ENTRANCE_TRANSITION_CATACOMBS => [
             "Alors que vous avancez à travers le donjon, vous arrivez vers des couloirs plus restreints descendant plus profondément dans la terre.",
