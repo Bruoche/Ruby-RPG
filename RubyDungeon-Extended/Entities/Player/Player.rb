@@ -284,15 +284,10 @@ class Player
 
     def patch_up
         if (@lifebar.get_missing_life > 0)
-            amount = rand(1..(@lifebar.get_missing_life + 1)) - 1
-            if amount > 0
-                SoundManager.play('player_heal')
-                Narrator.heal(get_name, amount)
-                @lifebar.heal(amount)
-            else
-                SoundManager.play('spell_fart')
-                Narrator.patch_up_failed
-            end
+            amount = rand(1..(@lifebar.get_missing_life))
+            SoundManager.play('player_heal')
+            Narrator.heal(get_name, amount)
+            @lifebar.heal(amount)
             sleep Settings::BATTLE_ACTION_PAUSE
             return ACTED
         else
