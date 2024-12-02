@@ -31,8 +31,14 @@ class Biome
         Narrator.write(self::DESCRIPTION)
     end
 
-    def self.is_safe_room
-        return  rand(1..100) <= self::SAFE_CHANCES
+    def self.is_safe_room(new_biome)
+        unsafe_risk = 100 - self::SAFE_CHANCES
+        if new_biome
+            new_biome_bonus = unsafe_risk - (unsafe_risk/BaseStats::RISK_REDUCTION_ON_NEW_BIOME)
+        else
+            new_biome_bonus = 0
+        end
+        return rand(1..100) <= (self::SAFE_CHANCES + new_biome_bonus)
     end
 
     def self.get_monsters

@@ -5,7 +5,12 @@ class Room
     def initialize(biome, id, precedent_room = nil)
         @id = id
         @name = Name.new(biome)
-        if biome.is_safe_room
+        if precedent_room != nil
+            new_biome = (precedent_room.get_biome != biome)
+        else
+            new_biome = false
+        end
+        if biome.is_safe_room(new_biome)
             @monsters = nil
         else
             @monsters = Pack.new(biome)
