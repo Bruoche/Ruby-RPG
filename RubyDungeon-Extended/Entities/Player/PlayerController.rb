@@ -55,6 +55,9 @@ class PlayerController
             Narrator.player_option_fight(@player.get_room.get_monsters_plural_the)
         end
         case Narrator.user_input(@player.get_name)
+        when '0'
+            SettingsMenu.options_menu
+            return !Player::ACTED
         when '1'
             return propose_exploration
         when '2'
@@ -122,6 +125,9 @@ class PlayerController
     def propose_combat
         @player.get_room.describe(@player)
         case Narrator.ask_if_fight(@player.get_escape_chances(@player.get_room.get_monsters.get_current_power), @player.get_name)
+        when '0'
+            SettingsMenu.options_menu
+            return propose_combat
         when '1'
             Narrator.start_fight(@player.get_room.get_monsters.plural?)
             @fighting = true
@@ -137,7 +143,7 @@ class PlayerController
             end
         else
             Narrator.unsupported_choice_error
-            propose_combat
+            return propose_combat
         end
     end
 

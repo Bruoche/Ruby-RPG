@@ -222,7 +222,7 @@ class EN
             "",
             "",
             "    1) Enter the dungeon",
-            "    2) Options",
+            "    2) Settings",
             "    3) Quit"
         ],
         Locale::KEY_PARTY_LIST_TITLE => "Adventurers entering the dungeon : ",
@@ -778,6 +778,7 @@ class EN
         Locale::KEY_TELEPORTER_DESCRIPTION => "a very rare cristal holding a powerfull power, canalised by a magical instrument making it able to transport it's bearer to the dungeon exit or to one of their allies.",
         Locale::KEY_GOBLIN_LOOT_COINS => ["As you search the goblin's corpse, you notice a small purse tied to it's belt."],
         Locale::KEY_THE_EXIT => "the exit",
-        Locale::KEY_ASK_SAVE => "What save do you want to load?"
+        Locale::KEY_ASK_SAVE => "What save do you want to load?",
+        Locale::KEY_OPEN_SETTINGS_OPTION => "0) Settings"
     }
 end

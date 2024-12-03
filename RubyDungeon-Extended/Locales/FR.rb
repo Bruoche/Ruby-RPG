@@ -82,8 +82,8 @@ class FR
         Locale::KEY_GREEN_M => "vert",
         Locale::KEY_GREYISH_M => "grisé",
         Locale::KEY_HUMID_M => "humide",
-        Locale::KEY_ISOLATED_M => "blasé",
-        Locale::KEY_JADED_M => "isolé",
+        Locale::KEY_ISOLATED_M => "isolé",
+        Locale::KEY_JADED_M => "blasé",
         Locale::KEY_LEFT_M => "gauche",
         Locale::KEY_LONG_M => "long",
         Locale::KEY_LOST_M => "perdu",
@@ -778,6 +778,7 @@ class FR
         Locale::KEY_TELEPORTER_DESCRIPTION => "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés.",
         Locale::KEY_GOBLIN_LOOT_COINS => ["En fouillant le corps du goblin vous remarquez une petite bourse accrochée à sa ceinture."],
         Locale::KEY_THE_EXIT => "la sortie",
-        Locale::KEY_ASK_SAVE => "Quelle sauvegarde charger ?"
+        Locale::KEY_ASK_SAVE => "Quelle sauvegarde charger ?",
+        Locale::KEY_OPEN_SETTINGS_OPTION => "0) Options..."
     }
 end

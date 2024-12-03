@@ -530,6 +530,7 @@ class Locale
     KEY_GOBLIN_LOOT_COINS = :goblin_loot_coins
     KEY_THE_EXIT = :the_exit
     KEY_ASK_SAVE = :ask_save
+    KEY_OPEN_SETTINGS_OPTION = :open_settings_option
 
     F_KEY_CURRENT = :current
     F_KEY_TOTAL = :total

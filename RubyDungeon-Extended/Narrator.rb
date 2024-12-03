@@ -91,7 +91,7 @@ class Narrator
     end
 
     def self.language_options
-        Narrator.write(format(Locale.get_localized(Locale::KEY_LANGUAGE_SETTINGS_TITLE), Locale.get_localized(Settings.locale)))
+        Narrator.write(format(Locale.get_localized(Locale::KEY_LANGUAGE_SETTINGS_TITLE), Locale.get_localized(Settings.locale.to_sym)))
         Narrator.write(Locale::KEY_GO_BACK_ENUMERATED)
     end
 
@@ -251,6 +251,8 @@ class Narrator
     end
 
     def self.describe_room(player, describe_biome, picture)
+        Narrator.add_space_of(1)
+        Narrator.write(Locale::KEY_OPEN_SETTINGS_OPTION)
         Narrator.add_space_of(1)
         ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)])
         Narrator.add_space_of(1)
