@@ -209,6 +209,8 @@ class Locale
     KEY_GO_BACK_ENUMERATED = :go_back_enumerated
     KEY_ABORT_ENUMERATED = :abort_enumerated
     KEY_WARNING_POP_UP = :warning_pop_up
+    KEY_WARNING_POP_UP_OPTIONS = :warning_pop_up_options
+    KEY_WARNING_POP_UP_SETTINGS = :warning_pop_up_settings
     KEY_MAIN_MENU_OPTIONS = :main_menu_options
     KEY_PARTY_LIST_TITLE = :party_list_title
     KEY_PARTY_MANAGE_OPTIONS = :party_manage_options

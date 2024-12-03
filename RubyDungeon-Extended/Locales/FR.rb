@@ -214,9 +214,16 @@ class FR
             "Info sur le terminal :",
             "Presser [Ctrl + C] fermera le jeu.",
             "Presser [Alt + Entrée] met le jeu en plein écran.",
-            "",
+            ""
+        ],
+        Locale::KEY_WARNING_POP_UP_OPTIONS => [
             "    1) Ok",
             "    2) Ne plus me le rappeler"
+        ],
+        Locale::KEY_WARNING_POP_UP_SETTINGS => [
+            "Souhaitez-vous que cet avertissement s'affiche au démarrage du jeu ?",
+            "    1) Montrer au démarrage",
+            "    2) Ne pas montrer"
         ],
         Locale::KEY_MAIN_MENU_OPTIONS => [
             "",
@@ -284,7 +291,8 @@ class FR
             "    0) Retour...",
             "    1) Hauteur des images",
             "    2) Audio",
-            "    3) Langue"
+            "    3) Langue",
+            "    4) Informations"
         ],
         Locale::KEY_ASSET_SIZE_VERIFICATION => "Si vous voyez ce texte les images ont une taille acceptable.",
         Locale::KEY_CURRENT_MUSIC_VOLUME => "Volume de musique : ",

@@ -20,8 +20,13 @@ class Narrator
         print Locale.get_localized(text)
     end
 
-    def self.warning_pop_up
+    def self.warning_pop_up(automatic)
         Narrator.write(Locale::KEY_WARNING_POP_UP)
+        if automatic
+            Narrator.write(Locale::KEY_WARNING_POP_UP_OPTIONS)
+        else
+            Narrator.write(Locale::KEY_WARNING_POP_UP_SETTINGS)
+        end
     end
 
     def self.main_menu_options

@@ -214,9 +214,16 @@ class EN
             "Terminal info :",
             "Press [Ctrl + C] to close the game.",
             "Press [Alt + Enter] to put the game in fullscreen.",
-            "",
+            ""
+        ],
+        Locale::KEY_WARNING_POP_UP_OPTIONS => [
             "    1) Ok",
             "    2) Don't show again"
+        ],
+        Locale::KEY_WARNING_POP_UP_SETTINGS => [
+            "Do you wish to have this warning shown at game launch?",
+            "    1) Show at launch",
+            "    2) Don't show"
         ],
         Locale::KEY_MAIN_MENU_OPTIONS => [
             "",
@@ -284,7 +291,8 @@ class EN
             "    0) Back...",
             "    1) Images height",
             "    2) Audio",
-            "    3) Language"
+            "    3) Language",
+            "    4) Infos"
         ],
         Locale::KEY_ASSET_SIZE_VERIFICATION => "If you can read this text the images are of an appropriate height.",
         Locale::KEY_CURRENT_MUSIC_VOLUME => "Music volume: ",

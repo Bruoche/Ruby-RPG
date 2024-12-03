@@ -1,9 +1,10 @@
 class SettingsMenu
-    def self.warning_pop_up
+    def self.warning_pop_up(automatic = true)
         loop do
-            Narrator.warning_pop_up
+            Narrator.warning_pop_up(automatic)
             case Narrator.user_input
             when '1'
+                Settings.set_warning_pop_up_enabled(true)
                 return
             when '2'
                 Settings.set_warning_pop_up_enabled(false)
@@ -26,6 +27,8 @@ class SettingsMenu
                 sound_menu
             when '3'
                 language_menu
+            when '4'
+                warning_pop_up(false)
             else
                 Narrator.unsupported_choice_error
             end
