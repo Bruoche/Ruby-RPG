@@ -526,7 +526,7 @@ class Locale
     KEY_HEALTH_POTION_NAME = :health_potion_name
     KEY_HEALTH_POTION_DESCRIPTION = :health_potion_description
     KEY_PRISON_KEY_NAME = :prison_key_name
-    KEY_PRISON_KEY_DESCRIPTION = :prison_key_name
+    KEY_PRISON_KEY_DESCRIPTION = :prison_key_description
     KEY_TELEPORTER_NAME = :teleporter_name
     KEY_TELEPORTER_DESCRIPTION = :teleporter_description
     KEY_GOBLIN_LOOT_COINS = :goblin_loot_coins
