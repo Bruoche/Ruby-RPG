@@ -503,7 +503,7 @@ class EN
             "What do you want to do?",
             "      1) Fight"
         ],
-        Locale::KEY_PROPOSE_SNEAK => "      2) Remain discrete (%s%% success rate)",
+        Locale::KEY_PROPOSE_SNEAK => "      2) Remain discreet (%s%% success rate)",
         Locale::KEY_DESCRIBE_ENNEMIES => "You face %s.",
         Locale::KEY_FIGHT_ACTIONS => [
             "What do you want to do?",
@@ -623,7 +623,7 @@ class EN
         Locale::KEY_BLACK_LEATHER_HELM_DESC => "a pointy helmet with large flaps protecting the sides of the face made in some sort of black leather that's incredibly light weight and durable",
         Locale::KEY_BLACK_LEATHER_PLASTRON_NAME => "black leather plastron",
         Locale::KEY_BLACK_LEATHER_PLASTRON_DESC => "a long plastron made in some sort of black leather that is lightweight and solid covered by a large dark cloth",
-        Locale::KEY_DRESS_GAUNTLET_NAME => "discrete vambrace",
+        Locale::KEY_DRESS_GAUNTLET_NAME => "discreet vambrace",
         Locale::KEY_DRESS_GAUNTLET_DESC => "refined leather vambraces protecting decently it's bearer's forearms",
         Locale::KEY_DRESS_GREAVES_NAME => "noble chopines",
         Locale::KEY_DRESS_GREAVES_DESC => "a pair of tall shoes used to make it's wearer appear taller. Not practical in the midst of battle, but currently very trendy",
