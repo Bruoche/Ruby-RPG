@@ -33,12 +33,14 @@ class Biome
 
     def self.is_safe_room(new_biome)
         unsafe_risk = 100 - self::SAFE_CHANCES
-        if new_biome
-            new_biome_bonus = unsafe_risk - (unsafe_risk/BaseStats::RISK_REDUCTION_ON_NEW_BIOME)
-        else
-            new_biome_bonus = 0
+        if self::SAFE_CHANCES == 100
+            return true
         end
-        return rand(1..100) <= (self::SAFE_CHANCES + new_biome_bonus)
+        if new_biome
+            return rand(1..100) <= 99
+        else
+            return rand(1..100) <= self::SAFE_CHANCES
+        end
     end
 
     def self.get_monsters
