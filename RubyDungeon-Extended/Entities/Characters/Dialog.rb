@@ -13,11 +13,25 @@ class Dialog
     end
 
     def self.process_sentence(sentence_heard)
-        return processed_sentence = sentence_heard.gsub("'", " ").downcase.split
+        return processed_sentence = sentence_heard.gsub("'", ' ').gsub(/\W/, ' ').downcase.split
+    end
+
+    def get_answer
+        return @sentences
     end
 
     def triggered?(processed_sentence)
-        # test if trigger words in sentence heard, see how to test for vaguely ressembling string
-        # if repeated, replace @intro by "As I said,"
+        for required_trigger in @trigger_words
+            found = false
+            for possible_syntax in required_trigger.split('|')
+                if processed_sentence.include? possible_syntax
+                    found = true
+                end
+            end
+            if !found
+                return false
+            end
+        end
+        return true
     end
 end

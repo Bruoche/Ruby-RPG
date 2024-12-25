@@ -2,6 +2,7 @@ module ShopKeeper
     NAME = Locale::KEY_SHOPKEEPER_NAME
     INTRO_DIALOG = Locale::KEY_SHOPKEEPER_INTRO_DIALOG
     IDLE_DIALOGS = Locale::KEY_SHOPKEEPER_IDLE_DIALOGS
+    CONVERSATION_STARTER = Locale::KEY_SHOPKEEER_CONVERSATION_STARTER
     DIAL_ID_NAME = 'name'
     DIAL_ID_TOO_EXPENSIVE = 'too_expensive'
     DIAL_ID_FUCK_YOU = 'fuck_you'
@@ -10,12 +11,12 @@ module ShopKeeper
     DIALOGS = [
         Dialog.new(
             DIAL_ID_NAME,
-            ["your|you", "name|called"],
+            ["your|you", "name|called|named|call"],
             ["My name is Márton Orbán."]
         ),
         Dialog.new(
             DIAL_ID_TOO_EXPENSIVE,
-            ["too|excessive", "expensive|much"],
+            ["here|your|you|that", "expensive|much"],
             ["I for one believe that my prices are within my ware's market value.", "But I apologies if what I sell is beyond your budget."],
             "Is that so?\n"
         ),
@@ -38,6 +39,6 @@ module ShopKeeper
             "Oh, so we are going with threats, huh?\nMay I remind you that "
         )
     ]
-    UNKNOWN_DIALOGS = []
+    UNKNOWN_DIALOGS = Locale::KEY_SHOPKEEPER_UNKNOWN_DIALOGS
     PICTURE = 'merchant'
 end

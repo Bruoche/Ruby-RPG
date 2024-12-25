@@ -44,6 +44,8 @@ class Shop
             end
         when '3'
             player.see_items
+        when '4'
+            @shopkeeper.talk(player)
         else
             Narrator.unsupported_choice_error
         end

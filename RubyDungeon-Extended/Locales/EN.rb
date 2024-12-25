@@ -610,7 +610,8 @@ class EN
             "0) Leave the shop",
             "1) Buy...",
             "2) Sell...",
-            "3) Check inventory"
+            "3) Check inventory",
+            "4) Talk to the shopkeeper"
         ],
         Locale::KEY_ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{Locale::F_KEY_ITEM}} for %{#{Locale::F_KEY_VALUE}} coins? (y/n)",
         Locale::KEY_ASK_ITEM_BOUGHT => "What item do you want to buy? (%s ¤)",
@@ -748,6 +749,17 @@ class EN
         Locale::KEY_SHOPKEEPER_IDLE_DIALOGS => [
             "So, found anything interesting?",
             "Tell me if you need anything."
+        ],
+        Locale::KEY_SHOPKEEER_CONVERSATION_STARTER => [
+            "Anything I can do for you?",
+            "Mh?",
+            "A question you wanted to ask?"
+        ],
+        Locale::KEY_SHOPKEEPER_UNKNOWN_DIALOGS => [
+            "My apology, but I don't think I quite understood that...",
+            "Huh?",
+            "Sorry, but I don't understand what you mean by this.",
+            "I'm not sure I'm understanding this well..."
         ],
         Locale::KEY_BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         Locale::KEY_BOSS_CELL_REQ_ENTRY => [

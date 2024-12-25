@@ -610,7 +610,8 @@ class FR
             "0) Sortir du magasin",
             "1) Acheter...",
             "2) Vendre...",
-            "3) Consulter l'inventaire"
+            "3) Consulter l'inventaire",
+            "4) Parler au tenancier"
         ],
         Locale::KEY_ASK_CONFIRMATION_SELLING => "Êtes-vous sûr de vouloir vendre %{#{Locale::F_KEY_ITEM}} pour %{#{Locale::F_KEY_VALUE}} pièces ? (y/n)",
         Locale::KEY_ASK_ITEM_BOUGHT => "Quel objet souhaitez-vous acheter ? (%s ¤)",
@@ -748,6 +749,17 @@ class FR
         Locale::KEY_SHOPKEEPER_IDLE_DIALOGS => [
             "Alors, quelque chose vous interesse dans mon étalage ?",
             "Dites-moi si vous avez besoin de quoi que ce soit"
+        ],
+        Locale::KEY_SHOPKEEER_CONVERSATION_STARTER => [
+            "Puis-je faire quoi-que ce soit pour vous ?",
+            "Mh ?",
+            "Une question à me poser ?"
+        ],
+        Locale::KEY_SHOPKEEPER_UNKNOWN_DIALOGS => [
+            "Mes excuses, mais je ne suis pas sûr d'avoir compris...",
+            "Huh?",
+            "Pardon, mais je ne comprend pas ce que vous voulez dire par là.",
+            "Je ne suis pas sûr de comprendre."
         ],
         Locale::KEY_BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         Locale::KEY_BOSS_CELL_REQ_ENTRY => [
