@@ -1,5 +1,6 @@
 class Utils
     HUNDRED_PERCENT = 100
+    PUNCTUATION = ['.', '?', '!']
 
     def self.average(max_value)
         return (max_value+1)/2

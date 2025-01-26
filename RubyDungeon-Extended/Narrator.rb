@@ -222,8 +222,12 @@ class Narrator
     end
 
     def self.pause_text
+        Narrator.add_space_of(1)
         Narrator.write(Locale::KEY_PRESS_CONTINUE)
-        user_input
+        gets
+        TTY::Screen.height.times do
+            Narrator.add_space_of(1)
+        end
     end
 
     def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description)

@@ -13,6 +13,11 @@ class Character
         @unknown_dialogs = character_data::UNKNOWN_DIALOGS
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + Character::FOLDER_PREFIX + character_data::PICTURE)
         @character_met = []
+        @dialogs_said = []
+    end
+
+    def said_before?(dialog)
+        return @dialogs_said.include?(dialog.get_id)
     end
 
     def show
@@ -53,7 +58,7 @@ class Character
             Narrator.write("Write what you wish to say: (say goodbye to end the conversation)")
             prompt = Dialog.process_sentence(Narrator.user_input(interlocutor.get_name.capitalize))
             for word in prompt do
-                if ["bye", "goodbye", "farewell", "see you soon"].include? word
+                if ["bye", "goodbye", "farewell"].include? word
                     return
                 end
             end
@@ -65,12 +70,24 @@ class Character
                     first_sentence = true
                     answered_sentences.each_with_index do |sentence, i|
                         if first_sentence
+                            if said_before?(dialog)
+                                intro = "As I said, "
+                            else
+                                @dialogs_said.append(dialog.get_id)
+                                intro = dialog.get_intro
+                            end
+                            if intro != Dialog::NO_INTRO
+                                if !Utils::PUNCTUATION.include? intro.strip[-1]
+                                    if sentence[0] != nil
+                                        sentence[0] = sentence[0].downcase
+                                    end
+                                end
+                                sentence = intro + sentence
+                            end
                             first_sentence = false
                         else
                             show
                         end
-                        # TODO add intro too
-                        # TODO if repeated, replace @intro by "As I said,"
                         Narrator.write(make_dialog_box(sentence).get_ascii)
                         if i < (answered_sentences.length - 1)
                             Narrator.pause_text

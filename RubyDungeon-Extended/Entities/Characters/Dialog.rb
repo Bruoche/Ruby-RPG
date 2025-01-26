@@ -4,6 +4,7 @@ class Dialog
     NO_INTRO = nil
 
     def initialize(id, trigger_words, sentences, intro = NO_INTRO, min_level = NO_LEVEL_REQ, max_level = NO_LEVEL_REQ, required_items = NO_ITEMS_REQ)
+        @id = id
         @trigger_words = trigger_words
         @sentences = sentences
         @intro = intro
@@ -16,8 +17,16 @@ class Dialog
         return processed_sentence = sentence_heard.gsub("'", ' ').gsub(/\W/, ' ').downcase.split
     end
 
+    def get_id
+        return @id
+    end
+
     def get_answer
         return @sentences
+    end
+
+    def get_intro
+        return @intro
     end
 
     def triggered?(processed_sentence)
