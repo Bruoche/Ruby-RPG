@@ -41,7 +41,7 @@ class LostKnightRightArm
     FEMALE_CHANCES = 0
     BASE_MOVES = [Locale::KEY_KNIGHT_RIGHT_ATTACK]
     SPECIAL_MOVES = [
-        SpecialMove.new(25, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
+        SpecialMove.new(10, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]
     DEATH_EVENT = -> (arm, boss) {LostKnight.main_arm_loss(arm, boss)}
 end
