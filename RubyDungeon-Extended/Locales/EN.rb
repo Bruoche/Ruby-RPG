@@ -611,7 +611,7 @@ class EN
             "1) Buy...",
             "2) Sell...",
             "3) Check inventory",
-            "4) Talk to the shopkeeper"
+#            "4) Talk to the shopkeeper"
         ],
         Locale::KEY_ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{Locale::F_KEY_ITEM}} for %{#{Locale::F_KEY_VALUE}} coins? (y/n)",
         Locale::KEY_ASK_ITEM_BOUGHT => "What item do you want to buy? (%s ¤)",

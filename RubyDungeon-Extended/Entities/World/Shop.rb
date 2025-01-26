@@ -44,8 +44,8 @@ class Shop
             end
         when '3'
             player.see_items
-        when '4'
-            @shopkeeper.talk(player)
+        #when '4' # TODO reinstaure and add dialog for it back once the bugfix is done
+        #    @shopkeeper.talk(player)
         else
             Narrator.unsupported_choice_error
         end

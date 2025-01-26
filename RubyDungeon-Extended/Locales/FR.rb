@@ -611,7 +611,7 @@ class FR
             "1) Acheter...",
             "2) Vendre...",
             "3) Consulter l'inventaire",
-            "4) Parler au tenancier"
+#            "4) Parler au tenancier"
         ],
         Locale::KEY_ASK_CONFIRMATION_SELLING => "Êtes-vous sûr de vouloir vendre %{#{Locale::F_KEY_ITEM}} pour %{#{Locale::F_KEY_VALUE}} pièces ? (y/n)",
         Locale::KEY_ASK_ITEM_BOUGHT => "Quel objet souhaitez-vous acheter ? (%s ¤)",

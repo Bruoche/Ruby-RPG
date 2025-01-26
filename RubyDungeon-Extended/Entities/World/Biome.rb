@@ -32,7 +32,9 @@ class Biome
     end
 
     def self.is_safe_room(new_biome)
-        unsafe_risk = 100 - self::SAFE_CHANCES
+        if self::SAFE_CHANCES == 0
+            return false
+        end
         if self::SAFE_CHANCES == 100
             return true
         end
