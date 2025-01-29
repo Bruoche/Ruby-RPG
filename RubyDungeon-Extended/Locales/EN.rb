@@ -611,7 +611,7 @@ class EN
             "1) Buy...",
             "2) Sell...",
             "3) Check inventory",
-#            "4) Talk to the shopkeeper"
+            "4) Talk to the shopkeeper"
         ],
         Locale::KEY_ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{Locale::F_KEY_ITEM}} for %{#{Locale::F_KEY_VALUE}} coins? (y/n)",
         Locale::KEY_ASK_ITEM_BOUGHT => "What item do you want to buy? (%s ¤)",
@@ -754,6 +754,14 @@ class EN
             "Anything I can do for you?",
             "Mh?",
             "A question you wanted to ask?"
+        ],
+        Locale::KEY_SHOPKEEER_CONVERSATION_KEEPER => [
+            "Anything else you wanted to know?",
+            "Wanted to ask something else?",
+            "So can I help with anything else?",
+            "Was it all?",
+            "...",
+            "Any other questions?"
         ],
         Locale::KEY_SHOPKEEPER_UNKNOWN_DIALOGS => [
             "My apology, but I don't think I quite understood that...",

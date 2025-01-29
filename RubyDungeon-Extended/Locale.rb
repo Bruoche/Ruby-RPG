@@ -510,6 +510,7 @@ class Locale
     KEY_SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
     KEY_SHOPKEEPER_IDLE_DIALOGS = :shopkeeper_idle_dialogs
     KEY_SHOPKEEER_CONVERSATION_STARTER = :shopkeeper_conversation_starter
+    KEY_SHOPKEEER_CONVERSATION_KEEPER = :shopkeeper_conversation_keeper
     KEY_SHOPKEEPER_UNKNOWN_DIALOGS = :shopkeeper_unknown_dialogs
     KEY_BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     KEY_BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry

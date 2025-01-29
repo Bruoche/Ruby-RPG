@@ -9,6 +9,7 @@ class Character
         @intro_dialog = character_data::INTRO_DIALOG
         @idle_dialog = character_data::IDLE_DIALOGS
         @conversation_starter = character_data::CONVERSATION_STARTER
+        @conversation_keeper = character_data::CONVERSATION_KEEPER
         @dialogs = character_data::DIALOGS
         @unknown_dialogs = character_data::UNKNOWN_DIALOGS
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + Character::FOLDER_PREFIX + character_data::PICTURE)
@@ -57,48 +58,59 @@ class Character
             Narrator.add_space_of(1)
             Narrator.write("Write what you wish to say: (say goodbye to end the conversation)")
             prompt = Dialog.process_sentence(Narrator.user_input(interlocutor.get_name.capitalize))
-            for word in prompt do
-                if ["bye", "goodbye", "farewell"].include? word
-                    return
+            if prompt == []
+                show
+                Narrator.write(make_dialog_box(Locale.get_localized(@conversation_keeper).sample).get_ascii)
+            else
+                for word in prompt do
+                    if ["bye", "goodbye", "farewell"].include? word
+                        return
+                    end
+                end
+                show
+                dialog_triggered = false
+                for dialog in @dialogs do
+                    if dialog.triggered?(prompt)
+                        print_answer(dialog)
+                        dialog_triggered = true
+                        break
+                    end
+                end
+                if !dialog_triggered
+                    Narrator.write(make_dialog_box(Locale.get_localized(@unknown_dialogs).sample).get_ascii)
                 end
             end
-            show
-            dialog_triggered = false
-            for dialog in @dialogs do
-                if dialog.triggered?(prompt)
-                    answered_sentences = dialog.get_answer # TODO localize
-                    first_sentence = true
-                    answered_sentences.each_with_index do |sentence, i|
-                        if first_sentence
-                            if said_before?(dialog)
-                                intro = "As I said, "
-                            else
-                                @dialogs_said.append(dialog.get_id)
-                                intro = dialog.get_intro
-                            end
-                            if intro != Dialog::NO_INTRO
-                                if !Utils::PUNCTUATION.include? intro.strip[-1]
-                                    if sentence[0] != nil
-                                        sentence[0] = sentence[0].downcase
-                                    end
-                                end
-                                sentence = intro + sentence
-                            end
-                            first_sentence = false
-                        else
-                            show
-                        end
-                        Narrator.write(make_dialog_box(sentence).get_ascii)
-                        if i < (answered_sentences.length - 1)
-                            Narrator.pause_text
+        end
+    end
+
+    private
+
+    def print_answer(dialog)
+        answered_sentences = dialog.get_answer # TODO localize
+        first_sentence = true
+        answered_sentences.each_with_index do |sentence, i|
+            if first_sentence
+                if said_before?(dialog)
+                    intro = "As I said, "
+                else
+                    @dialogs_said.append(dialog.get_id)
+                    intro = dialog.get_intro
+                end
+                if intro != Dialog::NO_INTRO
+                    if !Utils::PUNCTUATION.include? intro.strip[-1]
+                        if sentence[0] != nil
+                            sentence[0] = sentence[0].downcase
                         end
                     end
-                    dialog_triggered = true
-                    break
+                    sentence = intro + sentence
                 end
+                first_sentence = false
+            else
+                show
             end
-            if !dialog_triggered
-                Narrator.write(make_dialog_box(Locale.get_localized(@unknown_dialogs).sample).get_ascii)
+            Narrator.write(make_dialog_box(sentence).get_ascii)
+            if i < (answered_sentences.length - 1)
+                Narrator.pause_text
             end
         end
     end

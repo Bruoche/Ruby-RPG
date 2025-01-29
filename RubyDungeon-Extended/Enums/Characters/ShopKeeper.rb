@@ -3,18 +3,30 @@ module ShopKeeper
     INTRO_DIALOG = Locale::KEY_SHOPKEEPER_INTRO_DIALOG
     IDLE_DIALOGS = Locale::KEY_SHOPKEEPER_IDLE_DIALOGS
     CONVERSATION_STARTER = Locale::KEY_SHOPKEEER_CONVERSATION_STARTER
+    CONVERSATION_KEEPER = Locale::KEY_SHOPKEEER_CONVERSATION_KEEPER
     DIAL_ID_ORIGIN = 'origin'
     DIAL_ID_ALLIANCE = 'alliance'
     DIAL_ID_BLACK_LEATHER = 'black_leather'
+    DIAL_ID_HEALTH_POTION = 'health_potion'
     DIAL_ID_LOST_KNIGHT = 'lost_knight'
     DIAL_ID_DUNGEON_INTERIOR = 'dungeon_interior'
     DIAL_ID_DUNGEON = 'dungeon'
     DIAL_ID_HOLY_EMPIRE = 'holy_empire'
     DIAL_ID_NOT_FROM_HERE = 'not_from_here'
     DIAL_ID_NAME = 'name'
+    DIAL_ID_AGE = 'age'
+    DIAL_ID_ARMOR_WEIGHT = 'armor_weight'
+    DIAL_ID_ARMOR_PROTECTION = 'armor_protection'
+    DIAL_ID_AGILITY = 'agility'
+    DIAL_ID_INTELLIGENCE = 'intelligence'
+    DIAL_ID_HEALTH = 'health'
+    DIAL_ID_STRENGH = 'strength'
+    DIAL_ID_GOBLINS = 'goblins'
+    DIAL_ID_UNDEAD = 'undead'
     DIAL_ID_ADVICES = 'advices'
     DIAL_ID_DISCOUNTS = 'discounts'
     DIAL_ID_TOO_EXPENSIVE = 'too_expensive'
+    DIAL_ID_HAVE_YOU = 'have_you'
     DIAL_ID_FUCK_YOU = 'fuck_you'
     DIAL_ID_GET_LOST = 'get_lost'
     DIAL_ID_THREAT = 'threat'
@@ -30,7 +42,7 @@ module ShopKeeper
             [
                 "I was born in the eastern part of the Holy Empire. Spent my younger years there, but quickly started traveling all around the broader continent.",
                 "Travel has always been an essential adventage for the shop, with minimal fees for the right to pass merchandise inbetween kingdoms I've been able to sell the greatest rarities for the most competitive of prices.",
-                "The only issues with travel are the time investment and bandits, really."
+                "The only issues with travel is the time investment and bandits, really."
             ]
         ),
         Dialog.new(
@@ -39,23 +51,44 @@ module ShopKeeper
             [
                 "",
                 "The great alliance is a congregation of most countries in this continent, and also some costal ones in the southern continent across the sea.",
-                "A treaty that assemble us all under one currency and insure peace in the continent to help trade.",
+                "A treaty that assemble us all under one currency and ensure peace in the continent to help global trades.",
                 "It's the very reason I'm able to seize an opportunity such as this one."
             ],
-            "You don't know about it?\nThe people here direly lack education on their own politic. But I guess that not everybody needs to."
+            "You don't know about it?\nThe people here direly lack education on their own politic. But I guess that not everybody needs to know what's going on in the world."
         ),
         Dialog.new(
             DIAL_ID_BLACK_LEATHER,
             ["black|dark", "leather"],
             [
-                "Black leather is a rare material confectionned from a specific beast and that undergo a great deal of treatments to be refined into the supple, light and solid material that make those armor of the highest quality.",
-                "Although, I am no expect and that is the full extent of my knowledge on the specific process."
+                "Black leather is a rare material obtained from a specific beast before undergoing a great deal of treatments to be refined into the supple, light and solid material that make armors of the highest quality.",
+                "Although, I am no expert and that is the full extent of my knowledge on the specific process."
             ]
+        ),
+        Dialog.new(
+            DIAL_ID_HEALTH_POTION,
+            ["health|life|heal", "potion|potions"],
+            ["My health potions are of a great quality, and it's a much more reliable way to heal in emergency situations then your makeshift bandages."]
         ),
         Dialog.new(
             DIAL_ID_LOST_KNIGHT,
             ["lost", "knight"],
             ["I have no clue who that is. Sorry."]
+        ),
+        Dialog.new(
+            DIAL_ID_GOBLINS,
+            ["goblins|goblin"],
+            [
+                "Those little pests are fairly rare I'll be honest. Never saw one in person myself, but heard numerous tales of them assaulting those that have gone too deep in forests.\nThey're much more common in the tower from what I've heard, maybe they too enjoy the amount of trinkets this place hold.",
+                "In that they seem to ressemble adventurers in more ways then one."
+            ]
+        ),
+        Dialog.new(
+            DIAL_ID_UNDEAD,
+            ["undead|undeads|zombie|zombies|skeleton|skeletons"],
+            [
+                "Plenty of adventurers claimed to come back to life and be fine in the dungeon, while other said they saw hostile mindless undeads walking the deeper halls of this tower...",
+                "None of it all makes sense, why would some come back fine and others not? Unless those undead aren't adventurers, but I don't see who they'd be or why they'd be any different then the rest."
+            ]
         ),
         Dialog.new(
             DIAL_ID_DUNGEON_INTERIOR,
@@ -96,6 +129,60 @@ module ShopKeeper
             ["My name is Márton Orbán."]
         ),
         Dialog.new(
+            DIAL_ID_AGE,
+            ["your|you", "age|old"],
+            ["I'm 37 years old."],
+            "I don't see how's that's any concern of yours, but if you're so curious "
+        ),
+        Dialog.new(
+            DIAL_ID_ARMOR_WEIGHT,
+            ["armor|helmet|plastron|chestplate|legware|boots|shoes|gloves|gauntlets", "weight|heavy|medium|light|kg"],
+            [
+                "The weight of an armor will mostly affect how agile you can be.\nIt'll be harder to move with an armor that's particularly heavy, and in extreme cases you might even have a harder time striking your ennemies if your armor is too heavy for you.",
+                "Not every armor are weighted the same tho, the cheapest armors will be quite heavy for how much they protect you, while the most expensive are made in high-quality materials with advanced manufacturing techniques that will make it very protective for it's weight."
+            ]
+        ),
+        Dialog.new(
+            DIAL_ID_ARMOR_PROTECTION,
+            ["armor|helmet|plastron|chestplate|legware|boots|shoes|gloves|gauntlets", "protection|strength|defense"],
+            [
+                "Armor protection will allow you to get a more reliable way of avoiding injuries then just trying to dodge every punches thrown at you.\nA good enough armor can make you invincible, and will at least increase your chances of surviving if you take one that fit you."
+            ]
+        ),
+        Dialog.new(
+            DIAL_ID_AGILITY,
+            ["agility|agile"],
+            [
+                "agility can be a great skill to have in a place as dangerous as the dungeon. Allowing you to sneak past dangerous encounters and dodge attacks could save your life.",
+                "Also, if you're that kind of adventurer, your best bet will be to go for light armor, protecting you without restraining your movements."
+            ],
+            "Not sure why you ask me about this, but "
+        ),
+        Dialog.new(
+            DIAL_ID_HEALTH,
+            ["health|healthy|life"],
+            [
+                "health is absolutely crucial for any adventurer. If you get too injured you have everything to loose. So you better make your best to be in your best shape when going deep in the dungeon."
+            ],
+            "I don't know why you need me to tell you this, but "
+        ),
+        Dialog.new(
+            DIAL_ID_STRENGH,
+            ["strength|force|strong"],
+            [
+                "strengh can be a sure-fire way to crush individual ennemies, but brute force won't go a long way if you end up swarmed without a good defense to go with it.",
+                "I cannot stress enough getting some good armor to go with those biceps of yours, preferrably some medium-weight armor that won't restrain your punches to much."
+            ],
+            "My humble opinion is that "
+        ),
+        Dialog.new(
+            DIAL_ID_INTELLIGENCE,
+            ["intelligence|intelligent|smart|magic"],
+            [
+                "If you're more of the smart type you might want to use a bit of magic in the dungeon, as even if it can be a bit unreliable it's also a very powerfull tool that can crush large groups and heal you and your allies"
+            ]
+        ),
+        Dialog.new(
             DIAL_ID_ADVICES,
             ["advice|tips|tip|trick|tricks|advices|help"],
             [
@@ -116,6 +203,11 @@ module ShopKeeper
             ["here|your|you|that|prices|price|it", "high|expensive|much|lot"],
             ["I for one believe that my prices are within my ware's market value.", "But I apologies if what I sell is beyond your budget."],
             "Is that so?\n"
+        ),
+        Dialog.new(
+            DIAL_ID_HAVE_YOU,
+            ["have|sell|got", "you|your"],
+            ["Everything I sell is right there on the counter, take a look for yourself.", "My apology if I happen to lack something you're looking for."]
         ),
         Dialog.new(
             DIAL_ID_FUCK_YOU,
@@ -162,7 +254,7 @@ module ShopKeeper
         ),
         Dialog.new(
             DIAL_ID_NOT_HELPING,
-            ["not|no|don", "help|helping|usefull|use|serve"],
+            ["not|no|don", "help|helping|helpfull|usefull|use|serve"],
             ["I'm sorry to hear that."]
         )
     ]
