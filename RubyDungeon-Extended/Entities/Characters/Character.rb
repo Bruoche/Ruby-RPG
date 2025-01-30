@@ -10,6 +10,7 @@ class Character
         @idle_dialog = character_data::IDLE_DIALOGS
         @conversation_starter = character_data::CONVERSATION_STARTER
         @conversation_keeper = character_data::CONVERSATION_KEEPER
+        @repeat_intro = character_data::REPEAT_INTRO
         @dialogs = character_data::DIALOGS
         @unknown_dialogs = character_data::UNKNOWN_DIALOGS
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + Character::FOLDER_PREFIX + character_data::PICTURE)
@@ -56,16 +57,14 @@ class Character
         Narrator.write(make_dialog_box(Locale.get_localized(@conversation_starter).sample).get_ascii)
         loop do
             Narrator.add_space_of(1)
-            Narrator.write("Write what you wish to say: (say goodbye to end the conversation)")
+            Narrator.write(Locale::KEY_DIALOG_QUESTION)
             prompt = Dialog.process_sentence(Narrator.user_input(interlocutor.get_name.capitalize))
             if prompt == []
                 show
                 Narrator.write(make_dialog_box(Locale.get_localized(@conversation_keeper).sample).get_ascii)
             else
-                for word in prompt do
-                    if ["bye", "goodbye", "farewell"].include? word
-                        return
-                    end
+                if said_bye?(prompt)
+                    return
                 end
                 show
                 dialog_triggered = false
@@ -85,16 +84,31 @@ class Character
 
     private
 
+    def said_bye?(prompt)
+        for goodbye_phrase in Locale.get_localized(Locale::KEY_DIALOG_END_KEYWORDS)
+            said_bye = true
+            for word in goodbye_phrase.split
+                if !prompt.include? word
+                    said_bye = false
+                end
+            end
+            if said_bye
+                return true
+            end
+        end
+        return false
+    end
+
     def print_answer(dialog)
-        answered_sentences = dialog.get_answer # TODO localize
+        answered_sentences = Locale::get_localized(dialog.get_answer)
         first_sentence = true
         answered_sentences.each_with_index do |sentence, i|
             if first_sentence
                 if said_before?(dialog)
-                    intro = "As I said, "
+                    intro = Locale::get_localized(@repeat_intro)
                 else
                     @dialogs_said.append(dialog.get_id)
-                    intro = dialog.get_intro
+                    intro = Locale::get_localized(dialog.get_intro)
                 end
                 if intro != Dialog::NO_INTRO
                     if !Utils::PUNCTUATION.include? intro.strip[-1]

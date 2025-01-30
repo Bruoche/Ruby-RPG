@@ -1,7 +1,7 @@
 class Dialog
     NO_LEVEL_REQ = nil
     NO_ITEMS_REQ = nil
-    NO_INTRO = nil
+    NO_INTRO = ''
 
     def initialize(id, trigger_words, sentences, intro = NO_INTRO, min_level = NO_LEVEL_REQ, max_level = NO_LEVEL_REQ, required_items = NO_ITEMS_REQ)
         @id = id
@@ -14,7 +14,7 @@ class Dialog
     end
 
     def self.process_sentence(sentence_heard)
-        return processed_sentence = sentence_heard.gsub("'", ' ').gsub(/\W/, ' ').downcase.split
+        return processed_sentence = sentence_heard.gsub("'", ' ').gsub(/(?!-)\p{P}/, ' ').downcase.split
     end
 
     def get_id
@@ -30,7 +30,7 @@ class Dialog
     end
 
     def triggered?(processed_sentence)
-        for required_trigger in @trigger_words
+        for required_trigger in Locale::get_localized(@trigger_words)
             found = false
             for possible_syntax in required_trigger.split('|')
                 if processed_sentence.include? possible_syntax
