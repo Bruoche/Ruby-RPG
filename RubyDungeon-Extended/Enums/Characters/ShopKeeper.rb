@@ -8,6 +8,15 @@ module ShopKeeper
     DIAL_ID_ORIGIN = 'origin'
     DIAL_ID_ALLIANCE = 'alliance'
     DIAL_ID_BLACK_LEATHER = 'black_leather'
+    DIAL_ID_OLD_SOLDIER = 'old_soldier'
+    DIAL_ID_POULAINES = 'poulaines'
+    DIAL_ID_CHOPINES = 'chopines'
+    DIAL_ID_GAMBESON = 'gambeson'
+    DIAL_ID_HOUPPELAND = 'houppelande'
+    DIAL_ID_ESCOFFION = 'escoffion'
+    DIAL_ID_HAUBERK = 'hauberk'
+    DIAL_ID_CERVELIERE = 'cerveliere'
+    DIAL_ID_TELECRYSTAL = 'telecrystal'
     DIAL_ID_HEALTH_POTION = 'health_potion'
     DIAL_ID_LOST_KNIGHT = 'lost_knight'
     DIAL_ID_DUNGEON_INTERIOR = 'dungeon_interior'
@@ -16,6 +25,7 @@ module ShopKeeper
     DIAL_ID_NOT_FROM_HERE = 'not_from_here'
     DIAL_ID_NAME = 'name'
     DIAL_ID_AGE = 'age'
+    DIAL_ID_GENDER = 'gender'
     DIAL_ID_ARMOR_WEIGHT = 'armor_weight'
     DIAL_ID_ARMOR_PROTECTION = 'armor_protection'
     DIAL_ID_AGILITY = 'agility'
@@ -24,18 +34,28 @@ module ShopKeeper
     DIAL_ID_STRENGH = 'strength'
     DIAL_ID_GOBLINS = 'goblins'
     DIAL_ID_UNDEAD = 'undead'
+    DIAL_ID_RESUSCITATE = 'resuscitate'
     DIAL_ID_ADVICES = 'advices'
+    DIAL_ID_SUPPLIER = 'supplier'
     DIAL_ID_DISCOUNTS = 'discounts'
     DIAL_ID_TOO_EXPENSIVE = 'too_expensive'
     DIAL_ID_HAVE_YOU = 'have_you'
     DIAL_ID_FUCK_YOU = 'fuck_you'
     DIAL_ID_GET_LOST = 'get_lost'
     DIAL_ID_THREAT = 'threat'
+    DIAL_ID_WEATHER = 'weather'
+    DIAL_ID_SEASON = 'season'
     DIAL_ID_HOW_YOU_DOIN = 'how_you_doin'
     DIAL_ID_HELLO = 'hello'
-    DIAL_ID_MERCHANT_NAME = 'merchant_name'
+    DIAL_ID_MARTON = 'marton'
+    DIAL_ID_WHO_YOU = 'who_you'
     DIAL_ID_VILLAGE = 'village'
+    DIAL_ID_ADVENTURER = 'adventurer'
+    DIAL_ID_YEAR = 'year'
     DIAL_ID_NOT_HELPING = 'not_helping'
+    DIAL_ID_STUPID = 'stupid'
+    DIAL_ID_GOD = 'god'
+    DIAL_ID_OTHER_GOD = 'other_god'
     DIALOGS = [
         Dialog.new(
             DIAL_ID_NOT_FROM_HERE,
@@ -59,6 +79,55 @@ module ShopKeeper
             Locale::KEY_DIAL_SHOPKEEPER_TXT_BLACK_LEATHER
         ),
         Dialog.new(
+            DIAL_ID_OLD_SOLDIER,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_OLD_SOLDIER,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_OLD_SOLDIER,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER
+        ),
+        Dialog.new(
+            DIAL_ID_POULAINES,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_POULAINES,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_POULAINES,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_POULAINES
+        ),
+        Dialog.new(
+            DIAL_ID_CHOPINES,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_CHOPINES,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_CHOPINES
+        ),
+        Dialog.new(
+            DIAL_ID_GAMBESON,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_GAMBESON,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_GAMBESON
+        ),
+        Dialog.new(
+            DIAL_ID_HOUPPELANDE,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_HOUPPELANDE,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_HOUPPELANDE,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOUPPELANDE
+        ),
+        Dialog.new(
+            DIAL_ID_ESCOFFION,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_ESCOFFION,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_ESCOFFION,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_ESCOFFION
+        ),
+        Dialog.new(
+            DIAL_ID_HAUBERK,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_HAUBERK
+        ),
+        Dialog.new(
+            DIAL_ID_CERVELIERE,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_CERVELIERE,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_CERVELIERE
+        ),
+        Dialog.new(
+            DIAL_ID_TELECRYSTAL,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_TELECRYSTAL,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_TELECRYSTAL,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_TELECRYSTAL
+        ),
+        Dialog.new(
             DIAL_ID_HEALTH_POTION,
             Locale::KEY_DIAL_SHOPKEEPER_KEY_HEALTH_POTION,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_HEALTH_POTION
@@ -77,6 +146,16 @@ module ShopKeeper
             DIAL_ID_UNDEAD,
             Locale::KEY_DIAL_SHOPKEEPER_KEY_UNDEAD,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_UNDEAD
+        ),
+        Dialog.new(
+            DIAL_ID_RESUSCITATE,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_RESUSCITATE,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_RESUSCITATE
+        ),
+        Dialog.new(
+            DIAL_ID_WHERE_DUNGEON,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON
         ),
         Dialog.new(
             DIAL_ID_DUNGEON_INTERIOR,
@@ -105,6 +184,12 @@ module ShopKeeper
             Locale::KEY_DIAL_SHOPKEEPER_KEY_AGE,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_AGE,
             Locale::KEY_DIAL_SHOPKEEPER_INTRO_AGE
+        ),
+        Dialog.new(
+            DIAL_ID_GENDER,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_GENDER,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_GENDER,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_GENDER
         ),
         Dialog.new(
             DIAL_ID_ARMOR_WEIGHT,
@@ -146,6 +231,11 @@ module ShopKeeper
             Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVICES
         ),
         Dialog.new(
+            DIAL_ID_SUPPLIER,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_SUPPLIER,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_SUPPLIER
+        ),
+        Dialog.new(
             DIAL_ID_DISCOUNTS,
             Locale::KEY_DIAL_SHOPKEEPER_KEY_DISCOUNTS,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_DISCOUNTS,
@@ -181,6 +271,18 @@ module ShopKeeper
             Locale::KEY_DIAL_SHOPKEEPER_INTRO_THREAT
         ),
         Dialog.new(
+            DIAL_ID_WEATHER,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_WEATHER,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_WEATHER,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_WEATHER
+        ),
+        Dialog.new(
+            DIAL_ID_SEASON,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_SEASON,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_SEASON,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_SEASON
+        ),
+        Dialog.new(
             DIAL_ID_HOW_YOU_DOIN,
             Locale::KEY_DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
@@ -193,7 +295,11 @@ module ShopKeeper
             Locale::KEY_DIAL_SHOP_KEEPER_INTRO_HELLO
         ),
         Dialog.new(
-            DIAL_ID_MERCHANT_NAME,
+            DIAL_ID_WHO_YOU,
+
+        ),
+        Dialog.new(
+            DIAL_ID_MARTON,
             Locale::KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
         ),
@@ -203,9 +309,38 @@ module ShopKeeper
             Locale::KEY_DIAL_SHOPKEEPER_TXT_VILLAGE
         ),
         Dialog.new(
+            DIAL_ID_ADVENTURER,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_ADVENTURER,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_ADVENTURER,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVENTURER
+        ),
+        Dialog.new(
+            DIAL_ID_YEAR,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_YEAR,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_YEAR,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_YEAR
+        ),
+        Dialog.new(
             DIAL_ID_NOT_HELPING,
             Locale::KEY_DIAL_SHOPKEEPER_KEY_NOT_HELPING,
             Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING
+        ),
+        Dialog.new(
+            DIAL_ID_STUPID
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_STUPID,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_STUPID,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_STUPID
+        ),
+        Dialog.new(
+            DIAL_ID_GOD,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_GOD,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_GOD,
+            Locale::KEY_DIAL_SHOPKEEPER_INTRO_GOD
+        ),
+        Dialog.new(
+            DIAL_ID_OTHER_GOD,
+            Locale::KEY_DIAL_SHOPKEEPER_KEY_OTHER_GOD,
+            Locale::KEY_DIAL_SHOPKEEPER_TXT_OTHER_GOD
         )
     ]
     UNKNOWN_DIALOGS = Locale::KEY_SHOPKEEPER_UNKNOWN_DIALOGS

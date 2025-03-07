@@ -802,8 +802,8 @@ class EN
         Locale::KEY_HEALTH_POTION_DESCRIPTION => "restore %s health points",
         Locale::KEY_PRISON_KEY_NAME => "a key",
         Locale::KEY_PRISON_KEY_DESCRIPTION => "must open a door somewhere",
-        Locale::KEY_TELEPORTER_NAME => "a tele-cristal",
-        Locale::KEY_TELEPORTER_DESCRIPTION => "a very rare cristal holding a powerfull power, canalised by a magical instrument making it able to transport it's bearer to the dungeon exit or to one of their allies.",
+        Locale::KEY_TELEPORTER_NAME => "a tele-crystal",
+        Locale::KEY_TELEPORTER_DESCRIPTION => "a very rare crystal holding a powerfull power, canalised by a magical instrument making it able to transport it's bearer to the dungeon exit or to one of their allies.",
         Locale::KEY_GOBLIN_LOOT_COINS => ["As you search the goblin's corpse, you notice a small purse tied to it's belt."],
         Locale::KEY_THE_EXIT => "the exit",
         Locale::KEY_ASK_SAVE => "What save do you want to load?",
@@ -845,6 +845,12 @@ class EN
         Locale::KEY_DIAL_SHOPKEEPER_TXT_UNDEAD => [
             "Plenty of adventurers claimed to come back to life and be fine in the dungeon, while other said they saw hostile mindless undeads walking the deeper halls of this tower...",
             "None of it all makes sense, why would some come back fine and others not? Unless those undead aren't adventurers, but I don't see who they'd be or why they'd be any different then the rest."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["back|from|I|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
+            "You are not the only one talking about coming back from death in the dungeon, most of those that have gone to the dungeon and back ended up killed at some point according to themselves.\nThat is if they didn't escape after seeing the first monster.",
+            "Altho, you lot claim that you just get sent back to the moment you entered the dungeon when you die, meaning there's no actual proof of your deaths appart from some foggy memory... So I personally think that what you all think to be deaths are actually hallucinations.",
+            "I mean, think about it. Maybe this dungeon play mind-tricks, or something in it's air makes you delirious. Plenty of people who were under the influences of hallucinogenics talked about morbid visions of their own death, or even post-death. This to me is a much more plausible explaination at least."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombs|catacomb|crypt|crypts|entrance|inner|interior|inside|insides|prison|prisons"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["I don't know anything about the tower's insides beyound a few hear-says. Sorry."],
@@ -907,15 +913,15 @@ class EN
             "So, if you have already found a few coins and treasure out there, I think it's best to head back and secure that treasure here without risking it getting lost.\nYou might even take the opportunity to spend a few here while you're at it."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVICES => "I'm no adventurer, but ",
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_DISCOUNTS => ["free|discount|discounts|gift|offer"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_DISCOUNTS => ["free|discount|discounts|gift|offer|sale"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_DISCOUNTS => ["this isn't a charity.\nI can not make a profit if I spend my time giving away discounts to the first person that ask for them, you know?"],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_DISCOUNTS => "I'm sorry, but ",
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE => ["here|your|you|that|prices|price|it", "high|expensive|much|lot"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE => ["here|your|you|that|prices|price|it", "high|expensive|much|lot|scam|scammer"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_TOO_EXPENSIVE => ["I for one believe that my prices are within my ware's market value.", "But I apologies if what I sell is beyond your budget."],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE => "Is that so?\n",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HAVE_YOU => ["have|sell|got", "you|your"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_HAVE_YOU => ["Everything I sell is right there on the counter, take a look for yourself.", "My apology if I happen to lack something you're looking for."],
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_FUCK_YOU => ["fuck|hate", "you|yourself"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_FUCK_YOU => ["fuck|hate|get", "you|yourself|off|fucked"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_FUCK_YOU => ["The adventurer's here trully have no sense of customs.\nIs it the tower's aura getting to your nerves or you just never had any education?"],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_FUCK_YOU => "How rude.\n",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_GET_LOST => ["go|get|burn", "hell|lost"],
@@ -932,12 +938,94 @@ class EN
         Locale::KEY_DIAL_SHOP_KEEPER_INTRO_HELLO => "Oh... Hum... ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME => ["márton|marton|orban|orbán"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME => ["Yes, that's my name."],
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding|where"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_VILLAGE => [
             "It's a pretty standard countryside village here, not much would be going on if it wasn't for the suddent apparition of that tower there.",
             "Altho, even with the new buisnesses blooming all around the place, the displeasing smell of cattle remain.\nMoreover, no offense, but much of the same is to be said about your colleagues adventurers. A lot of them spend their time going to the tower and back without a single shower inbetween, and even existing near them prove challenging."
         ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_YEAR => ['what|which|is|are', 'when|year|time'],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_YEAR => ["it's the year 1414."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_YEAR => "What? You mean, you forgot the year we're at?... I mean sure, ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_NOT_HELPING => ["not|no|don", "help|helping|helpfull|usefull|use|serve"],
-        Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["I'm sorry to hear that."]
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["I'm sorry to hear that."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_OLD_SOLDIER => ["old", "soldier|soldiers|armor|armors|helmet|chestplate"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_OLD_SOLDIER => [
+            "that armor used to be employed by soldiers years ago, but it's been repurposed and repaired for a second life in our modern world.",
+            "As you can guess from it's price, it's not the most intricatly designed piece of armor. But, you won't find better protection for so low a price.\nSo, that's a great deal if your budget is tight."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER => "Oh yeah, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_POULAINES => ["poulaines|poulaine"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_POULAINES => ["very fashionnable currently.\nAn odd pick for an adventurer, undoubtedly, but if you care about style more then protection they are the shoes for you."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_POULAINES => "Ah yes, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_CHOPINES => ["chopines|chopine"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_CHOPINES => ["A great choice for the ladies. Feminine and making you look taller, they are all the rage in the courts.\nAlthough, as for the dungeons you'd risk breaking your ankles with thoses."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_GAMBESON => ["gambesson|gambessons|gambeson|gambesons"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_GAMBESON => [
+            "Gambesons are a great way to protect yourself on a low budget, and it's pretty comfortable despite the weight of this one.\nThey work simply by layering thick layers of padding and fabric to absorb blows.",
+            "But, this one we have is a bit on the heavier side, with it's added metal plate on the chest to give extra protection at the cost of weighing a bit more on the shoulders."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_HOUPPELANDE => ["houpelande|houpelandes|houppelande|houppelandes|houppeland|houppelands"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_HOUPPELANDE => [
+            "Houppelandes are beautifull costumes that really highlight the masculine form.",
+            "Of course taking such a precious fabric into the dirty and dangerous halls of the dungeon aren't really advised, but I won't stop you from living your truth if fashion is of great importance to you."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOUPPELANDE => "Ah, a great choice. ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_ESCOFFION => ["escoffion|escofion|escoffions|escofions"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_ESCOFFION => [
+            "Escoffion are the newest chic haircut in this country, and this hat is just what you need if you want in on it too.",
+            "I won't lie about the fact that I personally find this trend a little ridiculous, but, I guess that I'm just getting old.\nPlus, I am not from this country so I'm not in on the local fashion."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Right, the horned hat.",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_HAUBERK => ["hauberk|hauberc|hauberks|haubercs"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_HAUBERK => [
+            "Hauberks are mail robes that offer great protection, and our model comes with a complementary surcoat to offer aditionnal coverage.",
+            "This one is the heaviest of our pieces, but, you won't find a more protective armor in our humble shop."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_CERVELIERE => ["heavy|cerveliere|cervelieres", "cerveliere|cervelieres|helmet|helmets"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_CERVELIERE => [
+            "Protecting the skull is paramount in the dangerous halls of the dungeon.\nThis heavy helmet and cerveliere combo is perfect for that, giving two thick layers of protection to your cranium so you can be sure to avoid concussions."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_TELECRYSTAL => ["telecrystal|tele|telecrystals", "telecrystal|crystal|telecrystals|crystals"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_TELECRYSTAL => [
+            "",
+            "It is a very powerfull magic artefact that can prove most usefull during your adventures, wether you are trying to make a quick escape to the exit or to join a faraway ally, this crystal allow you to do so instantly.",
+            "Allthemore, thanks to the incredible power of the crystal and it's robust design, this artefact will be endlessly reusable too."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Right, the telecrystal. My most prized article.",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["where|way|road|to", "dungeon|tower|dungeons"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON => ["Right down the small road, to the right once out of the shop.\nIt should be hard to miss, as signs have been recently added pointing toward it."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_GENDER => ["you|your|are|re", "boy|man|girl|woman|female|male"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_GENDER => ["I am a man."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_GENDER => "Is it not obvious?... ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_SUPPLIER => ["stocks|stock|supplier|suppliers|supply|supplies|merchandise|merchandises", "from|who|where"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_SUPPLIER => ["I supply the stocks myself, as I travel from country to country I buy what one's have to offer and sell what they lack."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_WEATHER => ["weather|out|sunny|rain|rainy|cloudy"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_WEATHER => ["it's not too cold.", "I appreciate that we can still enjoy a bit of sunlight when coming home from work."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_WEATHER => "We've seen better days, but ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_SEASON => ["which|what", "season|seasons"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_SEASON => ["it's currently fall.\n Did you not notice the tree's got all orange?"],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_SEASON => "Hum, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_ADVENTURER => ["adventurer|adventurers|explorer|explorers|us"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_ADVENTURER => [
+            "adventurers represent most of my clientele, so I'd be foolish not to enjoy their presence.",
+            "But I'll admit not all adventurers are equal, and a lot are perticularly rude.",
+            "I get it tho, trully.\nIt's hard to maintain good customs when you're life is constantly on the line and you get hardened by battles and tenuous work.",
+            "Even I know I'm getting a bit rough because of the constant travels, so I can only empathize with the struggles of the adventuring life."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVENTURER => "Well, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_STUPID => ["you|your|are", "stupid|dumb|idiot|dumbass"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_STUPID => [
+            "whatever you say.",
+            "It's not an adventurer that's gonna make me feel insecure about my intellect."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_STUPID => "Sure, sure, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_GOD => ["believe|worship|think|your|have", "religion|religions|god|gods|divinity|divine"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_GOD => [
+            "Do I look like some kind of profane to you?",
+            "I only believe in the one true God worshipped in this holy continent."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_GOD => "What kind of question is this? ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_OTHER_GOD => ["other|multiple|many", "god|gods|divinity|divine"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["Such blasphemy do not amuse me.\nOnly one God can exist by very definition."]
     }
 end

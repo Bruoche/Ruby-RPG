@@ -846,6 +846,12 @@ class FR
             "Beaucoup d'aventuriers prétendes être revenu à la vie dans les donjon, tandis que d'autres disent avoir vu des mort-vivants hostiles errer dans les couloirs du donjon...",
             "Rien de tout ça fait sens pour moi, pourquoi certains reviendraient sans problème et d'autres non ? A moins que ces mort-vivants ne soient pas des aventuriers, mais je vois pas qui ils seraient et pourquoi ils seraient différent des aventuriers réssussités."
         ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["revenu|entre|je|j|aventuriers|aventurier", "morts|mort|tué|tuée|tuées|tués|ressuscité|ressuscite|resurrecté|resurrecte"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
+            "Vous n'êtes pas le seul à dire être revenu d'entre les morts, la plupart de ceux qui ont explorés le donjon sont mort à un moment d'après eux.\nEn tout cas, s'ils ne se sont pas échappé dès qu'ils ont vu le premier monstre évidemment.",
+            "En revanche, d'après vos dires la mort vous ramène au moment où vous êtes entrés dans le donjon, donc à part des souvenirs brumeux vous n'en n'avez pas de preuves concrètes... J'en pense donc que ce sont en fait des hallucinations.",
+            "J'veux dire, réfléchissez-y. Peut-être que la tour joue des tours sur votre esprit, ou que quelque chose dans l'air vous fait délirer. Beaucoup de gens ayant été sous l'influence d'hallucinogènes ont des visions morbides de leurs propres morts, ou même de l'après. Ce qui pour moi est bien plus probable."
+        ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombes|catacombe|crypte|cryptes|entrée|intérieur|intérieure|intérieurs|dans|dedans|prison|prisons"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'interrieur du donjon à part les rumeures qui en circules. Désolé."],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE => "Je n'ai jamais été moi-même dans le donjon, donc ",
@@ -910,7 +916,7 @@ class FR
         Locale::KEY_DIAL_SHOPKEEPER_KEY_DISCOUNTS => ["gratuit|ristourne|ristournes|gratuits|promo|promos|cadeau|cadeaux|offrir|donner"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_DISCOUNTS => ["c'est pas une charité ici.\nJe ne peux pas faire de profits si je passe mon temps à donner des ristournes au premier qui demande."],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_DISCOUNTS => "Désolé, mais ",
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE => ["ici|là|toi|tes|t|tu|vous|vos|votre|ce|trop|haut|inabordable", "prix|tarif|tarifs|haut|cher|haut|inabordable"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE => ["ici|là|toi|tes|t|tu|vous|vos|votre|ce|trop|haut|inabordable", "prix|tarif|tarifs|haut|cher|haut|inabordable|arnaque|arnaqueur|arnaqueuse|douille"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_TOO_EXPENSIVE => ["Pour ma part mes prix me semblent bien dans leurs valeurs marchandes.", "Mais, je m'excuse tout de même si mes marchandises dépassent votre budget."],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE => "Ah bon ?\n",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HAVE_YOU => ["avez|avez-vous|a-tu|a|vend|vendez|possède|détient|possede|detient|vendrais|vendriez|possedez|possèderiez|possederiez|auriez|vends", "tu|t|vous"],
@@ -932,12 +938,94 @@ class FR
         Locale::KEY_DIAL_SHOP_KEEPER_INTRO_HELLO => "Oh... Euh... ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME => ["márton|marton|orban|orbán"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME => ["Oui, c'est mon nom."],
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|ici|ville|villageois|villageoi|habitant|habitants|endroit|coin|région|region"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|ici|ville|villageois|villageoi|habitant|habitants|endroit|coin|région|region|où"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_VILLAGE => [
             "C'est un village de campagne plutôt standard ici, il se passerais pas grand chose si c'était pas pour l'apparition de cette tour.",
             "En revanche, même avec toutes les nouvelles échoppes s'installant dans le coin, l'odeur déplaisante du bétail reste.\nD'ailleurs, le prenez pas mal, mais on peux en dire tout autant de vos camarades aventuriers. Beaucoups passent leur temps à faire des allers retours dans la tour sans prendre de douche entre chaque, et rien que de se tenir près d'eux s'avère difficile."
         ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_YEAR => ['quelle|quand|est|somme', 'quand|année|moment'],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_YEAR => ["nous sommes en l'an 1414."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_YEAR => "Hein? Vous voullez dire, vous avez oublié l'année qu'on est ?... J'veux dire, bien sûr, ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_NOT_HELPING => ["pas|non|aucune|aucunnement", "utile|aide|aides|utilité|utilitée|utilités|utilitées"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["Je suis navrès d'apprendre ça."]
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_OLD_SOLDIER => ["vieux|vieil|vieille|vieilles|ancien|ancienne|anciens|anciennes", "soldat|soldats|soldate|soldates|armure|armures|casque|casques|plastron|plastrons|protection|protections"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_OLD_SOLDIER => [
+            "cette armure était employée par les soldats il y'a bien longtemps. Mais ce modèle a été réutilisé et réparé pour lui offrir une seconde vie dans notre monde moderne.",
+            "Comme vous pouvez le deviner de part son prix, ce n'est pas l'armure à la fabrique la plus élaborée. Mais, vous ne trouverez pas meilleure protection pour un prix ci bas.\nDonc, elle peux être un excellent choix si votre budget est bas."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER => "Ah oui, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_POULAINES => ["poulaines|poulaine"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_POULAINES => ["très à la mode en ce moment.\nUn choix étonnant pour un aventurier, aucun doute là-dessus, mais si vous vous souciez plus du style que de la protection, elle sont faites pour vous."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_POULAINES => "Ah ça, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_CHOPINES => ["chopines|chopine"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_CHOPINES => ["Un choix parfait pour les dames. Vous faisant paraître plus grand tout en ayant une touche feminine, ces chausses font toutes la rages dans les grandes courts.\nEn revanche, pour ce qui serait des donjons ça serait un coup à vous briser une cheville ou deux."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_GAMBESON => ["jaque|jaques"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_GAMBESON => [
+            "Une jaque est un bon moyen de vous protéger de manière abordable, et malgrès son poids celle-ci est plutôt confortable.\nSa fabrication est simple, uniquement composée de nombreuses couches de tissus et de rembourrage amortissant les chocs.",
+            "Mais, celle-ci est un peu plus lourde que la moyenne, ayant une plaque métalique offrant une protection supplémentaire au torse, au coût d'un poids additionnel sur vos épaules."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_HOUPPELANDE => ["houpelande|houpelandes|houppelande|houppelandes"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_HOUPPELANDE => [
+            "L'houppelande est un très beau costume à manches longues qui met formidablement bien en valeur la forme masculine.",
+            "Bien sûr prendre un vêtement aussi beau dans les dangereux et sales couloirs du donjon n'est pas vraimment recomandé, mais je ne vous arrêterez pas si vous vous souciez de votre apparence tant que ça."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOUPPELANDE => "Ah tout à fait, un très bon choix. ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_ESCOFFION => ["chapeau|chapeaux|escoffion|escofion|escoffions|escofions", "cornu|cornus|cornue|cornues|escoffion|escofion|escoffions|escofions"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_ESCOFFION => [
+            "L'escoffion est la nouvelle coupe chic dans ce pays, et si vous voulez prendre part au mouvement ce chapeau est juste ce qu'il vous faut.",
+            "Je n'vais pas mentir sur le fait que personnellement je trouve cette mode un peu ridicule, mais, j'imagine que c'est dû à l'age.\nEt puis, je ne viens pas du coin donc j'doit simplement pas être au fait de la culture locale."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Ah oui, le chapeau cornu.",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_HAUBERK => ["haubert|hauberts|hauber|haubers"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_HAUBERK => [
+            "L'haubert est une robe de maille qui offre une grande protection, et notre modèle viens avec un surcot complementaire pour une couverture additionnelle.",
+            "C'est l'une de nos pièces les plus chères, mais, vous ne trouverez pas de pièce plus protectrice dans cette humble échoppe."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_CERVELIERE => ["lourd|lourde|cervelière|cerveliere|cervelieres|cervelières", "cervelière|cerveliere|cervelieres|cervelières|casque|casques"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_CERVELIERE => [
+            "Protéger le crâne est primordiale dans les dangereux couloirs du donjon.\nLa combinaison du casque lourd avec une cervelière est parfaite pour cela, offrant à votre cranium deux couches de protections épaisses, vous assurant d'éviter les commotions."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_TELECRYSTAL => ["telecristal|tele|telecristaux|télécristal|télé|télécristaux", "telecristal|cristal|telecristaux|cristaux|télécristal|télécristaux"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_TELECRYSTAL => [
+            "",
+            "C'est un artéfact magique puissant pouvant s'avérer très utile durant vos avantures. Que ça soit pour vous ramener à la sortie du donjon ou pour rejoindre un de vos alliers, ce cristal vous permettra de faire cela instantanément.",
+            "Allthemore, thanks to the incredible power of the crystal and it's robust design, this artefact will be endlessly reusable too."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Ah oui, le télé-cristal. Mon article le plus précieux.",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["où|chemin|route|vers", "dunjon|tour|donjons"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON => ["Le donjon est juste en bas de la petite route, sur la droite en quittant le magasin.\nVous devriez pas le rater, des pannaux l'indiquant ont récemment été ajoutés."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_GENDER => ["tu|t|est|es", "garçon|garcon|homme|mec|fille|femme|dame|meuf"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_GENDER => ["Je suis un homme."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_GENDER => "N'est-ce pas évident ?... ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_SUPPLIER => ["stocks|stock|fournisseur|cargaisons|cargaison|livraisons|livraison|livre|fourni|fournis|livre|livré|fournir|livrer|marchandise|marchandises", "où|d|de|qui"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_SUPPLIER => ["Je fait mes stocks moi-même, puis-ce que je voyage de pays en pays, j'achète ce que chaque offre pour le vendre à ceux à qui ça manque."],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_WEATHER => ["météo|meteo|dehors|soleil|pluie|beau|pluvieux|pluvieu|nuageux|pluies|ensolleilé|ensoleillé|ensoleillement"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_WEATHER => ["il fait pas trop froid.", "J'apprécie pouvoir encore profiter d'un peu d'ensoleillement en rentrant du travail."],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_WEATHER => "On a déjà vu mieux, mais ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_SEASON => ["quelle", "saison|saisons"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_SEASON => ["nous sommes actuellement en automne.\n N'avez-vous pas vu que les arbres tous oranges ?"],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_SEASON => "Hum, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_ADVENTURER => ["aventurier|aventuriers|explorateur|explorateurs|nous"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_ADVENTURER => [
+            "les aventuriers représentent la majorité de ma clientèle, il serait donc bête de ne pas apprécier leur présence.",
+            "Mais j'admet qu'ils ne se valent pas tous, et beaucoup sont particulièrement mal éduqués.",
+            "Je les comprends en revanche, sincèrement.\nC'est dur de garder de bonnes manières quand nos vies sont toujours menacées et que les batailles et le travail manuel nous endurcissent.",
+            "Même moi me vois devenir victime de cette mentalité alors que j'accumule les voyages, donc je ne peux qu'avoir de l'empathie pour ces aventuriers."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVENTURER => "Et bien, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_STUPID => ["tu|t|est", "stupide|idiot|bête|abbruti|abruti|idiote|abbrutie"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_STUPID => [
+            "si ça vous fait plaisir.",
+            "Ça n'est pas un aventurier qui va me complexer au sujet de mon intelligence."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_STUPID => "Mais bien sûr, ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_GOD => ["croi|crois|croie|existe|pratique|venere|venère|ton|tes|a|détient|tu|t", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_GOD => [
+            "Ai-je l'air d'un prophane pour vous ?",
+            "Je ne crois qu'au Dieu seul et unique vénéré dans ce continent saint."
+        ],
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_GOD => "Quel genre de questions est-ce là ? ",
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_OTHER_GOD => ["autre|plusieurs|nombreux|plusieur|multiple|autres", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["De tels blasphèmes ne m'amusent guère.\nDe part sa définition même, un seul Dieu ne peut exister."]
     }
 end
