@@ -64,6 +64,10 @@ class SaveManager
         return nil
     end
 
+    def self.settings_directory_made?
+        return File.file?("#{SAVE_DIRECTORY}/#{SETTING}")
+    end
+
     def self.save_settings(settings)
         save_directory = File.dirname(SAVE_DIRECTORY + '/*')
         unless File.directory?(save_directory)

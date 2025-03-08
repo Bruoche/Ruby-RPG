@@ -316,6 +316,7 @@ class FR
             "    2) Petite"
         ],
         Locale::KEY_LANGUAGE_SETTINGS_TITLE => "Quelle langue souhaitez-vous ? (Langue actuelle : %s)",
+        Locale::KEY_LANGUAGE_POP_UP_TITLE => "Quelle langue souhaitez-vous ?",
         Locale::KEY_CURRENT_EQUIPMENT_TITLE => "Equipement actuel : ",
         Locale::KEY_EQUIPMENT_OPTIONS => [
             "Que voulez-vous faire ?",

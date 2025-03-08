@@ -100,6 +100,10 @@ class Narrator
         Narrator.write(Locale::KEY_GO_BACK_ENUMERATED)
     end
 
+    def self.language_pop_up_options
+        Narrator.write(Locale.get_localized(Locale::KEY_LANGUAGE_POP_UP_TITLE))
+    end
+
     def self.current_equipment_title
         Narrator.write(Locale::KEY_CURRENT_EQUIPMENT_TITLE)
     end

@@ -13,6 +13,10 @@ class Settings
     }
     BATTLE_ACTION_PAUSE = 0.3
 
+    def self.initialized?
+        return SaveManager.settings_directory_made?
+    end
+
     def self.warning_pop_up_enabled
         return get_setting(POP_UP_ON_START_SYM) == 'true'
     end

@@ -315,7 +315,8 @@ class EN
             "    1) Tall (recommended)",
             "    2) Small"
         ],
-        Locale::KEY_LANGUAGE_SETTINGS_TITLE => "What language do you want? (Current: %s)",
+        Locale::KEY_LANGUAGE_SETTINGS_TITLE => "What language do you prefer? (Current: %s)",
+        Locale::KEY_LANGUAGE_POP_UP_TITLE => "What language do you prefer?",
         Locale::KEY_CURRENT_EQUIPMENT_TITLE => "Current equipment: ",
         Locale::KEY_EQUIPMENT_OPTIONS => [
             "What do you want to do?",

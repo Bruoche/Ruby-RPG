@@ -4,6 +4,9 @@ class Game
     RETAIL_PERCENT = 90
 
     def initialize
+        if !Settings.initialized?
+            SettingsMenu.language_pop_up
+        end
         if Settings.warning_pop_up_enabled
             SettingsMenu.warning_pop_up
         end

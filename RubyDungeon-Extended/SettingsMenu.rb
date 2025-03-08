@@ -15,6 +15,28 @@ class SettingsMenu
         end
     end
 
+    def self.language_pop_up
+        loop do
+            Narrator.language_pop_up_options
+            index = 1
+            for available_locale in Locale::AVAILABLE_LOCALES
+                Narrator.enumerate(Locale.get_localized(available_locale), index)
+                index += 1
+            end
+            choosen_locale = Narrator.user_input.to_i
+            if (choosen_locale > 0) && (choosen_locale <= Locale::AVAILABLE_LOCALES.length)
+                Settings.set_locale(Locale::AVAILABLE_LOCALES[choosen_locale - 1])
+                return
+            else
+                if choosen_locale == 0
+                    return
+                else
+                    Narrator.unsupported_choice_error
+                end
+            end
+        end
+    end
+
     def self.options_menu
         loop do
             Narrator.options_selection

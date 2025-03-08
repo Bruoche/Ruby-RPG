@@ -230,6 +230,7 @@ class Locale
     KEY_CURRENT_SOUND_EFFECTS = :current_sound_effects
     KEY_SOUND_OPTIONS = :sound_options
     KEY_LANGUAGE_SETTINGS_TITLE = :language_settings_title
+    KEY_LANGUAGE_POP_UP_TITLE = :language_pop_up_title
     KEY_CURRENT_EQUIPMENT_TITLE = :current_equipment_title
     KEY_EQUIPMENT_OPTIONS = :equipment_options
     KEY_EQUIPMENT_REMOVE_OPTION = :equipment_remove_option
