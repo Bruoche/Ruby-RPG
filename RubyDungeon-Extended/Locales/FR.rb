@@ -26,6 +26,7 @@ class FR
         # Rooms
         Locale::KEY_ALCOVE => "pièce",
         Locale::KEY_CELL => "cellule",
+        Locale::KEY_CHAMBER => "chambre",
         Locale::KEY_GEOLLE => "geolle",
         Locale::KEY_ROOM => "salle",
         Locale::KEY_TORTURE_CHAMBER => "chambre de torture",
