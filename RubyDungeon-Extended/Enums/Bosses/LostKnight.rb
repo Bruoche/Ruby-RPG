@@ -41,7 +41,7 @@ class LostKnightRightArm
     FEMALE_CHANCES = 0
     BASE_MOVES = [Locale::KEY_KNIGHT_RIGHT_ATTACK]
     SPECIAL_MOVES = [
-        SpecialMove.new(10, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
+        SpecialMove.new(33, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]
     DEATH_EVENT = -> (arm, boss) {LostKnight.main_arm_loss(arm, boss)}
 end
@@ -80,8 +80,10 @@ class LostKnight < Bestiary
         SoundManager.play('swoosh')
         Narrator.knight_slash
         sleep Settings::BATTLE_ACTION_PAUSE
-        target = actor.choose_target(targets)
-        target.hurt(Attack.new(rand(actor.get_strength..actor.get_strength*2), Attack::PHYSIC_TYPE, actor))
+        3.times do
+            target = actor.choose_target(targets)
+            target.hurt(Attack.new((actor.get_strength.div(2)), Attack::PHYSIC_TYPE, actor))
+        end
     end
 
     def self.limb_loss(name, boss)
@@ -100,7 +102,7 @@ class LostKnight < Bestiary
             SoundManager.play('equip')
             Narrator.knight_phase_change
             sleep Settings::BATTLE_ACTION_PAUSE
-            left_arm.add_special_move(SpecialMove.new(50, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
+            left_arm.add_special_move(SpecialMove.new(100, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
             left_arm.set_death_event(-> (name, boss) {defenseless(name, boss)})
         else
             defenseless(name, boss)

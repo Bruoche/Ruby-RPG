@@ -3,6 +3,7 @@ module ShopInventory
         Bundle.new(HealthPotion.new(10), 1),
         Bundle.new(HealthPotion.new(20), 1),
         Bundle.new(HealthPotion.new(50), 1),
+        Bundle.new(HealthPotion.new(100), 1),
         Bundle.new(Armor.new(LeatherGreaves), 1),
         Bundle.new(Armor.new(StarterHeavyGreaves), 1),
         Bundle.new(Armor.new(DressGreaves), 1),
