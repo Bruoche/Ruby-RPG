@@ -935,7 +935,7 @@ class EN
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN => "Well, I'm ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HELLO => ["hello|hi|salutations"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_HELLO => ["Hello. Again."],
-        Locale::KEY_DIAL_SHOP_KEEPER_INTRO_HELLO => "Oh... Hum... ",
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_HELLO => "Oh... Hum... ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME => ["márton|marton|orban|orbán"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME => ["Yes, that's my name."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding|where"],

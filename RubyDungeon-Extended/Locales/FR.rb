@@ -815,7 +815,7 @@ class FR
         Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE => ["Non je ne viens effectivement pas d'ici.\nJe suis originaire de l'Est."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_ORIGIN => ["ton|ta|tu|t|vous", "où|né|pays|origine|histoire|viens"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_ORIGIN => [
-            "Je suis né dans la portion est de l'Empire Sain. J'y ai passé mes plus jeunes années, mais a vite commencé à voyager à travers tout le continent plus large.",
+            "Je suis né dans la portion Est de l'Empire Sain. J'y ai passé mes plus jeunes années, mais a vite commencé à voyager à travers tout le continent plus large.",
             "Le voyage à toujours été un avantage crucial pour mon magasin, grâce aux taxes minimales sur le transport de marchandise entre chaque royaume j'ai pu vendre les plus grande raretés au prix les plus compétitifs.",
             "Le seul problème avec les trajets c'est le temps et les bandits, honnêtement."
         ],
@@ -867,7 +867,7 @@ class FR
         Locale::KEY_DIAL_SHOPKEEPER_TXT_HOLY_EMPIRE => [
             "C'est un royaume bien loin d'ici, à l'Est, mais plus ou moins égal en taille.",
             "Les jours semblent toujours passer bien plus vite là-bas, et il y fait bien plus froid.",
-            "Néanmoins, bien que vos hivers soient plus doux, et que vous profitiez de meilleures cultures, vos étés eux sont bien pire que les notres.",
+            "Néanmoins, bien que vos hivers soient plus doux, et que vous profitiez de meilleures cultures, vos étés eux sont bien pire que les nôtres.",
             "Pour ce que ça vaut j'suis bien heureux d'être là en Automne. Comme ça je peux profiter des paysages et du climat tempéré sans risquer le coup de chaud."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOLY_EMPIRE => "Oui, j'aime énormément cet endroit. ",
@@ -935,7 +935,7 @@ class FR
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN => "Et bah, ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HELLO => ["salut|yo|bonjour|salutations|salutation"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_HELLO => ["Bonjour. Encore."],
-        Locale::KEY_DIAL_SHOP_KEEPER_INTRO_HELLO => "Oh... Euh... ",
+        Locale::KEY_DIAL_SHOPKEEPER_INTRO_HELLO => "Oh... Euh... ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME => ["márton|marton|orban|orbán"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME => ["Oui, c'est mon nom."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|ici|ville|villageois|villageoi|habitant|habitants|endroit|coin|région|region|où"],
@@ -947,7 +947,7 @@ class FR
         Locale::KEY_DIAL_SHOPKEEPER_TXT_YEAR => ["nous sommes en l'an 1414."],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_YEAR => "Hein? Vous voullez dire, vous avez oublié l'année qu'on est ?... J'veux dire, bien sûr, ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_NOT_HELPING => ["pas|non|aucune|aucunnement", "utile|aide|aides|utilité|utilitée|utilités|utilitées"],
-        Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["Je suis navrès d'apprendre ça."]
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["Je suis navrès d'apprendre ça."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_OLD_SOLDIER => ["vieux|vieil|vieille|vieilles|ancien|ancienne|anciens|anciennes", "soldat|soldats|soldate|soldates|armure|armures|casque|casques|plastron|plastrons|protection|protections"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_OLD_SOLDIER => [
             "cette armure était employée par les soldats il y'a bien longtemps. Mais ce modèle a été réutilisé et réparé pour lui offrir une seconde vie dans notre monde moderne.",

@@ -611,7 +611,7 @@ class Locale
     KEY_DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN = :dial_shopkeeper_intro_how_you_doin
     KEY_DIAL_SHOPKEEPER_KEY_HELLO = :dial_shopkeeper_key_hello
     KEY_DIAL_SHOPKEEPER_TXT_HELLO = :dial_shopkeeper_txt_hello
-    KEY_DIAL_SHOP_KEEPER_INTRO_HELLO = :dial_shopkeeper_intro_hello
+    KEY_DIAL_SHOPKEEPER_INTRO_HELLO = :dial_shopkeeper_intro_hello
     KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME = :dial_shopkeeper_key_merchant_name
     KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME = :dial_shopkeeper_txt_merchant_name
     KEY_DIAL_SHOPKEEPER_KEY_VILLAGE = :dial_shopkeeper_key_village
