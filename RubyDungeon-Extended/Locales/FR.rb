@@ -257,11 +257,13 @@ class FR
         ],
         Locale::KEY_BODY_OPTIONS => [
             "Quel élément souhaitez-vous modifier ?",
+            "    0) Retour...",
             "    1) Couleur de peau",
             "    2) Corpulence",
         ],
         Locale::KEY_FEATURES_OPTIONS => [
             "Quelle trait du visage souhaitez-vous modifier ?",
+            "    0) Retour...",
             "    1) Couleur des yeux",
             "    2) Les oreilles",
             "    3) Le nez",

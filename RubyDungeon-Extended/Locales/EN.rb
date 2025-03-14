@@ -16,7 +16,7 @@ class EN
         Locale::KEY_ZOMBIE_F => "undead",
         Locale::KEY_KNIGHT_M => "knight",
         Locale::KEY_PRISONNER_M => "forgotten prisonner",
-        Locale::KEY_SKELETON => "skeletton",
+        Locale::KEY_SKELETON => "skeleton",
         Locale::KEY_SLIME => "slime",
         Locale::KEY_SPRIGGAN => "spriggan",
         Locale::KEY_ZOMBIE_M => "undead",
@@ -209,7 +209,7 @@ class EN
         Locale::KEY_WARNING_POP_UP => [
             "",
             "Warning :",
-            "Death in this game will loose all ongoing progression in the dungeon.",
+            "Death in this game will lose all ongoing progression in the dungeon.",
             "Exit the dungeon to save your progress.",
             "",
             "Terminal info :",
@@ -257,11 +257,13 @@ class EN
         ],
         Locale::KEY_BODY_OPTIONS => [
             "What do you want to customize?",
+            "    0) Back...",
             "    1) Skin color",
             "    2) Bodytype",
         ],
         Locale::KEY_FEATURES_OPTIONS => [
             "What feature do you want to change?",
+            "    0) Back...",
             "    1) Eye color",
             "    2) Ears",
             "    3) Nose",
@@ -411,7 +413,7 @@ class EN
         Locale::KEY_EMPTY_ROOM_F => "you find it completely empty.",
         Locale::KEY_EMPTY_ROOM_M => "you find it completely empty.",
         Locale::KEY_IN_A_ROOM => "You are inside of ",
-        Locale::KEY_IS_EMPTY => " seeming empty.",
+        Locale::KEY_IS_EMPTY => " that seems empty.",
         Locale::KEY_MONSTER_ROOM => ", you see %s.",
         Locale::KEY_MONSTER_ROOM_FIGHTING => ", you see %{#{Locale::F_KEY_ALLIES}} fighting %{#{Locale::F_KEY_ENNEMIES}}.",
         Locale::KEY_DEAD_ALLY => "The body of %s lay on the ground.",
@@ -423,8 +425,8 @@ class EN
         Locale::KEY_ATTACK_MONSTERS => "You leap on the monsters ahead of you.",
         Locale::KEY_ATTACK_MONSTER => "You leap on the monster ahead of you.",
         Locale::KEY_AVOID_FIGHT => "Wanting not to fight %s, you keep a low profile.",
-        Locale::KEY_FAIL_ESCAPE_PLURAL => "As you attempt to avoid the monsters, they notice your presence and take charge.",
-        Locale::KEY_FAIL_ESCAPE_SINGLE => "As you attempt to avoid the monster, they notice your presence and take charge.",
+        Locale::KEY_FAIL_ESCAPE_PLURAL => "As you attempt to avoid the monsters, they notice your presence and takes charge.",
+        Locale::KEY_FAIL_ESCAPE_SINGLE => "As you attempt to avoid the monster, they notice your presence and takes charge.",
         Locale::KEY_GAME_OVER_PLURAL => "Unfortunately, the monsters' assaults gets the best of you and you fall to the ground.",
         Locale::KEY_GAME_OVER_SINGLE => "Unfortunately, the monster's assault gets the best of you and you fall to the ground.",
         Locale::KEY_ESCAPE => "This fight no longer being worth it, you escape.",
@@ -440,20 +442,20 @@ class EN
             "You have survived.",
             ""
         ],
-        Locale::KEY_HURT_MESSAGE => "%{#{Locale::F_KEY_TARGET}} take %{#{Locale::F_KEY_AMOUNT}} damage.",
-        Locale::KEY_DETAILED_HURT_MESSAGE => "%{#{Locale::F_KEY_TARGET}} take %{#{Locale::F_KEY_AMOUNT}} damage. (%{#{Locale::F_KEY_TOTAL}} taken, %{#{Locale::F_KEY_DODGED}} dodged%{#{Locale::F_KEY_PARRIED}})",
-        Locale::KEY_HEAL_MESSAGE => "%{#{Locale::F_KEY_TARGET}} replenish %{#{Locale::F_KEY_AMOUNT}} health points.",
+        Locale::KEY_HURT_MESSAGE => "%{#{Locale::F_KEY_TARGET}} takes %{#{Locale::F_KEY_AMOUNT}} damage.",
+        Locale::KEY_DETAILED_HURT_MESSAGE => "%{#{Locale::F_KEY_TARGET}} takes %{#{Locale::F_KEY_AMOUNT}} damage. (%{#{Locale::F_KEY_TOTAL}} taken, %{#{Locale::F_KEY_DODGED}} dodged%{#{Locale::F_KEY_PARRIED}})",
+        Locale::KEY_HEAL_MESSAGE => "%{#{Locale::F_KEY_TARGET}} replenishes %{#{Locale::F_KEY_AMOUNT}} health points.",
         Locale::KEY_DONT_NEED_HEAL => "%s isn't wounded and therefore doesn't need healing.",
         Locale::KEY_HEAL_FAIL_MESSAGE => "You do not know how to heal yourself.",
-        Locale::KEY_HEAL_SPELL_MESSAGE => "%{#{Locale::F_KEY_SOURCE}} heal %{#{Locale::F_KEY_TARGET}}.",
-        Locale::KEY_SELF_HEAL_MESSAGE => "%{#{Locale::F_KEY_TARGET}} replenish %{#{Locale::F_KEY_AMOUNT}} health points.",
+        Locale::KEY_HEAL_SPELL_MESSAGE => "%{#{Locale::F_KEY_SOURCE}} heals %{#{Locale::F_KEY_TARGET}}.",
+        Locale::KEY_SELF_HEAL_MESSAGE => "%{#{Locale::F_KEY_TARGET}} replenishes %{#{Locale::F_KEY_AMOUNT}} health points.",
         Locale::KEY_SPELL_FAIL => "Deprived of magical power, you are unable to cast any spell.",
         Locale::KEY_SPELL_CAST => "%s cast a magical attack.",
-        Locale::KEY_MONSTER_DEATH => "%s fall under your blows.",
-        Locale::KEY_PLAYER_DEATH => "%s fall to the ground.",
-        Locale::KEY_OBTAIN_ITEM => "%{#{Locale::F_KEY_TARGET}} obtain %{#{Locale::F_KEY_ITEM}}.",
-        Locale::KEY_REMOVE_ARMOR => "%{#{Locale::F_KEY_TARGET}} remove %{#{Locale::F_KEY_ITEM}}.",
-        Locale::KEY_EQUIP_ARMOR => "%{#{Locale::F_KEY_TARGET}} equipe themselves of %{#{Locale::F_KEY_ITEM}}.",
+        Locale::KEY_MONSTER_DEATH => "%s falls under your blows.",
+        Locale::KEY_PLAYER_DEATH => "%s falls to the ground.",
+        Locale::KEY_OBTAIN_ITEM => "%{#{Locale::F_KEY_TARGET}} obtains %{#{Locale::F_KEY_ITEM}}.",
+        Locale::KEY_REMOVE_ARMOR => "%{#{Locale::F_KEY_TARGET}} removes %{#{Locale::F_KEY_ITEM}}.",
+        Locale::KEY_EQUIP_ARMOR => "%{#{Locale::F_KEY_TARGET}} equips themselves of %{#{Locale::F_KEY_ITEM}}.",
         Locale::KEY_SEARCHING => "You search %s for any item that may come of use",
         Locale::KEY_ALREADY_TAKEN => "You have already taken everything there is to take in %s.",
         Locale::KEY_NOTHING_FOUND => "You find nothing of value.",
@@ -563,8 +565,8 @@ class EN
         Locale::KEY_MONSTER_STRIKE => "strike %s",
         Locale::KEY_MONSTER_SPELL => "cast a spell",
         Locale::KEY_MONSTER_HEAL => "cast a healing aura",
-        Locale::KEY_MONSTER_BODIES => "the bodies of the monsters you precedently killed",
-        Locale::KEY_MONSTER_BODY => "the body of the monster you precedently killed",
+        Locale::KEY_MONSTER_BODIES => "the bodies of the monsters you previously killed",
+        Locale::KEY_MONSTER_BODY => "the body of the monster you previously killed",
         Locale::KEY_THE_MONSTERS => "the monsters",
         Locale::KEY_ASK_EQUIPPED_ARMOR => "What armor piece do you want to equip?",
         Locale::KEY_ASK_REMOVED_ARMOR => "What armor piece do you want to remove?",
@@ -686,7 +688,7 @@ class EN
         ],
         Locale::KEY_CATACOMBS_DESCRIPTION => [
             "You are inside catacombs filled with tombs and remains all arranged in elaborate ways.",
-            "This place is much dryer then the dungeon entrance, the darkness surrounding you thicker then ever.",
+            "This place is much drier than the dungeon entrance, the darkness surrounding you thicker than ever.",
             "The stagnating air and dust leave a dry taste in your throat."
         ],
         Locale::KEY_CATACOMBS_LOOT_BANDAGE => ["You notice some shrouds still clean enough you could use as bandages."],
@@ -700,7 +702,7 @@ class EN
             "As you penetrate it, you see great stone walls",
             "At first, they remind you of the dungeon entrance...",
             "",
-            "But, something about this place seem much older then the rest of the dungeon."
+            "But, something about this place seem much older than the rest of the dungeon."
         ],
         Locale::KEY_ENTRANCE_DESCRIPTION => [
             "You are surrounded by thick stone walls.",
@@ -718,12 +720,12 @@ class EN
         ],
         Locale::KEY_ENTRANCE_TRANSITION_CATACOMBS => [
             "As you move forward inside of the dungeon, you arrive to narrow corridors descending deeper inside the earth.",
-            "You engulf inside what seem to be a place of rest for the old habitants of this dungeon, now long gone."
+            "You engulf inside what seem to be a place of rest for the old inhabitants of this dungeon, now long gone."
         ],
         Locale::KEY_PRISON_DESCRIPTION => [
             "You are in what seem to be an old prison.",
-            "Even if this place is more welcoming then the catacombs, it isn't so by a lot.",
-            "You are taken by a feeling of unease as you walk a place that seem to bear the weight of a somber history."
+            "Even if this place is more welcoming than the catacombs, it isn't so by a lot.",
+            "You are taken by a feeling of unease as you walk into a place that seem to bear the weight of a somber history."
         ],
         Locale::KEY_PRISON_LOOT_HEALTH_POTION => [
             "You see a health potion settled on a table among diverse tools.",
@@ -835,18 +837,18 @@ class EN
             "Although, I am no expert and that is the full extent of my knowledge on the specific process."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HEALTH_POTION => ["health|life|heal", "potion|potions"],
-        Locale::KEY_DIAL_SHOPKEEPER_TXT_HEALTH_POTION => ["My health potions are of a great quality, and it's a much more reliable way to heal in emergency situations then your makeshift bandages."],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_HEALTH_POTION => ["My health potions are of a great quality, and it's a much more reliable way to heal in emergency situations than your makeshift bandages."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_LOST_KNIGHT => ["lost", "knight"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_LOST_KNIGHT => ["I have no clue who that is. Sorry."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_GOBLINS => ["goblins|goblin"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_GOBLINS => [
             "Those little pests are fairly rare I'll be honest. Never saw one in person myself, but heard numerous tales of them assaulting those that have gone too deep in forests.\nThey're much more common in the tower from what I've heard, maybe they too enjoy the amount of trinkets this place hold.",
-            "In that they seem to ressemble adventurers in more ways then one."
+            "In that they seem to ressemble adventurers in more ways than one."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_UNDEAD => ["undead|undeads|zombie|zombies|skeleton|skeletons"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_UNDEAD => [
             "Plenty of adventurers claimed to come back to life and be fine in the dungeon, while other said they saw hostile mindless undeads walking the deeper halls of this tower...",
-            "None of it all makes sense, why would some come back fine and others not? Unless those undead aren't adventurers, but I don't see who they'd be or why they'd be any different then the rest."
+            "None of it all makes sense, why would some come back fine and others not? Unless those undead aren't adventurers, but I don't see who they'd be or why they'd be any different than the rest."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["back|from|I|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
@@ -868,7 +870,7 @@ class EN
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HOLY_EMPIRE => ["your|holy", "empire|native|hometown|home|birthplace|country|kingdom"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_HOLY_EMPIRE => [
             "It is a kingdom much further from there, to the east, and more or less equal in size.",
-            "I always feel like the days pass much faster there then they do here, and it's also a lot colder where I used to live.",
+            "I always feel like the days pass much faster there than they do here, and it's also a lot colder where I used to live.",
             "Nevertheless, you may have more tender winters, and more bountyfull crops before those times come, but I always felt the summers were way too hot here.",
             "If anything I'm glad to be here during the fall. I can enjoy the tempered climate and beautifull scenery without feeling like I'm going to pass out."
         ],
@@ -885,7 +887,7 @@ class EN
         ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_ARMOR_PROTECTION => ["armor|helmet|plastron|chestplate|legware|boots|shoes|gloves|gauntlets", "protection|strength|defense"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION => [
-            "Armor protection will allow you to get a more reliable way of avoiding injuries then just trying to dodge every punches thrown at you.\nA good enough armor can make you invincible, and will at least increase your chances of surviving if you take one that fit you."
+            "Armor protection will allow you to get a more reliable way of avoiding injuries than just trying to dodge every punches thrown at you.\nA good enough armor can make you invincible, and will at least increase your chances of surviving if you take one that fit you."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_AGILITY => ["agility|agile"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_AGILITY => [
@@ -895,7 +897,7 @@ class EN
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_AGILITY => "Not sure why you ask me about this, but ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_HEALTH => ["health|healthy|life"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_HEALTH => [
-            "health is absolutely crucial for any adventurer. If you get too injured you have everything to loose. So you better make your best to be in your best shape when going deep in the dungeon."
+            "health is absolutely crucial for any adventurer. If you get too injured you have everything to lose. So you better make your best to be in your best shape when going deep in the dungeon."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_HEALTH => "I don't know why you need me to tell you this, but ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_STRENGTH => ["strength|force|strong"],
@@ -957,7 +959,7 @@ class EN
         ],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER => "Oh yeah, ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_POULAINES => ["poulaines|poulaine"],
-        Locale::KEY_DIAL_SHOPKEEPER_TXT_POULAINES => ["very fashionnable currently.\nAn odd pick for an adventurer, undoubtedly, but if you care about style more then protection they are the shoes for you."],
+        Locale::KEY_DIAL_SHOPKEEPER_TXT_POULAINES => ["very fashionnable currently.\nAn odd pick for an adventurer, undoubtedly, but if you care about style more than protection they are the shoes for you."],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_POULAINES => "Ah yes, ",
         Locale::KEY_DIAL_SHOPKEEPER_KEY_CHOPINES => ["chopines|chopine"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_CHOPINES => ["A great choice for the ladies. Feminine and making you look taller, they are all the rage in the courts.\nAlthough, as for the dungeons you'd risk breaking your ankles with thoses."],
