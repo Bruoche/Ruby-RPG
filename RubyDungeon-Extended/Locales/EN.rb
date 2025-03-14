@@ -994,7 +994,7 @@ class EN
             "Allthemore, thanks to the incredible power of the crystal and it's robust design, this artefact will be endlessly reusable too."
         ],
         Locale::KEY_DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Right, the telecrystal. My most prized article.",
-        Locale::KEY_DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["where|way|road|to", "dungeon|tower|dungeons"],
+        Locale::KEY_DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["where|way|road|path|lead|toward|towards", "dungeon|tower|dungeons"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON => ["Right down the small road, to the right once out of the shop.\nIt should be hard to miss, as signs have been recently added pointing toward it."],
         Locale::KEY_DIAL_SHOPKEEPER_KEY_GENDER => ["you|your|are|re", "boy|man|girl|woman|female|male"],
         Locale::KEY_DIAL_SHOPKEEPER_TXT_GENDER => ["I am a man."],

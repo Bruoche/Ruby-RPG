@@ -1,7 +1,7 @@
 class SoundManager
     SOUND_FOLDER = 'RubyDungeon-Extended/Sounds/'
     SFX_FOLDER = 'Sfx/'
-    EXTENSION = '.wav'
+    EXTENSION = '.ogg'
 
     def self.play(sound_name)
         if Settings.sound_effects
