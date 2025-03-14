@@ -14,7 +14,7 @@ class Dialog
     end
 
     def self.process_sentence(sentence_heard)
-        return processed_sentence = sentence_heard.gsub("'", ' ').gsub(/(?!-)\p{P}/, ' ').downcase.split
+        return sentence_heard.gsub("'", ' ').gsub("-", ' ').gsub(/(?!-)\p{P}/, ' ').downcase.split
     end
 
     def get_id
