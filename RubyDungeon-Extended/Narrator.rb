@@ -752,7 +752,7 @@ class Narrator
         Narrator.write(Locale::KEY_UNEXPECTED_ERROR)
     end
 
-    def self.user_input(name = NO_NAME_DISPLAYED)
+    def self.user_input(name = NO_NAME_DISPLAYED, new_screen = true)
         Narrator.add_space_of(1)
         if name != NO_NAME_DISPLAYED
             name_prefix = name + ' : '
@@ -765,7 +765,7 @@ class Narrator
         rescue SystemExit, Interrupt => e
             loop do
                 Narrator.write(Locale::KEY_CLOSE_GAME_CONFIRM)
-                case user_input.capitalize
+                case user_input(NO_NAME_DISPLAYED, false).capitalize
                 when 'Y'
                     raise e
                 when 'N'
@@ -773,8 +773,10 @@ class Narrator
                 end
             end
         end
-        TTY::Screen.height.times do
-            Narrator.add_space_of(1)
+        if new_screen
+            TTY::Screen.height.times do
+                Narrator.add_space_of(1)
+            end
         end
         return answer
     end
