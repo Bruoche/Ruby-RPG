@@ -1,22 +1,22 @@
 module SkelettonM
     NAMES = [
-        Locale::KEY_SKELETON
+        LocaleKey::SKELETON
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_BIG_M,
-        Locale::KEY_TALL_M,
-        Locale::KEY_ANCIENT_M
+        LocaleKey::SMALL_M,
+        LocaleKey::BIG_M,
+        LocaleKey::TALL_M,
+        LocaleKey::ANCIENT_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_M,
-        Locale::KEY_ANGRY_M,
-        Locale::KEY_WARY_M,
-        Locale::KEY_GREYISH_M,
-        Locale::KEY_DARK_M,
-        Locale::KEY_TIRED_M
+        LocaleKey::SCARY_M,
+        LocaleKey::ANGRY_M,
+        LocaleKey::WARY_M,
+        LocaleKey::GREYISH_M,
+        LocaleKey::DARK_M,
+        LocaleKey::TIRED_M
     ].freeze
 end
 

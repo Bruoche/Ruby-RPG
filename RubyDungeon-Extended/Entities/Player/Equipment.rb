@@ -117,7 +117,7 @@ class Equipment
         available_equipments = inventory.get_all(Armor)
         if (available_equipments.length > 0)
             equipment_index = Narrator.ask_paginated(
-                Locale::KEY_ASK_EQUIPPED_ARMOR,
+                LocaleKey::ASK_EQUIPPED_ARMOR,
                 available_equipments,
                 -> (equipment, index){
                     equipment_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(equipment, index, 0))
@@ -146,7 +146,7 @@ class Equipment
     def ask_remove(inventory, player_name)
         removable_slots = get_taken_slots
         equipment_index = Narrator.ask_complex_element(
-            Locale::KEY_ASK_REMOVED_ARMOR,
+            LocaleKey::ASK_REMOVED_ARMOR,
             removable_slots,
             -> (slot, index) {
                 removable_card = slot.get_card(index)

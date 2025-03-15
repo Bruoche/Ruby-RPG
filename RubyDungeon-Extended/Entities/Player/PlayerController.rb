@@ -154,7 +154,7 @@ class PlayerController
     end
 
     def propose_exploration
-        next_room = Narrator.ask(Locale::KEY_ASK_DESTINATION, @player.get_room.get_adjacent_rooms, -> (room){@player.get_room.to_string(room)}, @player.get_name)
+        next_room = Narrator.ask(LocaleKey::ASK_DESTINATION, @player.get_room.get_adjacent_rooms, -> (room){@player.get_room.to_string(room)}, @player.get_name)
         if next_room != Narrator::RETURN_BUTTON
             next_room_instance = @player.get_room.exit_to(next_room)
             if next_room_instance.allow_entry_for(@player)
@@ -187,7 +187,7 @@ class PlayerController
         else
             acted = false
             loop do
-                choosen_object = Narrator.ask(Locale::KEY_ASK_ITEM_TAKEN, @player.get_room.get_loot, ->(object){Loot.to_string(object)}, @player.get_name)
+                choosen_object = Narrator.ask(LocaleKey::ASK_ITEM_TAKEN, @player.get_room.get_loot, ->(object){Loot.to_string(object)}, @player.get_name)
                 if choosen_object == Narrator::RETURN_BUTTON
                     return acted
                 end

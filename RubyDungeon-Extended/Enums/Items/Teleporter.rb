@@ -1,5 +1,5 @@
 class Teleporter < Item
-    NAME = Locale::KEY_TELEPORTER_NAME
+    NAME = LocaleKey::TELEPORTER_NAME
     SOUND = 'key'
     PICTURE = 'teleporter'
     USABLE_ON_OTHERS = false
@@ -11,7 +11,7 @@ class Teleporter < Item
     end
 
     def get_description
-        return Locale::KEY_TELEPORTER_DESCRIPTION
+        return LocaleKey::TELEPORTER_DESCRIPTION
     end
 
     def use(target, user)

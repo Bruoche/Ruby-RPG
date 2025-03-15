@@ -7,7 +7,7 @@ class EntranceTuto < Biome
     MALE = EntranceM
     FEMALE_CHANCES = 60
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = Locale::KEY_ENTRANCE_DESCRIPTION
+    DESCRIPTION = LocaleKey::ENTRANCE_DESCRIPTION
     BESTIARY = [
         Goblin,
         Goblin,
@@ -20,18 +20,18 @@ class EntranceTuto < Biome
     SAFE_CHANCES = 30
     LOOT = [
         Loot.new(
-            Locale::KEY_ENTRANCE_LOOT_HEALTH_POTION,
+            LocaleKey::ENTRANCE_LOOT_HEALTH_POTION,
             2,
             HealthPotion,
             [5, 20]
         ),
         Loot.new(
-            Locale::KEY_ENTRANCE_LOOT_BANDAGE,
+            LocaleKey::ENTRANCE_LOOT_BANDAGE,
             20,
             Bandage
         ),
         Loot.new(
-            Locale::KEY_ENTRANCE_LOOT_COINS,
+            LocaleKey::ENTRANCE_LOOT_COINS,
             25,
             Coins,
             [],
@@ -43,7 +43,7 @@ class EntranceTuto < Biome
     MAX_EXITS = 3
     TRANSITIONS = [
         BiomeTransition.new(
-            Locale::KEY_ENTRANCE_TRANSITION_CATACOMBS,
+            LocaleKey::ENTRANCE_TRANSITION_CATACOMBS,
             10,
             'Catacombs'
         ),

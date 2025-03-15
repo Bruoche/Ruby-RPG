@@ -210,7 +210,7 @@ class Room
     def to_string(room_id)
         case room_id
         when Narrator::RETURN_BUTTON
-            return format(Locale.get_localized(Locale::KEY_STAY_IN), @name.get_gendered_the)
+            return format(Locale.get_localized(LocaleKey::STAY_IN), @name.get_gendered_the)
         when nil
             return '???'
         else

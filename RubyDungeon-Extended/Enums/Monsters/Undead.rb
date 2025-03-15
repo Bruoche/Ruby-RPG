@@ -1,44 +1,44 @@
 module UndeadF
     NAMES = [
-        Locale::KEY_ZOMBIE_F
+        LocaleKey::ZOMBIE_F
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_F,
-        Locale::KEY_BIG_F,
-        Locale::KEY_TALL_F,
-        Locale::KEY_ANCIENT_F
+        LocaleKey::SMALL_F,
+        LocaleKey::BIG_F,
+        LocaleKey::TALL_F,
+        LocaleKey::ANCIENT_F
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_F,
-        Locale::KEY_ANGRY_F,
-        Locale::KEY_WARY_F,
-        Locale::KEY_GREYISH_F,
-        Locale::KEY_DARK_F,
-        Locale::KEY_TIRED_F
+        LocaleKey::SCARY_F,
+        LocaleKey::ANGRY_F,
+        LocaleKey::WARY_F,
+        LocaleKey::GREYISH_F,
+        LocaleKey::DARK_F,
+        LocaleKey::TIRED_F
     ].freeze
 end
 
 module UndeadM
     NAMES = [
-        Locale::KEY_ZOMBIE_M
+        LocaleKey::ZOMBIE_M
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_BIG_M,
-        Locale::KEY_TALL_M,
-        Locale::KEY_ANCIENT_M
+        LocaleKey::SMALL_M,
+        LocaleKey::BIG_M,
+        LocaleKey::TALL_M,
+        LocaleKey::ANCIENT_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_M,
-        Locale::KEY_ANGRY_M,
-        Locale::KEY_WARY_M,
-        Locale::KEY_GREYISH_M,
-        Locale::KEY_DARK_M,
-        Locale::KEY_TIRED_M
+        LocaleKey::SCARY_M,
+        LocaleKey::ANGRY_M,
+        LocaleKey::WARY_M,
+        LocaleKey::GREYISH_M,
+        LocaleKey::DARK_M,
+        LocaleKey::TIRED_M
     ].freeze
 end
 

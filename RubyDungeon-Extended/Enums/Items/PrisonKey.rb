@@ -1,5 +1,5 @@
 class PrisonKey < Item
-    NAME = Locale::KEY_PRISON_KEY_NAME
+    NAME = LocaleKey::PRISON_KEY_NAME
     SOUND = 'key'
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = true
@@ -10,6 +10,6 @@ class PrisonKey < Item
     end
 
     def get_description
-        return Locale::KEY_PRISON_KEY_DESCRIPTION
+        return LocaleKey::PRISON_KEY_DESCRIPTION
     end
 end

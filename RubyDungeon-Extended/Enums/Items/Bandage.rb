@@ -1,5 +1,5 @@
 class Bandage < Item
-    NAME = Locale::KEY_BANDAGES_NAME
+    NAME = LocaleKey::BANDAGES_NAME
     SOUND = 'bandage'
 
     def initialize
@@ -7,7 +7,7 @@ class Bandage < Item
     end
 
     def get_description
-        return Locale::KEY_BANDAGES_DESCRIPTION
+        return LocaleKey::BANDAGES_DESCRIPTION
     end
 
     def use(target, user)

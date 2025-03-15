@@ -16,39 +16,39 @@ class Name
 
     def get_gendered_a
         if @female
-            return Locale.get_localized(Locale::KEY_A_F) + denomination
+            return Locale.get_localized(LocaleKey::A_F) + denomination
         else
-            return Locale.get_localized(Locale::KEY_A_M) + denomination
+            return Locale.get_localized(LocaleKey::A_M) + denomination
         end
     end
 
     def get_gendered_the
         if VOWELS.include?(denomination[0])
-            return Locale.get_localized(Locale::KEY_THE_N) + denomination
+            return Locale.get_localized(LocaleKey::THE_N) + denomination
         end
         if @female
-            return Locale.get_localized(Locale::KEY_THE_F) + denomination
+            return Locale.get_localized(LocaleKey::THE_F) + denomination
         else
-            return Locale.get_localized(Locale::KEY_THE_M) + denomination
+            return Locale.get_localized(LocaleKey::THE_M) + denomination
         end
     end
 
     def get_gendered_this
         if @female
-            return Locale.get_localized(Locale::KEY_THIS_F) + denomination
+            return Locale.get_localized(LocaleKey::THIS_F) + denomination
         else
-            return Locale.get_localized(Locale::KEY_THIS_M) + denomination
+            return Locale.get_localized(LocaleKey::THIS_M) + denomination
         end
     end
 
     def get_gendered_of
         if VOWELS.include?(denomination[0])
-            return Locale.get_localized(Locale::KEY_OF_N) + denomination
+            return Locale.get_localized(LocaleKey::OF_N) + denomination
         end
         if @female
-            return Locale.get_localized(Locale::KEY_OF_F) + denomination
+            return Locale.get_localized(LocaleKey::OF_F) + denomination
         else
-            return Locale.get_localized(Locale::KEY_OF_M) + denomination
+            return Locale.get_localized(LocaleKey::OF_M) + denomination
         end
     end
 
@@ -69,10 +69,10 @@ class Name
     private
 
     def denomination
-        return format(Locale.get_localized(Locale::KEY_NAME_TEMPLATE), {
-            Locale::F_KEY_NAME => Locale.get_localized(@name),
-            Locale::F_KEY_PREFIX => Locale.get_localized(@prefix),
-            Locale::F_KEY_SUFFIX => Locale.get_localized(@suffix)
+        return format(Locale.get_localized(LocaleKey::NAME_TEMPLATE), {
+            LocaleKey::F_NAME => Locale.get_localized(@name),
+            LocaleKey::F_PREFIX => Locale.get_localized(@prefix),
+            LocaleKey::F_SUFFIX => Locale.get_localized(@suffix)
         }).split.join(' ')
     end
 end

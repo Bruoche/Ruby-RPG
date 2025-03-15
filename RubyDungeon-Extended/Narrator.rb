@@ -21,116 +21,116 @@ class Narrator
     end
 
     def self.warning_pop_up(automatic)
-        Narrator.write(Locale::KEY_WARNING_POP_UP)
+        Narrator.write(LocaleKey::WARNING_POP_UP)
         if automatic
-            Narrator.write(Locale::KEY_WARNING_POP_UP_OPTIONS)
+            Narrator.write(LocaleKey::WARNING_POP_UP_OPTIONS)
         else
-            Narrator.write(Locale::KEY_WARNING_POP_UP_SETTINGS)
+            Narrator.write(LocaleKey::WARNING_POP_UP_SETTINGS)
         end
     end
 
     def self.main_menu_options
-        Narrator.write(Locale::KEY_MAIN_MENU_OPTIONS)
+        Narrator.write(LocaleKey::MAIN_MENU_OPTIONS)
     end
 
     def self.select_characters_options(party)
-        Narrator.write(Locale::KEY_PARTY_LIST_TITLE)
+        Narrator.write(LocaleKey::PARTY_LIST_TITLE)
         party.show_cards
-        Narrator.write(Locale::KEY_PARTY_MANAGE_OPTIONS)
+        Narrator.write(LocaleKey::PARTY_MANAGE_OPTIONS)
     end
 
     def self.remove_party_member_option
-        Narrator.write(Locale::KEY_PARTY_MANAGE_REMOVE_OPTION)
+        Narrator.write(LocaleKey::PARTY_MANAGE_REMOVE_OPTION)
     end
 
     def self.start_travel_option(index)
-        Narrator.write('    ' + index.to_s + Locale.get_localized(Locale::KEY_START_TRAVEL_OPTION))
+        Narrator.write('    ' + index.to_s + Locale.get_localized(LocaleKey::START_TRAVEL_OPTION))
     end
 
     def self.new_or_old_character
-        Narrator.write(Locale::KEY_NEW_OR_OLD_CHARACTER)
+        Narrator.write(LocaleKey::NEW_OR_OLD_CHARACTER)
     end
 
     def self.character_creation_options
-        Narrator.write(Locale::KEY_CHARACTER_CREATION_OPTIONS)
+        Narrator.write(LocaleKey::CHARACTER_CREATION_OPTIONS)
     end
 
     def self.features_options
-        Narrator.write(Locale::KEY_FEATURES_OPTIONS)
+        Narrator.write(LocaleKey::FEATURES_OPTIONS)
     end
 
     def self.body_options
-        Narrator.write(Locale::KEY_BODY_OPTIONS)
+        Narrator.write(LocaleKey::BODY_OPTIONS)
     end
 
     def self.beard_options
-        Narrator.write(Locale::KEY_CHARACTER_CREATION_BEARD_OPTIONS)
+        Narrator.write(LocaleKey::CHARACTER_CREATION_BEARD_OPTIONS)
     end
 
     def self.hair_options
-        Narrator.write(Locale::KEY_CHARACTER_CREATION_HAIR_OPTIONS)
+        Narrator.write(LocaleKey::CHARACTER_CREATION_HAIR_OPTIONS)
     end
 
     def self.hairstyle_options
-        Narrator.write(Locale::KEY_CHARACTER_CREATION_HAIRSTYLE_OPTIONS)
+        Narrator.write(LocaleKey::CHARACTER_CREATION_HAIRSTYLE_OPTIONS)
     end
 
     def self.options_selection
-        Narrator.write(Locale::KEY_SETTINGS_OPTIONS)
+        Narrator.write(LocaleKey::SETTINGS_OPTIONS)
     end
 
     def self.asset_size_verification_line
-        Narrator.write(Locale::KEY_ASSET_SIZE_VERIFICATION)
+        Narrator.write(LocaleKey::ASSET_SIZE_VERIFICATION)
     end
 
     def self.asset_size_options
-        Narrator.write(Locale::KEY_ASSET_SIZE_OPTIONS)
+        Narrator.write(LocaleKey::ASSET_SIZE_OPTIONS)
     end
 
     def self.sound_options
-        Narrator.write(Locale.get_localized(Locale::KEY_CURRENT_MUSIC_VOLUME) + Settings.music_volume.to_s + '%')
+        Narrator.write(Locale.get_localized(LocaleKey::CURRENT_MUSIC_VOLUME) + Settings.music_volume.to_s + '%')
         Narrator.add_space_of(1)
-        Narrator.write(Locale.get_localized(Locale::KEY_CURRENT_SOUND_EFFECTS) + (Settings.sound_effects ? Locale.get_localized(Locale::KEY_YES) : Locale.get_localized(Locale::KEY_NO)))
+        Narrator.write(Locale.get_localized(LocaleKey::CURRENT_SOUND_EFFECTS) + (Settings.sound_effects ? Locale.get_localized(LocaleKey::YES) : Locale.get_localized(LocaleKey::NO)))
         add_space_of(3)
-        Narrator.write(Locale::KEY_SOUND_OPTIONS)
+        Narrator.write(LocaleKey::SOUND_OPTIONS)
     end
 
     def self.language_options
-        Narrator.write(format(Locale.get_localized(Locale::KEY_LANGUAGE_SETTINGS_TITLE), Locale.get_localized(Settings.locale.to_sym)))
-        Narrator.write(Locale::KEY_GO_BACK_ENUMERATED)
+        Narrator.write(format(Locale.get_localized(LocaleKey::LANGUAGE_SETTINGS_TITLE), Locale.get_localized(Settings.locale.to_sym)))
+        Narrator.write(LocaleKey::GO_BACK_ENUMERATED)
     end
 
     def self.language_pop_up_options
-        Narrator.write(Locale.get_localized(Locale::KEY_LANGUAGE_POP_UP_TITLE))
+        Narrator.write(Locale.get_localized(LocaleKey::LANGUAGE_POP_UP_TITLE))
     end
 
     def self.current_equipment_title
-        Narrator.write(Locale::KEY_CURRENT_EQUIPMENT_TITLE)
+        Narrator.write(LocaleKey::CURRENT_EQUIPMENT_TITLE)
     end
 
     def self.equipment_options(wear_equipment)
-        Narrator.write(Locale::KEY_EQUIPMENT_OPTIONS)
+        Narrator.write(LocaleKey::EQUIPMENT_OPTIONS)
         if wear_equipment
-            Narrator.write(Locale::KEY_EQUIPMENT_REMOVE_OPTION)
+            Narrator.write(LocaleKey::EQUIPMENT_REMOVE_OPTION)
         end
     end
 
     def self.inventory_options
-        Narrator.write(Locale::KEY_INVENTORY_OPTIONS)
+        Narrator.write(LocaleKey::INVENTORY_OPTIONS)
     end
 
     def self.shop_inventory_options
-        Narrator.write(Locale::KEY_INVENTORY_OPTIONS_SHOP)
+        Narrator.write(LocaleKey::INVENTORY_OPTIONS_SHOP)
     end
 
     def self.player_options(room_name)
-        Narrator.write(Locale::KEY_PLAYER_OPTIONS_FIRST)
-        Narrator.write(Locale.get_localized(Locale::KEY_PLAYER_OPTIONS_SEARCH) + room_name)
-        Narrator.write(Locale::KEY_PLAYER_OPTIONS_SECOND)
+        Narrator.write(LocaleKey::PLAYER_OPTIONS_FIRST)
+        Narrator.write(Locale.get_localized(LocaleKey::PLAYER_OPTIONS_SEARCH) + room_name)
+        Narrator.write(LocaleKey::PLAYER_OPTIONS_SECOND)
     end
 
     def self.player_option_fight(monster_denomination)
-        Narrator.write(Locale.get_localized(Locale::KEY_PLAYER_FIGHT_OPTION) + monster_denomination)
+        Narrator.write(Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + monster_denomination)
     end
 
     def self.stat_options(
@@ -139,54 +139,54 @@ class Narrator
         current_strength, strength_increase,
         current_intelligence, intelligence_increase,
         current_agility, agility_increase)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_STAT_UP_TITLE), {
-            Locale::F_KEY_CURRENT => current_stat,
-            Locale::F_KEY_TOTAL => total_stats
+        Narrator.write(format(Locale.get_localized(LocaleKey::STAT_UP_TITLE), {
+            LocaleKey::F_CURRENT => current_stat,
+            LocaleKey::F_TOTAL => total_stats
         }))
-        Narrator.write(format(Locale.get_localized(Locale::KEY_STAT_UP_HEALTH), {
-            Locale::F_KEY_CURRENT => current_life,
-            Locale::F_KEY_NEW => current_life + life_increase
+        Narrator.write(format(Locale.get_localized(LocaleKey::STAT_UP_HEALTH), {
+            LocaleKey::F_CURRENT => current_life,
+            LocaleKey::F_NEW => current_life + life_increase
         }))
-        Narrator.write(format(Locale.get_localized(Locale::KEY_STAT_UP_STRENGTH), {
-            Locale::F_KEY_CURRENT => current_strength,
-            Locale::F_KEY_NEW => current_strength + strength_increase
+        Narrator.write(format(Locale.get_localized(LocaleKey::STAT_UP_STRENGTH), {
+            LocaleKey::F_CURRENT => current_strength,
+            LocaleKey::F_NEW => current_strength + strength_increase
         }))
-        Narrator.write(format(Locale::get_localized(Locale::KEY_STAT_UP_INTELLIGENCE), {
-            Locale::F_KEY_CURRENT => current_intelligence,
-            Locale::F_KEY_NEW => current_intelligence + intelligence_increase
+        Narrator.write(format(Locale::get_localized(LocaleKey::STAT_UP_INTELLIGENCE), {
+            LocaleKey::F_CURRENT => current_intelligence,
+            LocaleKey::F_NEW => current_intelligence + intelligence_increase
         }))
-        Narrator.write(format(Locale::get_localized(Locale::KEY_STAT_UP_AGILITY), {
-            Locale::F_KEY_CURRENT => current_agility,
-            Locale::F_KEY_NEW => current_agility + agility_increase
+        Narrator.write(format(Locale::get_localized(LocaleKey::STAT_UP_AGILITY), {
+            LocaleKey::F_CURRENT => current_agility,
+            LocaleKey::F_NEW => current_agility + agility_increase
         }))
     end
 
     def self.teleporter_ask_destination
-        Narrator.write(Locale::KEY_TELEPORT_OPTIONS)
+        Narrator.write(LocaleKey::TELEPORT_OPTIONS)
     end
 
     def self.teleporter_ask_destination_allies(index, ally_name)
-        enumerate(Locale.get_localized(Locale::KEY_TELEPORT_JOIN_OPTION) + ally_name, index)
+        enumerate(Locale.get_localized(LocaleKey::TELEPORT_JOIN_OPTION) + ally_name, index)
     end
 
     def self.yes_or_no
-        Narrator.write(Locale::KEY_YES_OR_NO)
+        Narrator.write(LocaleKey::YES_OR_NO)
     end
 
     def self.no_items_to_use
-        Narrator.write(Locale::KEY_NO_ITEMS_TO_USE)
+        Narrator.write(LocaleKey::NO_ITEMS_TO_USE)
     end
 
     def self.no_items_to_sell
-        Narrator.write(Locale::KEY_NO_ITEMS_TO_SELL)
+        Narrator.write(LocaleKey::NO_ITEMS_TO_SELL)
     end
 
     def self.no_items_to_equip
-        Narrator.write(Locale::KEY_NO_ITEMS_TO_EQUIP)
+        Narrator.write(LocaleKey::NO_ITEMS_TO_EQUIP)
     end
 
     def self.item_possessed_title
-        Narrator.write(Locale::KEY_INVENTORY_TITLE)
+        Narrator.write(LocaleKey::INVENTORY_TITLE)
     end
 
     def self.list(thing)
@@ -198,7 +198,7 @@ class Narrator
     end
 
     def self.introduction_shop
-        Narrator.write(Locale::KEY_SHOP_INTRO)
+        Narrator.write(LocaleKey::SHOP_INTRO)
         pause_text
     end
 
@@ -207,12 +207,12 @@ class Narrator
         ASCIIPrinter.print('title')
         Narrator.add_space_of(1)
         if party.starting?
-            Narrator.write(Locale::KEY_FIRST_INTRO)
+            Narrator.write(LocaleKey::FIRST_INTRO)
         else
             if party.new_members?
-                Narrator.write(Locale::KEY_NEW_MEMBERS_INTRO)
+                Narrator.write(LocaleKey::NEW_MEMBERS_INTRO)
             else
-                Narrator.write(Locale::KEY_RETURN_INTRO)
+                Narrator.write(LocaleKey::RETURN_INTRO)
             end
         end
         Narrator.add_space_of(1)
@@ -222,12 +222,12 @@ class Narrator
     end
 
     def self.thank_for_playing
-        Narrator.write(Locale::KEY_THANK_YOU_NOTE)
+        Narrator.write(LocaleKey::THANK_YOU_NOTE)
     end
 
     def self.pause_text
         Narrator.add_space_of(1)
-        Narrator.write(Locale::KEY_PRESS_CONTINUE)
+        Narrator.write(LocaleKey::PRESS_CONTINUE)
         gets
         TTY::Screen.height.times do
             Narrator.add_space_of(1)
@@ -236,36 +236,36 @@ class Narrator
 
     def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description)
         describe_room(player, describe_biome, picture)
-        write_same_line(Locale.get_localized(Locale::KEY_ENTER_ROOM) + the_room)
+        write_same_line(Locale.get_localized(LocaleKey::ENTER_ROOM) + the_room)
         describe_monsters(player, monsters_description)
         describe_allies(player)
     end
 
     def self.describe_empty_room(player, describe_biome, picture, the_room, female)
         describe_room(player, describe_biome, picture)
-        write_same_line(Locale.get_localized(Locale::KEY_ENTER_ROOM) + the_room + " ")
+        write_same_line(Locale.get_localized(LocaleKey::ENTER_ROOM) + the_room + " ")
         if female
-            Narrator.write(Locale::KEY_EMPTY_ROOM_F)
+            Narrator.write(LocaleKey::EMPTY_ROOM_F)
         else
-            Narrator.write(Locale::KEY_EMPTY_ROOM_M)
+            Narrator.write(LocaleKey::EMPTY_ROOM_M)
         end
         describe_allies(player)
     end
 
     def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description)
         describe_room(player, describe_biome, picture)
-        write_same_line(Locale.get_localized(Locale::KEY_IN_A_ROOM) + a_room)
+        write_same_line(Locale.get_localized(LocaleKey::IN_A_ROOM) + a_room)
         if monsters_description != nil
             describe_monsters(player, monsters_description)
         else
-            Narrator.write(Locale::KEY_IS_EMPTY)
+            Narrator.write(LocaleKey::IS_EMPTY)
         end
         describe_allies(player)
     end
 
     def self.describe_room(player, describe_biome, picture)
         Narrator.add_space_of(1)
-        Narrator.write(Locale::KEY_OPEN_SETTINGS_OPTION)
+        Narrator.write(LocaleKey::OPEN_SETTINGS_OPTION)
         Narrator.add_space_of(1)
         ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)])
         Narrator.add_space_of(1)
@@ -282,11 +282,11 @@ class Narrator
             end
         end
         if (allies_fighting.empty?)
-            Narrator.write(format(Locale.get_localized(Locale::KEY_MONSTER_ROOM), monsters_description))
+            Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ROOM), monsters_description))
         else
-            Narrator.write(format(Locale.get_localized(Locale::KEY_MONSTER_ROOM_FIGHTING), {
-                Locale::F_KEY_ALLIES => Utils.enumerate(allies_fighting),
-                Locale::F_KEY_ENNEMIES => monsters_description
+            Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ROOM_FIGHTING), {
+                LocaleKey::F_ALLIES => Utils.enumerate(allies_fighting),
+                LocaleKey::F_ENNEMIES => monsters_description
             }))
         end
     end
@@ -306,22 +306,22 @@ class Narrator
         end
         if allies.empty?
             if dead_allies.length == 1
-                Narrator.write(format(Locale.get_localized(Locale::KEY_DEAD_ALLY), dead_allies[0]))
+                Narrator.write(format(Locale.get_localized(LocaleKey::DEAD_ALLY), dead_allies[0]))
             elsif dead_allies.length > 1
-                Narrator.write(format(Locale.get_localized(Locale::KEY_DEAD_ALLIES), Utils.enumerate(dead_allies)))
+                Narrator.write(format(Locale.get_localized(LocaleKey::DEAD_ALLIES), Utils.enumerate(dead_allies)))
             end
         else
             if allies.length == 1
-                write_same_line(Locale.get_localized(Locale::KEY_ALLY_ASIDE) + allies[0])
+                write_same_line(Locale.get_localized(LocaleKey::ALLY_ASIDE) + allies[0])
             elsif allies.length > 1
-                write_same_line(Locale.get_localized(Locale::KEY_ALLIES_ASIDE) + Utils.enumerate(allies))
+                write_same_line(Locale.get_localized(LocaleKey::ALLIES_ASIDE) + Utils.enumerate(allies))
             end
             if dead_allies.empty?
                 Narrator.write('.')
             elsif dead_allies.length == 1
-                Narrator.write(Locale.get_localized(Locale::KEY_AND_DEAD_ALLY), dead_allies[0])
+                Narrator.write(Locale.get_localized(LocaleKey::AND_DEAD_ALLY), dead_allies[0])
             else
-                Narrator.write(Locale.get_localized(Locale::KEY_AND_DEAD_ALLIES), Utils.enumerate(dead_allies))
+                Narrator.write(Locale.get_localized(LocaleKey::AND_DEAD_ALLIES), Utils.enumerate(dead_allies))
             end
         end
     end
@@ -329,243 +329,243 @@ class Narrator
     def self.start_fight(plural)
         Narrator.add_space_of(1)
         if plural
-            Narrator.write(Locale::KEY_ATTACK_MONSTERS)
+            Narrator.write(LocaleKey::ATTACK_MONSTERS)
         else
-            Narrator.write(Locale::KEY_ATTACK_MONSTER)
+            Narrator.write(LocaleKey::ATTACK_MONSTER)
         end
     end
 
     def self.avoid_fight(the_monsters)
         Narrator.add_space_of(1)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_AVOID_FIGHT), the_monsters))
+        Narrator.write(format(Locale.get_localized(LocaleKey::AVOID_FIGHT), the_monsters))
     end
 
     def self.fail_sneak(plural)
         Narrator.add_space_of(1)
         if plural
-            Narrator.write(Locale::KEY_FAIL_ESCAPE_PLURAL)
+            Narrator.write(LocaleKey::FAIL_ESCAPE_PLURAL)
         else
-            Narrator.write(Locale::KEY_FAIL_ESCAPE_SINGLE)
+            Narrator.write(LocaleKey::FAIL_ESCAPE_SINGLE)
         end
     end
 
     def self.death_scene(plural)
         Narrator.add_space_of(1)
         if plural
-            Narrator.write(Locale::KEY_GAME_OVER_PLURAL)
+            Narrator.write(LocaleKey::GAME_OVER_PLURAL)
         else
-            Narrator.write(Locale::KEY_GAME_OVER_SINGLE)
+            Narrator.write(LocaleKey::GAME_OVER_SINGLE)
         end
     end
 
     def self.escape_scene
-        Narrator.write(Locale::KEY_ESCAPE)
+        Narrator.write(LocaleKey::ESCAPE)
     end
 
     def self.fail_escape(plural)
         if plural
-            Narrator.write(Locale::KEY_ESCAPE_FAIL_PLURAL)
+            Narrator.write(LocaleKey::ESCAPE_FAIL_PLURAL)
         else
-            Narrator.write(Locale::KEY_ESCAPE_FAIL_SINGLE)
+            Narrator.write(LocaleKey::ESCAPE_FAIL_SINGLE)
         end
     end
 
     def self.victory_scene(was_plural, xp)
         Narrator.add_space_of(1)
         if was_plural
-            Narrator.write(format(Locale.get_localized(Locale::KEY_VICTORY_PLURAL), xp))
+            Narrator.write(format(Locale.get_localized(LocaleKey::VICTORY_PLURAL), xp))
         else
-            Narrator.write(format(Locale.get_localized(Locale::KEY_VICTORY_SINGLE), xp))
+            Narrator.write(format(Locale.get_localized(LocaleKey::VICTORY_SINGLE), xp))
         end
     end
 
     def self.sneaking_transition
-        Narrator.write(Locale::KEY_EXPLORATION_CONTINUE)
+        Narrator.write(LocaleKey::EXPLORATION_CONTINUE)
     end
 
     def self.exit_dungeon(did_nothing)
         if (did_nothing)
-            write_same_line(Locale::KEY_EXIT_SCARED)
+            write_same_line(LocaleKey::EXIT_SCARED)
         else
-            write_same_line(Locale::KEY_EXIT_DONE)
+            write_same_line(LocaleKey::EXIT_DONE)
         end
-        Narrator.write(Locale::KEY_EXIT_SURVIVED)
+        Narrator.write(LocaleKey::EXIT_SURVIVED)
     end
 
     def self.hurt(denomination, damage)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_HURT_MESSAGE), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_AMOUNT => damage
+        Narrator.write(format(Locale.get_localized(LocaleKey::HURT_MESSAGE), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_AMOUNT => damage
         }))
     end
 
     def self.detailed_hurt(denomination, damage_taken, damage, dodge_score, defense_text)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_DETAILED_HURT_MESSAGE), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_AMOUNT => damage_taken,
-            Locale::F_KEY_TOTAL => damage,
-            Locale::F_KEY_DODGED => dodge_score,
-            Locale::F_KEY_PARRIED => defense_text
+        Narrator.write(format(Locale.get_localized(LocaleKey::DETAILED_HURT_MESSAGE), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_AMOUNT => damage_taken,
+            LocaleKey::F_TOTAL => damage,
+            LocaleKey::F_DODGED => dodge_score,
+            LocaleKey::F_PARRIED => defense_text
         }))
     end
 
     def self.heal(denomination, amount)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_HEAL_MESSAGE), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_AMOUNT => amount
+        Narrator.write(format(Locale.get_localized(LocaleKey::HEAL_MESSAGE), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_AMOUNT => amount
         }))
     end
 
     def self.dont_need_heal(denomination)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_DONT_NEED_HEAL), denomination.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::DONT_NEED_HEAL), denomination.capitalize))
     end
 
     def self.heal_spell_fail
-        Narrator.write(Locale::KEY_HEAL_FAIL_MESSAGE)
+        Narrator.write(LocaleKey::HEAL_FAIL_MESSAGE)
     end
 
     def self.heal_spell_cast(denomination, target)
-        Narrator.write(format((Locale.get_localized(Locale::KEY_HEAL_SPELL_MESSAGE)), {
-            Locale::F_KEY_SOURCE => denomination.capitalize,
-            Locale::F_KEY_TARGET => target
+        Narrator.write(format((Locale.get_localized(LocaleKey::HEAL_SPELL_MESSAGE)), {
+            LocaleKey::F_SOURCE => denomination.capitalize,
+            LocaleKey::F_TARGET => target
         }))
     end
 
     def self.self_heal(denomination, amount)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_SELF_HEAL_MESSAGE), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_AMOUNT => amount
+        Narrator.write(format(Locale.get_localized(LocaleKey::SELF_HEAL_MESSAGE), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_AMOUNT => amount
         }))
     end
 
     def self.player_spell_fail
-        Narrator.write(Locale::KEY_SPELL_FAIL)
+        Narrator.write(LocaleKey::SPELL_FAIL)
     end
 
     def self.player_spell_cast(denomination)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_SPELL_CAST), denomination.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::SPELL_CAST), denomination.capitalize))
     end
 
     def self.monster_death(denomination)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_MONSTER_DEATH), denomination.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_DEATH), denomination.capitalize))
     end
 
     def self.player_death(denomination)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_PLAYER_DEATH), denomination.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::PLAYER_DEATH), denomination.capitalize))
     end
 
     def self.obtain_item(denomination, item_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_OBTAIN_ITEM), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_ITEM => item_name
+        Narrator.write(format(Locale.get_localized(LocaleKey::OBTAIN_ITEM), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_ITEM => item_name
         }))
     end
 
     def self.remove_armor(denomination, item_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_REMOVE_ARMOR), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_ITEM => item_name
+        Narrator.write(format(Locale.get_localized(LocaleKey::REMOVE_ARMOR), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_ITEM => item_name
         }))
     end
 
     def self.equip_armor(denomination, item_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_EQUIP_ARMOR), {
-            Locale::F_KEY_TARGET => denomination.capitalize,
-            Locale::F_KEY_ITEM => item_name
+        Narrator.write(format(Locale.get_localized(LocaleKey::EQUIP_ARMOR), {
+            LocaleKey::F_TARGET => denomination.capitalize,
+            LocaleKey::F_ITEM => item_name
         }))
     end
 
     def self.searching(room_name)
-        write_same_line(format(Locale.get_localized(Locale::KEY_SEARCHING), room_name))
+        write_same_line(format(Locale.get_localized(LocaleKey::SEARCHING), room_name))
     end
 
     def self.everything_taken_already(denomination)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_ALREADY_TAKEN), denomination))
+        Narrator.write(format(Locale.get_localized(LocaleKey::ALREADY_TAKEN), denomination))
     end
 
     def self.nothing_found
-        Narrator.write(Locale::KEY_NOTHING_FOUND)
+        Narrator.write(LocaleKey::NOTHING_FOUND)
     end
 
     def self.level_up
-        Narrator.write(Locale::KEY_LEVEL_UP)
+        Narrator.write(LocaleKey::LEVEL_UP)
     end
 
     def self.unknown_use
-        Narrator.write(Locale::KEY_UNKNOWN_USE)
+        Narrator.write(LocaleKey::UNKNOWN_USE)
     end
 
     def self.bandage_use_self(user_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_BANDAGE_USE_SELF), user_name.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::BANDAGE_USE_SELF), user_name.capitalize))
     end
 
     def self.bandage_use_other(user_name, target_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_BANDAGE_USE_OTHER), {
-            Locale::F_KEY_SOURCE => user_name.capitalize,
-            Locale::F_KEY_TARGET => target_name
+        Narrator.write(format(Locale.get_localized(LocaleKey::BANDAGE_USE_OTHER), {
+            LocaleKey::F_SOURCE => user_name.capitalize,
+            LocaleKey::F_TARGET => target_name
         }))
     end
 
     def self.toss_coin
-        write_same_line(Locale::KEY_TOSS_COIN)
+        write_same_line(LocaleKey::TOSS_COIN)
     end
 
     def self.coin_toss_suspense
-        write_same_line(Locale::KEY_COIN_TOSS_SUSPENSE)
+        write_same_line(LocaleKey::COIN_TOSS_SUSPENSE)
     end
 
     def self.coin_toss(result)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_COIN_TOSS_RESULT), result))
+        Narrator.write(format(Locale.get_localized(LocaleKey::COIN_TOSS_RESULT), result))
     end
 
     def self.health_potion_use_self(user_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_HEALTH_POTION_USE_SELF), user_name.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::HEALTH_POTION_USE_SELF), user_name.capitalize))
     end
 
     def self.health_potion_use_other(user_name, target_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_HEALTH_POTION_USE_OTHER), {
-            Locale::F_KEY_SOURCE => user_name.capitalize,
-            Locale::F_KEY_TARGET => target_name
+        Narrator.write(format(Locale.get_localized(LocaleKey::HEALTH_POTION_USE_OTHER), {
+            LocaleKey::F_SOURCE => user_name.capitalize,
+            LocaleKey::F_TARGET => target_name
         }))
     end
 
     def self.teleporter_fail
-        Narrator.write(Locale::KEY_TELEPORTER_FAIL)
+        Narrator.write(LocaleKey::TELEPORTER_FAIL)
     end
 
     def self.teleporter_start
-        Narrator.write(Locale::KEY_TELEPORTER_START)
+        Narrator.write(LocaleKey::TELEPORTER_START)
         Narrator.add_space_of(1)
     end
 
     def self.knight_slash
-        Narrator.write(Locale::KEY_KNIGHT_SLASH)
+        Narrator.write(LocaleKey::KNIGHT_SLASH)
     end
 
     def self.knight_limb_loss(limb_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_LIMB_LOSS), limb_name.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::KNIGHT_LIMB_LOSS), limb_name.capitalize))
     end
 
     def self.knight_change_weapon_side(boss_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_CHANGE_WEAPON_SIDE), boss_name.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::KNIGHT_CHANGE_WEAPON_SIDE), boss_name.capitalize))
     end
 
     def self.knight_phase_change
-        Narrator.write(Locale::KEY_KNIGHT_PHASE_CHANGE)
+        Narrator.write(LocaleKey::KNIGHT_PHASE_CHANGE)
     end
 
     def self.knight_defenseless(boss_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_DEFENSELESS), boss_name.capitalize))
+        Narrator.write(format(Locale.get_localized(LocaleKey::KNIGHT_DEFENSELESS), boss_name.capitalize))
     end
 
     def self.knight_death1(boss_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_KNIGHT_DEATH_FIRST), boss_name))
-        Narrator.write(Locale::KEY_KNIGHT_DEATH_SECOND)
+        Narrator.write(format(Locale.get_localized(LocaleKey::KNIGHT_DEATH_FIRST), boss_name))
+        Narrator.write(LocaleKey::KNIGHT_DEATH_SECOND)
     end
 
     def self.knight_death2
         Narrator.add_space_of(1)
-        Narrator.write(Locale::KEY_KNIGHT_DEATH_THIRD)
+        Narrator.write(LocaleKey::KNIGHT_DEATH_THIRD)
     end
 
     def self.show_player_battle_cards(player)
@@ -590,23 +590,23 @@ class Narrator
 
     def self.put_scrollbar(scroll_bar, current_page, nb_pages)
         Narrator.write(scroll_bar)
-        Narrator.write(Locale.get_localized(Locale::KEY_PAGE) + " #{current_page + 1}/#{nb_pages}")
+        Narrator.write(Locale.get_localized(LocaleKey::PAGE) + " #{current_page + 1}/#{nb_pages}")
     end
 
     def self.ask_name(current_name)
-        Narrator.write(Locale::KEY_ASK_NAME)
+        Narrator.write(LocaleKey::ASK_NAME)
         if (current_name != CharacterCreator::DEFAULT_NAME)
-            Narrator.write(Locale.get_localized(Locale::KEY_CURRENT_NAME) + current_name)
+            Narrator.write(Locale.get_localized(LocaleKey::CURRENT_NAME) + current_name)
         end
     end
 
     def self.ask_confirm_character
-        Narrator.write(Locale::KEY_ASK_CONFIRM_CHARACTER)
+        Narrator.write(LocaleKey::ASK_CONFIRM_CHARACTER)
     end
 
     def self.ask_play_again
         loop do
-            Narrator.write(Locale::KEY_ASK_SHOP)
+            Narrator.write(LocaleKey::ASK_SHOP)
             case Narrator.user_input.capitalize
             when 'A'
                 return true
@@ -619,31 +619,31 @@ class Narrator
     end
 
     def self.ask_desired_volume
-        Narrator.write(format(Locale.get_localized(Locale::KEY_ASK_VOLUME), Settings.music_volume))
+        Narrator.write(format(Locale.get_localized(LocaleKey::ASK_VOLUME), Settings.music_volume))
     end
 
     def self.ask_if_sound_effects
-        Narrator.write(Locale::KEY_ASK_SOUND_EFFECTS)
+        Narrator.write(LocaleKey::ASK_SOUND_EFFECTS)
     end
 
     def self.usage_options(item_name, usage_text)
-        Narrator.write(format(Locale::get_localized(Locale::KEY_ASK_USE), item_name))
-        Narrator.write(Locale::KEY_ABORT_ENUMERATED)
+        Narrator.write(format(Locale::get_localized(LocaleKey::ASK_USE), item_name))
+        Narrator.write(LocaleKey::ABORT_ENUMERATED)
         Narrator.write("    1) #{usage_text}")
-        Narrator.write(Locale::KEY_GIVE_OPTION)
+        Narrator.write(LocaleKey::GIVE_OPTION)
     end
 
     def self.ask_quantity_given(item_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_ASK_QUANTITY_GIVEN), item_name))
+        Narrator.write(format(Locale.get_localized(LocaleKey::ASK_QUANTITY_GIVEN), item_name))
     end
 
     def self.ask_quantity_sold(item_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_ASK_QUANTITY_SOLD), item_name))
+        Narrator.write(format(Locale.get_localized(LocaleKey::ASK_QUANTITY_SOLD), item_name))
     end
 
     def self.ask_if_fight(escape_chances, player_name)
-        Narrator.write(Locale::KEY_PROPOSE_COMBAT)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_PROPOSE_SNEAK), escape_chances))
+        Narrator.write(LocaleKey::PROPOSE_COMBAT)
+        Narrator.write(format(Locale.get_localized(LocaleKey::PROPOSE_SNEAK), escape_chances))
         return user_input(player_name)
     end
 
@@ -653,10 +653,10 @@ class Narrator
             monster_cards_pages.show(25)
             Narrator.add_space_of(1)
             show_player_battle_cards(player)
-            Narrator.write(format(Locale.get_localized(Locale::KEY_DESCRIBE_ENNEMIES), monsters_description))
+            Narrator.write(format(Locale.get_localized(LocaleKey::DESCRIBE_ENNEMIES), monsters_description))
             Narrator.add_space_of(1)
-            Narrator.write(Locale::KEY_FIGHT_ACTIONS)
-            Narrator.write(format(Locale.get_localized(Locale::KEY_ESCAPE_COMBAT), escape_chances))
+            Narrator.write(LocaleKey::FIGHT_ACTIONS)
+            Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
             input = user_input(player.get_name)
             case input
             when '1'
@@ -689,12 +689,12 @@ class Narrator
     end
 
     def self.ask_continue
-        Narrator.write(Locale::KEY_TRY_AGAIN)
+        Narrator.write(LocaleKey::TRY_AGAIN)
         return user_input
     end
 
     def self.ask_armor_replacement_confirmation(armor_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_ARMOR_CHANGE_CONFIRMATION), armor_name))
+        Narrator.write(format(Locale.get_localized(LocaleKey::ARMOR_CHANGE_CONFIRMATION), armor_name))
     end
 
     def self.ask_confirmation(question)
@@ -717,39 +717,39 @@ class Narrator
 
     def self.unsupported_choice_error
         Narrator.add_space_of(1)
-        Narrator.write(Locale::KEY_UNSUPPORTED_CHOICE_ERROR)
+        Narrator.write(LocaleKey::UNSUPPORTED_CHOICE_ERROR)
     end
 
     def self.page_up_impossible_error
-        Narrator.write(Locale::KEY_PAGE_UP_IMPOSSIBLE_ERROR)
+        Narrator.write(LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR)
     end
 
     def self.page_down_impossible_error
-        Narrator.write(Locale::KEY_PAGE_DOWN_IMPOSSIBLE_ERROR)
+        Narrator.write(LocaleKey::PAGE_DOWN_IMPOSSIBLE_ERROR)
     end
 
     def self.empty_name_error
-        Narrator.write(Locale::KEY_EMPTY_NAME_ERROR)
+        Narrator.write(LocaleKey::EMPTY_NAME_ERROR)
     end
 
     def self.forbiden_char_error
-        Narrator.write(Locale::KEY_FORBIDDEN_CHAR_ERROR)
+        Narrator.write(LocaleKey::FORBIDDEN_CHAR_ERROR)
     end
 
     def self.no_file_found_error(file_name)
-        Narrator.write(format(Locale.get_localized(Locale::KEY_NO_FILE_FOUND_ERROR), file_name))
+        Narrator.write(format(Locale.get_localized(LocaleKey::NO_FILE_FOUND_ERROR), file_name))
     end
 
     def self.negative_quantity_error
-        Narrator.write(Locale::KEY_NEGATIVE_QUANTITY_ERROR)
+        Narrator.write(LocaleKey::NEGATIVE_QUANTITY_ERROR)
     end
 
     def self.unexpected_damage_type_error
-        Narrator.write(Locale::KEY_UNEXPECTED_DAMAGE_TYPE_ERROR)
+        Narrator.write(LocaleKey::UNEXPECTED_DAMAGE_TYPE_ERROR)
     end
 
     def self.unexpected_error
-        Narrator.write(Locale::KEY_UNEXPECTED_ERROR)
+        Narrator.write(LocaleKey::UNEXPECTED_ERROR)
     end
 
     def self.user_input(name = NO_NAME_DISPLAYED, new_screen = true)
@@ -764,7 +764,7 @@ class Narrator
             answer = gets.chomp
         rescue SystemExit, Interrupt => e
             loop do
-                Narrator.write(Locale::KEY_CLOSE_GAME_CONFIRM)
+                Narrator.write(LocaleKey::CLOSE_GAME_CONFIRM)
                 case user_input(NO_NAME_DISPLAYED, false).capitalize
                 when 'Y'
                     raise e
@@ -792,7 +792,7 @@ class Narrator
         options = [return_option].concat options
         loop do
             Narrator.write(question)
-            Narrator.write(Locale::KEY_GO_BACK_ENUMERATED)
+            Narrator.write(LocaleKey::GO_BACK_ENUMERATED)
             options_row = ASCIIRow.new
             for i in 1..(options.length - 1)
                 options_row.append(getter.call(options[i], i))

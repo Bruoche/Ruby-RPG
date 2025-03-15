@@ -1,46 +1,46 @@
 module CatacombsF
     NAMES = [
-        Locale::KEY_ROOM,
-        Locale::KEY_ALCOVE,
-        Locale::KEY_CHAMBER
+        LocaleKey::ROOM,
+        LocaleKey::ALCOVE,
+        LocaleKey::CHAMBER
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_F,
-        Locale::KEY_NARROW_F,
-        Locale::KEY_DUSTY_F
+        LocaleKey::SMALL_F,
+        LocaleKey::NARROW_F,
+        LocaleKey::DUSTY_F
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_F,
-        Locale::KEY_COLD_F,
-        Locale::KEY_ISOLATED_F,
-        Locale::KEY_DARK_F,
-        Locale::KEY_DRY_F,
-        Locale::KEY_SILENT_F
+        LocaleKey::SCARY_F,
+        LocaleKey::COLD_F,
+        LocaleKey::ISOLATED_F,
+        LocaleKey::DARK_F,
+        LocaleKey::DRY_F,
+        LocaleKey::SILENT_F
     ].freeze
 end
 
 module CatacombsM
     NAMES = [
-        Locale::KEY_CORRIDOR,
-        Locale::KEY_TUNNEL
+        LocaleKey::CORRIDOR,
+        LocaleKey::TUNNEL
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_LONG_M,
-        Locale::KEY_NARROW_M,
-        Locale::KEY_DUSTY_M
+        LocaleKey::SMALL_M,
+        LocaleKey::LONG_M,
+        LocaleKey::NARROW_M,
+        LocaleKey::DUSTY_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_M,
-        Locale::KEY_COLD_M,
-        Locale::KEY_ISOLATED_M,
-        Locale::KEY_DARK_M,
-        Locale::KEY_DRY_M,
-        Locale::KEY_SILENT_M
+        LocaleKey::SCARY_M,
+        LocaleKey::COLD_M,
+        LocaleKey::ISOLATED_M,
+        LocaleKey::DARK_M,
+        LocaleKey::DRY_M,
+        LocaleKey::SILENT_M
     ].freeze
 end
 
@@ -53,7 +53,7 @@ class Catacombs < Biome
     MALE = CatacombsM
     FEMALE_CHANCES = 30
     BACKTRACK_CHANCES = 10
-    DESCRIPTION = Locale::KEY_CATACOMBS_DESCRIPTION
+    DESCRIPTION = LocaleKey::CATACOMBS_DESCRIPTION
     BESTIARY = [
         Undead,
         Undead,
@@ -64,12 +64,12 @@ class Catacombs < Biome
     SAFE_CHANCES = 80
     LOOT = [
         Loot.new(
-            Locale::KEY_CATACOMBS_LOOT_BANDAGE,
+            LocaleKey::CATACOMBS_LOOT_BANDAGE,
             25,
             Bandage
         ),
         Loot.new(
-            Locale::KEY_CATACOMBS_LOOT_COINS,
+            LocaleKey::CATACOMBS_LOOT_COINS,
             10,
             Coins,
             [],
@@ -81,7 +81,7 @@ class Catacombs < Biome
     MAX_EXITS = 2
     TRANSITIONS = [
         BiomeTransition.new(
-            Locale::KEY_CATACOMBS_TRANSITION_PRISON,
+            LocaleKey::CATACOMBS_TRANSITION_PRISON,
             7,
             'OldDungeon'
         ),

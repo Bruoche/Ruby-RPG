@@ -1,9 +1,9 @@
 class Shop
-    BUY_DIALOG = Locale::KEY_MERCHANT_THANK
-    NOT_ENOUGH_FUNDS_DIALOG = Locale::KEY_MERCHANT_FUND_INSUFFICIENT
-    ONE_NOT_ENOUGH_DIALOG = Locale::KEY_MERCHANT_COIN_INSUFFICIENT
-    NO_MONEY_DIALOG = Locale::KEY_MERCHANT_NO_MONEY
-    SOLD_DIALOG = Locale::KEY_MERCHANT_PURCHASE
+    BUY_DIALOG = LocaleKey::MERCHANT_THANK
+    NOT_ENOUGH_FUNDS_DIALOG = LocaleKey::MERCHANT_FUND_INSUFFICIENT
+    ONE_NOT_ENOUGH_DIALOG = LocaleKey::MERCHANT_COIN_INSUFFICIENT
+    NO_MONEY_DIALOG = LocaleKey::MERCHANT_NO_MONEY
+    SOLD_DIALOG = LocaleKey::MERCHANT_PURCHASE
     TRANSACTION_DONE = true
     RETAIL_PERCENT = 90
     CURRENCY = Coins.new
@@ -16,7 +16,7 @@ class Shop
     def propose_purchases_to(player, special_dialog = Character::DEFAULT_DIALOG)
         show_sign
         question_box = ASCIIPicture.new(
-            [format(Locale.get_localized(Locale::KEY_ASK_SHOP_ACTION), player.get_quantity_of(CURRENCY))] + Locale.get_localized(Locale::KEY_SHOP_OPTIONS)
+            [format(Locale.get_localized(LocaleKey::ASK_SHOP_ACTION), player.get_quantity_of(CURRENCY))] + Locale.get_localized(LocaleKey::SHOP_OPTIONS)
         )
         question_box.frame(' ', ' ')
         @shopkeeper.show
@@ -32,9 +32,9 @@ class Shop
         when '2'
             sold_bundle = player.choose_item_to_sell
             if (sold_bundle != nil) && (
-                Narrator.ask_confirmation(format(Locale.get_localized(Locale::KEY_ASK_CONFIRMATION_SELLING), {
-                    Locale::F_KEY_ITEM => sold_bundle.get_name,
-                    Locale::F_KEY_VALUE => sold_bundle.get_value(RETAIL_PERCENT)
+                Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ASK_CONFIRMATION_SELLING), {
+                    LocaleKey::F_ITEM => sold_bundle.get_name,
+                    LocaleKey::F_VALUE => sold_bundle.get_value(RETAIL_PERCENT)
                 }))
             )
                 player.remove_item(sold_bundle.get_item, sold_bundle.get_quantity)
@@ -82,7 +82,7 @@ class Shop
 
     def ask_bought_item(player)
         item_index = Narrator.ask_paginated(
-            format(Locale.get_localized(Locale::KEY_ASK_ITEM_BOUGHT), player.get_quantity_of(CURRENCY)),
+            format(Locale.get_localized(LocaleKey::ASK_ITEM_BOUGHT), player.get_quantity_of(CURRENCY)),
             @inventory,
             -> (item, index) {
                 item_card = ASCIIPicture.new(ASCIIPicture.get_selling_card(item, index))
@@ -96,9 +96,9 @@ class Shop
             price = item_bundle.get_value
             if player.have?(CURRENCY, price)
                 if Narrator::ask_confirmation(
-                    format(Locale.get_localized(Locale::KEY_ASK_CONFIRM_PURCHASE), {
-                        Locale::F_KEY_ITEM => item_bundle.get_name,
-                        Locale::F_KEY_VALUE => price
+                    format(Locale.get_localized(LocaleKey::ASK_CONFIRM_PURCHASE), {
+                        LocaleKey::F_ITEM => item_bundle.get_name,
+                        LocaleKey::F_VALUE => price
                     })
                 )
                     player.remove_item(CURRENCY, price)

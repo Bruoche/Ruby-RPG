@@ -15,7 +15,7 @@ class Exit
     end
 
     def get_denomination
-        return Locale.get_localized(Locale::KEY_THE_EXIT)
+        return Locale.get_localized(LocaleKey::THE_EXIT)
     end
 
     def allow_entry_for(player)

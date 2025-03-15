@@ -105,7 +105,7 @@ class Game
         choosen_option = Narrator.user_input
         case choosen_option
         when '0'
-            if Narrator.ask_confirmation(Locale::KEY_CHARACTER_UNSAVED_RETURN_CONFIRM)
+            if Narrator.ask_confirmation(LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM)
                 return (not CHARACTER_SELECTED)
             end
         when '1'
@@ -143,7 +143,7 @@ class Game
                 return new_character
             when '2'
                 save_index = Narrator.ask_paginated(
-                    Locale::KEY_ASK_SAVE,
+                    LocaleKey::ASK_SAVE,
                     saves,
                     -> (save, index){
                         save_data = SaveManager.load(save)

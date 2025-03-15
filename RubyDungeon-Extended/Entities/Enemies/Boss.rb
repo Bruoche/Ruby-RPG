@@ -108,7 +108,7 @@ class Boss < Monster
         when Attack::PHYSIC_TYPE
             flattened_targets = all_targets.flatten
             if (flattened_targets.length > 1)
-                choosen_target = Narrator.ask(Locale.get_localized(Locale::KEY_ASK_MEMBER_AIMED_AT), flattened_targets, -> (bodypart){to_string(bodypart)}, attack.source.get_name)
+                choosen_target = Narrator.ask(Locale.get_localized(LocaleKey::ASK_MEMBER_AIMED_AT), flattened_targets, -> (bodypart){to_string(bodypart)}, attack.source.get_name)
                 if choosen_target != Narrator::RETURN_BUTTON
                     array_index = 0
                     while (choosen_target >= all_targets[array_index].length)
@@ -170,7 +170,7 @@ class Boss < Monster
         if bodypart != Narrator::RETURN_BUTTON
             return bodypart.get_description
         else
-            return Locale.get_localized(Locale::KEY_GO_BACK)
+            return Locale.get_localized(LocaleKey::GO_BACK)
         end
     end
 end

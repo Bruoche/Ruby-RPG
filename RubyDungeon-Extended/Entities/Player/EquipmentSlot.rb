@@ -113,7 +113,7 @@ class EquipmentSlot
     def get_card(index = ASCIIPicture::NO_INDEX)
         if @equippedArmor == NO_ARMOR_EQUIPPED
             upper_space = Array.new(11, ' ' * ASCIIPicture::ITEM_ICON_WIDTH)
-            text = Utils.multiline(Utils.center(format(Locale.get_localized(Locale::KEY_NO_ARMOR_EQUIPPED), Locale.get_localized(@type::NAME)), ASCIIPicture::ITEM_ICON_WIDTH), ASCIIPicture::ITEM_ICON_WIDTH)
+            text = Utils.multiline(Utils.center(format(Locale.get_localized(LocaleKey::NO_ARMOR_EQUIPPED), Locale.get_localized(@type::NAME)), ASCIIPicture::ITEM_ICON_WIDTH), ASCIIPicture::ITEM_ICON_WIDTH)
             lower_space = Array.new(11 - text.length, ' ' * ASCIIPicture::ITEM_ICON_WIDTH)
             picture = ASCIIPicture.new(upper_space + text + lower_space)
         else

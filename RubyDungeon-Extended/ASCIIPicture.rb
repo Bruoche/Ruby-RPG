@@ -36,7 +36,7 @@ class ASCIIPicture
         if File.file?(picture_path)
             return File.readlines(picture_path, chomp: single_line);
         else
-            return [format(Locale.get_localized(Locale::KEY_NO_IMAGE_FOUND), picture_path)]
+            return [format(Locale.get_localized(LocaleKey::NO_IMAGE_FOUND), picture_path)]
         end
     end
 
@@ -147,7 +147,7 @@ class ASCIIPicture
             picture[7].ljust(ICON_SIZE),
             ' ' + ('‾' * (ICON_SIZE - 2)),
             Utils.truncate(' ' + player.get_name, ICON_SIZE),
-            Locale.get_localized(Locale::KEY_LEVEL_ABBREVIATION) + player.get_level_to_string,
+            Locale.get_localized(LocaleKey::LEVEL_ABBREVIATION) + player.get_level_to_string,
             '',
             ' ' + player.healthbar(ICON_SIZE - 2),
             " (#{player.health_to_string} ♥)",
@@ -190,15 +190,15 @@ class ASCIIPicture
         picture = icon.get_picture.get_ascii
         return [
             " __________________________________________________________________________________ ",
-            "|#{index} #{name   } | #{Locale.get_localized(Locale::KEY_TIME_PLAYED).ljust(13)     }#{time_played} |",
+            "|#{index} #{name   } | #{Locale.get_localized(LocaleKey::TIME_PLAYED).ljust(13)     }#{time_played} |",
             "|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|",
-            "| #{picture[0].ljust(ICON_SIZE)} |                                             #{Locale.get_localized(Locale::KEY_CARD_LEVEL).rjust(10)}#{level} |",
+            "| #{picture[0].ljust(ICON_SIZE)} |                                             #{Locale.get_localized(LocaleKey::CARD_LEVEL).rjust(10)}#{level} |",
             "| #{picture[1].ljust(ICON_SIZE)} |                                                             |",
             "| #{picture[2].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[3].ljust(ICON_SIZE)} |   #{Locale.get_localized(Locale::KEY_CARD_HEALTH).rjust(10)  }#{health  }     #{Locale.get_localized(Locale::KEY_CARD_AGILITY).rjust(20)     }#{agility     }   |",
+            "| #{picture[3].ljust(ICON_SIZE)} |   #{Locale.get_localized(LocaleKey::CARD_HEALTH).rjust(10)  }#{health  }     #{Locale.get_localized(LocaleKey::CARD_AGILITY).rjust(20)     }#{agility     }   |",
             "| #{picture[4].ljust(ICON_SIZE)} |                                                             |",
             "| #{picture[5].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[6].ljust(ICON_SIZE)} |   #{Locale.get_localized(Locale::KEY_CARD_STRENGTH).rjust(10)}#{strength}     #{Locale.get_localized(Locale::KEY_CARD_INTELLIGENCE).rjust(20)}#{intelligence}   |",
+            "| #{picture[6].ljust(ICON_SIZE)} |   #{Locale.get_localized(LocaleKey::CARD_STRENGTH).rjust(10)}#{strength}     #{Locale.get_localized(LocaleKey::CARD_INTELLIGENCE).rjust(20)}#{intelligence}   |",
             "| #{picture[7].ljust(ICON_SIZE)} |                                                             |",
             "|____________________|_____________________________________________________________|"
         ]
@@ -211,7 +211,7 @@ class ASCIIPicture
             index_string = ''
         end
         if price_percentage > 0
-            price_string = Locale.get_localized(Locale::KEY_CARD_PRICE) + item.get_value_to_string(price_percentage) + ' ¤'
+            price_string = Locale.get_localized(LocaleKey::CARD_PRICE) + item.get_value_to_string(price_percentage) + ' ¤'
         else
             price_string = ''
         end

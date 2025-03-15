@@ -64,16 +64,16 @@ class Armor < Item
     end
 
     def get_description
-        return Locale.get_localized(@description) + format(Locale.get_localized(Locale::KEY_ARMOR_DESCRIPTION), {
-            Locale::F_KEY_DEFENSE => @defense,
-            Locale::F_KEY_WEIGHT => @weight
+        return Locale.get_localized(@description) + format(Locale.get_localized(LocaleKey::ARMOR_DESCRIPTION), {
+            LocaleKey::F_DEFENSE => @defense,
+            LocaleKey::F_WEIGHT => @weight
         })
     end
 
     def get_card_description
-        return Locale.get_localized(@description) + format(Locale.get_localized(Locale::KEY_ARMOR_CARD_DESCRIPTION), {
-            Locale::F_KEY_DEFENSE => @defense,
-            Locale::F_KEY_WEIGHT => @weight
+        return Locale.get_localized(@description) + format(Locale.get_localized(LocaleKey::ARMOR_CARD_DESCRIPTION), {
+            LocaleKey::F_DEFENSE => @defense,
+            LocaleKey::F_WEIGHT => @weight
         })
     end
 

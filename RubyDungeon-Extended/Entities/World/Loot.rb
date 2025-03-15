@@ -32,7 +32,7 @@ class Loot
 
     def self.to_string(object)
         if object == Narrator::RETURN_BUTTON
-            return Locale.get_localized(Locale::KEY_GO_BACK)
+            return Locale.get_localized(LocaleKey::GO_BACK)
         else
             return object.get_name
         end

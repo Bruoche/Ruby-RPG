@@ -22,9 +22,9 @@ class Pack
                     monster_damage,
                     0,
                     name,
-                    [Locale.get_localized(Locale::KEY_MONSTER_STRIKE)],
-                    [Locale.get_localized(Locale::KEY_MONSTER_SPELL)],
-                    [Locale.get_localized(Locale::KEY_MONSTER_HEAL)],
+                    [Locale.get_localized(LocaleKey::MONSTER_STRIKE)],
+                    [Locale.get_localized(LocaleKey::MONSTER_SPELL)],
+                    [Locale.get_localized(LocaleKey::MONSTER_HEAL)],
                     0,
                     picture,
                     monster_type::LOOTS
@@ -52,9 +52,9 @@ class Pack
     def get_description
         if are_dead
             if was_plural
-                return Locale.get_localized(Locale::KEY_MONSTER_BODIES)
+                return Locale.get_localized(LocaleKey::MONSTER_BODIES)
             else
-                return Locale.get_localized(Locale::KEY_MONSTER_BODY)
+                return Locale.get_localized(LocaleKey::MONSTER_BODY)
             end
         end
         monsters_description = ''
@@ -63,7 +63,7 @@ class Pack
             if (i < (@monsters.length - 2))
                 monsters_description += ', '
             elsif (i < (@monsters.length - 1))
-                monsters_description += Locale.get_localized(Locale::KEY_AND_SPACED)
+                monsters_description += Locale.get_localized(LocaleKey::AND_SPACED)
             end
         end
         return monsters_description
@@ -71,7 +71,7 @@ class Pack
 
     def enumerate
         if @monsters.empty?
-            return Locale::KEY_NOTHING
+            return LocaleKey::NOTHING
         end
         monsters_description = ''
         for i in 0..(@monsters.length-1)
@@ -79,7 +79,7 @@ class Pack
             if (i < (@monsters.length - 2))
                 monsters_description += ', '
             elsif (i < (@monsters.length - 1))
-                monsters_description += Locale.get_localized(Locale::KEY_AND_SPACED)
+                monsters_description += Locale.get_localized(LocaleKey::AND_SPACED)
             end
         end
         return monsters_description
@@ -88,7 +88,7 @@ class Pack
 
     def get_plural_the
         if (was_plural)
-            return Locale.get_localized(Locale::KEY_THE_MONSTERS)
+            return Locale.get_localized(LocaleKey::THE_MONSTERS)
         else
             return @initial_monsters[0].get_name.get_gendered_the
         end
@@ -145,7 +145,7 @@ class Pack
 
     def hurt_single(attack)
         if (plural?)
-            choosen_ennemy = Narrator.ask(Locale::KEY_ASK_MONSTER_AIMED_AT, @monsters, -> (monster){to_string(monster)}, attack.source.get_name)
+            choosen_ennemy = Narrator.ask(LocaleKey::ASK_MONSTER_AIMED_AT, @monsters, -> (monster){to_string(monster)}, attack.source.get_name)
             if choosen_ennemy != Narrator::RETURN_BUTTON
                 attacked = hurt((choosen_ennemy), attack)[:attacked]
                 return attacked
@@ -180,7 +180,7 @@ class Pack
         if monster != Narrator::RETURN_BUTTON
             return monster.get_description
         else
-            return Locale.get_localized(Locale::KEY_GO_BACK)
+            return Locale.get_localized(LocaleKey::GO_BACK)
         end
     end
 

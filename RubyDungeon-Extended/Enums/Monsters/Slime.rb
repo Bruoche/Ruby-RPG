@@ -1,22 +1,22 @@
 module SlimeM
     NAMES = [
-        Locale::KEY_SLIME
+        LocaleKey::SLIME
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_BIG_M,
-        Locale::KEY_TALL_M
+        LocaleKey::SMALL_M,
+        LocaleKey::BIG_M,
+        LocaleKey::TALL_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_M,
-        Locale::KEY_ANGRY_M,
-        Locale::KEY_WARY_M,
-        Locale::KEY_GREEN_M,
-        Locale::KEY_BLUISH_M,
-        Locale::KEY_GREYISH_M,
-        Locale::KEY_DARK_M
+        LocaleKey::SCARY_M,
+        LocaleKey::ANGRY_M,
+        LocaleKey::WARY_M,
+        LocaleKey::GREEN_M,
+        LocaleKey::BLUISH_M,
+        LocaleKey::GREYISH_M,
+        LocaleKey::DARK_M
     ].freeze
 end
 

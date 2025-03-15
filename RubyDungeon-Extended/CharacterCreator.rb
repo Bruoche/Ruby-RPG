@@ -53,7 +53,7 @@ class CharacterCreator
         Narrator.ask_confirm_character
         case Narrator.user_input
         when '0'
-            if Narrator.ask_confirmation(Locale::KEY_UNSAVED_RETURN_CONFIRM)
+            if Narrator.ask_confirmation(LocaleKey::UNSAVED_RETURN_CONFIRM)
                 return nil
             else
                 return creation_menu

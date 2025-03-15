@@ -1,22 +1,22 @@
 module BatF
     NAMES = [
-        Locale::KEY_BAT
+        LocaleKey::BAT
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_F,
-        Locale::KEY_BIG_F,
-        Locale::KEY_TALL_F
+        LocaleKey::SMALL_F,
+        LocaleKey::BIG_F,
+        LocaleKey::TALL_F
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_SCARY_F,
-        Locale::KEY_ANGRY_F,
-        Locale::KEY_WARY_F,
-        Locale::KEY_GREEN_F,
-        Locale::KEY_BLUISH_F,
-        Locale::KEY_GREYISH_F,
-        Locale::KEY_DARK_F
+        LocaleKey::SCARY_F,
+        LocaleKey::ANGRY_F,
+        LocaleKey::WARY_F,
+        LocaleKey::GREEN_F,
+        LocaleKey::BLUISH_F,
+        LocaleKey::GREYISH_F,
+        LocaleKey::DARK_F
     ].freeze
 end
 

@@ -1,5 +1,5 @@
 class HealthPotion < Item
-    NAME = Locale::KEY_HEALTH_POTION_NAME
+    NAME = LocaleKey::HEALTH_POTION_NAME
     SOUND = 'potion'
     PICTURE = 'health_potion'
 
@@ -9,7 +9,7 @@ class HealthPotion < Item
     end
 
     def get_description
-        return format(Locale.get_localized(Locale::KEY_HEALTH_POTION_DESCRIPTION), @soin)
+        return format(Locale.get_localized(LocaleKey::HEALTH_POTION_DESCRIPTION), @soin)
     end
 
     def use(target, user)

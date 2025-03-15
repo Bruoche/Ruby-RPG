@@ -1,41 +1,41 @@
 module EntranceF
     NAMES = [
-        Locale::KEY_ROOM,
-        Locale::KEY_ALCOVE
+        LocaleKey::ROOM,
+        LocaleKey::ALCOVE
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_F,
-        Locale::KEY_TALL_F,
-        Locale::KEY_SPACIOUS_F
+        LocaleKey::SMALL_F,
+        LocaleKey::TALL_F,
+        LocaleKey::SPACIOUS_F
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_WORRYING_F,
-        Locale::KEY_COLD_F,
-        Locale::KEY_HUMID_F,
-        Locale::KEY_ISOLATED_F,
-        Locale::KEY_DARK_F
+        LocaleKey::WORRYING_F,
+        LocaleKey::COLD_F,
+        LocaleKey::HUMID_F,
+        LocaleKey::ISOLATED_F,
+        LocaleKey::DARK_F
     ].freeze
 end
 
 module EntranceM
     NAMES = [
-        Locale::KEY_CORRIDOR
+        LocaleKey::CORRIDOR
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_TALL_M,
-        Locale::KEY_LONG_M
+        LocaleKey::SMALL_M,
+        LocaleKey::TALL_M,
+        LocaleKey::LONG_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_WORRYING_M,
-        Locale::KEY_COLD_M,
-        Locale::KEY_HUMID_M,
-        Locale::KEY_ISOLATED_M,
-        Locale::KEY_DARK_M
+        LocaleKey::WORRYING_M,
+        LocaleKey::COLD_M,
+        LocaleKey::HUMID_M,
+        LocaleKey::ISOLATED_M,
+        LocaleKey::DARK_M
     ].freeze
 end
 
@@ -48,7 +48,7 @@ class Entrance < Biome
     MALE = EntranceM
     FEMALE_CHANCES = 60
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = Locale::KEY_ENTRANCE_DESCRIPTION
+    DESCRIPTION = LocaleKey::ENTRANCE_DESCRIPTION
     BESTIARY = [
         Goblin,
         Goblin,
@@ -61,18 +61,18 @@ class Entrance < Biome
     SAFE_CHANCES = 30
     LOOT = [
         Loot.new(
-            Locale::KEY_ENTRANCE_LOOT_HEALTH_POTION,
+            LocaleKey::ENTRANCE_LOOT_HEALTH_POTION,
             2,
             HealthPotion,
             [5, 20]
         ),
         Loot.new(
-            Locale::KEY_ENTRANCE_LOOT_BANDAGE,
+            LocaleKey::ENTRANCE_LOOT_BANDAGE,
             15,
             Bandage
         ),
         Loot.new(
-            Locale::KEY_ENTRANCE_LOOT_COINS,
+            LocaleKey::ENTRANCE_LOOT_COINS,
             25,
             Coins,
             [],
@@ -84,7 +84,7 @@ class Entrance < Biome
     MAX_EXITS = 3
     TRANSITIONS = [
         BiomeTransition.new(
-            Locale::KEY_ENTRANCE_TRANSITION_CATACOMBS,
+            LocaleKey::ENTRANCE_TRANSITION_CATACOMBS,
             15,
             'Catacombs'
         )

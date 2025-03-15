@@ -15,9 +15,9 @@ class Weakpoint
     end
 
     def get_description
-        return format(Locale.get_localized(Locale::KEY_WEAKPOINT_DESCRIPTION), {
-            Locale::F_KEY_SUBJECT => @name.get_gendered_the,
-            Locale::F_KEY_LIFE => @lifebar.life_to_string
+        return format(Locale.get_localized(LocaleKey::WEAKPOINT_DESCRIPTION), {
+            LocaleKey::F_SUBJECT => @name.get_gendered_the,
+            LocaleKey::F_LIFE => @lifebar.life_to_string
         })
     end
 

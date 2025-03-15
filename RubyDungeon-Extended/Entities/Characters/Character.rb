@@ -57,7 +57,7 @@ class Character
         Narrator.write(make_dialog_box(Locale.get_localized(@conversation_starter).sample).get_ascii)
         loop do
             Narrator.add_space_of(1)
-            Narrator.write(Locale::KEY_DIALOG_QUESTION)
+            Narrator.write(LocaleKey::DIALOG_QUESTION)
             prompt = Dialog.process_sentence(Narrator.user_input(interlocutor.get_name.capitalize))
             if prompt == []
                 show
@@ -85,7 +85,7 @@ class Character
     private
 
     def said_bye?(prompt)
-        for goodbye_phrase in Locale.get_localized(Locale::KEY_DIALOG_END_KEYWORDS)
+        for goodbye_phrase in Locale.get_localized(LocaleKey::DIALOG_END_KEYWORDS)
             said_bye = true
             for word in goodbye_phrase.split
                 if !prompt.include? word

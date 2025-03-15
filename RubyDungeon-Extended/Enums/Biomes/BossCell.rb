@@ -1,6 +1,6 @@
 module BossCellF
     NAMES = [
-        Locale::KEY_DISMAL_CELL
+        LocaleKey::DISMAL_CELL
     ]
 end
 
@@ -13,7 +13,7 @@ class BossCell < Biome
     ]
     FEMALE = BossCellF
     FEMALE_CHANCES = 100
-    DESCRIPTION = Locale::KEY_DISMAL_CELL_DESCRIPTION
+    DESCRIPTION = LocaleKey::DISMAL_CELL_DESCRIPTION
     SAFE_CHANCES = 0
     LOOT = []
     MIN_EXITS = 0

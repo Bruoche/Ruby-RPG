@@ -1,17 +1,17 @@
 module LostKnightM
-    NAMES = [Locale::KEY_KNIGHT_NAME]
+    NAMES = [LocaleKey::KNIGHT_NAME]
 end
 
 module LostKnightHeadF
-    NAMES = [Locale::KEY_KNIGHT_HEAD]
+    NAMES = [LocaleKey::KNIGHT_HEAD]
 end
 
 module LostKnightRightArmM
-    NAMES = [Locale::KEY_KNIGHT_RIGHT_ARM]
+    NAMES = [LocaleKey::KNIGHT_RIGHT_ARM]
 end
 
 module LostKnightLeftArmM
-    NAMES = [Locale::KEY_KNIGHT_LEFT_ARM]
+    NAMES = [LocaleKey::KNIGHT_LEFT_ARM]
 end
 
 class LostKnightHead
@@ -28,7 +28,7 @@ class LostKnightLeftArm
     DAMAGE = BaseStats::BASE_STRENGTH.div(3) * 2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
-    BASE_MOVES = [Locale::KEY_KNIGHT_LEFT_ATTACK]
+    BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     SPECIAL_MOVES = []
     DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
 end
@@ -39,7 +39,7 @@ class LostKnightRightArm
     DAMAGE = BaseStats::BASE_STRENGTH
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
-    BASE_MOVES = [Locale::KEY_KNIGHT_RIGHT_ATTACK]
+    BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     SPECIAL_MOVES = [
         SpecialMove.new(33, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]
@@ -56,14 +56,14 @@ class LostKnight < Bestiary
     PICTURE = 'lost_knight'
     LOOTS = [
         Loot.new(
-            Locale::KEY_KNIGHT_LOOT_COINS,
+            LocaleKey::KNIGHT_LOOT_COINS,
             100,
             Coins,
             [],
             40
         ),
         Loot.new(
-            Locale::KEY_KNIGHT_LOOT_NOTE,
+            LocaleKey::KNIGHT_LOOT_NOTE,
             100,
             DevNote
         )

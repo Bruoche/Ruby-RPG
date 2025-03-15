@@ -1,58 +1,58 @@
 module GoblinF
     NAMES = [
-        Locale::KEY_GOBLIN_F
+        LocaleKey::GOBLIN_F
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_F,
-        Locale::KEY_BIG_F,
-        Locale::KEY_TALL_F,
-        Locale::KEY_SCARY_F
+        LocaleKey::SMALL_F,
+        LocaleKey::BIG_F,
+        LocaleKey::TALL_F,
+        LocaleKey::SCARY_F
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_MUSCULAR_F,
-        Locale::KEY_WORRIED_F,
-        Locale::KEY_TIRED_F,
-        Locale::KEY_ANGRY_F,
-        Locale::KEY_WARY_F,
-        Locale::KEY_GREEN_F,
-        Locale::KEY_BLUISH_F,
-        Locale::KEY_GREYISH_F,
-        Locale::KEY_SMART_F,
-        Locale::KEY_AGILE_F,
-        Locale::KEY_JADED_F,
-        Locale::KEY_SCOUT_F,
-        Locale::KEY_AUTHORITARIAN_F
+        LocaleKey::MUSCULAR_F,
+        LocaleKey::WORRIED_F,
+        LocaleKey::TIRED_F,
+        LocaleKey::ANGRY_F,
+        LocaleKey::WARY_F,
+        LocaleKey::GREEN_F,
+        LocaleKey::BLUISH_F,
+        LocaleKey::GREYISH_F,
+        LocaleKey::SMART_F,
+        LocaleKey::AGILE_F,
+        LocaleKey::JADED_F,
+        LocaleKey::SCOUT_F,
+        LocaleKey::AUTHORITARIAN_F
     ].freeze
 end
 
 module GoblinM
     NAMES = [
-        Locale::KEY_GOBLIN_M
+        LocaleKey::GOBLIN_M
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_BIG_M,
-        Locale::KEY_TALL_M,
-        Locale::KEY_SCARY_M
+        LocaleKey::SMALL_M,
+        LocaleKey::BIG_M,
+        LocaleKey::TALL_M,
+        LocaleKey::SCARY_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_MUSCULAR_M,
-        Locale::KEY_WORRIED_M,
-        Locale::KEY_TIRED_M,
-        Locale::KEY_ANGRY_M,
-        Locale::KEY_WARY_M,
-        Locale::KEY_GREEN_M,
-        Locale::KEY_BLUISH_M,
-        Locale::KEY_GREYISH_M,
-        Locale::KEY_SMART_M,
-        Locale::KEY_AGILE_M,
-        Locale::KEY_JADED_M,
-        Locale::KEY_SCOUT_M,
-        Locale::KEY_AUTHORITARIAN_M
+        LocaleKey::MUSCULAR_M,
+        LocaleKey::WORRIED_M,
+        LocaleKey::TIRED_M,
+        LocaleKey::ANGRY_M,
+        LocaleKey::WARY_M,
+        LocaleKey::GREEN_M,
+        LocaleKey::BLUISH_M,
+        LocaleKey::GREYISH_M,
+        LocaleKey::SMART_M,
+        LocaleKey::AGILE_M,
+        LocaleKey::JADED_M,
+        LocaleKey::SCOUT_M,
+        LocaleKey::AUTHORITARIAN_M
     ].freeze
 end
 
@@ -66,7 +66,7 @@ class Goblin < Bestiary
     PICTURE = 'goblin'
     LOOTS = [
         Loot.new(
-            Locale::KEY_GOBLIN_LOOT_COINS,
+            LocaleKey::GOBLIN_LOOT_COINS,
             33,
             Coins,
             [],

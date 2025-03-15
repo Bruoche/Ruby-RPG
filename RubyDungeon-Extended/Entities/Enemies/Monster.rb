@@ -10,18 +10,18 @@ class Monster
     end
 
     def get_description
-        return format(Locale.get_localized(Locale::KEY_MONSTER_DESCRIPTION), {
-            Locale::F_KEY_SUBJECT => @name.get_gendered_a,
-            Locale::F_KEY_LIFE => get_current_life,
-            Locale::F_KEY_STRENGTH => get_strength
+        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), {
+            LocaleKey::F_SUBJECT => @name.get_gendered_a,
+            LocaleKey::F_LIFE => get_current_life,
+            LocaleKey::F_STRENGTH => get_strength
         })
     end
 
     def get_description_the
-        return format(Locale.get_localized(Locale::KEY_MONSTER_DESCRIPTION), {
-            Locale::F_KEY_SUBJECT => @name.get_gendered_the,
-            Locale::F_KEY_LIFE => get_current_life,
-            Locale::F_KEY_STRENGTH => get_strength
+        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), {
+            LocaleKey::F_SUBJECT => @name.get_gendered_the,
+            LocaleKey::F_LIFE => get_current_life,
+            LocaleKey::F_STRENGTH => get_strength
         })
     end
 

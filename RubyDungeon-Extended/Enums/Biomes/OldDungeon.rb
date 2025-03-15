@@ -1,50 +1,50 @@
 module OldDungeonF
     NAMES = [
-        Locale::KEY_ROOM,
-        Locale::KEY_ALCOVE,
-        Locale::KEY_CELL,
-        Locale::KEY_TORTURE_CHAMBER,
-        Locale::KEY_GEOLLE
+        LocaleKey::ROOM,
+        LocaleKey::ALCOVE,
+        LocaleKey::CELL,
+        LocaleKey::TORTURE_CHAMBER,
+        LocaleKey::GEOLLE
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_F,
-        Locale::KEY_TALL_F,
-        Locale::KEY_NARROW_F,
-        Locale::KEY_STRANGE_F
+        LocaleKey::SMALL_F,
+        LocaleKey::TALL_F,
+        LocaleKey::NARROW_F,
+        LocaleKey::STRANGE_F
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_WORRYING_F,
-        Locale::KEY_COLD_F,
-        Locale::KEY_ISOLATED_F,
-        Locale::KEY_DARK_F,
-        Locale::KEY_DUSTY_F,
-        Locale::KEY_RUINED_F
+        LocaleKey::WORRYING_F,
+        LocaleKey::COLD_F,
+        LocaleKey::ISOLATED_F,
+        LocaleKey::DARK_F,
+        LocaleKey::DUSTY_F,
+        LocaleKey::RUINED_F
     ].freeze
 end
 
 module OldDungeonM
     NAMES = [
-        Locale::KEY_CORRIDOR,
-        Locale::KEY_REFECTORY,
-        Locale::KEY_SLEEP_PLACE,
+        LocaleKey::CORRIDOR,
+        LocaleKey::REFECTORY,
+        LocaleKey::SLEEP_PLACE,
     ].freeze
 
     PREFIXES = [
-        Locale::KEY_SMALL_M,
-        Locale::KEY_TALL_M,
-        Locale::KEY_NARROW_M,
-        Locale::KEY_STRANGE_M
+        LocaleKey::SMALL_M,
+        LocaleKey::TALL_M,
+        LocaleKey::NARROW_M,
+        LocaleKey::STRANGE_M
     ].freeze
 
     SUFFIXES = [
-        Locale::KEY_WORRYING_M,
-        Locale::KEY_COLD_M,
-        Locale::KEY_ISOLATED_M,
-        Locale::KEY_DARK_M,
-        Locale::KEY_DUSTY_M,
-        Locale::KEY_RUINED_M
+        LocaleKey::WORRYING_M,
+        LocaleKey::COLD_M,
+        LocaleKey::ISOLATED_M,
+        LocaleKey::DARK_M,
+        LocaleKey::DUSTY_M,
+        LocaleKey::RUINED_M
     ].freeze
 end
 
@@ -57,7 +57,7 @@ class OldDungeon < Biome
     MALE = OldDungeonM
     FEMALE_CHANCES = 75
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = Locale::KEY_PRISON_DESCRIPTION
+    DESCRIPTION = LocaleKey::PRISON_DESCRIPTION
     BESTIARY = [
         Goblin,
         Undead,
@@ -69,18 +69,18 @@ class OldDungeon < Biome
     SAFE_CHANCES = 66
     LOOT = [
         Loot.new(
-            Locale::KEY_PRISON_LOOT_HEALTH_POTION,
+            LocaleKey::PRISON_LOOT_HEALTH_POTION,
             10,
             HealthPotion,
             [20, 75]
         ),
         Loot.new(
-            Locale::KEY_PRISON_LOOT_BANDAGE,
+            LocaleKey::PRISON_LOOT_BANDAGE,
             15,
             Bandage
         ),
         Loot.new(
-            Locale::KEY_PRISON_LOOT_KEY,
+            LocaleKey::PRISON_LOOT_KEY,
             5,
             PrisonKey
         )
@@ -89,7 +89,7 @@ class OldDungeon < Biome
     MAX_EXITS = 2
     TRANSITIONS = [
         BiomeTransition.new(
-            Locale::KEY_PRISON_TRANSITION_CELL,
+            LocaleKey::PRISON_TRANSITION_CELL,
             5,
             'BossCell'
         ),

@@ -195,7 +195,7 @@ class Player
         end
         damage_taken = damage_recieved - defense_score
         if defense_score > 0
-            defense_text = ', ' + defense_score.to_s + Locale::get_localized(Locale::KEY_PARRIED)
+            defense_text = ', ' + defense_score.to_s + Locale::get_localized(LocaleKey::PARRIED)
         else
             defense_text = ''
         end
@@ -245,7 +245,7 @@ class Player
                 return cast_heal_on(self)
             else
                 allies.unshift(self)
-                target_index = Narrator.ask(Locale::KEY_ASK_HEAL_TARGET, allies, -> (player){to_string(player)}, get_name)
+                target_index = Narrator.ask(LocaleKey::ASK_HEAL_TARGET, allies, -> (player){to_string(player)}, get_name)
                 if target_index != Narrator::RETURN_BUTTON
                     return cast_heal_on(allies[target_index])
                 else
@@ -349,10 +349,10 @@ class Player
 
     def to_string(player)
         if player == Narrator::RETURN_BUTTON
-            return Locale.get_localized(Locale::KEY_ABORT)
+            return Locale.get_localized(LocaleKey::ABORT)
         else
             if player == self
-                return Locale.get_localized(Locale::KEY_YOURSELF)
+                return Locale.get_localized(LocaleKey::YOURSELF)
             else
                 return player.get_name
             end

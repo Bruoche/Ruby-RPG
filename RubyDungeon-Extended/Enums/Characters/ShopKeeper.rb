@@ -1,10 +1,10 @@
 module ShopKeeper
-    NAME = Locale::KEY_SHOPKEEPER_NAME
-    INTRO_DIALOG = Locale::KEY_SHOPKEEPER_INTRO_DIALOG
-    IDLE_DIALOGS = Locale::KEY_SHOPKEEPER_IDLE_DIALOGS
-    CONVERSATION_STARTER = Locale::KEY_SHOPKEEER_CONVERSATION_STARTER
-    CONVERSATION_KEEPER = Locale::KEY_SHOPKEEER_CONVERSATION_KEEPER
-    REPEAT_INTRO = Locale::KEY_DIAL_SHOPKEEPER_REPEAT
+    NAME = LocaleKey::SHOPKEEPER_NAME
+    INTRO_DIALOG = LocaleKey::SHOPKEEPER_INTRO_DIALOG
+    IDLE_DIALOGS = LocaleKey::SHOPKEEPER_IDLE_DIALOGS
+    CONVERSATION_STARTER = LocaleKey::SHOPKEEER_CONVERSATION_STARTER
+    CONVERSATION_KEEPER = LocaleKey::SHOPKEEER_CONVERSATION_KEEPER
+    REPEAT_INTRO = LocaleKey::DIAL_SHOPKEEPER_REPEAT
     DIAL_ID_ORIGIN = 'origin'
     DIAL_ID_ALLIANCE = 'alliance'
     DIAL_ID_BLACK_LEATHER = 'black_leather'
@@ -60,287 +60,287 @@ module ShopKeeper
     DIALOGS = [
         Dialog.new(
             DIAL_ID_NOT_FROM_HERE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE
         ),
         Dialog.new(
             DIAL_ID_ORIGIN,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ORIGIN,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ORIGIN
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ORIGIN,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ORIGIN
         ),
         Dialog.new(
             DIAL_ID_ALLIANCE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ALLIANCE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ALLIANCE,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_ALLIANCE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ALLIANCE,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_ALLIANCE
         ),
         Dialog.new(
             DIAL_ID_BLACK_LEATHER,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_BLACK_LEATHER,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_BLACK_LEATHER
+            LocaleKey::DIAL_SHOPKEEPER_KEY_BLACK_LEATHER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_BLACK_LEATHER
         ),
         Dialog.new(
             DIAL_ID_OLD_SOLDIER,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_OLD_SOLDIER,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_OLD_SOLDIER,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER
+            LocaleKey::DIAL_SHOPKEEPER_KEY_OLD_SOLDIER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_OLD_SOLDIER,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER
         ),
         Dialog.new(
             DIAL_ID_POULAINES,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_POULAINES,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_POULAINES,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_POULAINES
+            LocaleKey::DIAL_SHOPKEEPER_KEY_POULAINES,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_POULAINES,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_POULAINES
         ),
         Dialog.new(
             DIAL_ID_CHOPINES,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_CHOPINES,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_CHOPINES
+            LocaleKey::DIAL_SHOPKEEPER_KEY_CHOPINES,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_CHOPINES
         ),
         Dialog.new(
             DIAL_ID_GAMBESON,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_GAMBESON,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_GAMBESON
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GAMBESON,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GAMBESON
         ),
         Dialog.new(
             DIAL_ID_HOUPPELANDE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HOUPPELANDE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HOUPPELANDE,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOUPPELANDE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HOUPPELANDE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HOUPPELANDE,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOUPPELANDE
         ),
         Dialog.new(
             DIAL_ID_ESCOFFION,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ESCOFFION,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ESCOFFION,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_ESCOFFION
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ESCOFFION,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ESCOFFION,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_ESCOFFION
         ),
         Dialog.new(
             DIAL_ID_HAUBERK,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HAUBERK,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HAUBERK
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HAUBERK,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HAUBERK
         ),
         Dialog.new(
             DIAL_ID_CERVELIERE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_CERVELIERE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_CERVELIERE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_CERVELIERE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_CERVELIERE
         ),
         Dialog.new(
             DIAL_ID_TELECRYSTAL,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_TELECRYSTAL,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_TELECRYSTAL,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_TELECRYSTAL
+            LocaleKey::DIAL_SHOPKEEPER_KEY_TELECRYSTAL,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_TELECRYSTAL,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_TELECRYSTAL
         ),
         Dialog.new(
             DIAL_ID_HEALTH_POTION,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HEALTH_POTION,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HEALTH_POTION
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH_POTION,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH_POTION
         ),
         Dialog.new(
             DIAL_ID_LOST_KNIGHT,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_LOST_KNIGHT,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_LOST_KNIGHT
+            LocaleKey::DIAL_SHOPKEEPER_KEY_LOST_KNIGHT,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_LOST_KNIGHT
         ),
         Dialog.new(
             DIAL_ID_GOBLINS,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_GOBLINS,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_GOBLINS
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GOBLINS,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GOBLINS
         ),
         Dialog.new(
             DIAL_ID_UNDEAD,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_UNDEAD,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_UNDEAD
+            LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD
         ),
         Dialog.new(
             DIAL_ID_RESUSCITATE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_RESUSCITATE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_RESUSCITATE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_RESUSCITATE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_RESUSCITATE
         ),
         Dialog.new(
             DIAL_ID_WHERE_DUNGEON,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON
+            LocaleKey::DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON
         ),
         Dialog.new(
             DIAL_ID_DUNGEON_INTERIOR,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE
         ),
         Dialog.new(
             DIAL_ID_DUNGEON,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_DUNGEON,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_DUNGEON
+            LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON
         ),
         Dialog.new(
             DIAL_ID_HOLY_EMPIRE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HOLY_EMPIRE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HOLY_EMPIRE,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOLY_EMPIRE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HOLY_EMPIRE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HOLY_EMPIRE,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOLY_EMPIRE
         ),
         Dialog.new(
             DIAL_ID_NAME,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_NAME,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_NAME
+            LocaleKey::DIAL_SHOPKEEPER_KEY_NAME,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_NAME
         ),
         Dialog.new(
             DIAL_ID_AGE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_AGE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_AGE,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_AGE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_AGE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_AGE,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_AGE
         ),
         Dialog.new(
             DIAL_ID_GENDER,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_GENDER,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_GENDER,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_GENDER
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GENDER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GENDER,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_GENDER
         ),
         Dialog.new(
             DIAL_ID_ARMOR_WEIGHT,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ARMOR_WEIGHT,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ARMOR_WEIGHT
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ARMOR_WEIGHT,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_WEIGHT
         ),
         Dialog.new(
             DIAL_ID_ARMOR_PROTECTION,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ARMOR_PROTECTION,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ARMOR_PROTECTION,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION
         ),
         Dialog.new(
             DIAL_ID_AGILITY,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_AGILITY,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_AGILITY,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_AGILITY
+            LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_AGILITY,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_AGILITY
         ),
         Dialog.new(
             DIAL_ID_HEALTH,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HEALTH,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HEALTH,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_HEALTH
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HEALTH
         ),
         Dialog.new(
             DIAL_ID_STRENGH,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_STRENGTH,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_STRENGTH,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_STRENGTH
+            LocaleKey::DIAL_SHOPKEEPER_KEY_STRENGTH,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_STRENGTH,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_STRENGTH
         ),
         Dialog.new(
             DIAL_ID_INTELLIGENCE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_INTELLIGENCE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_INTELLIGENCE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_INTELLIGENCE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_INTELLIGENCE
         ),
         Dialog.new(
             DIAL_ID_ADVICES,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ADVICES,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ADVICES,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVICES
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ADVICES,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVICES
         ),
         Dialog.new(
             DIAL_ID_SUPPLIER,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_SUPPLIER,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_SUPPLIER
+            LocaleKey::DIAL_SHOPKEEPER_KEY_SUPPLIER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_SUPPLIER
         ),
         Dialog.new(
             DIAL_ID_DISCOUNTS,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_DISCOUNTS,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_DISCOUNTS,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_DISCOUNTS
+            LocaleKey::DIAL_SHOPKEEPER_KEY_DISCOUNTS,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_DISCOUNTS,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_DISCOUNTS
         ),
         Dialog.new(
             DIAL_ID_TOO_EXPENSIVE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_TOO_EXPENSIVE,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_TOO_EXPENSIVE,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE
         ),
         Dialog.new(
             DIAL_ID_HAVE_YOU,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HAVE_YOU,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HAVE_YOU
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HAVE_YOU,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HAVE_YOU
         ),
         Dialog.new(
             DIAL_ID_FUCK_YOU,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_FUCK_YOU,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_FUCK_YOU,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_FUCK_YOU
+            LocaleKey::DIAL_SHOPKEEPER_KEY_FUCK_YOU,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_FUCK_YOU,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_FUCK_YOU
         ),
         Dialog.new(
             DIAL_ID_GET_LOST,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_GET_LOST,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_GET_LOST,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_GET_LOST
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GET_LOST,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GET_LOST,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_GET_LOST
         ),
         Dialog.new(
             DIAL_ID_THREAT,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_THREAT,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_THREAT,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_THREAT
+            LocaleKey::DIAL_SHOPKEEPER_KEY_THREAT,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_THREAT,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_THREAT
         ),
         Dialog.new(
             DIAL_ID_WEATHER,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_WEATHER,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_WEATHER,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_WEATHER
+            LocaleKey::DIAL_SHOPKEEPER_KEY_WEATHER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_WEATHER,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_WEATHER
         ),
         Dialog.new(
             DIAL_ID_SEASON,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_SEASON,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_SEASON,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_SEASON
+            LocaleKey::DIAL_SHOPKEEPER_KEY_SEASON,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_SEASON,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON
         ),
         Dialog.new(
             DIAL_ID_HOW_YOU_DOIN,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN
         ),
         Dialog.new(
             DIAL_ID_HELLO,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_HELLO,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_HELLO,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_HELLO
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HELLO
         ),
         Dialog.new(
             DIAL_ID_MARTON,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_MERCHANT_NAME,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
+            LocaleKey::DIAL_SHOPKEEPER_KEY_MERCHANT_NAME,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
         ),
         Dialog.new(
             DIAL_ID_VILLAGE,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_VILLAGE,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_VILLAGE
+            LocaleKey::DIAL_SHOPKEEPER_KEY_VILLAGE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_VILLAGE
         ),
         Dialog.new(
             DIAL_ID_ADVENTURER,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_ADVENTURER,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_ADVENTURER,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_ADVENTURER
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ADVENTURER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ADVENTURER,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVENTURER
         ),
         Dialog.new(
             DIAL_ID_YEAR,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_YEAR,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_YEAR,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_YEAR
+            LocaleKey::DIAL_SHOPKEEPER_KEY_YEAR,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_YEAR,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_YEAR
         ),
         Dialog.new(
             DIAL_ID_NOT_HELPING,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_NOT_HELPING,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_NOT_HELPING
+            LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_HELPING,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_HELPING
         ),
         Dialog.new(
             DIAL_ID_STUPID,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_STUPID,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_STUPID,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_STUPID
+            LocaleKey::DIAL_SHOPKEEPER_KEY_STUPID,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_STUPID,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_STUPID
         ),
         Dialog.new(
             DIAL_ID_GOD,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_GOD,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_GOD,
-            Locale::KEY_DIAL_SHOPKEEPER_INTRO_GOD
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GOD,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GOD,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD
         ),
         Dialog.new(
             DIAL_ID_OTHER_GOD,
-            Locale::KEY_DIAL_SHOPKEEPER_KEY_OTHER_GOD,
-            Locale::KEY_DIAL_SHOPKEEPER_TXT_OTHER_GOD
+            LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD
         )
     ]
-    UNKNOWN_DIALOGS = Locale::KEY_SHOPKEEPER_UNKNOWN_DIALOGS
+    UNKNOWN_DIALOGS = LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS
     PICTURE = 'merchant'
 end

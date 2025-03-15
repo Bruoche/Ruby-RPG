@@ -97,7 +97,7 @@ class Party
 
     def remove_player
         player_index = Narrator.ask_complex_element(
-            Locale::KEY_ASK_PLAYER_REMOVED,
+            LocaleKey::ASK_PLAYER_REMOVED,
             @players,
             -> (player, index){
                 return ASCIIPicture.new(ASCIIPicture.get_card(player.get_save_data, index))
