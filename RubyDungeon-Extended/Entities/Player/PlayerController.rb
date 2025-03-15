@@ -19,6 +19,7 @@ class PlayerController
     end
 
     def stop_fighting
+        MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
         @fighting = false
     end
 
@@ -76,6 +77,7 @@ class PlayerController
                 return ask_action
             else
                 Narrator.start_fight(@player.get_room.get_monsters.plural?)
+                MusicManager.get_instance.set_state(MusicManager::FIGHTING)
                 @fighting = true
                 return fight_action
             end
