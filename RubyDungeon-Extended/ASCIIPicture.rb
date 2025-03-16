@@ -86,6 +86,10 @@ class ASCIIPicture
         end
     end
 
+    def replace_char(y_coordinate, x_coordinate, character)
+        @picture[y_coordinate][x_coordinate] = character
+    end
+
     def frame(horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME, corner_piece = DEFAULT_CORNER_PIECE)
         new_picture = [corner_piece + (horizontal_line * @width) + corner_piece]
         @picture.each.with_index(0) do |line, y|

@@ -40,7 +40,7 @@ class Character
         Narrator.write(dialog_box.get_ascii)
     end
 
-    def make_dialog_box(dialog, width = TTY::Screen.width)
+    def make_dialog_box(dialog, width = TTY::Screen.width, show_next_arrow = false)
         used_width = width - (4 + (TTY::Screen.width * PERCENT_MARGIN_RIGHT_DIALOG).div(100))
         multiline_dialog = Utils.multiline(Locale.get_localized(dialog), used_width)
         while multiline_dialog.length < MIN_DIALOG_HEIGHT
@@ -48,6 +48,9 @@ class Character
         end
         dialog_box = ASCIIPicture.new(multiline_dialog)
         dialog_box.frame(' ', ' ')
+        if show_next_arrow
+            dialog_box.replace_char(-1, -3, '➤')
+        end
         dialog_box.frame
         return dialog_box
     end
@@ -122,9 +125,11 @@ class Character
             else
                 show
             end
-            Narrator.write(make_dialog_box(sentence).get_ascii)
             if i < (answered_sentences.length - 1)
+                Narrator.write(make_dialog_box(sentence, TTY::Screen.width, true).get_ascii)
                 Narrator.pause_text
+            else
+                Narrator.write(make_dialog_box(sentence).get_ascii)
             end
         end
     end
