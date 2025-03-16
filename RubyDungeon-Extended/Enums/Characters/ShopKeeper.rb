@@ -233,12 +233,6 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON
         ),
         Dialog.new(
-            DialogID::HOW_YOU_DOIN,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
-            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN
-        ),
-        Dialog.new(
             DialogID::HELLO,
             LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO,
             LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO,
@@ -278,15 +272,21 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_STUPID
         ),
         Dialog.new(
-            DialogID::GOD,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_GOD,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_GOD,
-            LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD
+            DialogID::HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN
         ),
         Dialog.new(
             DialogID::OTHER_GOD,
             LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD,
             LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD
+        ),
+        Dialog.new(
+            DialogID::GOD,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GOD,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GOD,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD
         )
     ]
     UNKNOWN_DIALOGS = LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS

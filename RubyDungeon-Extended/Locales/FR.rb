@@ -27,7 +27,7 @@ class FR
         LocaleKey::ALCOVE => "pièce",
         LocaleKey::CELL => "cellule",
         LocaleKey::CHAMBER => "chambre",
-        LocaleKey::GEOLLE => "geolle",
+        LocaleKey::GEOLLE => "geôle",
         LocaleKey::ROOM => "salle",
         LocaleKey::TORTURE_CHAMBER => "chambre de torture",
         LocaleKey::CORRIDOR => "couloir",
@@ -44,7 +44,7 @@ class FR
         LocaleKey::COLD_F => "froide",
         LocaleKey::DARK_F => "sombre",
         LocaleKey::DRY_F => "sèche",
-        LocaleKey::DUSTY_F => "poussièreuse",
+        LocaleKey::DUSTY_F => "poussiéreuse",
         LocaleKey::GREEN_F => "verte",
         LocaleKey::GREYISH_F => "grisée",
         LocaleKey::HUMID_F => "humide",
@@ -117,7 +117,7 @@ class FR
         LocaleKey::ICON_AVERAGES => "moyennes",
         LocaleKey::ICON_ROUNDS => "rondes",
         LocaleKey::ICON_LARGES => "larges",
-        LocaleKey::ICON_FLATS => "plates",
+        LocaleKey::ICON_FLATS => "aplatis",
         LocaleKey::ICON_SMALL_ROUND_M => "petit rond",
         LocaleKey::ICON_NARROW_M => "fin",
         LocaleKey::ICON_MEDIUM_M => "moyen",
@@ -150,7 +150,7 @@ class FR
         LocaleKey::ICON_BIKEHANDLE => "guidon",
         LocaleKey::ICON_NONES_M => "aucuns",
         LocaleKey::ICON_PREPUBESCENT => "prépubaires",
-        LocaleKey::ICON_LONG_PREPUBESCENT => "prépubaires longue",
+        LocaleKey::ICON_LONG_PREPUBESCENT => "prépubères longue",
         LocaleKey::ICON_START_GROWTH => "début de pousse",
         LocaleKey::ICON_THINS => "fines",
         LocaleKey::ICON_SHORT_CUT => "coupées court",
@@ -172,7 +172,7 @@ class FR
         LocaleKey::ICON_SHORT_BLIND_FRINGE => "frange rideau courte",
         LocaleKey::ICON_BLIND_FRINGE => "frange rideau",
         LocaleKey::ICON_OVER_EYES => "couvre-yeux",
-        LocaleKey::ICON_EYE_COVER => "couvre-oeuil",
+        LocaleKey::ICON_EYE_COVER => "couvre-oeil",
         LocaleKey::ICON_STRAIGHT_STRANDS => "meches droites",
         LocaleKey::ICON_DIAGONALS_STRANDS => "meches diagonales",
         LocaleKey::ICON_LARGE_STRANDS => "meches larges",
@@ -209,10 +209,10 @@ class FR
         LocaleKey::WARNING_POP_UP => [
             "",
             "Attention :",
-            "Mourrir dans ce jeu perdra toute votre progression en cours dans le donjon.",
+            "Mourir dans ce jeu vous fera perdre toute votre progression en cours dans le donjon.",
             "Sortez du donjon pour sauvegarder votre progression.",
             "",
-            "Info sur le terminal :",
+            "Infos sur le terminal :",
             "Presser [Ctrl + C] fermera le jeu.",
             "Presser [Alt + Entrée] met le jeu en plein écran.",
             ""
@@ -262,7 +262,7 @@ class FR
             "    2) Corpulence",
         ],
         LocaleKey::FEATURES_OPTIONS => [
-            "Quelle trait du visage souhaitez-vous modifier ?",
+            "Quel trait du visage souhaitez-vous modifier ?",
             "    0) Retour...",
             "    1) Couleur des yeux",
             "    2) Les oreilles",
@@ -284,7 +284,7 @@ class FR
             "    2) La couleur"
         ],
         LocaleKey::CHARACTER_CREATION_HAIRSTYLE_OPTIONS => [
-            "Quel portion de votre coupe de cheveux souhaitez-vous modifier ?",
+            "Quelle partie de votre coupe de cheveux souhaitez-vous modifier ?",
             "    0) Retour...",
             "    1) L'avant",
             "    2) L'arrière"
@@ -298,13 +298,13 @@ class FR
             "    4) Informations"
         ],
         LocaleKey::ASSET_SIZE_VERIFICATION => "Si vous voyez ce texte les images ont une taille acceptable.",
-        LocaleKey::CURRENT_MUSIC_VOLUME => "Volume de musique : ",
+        LocaleKey::CURRENT_MUSIC_VOLUME => "Volume de la musique : ",
         LocaleKey::CURRENT_SOUND_EFFECTS => "Effets sonores : ",
         LocaleKey::SOUND_OPTIONS => [
             "Que souhaitez-vous faire ?",
             "    0) Retour...",
             "    1) Modifier le volume de la musique",
-            "    2) Activier/Désactiver les effets sonores"
+            "    2) Activer/Désactiver les effets sonores"
         ],
         LocaleKey::ASSET_SIZE_OPTIONS => [
             "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut.",
@@ -356,7 +356,7 @@ class FR
         LocaleKey::STAT_UP_INTELLIGENCE => "    3) ♠ Intelligence   (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_AGILITY      => "    4) ♦ Agilité        (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::TELEPORT_OPTIONS => [
-            "Où souhaitez vous aller ?",
+            "Où souhaitez-vous aller ?",
             "    0) Annuler",
             "    1) La sortie"
         ],
@@ -380,7 +380,7 @@ class FR
             "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
             "Vous êtes maintenant au pieds d'un donjon étrange et réputé comme étant sans fond.",
             "",
-            "Armé.e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
+            "Armé·e de votre courage et d'une épée, vous entrez dans la grande batisse sombre."
         ],
         LocaleKey::NEW_MEMBERS_INTRO => [
             "Après votre précédente expérience dans le donjon,",
@@ -416,14 +416,14 @@ class FR
         LocaleKey::IS_EMPTY => " vide.",
         LocaleKey::MONSTER_ROOM => ", vous voyez %s.",
         LocaleKey::MONSTER_ROOM_FIGHTING => ", vous voyez %{#{LocaleKey::F_ALLIES}} combattant %{#{LocaleKey::F_ENNEMIES}}.",
-        LocaleKey::DEAD_ALLY => "Le corps de %s gie sur le sol.",
-        LocaleKey::DEAD_ALLIES => "Les corps de %s gient sur le sol.",
-        LocaleKey::ALLY_ASIDE => "A vos cotés se trouve ",
-        LocaleKey::ALLIES_ASIDE => "A vos cotés se trouvent ",
+        LocaleKey::DEAD_ALLY => "Le corps de %s gît sur le sol.",
+        LocaleKey::DEAD_ALLIES => "Les corps de %s gisent sur le sol.",
+        LocaleKey::ALLY_ASIDE => "À vos côtés se trouve ",
+        LocaleKey::ALLIES_ASIDE => "À vos côtés se trouvent ",
         LocaleKey::AND_DEAD_ALLY => "et le corps de ",
         LocaleKey::AND_DEAD_ALLIES => "et les corps de ",
-        LocaleKey::ATTACK_MONSTERS => "Vous vous jettez sur les monstres se tenant face à vous.",
-        LocaleKey::ATTACK_MONSTER => "Vous vous jettez sur le monstre se tenant face à vous.",
+        LocaleKey::ATTACK_MONSTERS => "Vous vous jetez sur les monstres se tenant face à vous.",
+        LocaleKey::ATTACK_MONSTER => "Vous vous jetez sur le monstre se tenant face à vous.",
         LocaleKey::AVOID_FIGHT => "Ne souhaitant pas combattre %s, vous faites profil bas.",
         LocaleKey::FAIL_ESCAPE_PLURAL => "Alors que vous tentez d'éviter les monstres, ceux-ci vous remarquent et se jettent sur vous.",
         LocaleKey::FAIL_ESCAPE_SINGLE => "Alors que vous tentez d'éviter le monstre, celui-ci vous remarque et se jette sur vous.",
@@ -432,10 +432,10 @@ class FR
         LocaleKey::ESCAPE => "Ce combat ne valant plus la peine pour vous, vous vous échappez.",
         LocaleKey::ESCAPE_FAIL_PLURAL => "Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire.",
         LocaleKey::ESCAPE_FAIL_SINGLE => "Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire.",
-        LocaleKey::VICTORY_PLURAL => "Victoire ! Tout les monstres meurent et vous obtenez %d points d'expérience.",
+        LocaleKey::VICTORY_PLURAL => "Victoire ! Tous les monstres meurent et vous obtenez %d points d'expérience.",
         LocaleKey::VICTORY_SINGLE => "Victoire ! Le monstre meurt et vous laisse %d points d'expérience.",
         LocaleKey::EXPLORATION_CONTINUE => "Vous reprenez votre exploration du donjon.",
-        LocaleKey::EXIT_SCARED => "Trop effrayé.e par les terreurs du donjon, ",
+        LocaleKey::EXIT_SCARED => "Trop effrayé·e par les terreurs du donjon, ",
         LocaleKey::EXIT_DONE => "En ayant terminé avec le donjon, ",
         LocaleKey::EXIT_SURVIVED => [
             "Vous quittez l'étrange batisse.",
@@ -445,19 +445,19 @@ class FR
         LocaleKey::HURT_MESSAGE => "%{#{LocaleKey::F_TARGET}} prend %{#{LocaleKey::F_AMOUNT}} dégats.",
         LocaleKey::DETAILED_HURT_MESSAGE => "%{#{LocaleKey::F_TARGET}} prend %{#{LocaleKey::F_AMOUNT}} dégats. (%{#{LocaleKey::F_TOTAL}} reçu, %{#{LocaleKey::F_DODGED}} esquivé%{#{LocaleKey::F_PARRIED}})",
         LocaleKey::HEAL_MESSAGE => "%{#{LocaleKey::F_TARGET}} récupère %{#{LocaleKey::F_AMOUNT}} points de vie.",
-        LocaleKey::DONT_NEED_HEAL => "%s n'est pas blessé.e et n'a donc pas besoin d'être soigné.e.",
+        LocaleKey::DONT_NEED_HEAL => "%s n'est pas blessé·e et n'a donc pas besoin d'être soigné·e.",
         LocaleKey::HEAL_FAIL_MESSAGE => "Vous ne savez pas comment vous soigner.",
         LocaleKey::HEAL_SPELL_MESSAGE => "%{#{LocaleKey::F_SOURCE}} soigne %{#{LocaleKey::F_TARGET}}.",
         LocaleKey::SELF_HEAL_MESSAGE => "%{#{LocaleKey::F_TARGET}} se soigne %{#{LocaleKey::F_AMOUNT}} points de vie.",
-        LocaleKey::SPELL_FAIL => "Dépourvu de puissance magique, vous ne parvenez pas à lancer de sorts.",
+        LocaleKey::SPELL_FAIL => "Dépourvu·e de puissance magique, vous ne parvenez pas à lancer de sorts.",
         LocaleKey::SPELL_CAST => "%s lance une attaque magique.",
         LocaleKey::MONSTER_DEATH => "%s s'effondre sous vos coups.",
-        LocaleKey::PLAYER_DEATH => "%s s'éffondre au sol.",
+        LocaleKey::PLAYER_DEATH => "%s s'effondre au sol.",
         LocaleKey::OBTAIN_ITEM => "%{#{LocaleKey::F_TARGET}} obtiens %{#{LocaleKey::F_ITEM}}.",
         LocaleKey::REMOVE_ARMOR => "%{#{LocaleKey::F_TARGET}} retire %{#{LocaleKey::F_ITEM}}.",
         LocaleKey::EQUIP_ARMOR => "%{#{LocaleKey::F_TARGET}} s'équipe d'%{#{LocaleKey::F_ITEM}}.",
-        LocaleKey::SEARCHING => "Vous fouillez %s pour tout objet pouvant vous être utile",
-        LocaleKey::ALREADY_TAKEN => "Vous avez déjà pris tout les objets à prendre dans %s.",
+        LocaleKey::SEARCHING => "Vous fouillez %s pour tous objet pouvant vous être utile",
+        LocaleKey::ALREADY_TAKEN => "Vous avez déjà pris tous les objets à prendre dans %s.",
         LocaleKey::NOTHING_FOUND => "Vous ne trouvez rien de valeur.",
         LocaleKey::LEVEL_UP => "Niveau supérieur !",
         LocaleKey::UNKNOWN_USE => "Vous ne savez pas comment utiliser cet objet...",
@@ -473,7 +473,7 @@ class FR
         LocaleKey::KNIGHT_SLASH => "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi.",
         LocaleKey::KNIGHT_LIMB_LOSS => "%s se brise sous vos coups.",
         LocaleKey::KNIGHT_CHANGE_WEAPON_SIDE => "%s change son arme de main.",
-        LocaleKey::KNIGHT_PHASE_CHANGE => "Il semble être pris d'une résolution soudaine et insoupsonnée.",
+        LocaleKey::KNIGHT_PHASE_CHANGE => "Il semble être pris d'une résolution soudaine et insoupçonnée.",
         LocaleKey::KNIGHT_DEFENSELESS => "%s laisse son arme tomber au sol, impuissant.",
         LocaleKey::KNIGHT_DEATH_FIRST => "Le casque %s s'enfonce sous vos coups,",
         LocaleKey::KNIGHT_DEATH_SECOND => "Sous la pression du métal contre son crâne, un craquement sinistre résonne en son coeur.",
@@ -526,7 +526,7 @@ class FR
         LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées.",
         LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Impossible de passer à la page suivante. Page maximale atteinte.",
         LocaleKey::PAGE_DOWN_IMPOSSIBLE_ERROR => "Impossible de passer à la page précédente. Page minimale atteinte.",
-        LocaleKey::EMPTY_NAME_ERROR => "Le nom ne peux être vide.",
+        LocaleKey::EMPTY_NAME_ERROR => "Le nom ne peut être vide.",
         LocaleKey::FORBIDDEN_CHAR_ERROR => "Les noms ne peuvent pas contenir de caractères spéciaux.",
         LocaleKey::NO_FILE_FOUND_ERROR => "Aucun fichier nommé %s n'a pu être trouvé.",
         LocaleKey::NEGATIVE_QUANTITY_ERROR => "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif.",
@@ -590,7 +590,7 @@ class FR
         LocaleKey::ASK_BEARD => "Quelle barbe souhaitez-vous sur le menton ?",
         LocaleKey::ASK_SIDEBURNS => "Quelle pattes souhaitez-vous ?",
         LocaleKey::ASK_HAIRCUT => "Quelle coupe souhaitez-vous ?",
-        LocaleKey::ASK_FEATURE => "Quel trait souhaitez vous ?",
+        LocaleKey::ASK_FEATURE => "Quel trait souhaitez-vous ?",
         LocaleKey::ASK_COLOR => "Quelle couleur ?",
         LocaleKey::KEEP_CORPULENCE => "Conserver la corpulence",
         LocaleKey::KEEP_EARS => "Conserver les oreilles",
@@ -604,8 +604,8 @@ class FR
         LocaleKey::KEEP_COLOR => "Conserver la couleur",
         LocaleKey::STAY_IN => "rester dans %s",
         LocaleKey::MERCHANT_THANK => "Merci grandement pour votre achat.",
-        LocaleKey::MERCHANT_FUND_INSUFFICIENT => "Navrès, mais %s pièces d'or ne seront pas suffisantes...",
-        LocaleKey::MERCHANT_COIN_INSUFFICIENT => "Navrès, mais une pièce d'or ne sera pas suffisante...",
+        LocaleKey::MERCHANT_FUND_INSUFFICIENT => "Navré, mais %s pièces d'or ne seront pas suffisantes...",
+        LocaleKey::MERCHANT_COIN_INSUFFICIENT => "Navré, mais une pièce d'or ne sera pas suffisante...",
         LocaleKey::MERCHANT_NO_MONEY => "Mes excuses, mais sans argent vous ne pourrez pas acheter quoi que ce soit dans ce magasin.",
         LocaleKey::MERCHANT_PURCHASE => "Un plaisir de faire affaire avec vous.",
         LocaleKey::ASK_SHOP_ACTION => "Que souhaitez-vous faire ? (%s ¤)",
@@ -619,25 +619,25 @@ class FR
         ],
         LocaleKey::ASK_CONFIRMATION_SELLING => "Êtes-vous sûr de vouloir vendre %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
         LocaleKey::ASK_ITEM_BOUGHT => "Quel objet souhaitez-vous acheter ? (%s ¤)",
-        LocaleKey::ASK_CONFIRM_PURCHASE => "Êtes-vous sûr de vouloîr acheter %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
+        LocaleKey::ASK_CONFIRM_PURCHASE => "Êtes-vous sûr de vouloir acheter %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_NAME => "gants en cuir noir",
-        LocaleKey::BLACK_LEATHER_GAUNTLETS_DESC => "de fins gants en une sorte de cuir noir souple extrêmement léger mais pourtant surprenament durable",
+        LocaleKey::BLACK_LEATHER_GAUNTLETS_DESC => "de fins gants en une sorte de cuir noir souple extrêmement léger mais pourtant surprenamment durable",
         LocaleKey::BLACK_LEATHER_GREAVES_NAME => "jambières de cuir noir",
-        LocaleKey::BLACK_LEATHER_GREAVES_DESC => "de fines jambières en une sorte de cuir noir souple étant extrêment léger mais pourtant incroyablement solide",
+        LocaleKey::BLACK_LEATHER_GREAVES_DESC => "de fines jambières en une sorte de cuir noir souple étant extrêmement léger mais pourtant incroyablement solide",
         LocaleKey::BLACK_LEATHER_HELM_NAME => "casque en cuir noir",
-        LocaleKey::BLACK_LEATHER_HELM_DESC => "un casque pointu avec de larges plaques protégeant les cotés du visage fabriqué en une sorte de cuir noir incroyablement léger et durable",
+        LocaleKey::BLACK_LEATHER_HELM_DESC => "un casque pointu avec de larges plaques protégeant les côtés du visage fabriqué en une sorte de cuir noir incroyablement léger et durable",
         LocaleKey::BLACK_LEATHER_PLASTRON_NAME => "plastron en cuir noir",
-        LocaleKey::BLACK_LEATHER_PLASTRON_DESC => "un long plastron fait en une sorte de cuir noir extrêment léger et solide couvert par un large tissus sombre",
-        LocaleKey::DRESS_GAUNTLET_NAME => "brassières discrète",
+        LocaleKey::BLACK_LEATHER_PLASTRON_DESC => "un long plastron fait en une sorte de cuir noir extrêmement léger et solide couvert par un large tissus sombre",
+        LocaleKey::DRESS_GAUNTLET_NAME => "brassières discrètes",
         LocaleKey::DRESS_GAUNTLET_DESC => "des gants en cuir raffinés protégeant décemment les mains de leurs porteur",
         LocaleKey::DRESS_GREAVES_NAME => "chopines nobles",
-        LocaleKey::DRESS_GREAVES_DESC => "de grandes chaussures serevant à faire paraitre le porteur plus grand. Peu pratique en combat mais très à la mode actuellement",
+        LocaleKey::DRESS_GREAVES_DESC => "de grandes chaussures servant à faire paraître le porteur plus grand. Peu pratique en combat mais très à la mode actuellement",
         LocaleKey::DRESS_HELM_NAME => "chapeau cornu",
         LocaleKey::DRESS_HELM_DESC => "un chapeau voilé raffiné ne protégeant que peu mais étant très en vogue chez la noblesse",
         LocaleKey::DRESS_PLASTRON_NAME => "robe noble",
         LocaleKey::DRESS_PLASTRON_DESC => "longue robe dont le col en cuir est orné de gemmes. Un habit à la mode actuellement pour ceux pouvant se l'offrir",
         LocaleKey::HEAVY_GAUNTLET_NAME => "gants renforcés",
-        LocaleKey::HEAVY_GAUNTLET_DESC => "des gants en cuirs renforcés par des plaques de métal offrant une bonne protection malgrès leur poids",
+        LocaleKey::HEAVY_GAUNTLET_DESC => "des gants en cuirs renforcés par des plaques de métal offrant une bonne protection malgré leur poids",
         LocaleKey::HEAVY_GREAVES_NAME => "bottes renforcées",
         LocaleKey::HEAVY_GREAVES_DESC => "des bottes en cuirs couvertes par de larges plaques métalliques les alourdissant considérablement",
         LocaleKey::HEAVY_HELM_NAME => "casque et cervelière",
@@ -649,7 +649,7 @@ class FR
         LocaleKey::IRON_GREAVES_NAME => "jambières de fer",
         LocaleKey::IRON_GREAVES_DESC => "de fines jambières de fer protégeant les tibias du porteur",
         LocaleKey::IRON_HELM_NAME => "casque en fer",
-        LocaleKey::IRON_HELM_DESC => "un casque pointu en fer avec de courtes oreillettes protégeant les cotés du visage. Offre une protection décente pour son poids",
+        LocaleKey::IRON_HELM_DESC => "un casque pointu en fer avec de courtes oreillettes protégeant les côtés du visage. Offre une protection décente pour son poids",
         LocaleKey::IRON_PLASTRON_NAME => "plastron en fer",
         LocaleKey::IRON_PLASTRON_DESC => "un plastron court protégeant les organes les plus vitaux. Offre une bonne protection bien qu'étant incomplet",
         LocaleKey::LEATHER_GAUNTLETS_NAME => "brassières en cuir",
@@ -684,12 +684,12 @@ class FR
         LocaleKey::A_M_SPACELESS => "un",
         LocaleKey::DISMAL_CELL => "cellule lugubre",
         LocaleKey::DISMAL_CELL_DESCRIPTION => [
-            "Vous êtes au milleu d'une geolle sombre, des chaines brisées jonchent le sol."
+            "Vous êtes au milieu d'une geôle sombre, des chaines brisées jonchent le sol."
         ],
         LocaleKey::CATACOMBS_DESCRIPTION => [
             "Vous êtes dans des catacombes remplies de tombes et ossements arrangés de façon plus ou moins élaboré.",
-            "Cet endroit est bien plus sec que l'entrée du donjon, l'obscurité est quant à elle plus grande que jamais.",
-            "L'air stagnant et la poussière vous donnent une sensation de secheresse."
+            "Cet endroit est bien plus sec que l'entrée du donjon et l'obscurité y est plus grande que jamais.",
+            "L'air stagnant et la poussière vous assèchent la gorge."
         ],
         LocaleKey::CATACOMBS_LOOT_BANDAGE => ["Vous remarquez des linceuls encore propres que vous pouvez utiliser comme bandages."],
         LocaleKey::CATACOMBS_LOOT_COINS => [
@@ -697,17 +697,17 @@ class FR
             "Vous voyez quelques pièces posées en offrande sur une des dépouilles entreposée en ce lieu"
         ],
         LocaleKey::CATACOMBS_TRANSITION_PRISON => [
-            "Alors que vous enfonciez désespérément dans les catacombes,",
+            "Alors que vous vous enfonciez désespérément dans les catacombes,",
             "Vous remarquez enfin un creux dans le mur similaire à celui par lequel vous êtes entrés.",
-            "Lorsque vous vous y engouffrez, vous êtes acceuillis par des grands murs de pierres",
+            "Lorsque vous vous y engouffrez, vous êtes accueilli·e par des grands murs de pierres",
             "qui ne sont pas sans rappeler ceux de l'entrée.",
             "",
             "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
         ],
         LocaleKey::ENTRANCE_DESCRIPTION => [
-            "Vous êtes entouré.e d'épais murs de pierres.",
-            "L'air est humide et l'obscurité reigne au sein de l'ancienne forteresse,",
-            "Mais les courants d'air atteignants votre dos sont un rappel de votre proximité avec la surface."
+            "Vous êtes entouré·e d'épais murs de pierres.",
+            "L'air est humide et l'obscurité règne au sein de l'ancienne forteresse,",
+            "Mais les courants d'air atteignant votre dos sont un rappel de votre proximité avec la surface."
         ],
         LocaleKey::ENTRANCE_LOOT_BANDAGE => ["Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."],
         LocaleKey::ENTRANCE_LOOT_COINS => [
@@ -724,38 +724,38 @@ class FR
         ],
         LocaleKey::PRISON_DESCRIPTION => [
             "Vous êtes dans ce qui semble être une ancienne prison.",
-            "Bien que cet endroit soit un peu plus acceuillant que les catacombes, il ne l'est pas de beaucoup.",
+            "Bien que cet endroit soit un peu plus accueillant que les catacombes, il ne l'est pas de beaucoup.",
             "Vous êtes ainsi pris d'un sentiment de mal-aise dans ce lieu semblant porter le poids d'une histoire sombre."
         ],
         LocaleKey::PRISON_LOOT_HEALTH_POTION => [
-            "Vous voyez une potion de soin posée sur une table au coté d'outils divers.",
-            "Vous trouvez une potion de soin rangée dans une meuble.",
+            "Vous voyez une potion de soin posée sur une table au côté d'outils divers.",
+            "Vous trouvez une potion de soin rangée dans un meuble.",
             "Vous remarquez une potion de soin oubliée au sol au coin de la pièce."
         ],
-        LocaleKey::PRISON_LOOT_BANDAGE => ["Vous remarquez des bagnes que vous pouvez déchirer afin de créer des bandages."],
+        LocaleKey::PRISON_LOOT_BANDAGE => ["Vous remarquez des haillons que vous pouvez déchirer afin de créer des bandages."],
         LocaleKey::PRISON_LOOT_KEY => ["Vous remarquez une clef accrochée à un des murs."],
         LocaleKey::PRISON_TRANSITION_CELL => [
             "Vous arrivez devant une grande porte métallique.",
             "Malgré son grand âge et la rouille apparente, elle semble encore trop solide pour être forcée.",
             "",
-            "En écoutant attentivement, vous pouvez entendre une respiration faiblarde transperçant subtilement la grande parroie metallique."
+            "En écoutant attentivement, vous pouvez entendre une respiration faiblarde transperçant subtilement la grande paroi metallique."
         ],
         LocaleKey::KNIGHT_NAME => "chevalier perdu",
         LocaleKey::KNIGHT_HEAD => "tête du chevalier perdu",
         LocaleKey::KNIGHT_RIGHT_ARM => "bras droit du chevalier perdu",
         LocaleKey::KNIGHT_LEFT_ARM => "bras gauche du chevalier perdu",
-        LocaleKey::KNIGHT_LEFT_ATTACK => "met un coup de coude à %s",
+        LocaleKey::KNIGHT_LEFT_ATTACK => "met un coup de coude à %s.",
         LocaleKey::KNIGHT_RIGHT_ATTACK => "assène un coup d'épée à %s.",
         LocaleKey::KNIGHT_LOOT_COINS => ["Sur la dépouille du chevalier vous trouvez une large bourse accorchée sur sa ceinture."],
-        LocaleKey::KNIGHT_LOOT_NOTE => ["Dans un plis de son plastron vous remarquez également une note dépassant."],
+        LocaleKey::KNIGHT_LOOT_NOTE => ["Dans un pli de son plastron vous remarquez également une note dépassant."],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Bonjour voyageur.\nJe vous prie, n'hésitez pas à observer mes marchandises et me dire si quoi que ce soit attise votre curiosité.",
         LocaleKey::SHOPKEEPER_IDLE_DIALOGS => [
             "Alors, quelque chose vous interesse dans mon étalage ?",
-            "Dites-moi si vous avez besoin de quoi que ce soit"
+            "Dites-moi si vous avez besoin de quoi que ce soit."
         ],
         LocaleKey::SHOPKEEER_CONVERSATION_STARTER => [
-            "Puis-je faire quoi-que ce soit pour vous ?",
+            "Puis-je faire quoi que ce soit pour vous ?",
             "Mh ?",
             "Une question à me poser ?"
         ],
@@ -770,32 +770,32 @@ class FR
         LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS => [
             "Mes excuses, mais je ne suis pas sûr d'avoir compris...",
             "Huh ?",
-            "Pardon, mais je ne comprend pas ce que vous voulez dire par là.",
+            "Pardon, mais je ne comprends pas ce que vous voulez dire par là.",
             "Je ne suis pas sûr de comprendre."
         ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "Vous utilisez la clef de la prison afin d'ouvrir la grande porte.",
-            "Vous poussez sur la porte, ses gonds rouillés vous donnant du retord.",
+            "Vous poussez sur la porte, ses gonds rouillés vous donnant du retors.",
             "En y mettant toutes vos forces, vous parvenez néanmoins à forcer la porte ouverte.",
             "",
             "Lorsque vous pénétrez dans ce qui semble être une cellule de prison,",
-            "Vous pouvez voir au fond de la salle obscure un chevalier à l'armure endomagée par les batailles et l'age",
-            "A peine couverte par les fins lambeaux de ce qui devait être un noble surcôt."
+            "Vous pouvez voir au fond de la salle obscure un chevalier à l'armure endommagée par les batailles et l'âge",
+            "A peine couverte par les fins lambeaux de ce qui devait être un noble surcot."
         ],
         LocaleKey::BOSS_CELL_REQ_REFUSE => [
             "Vous décidez qu'il ne vaut probablement mieux ne pas prendre le risque d'ouvrir la porte",
             "Et décidez donc de revenir sur vos pas."
         ],
         LocaleKey::BOSS_CELL_REQ_CANT => [
-            "Lorsque vous tentez de l'ouvrir celle-ci vous resiste, semblant être fermée à clef.",
+            "Lorsque vous tentez de l'ouvrir celle-ci résiste, semblant être fermée à clef.",
             "",
             "Vous retournez sur vos pas."
         ],
         LocaleKey::ARMOR_DESCRIPTION => ", protège de %{#{LocaleKey::F_DEFENSE}} dégats et pèse %{#{LocaleKey::F_WEIGHT}} Kg",
         LocaleKey::ARMOR_CARD_DESCRIPTION => "\n\n♣ %{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
         LocaleKey::BANDAGES_NAME => "des bandages",
-        LocaleKey::BANDAGES_DESCRIPTION => "restaure une quantitée aléatoire de vos points de vies manquants",
+        LocaleKey::BANDAGES_DESCRIPTION => "restaure une quantité aléatoire de vos points de vies manquants",
         LocaleKey::COINS_NAME => "une pièce d'or",
         LocaleKey::COINS_DESCRIPTION => "monnaie actuelle employée dans les contrées principales composant la grande alliance",
         LocaleKey::COIN_HEAD => "face",
@@ -819,50 +819,50 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE => ["Non je ne viens effectivement pas d'ici.\nJe suis originaire de l'Est."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_ORIGIN => ["ton|ta|tu|t|vous", "où|né|pays|origine|histoire|viens"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ORIGIN => [
-            "Je suis né dans la portion Est de l'Empire Sain. J'y ai passé mes plus jeunes années, mais a vite commencé à voyager à travers tout le continent plus large.",
-            "Le voyage à toujours été un avantage crucial pour mon magasin, grâce aux taxes minimales sur le transport de marchandise entre chaque royaume j'ai pu vendre les plus grande raretés au prix les plus compétitifs.",
+            "Je suis né dans la partie Est de l'Empire Saint. J'y ai passé mes plus jeunes années, mais a vite commencé à voyager à travers tout le continent plus large.",
+            "Le voyage a toujours été un avantage crucial pour mon magasin, grâce aux taxes minimales sur le transport de marchandise entre chaque royaume j'ai pu vendre les plus grandes raretés au prix les plus compétitifs.",
             "Le seul problème avec les trajets c'est le temps et les bandits, honnêtement."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE => ["quoi|grande|pourquoi|quand|comment|dire|parler", "alliance"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ALLIANCE => [
             "",
-            "La grande alliance est une congrégation de la plupart des pays dans ce continent, en plus de quelques pays cotiers dans le continent plus au Sud, de l'autre coté de la mer.",
+            "La grande alliance est une coalition entre la plupart des pays dans ce continent, en plus de quelques nations côtières dans le continent plus au Sud, de l'autre côté de la mer.",
             "C'est un traité nous assemblant tous sous une même monnaie et qui s'assure de la paix dans le continent en plus d'aider aux échanges globaux.",
-            "C'est la raison même pour laquelle je peux saisir une opportunité comme cella là."
+            "C'est la raison même pour laquelle je peux saisir une opportunité comme celle-là."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_ALLIANCE => "Vous ne connaissez pas ça ?\nLes gens ici manquent cruellement d'éducation sur leur propre politique. Mais j'imagine que tout le monde n'a pas besoin de s'y connaitre.",
         LocaleKey::DIAL_SHOPKEEPER_KEY_BLACK_LEATHER => ["noir|sombre", "cuir"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_BLACK_LEATHER => [
-            "Le cuir noir est un matériel rare venant d'une bête spécique avant d'être soumis à un grand nombre de traitements le raffinant en une matière à la fois souple et robuste permettant de faire les armures de la meilleure qualitée.",
+            "Le cuir noir est un matériau rare provenant d'une bête spécifique avant d'être soumis à un grand nombre de traitements le raffinant en une matière à la fois souple et robuste permettant de faire les armures de la meilleure qualité.",
             "En revanche, je ne suis pas tanneur moi-même donc là s'arrête l'étendue de mes connaissances à ce sujet."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH_POTION => ["soin|vie|soins|vies", "potion|potions"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH_POTION => ["Mes potions de soins sont d'une grande qualitées, et c'est un moyen bien plus fiable de se soigner dans des situations d'urgences que vos bandages fait maisons."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH_POTION => ["Mes potions de soins sont d'une grande qualité, et c'est un moyen bien plus fiable de se soigner dans des situations d'urgences que vos bandages faits maisons."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_LOST_KNIGHT => ["perdu|perdue", "chevalier|chevalière|chevaliere"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_LOST_KNIGHT => ["Je n'ai aucune idée de qui vous parlez. Désolé."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_GOBLINS => ["goblins|goblin"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GOBLINS => [
-            "Ces petites pestes sont très rares honnêtement. Je n'en ai jamais vu moi-même, mais j'ai entendu de nombreux récis à propos de leurs assauts sur quiconque s'aventurerais trop profond dans les forêts.\nDe ce que j'ai entendu ils sont bien plus commun dans la tour apparemment. Peut-être qu'eux aussi apprécie les trésors du donjon.",
+            "Ces petites pestes sont très rares honnêtement. Je n'en ai jamais vu moi-même, mais j'ai entendu de nombreux récits à propos de leurs assauts sur quiconque s'aventurerais trop profond dans les forêts.\nDe ce que j'ai entendu ils sont bien plus communs dans la tour apparemment. Peut-être qu'eux aussi apprécie les trésors du donjon.",
             "En cela ils ressemblent aux aventuriers de plus d'une manière."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD => ["zombie|zombies|vivants|mort-vivant|mort-vivants|squelette|squelettes"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD => ["zombie|zombies|squelette|squelettes|vivant|vivants", "zombie|zombies|squelette|squelettes|mort|morts"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD => [
-            "Beaucoup d'aventuriers prétendes être revenu à la vie dans les donjon, tandis que d'autres disent avoir vu des mort-vivants hostiles errer dans les couloirs du donjon...",
-            "Rien de tout ça fait sens pour moi, pourquoi certains reviendraient sans problème et d'autres non ? A moins que ces mort-vivants ne soient pas des aventuriers, mais je vois pas qui ils seraient et pourquoi ils seraient différent des aventuriers réssussités."
+            "Beaucoup d'aventuriers prétendent être revenus à la vie dans les donjon, tandis que d'autres affirment avoir vu des morts-vivants hostiles errer dans les couloirs du donjon...",
+            "Rien de tout ça fait sens pour moi, pourquoi certains reviendraient sans problème et d'autres non ? A moins que ces morts-vivants ne soient pas des aventuriers, mais je vois pas qui ils seraient et pourquoi ils seraient différent des aventuriers réssussités."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["revenu|entre|je|j|aventuriers|aventurier", "morts|mort|tué|tuée|tuées|tués|ressuscité|ressuscite|resurrecté|resurrecte"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
-            "Vous n'êtes pas le seul à dire être revenu d'entre les morts, la plupart de ceux qui ont explorés le donjon sont mort à un moment d'après eux.\nEn tout cas, s'ils ne se sont pas échappé dès qu'ils ont vu le premier monstre évidemment.",
+            "Vous n'êtes pas le seul à dire être revenus d'entre les morts, la plupart de ceux qui ont explorés le donjon sont mort à un moment d'après eux.\nEn tout cas, s'ils ne se sont pas échappé dès qu'ils ont vu le premier monstre évidemment.",
             "En revanche, d'après vos dires la mort vous ramène au moment où vous êtes entrés dans le donjon, donc à part des souvenirs brumeux vous n'en n'avez pas de preuves concrètes... J'en pense donc que ce sont en fait des hallucinations.",
             "J'veux dire, réfléchissez-y. Peut-être que la tour joue des tours sur votre esprit, ou que quelque chose dans l'air vous fait délirer. Beaucoup de gens ayant été sous l'influence d'hallucinogènes ont des visions morbides de leurs propres morts, ou même de l'après. Ce qui pour moi est bien plus probable."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombes|catacombe|crypte|cryptes|entrée|intérieur|intérieure|intérieurs|dans|dedans|prison|prisons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'interrieur du donjon à part les rumeures qui en circules. Désolé."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'interrieur du donjon à part les rumeurs qui en circules. Désolé."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE => "Je n'ai jamais été moi-même dans le donjon, donc ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON => ["donjon|tour|donjons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON => [
-            "On ne sais pour l'instant que très peu sur ce donjon, et si on me demande beaucoup de choses qu'on en dit semblent être des fabulations.",
-            "D'après les locaux, cette tour serait juste soudaienement apparue du jour au lendemain sans que qui que ce soit sache qui l'a mis là.",
+            "On ne sait pour l'instant que très peu sur ce donjon, et à mon avis beaucoup de choses qu'on en dit semblent être des fabulations.",
+            "D'après les locaux, cette tour serait juste soudainement apparue du jour au lendemain sans que qui que ce soit sache qui l'a mis là.",
             "Je pense que c'est de la folie d'entretenir de telles histoires, mais faut dire que les gens d'ici n'avaient clairement pas les moyens de mettre ça là avec tant de trésors à y trouver.",
             "La quantitée de monstres l'habitant est inquiétante également, certains sortis tout droits de contes sans aucune autre preuve de leur existence vu ailleur jusque-là.",
             "En tout cas. Même si je suis sceptique de tout ça, ce qu'est sûr c'est que cet évènement est unique en son genre, et c'est pas surprenant de voir tant de gens s'empresser de venir le voir."
@@ -882,28 +882,28 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_INTRO_AGE => "Je ne vois pas en quoi ça vous concerne, mais si vous êtes si curieux ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_ARMOR_WEIGHT => ["armure|armures|casque|haume|plastron|jambières|bottes|chaussures|chausses|gants|gantlets", "poid|poids|lourd|lourde|lourdes|medium|moyen|moyenne|moyennes|léger|légère|legere|légères|legeres|leger|kg"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_WEIGHT => [
-            "Le poids d'une armure affectera majoritairement votre agilité.\nIl sera bien plus dûr de bouger avec un armure particulièrement lourde, et dans des cas extrêmes il peux même s'avérer difficile de frapper vos ennemis avec une armure qu'est trop lourde pour vous.",
-            "Toutes les armures ne sont pas à poids égal en revanche, les armures les moins cher seront très lourde pour la protection qu'elles offrent, tandi que les plus chères emploies des méthodes de manufactures avancées avec des matériaux de haute qualitée permettant une très bonne protection pour leur poids."
+            "Le poids d'une armure affectera majoritairement votre agilité.\nIl sera bien plus dûr de bouger avec un armure particulièrement lourde, et dans des cas extrêmes il peut même s'avérer difficile de frapper vos ennemis avec une armure qu'est trop lourde pour vous.",
+            "Toutes les armures ne sont pas à poids égal en revanche, les armures les moins cher seront très lourde pour la protection qu'elles offrent, tandi que les plus chères emploies des méthodes de manufactures avancées avec des matériaux de haute qualité permettant une très bonne protection pour leur poids."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_ARMOR_PROTECTION => ["armure|armures|casque|haume|plastron|jambières|bottes|chaussures|chausses|gants|gantlets", "protection|protège|protege|protectrice|force|defense|défense"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION => [
-            "La protection d'une armure est un moyen bien plus fiable d'éviter les blessures que d'essayer d'esquiver tout les coups envoyés vers vous.\nUne bonne armure peux vous rendre invincible, et pourra au moins augmenter vos chances de survies dans le donjon lorsqu'elle vous va bien."
+            "La protection d'une armure est un moyen bien plus fiable d'éviter les blessures que d'essayer d'esquiver tous les coups envoyés vers vous.\nUne bonne armure peut vous rendre invincible, et pourra au moins augmenter vos chances de survies dans le donjon lorsqu'elle vous va bien."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY => ["agilité|agilite|agilitée|agilitee|agile"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_AGILITY => [
-            "l'agilité peux être un talent utile dans un endroit aussi dangereux que ce donjon. Pouvoir passer inaperçu et éviter les coups ennemis pourrait bien sauver votre vie.",
+            "l'agilité peut être un talent utile dans un endroit aussi dangereux que ce donjon. Pouvoir passer inaperçu et éviter les coups ennemis pourrait bien sauver votre vie.",
             "Aussi, si c'est votre style, l'armure légère sera votre meilleur choix, vous protégeant sans bloquer vos mouvements."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_AGILITY => "Je ne vois pas pourquoi vous me demandez ça, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH => ["santé|sante|santee|santée|vie"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH => [
-            "une bonne santée est crucialle pour tout aventurier. Si vous veniez à être griévement blessé vous auriez tout à perdre. Donc, assurez vous d'être dans votre meilleure forme lorsque vous vous aventurez plus profondément dans le donjon."
+            "une bonne santée est crucialle pour tout aventurier. Si vous veniez à être griévement blessé vous auriez tout à perdre. Donc, assurez-vous d'être dans votre meilleure forme lorsque vous vous aventurez plus profondément dans le donjon."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_HEALTH => "Je ne devrais pas avoir besoin de vous le dire, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_STRENGTH => ["force|fort|muscles|muscle|musculature"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_STRENGTH => [
-            "la force est un moyen sûr d'écraser vos ennemis, mais la force brute ne peux pas aller bien loin si vous finissez assailli sans une bonne défense pour aller avec.",
-            "Je ne peux que trop peu vous conseiller d'investir dans une bonne armure pour couvrir ces biceps, préférablement de l'armure moyenne voire légère qui ne restraindra pas vos mouvements."
+            "la force est un moyen sûr d'écraser vos ennemis, mais la force brute ne peut pas aller bien loin si vous finissez assailli sans une bonne défense pour aller avec.",
+            "Je ne peux que trop peu vous conseiller d'investir dans une bonne armure pour couvrir ces biceps, préférablement de l'armure moyenne voire légère qui ne restreindra pas vos mouvements."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_STRENGTH => "A mon humble opinion, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_INTELLIGENCE => ["intelligence|intelligent|intelligente|malin|magie"],
@@ -912,27 +912,27 @@ class FR
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_ADVICES => ["conseil|astuce|conseils|astuces|aide|aides|conseiller|aider"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES => [
-            "si vous voulez mon avis, vous feriez mieux de ne pas aller trop profondément sans être bien préparés.",
-            "Bien que beaucoups disent pouvoir revenir à la vie dans le donjon, il est clair que beaucoups sont entrés dans le donjon sans jamais être revu.\nEt pour ceux qui reviennent, peu ont gardés toute leur têtes.",
+            "si vous voulez mon avis, vous feriez mieux de ne pas vous aventurer trop profondément sans de bonnes préparations.",
+            "Bien que beaucoup disent pouvoir revenir à la vie dans le donjon, il est clair que beaucoup sont entrés dans le donjon sans jamais être revus.\nEt pour ceux qui reviennent, peu ont gardés toute leur têtes.",
             "Donc, si vous avez déjà trouvé quelques pièces là-bas, mieux vaut remonter et garder ce trésor en sécurité à la surface.\nEt puis, tant que vous y êtes, vous pourriez toujours en profiter pour dépenser quelques pièces ici."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVICES => "Je ne suis pas un aventurier, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_DISCOUNTS => ["gratuit|ristourne|ristournes|gratuits|promo|promos|cadeau|cadeaux|offrir|donner"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DISCOUNTS => ["c'est pas une charité ici.\nJe ne peux pas faire de profits si je passe mon temps à donner des ristournes au premier qui demande."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_DISCOUNTS => ["c'est pas une oeuvre de charité ici.\nJe ne peux pas faire de profits si je passe mon temps à donner des ristournes au premier qui demande."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_DISCOUNTS => "Désolé, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE => ["ici|là|toi|tes|t|tu|vous|vos|votre|ce|trop|haut|inabordable", "prix|tarif|tarifs|haut|cher|haut|inabordable|arnaque|arnaqueur|arnaqueuse|douille"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_TOO_EXPENSIVE => ["Pour ma part mes prix me semblent bien dans leurs valeurs marchandes.", "Mais, je m'excuse tout de même si mes marchandises dépassent votre budget."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE => "Ah bon ?\n",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HAVE_YOU => ["avez|avez-vous|a-tu|a|vend|vendez|possède|détient|possede|detient|vendrais|vendriez|possedez|possèderiez|possederiez|auriez|vends", "tu|t|vous"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HAVE_YOU => ["Tout ce que je vends est sur les étagères, regardez par vous-mêmes.", "Je m'excuse d'avance si quoi-que ce soit que vous cherchez manque."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_HAVE_YOU => ["Tout ce que je vends est sur les étagères, regardez par vous-même.", "Je m'excuse d'avance si quoi que ce soit que vous cherchez manque."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_FUCK_YOU => ["nique|baise|foutre|niquer|baiser|enculer|enculé|encule|niquez|enculez|baisez", "mère|toi|faire|vous|votre|mere|pere|père|parent|parents|vos"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_FUCK_YOU => ["Les aventuriers ici n'ont décidémment aucune manière.\nEst-ce que l'aura de la tour vous monte à la tête ou vous n'avez juste jamais été éduqué ?"],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_FUCK_YOU => "Quelle impolitesse.\n",
         LocaleKey::DIAL_SHOPKEEPER_KEY_GET_LOST => ["va|brule|brûle|part|allez|aller|partez|brulez|brûlez", "enfer|perdu|perdre|crever|creuver|crevez|creuvez|brulez|brûlez|bruler|brûler"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GET_LOST => ["je vous en souhaite tout autant.", "Maintenant, si on pouvez se concentrer sur les achats, s'il vous plaît.\nVous êtes dans un magasin après tout."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_GET_LOST => ["je vous en souhaite tout autant.", "Maintenant, si on pouvait se concentrer sur les achats, s'il vous plaît.\nVous êtes dans un magasin après tout."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_GET_LOST => "Oui, oui, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_THREAT => ["tuer|assassiner|tué|assassiné|blesser|frapper|buter|buté|blessé|frappé|mal", "te|t|vous"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_THREAT => ["vous n'êtes plus dans le donjon là. Les actions ont des conséquences ici."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_THREAT => ["vous n'êtes plus dans le donjon, là. Les actions ont des conséquences ici."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_THREAT => "Oh, donc vous tentez de me menacer, hein ?\nPermettez-moi de vous rappeler que ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN => ["comment|ça|tu|vous|t", "va|bien|sent|allez|sentez"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN => ["je vais bien. Merci de demander."],
@@ -944,18 +944,18 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME => ["Oui, c'est mon nom."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|ici|ville|villageois|villageoi|habitant|habitants|endroit|coin|région|region|où"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_VILLAGE => [
-            "C'est un village de campagne plutôt standard ici, il se passerais pas grand chose si c'était pas pour l'apparition de cette tour.",
-            "En revanche, même avec toutes les nouvelles échoppes s'installant dans le coin, l'odeur déplaisante du bétail reste.\nD'ailleurs, le prenez pas mal, mais on peux en dire tout autant de vos camarades aventuriers. Beaucoups passent leur temps à faire des allers retours dans la tour sans prendre de douche entre chaque, et rien que de se tenir près d'eux s'avère difficile."
+            "C'est un village de campagne plutôt standard ici, il se passerait pas grand chose si c'était pas pour l'apparition de cette tour.",
+            "En revanche, même avec toutes les nouvelles échoppes s'installant dans le coin, l'odeur déplaisante du bétail reste.\nD'ailleurs, le prenez pas mal, mais on peut en dire tout autant de vos camarades aventuriers. Beaucoup passent leur temps à faire des allers retours dans la tour sans prendre de douche entre chaque, et rien que de se tenir près d'eux s'avère difficile."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_YEAR => ['quelle|quand|est|somme', 'quand|année|moment'],
         LocaleKey::DIAL_SHOPKEEPER_TXT_YEAR => ["nous sommes en l'an 1414."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_YEAR => "Hein? Vous voullez dire, vous avez oublié l'année qu'on est ?... J'veux dire, bien sûr, ",
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_YEAR => "Hein? Vous voullez dire, vous avez oublié en quelle année on est ?... J'veux dire, bien sûr, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_HELPING => ["pas|non|aucune|aucunnement", "utile|aide|aides|utilité|utilitée|utilités|utilitées"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["Je suis navrès d'apprendre ça."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["Je suis navré d'apprendre ça."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_OLD_SOLDIER => ["vieux|vieil|vieille|vieilles|ancien|ancienne|anciens|anciennes", "soldat|soldats|soldate|soldates|armure|armures|casque|casques|plastron|plastrons|protection|protections"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_OLD_SOLDIER => [
             "cette armure était employée par les soldats il y'a bien longtemps. Mais ce modèle a été réutilisé et réparé pour lui offrir une seconde vie dans notre monde moderne.",
-            "Comme vous pouvez le deviner de part son prix, ce n'est pas l'armure à la fabrique la plus élaborée. Mais, vous ne trouverez pas meilleure protection pour un prix ci bas.\nDonc, elle peux être un excellent choix si votre budget est bas."
+            "Comme vous pouvez le deviner de par son prix, ce n'est pas l'armure à la conception la plus élaborée. Mais, vous ne trouverez pas meilleure protection pour un prix ci bas.\nDonc, elle peut être un excellent choix si votre budget est limité."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER => "Ah oui, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_POULAINES => ["poulaines|poulaine"],
@@ -965,19 +965,19 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_CHOPINES => ["Un choix parfait pour les dames. Vous faisant paraître plus grand tout en ayant une touche feminine, ces chausses font toutes la rages dans les grandes courts.\nEn revanche, pour ce qui serait des donjons ça serait un coup à vous briser une cheville ou deux."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_GAMBESON => ["jaque|jaques"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GAMBESON => [
-            "Une jaque est un bon moyen de vous protéger de manière abordable, et malgrès son poids celle-ci est plutôt confortable.\nSa fabrication est simple, uniquement composée de nombreuses couches de tissus et de rembourrage amortissant les chocs.",
+            "Une jaque est un bon moyen de vous protéger de manière abordable, et malgré son poids celle-ci est plutôt confortable.\nSa fabrication est simple, uniquement composée de nombreuses couches de tissus et de rembourrage amortissant les chocs.",
             "Mais, celle-ci est un peu plus lourde que la moyenne, ayant une plaque métalique offrant une protection supplémentaire au torse, au coût d'un poids additionnel sur vos épaules."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_HOUPPELANDE => ["houpelande|houpelandes|houppelande|houppelandes"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HOUPPELANDE => [
             "L'houppelande est un très beau costume à manches longues qui met formidablement bien en valeur la forme masculine.",
-            "Bien sûr prendre un vêtement aussi beau dans les dangereux et sales couloirs du donjon n'est pas vraimment recomandé, mais je ne vous arrêterez pas si vous vous souciez de votre apparence tant que ça."
+            "Bien sûr, prendre un vêtement aussi beau dans les dangereux et sales couloirs du donjon n'est pas vraimment recomandé, mais je ne vous arrêterai pas si vous vous souciez de votre apparence tant que ça."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_HOUPPELANDE => "Ah tout à fait, un très bon choix. ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_ESCOFFION => ["chapeau|chapeaux|escoffion|escofion|escoffions|escofions", "cornu|cornus|cornue|cornues|escoffion|escofion|escoffions|escofions"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ESCOFFION => [
             "L'escoffion est la nouvelle coupe chic dans ce pays, et si vous voulez prendre part au mouvement ce chapeau est juste ce qu'il vous faut.",
-            "Je n'vais pas mentir sur le fait que personnellement je trouve cette mode un peu ridicule, mais, j'imagine que c'est dû à l'age.\nEt puis, je ne viens pas du coin donc j'doit simplement pas être au fait de la culture locale."
+            "Je n'vais pas mentir sur le fait que personnellement je trouve cette mode un peu ridicule, mais, j'imagine que c'est dû à l'âge.\nEt puis, je ne viens pas du coin donc j'doit simplement pas être au fait de la culture locale."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Ah oui, le chapeau cornu.",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HAUBERK => ["haubert|hauberts|hauber|haubers"],
@@ -993,7 +993,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_TELECRYSTAL => [
             "",
             "C'est un artéfact magique puissant pouvant s'avérer très utile durant vos avantures. Que ça soit pour vous ramener à la sortie du donjon ou pour rejoindre un de vos alliers, ce cristal vous permettra de faire cela instantanément.",
-            "Allthemore, thanks to the incredible power of the crystal and it's robust design, this artefact will be endlessly reusable too."
+            "De plus, grâce au pouvoir incroyable de ce cristal, et à sa confection robuste, cet artéfact sera indéfiniment utilisable."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Ah oui, le télé-cristal. Mon article le plus précieux.",
         LocaleKey::DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["où|chemin|route|vers", "dunjon|tour|donjons"],
@@ -1007,29 +1007,29 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_WEATHER => ["il fait pas trop froid.", "J'apprécie pouvoir encore profiter d'un peu d'ensoleillement en rentrant du travail."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_WEATHER => "On a déjà vu mieux, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_SEASON => ["quelle", "saison|saisons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_SEASON => ["nous sommes actuellement en automne.\n N'avez-vous pas vu que les arbres tous oranges ?"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_SEASON => ["nous sommes actuellement en automne.\n N'avez-vous pas vu que les arbres sont tous oranges ?"],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON => "Hum, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_ADVENTURER => ["aventurier|aventuriers|explorateur|explorateurs|nous"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ADVENTURER => [
             "les aventuriers représentent la majorité de ma clientèle, il serait donc bête de ne pas apprécier leur présence.",
-            "Mais j'admet qu'ils ne se valent pas tous, et beaucoup sont particulièrement mal éduqués.",
+            "Mais j'admets qu'ils ne se valent pas tous, et beaucoup sont particulièrement mal éduqués.",
             "Je les comprends en revanche, sincèrement.\nC'est dur de garder de bonnes manières quand nos vies sont toujours menacées et que les batailles et le travail manuel nous endurcissent.",
-            "Même moi me vois devenir victime de cette mentalité alors que j'accumule les voyages, donc je ne peux qu'avoir de l'empathie pour ces aventuriers."
+            "Même moi, je me vois devenir victime de cette mentalité alors que j'accumule les voyages, donc je ne peux qu'avoir de l'empathie pour ces aventuriers."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVENTURER => "Et bien, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_STUPID => ["tu|t|est", "stupide|idiot|bête|abbruti|abruti|idiote|abbrutie"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_STUPID => [
             "si ça vous fait plaisir.",
-            "Ça n'est pas un aventurier qui va me complexer au sujet de mon intelligence."
+            "Ça n'est pas un aventurier qui va me complexer sur mon intelligence."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_STUPID => "Mais bien sûr, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_GOD => ["croi|crois|croie|existe|pratique|venere|venère|ton|tes|a|détient|tu|t", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GOD => [
-            "Ai-je l'air d'un prophane pour vous ?",
+            "Ai-je l'air d'un profane pour vous ?",
             "Je ne crois qu'au Dieu seul et unique vénéré dans ce continent saint."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD => "Quel genre de questions est-ce là ? ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD => ["autre|plusieurs|nombreux|plusieur|multiple|autres", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["De tels blasphèmes ne m'amusent guère.\nDe part sa définition même, un seul Dieu ne peut exister."]
+        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["De tels blasphèmes ne m'amusent guère.\nDe par sa définition même, un seul Dieu ne peut exister."]
     }
 end
