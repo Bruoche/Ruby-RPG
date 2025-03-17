@@ -1035,6 +1035,12 @@ class EN
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD => "What kind of question is this? ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD => ["other|multiple|many", "god|gods|divinity|divine"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["Such blasphemy do not amuse me.\nOnly one God can exist by very definition."]
+        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["Such blasphemy do not amuse me.\nOnly one God can exist by very definition."],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_GOLD => ["gold|golds|coin|coins|money|moneys"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_GOLD => [
+            "your best bet to get some gold is to go out in the dungeon and search for any treasure you can bring back.",
+            "And, if you find anything good, I'll even be willing to buy it from you directly at a fair price."
+        ],
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => ["Well, with that tower appearing close by, I think that "]
     }
 end

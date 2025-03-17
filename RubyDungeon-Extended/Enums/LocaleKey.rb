@@ -666,6 +666,9 @@ module LocaleKey
     DIAL_SHOPKEEPER_INTRO_GOD = :dial_shopkeeper_intro_god
     DIAL_SHOPKEEPER_KEY_OTHER_GOD = :dial_shopkeeper_key_other_god
     DIAL_SHOPKEEPER_TXT_OTHER_GOD = :dial_shopkeeper_txt_other_god
+    DIAL_SHOPKEEPER_KEY_GOLD = :dial_shopkeeper_key_gold
+    DIAL_SHOPKEEPER_TXT_GOLD = :dial_shopkeeper_txt_gold
+    DIAL_SHOPKEEPER_INTRO_GOLD = :dial_shopkeeper_intro_gold
     F_CURRENT = :current
     F_TOTAL = :total
     F_NEW = :new

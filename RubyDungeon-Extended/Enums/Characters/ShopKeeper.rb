@@ -266,6 +266,12 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_YEAR
         ),
         Dialog.new(
+            DialogID::GOLD,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_GOLD,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_GOLD,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD
+        )
+        Dialog.new(
             DialogID::NOT_HELPING,
             LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_HELPING,
             LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_HELPING

@@ -1035,6 +1035,12 @@ class FR
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD => "Quel genre de questions est-ce là ? ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD => ["autre|plusieurs|nombreux|plusieur|multiple|autres", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["De tels blasphèmes ne m'amusent guère.\nDe par sa définition même, un seul Dieu ne peut exister."]
+        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["De tels blasphèmes ne m'amusent guère.\nDe par sa définition même, un seul Dieu ne peut exister."],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_GOLD => ["or|ors|piece|pieces|pièce|pièces|argent|argents|monaie|monaies|monnaie|monnaies"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_GOLD => [
+            "votre meilleure option est d'aller dans le donjon et d'y chercher tout trésor pouvant être ramené.",
+            "Et, si vous avez quoi que ce soit de bon, je pourrait même vous les racheter moi-même ici."
+        ],
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => ["Et bien, depuis que cette tour est arrivée, je pense que "]
     }
 end

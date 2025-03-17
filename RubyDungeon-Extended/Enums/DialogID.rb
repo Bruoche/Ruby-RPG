@@ -48,6 +48,7 @@ module DialogID
     VILLAGE = 'village'
     ADVENTURER = 'adventurer'
     YEAR = 'year'
+    GOLD = 'gold'
     NOT_HELPING = 'not_helping'
     STUPID = 'stupid'
     GOD = 'god'
