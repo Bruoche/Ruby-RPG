@@ -950,7 +950,7 @@ class EN
         LocaleKey::DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding|where"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_VILLAGE => [
             "It's a pretty standard countryside village here, not much would be going on if it wasn't for the suddent apparition of that tower there.",
-            "Although, even with the new businesses blooming all around the place, the displeasing smell of cattle remains.\nMoreover, no offense, but much of the same is to be said about your colleagues adventurers. A lot of them spend their time going to the tower and back without a single shower in between, and even existing near them prove challenging."
+            "Although, even with the new businesses blooming all around the place, the displeasing smell of cattle remains.\nMoreover, no offense, but much of the same is to be said about your colleagues adventurers. A lot of them spend their time going to the tower and back without a single bath in between, and even existing near them prove challenging."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_YEAR => ['what|which|is|are', 'when|year|time'],
         LocaleKey::DIAL_SHOPKEEPER_TXT_YEAR => ["it's the year 1414."],
@@ -1041,6 +1041,6 @@ class EN
             "your best bet to get some gold is to go out in the dungeon and search for any treasure you can bring back.",
             "And, if you find anything good, I'll even be willing to buy it from you directly at a fair price."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => ["Well, with that tower appearing close by, I think that "]
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Well, with that tower appearing close by, I think that "
     }
 end

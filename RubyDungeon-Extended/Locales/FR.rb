@@ -813,7 +813,7 @@ class FR
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options...",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",
-        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "a plus", "a la prochaine", "à plus", "à la prochaine", "au-revoir", "au revoir", "à la revoyure", "a la revoyure"],
+        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "à plus", "à la prochaine", "au revoir", "à la revoyure", "a la revoyure"],
         LocaleKey::DIAL_SHOPKEEPER_REPEAT => "Comme je l'ai dit, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE => ["pas|autre|ailleur", "ici|coin|là|région|venez"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE => ["Non je ne viens effectivement pas d'ici.\nJe suis originaire de l'Est."],
@@ -823,7 +823,7 @@ class FR
             "Le voyage a toujours été un avantage crucial pour mon magasin, grâce aux taxes minimales sur le transport de marchandise entre chaque royaume j'ai pu vendre les plus grandes raretés au prix les plus compétitifs.",
             "Le seul problème avec les trajets c'est le temps et les bandits, honnêtement."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE => ["quoi|grande|pourquoi|quand|comment|dire|parler", "alliance"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE => ["quoi|grande|pourquoi|quand|comment|dire|parler", "alliance|allience"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ALLIANCE => [
             "",
             "La grande alliance est une coalition entre la plupart des pays dans ce continent, en plus de quelques nations côtières dans le continent plus au Sud, de l'autre côté de la mer.",
@@ -842,13 +842,13 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_LOST_KNIGHT => ["Je n'ai aucune idée de qui vous parlez. Désolé."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_GOBLINS => ["goblins|goblin"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GOBLINS => [
-            "Ces petites pestes sont très rares honnêtement. Je n'en ai jamais vu moi-même, mais j'ai entendu de nombreux récits à propos de leurs assauts sur quiconque s'aventurerais trop profond dans les forêts.\nDe ce que j'ai entendu ils sont bien plus communs dans la tour apparemment. Peut-être qu'eux aussi apprécie les trésors du donjon.",
+            "Ces petites pestes sont très rares honnêtement. Je n'en ai jamais vu moi-même, mais j'ai entendu de nombreux récits à propos de leurs assauts sur quiconque s'aventurerais trop profond dans les forêts.\nDe ce que j'ai entendu ils sont bien plus communs dans la tour apparemment. Peut-être qu'eux aussi apprécient les trésors du donjon.",
             "En cela ils ressemblent aux aventuriers de plus d'une manière."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_SLIME => ["slimes|slime"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_SLIME => [
             "Des créatures assez communes, les slimes peuvent être trouvés dans n'importe quel endroit pour autant que la température est douce et l'humidité haute.",
-            "La seule chose étrange à propos de ceux dans le donjon est leur aggréssivité, mais dans tout les cas j'ai entendu dire qu'ils n'étaient pas une grande menace dans tout les cas."
+            "La seule chose étrange à propos de ceux dans le donjon est leur aggréssivité, mais dans tout les cas j'ai entendu dire qu'ils n'étaient pas une grande menace de toute façon."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD => ["zombie|zombies|squelette|squelettes|vivant|vivants", "zombie|zombies|squelette|squelettes|mort|morts"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD => [
@@ -862,7 +862,7 @@ class FR
             "J'veux dire, réfléchissez-y. Peut-être que la tour joue des tours sur votre esprit, ou que quelque chose dans l'air vous fait délirer. Beaucoup de gens ayant été sous l'influence d'hallucinogènes ont des visions morbides de leurs propres morts, ou même de l'après. Ce qui pour moi est bien plus probable."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombes|catacombe|crypte|cryptes|entrée|intérieur|intérieure|intérieurs|dans|dedans|prison|prisons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'interrieur du donjon à part les rumeurs qui en circules. Désolé."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'intérieur du donjon à part les rumeurs qui en circules. Désolé."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE => "Je n'ai jamais été moi-même dans le donjon, donc ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON => ["donjon|tour|donjons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON => [
@@ -919,7 +919,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES => [
             "si vous voulez mon avis, vous feriez mieux de ne pas vous aventurer trop profondément sans de bonnes préparations.",
             "Bien que beaucoup disent pouvoir revenir à la vie dans le donjon, il est clair que beaucoup sont entrés dans le donjon sans jamais être revus.\nEt pour ceux qui reviennent, peu ont gardés toute leur têtes.",
-            "Donc, si vous avez déjà trouvé quelques pièces là-bas, mieux vaut remonter et garder ce trésor en sécurité à la surface.\nEt puis, tant que vous y êtes, vous pourriez toujours en profiter pour dépenser quelques pièces ici."
+            "Donc, si vous avez déjà trouvé un peu d'or là-bas, mieux vaut remonter et garder ce trésor en sécurité à la surface.\nEt puis, tant que vous y êtes, vous pourriez toujours en profiter pour dépenser quelques pièces ici."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVICES => "Je ne suis pas un aventurier, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_DISCOUNTS => ["gratuit|ristourne|ristournes|gratuits|promo|promos|cadeau|cadeaux|offrir|donner"],
@@ -950,7 +950,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|ici|ville|villageois|villageoi|habitant|habitants|endroit|coin|région|region|où"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_VILLAGE => [
             "C'est un village de campagne plutôt standard ici, il se passerait pas grand chose si c'était pas pour l'apparition de cette tour.",
-            "En revanche, même avec toutes les nouvelles échoppes s'installant dans le coin, l'odeur déplaisante du bétail reste.\nD'ailleurs, le prenez pas mal, mais on peut en dire tout autant de vos camarades aventuriers. Beaucoup passent leur temps à faire des allers retours dans la tour sans prendre de douche entre chaque, et rien que de se tenir près d'eux s'avère difficile."
+            "En revanche, même avec toutes les nouvelles échoppes s'installant dans le coin, l'odeur déplaisante du bétail reste.\nD'ailleurs, le prenez pas mal, mais on peut en dire tout autant de vos camarades aventuriers. Beaucoup passent leur temps à faire des allers retours dans la tour sans prendre de bain entre chaque, et rien que de se tenir près d'eux s'avère difficile."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_YEAR => ['quelle|quand|est|somme', 'quand|année|moment'],
         LocaleKey::DIAL_SHOPKEEPER_TXT_YEAR => ["nous sommes en l'an 1414."],
@@ -1001,7 +1001,7 @@ class FR
             "De plus, grâce au pouvoir incroyable de ce cristal, et à sa confection robuste, cet artéfact sera indéfiniment utilisable."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Ah oui, le télé-cristal. Mon article le plus précieux.",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["où|chemin|route|vers", "dunjon|tour|donjons"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["où|chemin|route|vers", "donjon|tour|donjons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON => ["Le donjon est juste en bas de la petite route, sur la droite en quittant le magasin.\nVous devriez pas le rater, des pannaux l'indiquant ont récemment été ajoutés."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_GENDER => ["tu|t|est|es", "garçon|garcon|homme|mec|fille|femme|dame|meuf"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GENDER => ["Je suis un homme."],
@@ -1041,6 +1041,6 @@ class FR
             "votre meilleure option est d'aller dans le donjon et d'y chercher tout trésor pouvant être ramené.",
             "Et, si vous avez quoi que ce soit de bon, je pourrait même vous les racheter moi-même ici."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => ["Et bien, depuis que cette tour est arrivée, je pense que "]
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Et bien, depuis que cette tour est arrivée, je pense que "
     }
 end

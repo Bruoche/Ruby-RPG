@@ -7,11 +7,6 @@ module ShopKeeper
     REPEAT_INTRO = LocaleKey::DIAL_SHOPKEEPER_REPEAT
     DIALOGS = [
         Dialog.new(
-            DialogID::NOT_FROM_HERE,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE
-        ),
-        Dialog.new(
             DialogID::ORIGIN,
             LocaleKey::DIAL_SHOPKEEPER_KEY_ORIGIN,
             LocaleKey::DIAL_SHOPKEEPER_TXT_ORIGIN
@@ -249,6 +244,11 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
         ),
         Dialog.new(
+            DialogID::NOT_FROM_HERE,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE
+        ),
+        Dialog.new(
             DialogID::VILLAGE,
             LocaleKey::DIAL_SHOPKEEPER_KEY_VILLAGE,
             LocaleKey::DIAL_SHOPKEEPER_TXT_VILLAGE
@@ -270,7 +270,7 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_KEY_GOLD,
             LocaleKey::DIAL_SHOPKEEPER_TXT_GOLD,
             LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD
-        )
+        ),
         Dialog.new(
             DialogID::NOT_HELPING,
             LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_HELPING,
@@ -298,7 +298,7 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_KEY_GOD,
             LocaleKey::DIAL_SHOPKEEPER_TXT_GOD,
             LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD
-        )
+        ),
     ]
     UNKNOWN_DIALOGS = LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS
     PICTURE = 'merchant'
