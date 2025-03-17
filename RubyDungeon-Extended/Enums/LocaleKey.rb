@@ -548,6 +548,8 @@ module LocaleKey
     DIAL_SHOPKEEPER_TXT_LOST_KNIGHT = :dial_shopkeeper_txt_lost_knight
     DIAL_SHOPKEEPER_KEY_GOBLINS = :dial_shopkeeper_key_goblins
     DIAL_SHOPKEEPER_TXT_GOBLINS = :dial_shopkeeper_txt_goblins
+    DIAL_SHOPKEEPER_KEY_SLIME = :dial_shopkeeper_key_slime
+    DIAL_SHOPKEEPER_TXT_SLIME = :dial_shopkeeper_txt_slime
     DIAL_SHOPKEEPER_KEY_UNDEAD = :dial_shopkeeper_key_undead
     DIAL_SHOPKEEPER_TXT_UNDEAD = :dial_shopkeeper_txt_undead
     DIAL_SHOPKEEPER_KEY_RESUSCITATE = :dial_shopkeeper_key_resuscitate

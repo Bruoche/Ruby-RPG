@@ -93,6 +93,11 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_TXT_GOBLINS
         ),
         Dialog.new(
+            DialogID::SLIMES,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_SLIME,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_SLIME
+        ),
+        Dialog.new(
             DialogID::UNDEAD,
             LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD,
             LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD

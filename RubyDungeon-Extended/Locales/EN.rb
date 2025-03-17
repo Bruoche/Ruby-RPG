@@ -845,6 +845,11 @@ class EN
             "Those little pests are fairly rare I'll be honest. Never saw one in person myself, but heard numerous tales of them assaulting those that have gone too deep in forests.\nThey're much more common in the tower from what I've heard, maybe they too enjoy the amount of trinkets this place holds.",
             "In that they seem to resemble adventurers in more ways than one."
         ],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_SLIME => ["slimes|slime"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_SLIME => [
+            "A fairly common creature, slimes are pretty much found anywhere where the temperature is mild and the moisture high.",
+            "What's weird about those in the dungeon on the other hand is how aggressive they are, but regardless I've heard that they're not much of a threat either ways."
+        ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD => ["undead|undeads|zombie|zombies|skeleton|skeletons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD => [
             "Plenty of adventurers have claimed to come back to life and be fine in the dungeon, while others said they saw hostile mindless undeads walking the deeper halls of this tower...",

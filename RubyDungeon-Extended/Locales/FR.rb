@@ -845,6 +845,11 @@ class FR
             "Ces petites pestes sont très rares honnêtement. Je n'en ai jamais vu moi-même, mais j'ai entendu de nombreux récits à propos de leurs assauts sur quiconque s'aventurerais trop profond dans les forêts.\nDe ce que j'ai entendu ils sont bien plus communs dans la tour apparemment. Peut-être qu'eux aussi apprécie les trésors du donjon.",
             "En cela ils ressemblent aux aventuriers de plus d'une manière."
         ],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_SLIME => ["slimes|slime"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_SLIME => [
+            "Des créatures assez communes, les slimes peuvent être trouvés dans n'importe quel endroit pour autant que la température est douce et l'humidité haute.",
+            "La seule chose étrange à propos de ceux dans le donjon est leur aggréssivité, mais dans tout les cas j'ai entendu dire qu'ils n'étaient pas une grande menace dans tout les cas."
+        ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD => ["zombie|zombies|squelette|squelettes|vivant|vivants", "zombie|zombies|squelette|squelettes|mort|morts"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD => [
             "Beaucoup d'aventuriers prétendent être revenus à la vie dans les donjon, tandis que d'autres affirment avoir vu des morts-vivants hostiles errer dans les couloirs du donjon...",

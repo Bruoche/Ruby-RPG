@@ -28,6 +28,7 @@ module DialogID
     HEALTH = 'health'
     STRENGH = 'strength'
     GOBLINS = 'goblins'
+    SLIMES = 'slimes'
     UNDEAD = 'undead'
     RESUSCITATE = 'resuscitate'
     ADVICES = 'advices'
