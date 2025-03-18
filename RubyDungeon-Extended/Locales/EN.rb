@@ -823,7 +823,7 @@ class EN
             "Travel has always been an essential advantage for the shop, with minimal fees for the right to pass merchandise in between kingdoms I've been able to sell the greatest rarities for the most competitive of prices.",
             "The only issues with travel are the time investment and bandits, really."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE => ["what|great|why|when|how|tell", "alliance"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE => ["what|great|why|when|how|tell", "alliance|allience"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ALLIANCE => [
             "",
             "The Great Alliance is a congregation of most countries in this continent, and also some coastal ones in the southern continent across the sea.",
@@ -908,12 +908,12 @@ class EN
         LocaleKey::DIAL_SHOPKEEPER_KEY_STRENGTH => ["strength|force|strong"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_STRENGTH => [
             "strength can be a sure-fire way to crush individual enemies, but brute force won't go a long way if you end up swarmed without a good defense to go with it.",
-            "I cannot stress enough the importance of getting some good armor to go with those biceps of yours, preferrably some medium-weight armor that won't restrain your punches to much."
+            "I cannot stress enough the importance of getting some good armor to go with those biceps of yours, preferrably some medium-weight armor that won't restrain your punches too much."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_STRENGTH => "My humble opinion is that ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_INTELLIGENCE => ["intelligence|intelligent|smart|magic"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_INTELLIGENCE => [
-            "If you're more of the smart type you might want to use a bit of magic in the dungeon, as even if it can be a bit unreliable it's also a very powerful tool that can crush large groups and heal you and your allies"
+            "If you're more of the smart type you might want to use a bit of magic in the dungeon. Even if it can be a bit unreliable it's also a very powerful tool that can crush large groups and heal you and your allies"
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_ADVICES => ["advice|tips|tip|trick|tricks|advices|help"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES => [
@@ -984,7 +984,7 @@ class EN
             "Escoffion are the newest chic haircut in this country, and this hat is just what you need if you want in on it too.",
             "I won't lie about the fact that I personally find this trend a little ridiculous, but, I guess that I'm just getting old.\nPlus, I am not from this country so I'm not in on the local fashion."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Right, the horned hat.",
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Right, the horned hat. ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HAUBERK => ["hauberk|hauberc|hauberks|haubercs"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HAUBERK => [
             "Hauberks are mail robes that offer great protection, and our model comes with a complementary surcoat to offer aditionnal coverage.",

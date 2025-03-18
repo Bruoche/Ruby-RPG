@@ -1042,7 +1042,7 @@ class FR
             "Et, si vous avez quoi que ce soit de bon, je pourrait même vous les racheter moi-même ici."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Et bien, depuis que cette tour est arrivée, je pense que ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommande|recommende"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommande|recommende|recommandez|recommandriez"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION => [
             "J'ai un large panel d'outils qui peuvent tous s'avérer utiles lors de vos aventures.",
             "Tout d'abord, les potions de soins sont un moyen fiable de guérir vos blessures, si jamais vous vous retrouvez dans une situation complexe.",
