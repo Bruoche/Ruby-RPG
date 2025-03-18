@@ -180,6 +180,11 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_TXT_INTELLIGENCE
         ),
         Dialog.new(
+            DialogID::RECOMMENDATION,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION
+        ),
+        Dialog.new(
             DialogID::ADVICES,
             LocaleKey::DIAL_SHOPKEEPER_KEY_ADVICES,
             LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES,
@@ -231,12 +236,6 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_KEY_SEASON,
             LocaleKey::DIAL_SHOPKEEPER_TXT_SEASON,
             LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON
-        ),
-        Dialog.new(
-            DialogID::HELLO,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO,
-            LocaleKey::DIAL_SHOPKEEPER_INTRO_HELLO
         ),
         Dialog.new(
             DialogID::MARTON,
@@ -299,6 +298,12 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_TXT_GOD,
             LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD
         ),
+        Dialog.new(
+            DialogID::HELLO,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HELLO
+        )
     ]
     UNKNOWN_DIALOGS = LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS
     PICTURE = 'merchant'

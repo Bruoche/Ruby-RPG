@@ -1041,6 +1041,13 @@ class FR
             "votre meilleure option est d'aller dans le donjon et d'y chercher tout trésor pouvant être ramené.",
             "Et, si vous avez quoi que ce soit de bon, je pourrait même vous les racheter moi-même ici."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Et bien, depuis que cette tour est arrivée, je pense que "
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Et bien, depuis que cette tour est arrivée, je pense que ",
+        LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommande|recommende"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION => [
+            "J'ai un large panel d'outils qui peuvent tous s'avérer utiles lors de vos aventures.",
+            "Tout d'abord, les potions de soins sont un moyen fiable de guérir vos blessures, si jamais vous vous retrouvez dans une situation complexe.",
+            "Ensuite, mon large catalogue d'armures peut répondre à tout les budgets et types de combattants.\nPour ceux ayant besoin d'une bonne protection pas cher, l'armure lourde est parfaite, mais elle risque de gêner vos mouvements. Pour ce qu'est des armures moyennes voir légère, celle-ci vous permettrons de bouger plus librement tout en offrant une bonne protection à un coût plus élevé."
+        ],
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_RECOMMENDATION => "Et bien, "
     }
 end

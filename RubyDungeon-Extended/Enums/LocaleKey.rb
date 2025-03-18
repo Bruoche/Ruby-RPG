@@ -584,6 +584,9 @@ module LocaleKey
     DIAL_SHOPKEEPER_INTRO_STRENGTH = :dial_shopkeeper_intro_strength
     DIAL_SHOPKEEPER_KEY_INTELLIGENCE = :dial_shopkeeper_key_intelligence
     DIAL_SHOPKEEPER_TXT_INTELLIGENCE = :dial_shopkeeper_txt_intelligence
+    DIAL_SHOPKEEPER_KEY_RECOMMENDATION = :dial_shopkeeper_key_recommendation
+    DIAL_SHOPKEEPER_TXT_RECOMMENDATION = :dial_shopkeeper_txt_recommendation
+    DIAL_SHOPKEEPER_INTRO_RECOMMENDATION = :dial_shopkeeper_intro
     DIAL_SHOPKEEPER_KEY_ADVICES = :dial_shopkeeper_key_advices
     DIAL_SHOPKEEPER_TXT_ADVICES = :dial_shopkeeper_txt_advices
     DIAL_SHOPKEEPER_INTRO_ADVICES = :dial_shopkeeper_intro_advices

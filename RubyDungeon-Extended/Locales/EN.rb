@@ -930,7 +930,7 @@ class EN
         LocaleKey::DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE => "Is that so?\n",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HAVE_YOU => ["have|sell|got", "you|your"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HAVE_YOU => ["Everything I sell is right there on the counter, take a look for yourself.", "My apology if I happen to lack something you're looking for."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_FUCK_YOU => ["fuck|hate|get", "you|yourself|off|fucked"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_FUCK_YOU => ["fuck|hate|fucked", "you|yourself|off|get"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_FUCK_YOU => ["The adventurer's here truly have no sense of customs.\nIs it the tower's aura getting to your nerves or you just never had any education?"],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_FUCK_YOU => "How rude.\n",
         LocaleKey::DIAL_SHOPKEEPER_KEY_GET_LOST => ["go|get|burn", "hell|lost"],
@@ -1041,6 +1041,13 @@ class EN
             "your best bet to get some gold is to go out in the dungeon and search for any treasure you can bring back.",
             "And, if you find anything good, I'll even be willing to buy it from you directly at a fair price."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Well, with that tower appearing close by, I think that "
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Well, with that tower appearing close by, I think that ",
+        LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommand|recommend"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION => [
+            "I've got a wide array of tools that all can prove usefull for your adventures.",
+            "Potions are a great way to heal reliably, if you ever get in a bind in the dungeon.",
+            "Meanwhile my large catalogue of armors can cater to all budgets and fighting styles.\nFor those that need good protection for cheap, the heavier pieces will be perfect for you, but they might hinder your movements. Meanwhile more medium to light armors will allow to move freely while still improving your defense."
+        ],
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_RECOMMENDATION => "Well, "
     }
 end
