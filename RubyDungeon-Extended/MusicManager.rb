@@ -30,13 +30,13 @@ class MusicManager
                         if @exploration_track != current_exploration_track
                             if exploration_music != NO_MUSIC
                                 exploration_music.fadeout(FADEOUT_TIME)
+                                exploration_music = NO_MUSIC
+                                sleep (FADEOUT_TIME*1.01)/1000
                             end
                             if @exploration_track != NO_MUSIC
                                 exploration_music = Music.new(SoundManager::SOUND_FOLDER + MUSIC_FOLDER + @exploration_track + SoundManager::EXTENSION)
                                 exploration_music.loop = true
                                 Music.volume = current_volume
-                            else
-                                exploration_music = NO_MUSIC
                             end
                             current_exploration_track = @exploration_track
                             exploration_track_switched = true
