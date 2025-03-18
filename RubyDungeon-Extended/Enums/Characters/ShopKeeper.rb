@@ -7,11 +7,6 @@ module ShopKeeper
     REPEAT_INTRO = LocaleKey::DIAL_SHOPKEEPER_REPEAT
     DIALOGS = [
         Dialog.new(
-            DialogID::ORIGIN,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_ORIGIN,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_ORIGIN
-        ),
-        Dialog.new(
             DialogID::ALLIANCE,
             LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE,
             LocaleKey::DIAL_SHOPKEEPER_TXT_ALLIANCE,
@@ -125,6 +120,16 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_HOLY_EMPIRE
         ),
         Dialog.new(
+            DialogID::SUPPLIER,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_SUPPLIER,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_SUPPLIER
+        ),
+        Dialog.new(
+            DialogID::ORIGIN,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_ORIGIN,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_ORIGIN
+        ),
+        Dialog.new(
             DialogID::NAME,
             LocaleKey::DIAL_SHOPKEEPER_KEY_NAME,
             LocaleKey::DIAL_SHOPKEEPER_TXT_NAME
@@ -179,11 +184,6 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_KEY_ADVICES,
             LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES,
             LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVICES
-        ),
-        Dialog.new(
-            DialogID::SUPPLIER,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_SUPPLIER,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_SUPPLIER
         ),
         Dialog.new(
             DialogID::DISCOUNTS,

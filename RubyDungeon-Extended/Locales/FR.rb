@@ -894,7 +894,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION => [
             "La protection d'une armure est un moyen bien plus fiable d'éviter les blessures que d'essayer d'esquiver tous les coups envoyés vers vous.\nUne bonne armure peut vous rendre invincible, et pourra au moins augmenter vos chances de survies dans le donjon lorsqu'elle vous va bien."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY => ["agilité|agilite|agilitée|agilitee|agile"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY => ["agilité|agilite|agilitée|agilitee|agile|discretion|discrétion|discret|discrète|discrete|furtivité|furtivite|furtive|furtif"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_AGILITY => [
             "l'agilité peut être un talent utile dans un endroit aussi dangereux que ce donjon. Pouvoir passer inaperçu et éviter les coups ennemis pourrait bien sauver votre vie.",
             "Aussi, si c'est votre style, l'armure légère sera votre meilleur choix, vous protégeant sans bloquer vos mouvements."

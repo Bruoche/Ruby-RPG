@@ -894,7 +894,7 @@ class EN
         LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION => [
             "Armor protection will allow you to get a more reliable way of avoiding injuries than just trying to dodge every punches thrown at you.\nA good enough armor can make you invincible, and will at least increase your chances of surviving if you take one that fits you."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY => ["agility|agile"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY => ["agility|agile|stealth|stealthy|sneak|sneaking"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_AGILITY => [
             "agility can be a great skill to have in a place as dangerous as the dungeon. Allowing you to sneak past dangerous encounters and dodge attacks could save your life.",
             "Also, if you're that kind of adventurer, your best bet is to go for light armor, which protects you without restraining your movements."
