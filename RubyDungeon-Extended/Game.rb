@@ -1,6 +1,7 @@
 class Game
     WANNA_PLAY = true
     CHARACTER_SELECTED = true
+    MAIN_MENU_HEIGHT = 18
     RETAIL_PERCENT = 90
 
     def initialize
@@ -64,9 +65,13 @@ class Game
     end
 
     def main_menu
-        Narrator.add_space_of(10)
+        empty_space = (TTY::Screen.height - MAIN_MENU_HEIGHT)
+        top_space = empty_space.div(3)
+        bottom_space = empty_space - top_space
+        Narrator.add_space_of(top_space - 1)
         ASCIIPrinter.print('title')
         Narrator.main_menu_options
+        Narrator.add_space_of(bottom_space)
         case Narrator.user_input
         when '1'
             if initialize_party == CHARACTER_SELECTED
