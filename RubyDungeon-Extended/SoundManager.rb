@@ -5,8 +5,7 @@ class SoundManager
 
     def self.play(sound_name)
         if Settings.sound_effects
-            sound = Sound.new(SOUND_FOLDER + SFX_FOLDER + sound_name + EXTENSION)
-            sound.play
+            PreloadedSFX.get_instance.get_sfx(sound_name).play
         end
     end
 end

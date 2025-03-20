@@ -25,4 +25,5 @@ require 'ruby2d' # play sounds
 TTY::Screen.height.times do
     puts
 end
+PreloadedSFX.get_instance.load_sfxs
 Game.new
