@@ -263,7 +263,7 @@ class Player
             amount = rand(1..@stats.intelligence)
             SoundManager.play('heal_spell')
             if target == self
-                Narrator.self_heal(get_name, get_name)
+                Narrator.self_heal(get_name, amount)
                 sleep Settings::BATTLE_ACTION_PAUSE
                 @lifebar.heal(amount)
             else
@@ -275,7 +275,7 @@ class Player
         end
     end
 
-    def heal(amount = HEAL_SELF)
+    def heal(amount)
         SoundManager.play('player_heal')
         Narrator.heal(get_name, amount)
         sleep Settings::BATTLE_ACTION_PAUSE
