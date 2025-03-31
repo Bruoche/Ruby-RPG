@@ -47,7 +47,7 @@ class ForgottenPrisonner < Bestiary
     FEMALE = ForgottenPrisonnerF
     MALE = ForgottenPrisonnerM
     FEMALE_CHANCES = 50
-    BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH+(BaseStats::BASE_STRENGTH.div(4))
+    HEALTH_MULTIPLIER = 1.25
+    DAMAGE_MULTIPLIER = 0.75
     PICTURE = 'forgotten_prisonner'
 end

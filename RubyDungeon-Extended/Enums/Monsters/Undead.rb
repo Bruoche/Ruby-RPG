@@ -47,7 +47,7 @@ class Undead < Bestiary
     MALE = UndeadM
     FEMALE = UndeadF
     FEMALE_CHANCES = 50
-    BASE_HEALTH = BaseStats::BASE_HEALTH+(BaseStats::BASE_HEALTH.div(4))
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH
+    HEALTH_MULTIPLIER = 1.25
+    DAMAGE_MULTIPLIER = 0.75
     PICTURE = 'undead'
 end

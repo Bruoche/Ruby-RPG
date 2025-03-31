@@ -1,41 +1,10 @@
 class Pack
-    PICTURE_PREFIX = 'Ennemies/'
     def initialize(biome)
         @monsters = Array.new
         @initial_monsters = Array.new
         monsters = biome.get_monsters
-        for monster_data in monsters;
-            if monster_data == nil
-                monster_type = biome::BESTIARY.sample
-                difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
-                monster_health = get_random_stat(monster_type::BASE_HEALTH, monsters.length, difficulty_bonus)
-                monster_damage = get_random_stat(monster_type::BASE_DAMAGE, monsters.length, difficulty_bonus)
-                name = Name.new(monster_type)
-                if name.female?
-                    suffix = '_f'
-                else
-                    suffix = '_m'
-                end
-                picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + monster_type::PICTURE + suffix)
-                monster = Monster.new(
-                    monster_health,
-                    monster_damage,
-                    0,
-                    name,
-                    [Locale.get_localized(LocaleKey::MONSTER_STRIKE)],
-                    [Locale.get_localized(LocaleKey::MONSTER_SPELL)],
-                    [Locale.get_localized(LocaleKey::MONSTER_HEAL)],
-                    0,
-                    picture,
-                    monster_type::LOOTS
-                )
-            else
-                if monster_data::IS_BOSS == false
-                    monster = Monster.new(monster_data)
-                else
-                    monster = Boss.new(monster_data)
-                end
-            end
+        for monster_data in monsters
+            monster = MonsterFactory.make_monster(monster_data, biome, monsters.length)
             @monsters.push(monster)
             @initial_monsters.push(monster)
         end
@@ -182,14 +151,6 @@ class Pack
         else
             return Locale.get_localized(LocaleKey::GO_BACK)
         end
-    end
-
-    def get_random_stat(base_stat, nb_monsters, difficulty_bonus)
-        stat = rand(base_stat.div(nb_monsters)..(base_stat + difficulty_bonus))
-        if stat == 0
-            stat = 1
-        end
-        return stat
     end
 
     def hurt(index, attack)

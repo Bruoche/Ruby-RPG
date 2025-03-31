@@ -24,7 +24,7 @@ end
 class Skeletton < Bestiary
     MALE = SkelettonM
     FEMALE_CHANCES = 0
-    BASE_HEALTH = BaseStats::BASE_HEALTH+(BaseStats::BASE_HEALTH.div(4))
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH
+    HEALTH_MULTIPLIER = 0.75
+    DAMAGE_MULTIPLIER = 1.25
     PICTURE = 'skeletton'
 end

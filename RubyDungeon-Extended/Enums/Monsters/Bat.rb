@@ -23,7 +23,7 @@ end
 class Bat < Bestiary
     FEMALE = BatF
     FEMALE_CHANCES = 100
-    BASE_HEALTH = BaseStats::BASE_HEALTH.div(2)
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
+    HEALTH_MULTIPLIER = 0.5
+    DAMAGE_MULTIPLIER = 0.5
     PICTURE = 'bat'
 end

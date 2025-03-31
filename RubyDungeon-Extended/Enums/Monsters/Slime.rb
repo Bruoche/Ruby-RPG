@@ -23,7 +23,7 @@ end
 class Slime < Bestiary
     MALE = SlimeM
     FEMALE_CHANCES = 0
-    BASE_HEALTH = BaseStats::BASE_HEALTH
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH.div(2)
+    HEALTH_MULTIPLIER = 1
+    DAMAGE_MULTIPLIER = 0.5
     PICTURE = 'slime'
 end

@@ -61,8 +61,8 @@ class Goblin < Bestiary
     FEMALE = GoblinF
     MALE = GoblinM
     FEMALE_CHANCES = 50
-    BASE_HEALTH = BaseStats::BASE_HEALTH
-    BASE_DAMAGE = BaseStats::BASE_STRENGTH
+    HEALTH_MULTIPLIER = 1
+    DAMAGE_MULTIPLIER = 1
     PICTURE = 'goblin'
     LOOTS = [
         Loot.new(
