@@ -27,7 +27,12 @@ class Loot
 
     def get_item
         Narrator.write(Locale.get_localized(@messages).sample)
-        return Bundle.new(@item_class.new(*@parameters), rand(@amount_min..max_amount))
+        if @amount_min == @amount_max
+            amount = max_amount
+        else
+            amount = rand(@amount_min..max_amount)
+        end
+        return Bundle.new(@item_class.new(*@parameters), amount)
     end
 
     def self.to_string(object)
@@ -42,7 +47,11 @@ class Loot
 
     def max_amount
         if @item_class::DROP_QUANTITY_SCALABLE
-            return (@amount_max * Math.sqrt(World.get_instance.nb_players)).truncate
+            if @drop_chance < 100
+                return (@amount_max * Math.sqrt(World.get_instance.nb_players)).truncate
+            else
+                return @amount_max * World.get_instance.nb_players
+            end
         else
             return @amount_max
         end
