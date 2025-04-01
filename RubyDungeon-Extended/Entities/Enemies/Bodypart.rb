@@ -1,9 +1,11 @@
 class Bodypart
     def initialize(bossBodypart, power_bonus)
         @id = bossBodypart::ID
+        health = (BaseStats::BASE_HEALTH + power_bonus) * bossBodypart::HEALTH_MULTIPLIER
+        damage = (BaseStats::BASE_STRENGTH + power_bonus) * bossBodypart::DAMAGE_MULTIPLIER
         @actor = Monster.new(
-            bossBodypart::HEALTH + power_bonus,
-            bossBodypart::DAMAGE + power_bonus,
+            Integer(health),
+            Integer(damage),
             0,
             Name.new(bossBodypart),
             bossBodypart::BASE_MOVES.map(&:clone),

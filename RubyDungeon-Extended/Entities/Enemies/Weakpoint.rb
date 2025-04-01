@@ -1,7 +1,8 @@
 class Weakpoint
     def initialize(bossWeakpoint, power_bonus)
         @id = bossWeakpoint::ID
-        @lifebar = Lifebar.new(bossWeakpoint::HEALTH + power_bonus)
+        health = (BaseStats::BASE_HEALTH + power_bonus) * bossWeakpoint::HEALTH_MULTIPLIER
+        @lifebar = Lifebar.new(Integer(health))
         @name = Name.new(bossWeakpoint)
         @death_event = bossWeakpoint::DEATH_EVENT
     end

@@ -16,7 +16,7 @@ end
 
 class LostKnightHead
     ID = 'head'
-    HEALTH = BaseStats::BASE_HEALTH * 3
+    HEALTH_MULTIPLIER = 1.75
     FEMALE = LostKnightHeadF
     FEMALE_CHANCES = 100
     DEATH_EVENT = -> (head, boss) {LostKnight.death(head, boss)}
@@ -24,8 +24,8 @@ end
 
 class LostKnightLeftArm
     ID = 'left_arm'
-    HEALTH = BaseStats::BASE_HEALTH.div(2)
-    DAMAGE = BaseStats::BASE_STRENGTH.div(3) * 2
+    HEALTH_MULTIPLIER = 0.75
+    DAMAGE_MULTIPLIER = 0.8
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
@@ -35,8 +35,8 @@ end
 
 class LostKnightRightArm
     ID = 'right_arm'
-    HEALTH = BaseStats::BASE_HEALTH.div(2)
-    DAMAGE = BaseStats::BASE_STRENGTH
+    HEALTH_MULTIPLIER = 0.75
+    DAMAGE_MULTIPLIER = 1
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
