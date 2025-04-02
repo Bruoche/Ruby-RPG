@@ -38,7 +38,7 @@ class Monster
     end
 
     def get_power
-        return @lifebar.get_max_life * (@strength * @intelligence)
+        return @lifebar.get_max_life * (@strength + @intelligence)
     end
 
     def get_xp

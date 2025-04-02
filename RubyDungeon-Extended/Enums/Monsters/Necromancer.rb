@@ -1,10 +1,9 @@
 module NecromancerF
     NAMES = [
-        LocaleKey::ZOMBIE_F
+        LocaleKey::NECROMANCER_F
     ].freeze
 
     PREFIXES = [
-        LocaleKey::SMALL_F,
         LocaleKey::BIG_F,
         LocaleKey::TALL_F,
         LocaleKey::ANCIENT_F
@@ -12,21 +11,18 @@ module NecromancerF
 
     SUFFIXES = [
         LocaleKey::SCARY_F,
-        LocaleKey::ANGRY_F,
-        LocaleKey::WARY_F,
         LocaleKey::GREYISH_F,
         LocaleKey::DARK_F,
-        LocaleKey::TIRED_F
+        LocaleKey::POWERFULL_F
     ].freeze
 end
 
 module NecromancerM
     NAMES = [
-        LocaleKey::ZOMBIE_M
+        LocaleKey::NECROMANCER_M
     ].freeze
 
     PREFIXES = [
-        LocaleKey::SMALL_M,
         LocaleKey::BIG_M,
         LocaleKey::TALL_M,
         LocaleKey::ANCIENT_M
@@ -34,11 +30,9 @@ module NecromancerM
 
     SUFFIXES = [
         LocaleKey::SCARY_M,
-        LocaleKey::ANGRY_M,
-        LocaleKey::WARY_M,
         LocaleKey::GREYISH_M,
         LocaleKey::DARK_M,
-        LocaleKey::TIRED_M
+        LocaleKey::POWERFULL_M
     ].freeze
 end
 
@@ -51,5 +45,5 @@ class Necromancer < Bestiary
     DAMAGE_MULTIPLIER = 1
     MAGIC_PROPORTION = 100
     HEALING_PROPORTION = 100
-    PICTURE = 'goblin'
+    PICTURE = 'necromancer'
 end

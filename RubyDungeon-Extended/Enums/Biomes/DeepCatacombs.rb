@@ -2,8 +2,7 @@ module DeepCatacombsF
     NAMES = [
         LocaleKey::ROOM,
         LocaleKey::ALCOVE,
-        LocaleKey::CHAMBER,
-        LocaleKey
+        LocaleKey::CHAMBER
     ].freeze
 
     PREFIXES = [
@@ -51,8 +50,8 @@ end
 
 class DeepCatacombs < Biome
     EXPECTED_LEVEL = 17
-    PICTURE = 'entrance'
-    EXPLORATION_TRACK = 'Crypt'
+    PICTURE = 'deep_catacombs'
+    EXPLORATION_TRACK = 'Rotten Crypt'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = DeepCatacombsF
     MALE = DeepCatacombsM

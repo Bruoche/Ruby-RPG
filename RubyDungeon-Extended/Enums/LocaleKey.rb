@@ -9,6 +9,8 @@ module LocaleKey
     HARPY = :harpy
     KNIGHT_F = :knight_f
     KNIGHT_M = :knight_m
+    NECROMANCER_F = :necromancer_f
+    NECROMANCER_M = :necromancer_m
     PRISONNER_F = :prisonner_f
     PRISONNER_M = :prisonner_m
     SKELETON = :skeleton
@@ -52,6 +54,7 @@ module LocaleKey
     LOST_F = :lost_f
     MUSCULAR_F = :muscular_f
     NARROW_F = :narrow_f
+    POWERFULL_F = :powerfull_f
     RIGHT_F = :right_f
     RUINED_F = :ruined_f
     SCARY_F = :scary_f
@@ -87,6 +90,7 @@ module LocaleKey
     LOST_M = :lost_m
     MUSCULAR_M = :muscular_m
     NARROW_M = :narrow_m
+    POWERFULL_M = :powerfull_m
     RIGHT_M = :right_m
     RUINED_M = :ruined_m
     SCARY_M = :scary_m

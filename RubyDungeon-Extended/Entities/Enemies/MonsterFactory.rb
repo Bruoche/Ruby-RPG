@@ -21,12 +21,14 @@ class MonsterFactory
         strength_proportion = 100 - monster_type::MAGIC_PROPORTION
         if monster_type::MAGIC_PROPORTION > 0
             min_strength = 0
+            min_intelligence = BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL
         else
             min_strength = 1
+            min_intelligence = 0
         end
         monster_health = get_random_stat(BaseStats::BASE_HEALTH, monster_type::HEALTH_MULTIPLIER, nb_monsters, difficulty_bonus, 1)
         monster_strength = get_random_stat(BaseStats::BASE_STRENGTH, (monster_type::DAMAGE_MULTIPLIER * strength_proportion)/100, nb_monsters, difficulty_bonus, min_strength)
-        monster_intelligence = get_random_stat(BaseStats::BASE_INTELLIGENCE, (monster_type::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * monster_type::MAGIC_PROPORTION)/100, nb_monsters, difficulty_bonus, 0)
+        monster_intelligence = get_random_stat(BaseStats::BASE_INTELLIGENCE, (monster_type::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * monster_type::MAGIC_PROPORTION)/100, nb_monsters, difficulty_bonus, min_intelligence)
         name = Name.new(monster_type)
         if name.female?
             suffix = '_f'
