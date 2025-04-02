@@ -26,4 +26,5 @@ class Slime < Bestiary
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 0.5
     PICTURE = 'slime'
+    UNPREDICTABILITY = 60
 end

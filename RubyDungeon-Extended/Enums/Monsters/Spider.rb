@@ -26,4 +26,5 @@ class Spider < Bestiary
     HEALTH_MULTIPLIER = 0.5
     DAMAGE_MULTIPLIER = 0.5
     PICTURE = 'spider'
+    UNPREDICTABILITY = 100
 end

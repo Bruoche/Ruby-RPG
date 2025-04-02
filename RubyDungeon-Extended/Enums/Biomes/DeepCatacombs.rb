@@ -68,7 +68,7 @@ class DeepCatacombs < Biome
     SAFE_CHANCES = 50
     LOOT = [
         Loot.new(
-            LocaleKey::CATACOMBS_LOOT_BANDAGE,
+            LocaleKey::DEEP_CATACOMBS_LOOT_BANDAGE,
             5,
             Bandage
         )

@@ -14,6 +14,9 @@ class Bestiary
                 unless child.const_defined?(:HEALING_PROPORTION)
                     child.const_set(:HEALING_PROPORTION, 50)
                 end
+                unless child.const_defined?(:UNPREDICTABILITY)
+                    child.const_set(:UNPREDICTABILITY, 5)
+                end
             end
         end
     end

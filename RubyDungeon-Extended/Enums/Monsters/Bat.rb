@@ -26,4 +26,5 @@ class Bat < Bestiary
     HEALTH_MULTIPLIER = 0.5
     DAMAGE_MULTIPLIER = 0.5
     PICTURE = 'bat'
+    UNPREDICTABILITY = 100
 end

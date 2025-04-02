@@ -46,4 +46,5 @@ class Necromancer < Bestiary
     MAGIC_PROPORTION = 100
     HEALING_PROPORTION = 100
     PICTURE = 'necromancer'
+    UNPREDICTABILITY = 0
 end

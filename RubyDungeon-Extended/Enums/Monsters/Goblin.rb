@@ -74,4 +74,5 @@ class Goblin < Bestiary
             3
         )
     ]
+    UNPREDICTABILITY = 10
 end

@@ -695,7 +695,7 @@ class EN
             "This place is much drier than the dungeon entrance, the darkness surrounding you thicker than ever.",
             "The stagnating air and dust leave a dry taste in your throat."
         ],
-        LocaleKey::CATACOMBS_LOOT_BANDAGE => ["You notice some shrouds still clean enough you could use as bandages."],
+        LocaleKey::CATACOMBS_LOOT_BANDAGE => ["You notice some shrouds that are still clean enough to be used as bandages."],
         LocaleKey::CATACOMBS_LOOT_COINS => [
             "You notice that one of of the urns still keep a few coins in its bottom",
             "You see a few coins displayed as an offering to one of the corpse left in this place"
@@ -720,6 +720,7 @@ class EN
             "The air is cold, and some humidity seeps through the grounds beneath your feet.",
             "This place seems dedicated to the dead too, much like the catacombs above, but here rot seems to have melted away most traces of the passage of man."
         ],
+        LocaleKey::DEEP_CATACOMBS_LOOT_BANDAGE => ["All you can find that's not completely rotted out is an old and humid shroud you could use as bandage."],
         LocaleKey::ENTRANCE_DESCRIPTION => [
             "You are surrounded by thick stone walls.",
             "The air is humid and darkness reigns inside the old fortress,",

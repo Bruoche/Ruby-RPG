@@ -490,6 +490,7 @@ module LocaleKey
     CATACOMBS_TRANSITION_PRISON = :catacombs_transition_prison
     CATACOMBS_TRANSITION_DEEPER = :catacombs_transition_deeper
     DEEP_CATACOMBS_DESCRIPTION = :deep_catacombs_description
+    DEEP_CATACOMBS_LOOT_BANDAGE = :deep_catacombs_loot_bandage
     ENTRANCE_DESCRIPTION = :entrance_description
     ENTRANCE_LOOT_HEALTH_POTION = :entrance_loot_health_potion
     ENTRANCE_LOOT_BANDAGE = :entrance_loot_bandage

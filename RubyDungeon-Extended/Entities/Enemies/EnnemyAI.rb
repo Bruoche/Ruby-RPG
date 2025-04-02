@@ -14,7 +14,7 @@ class EnnemyAI
     end
 
     def act(players, pack, strength, intelligence)
-        if rand(100) > @unpredictability
+        if rand(100) >= @unpredictability
             act_logically(players, pack, strength, intelligence)
         else
             act_quirky(players, pack, strength, intelligence)
@@ -57,14 +57,14 @@ class EnnemyAI
         choice = [CHOICE_PHYSICAL_ATTACK, CHOICE_MAGIC_ATTACK, CHOICE_HEAL].sample
         if (intelligence > 0) && (choice != CHOICE_PHYSICAL_ATTACK)
             allies_to_heal = []
-            if (choice == CHOICE_HEAL)
+            if (choice == CHOICE_HEAL) || (@healing_coeff >= 100)
                 for ally in pack
                     if ally.get_missing_life > 0
-                        allies_to_heal.add(ally)
+                        allies_to_heal.append(ally)
                     end
                 end
             end
-            if allies_to_heal.length > 0
+            if (allies_to_heal.length > 0) && (@healing_coeff > 0)
                 heal_ally(allies_to_heal.sample, intelligence)
             else
                 magic_attack(players, intelligence)

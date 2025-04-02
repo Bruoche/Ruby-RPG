@@ -717,9 +717,10 @@ class FR
         ],
         LocaleKey::DEEP_CATACOMBS_DESCRIPTION => [
             "Vous êtes plongé dans l'obscurité, votre torche vascillante servant d'unique source de lumière en ces lieux étroits.",
-            "L'air est frais, et une certaine humidité commence à s'imicer au travers de la terre sous vos pieds.",
+            "L'air est frais, et une certaine humidité commence à s'immiscer au travers de la terre sous vos pieds.",
             "Cet endroit semble également dédié aux morts, tel les catacombes, mais ici la moisissure a rongée la majorité des traces du passage des hommes en ce lieu."
         ],
+        LocaleKey::DEEP_CATACOMBS_LOOT_BANDAGE => ["Tout ce que vous trouvez n'ayant pas complètement moisit est un vieux linceul humide pouvant servir de bandage."],
         LocaleKey::ENTRANCE_DESCRIPTION => [
             "Vous êtes entouré·e d'épais murs de pierres.",
             "L'air est humide et l'obscurité règne au sein de l'ancienne forteresse,",
