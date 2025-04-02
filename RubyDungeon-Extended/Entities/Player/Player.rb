@@ -253,7 +253,9 @@ class Player
                 end
             end
         else
+            SoundManager.play('spell_fart')
             Narrator.heal_spell_fail
+            sleep Settings::BATTLE_ACTION_PAUSE
             return !ACTED
         end
     end

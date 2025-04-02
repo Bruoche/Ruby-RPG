@@ -1,21 +1,24 @@
 class Bodypart
-    def initialize(bossBodypart, power_bonus)
-        @id = bossBodypart::ID
-        health = (BaseStats::BASE_HEALTH + power_bonus) * bossBodypart::HEALTH_MULTIPLIER
-        damage = (BaseStats::BASE_STRENGTH + power_bonus) * bossBodypart::DAMAGE_MULTIPLIER
+    def initialize(data, power_bonus)
+        @id = data::ID
+        strength_proportion = 100 - data::MAGIC_PROPORTION
+        health = (BaseStats::BASE_HEALTH + power_bonus) * data::HEALTH_MULTIPLIER
+        strength = ((BaseStats::BASE_STRENGTH + power_bonus) * data::DAMAGE_MULTIPLIER * strength_proportion).div(100)
+        intelligence = ((BaseStats::BASE_INTELLIGENCE + power_bonus) * data::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * data::MAGIC_PROPORTION).round.div(100)
         @actor = Monster.new(
             Integer(health),
-            Integer(damage),
-            0,
-            Name.new(bossBodypart),
-            bossBodypart::BASE_MOVES.map(&:clone),
+            Integer(strength),
+            Integer(intelligence),
+            data::HEALING_PROPORTION,
+            Name.new(data),
+            data::BASE_MOVES.map(&:clone),
             [''],
             [''],
             0,
             ASCIIPicture.new([])
         )
-        @special_moves = bossBodypart::SPECIAL_MOVES.map(&:clone)
-        @death_event = bossBodypart::DEATH_EVENT
+        @special_moves = data::SPECIAL_MOVES.map(&:clone)
+        @death_event = data::DEATH_EVENT
     end
 
     def is?(id)

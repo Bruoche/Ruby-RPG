@@ -18,8 +18,15 @@ class MonsterFactory
     def self.make_from_scratch(biome, nb_monsters)
         monster_type = biome::BESTIARY.sample
         difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
-        monster_health = get_random_stat(BaseStats::BASE_HEALTH, monster_type::HEALTH_MULTIPLIER, nb_monsters, difficulty_bonus)
-        monster_damage = get_random_stat(BaseStats::BASE_STRENGTH, monster_type::DAMAGE_MULTIPLIER, nb_monsters, difficulty_bonus)
+        strength_proportion = 100 - monster_type::MAGIC_PROPORTION
+        if monster_type::MAGIC_PROPORTION > 0
+            min_strength = 0
+        else
+            min_strength = 1
+        end
+        monster_health = get_random_stat(BaseStats::BASE_HEALTH, monster_type::HEALTH_MULTIPLIER, nb_monsters, difficulty_bonus, 1)
+        monster_strength = get_random_stat(BaseStats::BASE_STRENGTH, (monster_type::DAMAGE_MULTIPLIER * strength_proportion)/100, nb_monsters, difficulty_bonus, min_strength)
+        monster_intelligence = get_random_stat(BaseStats::BASE_INTELLIGENCE, (monster_type::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * monster_type::MAGIC_PROPORTION)/100, nb_monsters, difficulty_bonus, 0)
         name = Name.new(monster_type)
         if name.female?
             suffix = '_f'
@@ -29,8 +36,9 @@ class MonsterFactory
         picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + monster_type::PICTURE + suffix)
         return Monster.new(
             monster_health,
-            monster_damage,
-            0,
+            monster_strength,
+            monster_intelligence,
+            monster_type::HEALING_PROPORTION,
             name,
             [Locale.get_localized(LocaleKey::MONSTER_STRIKE)],
             [Locale.get_localized(LocaleKey::MONSTER_SPELL)],
@@ -41,11 +49,11 @@ class MonsterFactory
         )
     end
 
-    def self.get_random_stat(base_stat, multiplier, nb_monsters, difficulty_bonus)
+    def self.get_random_stat(base_stat, multiplier, nb_monsters, difficulty_bonus, minimum)
         stat = rand(base_stat.div(nb_monsters)..(base_stat + difficulty_bonus))
         stat = Integer(stat * multiplier)
-        if stat == 0
-            stat = 1
+        if stat < minimum
+            stat = minimum
         end
         return stat
     end

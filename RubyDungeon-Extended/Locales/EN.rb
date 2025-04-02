@@ -704,6 +704,18 @@ class EN
             "",
             "But, something about this place seems much older than the rest of the dungeon."
         ],
+        LocaleKey::CATACOMBS_TRANSITION_DEEPER => [
+            "While you were going deeper and deeper within the catacombs,",
+            "You see a doorway within the obscurity.",
+            "As you approach, you notice that it is going deeper yet within the earth, and that no torches are set-up to lit its bottom.",
+            "",
+            "You take one of the torches left on the wall aside the entrance, and venture down the stairs."
+        ],
+        LocaleKey::DEEP_CATACOMBS_DESCRIPTION => [
+            "You are surrounded by darkness, your flickering torch being the only lightsource in these tight places.",
+            "The air is cold, and some humidity seeps through the grounds beneath your feet.",
+            "This place seems dedicated to the dead too, much like the catacombs above, but here rot seems to have melted away most traces of the passage of man."
+        ],
         LocaleKey::ENTRANCE_DESCRIPTION => [
             "You are surrounded by thick stone walls.",
             "The air is humid and darkness reigns inside the old fortress,",

@@ -22,7 +22,7 @@ class LostKnightHead
     DEATH_EVENT = -> (head, boss) {LostKnight.death(head, boss)}
 end
 
-class LostKnightLeftArm
+class LostKnightLeftArm < Bestiary
     ID = 'left_arm'
     HEALTH_MULTIPLIER = 0.75
     DAMAGE_MULTIPLIER = 0.8
@@ -33,7 +33,7 @@ class LostKnightLeftArm
     DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
 end
 
-class LostKnightRightArm
+class LostKnightRightArm < Bestiary
     ID = 'right_arm'
     HEALTH_MULTIPLIER = 0.75
     DAMAGE_MULTIPLIER = 1

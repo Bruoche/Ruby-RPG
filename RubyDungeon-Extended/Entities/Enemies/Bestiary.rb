@@ -8,6 +8,12 @@ class Bestiary
                 unless child.const_defined?(:IS_BOSS)
                     child.const_set(:IS_BOSS, false)
                 end
+                unless child.const_defined?(:MAGIC_PROPORTION)
+                    child.const_set(:MAGIC_PROPORTION, 0)
+                end
+                unless child.const_defined?(:HEALING_PROPORTION)
+                    child.const_set(:HEALING_PROPORTION, 50)
+                end
             end
         end
     end

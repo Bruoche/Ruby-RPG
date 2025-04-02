@@ -704,6 +704,18 @@ class FR
             "",
             "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
         ],
+        LocaleKey::CATACOMBS_TRANSITION_DEEPER => [
+            "Alors que vous vous enfonciez toujours plus profondément dans les catacombes,",
+            "Vous remarquez une porte se dérobant dans l'obscurité.",
+            "En vous approchants, vous remarquez qu'elle vous amène encore plus profondément sous terre, et qu'aucune torche n'est placée pour en illuminer les tréfonds.",
+            "",
+            "Vous prenez une des torches placées sur le mur près de l'entrée, et vous enfoncez dans l'obscurité."
+        ],
+        LocaleKey::DEEP_CATACOMBS_DESCRIPTION => [
+            "Vous êtes plongé dans l'obscurité, votre torche vascillante servant d'unique source de lumière en ces lieux étroits.",
+            "L'air est frais, et une certaine humidité commence à s'imicer au travers de la terre sous vos pieds.",
+            "Cet endroit semble également dédié aux morts, tel les catacombes, mais ici la moisissure a rongée la majorité des traces du passage des hommes en ce lieu."
+        ],
         LocaleKey::ENTRANCE_DESCRIPTION => [
             "Vous êtes entouré·e d'épais murs de pierres.",
             "L'air est humide et l'obscurité règne au sein de l'ancienne forteresse,",

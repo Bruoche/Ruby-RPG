@@ -3,12 +3,14 @@ class EnnemyAI
     CHOICE_MAGIC_ATTACK = 'magic_attack'
     CHOICE_HEAL = 'heal'
 
-    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, denomination, unpredictability)
+    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, denomination, unpredictability, healing_coeff, parent_body)
         @basic_attack_messages = basic_attack_messages
         @magic_attack_messages = magic_attack_messages
         @heal_messages = heal_messages
         @denomination = denomination
         @unpredictability = unpredictability
+        @healing_coeff = healing_coeff
+        @body = parent_body
     end
 
     def act(players, pack, strength, intelligence)
@@ -29,7 +31,8 @@ class EnnemyAI
 
     def act_logically(players, pack, strength, intelligence)
         if intelligence > 0
-            potential_heal = calculate_potential_heal(pack, intelligence)
+            needyest_ally = get_priority_heal_target(pack)
+            potential_heal = calculate_potential_heal(needyest_ally, intelligence)
             potential_spell_damage = calculate_potential_spell_damage(players, intelligence)
         else
             potential_heal = 0
@@ -39,7 +42,7 @@ class EnnemyAI
         physical_damage = calculate_physical_damage(priority_target, strength)
         if (physical_damage + potential_heal + potential_spell_damage) > 0
             if (potential_spell_damage >= physical_damage)
-                if (potential_spell_damage >= potential_heal)
+                if (potential_spell_damage * (100 - @healing_coeff) >= potential_heal * @healing_coeff)
                     magic_attack(players, intelligence)
                 else
                     heal_ally(needyest_ally, intelligence)
@@ -71,19 +74,15 @@ class EnnemyAI
         end
     end
 
-    def calculate_potential_heal(pack, intelligence)
+    def calculate_potential_heal(needyest_ally, intelligence)
         average_spell_power = Utils.average(intelligence)
-        needyest_ally = self
-        for ally in pack do
-            if needyer_then?(needyest_ally, ally)
-                needyest_ally = ally
-            end
+        life_to_heal = needyest_ally.get_missing_life
+        if life_to_heal > average_spell_power
+            average_heal = average_spell_power
+        else
+            average_heal = life_to_heal
         end
-        average_heal = needyest_ally.get_missing_life
-        if (potential_heal > average_spell_power)
-            potential_heal = average_heal
-        end
-        return potential_heal
+        return average_heal
     end
 
     def needyer_then?(needyest_ally, ally)
@@ -135,22 +134,36 @@ class EnnemyAI
         return priority_target
     end
 
+    def get_priority_heal_target(pack)
+        needyest_ally = @body
+        for ally in pack do
+            if needyer_then?(needyest_ally, ally)
+                needyest_ally = ally
+            end
+        end
+        return needyest_ally
+    end
+
     def physical_attack(player, strength)
         SoundManager.play('swoosh')
         Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages.sample) % [player.get_name]}")
         sleep Settings::BATTLE_ACTION_PAUSE
-        player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, self))
+        player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, @body))
     end
 
     def magic_attack(players, intelligence)
+        SoundManager.play('monster_magic_charge')
         Narrator.write("#{@denomination.capitalize} #{@magic_attack_messages.sample}")
+        sleep Settings::BATTLE_ACTION_PAUSE
         for player in players do
-            player.hurt(Attack.new(rand(0..intelligence), Attack::MAGIC_TYPE, self))
+            player.hurt(Attack.new(intelligence, Attack::MAGIC_TYPE, @body))
         end
     end
 
     def heal_ally(ally, intelligence)
+        SoundManager.play('monster_heal_spell')
         Narrator.write("#{@denomination.capitalize} #{@heal_messages.sample}")
+        sleep Settings::BATTLE_ACTION_PAUSE
         ally.heal(rand(1..intelligence))
     end
 end

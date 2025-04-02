@@ -1,10 +1,10 @@
 class Monster
-    def initialize(life, strength, intelligence, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability, picture, loots = [])
+    def initialize(life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability, picture, loots = [])
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
         @intelligence = intelligence
-        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, name.get_gendered_the, unpredictability)
+        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, name.get_gendered_the, unpredictability, healing_coeff, self)
         @picture = picture
         @loots = loots
     end
@@ -38,7 +38,7 @@ class Monster
     end
 
     def get_power
-        return @lifebar.get_max_life * @strength
+        return @lifebar.get_max_life * (@strength * @intelligence)
     end
 
     def get_xp
@@ -47,6 +47,10 @@ class Monster
 
     def get_strength
         return @strength
+    end
+
+    def get_intelligence
+        return @intelligence
     end
 
     def get_life_to_string
@@ -91,7 +95,9 @@ class Monster
     end
 
     def heal(amount)
+        SoundManager.play('monster_heal')
         Narrator.heal(@name.get_gendered_the, amount)
+        sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.heal(amount)
     end
 

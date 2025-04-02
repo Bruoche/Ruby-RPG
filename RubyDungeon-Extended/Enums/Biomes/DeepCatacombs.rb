@@ -1,8 +1,9 @@
-module CatacombsF
+module DeepCatacombsF
     NAMES = [
         LocaleKey::ROOM,
         LocaleKey::ALCOVE,
-        LocaleKey::CHAMBER
+        LocaleKey::CHAMBER,
+        LocaleKey
     ].freeze
 
     PREFIXES = [
@@ -12,6 +13,8 @@ module CatacombsF
     ].freeze
 
     SUFFIXES = [
+        LocaleKey::WORRYING_F,
+        LocaleKey::HUMID_F,
         LocaleKey::SCARY_F,
         LocaleKey::COLD_F,
         LocaleKey::ISOLATED_F,
@@ -21,7 +24,7 @@ module CatacombsF
     ].freeze
 end
 
-module CatacombsM
+module DeepCatacombsM
     NAMES = [
         LocaleKey::CORRIDOR,
         LocaleKey::TUNNEL
@@ -35,6 +38,8 @@ module CatacombsM
     ].freeze
 
     SUFFIXES = [
+        LocaleKey::WORRYING_M,
+        LocaleKey::HUMID_M,
         LocaleKey::SCARY_M,
         LocaleKey::COLD_M,
         LocaleKey::ISOLATED_M,
@@ -44,64 +49,39 @@ module CatacombsM
     ].freeze
 end
 
-class Catacombs < Biome
-    EXPECTED_LEVEL = 7
-    PICTURE = 'catacombs'
+class DeepCatacombs < Biome
+    EXPECTED_LEVEL = 17
+    PICTURE = 'entrance'
     EXPLORATION_TRACK = 'Crypt'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
-    FEMALE = CatacombsF
-    MALE = CatacombsM
+    FEMALE = DeepCatacombsF
+    MALE = DeepCatacombsM
     FEMALE_CHANCES = 30
     BACKTRACK_CHANCES = 10
-    DESCRIPTION = LocaleKey::CATACOMBS_DESCRIPTION
+    DESCRIPTION = LocaleKey::DEEP_CATACOMBS_DESCRIPTION
     BESTIARY = [
         Undead,
         Undead,
         Skeletton,
         Skeletton,
-        Bat
+        Necromancer
     ]
-    SAFE_CHANCES = 80
+    SAFE_CHANCES = 50
     LOOT = [
         Loot.new(
             LocaleKey::CATACOMBS_LOOT_BANDAGE,
-            25,
+            5,
             Bandage
-        ),
-        Loot.new(
-            LocaleKey::CATACOMBS_LOOT_COINS,
-            10,
-            Coins,
-            [],
-            2,
-            4
         )
     ]
     MIN_EXITS = 1
     MAX_EXITS = 2
     TRANSITIONS = [
         BiomeTransition.new(
-            LocaleKey::CATACOMBS_TRANSITION_PRISON,
-            7,
-            'OldDungeon'
-        ),
-        BiomeTransition.new(
-            LocaleKey::CATACOMBS_TRANSITION_DEEPER,
-            15,
-            'DeepCatacombs'
-        ),
-        BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             3,
-            'Entrance',
+            'Catacombs',
             3
         ),
-        BiomeTransition.new(
-            BiomeTransition::NO_MESSAGE,
-            1,
-            'EntranceTuto',
-            0,
-            3
-        )
     ]
 end
