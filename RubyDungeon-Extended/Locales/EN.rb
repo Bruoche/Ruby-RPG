@@ -47,6 +47,8 @@ class EN
         LocaleKey::DARK_F => "dark",
         LocaleKey::DRY_F => "dry",
         LocaleKey::DUSTY_F => "dusty",
+        LocaleKey::FLOODED_F => "flooded",
+        LocaleKey::GLISTENING_F => "glistening",
         LocaleKey::GREEN_F => "green",
         LocaleKey::GREYISH_F => "grayish",
         LocaleKey::HUMID_F => "humid",
@@ -62,6 +64,7 @@ class EN
         LocaleKey::RUINED_F => "ruined",
         LocaleKey::SCARY_F => "terrifying",
         LocaleKey::SCOUT_F => "scout",
+        LocaleKey::SHINY_F => "shiny",
         LocaleKey::SILENT_F => "silent",
         LocaleKey::SMALL_F => "small",
         LocaleKey::SMART_F => "smart",
@@ -83,6 +86,8 @@ class EN
         LocaleKey::DARK_M => "dark",
         LocaleKey::DRY_M => "dry",
         LocaleKey::DUSTY_M => "dusty",
+        LocaleKey::FLOODED_M => "flooded",
+        LocaleKey::GLISTENING_M => "glistening",
         LocaleKey::GREEN_M => "green",
         LocaleKey::GREYISH_M => "grayish",
         LocaleKey::HUMID_M => "humid",
@@ -98,6 +103,7 @@ class EN
         LocaleKey::RUINED_M => "ruined",
         LocaleKey::SCARY_M => "scary",
         LocaleKey::SCOUT_M => "scout",
+        LocaleKey::SHINY_M => "shiny",
         LocaleKey::SILENT_M => "silent",
         LocaleKey::SMALL_M => "small",
         LocaleKey::SMART_M => "smart",
@@ -721,6 +727,12 @@ class EN
             "This place seems dedicated to the dead too, much like the catacombs above, but here rot seems to have melted away most traces of the passage of man."
         ],
         LocaleKey::DEEP_CATACOMBS_LOOT_BANDAGE => ["All you can find that's not completely rotted out is an old and humid shroud you could use as bandage."],
+        LocaleKey::DEEP_CATACOMBS_TRANSITION_CAVES => [
+            "After what felt like an eternity in the crypts, you notice a portion where the wall had crumbled.",
+            "As you approach, you see that the cavity open to a natural cave.",
+            "",
+            "You enter the cave, happy to leave this acursed place."
+        ],
         LocaleKey::ENTRANCE_DESCRIPTION => [
             "You are surrounded by thick stone walls.",
             "The air is humid and darkness reigns inside the old fortress,",
@@ -765,6 +777,16 @@ class EN
         LocaleKey::KNIGHT_RIGHT_ATTACK => "strike %s with his sword.",
         LocaleKey::KNIGHT_LOOT_COINS => ["On the knight's corpse, you find a large purse attached to its belt."],
         LocaleKey::KNIGHT_LOOT_NOTE => ["In a fold of its chestplate, you notice a note poking out."],
+        LocaleKey::CAVE_DESCRIPTION => [
+            "You are in a cave.",
+            "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
+            "As you look closer, you notice that what you thought to be reflections from the wall's humidity, were in fact crystals embedded in the cave's stone."
+        ],
+        LocaleKey::CAVES_LOOT_AMETHYST => [
+            "You notice that one of the crystal is partially detached from the cave's wall.",
+            "You find a crystal that was already detached from the stone walls.",
+            "You see a piece of broken crystal that's still big enough to be taken."
+        ],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Hello traveler.\nPlease, do not hesitate to observe my wares and tell me if anything catches your eyes.",
         LocaleKey::SHOPKEEPER_IDLE_DIALOGS => [
@@ -817,6 +839,8 @@ class EN
         LocaleKey::COINS_DESCRIPTION => "Main currecy that is currently used in the main countries composing the Great Alliance",
         LocaleKey::COIN_HEAD => "head",
         LocaleKey::COIN_TAIL => "tail",
+        LocaleKey::AMETHYST_NAME => "Amethyst",
+        LocaleKey::AMETHYST_DESCRIPTION => "Can be sold for a few coins.",
         LocaleKey::DEVNOTE_NAME => "goodbye note",
         LocaleKey::DEVNOTE_DESCRIPTION => "thanks for playing",
         LocaleKey::HEALTH_POTION_NAME => "a health potion",

@@ -47,6 +47,8 @@ class FR
         LocaleKey::DARK_F => "sombre",
         LocaleKey::DRY_F => "sèche",
         LocaleKey::DUSTY_F => "poussiéreuse",
+        LocaleKey::FLOODED_F => "innondée",
+        LocaleKey::GLISTENING_F => "luisante",
         LocaleKey::GREEN_F => "verte",
         LocaleKey::GREYISH_F => "grisée",
         LocaleKey::HUMID_F => "humide",
@@ -62,6 +64,7 @@ class FR
         LocaleKey::RUINED_F => "en ruine",
         LocaleKey::SCARY_F => "terrifiante",
         LocaleKey::SCOUT_F => "éclaireuse",
+        LocaleKey::SHINY_F => "brillante",
         LocaleKey::SILENT_F => "silencieuse",
         LocaleKey::SMALL_F => "petite",
         LocaleKey::SMART_F => "intelligente",
@@ -83,6 +86,8 @@ class FR
         LocaleKey::DARK_M => "sombre",
         LocaleKey::DRY_M => "sec",
         LocaleKey::DUSTY_M => "poussiéreux",
+        LocaleKey::FLOODED_M => "innondé",
+        LocaleKey::GLISTENING_M => "luisant",
         LocaleKey::GREEN_M => "vert",
         LocaleKey::GREYISH_M => "grisé",
         LocaleKey::HUMID_M => "humide",
@@ -98,6 +103,7 @@ class FR
         LocaleKey::RUINED_M => "en ruine",
         LocaleKey::SCARY_M => "terrifiant",
         LocaleKey::SCOUT_M => "éclaireur",
+        LocaleKey::SHINY_M => "brillant",
         LocaleKey::SILENT_M => "silencieux",
         LocaleKey::SMALL_M => "petit",
         LocaleKey::SMART_M => "intelligent",
@@ -721,6 +727,12 @@ class FR
             "Cet endroit semble également dédié aux morts, tel les catacombes, mais ici la moisissure a rongée la majorité des traces du passage des hommes en ce lieu."
         ],
         LocaleKey::DEEP_CATACOMBS_LOOT_BANDAGE => ["Tout ce que vous trouvez n'ayant pas complètement moisit est un vieux linceul humide pouvant servir de bandage."],
+        LocaleKey::DEEP_CATACOMBS_TRANSITION_CAVES => [
+            "Après ce qui semble être une éternité dans les cryptes, vous remarquez une portion de mur écroulé.",
+            "En vous approchant, vous voyez que la cavité s'ouvre vers une grotte naturelle.",
+            "",
+            "Vous vous enfoncez dans la grotte, heureux de quitter ce lieu maudit."
+        ],
         LocaleKey::ENTRANCE_DESCRIPTION => [
             "Vous êtes entouré·e d'épais murs de pierres.",
             "L'air est humide et l'obscurité règne au sein de l'ancienne forteresse,",
@@ -765,6 +777,16 @@ class FR
         LocaleKey::KNIGHT_RIGHT_ATTACK => "assène un coup d'épée à %s.",
         LocaleKey::KNIGHT_LOOT_COINS => ["Sur la dépouille du chevalier vous trouvez une large bourse accorchée sur sa ceinture."],
         LocaleKey::KNIGHT_LOOT_NOTE => ["Dans un pli de son plastron vous remarquez également une note dépassant."],
+        LocaleKey::CAVE_DESCRIPTION => [
+            "Vous êtes dans une grotte.",
+            "Bien que ce n'est pas le lieu le plus accueillant qui puisse être, et malgré l'obscurité ambiante, cet endroit est bien plus appaisant que les cryptes.",
+            "En regardant bien, vous remarquez que ce que vous pensiez être le reflet des parroies humides venait en fait de cristaux encastrés dans la roche."
+        ],
+        LocaleKey::CAVES_LOOT_AMETHYST => [
+            "Vous remarquez un cristal partièlement délogé de son lit rocheux.",
+            "Vous trouvez un cristal ayant déjà été détaché de la roche auparavant.",
+            "Vous voyez un morceau de cristal ayant été brisé, restant assez grand pour être pris."
+        ],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Bonjour voyageur.\nJe vous prie, n'hésitez pas à observer mes marchandises et me dire si quoi que ce soit attise votre curiosité.",
         LocaleKey::SHOPKEEPER_IDLE_DIALOGS => [
@@ -817,6 +839,8 @@ class FR
         LocaleKey::COINS_DESCRIPTION => "monnaie actuelle employée dans les contrées principales composant la grande alliance",
         LocaleKey::COIN_HEAD => "face",
         LocaleKey::COIN_TAIL => "pile",
+        LocaleKey::AMETHYST_NAME => "Améthyste",
+        LocaleKey::AMETHYST_DESCRIPTION => "Doit pouvoir se vendre pour quelques pièces.",
         LocaleKey::DEVNOTE_NAME => "note d'au revoir",
         LocaleKey::DEVNOTE_DESCRIPTION => "merci d'avoir joué",
         LocaleKey::HEALTH_POTION_NAME => "une potion de soin",

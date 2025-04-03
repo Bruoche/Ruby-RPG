@@ -77,10 +77,14 @@ class DeepCatacombs < Biome
     MAX_EXITS = 2
     TRANSITIONS = [
         BiomeTransition.new(
+            LocaleKey::DEEP_CATACOMBS_TRANSITION_CAVES,
+            3,
+            'Caves'
+        ),
+        BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             3,
-            'Catacombs',
-            3
+            'Catacombs'
         ),
     ]
 end

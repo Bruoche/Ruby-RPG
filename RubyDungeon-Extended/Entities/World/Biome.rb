@@ -23,6 +23,9 @@ class Biome
                 unless child.const_defined?(:COMBAT_TRACK)
                     child.const_set(:COMBAT_TRACK, MusicManager::NO_MUSIC)
                 end
+                unless child.const_defined?(:MONSTER_AMOUNT_MULTIPLIER)
+                    child.const_set(:MONSTER_AMOUNT_MULTIPLIER, 1)
+                end
             end
         end
     end
@@ -47,6 +50,10 @@ class Biome
 
     def self.get_monsters
         nb_monsters_max = ((1 + self::MONSTER_AMOUNT_BONUS) * Math.sqrt(World.get_instance.nb_players)).truncate
+        nb_monsters_max = (nb_monsters_max * self::MONSTER_AMOUNT_MULTIPLIER).round
+        if nb_monsters_max < 1
+            nb_monsters_max = 1
+        end
         return Array.new(rand(1..nb_monsters_max))
     end
 

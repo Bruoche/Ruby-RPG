@@ -44,6 +44,8 @@ module LocaleKey
     DARK_F = :dark_f
     DRY_F = :dry_f
     DUSTY_F = :dusty_f
+    FLOODED_F = :flooded_f
+    GLISTENING_F = :glistening_f
     GREEN_F = :green_f
     GREYISH_F = :greyish_f
     HUMID_F = :humid_f
@@ -59,6 +61,7 @@ module LocaleKey
     RUINED_F = :ruined_f
     SCARY_F = :scary_f
     SCOUT_F = :scout_f
+    SHINY_F = :shiny_f
     SILENT_F = :silent_f
     SMALL_F = :small_f
     SMART_F = :smart_f
@@ -80,6 +83,8 @@ module LocaleKey
     DARK_M = :dark_m
     DRY_M = :dry_m
     DUSTY_M = :dusty_m
+    FLOODED_M = :flooded_m
+    GLISTENING_M = :glistening_m
     GREEN_M = :green_m
     GREYISH_M = :greyish_m
     HUMID_M = :humid_m
@@ -95,6 +100,7 @@ module LocaleKey
     RUINED_M = :ruined_m
     SCARY_M = :scary_m
     SCOUT_M = :scout_m
+    SHINY_M = :shiny_m
     SILENT_M = :silent_m
     SMALL_M = :small_m
     SMART_M = :smart_m
@@ -491,6 +497,7 @@ module LocaleKey
     CATACOMBS_TRANSITION_DEEPER = :catacombs_transition_deeper
     DEEP_CATACOMBS_DESCRIPTION = :deep_catacombs_description
     DEEP_CATACOMBS_LOOT_BANDAGE = :deep_catacombs_loot_bandage
+    DEEP_CATACOMBS_TRANSITION_CAVES = :deep_catacombs_transition_caves
     ENTRANCE_DESCRIPTION = :entrance_description
     ENTRANCE_LOOT_HEALTH_POTION = :entrance_loot_health_potion
     ENTRANCE_LOOT_BANDAGE = :entrance_loot_bandage
@@ -509,6 +516,8 @@ module LocaleKey
     KNIGHT_RIGHT_ATTACK = :knight_right_attack
     KNIGHT_LOOT_COINS = :knight_loot_coins
     KNIGHT_LOOT_NOTE = :kngiht_loot_note
+    CAVE_DESCRIPTION = :cave_description
+    CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
     SHOPKEEPER_IDLE_DIALOGS = :shopkeeper_idle_dialogs
@@ -527,6 +536,8 @@ module LocaleKey
     COINS_DESCRIPTION = :coins_description
     COIN_HEAD = :coin_head
     COIN_TAIL = :coin_tail
+    AMETHYST_NAME = :amethyst_name
+    AMETHYST_DESCRIPTION = :amethyst_description
     DEVNOTE_NAME = :devnote_name
     DEVNOTE_DESCRIPTION = :devnote_description
     HEALTH_POTION_NAME = :health_potion_name
