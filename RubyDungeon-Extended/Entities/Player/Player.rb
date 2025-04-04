@@ -117,8 +117,8 @@ class Player
         return perception_score < stealth_score
     end
 
-    def have?(item, quantity = 1)
-        return @inventory.have?(item, quantity)
+    def have?(item, quantity_min = 1)
+        return @inventory.have?(item, quantity_min)
     end
 
     def get_quantity_of(item)
@@ -139,6 +139,10 @@ class Player
 
     def just_entered_room?
         return @controller.just_entered_room?
+    end
+
+    def set_entered_room(entered_room)
+        @controller.set_entered_room(entered_room)
     end
 
     def just_won_fight?
@@ -183,20 +187,27 @@ class Player
     end
 
     def hurt(attack)
-        dodge_score = rand(0..@stats.agility.div(2))
         damage = attack.damage_dealt
-        if dodge_score > damage
-            dodge_score = damage
-        end
-        damage_recieved = damage - dodge_score
-        defense_score = @stats.defense
-        if defense_score > damage_recieved
-            defense_score = damage_recieved
-        end
-        damage_taken = damage_recieved - defense_score
-        if defense_score > 0
-            defense_text = ', ' + defense_score.to_s + Locale::get_localized(LocaleKey::PARRIED)
+        if attack.type != Attack::FALL_TYPE
+            dodge_score = rand(0..@stats.agility.div(2))
+            if dodge_score > damage
+                dodge_score = damage
+            end
+            damage_recieved = damage - dodge_score
+            defense_score = @stats.defense
+            if defense_score > damage_recieved
+                defense_score = damage_recieved
+            end
+            damage_taken = damage_recieved - defense_score
+            if defense_score > 0
+                defense_text = ', ' + defense_score.to_s + Locale::get_localized(LocaleKey::PARRIED)
+            else
+                defense_text = ''
+            end
         else
+            damage_taken = damage
+            dodge_score = 0
+            defense_score = 0
             defense_text = ''
         end
         if damage_taken > 0
@@ -206,7 +217,11 @@ class Player
         else
             SoundManager.play('dodge')
         end
-        Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
+        if attack.type != Attack::FALL_TYPE
+            Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
+        else
+            Narrator.hurt(get_name, damage_taken)
+        end
         sleep Settings::BATTLE_ACTION_PAUSE
         @lifebar.damage(damage_taken)
         if died?

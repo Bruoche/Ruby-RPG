@@ -499,6 +499,7 @@ module LocaleKey
     DEEP_CATACOMBS_LOOT_BANDAGE = :deep_catacombs_loot_bandage
     DEEP_CATACOMBS_TRANSITION_CAVES = :deep_catacombs_transition_caves
     ENTRANCE_DESCRIPTION = :entrance_description
+    ENTRANCE_HOLE_DESCRIPTION = :entrance_hole_description
     ENTRANCE_LOOT_HEALTH_POTION = :entrance_loot_health_potion
     ENTRANCE_LOOT_BANDAGE = :entrance_loot_bandage
     ENTRANCE_LOOT_COINS = :entrance_loot_coins
@@ -518,6 +519,9 @@ module LocaleKey
     KNIGHT_LOOT_NOTE = :kngiht_loot_note
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
+    CAVES_LOOT_ROPE = :cave_loot_rope
+    OPEN_CAVE = :open_cave
+    OPEN_CAVE_DESCRIPTION = :open_cave_description
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
     SHOPKEEPER_IDLE_DIALOGS = :shopkeeper_idle_dialogs
@@ -538,6 +542,8 @@ module LocaleKey
     COIN_TAIL = :coin_tail
     AMETHYST_NAME = :amethyst_name
     AMETHYST_DESCRIPTION = :amethyst_description
+    ROPE_NAME = :rope_name
+    ROPE_DESCRIPTION = :rope_description
     DEVNOTE_NAME = :devnote_name
     DEVNOTE_DESCRIPTION = :devnote_description
     HEALTH_POTION_NAME = :health_potion_name
@@ -547,6 +553,15 @@ module LocaleKey
     TELEPORTER_NAME = :teleporter_name
     TELEPORTER_DESCRIPTION = :teleporter_description
     GOBLIN_LOOT_COINS = :goblin_loot_coins
+    A_HOLE = :a_hole
+    ASK_USE_ROPE_HOLE = :ask_use_rope_hole
+    STUCK_DOWN_HOLE = :stuck_down_hole
+    ATTACH_ROPE = :attach_rope
+    CLIMB_ROPE_DOWN = :climb_rope_down
+    CLIMB_ROPE_UP = :climb_rope_up
+    ASK_JUMP = :ask_jump
+    JUMP_HOLE = :jump_hole
+    NEVERMIND_HOLE = :nevermind_hole
     THE_EXIT = :the_exit
     ASK_SAVE = :ask_save
     OPEN_SETTINGS_OPTION = :open_settings_option

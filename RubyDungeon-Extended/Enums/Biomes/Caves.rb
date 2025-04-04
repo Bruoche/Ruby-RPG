@@ -76,5 +76,10 @@ class Caves < Biome
             1,
             'DeepCatacombs'
         ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            5,
+            'CavesDrop'
+        )
     ]
 end

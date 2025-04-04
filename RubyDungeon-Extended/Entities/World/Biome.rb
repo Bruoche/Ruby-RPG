@@ -26,6 +26,9 @@ class Biome
                 unless child.const_defined?(:MONSTER_AMOUNT_MULTIPLIER)
                     child.const_set(:MONSTER_AMOUNT_MULTIPLIER, 1)
                 end
+                unless child.const_defined?(:REQUIRED_BIOMES)
+                    child.const_set(:REQUIRED_BIOMES, [])
+                end
             end
         end
     end

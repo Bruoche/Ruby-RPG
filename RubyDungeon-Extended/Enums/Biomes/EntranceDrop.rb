@@ -1,11 +1,10 @@
-module EntranceF
+module EntranceDropF
     NAMES = [
         LocaleKey::ROOM,
         LocaleKey::ALCOVE
     ].freeze
 
     PREFIXES = [
-        LocaleKey::SMALL_F,
         LocaleKey::TALL_F,
         LocaleKey::SPACIOUS_F
     ].freeze
@@ -14,51 +13,21 @@ module EntranceF
         LocaleKey::WORRYING_F,
         LocaleKey::COLD_F,
         LocaleKey::HUMID_F,
-        LocaleKey::ISOLATED_F,
         LocaleKey::DARK_F
     ].freeze
 end
 
-module EntranceM
-    NAMES = [
-        LocaleKey::CORRIDOR
-    ].freeze
-
-    PREFIXES = [
-        LocaleKey::SMALL_M,
-        LocaleKey::TALL_M,
-        LocaleKey::LONG_M
-    ].freeze
-
-    SUFFIXES = [
-        LocaleKey::WORRYING_M,
-        LocaleKey::COLD_M,
-        LocaleKey::HUMID_M,
-        LocaleKey::ISOLATED_M,
-        LocaleKey::DARK_M
-    ].freeze
-end
-
-class Entrance < Biome
+class EntranceDrop < Biome
     EXPECTED_LEVEL = 3
     PICTURE = 'entrance'
     EXPLORATION_TRACK = 'Dungeon Entrance'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
-    FEMALE = EntranceF
-    MALE = EntranceM
-    FEMALE_CHANCES = 60
+    FEMALE = EntranceDropF
+    FEMALE_CHANCES = 100
     BACKTRACK_CHANCES = 5
-    DESCRIPTION = LocaleKey::ENTRANCE_DESCRIPTION
-    BESTIARY = [
-        Goblin,
-        Goblin,
-        Goblin,
-        Slime,
-        Slime,
-        Spider,
-        Bat
-    ]
-    SAFE_CHANCES = 30
+    DESCRIPTION = LocaleKey::ENTRANCE_HOLE_DESCRIPTION
+    BESTIARY = []
+    SAFE_CHANCES = 50
     LOOT = [
         Loot.new(
             LocaleKey::ENTRANCE_LOOT_HEALTH_POTION,
@@ -80,7 +49,7 @@ class Entrance < Biome
             3
         )
     ]
-    MIN_EXITS = 1
+    MIN_EXITS = 2
     MAX_EXITS = 3
     TRANSITIONS = [
         BiomeTransition.new(
@@ -90,8 +59,15 @@ class Entrance < Biome
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
-            5,
-            'EntranceDrop'
+            100,
+            'Entrance',
+            3
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            100,
+            'EntranceTuto'
         )
     ]
+    REQUIRED_BIOMES = ['Hole']
 end

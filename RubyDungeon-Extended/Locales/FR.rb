@@ -738,6 +738,11 @@ class FR
             "L'air est humide et l'obscurité règne au sein de l'ancienne forteresse,",
             "Mais les courants d'air atteignant votre dos sont un rappel de votre proximité avec la surface."
         ],
+        LocaleKey::ENTRANCE_HOLE_DESCRIPTION => [
+            "Vous êtes toujours à l'entrée du donjon.",
+            "En revanche, le sol semble s'être effondré dans cette salle.",
+            "L'énorme trou béant au millieu de cette large salle vous donne un vertige."
+        ],
         LocaleKey::ENTRANCE_LOOT_BANDAGE => ["Vous remarquez des draperies que vous pouvez déchirer afin de créer des bandages."],
         LocaleKey::ENTRANCE_LOOT_COINS => [
             "Vous trouvez quelques pièces posées sur une table",
@@ -786,6 +791,13 @@ class FR
             "Vous remarquez un cristal partièlement délogé de son lit rocheux.",
             "Vous trouvez un cristal ayant déjà été détaché de la roche auparavant.",
             "Vous voyez un morceau de cristal ayant été brisé, restant assez grand pour être pris."
+        ],
+        LocaleKey::CAVES_LOOT_ROPE => ["En fouillant la grande salle, vous remarquez une corde délaissée dans les friches."],
+        LocaleKey::OPEN_CAVE => "grande salle ouverte",
+        LocaleKey::OPEN_CAVE_DESCRIPTION => [
+            "À votre surprise, cette portion de la grotte semble reçevoir la lumière de la surface.",
+            "En relevant votre regard, vous remarquez un gouffre béant s'ouvrant dans le plafond.",
+            "Les décombres jonchant le sol semblent indiquer que ce dernier c'est effondré à un étage supérieur."
         ],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Bonjour voyageur.\nJe vous prie, n'hésitez pas à observer mes marchandises et me dire si quoi que ce soit attise votre curiosité.",
@@ -836,11 +848,13 @@ class FR
         LocaleKey::BANDAGES_NAME => "des bandages",
         LocaleKey::BANDAGES_DESCRIPTION => "restaure une quantité aléatoire de vos points de vies manquants",
         LocaleKey::COINS_NAME => "une pièce d'or",
-        LocaleKey::COINS_DESCRIPTION => "monnaie actuelle employée dans les contrées principales composant la grande alliance",
+        LocaleKey::COINS_DESCRIPTION => "monnaie actuelle employée dans les contrées principales composant la Grande Alliance",
         LocaleKey::COIN_HEAD => "face",
         LocaleKey::COIN_TAIL => "pile",
         LocaleKey::AMETHYST_NAME => "Améthyste",
-        LocaleKey::AMETHYST_DESCRIPTION => "Doit pouvoir se vendre pour quelques pièces.",
+        LocaleKey::AMETHYST_DESCRIPTION => "Doit pouvoir se vendre pour quelques pièces",
+        LocaleKey::ROPE_NAME => "une corde",
+        LocaleKey::ROPE_DESCRIPTION => "Longue et robuste, doit pouvoir soutenir de lourdes charges",
         LocaleKey::DEVNOTE_NAME => "note d'au revoir",
         LocaleKey::DEVNOTE_DESCRIPTION => "merci d'avoir joué",
         LocaleKey::HEALTH_POTION_NAME => "une potion de soin",
@@ -851,6 +865,18 @@ class FR
         LocaleKey::TELEPORTER_DESCRIPTION => "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés.",
         LocaleKey::GOBLIN_LOOT_COINS => ["En fouillant le corps du goblin vous remarquez une petite bourse accrochée à sa ceinture."],
         LocaleKey::THE_EXIT => "la sortie",
+        LocaleKey::A_HOLE => "un trou",
+        LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ? (y/n)",
+        LocaleKey::STUCK_DOWN_HOLE => "Vous observez le trou duquel une douce lumière chute dans la grotte, mais ne voyez aucun moyen de remonter.",
+        LocaleKey::ATTACH_ROPE => "Vous attachez la corde à un pillier proche du trou semblant assez solide.",
+        LocaleKey::CLIMB_ROPE_DOWN => "Vous entamez votre descente lente le long du trou",
+        LocaleKey::CLIMB_ROPE_UP => "Vous remontez tant bien que mal la longue corde jusqu'à la surface",
+        LocaleKey::ASK_JUMP => [
+            "Vous approchez le trou et observez ses tréfonds. Vous ne voyez rien d'autre que l'obscurité, n'ayant aucune idée de sa profondeur.",
+            "Sauter dans le gouffre ? (y/n)"
+        ],
+        LocaleKey::JUMP_HOLE => "%s s'élance dans le trou, s'apprétant à l'impact.",
+        LocaleKey::NEVERMIND_HOLE => "Ne souhaitant pas vous blesser, vous évitez le trou.",
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options...",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",

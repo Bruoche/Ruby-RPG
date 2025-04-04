@@ -738,6 +738,11 @@ class EN
             "The air is humid and darkness reigns inside the old fortress,",
             "The faint drafts of fresh air carressing your back are a reminder to your proximity with the outside world."
         ],
+        LocaleKey::ENTRANCE_HOLE_DESCRIPTION => [
+            "You are still within the dungeon's entrance.",
+            "But, it seems the very floor crumbled here.",
+            "The giant gaping hole sitting in the middle of this large room makes you uneasy."
+        ],
         LocaleKey::ENTRANCE_LOOT_BANDAGE => ["You notice draperies you can tear in order to build some bandages."],
         LocaleKey::ENTRANCE_LOOT_COINS => [
             "You find a few coins dropped on a table",
@@ -786,6 +791,13 @@ class EN
             "You notice that one of the crystal is partially detached from the cave's wall.",
             "You find a crystal that was already detached from the stone walls.",
             "You see a piece of broken crystal that's still big enough to be taken."
+        ],
+        LocaleKey::CAVES_LOOT_ROPE => ["As you search the large room, you notice a rope that was discarted among the tall grass."],
+        LocaleKey::OPEN_CAVE => "large open room",
+        LocaleKey::OPEN_CAVE_DESCRIPTION => [
+            "You are in a cave. To your surprise, this part of the cave seems to recieve light from above.",
+            "Looking up, you notice a gaping hole tearing the roof.",
+            "The rubbles covering the ground seems to indicate that it crumbled from a higher layer."
         ],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Hello traveler.\nPlease, do not hesitate to observe my wares and tell me if anything catches your eyes.",
@@ -840,7 +852,9 @@ class EN
         LocaleKey::COIN_HEAD => "head",
         LocaleKey::COIN_TAIL => "tail",
         LocaleKey::AMETHYST_NAME => "Amethyst",
-        LocaleKey::AMETHYST_DESCRIPTION => "Can be sold for a few coins.",
+        LocaleKey::AMETHYST_DESCRIPTION => "Can be sold for a few coins",
+        LocaleKey::ROPE_NAME => "a rope",
+        LocaleKey::ROPE_DESCRIPTION => "Long and robust, it must be able to widstand heavy weights",
         LocaleKey::DEVNOTE_NAME => "goodbye note",
         LocaleKey::DEVNOTE_DESCRIPTION => "thanks for playing",
         LocaleKey::HEALTH_POTION_NAME => "a health potion",
@@ -851,6 +865,18 @@ class EN
         LocaleKey::TELEPORTER_DESCRIPTION => "a very rare crystal holding a powerful power, canalised by a magical instrument making it able to transport its bearer to the dungeon exit or to one of their allies.",
         LocaleKey::GOBLIN_LOOT_COINS => ["As you search the goblin's corpse, you notice a small purse tied to its belt."],
         LocaleKey::THE_EXIT => "the exit",
+        LocaleKey::A_HOLE => "a hole",
+        LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down? (y/n)",
+        LocaleKey::STUCK_DOWN_HOLE => "You observe the hole casting a soft light into the cave, but see no way up to it.",
+        LocaleKey::ATTACH_ROPE => "You attach the rope to a nearby pillar that seems solid enough.",
+        LocaleKey::CLIMB_ROPE_DOWN => "You start your slow descent into the hole",
+        LocaleKey::CLIMB_ROPE_UP => "You painstakingly climb back the long rope back up",
+        LocaleKey::ASK_JUMP => [
+            "You approach the hole and look down. You can see nothing but darkness, with no idea of how deep it goes down.",
+            "Jump in the chasm? (y/n)"
+        ],
+        LocaleKey::JUMP_HOLE => "%s leap inside of the hole, bracing for impact.",
+        LocaleKey::NEVERMIND_HOLE => "Not wanting to hurt yourself, you avoid the hole.",
         LocaleKey::ASK_SAVE => "What save do you want to load?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Settings",
         LocaleKey::DIALOG_QUESTION => "Write what you wish to say: (say goodbye to end the conversation)",

@@ -1,5 +1,6 @@
 class World
     @instance = new
+    AUTO_BIOME = nil
 
     def generate_dungeon(party)
         @party = party
@@ -41,9 +42,11 @@ class World
         end
     end
 
-    def get_new_room_id(current_room)
-        next_biome = current_room.get_biome.get_next(@party.get_level.div(@party.size))
-        next_biome_id = next_biome.name
+    def get_new_room_id(current_room, next_biome = AUTO_BIOME)
+        if next_biome == AUTO_BIOME
+            next_biome = current_room.get_biome.get_next(@party.get_level.div(@party.size))
+        end
+        next_biome_id = next_biome.name.to_s
         if !@rooms.key?(next_biome_id)
             @rooms[next_biome_id] = []
         end
@@ -55,7 +58,7 @@ class World
         else
             next_id = RoomID.new(next_biome_id, @rooms[next_biome_id].length)
             if next_biome::SPECIAL
-                @rooms[next_biome_id].append(next_biome.new(current_room, next_id, current_room))
+                @rooms[next_biome_id].append(next_biome.new(next_id, current_room))
             else
                 @rooms[next_biome_id].append(Room.new(next_biome, next_id, current_room))
             end

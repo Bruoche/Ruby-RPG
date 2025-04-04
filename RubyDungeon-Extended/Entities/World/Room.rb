@@ -20,6 +20,18 @@ class Room
         if precedent_room != nil
             @adjacent_rooms[0] = precedent_room.get_id
         end
+        room_index = 1
+        skipped_biomes = false
+        for required_biome in biome::REQUIRED_BIOMES
+            required_biome_class = Object.const_get(required_biome)
+            if (precedent_room.get_biome != required_biome_class) || skipped_biomes
+                required_room_id = World.get_instance.get_new_room_id(self, required_biome_class)
+                @adjacent_rooms[room_index] = World.get_instance.get_room(required_room_id).get_id
+                room_index += 1
+            else
+                skipped_biomes = true
+            end
+        end
         @objects = nil
         @requirements = @biome.get_entry_requirements
         @monster_loots = []

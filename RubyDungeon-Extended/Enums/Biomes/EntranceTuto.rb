@@ -49,6 +49,11 @@ class EntranceTuto < Biome
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
+            5,
+            'EntranceDrop'
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
             100,
             'Entrance',
             3

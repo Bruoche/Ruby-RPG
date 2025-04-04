@@ -538,6 +538,26 @@ class Narrator
         Narrator.add_space_of(1)
     end
 
+    def self.climb_rope(is_going_down)
+        if is_going_down
+            Narrator.write_same_line(LocaleKey::CLIMB_ROPE_DOWN)
+        else
+            Narrator.write_same_line(LocaleKey::CLIMB_ROPE_UP)
+        end
+        SoundManager.play("rope_climb")
+        sleep 1.5
+        3.times do
+            Narrator.write_same_line('.')
+            SoundManager.play("rope_climb")
+            sleep 1.5
+        end
+        Narrator.add_space_of(1)
+    end
+
+    def self.jump_hole(player)
+        Narrator.write(format(Locale.get_localized(LocaleKey::JUMP_HOLE), player.get_name))
+    end
+
     def self.knight_slash
         Narrator.write(LocaleKey::KNIGHT_SLASH)
     end

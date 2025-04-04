@@ -1,6 +1,8 @@
 class Attack
     PHYSIC_TYPE = 0
     MAGIC_TYPE = 1
+    FALL_TYPE = 2
+
     def initialize(damage, type, source)
         @damage = damage
         @type = type
@@ -38,6 +40,8 @@ class Attack
             second_roll = rand(@damage)
             best_roll = first_roll > second_roll ? first_roll : second_roll
             return best_roll
+        when Attack::FALL_TYPE
+            return @damage
         else
             Narrator.unexpected_damage_type_error
             return 0
