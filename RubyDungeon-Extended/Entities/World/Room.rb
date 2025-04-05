@@ -35,6 +35,7 @@ class Room
         @objects = nil
         @requirements = @biome.get_entry_requirements
         @monster_loots = []
+        @picture = @biome::PICTURE
     end
 
     def allow_entry_for(player)
@@ -74,7 +75,7 @@ class Room
     end
 
     def describe(player)
-        picture = @biome::PICTURE
+        picture = @picture
         if got_monsters?
             picture += MONSTER_PRESENT_PICTURE_SUFFIX
         end
@@ -91,7 +92,7 @@ class Room
                 Narrator.describe_empty_room(
                     player,
                     -> {@biome.describe},
-                    @biome::PICTURE,
+                    @picture,
                     @name.get_gendered_a,
                     @name.female?
                 )
@@ -175,6 +176,10 @@ class Room
 
     def add_loot(loot)
         @monster_loots.append(loot)
+    end
+
+    def set_picture(new_picture)
+        @picture = new_picture
     end
 
     def search

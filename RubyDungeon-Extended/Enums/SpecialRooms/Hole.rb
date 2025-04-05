@@ -38,11 +38,7 @@ class Hole
                 if player.have?(Rope.new)
                     Narrator.write(LocaleKey::ASK_USE_ROPE_HOLE)
                     if Narrator.user_input(player.get_name).downcase == 'y'
-                        Narrator.write(LocaleKey::ATTACH_ROPE)
-                        SoundManager.play('paper')
-                        sleep 1
-                        player.remove_item(Rope.new)
-                        @roped = true
+                        roped_by(player)
                         move(player, @bottom)
                     else
                         ask_jump(player)
@@ -67,6 +63,16 @@ class Hole
     end
 
     private
+
+    def roped_by(player)
+        Narrator.write(LocaleKey::ATTACH_ROPE)
+        SoundManager.play('paper')
+        sleep 1
+        player.remove_item(Rope.new)
+        @roped = true
+        @top.set_picture("entrance_roped")
+        @bottom.set_picture("cave_roped")
+    end
 
     def move(player, direction)
         player.set_room(direction)
