@@ -19,7 +19,7 @@ end
 
 class EntranceDrop < Biome
     EXPECTED_LEVEL = 3
-    PICTURE = 'entrance'
+    PICTURE = 'entrance_collapsed'
     EXPLORATION_TRACK = 'Dungeon Entrance'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = EntranceDropF

@@ -6,7 +6,7 @@ end
 
 class CavesDrop < Biome
     EXPECTED_LEVEL = 20
-    PICTURE = 'cave'
+    PICTURE = 'cave_opened'
     EXPLORATION_TRACK = 'Cave Entrance'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = CavesDropF

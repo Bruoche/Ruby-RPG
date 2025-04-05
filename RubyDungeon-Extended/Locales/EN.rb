@@ -740,8 +740,8 @@ class EN
         ],
         LocaleKey::ENTRANCE_HOLE_DESCRIPTION => [
             "You are still within the dungeon's entrance.",
-            "But, it seems the very floor crumbled here.",
-            "The giant gaping hole sitting in the middle of this large room makes you uneasy."
+            "But, it seems the very floor collapsed here.",
+            "The sight of that giant gaping hole sitting in the middle of the room makes you uneasy."
         ],
         LocaleKey::ENTRANCE_LOOT_BANDAGE => ["You notice draperies you can tear in order to build some bandages."],
         LocaleKey::ENTRANCE_LOOT_COINS => [
@@ -797,7 +797,7 @@ class EN
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "You are in a cave. To your surprise, this part of the cave seems to recieve light from above.",
             "Looking up, you notice a gaping hole tearing the roof.",
-            "The rubbles covering the ground seems to indicate that it crumbled from a higher layer."
+            "The rubbles covering the ground seems to indicate that it collapsed from a higher layer."
         ],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Hello traveler.\nPlease, do not hesitate to observe my wares and tell me if anything catches your eyes.",
@@ -870,7 +870,7 @@ class EN
         LocaleKey::STUCK_DOWN_HOLE => "You observe the hole casting a soft light into the cave, but see no way up to it.",
         LocaleKey::ATTACH_ROPE => "You attach the rope to a nearby pillar that seems solid enough.",
         LocaleKey::CLIMB_ROPE_DOWN => "You start your slow descent into the hole",
-        LocaleKey::CLIMB_ROPE_UP => "You painstakingly climb back the long rope back up",
+        LocaleKey::CLIMB_ROPE_UP => "You painstakingly climb the long rope back up",
         LocaleKey::ASK_JUMP => [
             "You approach the hole and look down. You can see nothing but darkness, with no idea of how deep it goes down.",
             "Jump in the chasm? (y/n)"
