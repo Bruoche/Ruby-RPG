@@ -141,9 +141,10 @@ class Party
             if (not player.exited?) && (not player.died?)
                 player.act
                 if player.just_won_fight?
-                    xp_gained = player.get_room.get_monsters.get_xp
+                    winning_players = get_fights[player.get_room.get_id]
+                    xp_gained = player.get_room.get_monsters.get_xp.div(winning_players.length)
                     Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
-                    for winning_player in get_fights[player.get_room.get_id] do
+                    for winning_player in winning_players do
                         winning_player.stop_fighting
                         winning_player.give_xp(xp_gained)
                     end
