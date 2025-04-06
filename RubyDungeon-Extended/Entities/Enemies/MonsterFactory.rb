@@ -17,7 +17,11 @@ class MonsterFactory
 
     def self.make_from_scratch(biome, nb_monsters)
         monster_type = biome::BESTIARY.sample
-        difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
+        if biome::MONSTER_POWER_BONUS > 0
+            difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
+        else
+            difficulty_bonus = Math.sqrt(World.get_instance.nb_players).truncate
+        end
         strength_proportion = 100 - monster_type::MAGIC_PROPORTION
         if monster_type::MAGIC_PROPORTION > 0
             min_strength = 0

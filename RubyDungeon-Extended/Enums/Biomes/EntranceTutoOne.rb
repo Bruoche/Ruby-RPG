@@ -1,5 +1,5 @@
-class EntranceTuto < Biome
-    EXPECTED_LEVEL = 0
+class EntranceTutoOne < Biome
+    EXPECTED_LEVEL = 1
     PICTURE = 'entrance'
     EXPLORATION_TRACK = 'Dungeon Entrance'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
@@ -51,12 +51,6 @@ class EntranceTuto < Biome
             BiomeTransition::NO_MESSAGE,
             5,
             'EntranceDrop'
-        ),
-        BiomeTransition.new(
-            BiomeTransition::NO_MESSAGE,
-            100,
-            'EntranceTutoOne',
-            1
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,

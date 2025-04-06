@@ -28,4 +28,8 @@ class Exit
         player.exit
         return true
     end
+
+    def acted?
+        return true
+    end
 end

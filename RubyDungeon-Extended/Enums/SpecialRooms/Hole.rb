@@ -16,6 +16,7 @@ class Hole
             @bottom = precedent_room
         end
         @roped = false
+        @skip_player = false
     end
 
     def get_id
@@ -62,6 +63,15 @@ class Hole
         return false
     end
 
+    def acted?
+        if @skip_player
+            @skip_player = false
+            return true
+        else
+            return false
+        end
+    end
+
     private
 
     def roped_by(player)
@@ -88,6 +98,7 @@ class Hole
             sleep Settings::BATTLE_ACTION_PAUSE
             player.set_room(@bottom)
             player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
+            @skip_player = true
         else
             Narrator.write(LocaleKey::NEVERMIND_HOLE)
         end

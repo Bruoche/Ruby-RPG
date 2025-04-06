@@ -167,7 +167,7 @@ class PlayerController
                 SoundManager.play('footsteps')
             end
             if next_room_instance.get_biome::SPECIAL
-                return Player::ACTED
+                return next_room_instance.acted?
             else
                 return !Player::ACTED
             end
