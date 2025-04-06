@@ -20,7 +20,7 @@ class MonsterFactory
         if biome::MONSTER_POWER_BONUS > 0
             difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
         else
-            difficulty_bonus = Math.sqrt(World.get_instance.nb_players).truncate
+            difficulty_bonus = Math.sqrt(World.get_instance.nb_players - 1).truncate
         end
         strength_proportion = 100 - monster_type::MAGIC_PROPORTION
         if monster_type::MAGIC_PROPORTION > 0
