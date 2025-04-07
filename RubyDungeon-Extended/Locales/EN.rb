@@ -202,6 +202,8 @@ class EN
         LocaleKey::PAGE => "Page",
         LocaleKey::A_F => "a ",
         LocaleKey::A_M => "a ",
+        LocaleKey::AN_F => "an ",
+        LocaleKey::AN_M => "an ",
         LocaleKey::THE_N => "the ",
         LocaleKey::THE_F => "the ",
         LocaleKey::THE_M => "the ",

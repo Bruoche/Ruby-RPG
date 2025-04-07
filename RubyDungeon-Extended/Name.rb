@@ -16,9 +16,17 @@ class Name
 
     def get_gendered_a
         if @female
-            return Locale.get_localized(LocaleKey::A_F) + denomination
+            if VOWELS.include?(denomination[0])
+                return Locale.get_localized(LocaleKey::AN_F) + denomination
+            else
+                return Locale.get_localized(LocaleKey::A_F) + denomination
+            end
         else
-            return Locale.get_localized(LocaleKey::A_M) + denomination
+            if VOWELS.include?(denomination[0])
+                return Locale.get_localized(LocaleKey::AN_M) + denomination
+            else
+                return Locale.get_localized(LocaleKey::A_M) + denomination
+            end
         end
     end
 

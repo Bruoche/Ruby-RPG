@@ -199,6 +199,8 @@ module LocaleKey
     PAGE = :page
     A_F = :a_f
     A_M = :a_m
+    AN_F = :an_f
+    AN_M = :an_m
     THE_N = :the_n
     THE_F = :the_f
     THE_M = :the_m

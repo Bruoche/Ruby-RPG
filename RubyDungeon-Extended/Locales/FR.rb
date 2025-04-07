@@ -202,6 +202,8 @@ class FR
         LocaleKey::PAGE => "Page",
         LocaleKey::A_F => "une ",
         LocaleKey::A_M => "un ",
+        LocaleKey::AN_F => "une ",
+        LocaleKey::AN_M => "un ",
         LocaleKey::THE_N => "l'",
         LocaleKey::THE_F => "la ",
         LocaleKey::THE_M => "le ",
