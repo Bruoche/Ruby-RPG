@@ -1,5 +1,7 @@
 class Armor < Item
     ICON_PREFIX = 'Armor/'
+    AVERAGE_RETAIL_COEFF = 0.9
+    LEVEL_GAP = 10
 
     def initialize(armor_data)
         if armor_data.is_a? String
@@ -49,10 +51,18 @@ class Armor < Item
         return (defense * @weightclass::WEIGHT_PERCENTAGE).div(100)
     end
 
-    def calculate_armor_price
-        average_room_earnings_percent = (@level * 100)/BaseStats::LEVELS_PER_COINS_PER_ROOMS
-        base_price = (average_room_earnings_percent * (BaseStats::EXPECTED_ROOMS_PER_ARMOR + @level.div(10))).div(100)
-        return (base_price * @weightclass::PRICE_PERCENTAGE * @weightclass::PROTECTION_PERCENTAGE).div(100 * 100)
+    def calculate_armor_price(level = @level)
+        average_room_earnings_percent = (level * 100)/BaseStats::LEVELS_PER_COINS_PER_ROOMS
+        base_price = (average_room_earnings_percent * (BaseStats::EXPECTED_ROOMS_PER_ARMOR + level.div(10))).div(100)
+        price = (base_price * @weightclass::PRICE_PERCENTAGE * @weightclass::PROTECTION_PERCENTAGE).div(100 * 100)
+        if level > LEVEL_GAP
+            old_armor_level = level - LEVEL_GAP
+            old_armor_price = calculate_armor_price(old_armor_level)
+            resell_compensation = (old_armor_price * AVERAGE_RETAIL_COEFF).truncate
+        else
+            resell_compensation = 0
+        end
+        return price + resell_compensation
     end
 
     def get_name
