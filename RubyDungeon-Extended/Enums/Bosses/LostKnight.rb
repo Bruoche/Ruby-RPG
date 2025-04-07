@@ -61,11 +61,6 @@ class LostKnight < Bestiary
             Coins,
             [],
             40
-        ),
-        Loot.new(
-            LocaleKey::KNIGHT_LOOT_NOTE,
-            100,
-            DevNote
         )
     ]
     WEAKPOINTS = [
