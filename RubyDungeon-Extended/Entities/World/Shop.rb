@@ -6,11 +6,20 @@ class Shop
     SOLD_DIALOG = LocaleKey::MERCHANT_PURCHASE
     TRANSACTION_DONE = true
     RETAIL_PERCENT = 90
+    MUSIC = 'Merchant'
     CURRENCY = Coins.new
 
     def initialize()
         @shopkeeper = Character.new(ShopKeeper)
         @inventory = ShopInventory::ITEM_LIST
+    end
+
+    def get_music
+        return MUSIC
+    end
+
+    def enter(player)
+        propose_purchases_to(player)
     end
 
     def propose_purchases_to(player, special_dialog = Character::DEFAULT_DIALOG)

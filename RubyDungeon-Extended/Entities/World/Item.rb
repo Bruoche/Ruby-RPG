@@ -23,6 +23,20 @@ class Item
         end
     end
 
+    def self.load(item_data)
+        object = item_data.split('|')[0]
+        parameters = item_data.split('|')[1]
+        if parameters != nil
+            return Object.const_get(object).new(*parameters.split(', '))
+        else
+            return Object.const_get(object).new
+        end
+    end
+
+    def get_save_data
+        return self.class.name
+    end
+
     def get_name
         return Locale.get_localized(self.class::NAME)
     end
@@ -52,10 +66,6 @@ class Item
         return self.class::DROP_CHANCE_SCALABLE
     end
 
-    def get_save_data
-        return self.class.name
-    end
-
     def use(target, user)
         Narrator.unknown_use
         SoundManager.play('spell_fart')
@@ -66,15 +76,5 @@ class Item
     def play_sound
         SoundManager.play(self.class::SOUND)
         sleep Settings::BATTLE_ACTION_PAUSE
-    end
-
-    def self.load(item_data)
-        object = item_data.split('|')[0]
-        parameters = item_data.split('|')[1]
-        if parameters != nil
-            return Object.const_get(object).new(*parameters.split(', '))
-        else
-            return Object.const_get(object).new
-        end
     end
 end

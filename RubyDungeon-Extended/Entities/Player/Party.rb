@@ -20,6 +20,16 @@ class Party
         return level
     end
 
+    def max_level
+        max_level = 0
+        for player in @players do
+            if player.get_level > max_level
+                max_level = player.get_level
+            end
+        end
+        return max_level
+    end
+
     def died?
         for player in @players do
             if !player.died?
@@ -83,6 +93,15 @@ class Party
         return fights
     end
 
+    def got_status?(status_class)
+        for player in @players do
+            if player.has_status?(status_class)
+                return true
+            end
+        end
+        return false
+    end
+
     def show_cards
         cards = ASCIIRow.new
         for player in @players do
@@ -126,13 +145,6 @@ class Party
     def set_room(room)
         for player in @players do
             player.set_room(room)
-        end
-    end
-
-    def shop
-        shop = Shop.new
-        for player in @players do
-            shop.propose_purchases_to(player)
         end
     end
 

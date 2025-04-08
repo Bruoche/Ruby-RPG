@@ -387,6 +387,24 @@ class EN
             "You decide to make a quick stop to a nearby shop to see what equipment you may employ, anticipating what awaits you.",
             ""
         ],
+        LocaleKey::GUILD_INVITE_INTRO => "While you were following your usual route, an imposing man approach you, a jovial expression plastered on his face.",
+        LocaleKey::GUILD_INVITE_PARTY_DIALOG => [
+            "\"Ay, y'all are adventurers right?",
+            "A guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.",
+            "You lot seems quite tough, I'm sure you'll feel right at home there. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.\""
+        ],
+        LocaleKey::GUILD_INVITE_DIALOG => [
+            "\"Ay, you are an adventurer right?",
+            "A guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.",
+            "You seems quite tough, I'm sure you'll feel right at home there. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.\""
+        ],
+        LocaleKey::GUILD_INVITE_END => "Before you can answer, the man hands you invites to the Adventurer's Guild and leave.",
+        LocaleKey::ASK_OUTSIDE_DESTINATION => [
+            "Where do you want to go?",
+            "    0) The dungeon",
+            "    1) The Adventurer's Guild",
+            "    2) Small shop"
+        ],
         LocaleKey::FIRST_INTRO => [
             "You are not quite sure of your reason to come to this place.",
             "But whether you search for treasure, power or simply knowledge,",

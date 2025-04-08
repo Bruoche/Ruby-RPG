@@ -202,6 +202,24 @@ class Narrator
         pause_text
     end
 
+    def self.guild_invite_party
+        Narrator.write(LocaleKey::GUILD_INVITE_INTRO)
+        Narrator.pause_text
+        Narrator.write(LocaleKey::GUILD_INVITE_PARTY_DIALOG)
+        Narrator.pause_text
+        Narrator.write(LocaleKey::GUILD_INVITE_END)
+        Narrator.pause_text
+    end
+
+    def self.guild_invite_player
+        Narrator.write(LocaleKey::GUILD_INVITE_INTRO)
+        Narrator.pause_text
+        Narrator.write(LocaleKey::GUILD_INVITE_DIALOG)
+        Narrator.pause_text
+        Narrator.write(LocaleKey::GUILD_INVITE_END)
+        Narrator.pause_text
+    end
+
     def self.introduction(party)
         Narrator.add_space_of(1)
         ASCIIPrinter.print('title')

@@ -387,6 +387,24 @@ class FR
             "Vous décidez de faire une courte halte auprès d'une échoppe pour voir les équipements que vous pourriez employer, anticipant ce qui vous attend.",
             ""
         ],
+        LocaleKey::GUILD_INVITE_INTRO => "Alors que vous preniez votre route usuelle, un homme imposant vous approche, une expression joviale peinte sur son visage.",
+        LocaleKey::GUILD_INVITE_PARTY_DIALOG => [
+            "\"Eh vous, vous êtes des aventuriers aussi n'est-ce pas ?",
+            "Une guilde à récemment été ouverte au centre du village pour servir de base d'opération à ceux qui explorent la tour nouvellement apparue.",
+            "Vous semblez bien gaillards, je suis sûr que vous vous sentiriez comme chez vous là-bas. Et puis, on a de la bière et de l'équipement à vendre, je suis sûr que vous y trouverez votre bonheur.\""
+        ],
+        LocaleKey::GUILD_INVITE_DIALOG => [
+            "\"Eh vous, vous êtes aventurier aussi n'est-ce pas? ",
+            "Une guilde à récemment été ouverte au centre du village pour servir de base d'opération à ceux qui explorent la tour nouvellement apparue.",
+            "Vous semblez robuste, je suis sûr que vous vous sentiriez comme chez vous là-bas. Et puis, on a de la bière et de l'équipement à vendre, je suis sûr que vous y trouverez votre bonheur.\""
+        ],
+        LocaleKey::GUILD_INVITE_END => "Avant que vous ne puissiez répondre, l'homme vous tend une carte d'invitation à la Guilde des Aventuriers et reprend son chemin.",
+        LocaleKey::ASK_OUTSIDE_DESTINATION => [
+            "Où souhaitez vous aller ?",
+            "    0) Le donjon",
+            "    1) La Guilde des Aventuriers",
+            "    2) Magasin ambulant"
+        ],
         LocaleKey::FIRST_INTRO => [
             "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
             "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",

@@ -19,9 +19,7 @@ class Game
             if wanna_play
                 while wanna_play
                     MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
-                    Narrator.introduction_shop
-                    MusicManager.get_instance.set_ambiance('Merchant')
-                    @party.shop
+                    OutsideEvents.play(@party)
                     @party.save
                     MusicManager.get_instance.set_ambiance('Dungeon Entrance', 'Dungeon Entrance Battle theme')
                     Narrator.introduction(@party)

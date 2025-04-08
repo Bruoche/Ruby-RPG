@@ -4,10 +4,12 @@ class Player
 
     def initialize(player_data, savefile = SaveManager::NO_EXISTING_SAVEFILE)
         @inventory = Inventory.new
+        @status_handler = StatusHandler.new
         @picture = PlayerIcon.new
         @stats = StatManager.new
         @time_played = TimeManager.new
         @inventory.load(            player_data[:inventory])
+        @status_handler.load(       player_data[:statuses])
         @picture.load(              player_data[:picture])
         @stats.load(                player_data)
         @name =                     player_data[:name]
@@ -36,7 +38,8 @@ class Player
             'current_xp': @stats.current_xp,
             'time_played': @time_played.current_value,
             'inventory': @inventory.get_save_data,
-            'picture': @picture.get_save_data
+            'picture': @picture.get_save_data,
+            'statuses': @status_handler.get_save_data
         }.merge(@stats.get_equipment.get_save_data)
     end
 
@@ -100,6 +103,10 @@ class Player
         return @lifebar.get_max_life
     end
 
+    def get_status_icons
+        return @status_handler.get_icons
+    end
+
     def get_escape_chances(monsters_power)
         if (monsters_power == 0)
             return Utils::HUNDRED_PERCENT
@@ -123,6 +130,10 @@ class Player
 
     def get_quantity_of(item)
         return @inventory.count(item)
+    end
+
+    def has_status?(status)
+        return @status_handler.have?(status)
     end
 
     def died?
@@ -162,6 +173,7 @@ class Player
         while !acted
             MusicManager.get_instance.set_ambiance(@room.get_biome::EXPLORATION_TRACK, @room.get_biome::COMBAT_TRACK)
             acted = @controller.act
+            @status_handler.end_of_turn_actions(self)
         end
     end
 
@@ -362,6 +374,18 @@ class Player
 
     def choose_item_to_sell
         @inventory.choose_bundle_to_sell(self)
+    end
+
+    def add_status(status)
+        @status_handler.add(status)
+    end
+
+    def set_status(status)
+        @status_handler.set(status)
+    end
+
+    def remove_status(status_class)
+        @status_handler.remove(status_class)
     end
 
     def to_string(player)

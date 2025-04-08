@@ -260,6 +260,11 @@ module LocaleKey
     NO_ITEMS_TO_EQUIP = :no_items_to_equip
     INVENTORY_TITLE = :inventory_title
     SHOP_INTRO = :shop_intro
+    GUILD_INVITE_INTRO = :guild_invite_intro
+    GUILD_INVITE_DIALOG = :guild_invite_dialog
+    GUILD_INVITE_PARTY_DIALOG = :guild_invite_party_dialog
+    GUILD_INVITE_END = :guild_invite_end
+    ASK_OUTSIDE_DESTINATION = :ask_outside_destination
     FIRST_INTRO = :first_intro
     NEW_MEMBERS_INTRO = :new_members_intro
     RETURN_INTRO = :return_intro
