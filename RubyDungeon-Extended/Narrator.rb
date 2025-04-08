@@ -203,18 +203,16 @@ class Narrator
     end
 
     def self.guild_invite_party
-        Narrator.write(LocaleKey::GUILD_INVITE_INTRO)
-        Narrator.pause_text
-        Narrator.write(LocaleKey::GUILD_INVITE_PARTY_DIALOG)
-        Narrator.pause_text
-        Narrator.write(LocaleKey::GUILD_INVITE_END)
-        Narrator.pause_text
+        guild_invite(LocaleKey::GUILD_INVITE_PARTY_DIALOG)
     end
 
-    def self.guild_invite_player
+    def self.guild_invite(dialog = LocaleKey::GUILD_INVITE_DIALOG)
+        recruter = Character.new(Recruter)
         Narrator.write(LocaleKey::GUILD_INVITE_INTRO)
         Narrator.pause_text
-        Narrator.write(LocaleKey::GUILD_INVITE_DIALOG)
+        recruter.show
+        recruter_dialog = recruter.make_dialog_box(dialog)
+        Narrator.write(recruter_dialog.get_ascii)
         Narrator.pause_text
         Narrator.write(LocaleKey::GUILD_INVITE_END)
         Narrator.pause_text

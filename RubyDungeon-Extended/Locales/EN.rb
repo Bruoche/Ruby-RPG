@@ -388,16 +388,8 @@ class EN
             ""
         ],
         LocaleKey::GUILD_INVITE_INTRO => "While you were following your usual route, an imposing man approach you, a jovial expression plastered on his face.",
-        LocaleKey::GUILD_INVITE_PARTY_DIALOG => [
-            "\"Ay, y'all are adventurers right?",
-            "A guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.",
-            "You lot seems quite tough, I'm sure you'll feel right at home there. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.\""
-        ],
-        LocaleKey::GUILD_INVITE_DIALOG => [
-            "\"Ay, you are an adventurer right?",
-            "A guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.",
-            "You seems quite tough, I'm sure you'll feel right at home there. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.\""
-        ],
+        LocaleKey::GUILD_INVITE_PARTY_DIALOG => "Ay, y'all are adventurers right?\nA guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.\nYou lot seems quite tough, I'm sure you'll feel right at home. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.",
+        LocaleKey::GUILD_INVITE_DIALOG => "Ay, you are an adventurer right?\nA guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.\nYou seems quite tough, I'm sure you'll feel right at home. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.",
         LocaleKey::GUILD_INVITE_END => "Before you can answer, the man hands you invites to the Adventurer's Guild and leave.",
         LocaleKey::ASK_OUTSIDE_DESTINATION => [
             "Where do you want to go?",
@@ -819,6 +811,7 @@ class EN
             "Looking up, you notice a gaping hole tearing the roof.",
             "The rubbles covering the ground seems to indicate that it collapsed from a higher layer."
         ],
+        LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Hello traveler.\nPlease, do not hesitate to observe my wares and tell me if anything catches your eyes.",
         LocaleKey::SHOPKEEPER_IDLE_DIALOGS => [

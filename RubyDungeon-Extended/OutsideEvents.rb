@@ -11,7 +11,7 @@ class OutsideEvents
                 if party.size > 1
                     Narrator.guild_invite_party
                 else
-                    Narrator.guild_invite_player
+                    Narrator.guild_invite
                 end
                 ask_destination(party, outside_shop, guild)
             else

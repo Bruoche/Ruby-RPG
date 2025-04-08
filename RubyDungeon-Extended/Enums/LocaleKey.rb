@@ -529,6 +529,7 @@ module LocaleKey
     CAVES_LOOT_ROPE = :cave_loot_rope
     OPEN_CAVE = :open_cave
     OPEN_CAVE_DESCRIPTION = :open_cave_description
+    PLACEHOLDER_ARRAY = :placeholder_array
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
     SHOPKEEPER_IDLE_DIALOGS = :shopkeeper_idle_dialogs

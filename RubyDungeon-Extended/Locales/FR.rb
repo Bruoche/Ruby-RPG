@@ -388,16 +388,8 @@ class FR
             ""
         ],
         LocaleKey::GUILD_INVITE_INTRO => "Alors que vous preniez votre route usuelle, un homme imposant vous approche, une expression joviale peinte sur son visage.",
-        LocaleKey::GUILD_INVITE_PARTY_DIALOG => [
-            "\"Eh vous, vous êtes des aventuriers aussi n'est-ce pas ?",
-            "Une guilde à récemment été ouverte au centre du village pour servir de base d'opération à ceux qui explorent la tour nouvellement apparue.",
-            "Vous semblez bien gaillards, je suis sûr que vous vous sentiriez comme chez vous là-bas. Et puis, on a de la bière et de l'équipement à vendre, je suis sûr que vous y trouverez votre bonheur.\""
-        ],
-        LocaleKey::GUILD_INVITE_DIALOG => [
-            "\"Eh vous, vous êtes aventurier aussi n'est-ce pas? ",
-            "Une guilde à récemment été ouverte au centre du village pour servir de base d'opération à ceux qui explorent la tour nouvellement apparue.",
-            "Vous semblez robuste, je suis sûr que vous vous sentiriez comme chez vous là-bas. Et puis, on a de la bière et de l'équipement à vendre, je suis sûr que vous y trouverez votre bonheur.\""
-        ],
+        LocaleKey::GUILD_INVITE_PARTY_DIALOG => "Eh vous, vous êtes des aventuriers aussi n'est-ce pas ?\nUne guilde à récemment été ouverte au centre du village pour servir de base d'opération à ceux qui explorent la tour nouvellement apparue.\nVous semblez bien gaillards, je suis sûr que vous vous sentiriez comme chez vous là-bas. Et puis, on a de la bière et de l'équipement à vendre, je suis sûr que vous y trouverez votre bonheur.",
+        LocaleKey::GUILD_INVITE_DIALOG => "Eh vous, vous êtes aventurier aussi n'est-ce pas?\nUne guilde à récemment été ouverte au centre du village pour servir de base d'opération à ceux qui explorent la tour nouvellement apparue.\nVous semblez robuste, je suis sûr que vous vous sentiriez comme chez vous là-bas. Et puis, on a de la bière et de l'équipement à vendre, je suis sûr que vous y trouverez votre bonheur.",
         LocaleKey::GUILD_INVITE_END => "Avant que vous ne puissiez répondre, l'homme vous tend une carte d'invitation à la Guilde des Aventuriers et reprend son chemin.",
         LocaleKey::ASK_OUTSIDE_DESTINATION => [
             "Où souhaitez vous aller ?",
@@ -819,6 +811,7 @@ class FR
             "En relevant votre regard, vous remarquez un gouffre béant s'ouvrant dans le plafond.",
             "Les décombres jonchant le sol semblent indiquer que ce dernier c'est effondré à un étage supérieur."
         ],
+        LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
         LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Bonjour voyageur.\nJe vous prie, n'hésitez pas à observer mes marchandises et me dire si quoi que ce soit attise votre curiosité.",
         LocaleKey::SHOPKEEPER_IDLE_DIALOGS => [
