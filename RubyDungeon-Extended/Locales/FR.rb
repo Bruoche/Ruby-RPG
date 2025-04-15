@@ -397,6 +397,20 @@ class FR
             "    1) La Guilde des Aventuriers",
             "    2) Magasin ambulant"
         ],
+        LocaleKey::GUILD_DESCRIPTION => [
+            "Lorsque vous entrez dans le grand bâtiment logeant la Guilde des Aventuriers, ",
+            "Vous êtes accueilli par une grande salle ouverte remplie de combattants et du brouhaha des nombreuses discussions joviales prenant place autour des tablées placées en face d'un bar.",
+            "Cette vue vous fait vous rendre compte du nombre énorme de personnes s'étant déplacées tout comme vous pour tirer parti de la tour récemment apparue.",
+            "Sur votre gauche, vous remarquez également qu'une forge et une petite échoppe ont été installées dans le bâtiment, offrant des équipements variés.",
+            "",
+            "L'ambiance, bien que bruyante, s'avère généralement chaleureuse, et cela vous réconforte après tout ce temps passé dans la froide solitude du donjon."
+        ],
+        LocaleKey::ASK_GUILD_ACTION => [
+            "Que souhaitez-vous faire ?",
+            "    0) Sortir de la guilde",
+            "    1) Aller à la forge",
+            "    2) Aller au magasin"
+        ],
         LocaleKey::FIRST_INTRO => [
             "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
             "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
@@ -818,12 +832,12 @@ class FR
             "Alors, quelque chose vous interesse dans mon étalage ?",
             "Dites-moi si vous avez besoin de quoi que ce soit."
         ],
-        LocaleKey::SHOPKEEER_CONVERSATION_STARTER => [
+        LocaleKey::SHOPKEEPER_CONVERSATION_STARTER => [
             "Puis-je faire quoi que ce soit pour vous ?",
             "Mh ?",
             "Une question à me poser ?"
         ],
-        LocaleKey::SHOPKEEER_CONVERSATION_KEEPER => [
+        LocaleKey::SHOPKEEPER_CONVERSATION_KEEPER => [
             "Quoi que ce soit d'autre que vous vouliez savoir ?",
             "Vouliez-vous demander quelque chose d'autre ?",
             "Puis-je aider avec autre chose ?",
@@ -836,6 +850,33 @@ class FR
             "Huh ?",
             "Pardon, mais je ne comprends pas ce que vous voulez dire par là.",
             "Je ne suis pas sûr de comprendre."
+        ],
+        LocaleKey::ALCHEMIST_NAME => "Alchimiste",
+        LocaleKey::ALCHEMIST_INTRO_DIALOG => "Salutation aventurier.\nTout ce qu'est à vendre est sur les étagères, et si vous avez une question, n'hésitez pas, je suis là pour ça.",
+        LocaleKey::ALCHEMIST_IDLE_DIALOGS => [
+            "Besoin de quelque chose ?",
+            "Des questions ?",
+            "Hésitez pas si quelque chose vous attire l'oeuil.",
+            "Tout ce passe bien ?"
+        ],
+        LocaleKey::ALCHEMIST_CONVERSATION_STARTER => [
+            "Vous souhaitiez me demander quelque chose ?",
+            "Oui ?",
+            "Puis-je vous aider ?"
+        ],
+        LocaleKey::ALCHEMIST_CONVERSATION_KEEPER => [
+            "D'autres questions ?",
+            "C'était tout ce que vous souhaitiez demander ?",
+            "Autre choses ?",
+            "Et sinon vous faut-il autre chose ?",
+            "N'hésitez pas si vous avez d'autres questions."
+        ],
+        LocaleKey::ALCHEMIST_UNKNOWN_DIALOGS => [
+            "Pardon, mais je n'ai pas compris.",
+            "Pourriez vous répéter ça ?",
+            "Je ne suis pas sûre de comprendre...",
+            "Mes excuses, mais je n'ai pas saisie votre question.",
+            "Hein ?"
         ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [

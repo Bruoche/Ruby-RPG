@@ -265,6 +265,8 @@ module LocaleKey
     GUILD_INVITE_PARTY_DIALOG = :guild_invite_party_dialog
     GUILD_INVITE_END = :guild_invite_end
     ASK_OUTSIDE_DESTINATION = :ask_outside_destination
+    GUILD_DESCRIPTION = :guild_description
+    ASK_GUILD_ACTION = :ask_guild_action
     FIRST_INTRO = :first_intro
     NEW_MEMBERS_INTRO = :new_members_intro
     RETURN_INTRO = :return_intro
@@ -533,9 +535,15 @@ module LocaleKey
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
     SHOPKEEPER_IDLE_DIALOGS = :shopkeeper_idle_dialogs
-    SHOPKEEER_CONVERSATION_STARTER = :shopkeeper_conversation_starter
-    SHOPKEEER_CONVERSATION_KEEPER = :shopkeeper_conversation_keeper
+    SHOPKEEPER_CONVERSATION_STARTER = :shopkeeper_conversation_starter
+    SHOPKEEPER_CONVERSATION_KEEPER = :shopkeeper_conversation_keeper
     SHOPKEEPER_UNKNOWN_DIALOGS = :shopkeeper_unknown_dialogs
+    ALCHEMIST_NAME = :alchemist_name
+    ALCHEMIST_INTRO_DIALOG = :alchemist_intro_dialog
+    ALCHEMIST_IDLE_DIALOGS = :alchemist_idle_dialogs
+    ALCHEMIST_CONVERSATION_STARTER = :alchemist_conversation_starter
+    ALCHEMIST_CONVERSATION_KEEPER = :alchemist_conversation_keeper
+    ALCHEMIST_UNKNOWN_DIALOGS = :alchemist_unknown_dialogs
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
     BOSS_CELL_REQ_REFUSE = :boss_cell_req_refuse

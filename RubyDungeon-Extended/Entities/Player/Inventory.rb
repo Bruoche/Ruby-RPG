@@ -198,13 +198,13 @@ class Inventory
         return !Player::ACTED
     end
 
-    def choose_bundle_to_sell(player)
+    def choose_bundle_to_sell(player, retail_coeff)
         sellable_bundles = get_sellable_items
         if sellable_bundles.length > 0
             bundle_index = Narrator.ask_paginated(
                 LocaleKey::ASK_ITEM_TO_SELL,
                 sellable_bundles, -> (bundle, index){
-                    item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, Shop::RETAIL_PERCENT))
+                    item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, retail_coeff))
                     item_frame.frame
                     return item_frame
                 },

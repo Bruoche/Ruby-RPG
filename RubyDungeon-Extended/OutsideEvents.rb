@@ -2,7 +2,8 @@ class OutsideEvents
     GUILD_LEVEL = 20
 
     def self.play(party)
-        outside_shop = Shop.new
+        MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+        outside_shop = OutsideShop.new
         guild = Guild.new
         if party.got_status?(GuildMember)
             ask_destination(party, outside_shop, guild)
@@ -29,6 +30,7 @@ class OutsideEvents
         for player in party.get_players
             destination_is_dungeon = false
             while !destination_is_dungeon
+                MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
                 if (player.get_level >= GUILD_LEVEL) && (!player.has_status?(GuildMember))
                     player.set_status(GuildMember.new)
                 end

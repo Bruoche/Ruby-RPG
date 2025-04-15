@@ -372,8 +372,8 @@ class Player
         return @stats.get_equipment.manage(@inventory, @name)
     end
 
-    def choose_item_to_sell
-        @inventory.choose_bundle_to_sell(self)
+    def choose_item_to_sell(retail_coeff)
+        @inventory.choose_bundle_to_sell(self, retail_coeff)
     end
 
     def add_status(status)

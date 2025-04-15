@@ -163,7 +163,7 @@ class ASCIIPicture
             (' ♠ ' + player.get_intelligence.to_s).ljust(ICON_SIZE.div(2)),
             ' ♦ ' + player.get_agility_to_string,
             ' ' + player.get_status_icons,
-            ' ' + player.get_quantity_of(Shop::CURRENCY).to_s + ' ¤'
+            ' ' + player.get_quantity_of(Shop::DEFAULT_CURRENCY).to_s + ' ¤'
         ]
     end
 

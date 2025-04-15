@@ -218,6 +218,13 @@ class Narrator
         Narrator.pause_text
     end
 
+    def self.describe_guild
+        ASCIIPrinter.print('guild_hall')
+        Narrator.add_space_of(1)
+        Narrator.write(LocaleKey::GUILD_DESCRIPTION)
+        Narrator.add_space_of(1)
+    end
+
     def self.introduction(party)
         Narrator.add_space_of(1)
         ASCIIPrinter.print('title')

@@ -397,6 +397,20 @@ class EN
             "    1) The Adventurer's Guild",
             "    2) Small shop"
         ],
+        LocaleKey::GUILD_DESCRIPTION => [
+            "When you enter the large building where the Adventurer's Guild is hosted, ",
+            "You are greeted by a large open hall, filled with fighters and bustling with the jovial discussions surrounding the tables set in front of a bar.",
+            "The sight of this put into perspective just how many people decided to move here to explore that recently discovered tower.",
+            "On your left, you also notice that a forge and some small shop had been set-up inside the building, offering various useful equipment.",
+            "",
+            "Though it is noisy there, the warm ambiance of this place comforts you after all the time spent in the cold loneliness of the dungeon."
+        ],
+        LocaleKey::ASK_GUILD_ACTION => [
+            "What do you want to do?",
+            "    0) Exit the guild",
+            "    1) Go to the forge",
+            "    2) Go to the shop"
+        ],
         LocaleKey::FIRST_INTRO => [
             "You are not quite sure of your reason to come to this place.",
             "But whether you search for treasure, power or simply knowledge,",
@@ -818,12 +832,12 @@ class EN
             "So, found anything interesting?",
             "Tell me if you need anything."
         ],
-        LocaleKey::SHOPKEEER_CONVERSATION_STARTER => [
+        LocaleKey::SHOPKEEPER_CONVERSATION_STARTER => [
             "Anything I can do for you?",
             "Mh?",
             "A question you wanted to ask?"
         ],
-        LocaleKey::SHOPKEEER_CONVERSATION_KEEPER => [
+        LocaleKey::SHOPKEEPER_CONVERSATION_KEEPER => [
             "Anything else you wanted to know?",
             "Wanted to ask something else?",
             "So can I help with anything else?",
@@ -836,6 +850,33 @@ class EN
             "Huh?",
             "Sorry, but I don't understand what you mean by this.",
             "I'm not sure I'm understanding this well..."
+        ],
+        LocaleKey::ALCHEMIST_NAME => "Alchimist",
+        LocaleKey::ALCHEMIST_INTRO_DIALOG => "Hello adventurer.\nEverything I have to sell is on the shelves, and if you have any questions, don't hesitate to ask. I'm here for that.",
+        LocaleKey::ALCHEMIST_IDLE_DIALOGS => [
+            "Need anything?",
+            "Any questions?",
+            "Don't hesitate if anything catches your eye.",
+            "Is everything going alright?"
+        ],
+        LocaleKey::ALCHEMIST_CONVERSATION_STARTER => [
+            "Wanted to ask me something?",
+            "Yes?",
+            "May I help you?"
+        ],
+        LocaleKey::ALCHEMIST_CONVERSATION_KEEPER => [
+            "Any other questions?",
+            "Was that all you wanted to ask?",
+            "Anything else?",
+            "Anyway, did you need anything else?",
+            "Don't hesitate if you have any other questions."
+        ],
+        LocaleKey::ALCHEMIST_UNKNOWN_DIALOGS => [
+            "Sorry, but I didn't understand.",
+            "Could you please repeat?",
+            "I don't think I understood that well...",
+            "My apologies, but I don't think I got that right...",
+            "What?"
         ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
