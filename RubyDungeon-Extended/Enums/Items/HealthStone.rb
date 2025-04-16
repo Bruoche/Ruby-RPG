@@ -1,7 +1,7 @@
 class HealthStone < Item
     NAME = LocaleKey::HEALTH_STONE_NAME
     SOUND = 'health_stone'
-#    PICTURE = ''
+    PICTURE = 'health_stone'
 
     def initialize(turns, life_min, life_max = life_min)
         @life = rand(life_min.to_i..life_max.to_i)
