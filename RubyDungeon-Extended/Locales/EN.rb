@@ -227,6 +227,12 @@ class EN
             "Terminal info:",
             "Press [Ctrl + C] to close the game.",
             "Press [Alt + Enter] to put the game in fullscreen.",
+            "",
+            "For an optimal experience, ensure you see four grey squares under this text:",
+            "░ ▒ ▓ █",
+            "",
+            "If that's not the case, please change your terminal settings to select a font that support these characters",
+            "(for exemple: Consolas)",
             ""
         ],
         LocaleKey::WARNING_POP_UP_OPTIONS => [

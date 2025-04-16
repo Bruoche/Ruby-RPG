@@ -227,6 +227,12 @@ class FR
             "Infos sur le terminal :",
             "Presser [Ctrl + C] fermera le jeu.",
             "Presser [Alt + Entrée] met le jeu en plein écran.",
+            "",
+            "Pour une experience optimale, assurez vous de bien voir quatres nuances de gris ci-dessous :",
+            "░ ▒ ▓ █",
+            "",
+            "Si vous ne voyez pas quatres carrés ci-dessus, veuillez changer vos paramètres de terminal pour selectionner une police supportant ces caractères",
+            "(par exemple : Consolas)",
             ""
         ],
         LocaleKey::WARNING_POP_UP_OPTIONS => [
