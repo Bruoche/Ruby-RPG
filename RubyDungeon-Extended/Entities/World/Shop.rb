@@ -1,6 +1,7 @@
 class Shop
     TRANSACTION_DONE = true
     DEFAULT_CURRENCY = Coins.new
+    NO_SIGN = nil
 
     def self.inherited(child)
         TracePoint.trace(:end) do |t|
@@ -14,6 +15,9 @@ class Shop
                 unless child.const_defined?(:MUSIC)
                     child.const_set(:MUSIC, MusicManager::NO_MUSIC)
                 end
+                unless child.const_defined?(:SIGN)
+                    child.const_set(:SIGN, NO_SIGN)
+                end
             end
         end
     end
@@ -21,6 +25,7 @@ class Shop
     def initialize()
         @shopkeeper = Character.new(self.class::SHOPKEEPER)
         @inventory = self.class::INVENTORY
+        @sign = self.class::SIGN
     end
 
     def get_music
@@ -71,8 +76,10 @@ class Shop
     end
 
     def show_sign
-        for line in ASCIIPicture.new(ASCIIPrinter::PREFIX + ASCIIPrinter::UNSCALABLE_PREFIX + 'shop_sign').get_ascii
-            Narrator.write(Utils.center(line, TTY::Screen.width))
+        if @sign != NO_SIGN
+            for line in ASCIIPicture.new(ASCIIPrinter::PREFIX + ASCIIPrinter::UNSCALABLE_PREFIX + @sign).get_ascii
+                Narrator.write(Utils.center(line, TTY::Screen.width))
+            end
         end
     end
 

@@ -7,6 +7,7 @@ class OutsideShop < Shop
     RETAIL_PERCENT = 85
     MUSIC = 'Merchant'
     SHOPKEEPER = ShopKeeper
+    SIGN = 'shop_sign'
     INVENTORY = [
         Bundle.new(HealthPotion.new(10), 1),
         Bundle.new(HealthPotion.new(20), 1),
