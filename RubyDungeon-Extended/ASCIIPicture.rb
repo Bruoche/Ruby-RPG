@@ -133,7 +133,7 @@ class ASCIIPicture
             picture[1].ljust(ICON_SIZE) + ' | ',
             picture[2].ljust(ICON_SIZE) + ' | ' + player.healthbar(ICON_SIZE - 2) + ' ',
             picture[3].ljust(ICON_SIZE) + ' | ' + "(#{player.health_to_string} ♥)",
-            picture[4].ljust(ICON_SIZE) + ' | ',
+            picture[4].ljust(ICON_SIZE) + ' | ' + player.get_status_icons,
             picture[5].ljust(ICON_SIZE) + ' | ' + strength_string + physical_defense_string,
             picture[6].ljust(ICON_SIZE) + ' | ' + ' ♠ ' + player.get_intelligence.to_s,
             picture[7].ljust(ICON_SIZE) + ' | ' + ' ♦ ' + player.get_agility_to_string

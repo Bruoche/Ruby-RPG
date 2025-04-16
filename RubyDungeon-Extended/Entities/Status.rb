@@ -33,10 +33,14 @@ class Status
 
     def get_save_data
         if @duration == INFINITE && self.class::SAVED
-            return self.class.name
+            return build_save_data
         else
             return ''
         end
+    end
+
+    def build_save_data
+        return self.class.name
     end
 
     def length
@@ -62,7 +66,7 @@ class Status
             if @duration == INFINITE
                 duration_string = ''
             else
-                duration_string = ' (' + @duration.to_s + ')'
+                duration_string = '(' + @duration.to_s + ')'
             end
             return self.class::ICON + duration_string
         end
@@ -89,6 +93,6 @@ class Status
     end
 
     def end_of_turn_action(host)
-        #no default behavior on statuses
+        #status do nothing by default
     end
 end

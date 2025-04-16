@@ -14,9 +14,9 @@ class HealthPotion < Item
 
     def use(target, user)
         if target == user
-            Narrator.health_potion_use_self(user.get_name)
+            Narrator.use_self(user.get_name, LocaleKey::HEALTH_POTION_USE_SELF)
         else
-            Narrator.health_potion_use_other(user.get_name, target.get_name)
+            Narrator.use_other(user.get_name, target.get_name, LocaleKey::HEALTH_POTION_USE_OTHER)
         end
         play_sound
         target.heal(@soin)

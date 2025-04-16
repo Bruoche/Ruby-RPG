@@ -327,6 +327,8 @@ module LocaleKey
     COIN_TOSS_RESULT = :coin_toss_result
     HEALTH_POTION_USE_SELF = :health_potion_use_self
     HEALTH_POTION_USE_OTHER = :health_potion_use_other
+    HEALTH_STONE_USE_SELF = :health_stone_use_self
+    HEALTH_STONE_USE_OTHER = :health_stone_use_other
     TELEPORTER_FAIL = :teleporter_fail
     TELEPORTER_START = :teleporter_start
     KNIGHT_SLASH = :knight_slash
@@ -564,6 +566,8 @@ module LocaleKey
     DEVNOTE_DESCRIPTION = :devnote_description
     HEALTH_POTION_NAME = :health_potion_name
     HEALTH_POTION_DESCRIPTION = :health_potion_description
+    HEALTH_STONE_NAME = :health_stone_name
+    HEALTH_STONE_DESCRIPTION = :health_stone_description
     PRISON_KEY_NAME = :prison_key_name
     PRISON_KEY_DESCRIPTION = :prison_key_description
     TELEPORTER_NAME = :teleporter_name

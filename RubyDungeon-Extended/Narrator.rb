@@ -541,12 +541,12 @@ class Narrator
         Narrator.write(format(Locale.get_localized(LocaleKey::COIN_TOSS_RESULT), result))
     end
 
-    def self.health_potion_use_self(user_name)
-        Narrator.write(format(Locale.get_localized(LocaleKey::HEALTH_POTION_USE_SELF), user_name.capitalize))
+    def self.use_self(user_name, use_dialog)
+        Narrator.write(format(Locale.get_localized(use_dialog), user_name.capitalize))
     end
 
-    def self.health_potion_use_other(user_name, target_name)
-        Narrator.write(format(Locale.get_localized(LocaleKey::HEALTH_POTION_USE_OTHER), {
+    def self.use_other(user_name, target_name, use_dialog)
+        Narrator.write(format(Locale.get_localized(use_dialog), {
             LocaleKey::F_SOURCE => user_name.capitalize,
             LocaleKey::F_TARGET => target_name
         }))

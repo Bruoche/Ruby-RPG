@@ -173,8 +173,8 @@ class Player
         while !acted
             MusicManager.get_instance.set_ambiance(@room.get_biome::EXPLORATION_TRACK, @room.get_biome::COMBAT_TRACK)
             acted = @controller.act
-            @status_handler.end_of_turn_actions(self)
         end
+        @status_handler.end_of_turn_actions(self)
     end
 
     def stop_fighting
