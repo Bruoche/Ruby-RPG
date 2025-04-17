@@ -406,6 +406,7 @@ module LocaleKey
     ASK_HEAL_TARGET = :ask_heal_target
     ASK_DESTINATION = :ask_destination
     ASK_ITEM_TAKEN = :ask_item_taken
+    ASK_ITEM_IN_STACK = :ask_item_in_stack
     ASK_CORPULENCE = :ask_corpulence
     ASK_EARS = :ask_ears
     ASK_NOSE = :ask_nose

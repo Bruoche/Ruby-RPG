@@ -615,6 +615,7 @@ class EN
         LocaleKey::ASK_EQUIPPED_ARMOR => "What armor piece do you want to equip?",
         LocaleKey::ASK_REMOVED_ARMOR => "What armor piece do you want to remove?",
         LocaleKey::NO_ARMOR_EQUIPPED => "No armor equipped for %s",
+        LocaleKey::ASK_ITEM_IN_STACK => "Which do you choose specifically?",
         LocaleKey::ASK_ITEM_TO_USE => "What item do you want to use?",
         LocaleKey::USAGE_EQUIP => "Equip",
         LocaleKey::USAGE_USE => "Use",

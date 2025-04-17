@@ -111,7 +111,7 @@ class BundleStack
         if @bundles.size == 1
             return @bundles[0]
         end
-        bundle_index = Narrator.ask("placeholder", @bundles, -> (bundle) {to_string(bundle)}, player_name) #TODO localise
+        bundle_index = Narrator.ask(LocaleKey::ASK_ITEM_IN_STACK, @bundles, -> (bundle) {to_string(bundle)}, player_name)
         if bundle_index == Narrator::RETURN_BUTTON
             return NO_ITEM_CHOSEN
         else
