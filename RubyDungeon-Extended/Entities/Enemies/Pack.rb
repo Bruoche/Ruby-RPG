@@ -5,8 +5,8 @@ class Pack
         monsters = biome.get_monsters
         for monster_data in monsters
             monster = MonsterFactory.make_monster(monster_data, biome, monsters.length)
-            @monsters.push(monster)
-            @initial_monsters.push(monster)
+            @monsters.append(monster)
+            @initial_monsters.append(monster)
         end
     end
 

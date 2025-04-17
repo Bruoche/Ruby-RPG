@@ -7,11 +7,11 @@ class Boss < Monster
         power_bonus = (boss::POWER_BONUS * multiplayer_scaling).truncate
         @weakpoints = Array.new
         for weakpoint in boss::WEAKPOINTS
-            @weakpoints.push(Weakpoint.new(weakpoint, power_bonus.div(boss::WEAKPOINTS.length)))
+            @weakpoints.append(Weakpoint.new(weakpoint, power_bonus.div(boss::WEAKPOINTS.length)))
         end
         @bodyparts = Array.new
         for bodypart in boss::BODYPARTS
-            @bodyparts.push(Bodypart.new(bodypart, power_bonus.div(boss::BODYPARTS.length)))
+            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss::BODYPARTS.length)))
         end
         @name = Name.new(boss)
         @initial_power = get_power

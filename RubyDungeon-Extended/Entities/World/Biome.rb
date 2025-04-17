@@ -67,7 +67,7 @@ class Biome
                 bundle = loot.get_item
                 bundle.get_item.play_sound
                 sleep Settings::BATTLE_ACTION_PAUSE
-                loots.push(bundle)
+                loots.append(bundle)
             end
         end
         return loots
@@ -76,7 +76,7 @@ class Biome
     def self.get_entry_requirements
         requirements = Array.new
         for requirement in self::ENTRY_REQUIREMENTS
-            requirements.push(EntryRequirement.new(requirement))
+            requirements.append(EntryRequirement.new(requirement))
         end
         return requirements
     end

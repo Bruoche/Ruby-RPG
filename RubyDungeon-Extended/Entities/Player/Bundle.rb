@@ -5,7 +5,7 @@ class Bundle
     end
 
     def get_name
-        suffix = get_string_numbering
+        suffix = Utils.get_string_numbering(@quantity)
         if suffix != ''
             suffix = ' ' + suffix
         end
@@ -29,7 +29,7 @@ class Bundle
     end
 
     def get_description(override_description = '')
-        numbering = get_string_numbering
+        numbering = Utils.get_string_numbering(@quantity)
         if numbering != ''
             numbering = numbering + ' '
         end
@@ -64,14 +64,6 @@ class Bundle
         return @quantity
     end
 
-    def get_string_numbering
-        if @quantity != 1
-            return "(x#{@quantity})"
-        else
-            return ''
-        end
-    end
-
     def get_save_data
         if @quantity > 0
             return (@item.get_save_data + '; ') * @quantity
@@ -84,7 +76,7 @@ class Bundle
         return @item.usable_on_others?
     end
 
-    def contain?(item)
+    def contains?(item)
         return item.get_save_data == @item.get_save_data
     end
 

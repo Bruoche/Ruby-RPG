@@ -79,4 +79,12 @@ class Utils
         end
         return multiline_string
     end
+
+    def self.get_string_numbering(number)
+        if number != 1
+            return "(x#{number})"
+        else
+            return ''
+        end
+    end
 end

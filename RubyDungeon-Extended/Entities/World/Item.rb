@@ -19,6 +19,9 @@ class Item
                 unless child.const_defined?(:DROP_QUANTITY_SCALABLE)
                     child.const_set(:DROP_QUANTITY_SCALABLE, child::DROP_CHANCE_SCALABLE)
                 end
+                unless child.const_defined?(:PLURAL_NAME)
+                    child.const_set(:PLURAL_NAME, 'items') #TODO localise
+                end
             end
         end
     end

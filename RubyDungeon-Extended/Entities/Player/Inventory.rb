@@ -3,12 +3,11 @@ class Inventory
         @bundles = Array.new
     end
 
-    def have?(item, quantity = 1)
+    def have?(item, quantity_required = 1)
         for bundle in @bundles
-            if bundle.contain?(item);
-                if bundle.get_quantity >= quantity
-                    return true
-                end
+            quantity = bundle.get_quantity(item)
+            if quantity >= quantity_required
+                return true
             end
         end
         return false
@@ -16,8 +15,8 @@ class Inventory
 
     def count(item)
         for bundle in @bundles
-            if bundle.contain?(item)
-                return bundle.get_quantity
+            if bundle.contains?(item)
+                return bundle.get_quantity(item)
             end
         end
         return 0
@@ -33,30 +32,43 @@ class Inventory
 
     def load(items)
         if items != nil
+            bundles_by_class = {}
             items.split('; ').tally.each do |item_data, amount|
                 item = Item.load(item_data)
-                @bundles.push(Bundle.new(item, amount))
+                item_class = item.class.name
+                if (bundles_by_class[item_class] == nil)
+                    bundles_by_class[item_class] = []
+                end
+                bundles_by_class[item_class].append(Bundle.new(item, amount))
+            end
+            bundles_by_class.each do |bundle_class, bundles|
+                loaded_bundle = BundleStack.new(bundle_class)
+                loaded_bundle.set(bundles)
+                @bundles.append(loaded_bundle)
             end
         end
     end
 
     def add(item_bundle)
         for bundle in @bundles
-            if bundle.contain?(item_bundle.get_item)
-                bundle.add(item_bundle.get_quantity)
+            if bundle.contains_class?(item_bundle.get_item.class)
+                bundle.append(item_bundle)
                 return
             end
         end
-        @bundles.append(item_bundle)
+        new_bundle = BundleStack.new(item_bundle.get_item.class)
+        new_bundle.append(item_bundle)
+        @bundles.append(new_bundle)
     end
 
     def remove(item, quantity = 1)
         for bundle in @bundles
-            if bundle.contain?(item)
-                bundle.remove(quantity)
+            if bundle.contains?(item)
+                bundle.remove(item, quantity)
                 if bundle.depleted?
                     @bundles.delete_at(@bundles.index(bundle))
                 end
+                return
             end
         end
     end
@@ -91,7 +103,7 @@ class Inventory
         if @bundles.length > 0
             Narrator.item_possessed_title
             for bundle in @bundles
-                Narrator.list(to_string(bundle))
+                Narrator.list(bundle.get_name)
             end
         else
             Narrator.no_items_to_use
@@ -99,17 +111,16 @@ class Inventory
     end
 
     def get_all(item_type)
-        well_typed_items = []
         for bundle in @bundles
-            if bundle.get_item.is_a? item_type
-                well_typed_items.append(bundle)
+            if bundle.contains_class? item_type
+                return bundle.get_all
             end
         end
-        return well_typed_items
+        return []
     end
 
     def ask_usage(player, bundle, allies)
-        if bundle.get_item.is_a? Armor
+        if bundle.item_class == Armor
             usage_text = Locale.get_localized(LocaleKey::USAGE_EQUIP)
         else
             usage_text = Locale.get_localized(LocaleKey::USAGE_USE)
@@ -129,12 +140,14 @@ class Inventory
     end
 
     def ask_use(player, bundle, allies)
-        if bundle.get_item.is_a? Armor
-            equipment = bundle.get_item
-            precedent_equipment = player.equip(equipment)
-            remove(equipment)
-            if precedent_equipment != EquipmentSlot::NO_ARMOR_EQUIPPED
-                add(Bundle.new(precedent_equipment, 1))
+        if bundle.item_class == Armor
+            equipment = bundle.get_item(player)
+            if equipment != BundleStack::NO_ITEM_CHOSEN
+                precedent_equipment = player.equip(equipment)
+                remove(equipment)
+                if precedent_equipment != EquipmentSlot::NO_ARMOR_EQUIPPED
+                    add(Bundle.new(precedent_equipment, 1))
+                end
             end
             return !Player::ACTED
         else
@@ -175,25 +188,33 @@ class Inventory
         end
     end
 
-    def give(bundle, reciever, giver)
+    def give(bundle_stack, reciever, giver)
+        bundle = bundle_stack.choose_bundle(giver.get_name)
+        if bundle == BundleStack::NO_ITEM_CHOSEN
+            return !Player::ACTED
+        end
         if bundle.get_quantity > 1
-            Narrator.ask_quantity_given(bundle.get_name)
-            amount = Narrator::user_input(giver.get_name)
-            if amount != amount.to_i.to_s
-                Narrator.unsupported_choice_error
-                return give(bundle, reciever, giver)
-            end
-            amount = amount.to_i
-            if amount < 0
-                Narrator.negative_quantity_error
-                return give(bundle, reciever, giver)
+            amount_choosen = false
+            while !amount_choosen
+                Narrator.ask_quantity_given(bundle.get_name)
+                amount = Narrator::user_input(giver.get_name)
+                if amount != amount.to_i.to_s
+                    Narrator.unsupported_choice_error
+                else
+                    amount = amount.to_i
+                    if amount < 0
+                        Narrator.negative_quantity_error
+                    else
+                        amount_choosen = true
+                    end
+                end
             end
         else
             amount = 1
         end
-        reciever.give_item(bundle.remove(amount))
-        if bundle.depleted?
-            @bundles.delete_at(@bundles.index(bundle))
+        reciever.give_item(bundle_stack.remove(bundle.get_item, amount))
+        if bundle_stack.depleted?
+            @bundles.delete_at(@bundles.index(bundle_stack))
         end
         return !Player::ACTED
     end
@@ -249,8 +270,8 @@ class Inventory
     def get_sellable_items
         sellable_bundles = []
         for bundle in @bundles
-            if bundle.get_value > 0
-                sellable_bundles.append(bundle)
+            for sellable_bundle in bundle.get_sellables
+                sellable_bundles.append(sellable_bundle)
             end
         end
         return sellable_bundles
@@ -258,11 +279,11 @@ class Inventory
 
     private
 
-    def to_string(item)
-        if item == Narrator::RETURN_BUTTON
+    def to_string(bundle)
+        if bundle == Narrator::RETURN_BUTTON
             return Locale.get_localized(LocaleKey::GO_BACK)
         else
-            return item.get_description
+            return bundle.get_description
         end
     end
 end

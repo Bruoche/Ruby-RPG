@@ -437,6 +437,7 @@ module LocaleKey
     ASK_CONFIRMATION_SELLING = :ask_confirmation_selling
     ASK_ITEM_BOUGHT = :ask_item_bought
     ASK_CONFIRM_PURCHASE = :ask_confirm_purchase
+    ARMORS_PLURAL = :armors_plural
     BLACK_LEATHER_GAUNTLETS_NAME = :black_leather_gauntlet_name
     BLACK_LEATHER_GAUNTLETS_DESC = :black_leather_guantlet_desc
     BLACK_LEATHER_GREAVES_NAME = :black_leather_greaves_name
@@ -566,8 +567,10 @@ module LocaleKey
     DEVNOTE_DESCRIPTION = :devnote_description
     HEALTH_POTION_NAME = :health_potion_name
     HEALTH_POTION_DESCRIPTION = :health_potion_description
+    HEALTH_POTION_PLURAL = :health_potion_plural
     HEALTH_STONE_NAME = :health_stone_name
     HEALTH_STONE_DESCRIPTION = :health_stone_description
+    HEALTH_STONE_PLURAL = :health_stone_plural
     PRISON_KEY_NAME = :prison_key_name
     PRISON_KEY_DESCRIPTION = :prison_key_description
     TELEPORTER_NAME = :teleporter_name
