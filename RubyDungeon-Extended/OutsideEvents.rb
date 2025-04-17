@@ -19,6 +19,7 @@ class OutsideEvents
                 Narrator.introduction_shop
                 for player in party.get_players
                     go_to(player, outside_shop)
+                    SoundManager.play('footsteps')
                 end
             end
         end
@@ -46,6 +47,7 @@ class OutsideEvents
                     Narrator.unsupported_choice_error
                 end
             end
+            SoundManager.play('footsteps')
         end
     end
 
