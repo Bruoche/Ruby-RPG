@@ -1,5 +1,6 @@
 class Teleporter < Item
     NAME = LocaleKey::TELEPORTER_NAME
+    NAME_PLURAL = LocaleKey::TELEPORTER_PLURAL
     SOUND = 'key'
     PICTURE = 'teleporter'
     USABLE_ON_OTHERS = false

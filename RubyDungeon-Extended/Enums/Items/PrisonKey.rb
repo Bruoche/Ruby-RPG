@@ -1,5 +1,6 @@
 class PrisonKey < Item
     NAME = LocaleKey::PRISON_KEY_NAME
+    PLURAL_NAME = LocaleKey::PRISON_KEY_PLURAL
     SOUND = 'key'
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = true

@@ -9,7 +9,12 @@ class Bundle
         if suffix != ''
             suffix = ' ' + suffix
         end
-        return Locale.get_localized(@item.get_name) + suffix
+        if @quantity > 1
+            name = @item.get_plural
+        else
+            name = @item.get_name
+        end
+        return Locale.get_localized(name) + suffix
     end
 
     def get_value(percentage = 100)
@@ -41,7 +46,12 @@ class Bundle
         if description != ''
             description = ', ' + description
         end
-        return "#{numbering}#{Locale.get_localized(@item.get_name)}#{description}"
+        if @quantity > 1
+            name = @item.get_plural
+        else
+            name = @item.get_name
+        end
+        return "#{numbering}#{Locale.get_localized(name)}#{description}"
     end
 
     def get_card_description

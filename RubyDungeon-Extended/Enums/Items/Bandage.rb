@@ -1,5 +1,6 @@
 class Bandage < Item
     NAME = LocaleKey::BANDAGES_NAME
+    PLURAL_NAME = LocaleKey::BANDAGES_PLURAL
     SOUND = 'bandage'
 
     def initialize

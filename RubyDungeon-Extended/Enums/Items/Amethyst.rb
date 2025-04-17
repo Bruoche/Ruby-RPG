@@ -1,5 +1,6 @@
 class Amethyst < Item
     NAME = LocaleKey::AMETHYST_NAME
+    PLURAL_NAME = LocaleKey::AMETHYST_PLURAL
     SOUND = 'gold_coins'
     PICTURE = 'amethyst'
     USABLE_ON_OTHERS = false

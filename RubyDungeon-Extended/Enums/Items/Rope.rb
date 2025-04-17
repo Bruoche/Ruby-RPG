@@ -1,5 +1,6 @@
 class Rope < Item
     NAME = LocaleKey::ROPE_NAME
+    PLURAL_NAME = LocaleKey::ROPE_PLURAL
     SOUND = 'paper'
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = false

@@ -19,9 +19,6 @@ class Item
                 unless child.const_defined?(:DROP_QUANTITY_SCALABLE)
                     child.const_set(:DROP_QUANTITY_SCALABLE, child::DROP_CHANCE_SCALABLE)
                 end
-                unless child.const_defined?(:PLURAL_NAME)
-                    child.const_set(:PLURAL_NAME, 'items') #TODO localise
-                end
             end
         end
     end
@@ -42,6 +39,10 @@ class Item
 
     def get_name
         return Locale.get_localized(self.class::NAME)
+    end
+
+    def get_plural
+        return Locale.get_localized(self.class::PLURAL_NAME)
     end
 
     def get_value(percentage = 100)

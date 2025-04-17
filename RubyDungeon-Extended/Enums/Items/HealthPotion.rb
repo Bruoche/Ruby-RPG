@@ -1,8 +1,8 @@
 class HealthPotion < Item
     NAME = LocaleKey::HEALTH_POTION_NAME
+    PLURAL_NAME = LocaleKey::HEALTH_POTION_PLURAL
     SOUND = 'potion'
     PICTURE = 'health_potion'
-    PLURAL_NAME = LocaleKey::HEALTH_POTION_PLURAL
 
     def initialize(soin_min, soin_max = soin_min)
         @soin = rand(soin_min.to_i..soin_max.to_i)

@@ -1,5 +1,6 @@
 class Coins < Item
     NAME = LocaleKey::COINS_NAME
+    PLURAL_NAME = LocaleKey::COINS_PLURAL
     SOUND = 'gold_coins'
     USABLE_ON_OTHERS = false
     COIN_TOSS_DURATION = 1.71

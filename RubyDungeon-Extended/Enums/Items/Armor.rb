@@ -1,8 +1,8 @@
 class Armor < Item
+    PLURAL_NAME = LocaleKey::ARMORS_PLURAL
     ICON_PREFIX = 'Armor/'
     AVERAGE_RETAIL_COEFF = 0.9
     LEVEL_GAP = 10
-    PLURAL_NAME = LocaleKey::ARMORS_PLURAL
 
     def initialize(armor_data)
         if armor_data.is_a? String
