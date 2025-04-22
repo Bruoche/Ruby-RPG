@@ -15,48 +15,10 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_INTRO_ALLIANCE
         ),
         Dialog.new(
-            DialogID::OLD_SOLDIER,
-            LocaleKey::DIAL_ALCHEMIST_KEY_OLD_SOLDIER,
-            LocaleKey::DIAL_ALCHEMIST_TXT_OLD_SOLDIER,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_OLD_SOLDIER
-        ),
-        Dialog.new(
-            DialogID::POULAINES,
-            LocaleKey::DIAL_ALCHEMIST_KEY_POULAINES,
-            LocaleKey::DIAL_ALCHEMIST_TXT_POULAINES,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_POULAINES
-        ),
-        Dialog.new(
-            DialogID::CHOPINES,
-            LocaleKey::DIAL_ALCHEMIST_KEY_CHOPINES,
-            LocaleKey::DIAL_ALCHEMIST_TXT_CHOPINES
-        ),
-        Dialog.new(
-            DialogID::GAMBESON,
-            LocaleKey::DIAL_ALCHEMIST_KEY_GAMBESON,
-            LocaleKey::DIAL_ALCHEMIST_TXT_GAMBESON
-        ),
-        Dialog.new(
-            DialogID::HOUPPELANDE,
-            LocaleKey::DIAL_ALCHEMIST_KEY_HOUPPELANDE,
-            LocaleKey::DIAL_ALCHEMIST_TXT_HOUPPELANDE,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_HOUPPELANDE
-        ),
-        Dialog.new(
             DialogID::ESCOFFION,
             LocaleKey::DIAL_ALCHEMIST_KEY_ESCOFFION,
             LocaleKey::DIAL_ALCHEMIST_TXT_ESCOFFION,
             LocaleKey::DIAL_ALCHEMIST_INTRO_ESCOFFION
-        ),
-        Dialog.new(
-            DialogID::HAUBERK,
-            LocaleKey::DIAL_ALCHEMIST_KEY_HAUBERK,
-            LocaleKey::DIAL_ALCHEMIST_TXT_HAUBERK
-        ),
-        Dialog.new(
-            DialogID::CERVELIERE,
-            LocaleKey::DIAL_ALCHEMIST_KEY_CERVELIERE,
-            LocaleKey::DIAL_ALCHEMIST_TXT_CERVELIERE
         ),
         Dialog.new(
             DialogID::TELECRYSTAL,
@@ -94,11 +56,6 @@ module Alchemist
             DialogID::RESUSCITATE,
             LocaleKey::DIAL_ALCHEMIST_KEY_RESUSCITATE,
             LocaleKey::DIAL_ALCHEMIST_TXT_RESUSCITATE
-        ),
-        Dialog.new(
-            DialogID::WHERE_DUNGEON,
-            LocaleKey::DIAL_ALCHEMIST_KEY_WHERE_DUNGEON,
-            LocaleKey::DIAL_ALCHEMIST_TXT_WHERE_DUNGEON
         ),
         Dialog.new(
             DialogID::DUNGEON_INTERIOR,
@@ -143,34 +100,6 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_KEY_GENDER,
             LocaleKey::DIAL_ALCHEMIST_TXT_GENDER,
             LocaleKey::DIAL_ALCHEMIST_INTRO_GENDER
-        ),
-        Dialog.new(
-            DialogID::ARMOR_WEIGHT,
-            LocaleKey::DIAL_ALCHEMIST_KEY_ARMOR_WEIGHT,
-            LocaleKey::DIAL_ALCHEMIST_TXT_ARMOR_WEIGHT
-        ),
-        Dialog.new(
-            DialogID::ARMOR_PROTECTION,
-            LocaleKey::DIAL_ALCHEMIST_KEY_ARMOR_PROTECTION,
-            LocaleKey::DIAL_ALCHEMIST_TXT_ARMOR_PROTECTION
-        ),
-        Dialog.new(
-            DialogID::AGILITY,
-            LocaleKey::DIAL_ALCHEMIST_KEY_AGILITY,
-            LocaleKey::DIAL_ALCHEMIST_TXT_AGILITY,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_AGILITY
-        ),
-        Dialog.new(
-            DialogID::HEALTH,
-            LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH,
-            LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH
-        ),
-        Dialog.new(
-            DialogID::STRENGH,
-            LocaleKey::DIAL_ALCHEMIST_KEY_STRENGTH,
-            LocaleKey::DIAL_ALCHEMIST_TXT_STRENGTH,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_STRENGTH
         ),
         Dialog.new(
             DialogID::INTELLIGENCE,
@@ -226,8 +155,7 @@ module Alchemist
         Dialog.new(
             DialogID::WEATHER,
             LocaleKey::DIAL_ALCHEMIST_KEY_WEATHER,
-            LocaleKey::DIAL_ALCHEMIST_TXT_WEATHER,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_WEATHER
+            LocaleKey::DIAL_ALCHEMIST_TXT_WEATHER
         ),
         Dialog.new(
             DialogID::SEASON,
@@ -236,7 +164,7 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_INTRO_SEASON
         ),
         Dialog.new(
-            DialogID::MARTON,
+            DialogID::CALLING,
             LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME,
             LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME
         ),
@@ -254,14 +182,12 @@ module Alchemist
         Dialog.new(
             DialogID::ADVENTURER,
             LocaleKey::DIAL_ALCHEMIST_KEY_ADVENTURER,
-            LocaleKey::DIAL_ALCHEMIST_TXT_ADVENTURER,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_ADVENTURER
+            LocaleKey::DIAL_ALCHEMIST_TXT_ADVENTURER
         ),
         Dialog.new(
             DialogID::YEAR,
             LocaleKey::DIAL_ALCHEMIST_KEY_YEAR,
-            LocaleKey::DIAL_ALCHEMIST_TXT_YEAR,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_YEAR
+            LocaleKey::DIAL_ALCHEMIST_TXT_YEAR
         ),
         Dialog.new(
             DialogID::GOLD,
@@ -277,14 +203,7 @@ module Alchemist
         Dialog.new(
             DialogID::STUPID,
             LocaleKey::DIAL_ALCHEMIST_KEY_STUPID,
-            LocaleKey::DIAL_ALCHEMIST_TXT_STUPID,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_STUPID
-        ),
-        Dialog.new(
-            DialogID::HOW_YOU_DOIN,
-            LocaleKey::DIAL_ALCHEMIST_KEY_HOW_YOU_DOIN,
-            LocaleKey::DIAL_ALCHEMIST_TXT_HOW_YOU_DOIN,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_HOW_YOU_DOIN
+            LocaleKey::DIAL_ALCHEMIST_TXT_STUPID
         ),
         Dialog.new(
             DialogID::OTHER_GOD,
@@ -300,8 +219,7 @@ module Alchemist
         Dialog.new(
             DialogID::HELLO,
             LocaleKey::DIAL_ALCHEMIST_KEY_HELLO,
-            LocaleKey::DIAL_ALCHEMIST_TXT_HELLO,
-            LocaleKey::DIAL_ALCHEMIST_INTRO_HELLO
+            LocaleKey::DIAL_ALCHEMIST_TXT_HELLO
         )
     ]
 end

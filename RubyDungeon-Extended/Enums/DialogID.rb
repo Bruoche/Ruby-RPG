@@ -30,7 +30,7 @@ module DialogID
     HOW_YOU_DOIN = 'how_you_doin'
     INTELLIGENCE = 'intelligence'
     LOST_KNIGHT = 'lost_knight'
-    MARTON = 'marton'
+    CALLING = 'calling'
     NAME = 'name'
     NOT_FROM_HERE = 'not_from_here'
     NOT_HELPING = 'not_helping'

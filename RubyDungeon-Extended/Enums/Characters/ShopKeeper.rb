@@ -184,6 +184,7 @@ module ShopKeeper
         Dialog.new(
             DialogID::RECOMMENDATION,
             LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION,
             LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION
         ),
         Dialog.new(
@@ -240,7 +241,7 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON
         ),
         Dialog.new(
-            DialogID::MARTON,
+            DialogID::CALLING,
             LocaleKey::DIAL_SHOPKEEPER_KEY_MERCHANT_NAME,
             LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
         ),

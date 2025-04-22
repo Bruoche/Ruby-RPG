@@ -1100,7 +1100,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["Je suis navré d'apprendre ça."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_OLD_SOLDIER => ["vieux|vieil|vieille|vieilles|ancien|ancienne|anciens|anciennes", "soldat|soldats|soldate|soldates|armure|armures|casque|casques|plastron|plastrons|protection|protections"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_OLD_SOLDIER => [
-            "cette armure était employée par les soldats il y'a bien longtemps. Mais ce modèle a été réutilisé et réparé pour lui offrir une seconde vie dans nötre monde moderne.",
+            "cette armure était employée par les soldats il y'a bien longtemps. Mais ce modèle a été réutilisé et réparé pour lui offrir une seconde vie dans nôtre monde moderne.",
             "Comme vous pouvez le deviner de par son prix, ce n'est pas l'armure à la conception la plus élaborée. Mais, vous ne trouverez pas meilleure protection pour un prix ci bas.\nDonc, elle peut être un excellent choix si votre budget est limité."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER => "Ah oui, ",
@@ -1128,7 +1128,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Ah oui, le chapeau cornu.",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HAUBERK => ["haubert|hauberts|hauber|haubers"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HAUBERK => [
-            "L'haubert est une robe de maille qui offre une grande protection, et nötre modèle viens avec un surcot complementaire pour une couverture additionnelle.",
+            "L'haubert est une robe de maille qui offre une grande protection, et nôtre modèle viens avec un surcot complementaire pour une couverture additionnelle.",
             "C'est l'une de nos pièces les plus chères, mais, vous ne trouverez pas de pièce plus protectrice dans cette humble échoppe."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_CERVELIERE => ["lourd|lourde|cervelière|cerveliere|cervelieres|cervelières", "cervelière|cerveliere|cervelieres|cervelières|casque|casques"],
@@ -1144,7 +1144,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Ah oui, le télé-cristal. Mon article le plus précieux.",
         LocaleKey::DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["où|chemin|route|vers", "donjon|tour|donjons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON => ["Le donjon est juste en bas de la petite route, sur la droite en quittant le magasin.\nVous devriez pas le rater, des pannaux l'indiquant ont récemment été ajoutés."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GENDER => ["tu|t|est|es", "garçon|garcon|homme|mec|fille|femme|dame|meuf"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_GENDER => ["vous|tu|t|etes|est|es", "garçon|garcon|homme|mec|fille|femme|dame|meuf"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GENDER => ["Je suis un homme."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_GENDER => "N'est-ce pas évident ?... ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_SUPPLIER => ["stocks|stock|fournisseur|cargaisons|cargaison|livraisons|livraison|livre|fourni|fournis|livre|livré|fournir|livrer|marchandise|marchandises", "où|d|de|qui"],
@@ -1202,8 +1202,8 @@ class FR
         LocaleKey::DIAL_ALCHEMIST_KEY_ALLIANCE => ["quoi|grande|pourquoi|quand|comment|dire|parler", "alliance|allience"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ALLIANCE => [
             "la \"Grande Allience\" est un traité signé originellement dans les royaumes nordiques, en 1340.",
-            "C'était initialement un traité principalement militaire, mais a mené ensuite à des échanges, devenant également un accord commercial et c'est consécutivement élargi vers d'autres nations majeures dans le continent durant les années 50.\nCela jusqu'en 1485, où nötre cher pay le Royaume du Livrou les a rejoin.",
-            "Cet accord à part la suite été renouvelé en 1402, officialisant le nom de \"Grande Allience\". Lorsqu'il fut renouvelé, l'accord inclua également un grand nombre de pays dans le continent, et quelques pays mitoyen à nötre continent dans le Sud.\nC'est aussi depuis ce renouvellement que la pièce d'or standard à commencée à remplacer les monnaies locales, toujours pour simplifier les échanges internationaux."
+            "C'était initialement un traité principalement militaire, mais a mené ensuite à des échanges, devenant également un accord commercial et c'est consécutivement élargi vers d'autres nations majeures dans le continent durant les années 50.\nCela jusqu'en 1385, où nôtre cher pay le Royaume du Livrou les a rejoin.",
+            "Cet accord à part la suite été renouvelé en 1402, officialisant le nom de \"Grande Allience\". Lorsqu'il fut renouvelé, l'accord inclua également un grand nombre de pays dans le continent, et quelques pays mitoyen à nôtre continent dans le Sud.\nC'est aussi depuis ce renouvellement que la pièce d'or standard à commencée à remplacer les monnaies locales, toujours pour simplifier les échanges internationaux."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_ALLIANCE => "De mémoire, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH_POTION => ["soin|vie|soins|vies", "potion|potions"],
@@ -1241,7 +1241,7 @@ class FR
             "Si ce que disent les locaux est factuel, alors tout porte à croire que cette tour est dûe à un phénomène magique, et serait donc certainement un acte intentionnel.",
             "La question ainsi devient, qui a souhaité la placer là, et quel en est le but ?\nPour l'instant rien ne semble démontrer une réelle utilité au lieu pour une personne qui la posséderait, mais le donjon semble être le terrain de jeux idéal pour un aventurier. Se pourrait-il donc qu'il soit donc une création ayant été faite dans le seul but d'entretenir de telles activités ? Un lieu conçu et créé pour être pillé et sacage éternellement ?",
             "Et si tel est le cas, est-ce que cette tour a été faite pour que son créateur même puisse en profiter, ou est-ce qu'elle a été faite pour permettre d'atirer des aventuriers vers elle ?",
-            "Tellement de questions... Et si peu d'informations pour en tirer des conclusions fiables... Je ne peux que difficilement contenir mon empressement de pouvoir en apprendre plus via les récits des avneturiers rentrant de leurs explorations."
+            "Tellement de questions... Et si peu d'informations pour en tirer des conclusions fiables... Je ne peux que difficilement contenir mon empressement de pouvoir en apprendre plus via les récits des aventuriers rentrant de leurs explorations."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_DUNGEON => "Un lieu facinant. ",
         LocaleKey::DIAL_ALCHEMIST_KEY_HOLY_EMPIRE => ["saint|sain", "empire|pays|royaume"],
@@ -1252,171 +1252,109 @@ class FR
         LocaleKey::DIAL_ALCHEMIST_KEY_NAME => ["ton|ta|t|votre|tu|vous", "appelle|appelez|nomme|nommez|prénom|prenom|nom"],
         LocaleKey::DIAL_ALCHEMIST_TXT_NAME => ["Je m'appelle Nicolette, fille de Musa al-Bakir."],
         LocaleKey::DIAL_ALCHEMIST_KEY_AGE => ["ton|ta|t|votre|tu|vous", "age|vieux|jeune"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_AGE => ["j'ai 37 ans."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_AGE => "Je ne vois pas en quoi ça vous concerne, mais si vous êtes si curieux ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_ARMOR_WEIGHT => ["armure|armures|casque|haume|plastron|jambières|bottes|chaussures|chausses|gants|gantlets", "poid|poids|lourd|lourde|lourdes|medium|moyen|moyenne|moyennes|léger|légère|legere|légères|legeres|leger|kg"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ARMOR_WEIGHT => [
-            "Le poids d'une armure affectera majoritairement votre agilité.\nIl sera bien plus dûr de bouger avec un armure particulièrement lourde, et dans des cas extrêmes il peut même s'avérer difficile de frapper vos ennemis avec une armure qu'est trop lourde pour vous.",
-            "Toutes les armures ne sont pas à poids égal en revanche, les armures les moins cher seront très lourde pour la protection qu'elles offrent, tandi que les plus chères emploies des méthodes de manufactures avancées avec des matériaux de haute qualité permettant une très bonne protection pour leur poids."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_ARMOR_PROTECTION => ["armure|armures|casque|haume|plastron|jambières|bottes|chaussures|chausses|gants|gantlets", "protection|protège|protege|protectrice|force|defense|défense"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ARMOR_PROTECTION => [
-            "La protection d'une armure est un moyen bien plus fiable d'éviter les blessures que d'essayer d'esquiver tous les coups envoyés vers vous.\nUne bonne armure peut vous rendre invincible, et pourra au moins augmenter vos chances de survies dans le donjon lorsqu'elle vous va bien."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_AGILITY => ["agilité|agilite|agilitée|agilitee|agile|discretion|discrétion|discret|discrète|discrete|furtivité|furtivite|furtive|furtif"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_AGILITY => [
-            "l'agilité peut être un talent utile dans un endroit aussi dangereux que ce donjon. Pouvoir passer inaperçu et éviter les coups ennemis pourrait bien sauver votre vie.",
-            "Aussi, si c'est votre style, l'armure légère sera votre meilleur choix, vous protégeant sans bloquer vos mouvements."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_AGILITY => "Je ne vois pas pourquoi vous me demandez ça, mais ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH => ["santé|sante|santee|santée|vie"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH => [
-            "une bonne santée est crucialle pour tout aventurier. Si vous veniez à être griévement blessé vous auriez tout à perdre. Donc, assurez-vous d'être dans votre meilleure forme lorsque vous vous aventurez plus profondément dans le donjon."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH => "Je ne devrais pas avoir besoin de vous le dire, mais ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_STRENGTH => ["force|fort|muscles|muscle|musculature"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_STRENGTH => [
-            "la force est un moyen sûr d'écraser vos ennemis, mais la force brute ne peut pas aller bien loin si vous finissez assailli sans une bonne défense pour aller avec.",
-            "Je ne peux que trop peu vous conseiller d'investir dans une bonne armure pour couvrir ces biceps, préférablement de l'armure moyenne voire légère qui ne restreindra pas vos mouvements."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_STRENGTH => "A mon humble opinion, ",
+        LocaleKey::DIAL_ALCHEMIST_TXT_AGE => ["j'ai 28 ans."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_AGE => "Vous savez, il n'est pas poli de demander l'âge d'une dame, heh? Mais, si ça vous intéresse tant, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_INTELLIGENCE => ["intelligence|intelligent|intelligente|malin|magie"],
         LocaleKey::DIAL_ALCHEMIST_TXT_INTELLIGENCE => [
-            "Si vous êtes plus du genre malin vous feriez peut-être bien d'employer de la magie dans les donjons. Bien qu'elle n'est pas toujours fiable c'est aussi un outil puissant pouvant écraser de larges groupes d'ennemis et vous soigner vous et vos alliers"
+            "La magie est un domaine très large, étant intimement lié à la science. Mais, de manière grossière, c'est tout ce qui concerne la canalisation de l'énergie présente à la fois dans l'ame des sorciers et de leurs environemment afin d'établir des résultats désirables."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_ADVICES => ["conseil|astuce|conseils|astuces|aide|aides|conseiller|aider"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ADVICES => [
-            "si vous voulez mon avis, vous feriez mieux de ne pas vous aventurer trop profondément sans de bonnes préparations.",
-            "Bien que beaucoup disent pouvoir revenir à la vie dans le donjon, il est clair que beaucoup sont entrés dans le donjon sans jamais être revus.\nEt pour ceux qui reviennent, peu ont gardés toute leur têtes.",
-            "Donc, si vous avez déjà trouvé un peu d'or là-bas, mieux vaut remonter et garder ce trésor en sécurité à la surface.\nEt puis, tant que vous y êtes, vous pourriez toujours en profiter pour dépenser quelques pièces ici."
+            "Tout ce que je peux vous dire avec mon expertise, c'est de ne rien boire dans un laboratoire, et de se méfier de tout objet magique si vous ne savez pas ce qu'ils font.",
+            "À moins d'être un alchimiste comme moi, évidemment, moi je bois ce que je veux dans mon labo.\n\nMais j'évite quand même généralement, presque tout y est toxique..."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ADVICES => "Je ne suis pas un aventurier, mais ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_DISCOUNTS => ["gratuit|ristourne|ristournes|gratuits|promo|promos|cadeau|cadeaux|offrir|donner"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_DISCOUNTS => ["c'est pas une oeuvre de charité ici.\nJe ne peux pas faire de profits si je passe mon temps à donner des ristournes au premier qui demande."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_DISCOUNTS => "Désolé, mais ",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_ADVICES => "Je ne suis pas une combattante, et, si vous êtes arrivés jusqu'ici, vous êtes probablement bien plus capables que moi pour survivre dans le donjon.\n",
+        LocaleKey::DIAL_ALCHEMIST_KEY_DISCOUNTS => ["gratuit|ristourne|ristournes|gratuits|promo|promos|cadeau|cadeaux|offrir|donner|remises|remise"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_DISCOUNTS => ["le prix est le prix. Sinon ça serait injuste pour les autres avanturiers qui n'ont pas de remises."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_DISCOUNTS => "Je suis désolée, mais ",
         LocaleKey::DIAL_ALCHEMIST_KEY_TOO_EXPENSIVE => ["ici|là|toi|tes|t|tu|vous|vos|votre|ce|trop|haut|inabordable", "prix|tarif|tarifs|haut|cher|haut|inabordable|arnaque|arnaqueur|arnaqueuse|douille"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_TOO_EXPENSIVE => ["Pour ma part mes prix me semblent bien dans leurs valeurs marchandes.", "Mais, je m'excuse tout de même si mes marchandises dépassent votre budget."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_TOO_EXPENSIVE => "Ah bon ?\n",
+        LocaleKey::DIAL_ALCHEMIST_TXT_TOO_EXPENSIVE => ["si vous êtes à court je suis sûre que vous trouverez de quoi vous remplir les poches dans la tour."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_TOO_EXPENSIVE => "Ah, je suis navré d'entendre ça...\nMais, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_HAVE_YOU => ["avez|avez-vous|a-tu|a|vend|vendez|possède|détient|possede|detient|vendrais|vendriez|possedez|possèderiez|possederiez|auriez|vends", "tu|t|vous"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HAVE_YOU => ["Tout ce que je vends est sur les étagères, regardez par vous-même.", "Je m'excuse d'avance si quoi que ce soit que vous cherchez manque."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_HAVE_YOU => [
+            "Tout mes articles à vendre sont exposés sur les étagères, mais si vous cherchez d'autres types d'équipements n'hésitez pas à rendre visite à mon collègue d'en face, le forgeron.",
+            "Peut-être que lui aura ce que vous cherchez."
+        ],
         LocaleKey::DIAL_ALCHEMIST_KEY_FUCK_YOU => ["nique|baise|foutre|niquer|baiser|enculer|enculé|encule|niquez|enculez|baisez", "mère|toi|faire|vous|votre|mere|pere|père|parent|parents|vos"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_FUCK_YOU => ["Les aventuriers ici n'ont décidémment aucune manière.\nEst-ce que l'aura de la tour vous monte à la tête ou vous n'avez juste jamais été éduqué ?"],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_FUCK_YOU => "Quelle impolitesse.\n",
+        LocaleKey::DIAL_ALCHEMIST_TXT_FUCK_YOU => ["On est dans un lieu convivial ici, et je ne vois pas ce qui justifie une telle hostilité dans tout les cas."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_FUCK_YOU => "Woah, détente l'ami.\n",
         LocaleKey::DIAL_ALCHEMIST_KEY_GET_LOST => ["va|brule|brûle|part|allez|aller|partez|brulez|brûlez", "enfer|perdu|perdre|crever|creuver|crevez|creuvez|brulez|brûlez|bruler|brûler"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GET_LOST => ["je vous en souhaite tout autant.", "Maintenant, si on pouvait se concentrer sur les achats, s'il vous plaît.\nVous êtes dans un magasin après tout."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GET_LOST => "Oui, oui, ",
+        LocaleKey::DIAL_ALCHEMIST_TXT_GET_LOST => ["", "Je ne fais qu'essayer d'aider."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GET_LOST => "Pourquoi ? ",
         LocaleKey::DIAL_ALCHEMIST_KEY_THREAT => ["tuer|assassiner|tué|assassiné|blesser|frapper|buter|buté|blessé|frappé|mal", "te|t|vous"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_THREAT => ["vous n'êtes plus dans le donjon, là. Les actions ont des conséquences ici."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_THREAT => "Oh, donc vous tentez de me menacer, hein ?\nPermettez-moi de vous rappeler que ",
+        LocaleKey::DIAL_ALCHEMIST_TXT_THREAT => ["je vous déconseille fortement la violence dans une salle remplie de guerriers aguerris."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_THREAT => "Peu importe votre raison pour dire une telle chose, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_HOW_YOU_DOIN => ["comment|ça|tu|vous|t", "va|bien|sent|allez|sentez"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HOW_YOU_DOIN => ["je vais bien. Merci de demander."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_HOW_YOU_DOIN => "Et bah, ",
+        LocaleKey::DIAL_ALCHEMIST_TXT_HOW_YOU_DOIN => ["Je me porte bien, merci, qu'en est-il de vous, l'ami ?"],
         LocaleKey::DIAL_ALCHEMIST_KEY_HELLO => ["salut|yo|bonjour|salutations|salutation"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HELLO => ["Bonjour. Encore."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_HELLO => "Oh... Euh... ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME => ["márton|marton|orban|orbán"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME => ["Oui, c'est mon nom."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_HELLO => ["Re-bonjour."],
+        LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME => ["Nicolette|Nicolet|Nikolette|Nikolet|Nicole|Nikole"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME => ["C'est moi, oui."],
         LocaleKey::DIAL_ALCHEMIST_KEY_VILLAGE => ["village|ici|ville|villageois|villageoi|habitant|habitants|endroit|coin|région|region|où"],
         LocaleKey::DIAL_ALCHEMIST_TXT_VILLAGE => [
-            "C'est un village de campagne plutôt standard ici, il se passerait pas grand chose si c'était pas pour l'apparition de cette tour.",
-            "En revanche, même avec toutes les nouvelles échoppes s'installant dans le coin, l'odeur déplaisante du bétail reste.\nD'ailleurs, le prenez pas mal, mais on peut en dire tout autant de vos camarades aventuriers. Beaucoup passent leur temps à faire des allers retours dans la tour sans prendre de bain entre chaque, et rien que de se tenir près d'eux s'avère difficile."
+            "Le coin n'est pas aussi vivant qu'en ville, mais, avec cette guilde on a quand même du beau monde à voir donc je ne m'ennuie pas trop.",
+            "Pour ce qu'est des locaux en revanche, on sent que les mentalités sont plus fermées.\nOn sent que notre arrivée est mal vue dès que la guilde s'est installée.",
+            "Et puis, je sais pas si c'est mon apparence ou mes recherches, mais j'ai parfois l'impression qu'ils me regardent tout particulièrement mal..."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_YEAR => ['quelle|quand|est|somme', 'quand|année|moment'],
-        LocaleKey::DIAL_ALCHEMIST_TXT_YEAR => ["nous sommes en l'an 1414."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_YEAR => "Hein? Vous voullez dire, vous avez oublié en quelle année on est ?... J'veux dire, bien sûr, ",
+        LocaleKey::DIAL_ALCHEMIST_TXT_YEAR => ["Nous sommes l'automne 1414, 10ème cycle lunaire de l'année."],
         LocaleKey::DIAL_ALCHEMIST_KEY_NOT_HELPING => ["pas|non|aucune|aucunnement", "utile|aide|aides|utilité|utilitée|utilités|utilitées"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_NOT_HELPING => ["Je suis navré d'apprendre ça."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_OLD_SOLDIER => ["vieux|vieil|vieille|vieilles|ancien|ancienne|anciens|anciennes", "soldat|soldats|soldate|soldates|armure|armures|casque|casques|plastron|plastrons|protection|protections"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_OLD_SOLDIER => [
-            "cette armure était employée par les soldats il y'a bien longtemps. Mais ce modèle a été réutilisé et réparé pour lui offrir une seconde vie dans nötre monde moderne.",
-            "Comme vous pouvez le deviner de par son prix, ce n'est pas l'armure à la conception la plus élaborée. Mais, vous ne trouverez pas meilleure protection pour un prix ci bas.\nDonc, elle peut être un excellent choix si votre budget est limité."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_OLD_SOLDIER => "Ah oui, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_POULAINES => ["poulaines|poulaine"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_POULAINES => ["très à la mode en ce moment.\nUn choix étonnant pour un aventurier, aucun doute là-dessus, mais si vous vous souciez plus du style que de la protection, elle sont faites pour vous."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_POULAINES => "Ah ça, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_CHOPINES => ["chopines|chopine"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_CHOPINES => ["Un choix parfait pour les dames. Vous faisant paraître plus grand tout en ayant une touche feminine, ces chausses font toutes la rages dans les grandes courts.\nEn revanche, pour ce qui serait des donjons ça serait un coup à vous briser une cheville ou deux."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_GAMBESON => ["jaque|jaques"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GAMBESON => [
-            "Une jaque est un bon moyen de vous protéger de manière abordable, et malgré son poids celle-ci est plutôt confortable.\nSa fabrication est simple, uniquement composée de nombreuses couches de tissus et de rembourrage amortissant les chocs.",
-            "Mais, celle-ci est un peu plus lourde que la moyenne, ayant une plaque métalique offrant une protection supplémentaire au torse, au coût d'un poids additionnel sur vos épaules."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_HOUPPELANDE => ["houpelande|houpelandes|houppelande|houppelandes"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HOUPPELANDE => [
-            "L'houppelande est un très beau costume à manches longues qui met formidablement bien en valeur la forme masculine.",
-            "Bien sûr, prendre un vêtement aussi beau dans les dangereux et sales couloirs du donjon n'est pas vraimment recomandé, mais je ne vous arrêterai pas si vous vous souciez de votre apparence tant que ça."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_HOUPPELANDE => "Ah tout à fait, un très bon choix. ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_ESCOFFION => ["chapeau|chapeaux|escoffion|escofion|escoffions|escofions", "cornu|cornus|cornue|cornues|escoffion|escofion|escoffions|escofions"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_NOT_HELPING => ["Désolée si mes renseignements ne satisfaissent pas votre curiosité."],
+        LocaleKey::DIAL_ALCHEMIST_KEY_ESCOFFION => ["chapeau|chapeaux|escoffion|escofion|escoffions|escofions", "votre|vous|ton|ta|tu|t|cornu|cornus|cornue|cornues|escoffion|escofion|escoffions|escofions"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ESCOFFION => [
-            "L'escoffion est la nouvelle coupe chic dans ce pays, et si vous voulez prendre part au mouvement ce chapeau est juste ce qu'il vous faut.",
-            "Je n'vais pas mentir sur le fait que personnellement je trouve cette mode un peu ridicule, mais, j'imagine que c'est dû à l'âge.\nEt puis, je ne viens pas du coin donc j'doit simplement pas être au fait de la culture locale."
+            "Je trouve que ça donne une sillouhette plus interessante que les couvres-chefs classiques, ça fait moins plat."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ESCOFFION => "Ah oui, le chapeau cornu.",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HAUBERK => ["haubert|hauberts|hauber|haubers"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HAUBERK => [
-            "L'haubert est une robe de maille qui offre une grande protection, et nötre modèle viens avec un surcot complementaire pour une couverture additionnelle.",
-            "C'est l'une de nos pièces les plus chères, mais, vous ne trouverez pas de pièce plus protectrice dans cette humble échoppe."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_CERVELIERE => ["lourd|lourde|cervelière|cerveliere|cervelieres|cervelières", "cervelière|cerveliere|cervelieres|cervelières|casque|casques"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_CERVELIERE => [
-            "Protéger le crâne est primordiale dans les dangereux couloirs du donjon.\nLa combinaison du casque lourd avec une cervelière est parfaite pour cela, offrant à votre cranium deux couches de protections épaisses, vous assurant d'éviter les commotions."
-        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_ESCOFFION => "Chouette coiffure, hein ?\n",
         LocaleKey::DIAL_ALCHEMIST_KEY_TELECRYSTAL => ["telecristal|tele|telecristaux|télécristal|télé|télécristaux", "telecristal|cristal|telecristaux|cristaux|télécristal|télécristaux"],
         LocaleKey::DIAL_ALCHEMIST_TXT_TELECRYSTAL => [
             "",
-            "C'est un artéfact magique puissant pouvant s'avérer très utile durant vos avantures. Que ça soit pour vous ramener à la sortie du donjon ou pour rejoindre un de vos alliers, ce cristal vous permettra de faire cela instantanément.",
-            "De plus, grâce au pouvoir incroyable de ce cristal, et à sa confection robuste, cet artéfact sera indéfiniment utilisable."
+            "Ils fonctionnent en trouvant des \"noeuds\" dans la fabrique de notre monde, et nous transporte à travers eux.",
+            "En revanche, cet outil était jusque là plutôt niche, puisqu'il ne permet d'aller qu'à certains endroits précis possédant ces lieux.",
+            "Mais les choses ont changées avec cette tour. Vraisemblablement, la porte d'entrée du donjon est en elle-même un noeud dimensionnel massif, et de même, le simple fait de se tenir dans ce donjon génère des noeuds tout autour de soi.",
+            "Ainsi, le télé-crystal est capable de transporter les aventuriers à la sortie ou vers les uns-les autres lorsqu'ils visitent la tour. Ce qui a ainsi grandement démocratisé cet outil auprès d'eux."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_TELECRYSTAL => "Ah oui, le télé-cristal. Mon article le plus précieux.",
-        LocaleKey::DIAL_ALCHEMIST_KEY_WHERE_DUNGEON => ["où|chemin|route|vers", "donjon|tour|donjons"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_WHERE_DUNGEON => ["Le donjon est juste en bas de la petite route, sur la droite en quittant le magasin.\nVous devriez pas le rater, des pannaux l'indiquant ont récemment été ajoutés."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_GENDER => ["tu|t|est|es", "garçon|garcon|homme|mec|fille|femme|dame|meuf"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GENDER => ["Je suis un homme."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GENDER => "N'est-ce pas évident ?... ",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_TELECRYSTAL => "Oh oui, ces bidules sont super intéressant.",
+        LocaleKey::DIAL_ALCHEMIST_KEY_GENDER => ["vous|tu|t|etes|est|es", "fille|femme|dame|meuf"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_GENDER => ["Cela n'a que peu d'importance"],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GENDER => "Qu'est-ce que ça peut vous faire ?",
         LocaleKey::DIAL_ALCHEMIST_KEY_SUPPLIER => ["stocks|stock|fournisseur|cargaisons|cargaison|livraisons|livraison|livre|fourni|fournis|livre|livré|fournir|livrer|marchandise|marchandises", "où|d|de|qui"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_SUPPLIER => ["Je fait mes stocks moi-même, puis-ce que je voyage de pays en pays, j'achète ce que chaque offre pour le vendre à ceux à qui ça manque."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_SUPPLIER => ["Toutes mes marchandises sont élaborées par mes soins, et les matières premières me sont fournies via le réseau de la guilde."],
         LocaleKey::DIAL_ALCHEMIST_KEY_WEATHER => ["météo|meteo|dehors|soleil|pluie|beau|pluvieux|pluvieu|nuageux|pluies|ensolleilé|ensoleillé|ensoleillement"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_WEATHER => ["il fait pas trop froid.", "J'apprécie pouvoir encore profiter d'un peu d'ensoleillement en rentrant du travail."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_WEATHER => "On a déjà vu mieux, mais ",
+        LocaleKey::DIAL_ALCHEMIST_TXT_WEATHER => ["Pour l'instant le temps ce tien encore, il fait plus chaud ici qu'au nord du pays en tout cas."],
         LocaleKey::DIAL_ALCHEMIST_KEY_SEASON => ["quelle", "saison|saisons"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_SEASON => ["nous sommes actuellement en automne.\n N'avez-vous pas vu que les arbres sont tous oranges ?"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_SEASON => ["Nous sommes en automne, bien qu'le temps est encore chaud dans cette région, on peux voir que les arbres commencent à perdre leurs feuilles."],
         LocaleKey::DIAL_ALCHEMIST_INTRO_SEASON => "Hum, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_ADVENTURER => ["aventurier|aventuriers|explorateur|explorateurs|nous"],
+        LocaleKey::DIAL_ALCHEMIST_KEY_ADVENTURER => ["mercenaire|mercenaria|aventurier|aventuriers|explorateur|explorateurs|nous"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ADVENTURER => [
-            "les aventuriers représentent la majorité de ma clientèle, il serait donc bête de ne pas apprécier leur présence.",
-            "Mais j'admets qu'ils ne se valent pas tous, et beaucoup sont particulièrement mal éduqués.",
-            "Je les comprends en revanche, sincèrement.\nC'est dur de garder de bonnes manières quand nos vies sont toujours menacées et que les batailles et le travail manuel nous endurcissent.",
-            "Même moi, je me vois devenir victime de cette mentalité alors que j'accumule les voyages, donc je ne peux qu'avoir de l'empathie pour ces aventuriers."
+            "Bien qu'étant membre de la guilde des aventuriers, je ne suis pas une aventurière moi-même. Ce que vous pouvez probablement deviner rien qu'en regardant comment j'm'habille d'ailleurs.",
+            "Mais, mon travail ici m'amène a régulièrement intéragir avec toutes sortes de gens comme vous.\nCe qu'est clair, c'est que la majorité d'eux se retrouvent dans ce milieu par nécessité. Quand on est sans le sou, il est dur de gagner assez pour vivre et donc le brigantisme et le mercenaria font parti des seules voies disponibles pour survivre quand on sait se battre, notemment pour ceux au passé criminel qui ne peuvent donc que difficilement se ré-insérer.\nEt, de part se postula, le mercenaria est probablement la meilleure option des deux.",
+            "Honnêtement j'espère que cette tour permettra à certains de trouver des conditions de vies plus stables, en offrant nombre de trésors dans un environnement qui semble relativement controlé.\nMais, sur ce point là je ne serais pas étonnées si la cour du Roi venait à essayer de prendre le contrôle de ce lieu pour s'en accaparer les gains."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ADVENTURER => "Et bien, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_STUPID => ["tu|t|est", "stupide|idiot|bête|abbruti|abruti|idiote|abbrutie"],
         LocaleKey::DIAL_ALCHEMIST_TXT_STUPID => [
-            "si ça vous fait plaisir.",
-            "Ça n'est pas un aventurier qui va me complexer sur mon intelligence."
+            "Je ne vois pas pourquoi vous dites une chause pareille."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_STUPID => "Mais bien sûr, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_GOD => ["croi|crois|croie|existe|pratique|venere|venère|ton|tes|a|détient|tu|t", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
         LocaleKey::DIAL_ALCHEMIST_TXT_GOD => [
-            "Ai-je l'air d'un profane pour vous ?",
-            "Je ne crois qu'au Dieu seul et unique vénéré dans ce continent saint."
+            "Je préfère éviter des discussions clivantes sur la religion.",
+            "Si vous ne croyez pas en dieu, c'est votre affaire, moi je suis juste là pour vendre des potions."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOD => "Quel genre de questions est-ce là ? ",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GOD => "Mh... ",
         LocaleKey::DIAL_ALCHEMIST_KEY_OTHER_GOD => ["autre|plusieurs|nombreux|plusieur|multiple|autres", "religion|dieu|dieux|divinité|divinitée|divinités|divinitées|divin"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_OTHER_GOD => ["De tels blasphèmes ne m'amusent guère.\nDe par sa définition même, un seul Dieu ne peut exister."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_OTHER_GOD => [
+            "Et bien, en regardant les civilisations qui ont donné naissance à la notre, un grand nombre étaient actuellement polythéiste.",
+            "Ce genre d'opinion pourrait me faire incinérée, mais je pense qu'il n'est pas non plus absurde d'émettre la possibilité que plusieurs entités gouverneraient les loi de notre univers"
+        ],
         LocaleKey::DIAL_ALCHEMIST_KEY_GOLD => ["or|ors|piece|pieces|pièce|pièces|argent|argents|monaie|monaies|monnaie|monnaies"],
         LocaleKey::DIAL_ALCHEMIST_TXT_GOLD => [
-            "votre meilleure option est d'aller dans le donjon et d'y chercher tout trésor pouvant être ramené.",
-            "Et, si vous avez quoi que ce soit de bon, je pourrait même vous les racheter moi-même ici."
+            "peut-être que vendre quelques-uns des objets dont vous n'avez pas besoin pourrait vous aider à subvenirs à vos besoins.",
+            "Outre l'alchimie, mon second rôle est d'estimer une valeur juste et de racheter les trouvailles des aventuriers au nom de la guilde."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOLD => "Et bien, depuis que cette tour est arrivée, je pense que ",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GOLD => "Si vous êtes à sec pour votre or, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommande|recommende|recommandez|recommandriez"],
         LocaleKey::DIAL_ALCHEMIST_TXT_RECOMMENDATION => [
-            "J'ai un large panel d'outils qui peuvent tous s'avérer utiles lors de vos aventures.",
-            "Tout d'abord, les potions de soins sont un moyen fiable de guérir vos blessures, si jamais vous vous retrouvez dans une situation complexe.",
-            "Ensuite, mon large catalogue d'armures peut répondre à tout les budgets et types de combattants.\nPour ceux ayant besoin d'une bonne protection pas cher, l'armure lourde est parfaite, mais elle risque de gêner vos mouvements. Pour ce qu'est des armures moyennes voir légère, celle-ci vous permettrons de bouger plus librement tout en offrant une bonne protection à un coût plus élevé."
+            "Tout dépend de vos besoins, si vous avez accès à des sorts de soin puissant mes potions de soin auront certainement un avantage limité, mais elles peuvent toujours servir dans des situations ou vous ne pouvez pas risquer de laisser vos soins au hasard.",
+            "Pour ce qu'est des pastilles de soins, celles-ci peuvent être particulièrement utiles pour les aventuriers solitaires qui ont besoin d'être soignés continuellement tout en attaquant leurs ennemis."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_RECOMMENDATION => "Et bien, "
     }
 end
