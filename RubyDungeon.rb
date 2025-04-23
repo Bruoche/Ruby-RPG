@@ -16,6 +16,7 @@ Dir["RubyDungeon-Extended/*/Biomes/BossCell.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/Biomes/OldDungeon.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/Biomes/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/SpecialRooms/*.rb"].each {|file| require(file)}
+Dir["RubyDungeon-Extended/*/Statuses/*.rb"].each {|file| require(file)}
 Dir["RubyDungeon-Extended/*/*/*.rb"].each {|file| require(file)}
 
 require "fileutils" # Manage files

@@ -8,4 +8,6 @@ module Recruter
     DIALOGS = []
     UNKNOWN_DIALOGS = LocaleKey::PLACEHOLDER_ARRAY
     PICTURE = 'recruter'
+    NAME_KNOWN = nil
+    PLAYER_NICKNAME = ''
 end

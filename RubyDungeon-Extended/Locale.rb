@@ -3,6 +3,7 @@ class Locale
     ID_EN = :'EN'
     DEFAULT_LOCALE = ID_FR
     AVAILABLE_LOCALES = [ID_EN, ID_FR]
+    PLAYER_NAME = '{name}'
 
     def self.get_localized(text_key)
         current_locale = get_locale(Settings.locale)

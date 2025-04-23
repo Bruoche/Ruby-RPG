@@ -3,6 +3,7 @@ class Character
     MIN_DIALOG_HEIGHT = 5
     PERCENT_MARGIN_RIGHT_DIALOG = 20
     DEFAULT_DIALOG = nil
+    NO_DIALOG_SPOKEN_LAST = nil
 
     def initialize(character_data)
         @name = character_data::NAME
@@ -13,9 +14,12 @@ class Character
         @repeat_intro = character_data::REPEAT_INTRO
         @dialogs = character_data::DIALOGS
         @unknown_dialogs = character_data::UNKNOWN_DIALOGS
+        @name_known_status = character_data::NAME_KNOWN
+        @player_nickname = character_data::PLAYER_NICKNAME
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + Character::FOLDER_PREFIX + character_data::PICTURE)
         @character_met = []
         @dialogs_said = []
+        @last_dialog_spoken = NO_DIALOG_SPOKEN_LAST
     end
 
     def said_before?(dialog)
@@ -27,6 +31,7 @@ class Character
     end
 
     def put_intro_with_action(question_box, player, dialog = DEFAULT_DIALOG)
+        @interlocutor = player
         if dialog == DEFAULT_DIALOG
             if @character_met.include?(player)
                 dialog = Locale.get_localized(@idle_dialog).sample
@@ -42,9 +47,12 @@ class Character
 
     def make_dialog_box(dialog, width = TTY::Screen.width, show_next_arrow = false)
         used_width = width - (4 + (TTY::Screen.width * PERCENT_MARGIN_RIGHT_DIALOG).div(100))
-        multiline_dialog = Utils.multiline(Locale.get_localized(dialog), used_width)
+        multiline_dialog = Utils.multiline(insert_name(Locale.get_localized(dialog)), used_width)
         while multiline_dialog.length < MIN_DIALOG_HEIGHT
             multiline_dialog.append(' ' * used_width)
+        end
+        if multiline_dialog[0].length < used_width
+            multiline_dialog[0] = multiline_dialog[0] + (' ' * (used_width - multiline_dialog[0].length))
         end
         dialog_box = ASCIIPicture.new(multiline_dialog)
         dialog_box.frame(' ', ' ')
@@ -56,12 +64,13 @@ class Character
     end
 
     def talk(interlocutor)
+        @interlocutor = interlocutor
         show
         Narrator.write(make_dialog_box(Locale.get_localized(@conversation_starter).sample).get_ascii)
         loop do
             Narrator.add_space_of(1)
             Narrator.write(LocaleKey::DIALOG_QUESTION)
-            prompt = Dialog.process_sentence(Narrator.user_input(interlocutor.get_name.capitalize))
+            prompt = Dialog.process_sentence(Narrator.user_input(@interlocutor.get_name.capitalize))
             if prompt == []
                 show
                 Narrator.write(make_dialog_box(Locale.get_localized(@conversation_keeper).sample).get_ascii)
@@ -71,16 +80,7 @@ class Character
                 end
                 show
                 dialog_triggered = false
-                for dialog in @dialogs do
-                    if dialog.triggered?(prompt)
-                        print_answer(dialog)
-                        dialog_triggered = true
-                        break
-                    end
-                end
-                if !dialog_triggered
-                    Narrator.write(make_dialog_box(Locale.get_localized(@unknown_dialogs).sample).get_ascii)
-                end
+                answer(prompt)
             end
         end
     end
@@ -102,25 +102,24 @@ class Character
         return false
     end
 
+    def answer(prompt)
+        for dialog in @dialogs do
+            if dialog.triggered?(prompt, @last_dialog_spoken, @interlocutor)
+                dialog.react(@interlocutor, self)
+                print_answer(dialog)
+                @last_dialog_spoken = dialog.get_id
+                return
+            end
+        end
+        Narrator.write(make_dialog_box(Locale.get_localized(@unknown_dialogs).sample).get_ascii)
+    end
+
     def print_answer(dialog)
         answered_sentences = Locale::get_localized(dialog.get_answer)
         first_sentence = true
         answered_sentences.each_with_index do |sentence, i|
             if first_sentence
-                if said_before?(dialog)
-                    intro = Locale::get_localized(@repeat_intro)
-                else
-                    @dialogs_said.append(dialog.get_id)
-                    intro = Locale::get_localized(dialog.get_intro)
-                end
-                if intro != Dialog::NO_INTRO
-                    if !Utils::PUNCTUATION.include? intro.strip[-1]
-                        if sentence[0] != nil
-                            sentence[0] = sentence[0].downcase
-                        end
-                    end
-                    sentence = intro + sentence
-                end
+                sentence = add_intro(sentence, dialog)
                 first_sentence = false
             else
                 show
@@ -132,5 +131,52 @@ class Character
                 Narrator.write(make_dialog_box(sentence).get_ascii)
             end
         end
+    end
+
+    def add_intro(sentence, dialog)
+        intro = get_intro(dialog)
+        if intro != Dialog::NO_INTRO
+            if !Utils::PUNCTUATION.include? intro.strip[-1]
+                if sentence[0] != nil
+                    sentence[0] = sentence[0].downcase
+                end
+            end
+            return intro + sentence
+        else
+            return sentence
+        end
+    end
+
+    def get_intro(dialog)
+        if said_before?(dialog) && dialog.change_intro_on_repeat?
+            return Locale::get_localized(@repeat_intro)
+        else
+            @dialogs_said.append(dialog.get_id)
+            return Locale::get_localized(dialog.get_intro)
+        end
+    end
+
+    def insert_name(dialog)
+        if dialog.kind_of? Array
+            formated_dialog = []
+            for line in dialog do
+                formated_dialog.append(line.insert_name_single(line))
+            end
+            return formated_dialog
+        else
+            return insert_name_single(dialog)
+        end
+    end
+
+    def insert_name_single(line)
+        if line != nil
+            if (@interlocutor != nil) && @interlocutor.has_status?(@name_known_status)
+                denomination = @interlocutor.get_name
+            else
+                denomination = Locale.get_localized(@player_nickname)
+            end
+            return line.gsub(Locale::PLAYER_NAME, denomination)
+        end
+        return line
     end
 end

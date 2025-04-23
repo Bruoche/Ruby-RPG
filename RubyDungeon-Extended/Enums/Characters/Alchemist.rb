@@ -7,12 +7,35 @@ module Alchemist
     REPEAT_INTRO = LocaleKey::DIAL_ALCHEMIST_REPEAT
     UNKNOWN_DIALOGS = LocaleKey::ALCHEMIST_UNKNOWN_DIALOGS
     PICTURE = 'alchemist'
+    NAME_KNOWN = AlchemistAquinted
+    PLAYER_NICKNAME = LocaleKey::ALCHEMIST_NICKNAME
     DIALOGS = [
+        Dialog.new(
+            DialogID::NAME,
+            LocaleKey::DIAL_KEY_PLAYER_NAME,
+            LocaleKey::DIAL_ALCHEMIST_TXT_AQUINTENCE,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_AQUINTENCE,
+            DialogID::ASK_NAME,
+            Dialog::NO_PRECEDENT_DIAL_REQ,
+            -> (player, npc) {player.add_status(NAME_KNOWN.new)}
+        ),
         Dialog.new(
             DialogID::ALLIANCE,
             LocaleKey::DIAL_ALCHEMIST_KEY_ALLIANCE,
             LocaleKey::DIAL_ALCHEMIST_TXT_ALLIANCE,
             LocaleKey::DIAL_ALCHEMIST_INTRO_ALLIANCE
+        ),
+        Dialog.new(
+            DialogID::GUILD,
+            LocaleKey::DIAL_ALCHEMIST_KEY_GUILD,
+            LocaleKey::DIAL_ALCHEMIST_TXT_GUILD,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_GUILD
+        ),
+        Dialog.new(
+            DialogID::CAT_EARS,
+            LocaleKey::DIAL_ALCHEMIST_KEY_CAT_EARS,
+            LocaleKey::DIAL_ALCHEMIST_TXT_CAT_EARS,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_CAT_EARS
         ),
         Dialog.new(
             DialogID::ESCOFFION,
@@ -32,9 +55,32 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH_POTION
         ),
         Dialog.new(
+            DialogID::HEALTH_PELLETS,
+            LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH_PELLET,
+            LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH_PELLET,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET
+        ),
+        Dialog.new(
+            DialogID::AMETHYST,
+            LocaleKey::DIAL_ALCHEMIST_KEY_AMETHYST,
+            LocaleKey::DIAL_ALCHEMIST_TXT_AMETHYST,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_AMETHYST
+        ),
+        Dialog.new(
             DialogID::LOST_KNIGHT,
             LocaleKey::DIAL_ALCHEMIST_KEY_LOST_KNIGHT,
             LocaleKey::DIAL_ALCHEMIST_TXT_LOST_KNIGHT
+        ),
+        Dialog.new(
+            DialogID::MARTON,
+            LocaleKey::DIAL_ALCHEMIST_KEY_MARTON,
+            LocaleKey::DIAL_ALCHEMIST_TXT_MARTON,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_MARTON
+        ),
+        Dialog.new(
+            DialogID::BLACKSMITH,
+            LocaleKey::DIAL_ALCHEMIST_KEY_BLACKSMITH,
+            LocaleKey::DIAL_ALCHEMIST_TXT_BLACKSMITH
         ),
         Dialog.new(
             DialogID::GOBLINS,
@@ -70,6 +116,21 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_INTRO_DUNGEON
         ),
         Dialog.new(
+            DialogID::KING,
+            LocaleKey::DIAL_ALCHEMIST_KEY_KING,
+            LocaleKey::DIAL_ALCHEMIST_TXT_KING
+        ),
+        Dialog.new(
+            DialogID::MOURRE,
+            LocaleKey::DIAL_ALCHEMIST_KEY_MOURRE,
+            LocaleKey::DIAL_ALCHEMIST_TXT_MOURRE
+        ),
+        Dialog.new(
+            DialogID::LIVROU,
+            LocaleKey::DIAL_ALCHEMIST_KEY_LIVROU,
+            LocaleKey::DIAL_ALCHEMIST_TXT_LIVROU
+        ),
+        Dialog.new(
             DialogID::HOLY_EMPIRE,
             LocaleKey::DIAL_ALCHEMIST_KEY_HOLY_EMPIRE,
             LocaleKey::DIAL_ALCHEMIST_TXT_HOLY_EMPIRE
@@ -83,6 +144,20 @@ module Alchemist
             DialogID::ORIGIN,
             LocaleKey::DIAL_ALCHEMIST_KEY_ORIGIN,
             LocaleKey::DIAL_ALCHEMIST_TXT_ORIGIN
+        ),
+        Dialog.new(
+            DialogID::FATHER,
+            LocaleKey::DIAL_ALCHEMIST_KEY_FATHER,
+            LocaleKey::DIAL_ALCHEMIST_TXT_FATHER,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_FATHER
+        ),
+        Dialog.new(
+            DialogID::ASK_NAME,
+            LocaleKey::DIAL_ALCHEMIST_KEY_NAME,
+            LocaleKey::DIAL_ALCHEMIST_TXT_ASK_NAME,
+            Dialog::NO_INTRO,
+            Dialog::NO_PRECEDENT_DIAL_REQ,
+            -> (player) {return !player.has_status?(NAME_KNOWN)}
         ),
         Dialog.new(
             DialogID::NAME,
@@ -164,11 +239,6 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_INTRO_SEASON
         ),
         Dialog.new(
-            DialogID::CALLING,
-            LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME,
-            LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME
-        ),
-        Dialog.new(
             DialogID::NOT_FROM_HERE,
             LocaleKey::DIAL_ALCHEMIST_KEY_NOT_FROM_HERE,
             LocaleKey::DIAL_ALCHEMIST_TXT_NOT_FROM_HERE,
@@ -220,6 +290,50 @@ module Alchemist
             DialogID::HELLO,
             LocaleKey::DIAL_ALCHEMIST_KEY_HELLO,
             LocaleKey::DIAL_ALCHEMIST_TXT_HELLO
+        ),
+        Dialog.new(
+            DialogID::JOKE,
+            LocaleKey::DIAL_ALCHEMIST_KEY_JOKE,
+            LocaleKey::DIAL_ALCHEMIST_TXT_JOKE
+        ),
+        Dialog.new(
+            DialogID::BAD,
+            LocaleKey::DIAL_ALCHEMIST_KEY_BAD,
+            LocaleKey::DIAL_ALCHEMIST_TXT_BAD,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_BAD,
+            DialogID::HOW_YOU_DOIN
+        ),
+        Dialog.new(
+            DialogID::GOOD,
+            LocaleKey::DIAL_ALCHEMIST_KEY_GOOD,
+            LocaleKey::DIAL_ALCHEMIST_TXT_GOOD,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_GOOD,
+            DialogID::HOW_YOU_DOIN
+        ),
+        Dialog.new(
+            DialogID::NEUTRAL,
+            LocaleKey::DIAL_ALCHEMIST_KEY_NEUTRAL,
+            LocaleKey::DIAL_ALCHEMIST_TXT_NEUTRAL,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_NEUTRAL,
+            DialogID::HOW_YOU_DOIN
+        ),
+        Dialog.new(
+            DialogID::HOW_YOU_DOIN,
+            LocaleKey::DIAL_ALCHEMIST_KEY_HOW_YOU_DOIN,
+            LocaleKey::DIAL_ALCHEMIST_TXT_HOW_YOU_DOIN
+        ),
+        Dialog.new(
+            DialogID::CALLING,
+            LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME,
+            LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME
+        ),
+        Dialog.new(
+            DialogID::ASK_NAME,
+            Dialog::NO_TRIGGER_NEEDED,
+            LocaleKey::DIAL_ALCHEMIST_TXT_WRONG_NAME,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_WRONG_NAME,
+            DialogID::ASK_NAME,
+            -> (player) {!player.has_status?(NAME_KNOWN)}
         )
     ]
 end

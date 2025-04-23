@@ -331,7 +331,7 @@ class EN
             "Otherwise, try putting the images to a smaller size,",
             "Or reduce the size of the text in your terminal options.",
             "",
-            "What image size do you want ?",
+            "What image size do you want?",
             "    0) Back",
             "    1) Tall (recommended)",
             "    2) Small"
@@ -543,10 +543,10 @@ class EN
             "    1) Yes",
             "    2) No"
         ],
-        LocaleKey::ASK_USE => "What do you want to do with %s ?",
+        LocaleKey::ASK_USE => "What do you want to do with %s?",
         LocaleKey::GIVE_OPTION => "    2) Give",
-        LocaleKey::ASK_QUANTITY_GIVEN => "How many %s do you wish to give ?",
-        LocaleKey::ASK_QUANTITY_SOLD => "How many %s do you wish to sell ?",
+        LocaleKey::ASK_QUANTITY_GIVEN => "How many %s do you wish to give?",
+        LocaleKey::ASK_QUANTITY_SOLD => "How many %s do you wish to sell?",
         LocaleKey::PROPOSE_COMBAT => [
             "What do you want to do?",
             "      1) Fight"
@@ -566,7 +566,7 @@ class EN
             "      1) Yes",
             "      2) No"
         ],
-        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Are you sure you want to replace your current armor with %s ? (y/n)",
+        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Are you sure you want to replace your current armor with %s? (y/n)",
         LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Invalid choice, Please only write the corresponding number among the given options.",
         LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Cannot go to the next page. Maximal page number reached.",
         LocaleKey::PAGE_DOWN_IMPOSSIBLE_ERROR => "Cannot go to the previous page. Minimal page number reached.",
@@ -862,7 +862,7 @@ class EN
             "I'm not sure I'm understanding this well..."
         ],
         LocaleKey::ALCHEMIST_NAME => "Alchimist",
-        LocaleKey::ALCHEMIST_INTRO_DIALOG => "Hello adventurer.\nEverything I have to sell is on the shelves, and if you have any questions, don't hesitate to ask. I'm here for that.",
+        LocaleKey::ALCHEMIST_INTRO_DIALOG => "Hello, #{Locale::PLAYER_NAME}.\nEverything I have to sell is on the shelves, and if you have any questions, don't hesitate to ask. I'm here for that.",
         LocaleKey::ALCHEMIST_IDLE_DIALOGS => [
             "Need anything?",
             "Any questions?",
@@ -888,6 +888,7 @@ class EN
             "My apologies, but I don't think I got that right...",
             "What?"
         ],
+        LocaleKey::ALCHEMIST_NICKNAME => "friend",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "You use the prison key to open the great door.",
@@ -995,7 +996,7 @@ class EN
             "Plenty of adventurers have claimed to come back to life and be fine in the dungeon, while others said they saw hostile mindless undeads walking the deeper halls of this tower...",
             "None of it all makes sense, why would some come back fine and others not? Unless those undead aren't adventurers, but then I don't see who they could be, or why they would be any different from the rest."
         ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["back|from|I|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["back|from|i|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
             "You are not the only one talking about coming back from death in the dungeon, most of those that have gone to the dungeon and back ended up killed at some point according to themselves.\nThat is if they didn't escape after seeing the first monster.",
             "Although, you lot claim that you just get sent back to the moment you entered the dungeon when you die, meaning there's no actual proof of your deaths apart from some hazy memory... So I personally think that what you all think to be deaths are actually hallucinations.",
@@ -1006,10 +1007,10 @@ class EN
         LocaleKey::DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE => "I have never been to the dungeon myself, so ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON => ["dungeon|tower|dungeons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON => [
-            "Little is known about the dungeons, and a lot of what people say seem to be fabulations if you ask me.",
+            "Little is known about the dungeons, and a lot of what people say seems to be fabulations if you ask me.",
             "According to the locals, that tower would have just appeared suddenly overnight without anyone knowing who put it there.",
             "I think that's madness to even humor such an unlikely story, but the people here clearly wouldn't have had the means to make such a place with so many treasures to be found.",
-            "The amount of monsters there is worrying too, some of which seem to come straight from old tales that had no proof of their existence elsewhere.",
+            "The amount of monsters there is worrying too, some of which seems to come straight from old tales that had no proof of their existence elsewhere.",
             "Either way. Even if I'm skeptical, what's certain is that this place is a one-of-a-kind occurrence, and it's no wonder so many people come from all around the continent to explore it."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_HOLY_EMPIRE => ["your|holy", "empire|native|hometown|home|birthplace|country|kingdom"],
@@ -1192,10 +1193,10 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_REPEAT => "As I was saying, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_NOT_FROM_HERE => ["from|origin|originally|born", "not|no|didn|here|in|there|country|other"],
         LocaleKey::DIAL_ALCHEMIST_TXT_NOT_FROM_HERE => ["I was born to the north of the country."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_NOT_FROM_HERE => ["Well I'm not from very far either, "],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_NOT_FROM_HERE => "Well I'm not from very far either, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_ORIGIN => ["you|your", "from|born|country|where|story|origin"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ORIGIN => [
-            "I was born up north, in the capital.",
+            "I was born up north, in the capital of Mourre.",
             "My father worked there as an alchemist, at the king's court.\nThis is where I got my education on alchemy and other occult arts."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_ALLIANCE => ["what|great|why|when|how|tell", "alliance|allience"],
@@ -1213,8 +1214,8 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_TXT_GOBLINS => [
             "",
             "I never saw any in person, and it would likely be dangerous for me to put my nose in their business.\nBut from what I've read, they actually only attack those they feel is invading or threatening their territory.",
-            "Territory that, genearally, are burried well far from our own. Of course, when an expensionist wind takes us, they become an annoyance for our projects, but I think it unfair to hold against them the simple fact of defending their habitats.",
-            "All the more, some studies seem to point out an inteligence much more advanced then the stereotypes would lead us to believe. Having complex social hierarchies, technologies and tools of advanced manufacture and stealthy yet efficient agricultural techniques."
+            "Territory that, genearally, is burried well far from our own. Of course, when an expensionist wind takes us, they become an annoyance for our projects, but I think it's unfair to hold against them the simple fact of defending their habitats.",
+            "All the more, some studies seems to point out an inteligence much more advanced then the stereotypes would lead us to believe. Having complex social hierarchies, technologies and tools of advanced manufacture as well as stealthy yet efficient agricultural techniques."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_GOBLINS => "Ah, goblins. these little critters are generally hated by nobles and commonfolks alike, which is understandable...\nBut, I must say that they are also quite missunderstood.",
         LocaleKey::DIAL_ALCHEMIST_KEY_SLIME => ["slimes|slime"],
@@ -1224,10 +1225,10 @@ class EN
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_UNDEAD => ["undead|undeads|zombie|zombies|skeleton|skeletons"],
         LocaleKey::DIAL_ALCHEMIST_TXT_UNDEAD => ["The stories about undeads in the dungeon are quite unique, so far such accounts of necromancy were only confined to the realm of legends. The implications of such creatures existing would be massive for advancements in contemporary occult sciences."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_RESUSCITATE => ["back|from|I|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
+        LocaleKey::DIAL_ALCHEMIST_KEY_RESUSCITATE => ["back|from|i|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
         LocaleKey::DIAL_ALCHEMIST_TXT_RESUSCITATE => [
             "Most adventurers here have had similar experiences.\nIt's hard to exactly pinpoint the phenomenon that lead to coming back from death, but it's sure that it doesn't let indifferent no matter what's the force bringing you back.",
-            "Observations made with multiple time sensitive objects seem to show a sort of temporal phenomenon, bringing adventurers and their possessions to the exact time where they entered the dungeon when they die, even if the rest of the world outside continue it's course unnaffected by this phenomenon.",
+            "Observations made with multiple time sensitive objects seems to show a sort of temporal phenomenon, bringing adventurers and their possessions to the exact time where they entered the dungeon when they die, even if the rest of the world outside continue it's course unnaffected by this phenomenon.",
             "But, so far it is currently impossible to define why, or even how such a thing is possible, nor what the long term consequences could be for the adventurers.",
             "Be sure to take it easy. Such experiences is nothing light to go through, and I can only advise taking care of yourself in the dungeon. As long as nothing is certain, it's best to be carefull."
         ],
@@ -1236,10 +1237,10 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_INTRO_DUNGEON_INSIDE => "Having never been to the dungeon, I don't have any expertise to give on that.\n",
         LocaleKey::DIAL_ALCHEMIST_KEY_DUNGEON => ["dungeon|tower|dungeons"],
         LocaleKey::DIAL_ALCHEMIST_TXT_DUNGEON => [
-            "My work in the guild is confining me at my post of merchand, and I don't have the capacity to go adventuring in the tower on my own either way.\nBut, I remained profoundly intrigued by this strange place.",
-            "If what the locals say is factual, then everything lead to believe that this place is magic, and thus would probably have been intentionally brought.",
-            "The question then is, who would place it here, and to what end ?\nFor now nothing seem to demonstrate a true use for the place by anyone that'd own it, but the dungeon is the ideal playfield for an adventurer on the other hand. Could it be then that this tower was made only to entertain such activities ? A place made to be sacaged and pillaged forever ?",
-            "And if that is the case, could this tower have been made to be explored by it's creator itself, or is it meant to bring other adventurers to itself ?",
+            "My work in the guild confines me to my post of merchand, and I don't have the capacity to go adventuring in the tower on my own either way.\nBut, I remain profoundly intrigued by this strange place.",
+            "If what the locals say is factual, then everything lead to believe that this place is magical in nature, and thus would probably have been intentionally brought.",
+            "The question then is, who would place it here, and to what end?\nFor now nothing seem to demonstrate a true use for the place by anyone that'd own it, but the dungeon is the ideal playfield for an adventurer on the other hand. Could it be then that this tower was made only to entertain such activities? A place made to be sacaged and pillaged forever?",
+            "And if that is the case, could this tower have been made to be explored by it's creator themselves, or is it meant to bring other adventurers to it?",
             "So many questions... And yet so little informations to draw reliable conclusions from... I can hardly contain my enthousiasm of learning more from the stories told by adventurers returning from their explorations."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_DUNGEON => "It's trully facinating. ",
@@ -1250,9 +1251,10 @@ class EN
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_NAME => ["your|you", "name|called|named|call"],
         LocaleKey::DIAL_ALCHEMIST_TXT_NAME => ["My name is Nicolette, daughter of Musa al-Bakir."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_ASK_NAME => ["My name is Nicolette, daughter of Musa al-Bakir.", "What's yours?"],
         LocaleKey::DIAL_ALCHEMIST_KEY_AGE => ["your|you", "age|old"],
         LocaleKey::DIAL_ALCHEMIST_TXT_AGE => ["I'm 28 years old."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_AGE => "You know, it isn't very polite to ask her age, eh? But, if you're so interested, ",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_AGE => "You know, it isn't very polite to ask a lady about her age, eh? But, if you're so interested, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_INTELLIGENCE => ["intelligence|intelligent|smart|magic"],
         LocaleKey::DIAL_ALCHEMIST_TXT_INTELLIGENCE => [
             "Magic is actually a pretty wide field, that's deeply intertwined with science. But in the broadest sense, it's all about canalising the energies present in both a mage's soul and it's environment to create desirable results."
@@ -1260,9 +1262,9 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_KEY_ADVICES => ["advice|tips|tip|trick|tricks|advices|help"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ADVICES => [
             "All I can advise you on with my expertise is, don't drink anything in a lab, and be wary of anything that look magical when you don't know what it does.",
-            "Except when you're an alchemist like me of course, me I can drink whatever I want in my lab.\n\nBut I usually avoid it, most of the stuff in the lab is toxic."
+            "Except when you're an alchemist like me of course, me I can drink whatever I want in my lab.\n\n\n\n... But I usually avoid it, most of the stuff in the lab is toxic."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ADVICES => "I am no fighter, and, considering the fact that you made it in here so far, you're likely more capable then I am when it comes to adventuring.\n",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_ADVICES => "I am no fighter, and, considering the fact that you made it here so far, you're likely more capable then I am when it comes to adventuring.\n",
         LocaleKey::DIAL_ALCHEMIST_KEY_DISCOUNTS => ["free|discount|discounts|gift|offer|sale"],
         LocaleKey::DIAL_ALCHEMIST_TXT_DISCOUNTS => ["the price is the price. Otherwise that'd be unfair for the other adventurers that don't get a discount."],
         LocaleKey::DIAL_ALCHEMIST_INTRO_DISCOUNTS => "I'm sorry, but ",
@@ -1286,17 +1288,17 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_KEY_HOW_YOU_DOIN => ["how|are|is", "going|you|doing|feel|good|well|ok"],
         LocaleKey::DIAL_ALCHEMIST_TXT_HOW_YOU_DOIN => ["I'm doing good, thank you. How about you, friend?"],
         LocaleKey::DIAL_ALCHEMIST_KEY_HELLO => ["hello|hi|salutations"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HELLO => ["Hi again."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME => ["Nicolette|Nicolet|Nikolette|Nikolet|Nicole|Nikole"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_HELLO => ["Hi again, #{Locale::PLAYER_NAME}."],
+        LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME => ["nicolette|nicolet|nikolette|nikolet|nicole|nikole"],
         LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME => ["It's me, yeah."],
         LocaleKey::DIAL_ALCHEMIST_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding|where"],
         LocaleKey::DIAL_ALCHEMIST_TXT_VILLAGE => [
             "It's not quite as lively as the city here, but, with this guild we still get plenty of people to see 'round, so I'm not too bored nonetheless.",
-            "As for the locals though, it's clear they are plenty close-minded.\nWe could feel our arrival being looked down upon as soon as the guild was installed.",
+            "As for the locals though, it's clear they are plenty close-minded.\nWe could feel on our arrival that we were looked down upon as soon as the guild was settled.",
             "And, I don't know if it's how I look or my field of research, but I sometimes feel like they hold me in especially low regards..."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_YEAR => ["what|which|is|are", "when|year|time"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_YEAR => ["It's the autumn 1414, the 10th lunar cycle of the year."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_YEAR => ["We are in the autumn of 1414, in our 10th lunar cycle of the year."],
         LocaleKey::DIAL_ALCHEMIST_KEY_NOT_HELPING => ["not|no|don", "help|helping|helpfull|usefull|use|serve"],
         LocaleKey::DIAL_ALCHEMIST_TXT_NOT_HELPING => ["Sorry if my knowledge can't satisfy your curiosity."],
         LocaleKey::DIAL_ALCHEMIST_KEY_ESCOFFION => ["escoffion|escofion|escoffions|escofions"],
@@ -1315,7 +1317,7 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_INTRO_TELECRYSTAL => "Oh yes, those contraptions are very interesting.",
         LocaleKey::DIAL_ALCHEMIST_KEY_GENDER => ["you|your|are|re", "girl|woman|female"],
         LocaleKey::DIAL_ALCHEMIST_TXT_GENDER => ["This is of much little import."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GENDER => "Why would you care 'bout that?",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GENDER => "Why would you care 'bout that? ",
         LocaleKey::DIAL_ALCHEMIST_KEY_SUPPLIER => ["stocks|stock|supplier|suppliers|supply|supplies|merchandise|merchandises", "from|who|where"],
         LocaleKey::DIAL_ALCHEMIST_TXT_SUPPLIER => ["All my merchandise is ellaborated with care by myself, and the raw materials are delivered to me through the guild's network."],
         LocaleKey::DIAL_ALCHEMIST_KEY_WEATHER => ["weather|out|sunny|rain|rainy|cloudy"],
@@ -1326,7 +1328,7 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_KEY_ADVENTURER => ["adventurer|adventurers|explorer|explorers|us|mercenaries|mercenary|adventuring"],
         LocaleKey::DIAL_ALCHEMIST_TXT_ADVENTURER => [
             "Even if I'm part of the adventurer's guild, I am not an adventurer myself. I'm pretty sure you can guess that much from the way I dress by the way.",
-            "But, my work here lead me to regularly interact with all sorts of people like you.\nWhat's clear, is that most of them work in this field out of necessity. When you're down in the moat, you can hardly make enough to live, and thus brigantism and mercenarism are some of the only way to make ends meet when you know how to fight, most notably for those who have a criminal past and struggle to reintegrate.\nFrom that assumption, mercenarism is probably the best option of the two.",
+            "But, my work here lead me to regularly interact with all sorts of people like you.\nWhat's clear, is that most of them work in this field out of necessity. When you're down in the moat, you can hardly make enough to live with traditionnal labour, and thus brigantism and mercenary gigs are some of the only ways to make ends meet when you know how to fight. Most notably for those who have a criminal past and struggle to reintegrate.\nFrom that assumption, mercenarism is probably the best option of the two.",
             "Honestly, I hope this tower may lead some to find more stable living conditions, offering many treasures in a controlled environment.\nBut, on that front I wouldn't be surprised if the King's court was to try and take control of this place in order to hoard it's gains."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_STUPID => ["you|your|are", "stupid|dumb|idiot|dumbass"],
@@ -1352,8 +1354,83 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_INTRO_GOLD => "If you are running dry on gold, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommand|recommend"],
         LocaleKey::DIAL_ALCHEMIST_TXT_RECOMMENDATION => [
-            "Everything depends on your specific needs, if you can cast powerfull healing spells my potions will more then likely prove little use, but they can still save your life in situations where you cannot let your health to chance.",
+            "Everything depends on your specific needs, if you can cast powerfull healing spells my potions will more then likely have little use to you, but they can still save your life in situations where you cannot let your health up to chance.",
             "As for my health pellets, those can be especially usefull to solo adventurers that'd need a continuous heal while they attack their ennemies."
         ],
+        LocaleKey::DIAL_ALCHEMIST_TXT_AQUINTENCE => ["happy to make your aquintance, #{Locale::PLAYER_NAME}."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_AQUINTENCE => "Well, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_JOKE => ["aucassin|ocassin|aucassins"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_JOKE => ["Ha. Ha. Very funny. No one ever told me that one."],
+        LocaleKey::DIAL_ALCHEMIST_TXT_WRONG_NAME => ["I'd be surprised if this was your name..."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_WRONG_NAME => "Mh, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_GUILD => ["guild|guilds"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_GUILD => [
+            "The adventurer's guild allow to support freelance mercenaries in their endeavors, wether that's for housing, food, equipments or finding jobs and building a network of other adventurers.",
+            "It's been a few years that I've been working for them as an alchemist and broker.\nIt's been enjoyable, even if the pay's far below what I could get."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GUILD => "A neat concept, eh?\n",
+        LocaleKey::DIAL_ALCHEMIST_KEY_CAT_EARS => ["cat|cats|kitten|kittens|kitty|feline", "ears|earband|ear|earbands|hats|hat|look|style|head|headware|headwear|headwears"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_CAT_EARS => ["that's not intentional."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_CAT_EARS => "Oh, you mean my escoffion? No it's just a hat to hold my hair into shape... But now you say it I guess it do kind of look like a cat.\nThough ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_AMETHYST => ["amethyst|ametyst|amethysts|amethist|ametysts|amethists|ametist|ametists"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_AMETHYST => [
+            "I've been studying the samples adventuers brung to me closely, and found something interesting.",
+            "Everything about the amethists from the dungeon show them to be perfectly normal. Same density, same color, same clarity and even its reaction to heat is like the normal stuff, leaving very little doubts that they are genuine amethysts...",
+            "But, one single thing is off; The structure.",
+            "Each naturally occuring crystal has it's own internal structure that inform how they form. Some form in a square-shaped pattern, other in more complex shapes... But they each have a single structure followed by all of its formations.\nAnd, for those it'd at first seem to be the case too, as they do have the general shape of a regular amethyst formation.",
+            "Except, when taking a closer look, they don't follow the normal pattern of amethysts under close observation. It's not perfectly smooth so it doesn't seem to be polished, and do follow a sort of triangular pattern, but that's not what the micro-structure of amethysts is supposed to be.\nIt's almost, like... As if someone had rechiseled very precisely amethysts to look exactly like natural amethysts... And I have no clue why that would be the case."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_AMETHYST => "Oh, that's funny you're talking about that, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_MARTON => ["marton|márton|orban|orbán|other|outside", "marton|márton|orban|orbán|marchant|merchant|guy|dude|shop"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_MARTON => ["I don't know much about him, I didn't get the occasion to talk to him so far honestly."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_MARTON => "Hmm... That's the traveling merchant that got installed a little before the guild arrived right?\n",
+        LocaleKey::DIAL_ALCHEMIST_KEY_BLACKSMITH => ["blacksmith|blacksmiths|across|other|guild", "blacksmith|blacksmiths|guy|dude|smith"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_BLACKSMITH => [
+            "The blacksmith across my shop has been at it for a while, he worked for the guild long before I joined myself.",
+            "He doesn't talk, so people tend to find him rude or intimidating, but when you get to know him he's actually pretty sweet.\nAs they say, actions speak louder then words anyway.",
+            "And, as for what's of your concern, he's a hell of a good blacksmith. If you need anything armor-related, he's the guy to see."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_KEY_KING => ["king|kings|siarl|court"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_KING => [
+            "The king of Livrou is King Siarl VII, \"the stern\".",
+            "Having taken the throne in 1393 after overthrowing his own father at only seventeen years old, he lead many victories with an iron fist.\nI think that nearly becoming illegitimate in favor of foreign tradings during his young adult life hardened him early, making him a much harder ruler then his father was. But, he also is a more level-headed ruler, to say the least.",
+            "My father saw him grow since he was a little kid during his service funilly enough. He described him as fairly reserved as a kid, but he quickly turned out brillant in combat and on the battlefields."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_KEY_MOURRE => ["your|you|native|mourre|moure|capital|capitals|the|our", "city|mourre|moure|capital|capitals"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_MOURRE => [
+            "The capital of our country is Mourre.\nA great city up north set on an immense island within a giant river.",
+            "It's very pretty too, I highly advise giving it a visit during the summer.\nAnd, though the cost of living is much higher, it was great for my field of work, between the King's court's academy and many libraries."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_KEY_LIVROU => ["that|this|your|our|you|my|where|name|livrou|in|which|what", "kingdom|kingdoms|country|countries|livrou"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_LIVROU => [
+            "We are in the Kingdom of Livrou.",
+            "It's one of the great nations of the Great Alliance.",
+            "Currently we're heading toward what may be a dark era for our nation, as instability seems to show it's face in the court and restlessness creep up within lords.\nBut, as of now, we're the second biggest kingdom of the continent, behind the Holy Empire."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_KEY_FATHER => ["your|you|mussa|musa|al-bakir|albakir|bakir", "daughter|daughter|dad|dads|father|fathers|mussa|al-bakir|albakir|bakir"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_FATHER => [
+            "Mussa al-Bakir is my father.",
+            "He is a renowned alchemist that work for the King of Livrou himself.\nHe was in great part responsible for my education in the occult, though I did also follow two doctorates on top of his private lessons in Mourre.",
+            "I'd like to think that he made me a brillant scholar, but he does not see of a good eye that I'm \"wasting\" my time working for the lower class instead of getting renowned among nobles.\nBut I'm enjoying my time with y'all much more then I appreciate the company of fools that pretend to have figured out the world without having ever left their court.",
+            "The many stories I've heard and landscapes I've crossed have much more to teach then the capital ever could, now that my education is done."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_FATHER => "Yes, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_BAD => ["bad|poorly|awfull|not|horrible|worst|worse"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_BAD => ["sorry to hear that."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_BAD => "Oh, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_GOOD => ["good|fine|great|ok|alright|best|better"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_GOOD => ["happy to hear that."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GOOD => "Well, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_NEUTRAL => ["going|it|day|another"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_NEUTRAL => ["it's not always easy eh."],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_NEUTRAL => "Yeah I get it, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH_PELLET => ["pellets|pellet"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH_PELLET => [
+            "They are a remedy of my own making.",
+            "I've discovered that by distilling health potions to a very concentrated sirup, and then hardening it with sugar like a candy, I can make pellets that progressively heals you as they melt.",
+            "Though, be sure not to munch on it if you want the best results, and beware of chocking hazards in the heat of battle."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Oh yeah, I'm really proud of this one.\n",
+        LocaleKey::DIAL_KEY_PLAYER_NAME => ["#{Locale::PLAYER_NAME}"]
     }
 end

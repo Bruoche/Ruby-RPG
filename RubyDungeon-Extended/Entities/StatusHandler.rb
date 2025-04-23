@@ -6,7 +6,7 @@ class StatusHandler
     def get_save_data
         statuses = ''
         for status in @statuses
-            statuses += status.get_save_data
+            statuses += status.get_save_data + '; '
         end
         return statuses
     end

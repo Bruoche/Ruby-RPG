@@ -7,6 +7,8 @@ module ShopKeeper
     REPEAT_INTRO = LocaleKey::DIAL_SHOPKEEPER_REPEAT
     UNKNOWN_DIALOGS = LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS
     PICTURE = 'merchant'
+    NAME_KNOWN = nil
+    PLAYER_NICKNAME = ''
     DIALOGS = [
         Dialog.new(
             DialogID::ALLIANCE,
@@ -241,11 +243,6 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON
         ),
         Dialog.new(
-            DialogID::CALLING,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_MERCHANT_NAME,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
-        ),
-        Dialog.new(
             DialogID::NOT_FROM_HERE,
             LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE,
             LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE
@@ -285,12 +282,6 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_STUPID
         ),
         Dialog.new(
-            DialogID::HOW_YOU_DOIN,
-            LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
-            LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
-            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN
-        ),
-        Dialog.new(
             DialogID::OTHER_GOD,
             LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD,
             LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD
@@ -306,6 +297,17 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO,
             LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO,
             LocaleKey::DIAL_SHOPKEEPER_INTRO_HELLO
+        ),
+        Dialog.new(
+            DialogID::HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN
+        ),
+        Dialog.new(
+            DialogID::CALLING,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_MERCHANT_NAME,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME
         )
     ]
 end
