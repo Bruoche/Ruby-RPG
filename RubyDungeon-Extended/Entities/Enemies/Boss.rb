@@ -45,6 +45,11 @@ class Boss < Monster
         return damage
     end
 
+    def get_intelligence
+        #TODO add intelligence support for bosses
+        return 0
+    end
+
     def get_life_to_string
         life = 0
         max_life = 0

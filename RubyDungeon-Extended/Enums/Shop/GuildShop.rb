@@ -5,7 +5,7 @@ class GuildShop < Shop
     NO_MONEY_DIALOG = LocaleKey::MERCHANT_NO_MONEY
     SOLD_DIALOG = LocaleKey::MERCHANT_PURCHASE
     RETAIL_PERCENT = 90
-    MUSIC = 'Merchant'
+    MUSIC = 'Adventurers Waltz'
     SHOPKEEPER = Alchemist
     INVENTORY = [
         Bundle.new(HealthPotion.new(35), 1),

@@ -1,6 +1,7 @@
 class Guild
     def initialize
         @shop = GuildShop.new
+        @forge = GuildForge.new
     end
 
     def enter(player)
@@ -10,7 +11,7 @@ class Guild
         when "0"
             return
         when "1"
-            puts "Gone to the forge"
+            @forge.enter(player)
         when "2"
             @shop.enter(player)
         else
