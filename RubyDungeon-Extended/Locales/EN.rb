@@ -745,7 +745,7 @@ class EN
         LocaleKey::H50_HELM_NAME => "joust helmet",
         LocaleKey::H50_HELM_DESC => "a thick metallic helmet protecting the entire head. Meant to widstand the heaviest lance strikes.",
         LocaleKey::H50_PLASTRON_NAME => "joust cuirass",
-        LocaleKey::H50_PLASTRON_DESC => "a large full cuirass protecting the entire torso, only leaving the crotch open to facilitate horse riding. As well as it's large spauldron, this piece also display a large heavy reinforcement on the entire right mimicing a sort of metallic shoulder-cape. Meant to widstand the heaviest lance strikes.",
+        LocaleKey::H50_PLASTRON_DESC => "a large full cuirass protecting the entire torso. As well as it's large spauldron, this piece also display a large heavy reinforcement on the entire right mimicing a sort of metallic shoulder-cape.",
         LocaleKey::M30_GAUNTLETS_NAME => "plain vambraces",
         LocaleKey::M30_GAUNTLETS_DESC => "simple leather gauntlets reinforced by metallic tubes to offer a decent protection for cheap.",
         LocaleKey::M30_GREAVES_NAME => "reinforced boots",
