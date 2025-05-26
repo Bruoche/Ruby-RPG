@@ -373,7 +373,11 @@ class Player
     end
 
     def choose_item_to_sell(retail_coeff)
-        @inventory.choose_bundle_to_sell(self, retail_coeff)
+        return @inventory.choose_bundle_to_sell(self, retail_coeff)
+    end
+
+    def choose_armor_to_upgrade(upgrade_tax)
+        return @inventory.choose_armor_to_upgrade(self, upgrade_tax)
     end
 
     def add_status(status)

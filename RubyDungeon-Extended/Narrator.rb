@@ -181,6 +181,10 @@ class Narrator
         Narrator.write(LocaleKey::NO_ITEMS_TO_SELL)
     end
 
+    def self.no_items_to_upgrade
+        Narrator.write(LocaleKey::NO_ITEMS_TO_UPGRADE)
+    end
+
     def self.no_items_to_equip
         Narrator.write(LocaleKey::NO_ITEMS_TO_EQUIP)
     end

@@ -384,7 +384,8 @@ class EN
             "    2) No"
         ],
         LocaleKey::NO_ITEMS_TO_USE => "You have no items to use.",
-        LocaleKey::NO_ITEMS_TO_SELL => "No items to sell",
+        LocaleKey::NO_ITEMS_TO_SELL => "No items to sell.",
+        LocaleKey::NO_ITEMS_TO_UPGRADE => "No armor to upgrade.",
         LocaleKey::NO_ITEMS_TO_EQUIP => "No items to equip.",
         LocaleKey::INVENTORY_TITLE => "You possess: ",
         LocaleKey::SHOP_INTRO => [
@@ -622,6 +623,7 @@ class EN
         LocaleKey::ASK_ITEM_TARGET => "On who do you want to use %s?",
         LocaleKey::ASK_GIFT_TARGET => "To who do you give %s?",
         LocaleKey::ASK_ITEM_TO_SELL => "What item do you want to sell?",
+        LocaleKey::ASK_ITEM_TO_UPGRADE => "What armor do you want to upgrade?",
         LocaleKey::ASK_PLAYER_REMOVED => "Which team member do you want to remove?",
         LocaleKey::PARRIED => " parried",
         LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
@@ -653,16 +655,30 @@ class EN
         LocaleKey::MERCHANT_COIN_INSUFFICIENT => "Sorry, but a single gold coin will not suffice...",
         LocaleKey::MERCHANT_NO_MONEY => "My apology, but without money you won't be able to buy anything in this establishment.",
         LocaleKey::MERCHANT_PURCHASE => "A pleasure to do business with you.",
+        LocaleKey::ALCHEMIST_THANK => "Thank you, hope it'll serve you well!",
+        LocaleKey::ALCHEMIST_FUND_INSUFFICIENT => "Sorry, but %s gold coins won't be enough...",
+        LocaleKey::ALCHEMIST_COIN_INSUFFICIENT => "Sorry, but a gold coin won't be enough...",
+        LocaleKey::ALCHEMIST_NO_MONEY => "I'm sorry, but I cannot give you anything for free.",
+        LocaleKey::ALCHEMIST_PURCHASE => "Thank you very much.",
+        LocaleKey::BLACKSMITH_THANK => "...",
+        LocaleKey::BLACKSMITH_FUND_INSUFFICIENT => "Not enough... No.",
+        LocaleKey::BLACKSMITH_COIN_INSUFFICIENT => "Not enough... No.",
+        LocaleKey::BLACKSMITH_NO_MONEY => "No, 'must have coins.",
+        LocaleKey::BLACKSMITH_PURCHASE => "...",
         LocaleKey::ASK_SHOP_ACTION => "What do you want to do? (%s ¤)",
-        LocaleKey::SHOP_OPTIONS => [
+        LocaleKey::SHOP_OPTIONS_FIRST => [
             "",
             "0) Leave the shop",
             "1) Buy...",
-            "2) Sell...",
+        ],
+        LocaleKey::SHOP_OPTIONS_LAST => [
             "3) Check inventory",
             "4) Talk to the shopkeeper"
         ],
+        LocaleKey::SELL_OPTION => "Sell",
+        LocaleKey::UPGRADE_LABEL => "Upgrade",
         LocaleKey::ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Are you sure you want to upgrade %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
         LocaleKey::ASK_ITEM_BOUGHT => "What item do you want to buy? (%s ¤)",
         LocaleKey::ASK_CONFIRM_PURCHASE => "Are you sure you want to buy %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
         LocaleKey::ARMORS_PLURAL => "armors",
@@ -961,6 +977,42 @@ class EN
             "What?"
         ],
         LocaleKey::ALCHEMIST_NICKNAME => "friend",
+        LocaleKey::BLACKSMITH_NAME => "Blacksmith",
+        LocaleKey::BLACKSMITH_INTRO_DIALOG => "...",
+        LocaleKey::BLACKSMITH_IDLE_DIALOGS => [
+            "...",
+            "...",
+            "...",
+            "Hm...",
+            "...",
+            "...",
+            "...",
+            "Hm hmm..."
+        ],
+        LocaleKey::BLACKSMITH_CONVERSATION_STARTER => [
+            "Hm?",
+            "Hm?",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "Hm..."
+        ],
+        LocaleKey::BLACKSMITH_CONVERSATION_KEEPER => [
+            "Hm?",
+            "Hm?",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "Hm..."
+        ],
+        LocaleKey::BLACKSMITH_UNKNOWN_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::BLACKSMITH_NICKNAME => "adventurer",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "You use the prison key to open the great door.",
@@ -1503,6 +1555,7 @@ class EN
             "Though, be sure not to munch on it if you want the best results, and beware of chocking hazards in the heat of battle."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Oh yeah, I'm really proud of this one.\n",
+        LocaleKey::DIAL_BLACKSMITH_REPEAT => "",
         LocaleKey::DIAL_KEY_PLAYER_NAME => ["#{Locale::PLAYER_NAME}"]
     }
 end

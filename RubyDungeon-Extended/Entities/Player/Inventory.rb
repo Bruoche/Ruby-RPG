@@ -277,6 +277,39 @@ class Inventory
         return sellable_bundles
     end
 
+    def choose_armor_to_upgrade(player, upgrade_tax)
+        upgradable_bundles = get_upgradable_items
+        if upgradable_bundles.length > 0
+            bundle_index = Narrator.ask_paginated(
+                LocaleKey::ASK_ITEM_TO_UPGRADE,
+                upgradable_bundles, -> (bundle, index){
+                    item_frame = ASCIIPicture.new(ASCIIPicture.get_upgrading_card(bundle.get_item, index, upgrade_tax))
+                    item_frame.frame
+                    return item_frame
+                },
+                player.get_name
+            )
+            if bundle_index != Narrator::RETURN_BUTTON
+                bundle = upgradable_bundles[bundle_index]
+                return bundle.get_item
+            end
+        else
+            Narrator.no_items_to_upgrade
+            Narrator.pause_text
+        end
+        return nil
+    end
+
+    def get_upgradable_items
+        upgradables = []
+        for bundle in @bundles
+            for upgradable_bundle in bundle.get_upgradable
+                upgradables.append(upgradable_bundle)
+            end
+        end
+        return upgradables
+    end
+
     private
 
     def to_string(bundle)

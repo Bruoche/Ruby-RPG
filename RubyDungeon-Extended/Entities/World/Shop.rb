@@ -9,6 +9,9 @@ class Shop
                 unless child.const_defined?(:RETAIL_PERCENT)
                     child.const_set(:RETAIL_PERCENT, 90)
                 end
+                unless child.const_defined?(:UPGRADE_TAX)
+                    child.const_set(:UPGRADE_TAX, 10)
+                end
                 unless child.const_defined?(:CURRENCY)
                     child.const_set(:CURRENCY, DEFAULT_CURRENCY)
                 end
@@ -18,11 +21,19 @@ class Shop
                 unless child.const_defined?(:SIGN)
                     child.const_set(:SIGN, NO_SIGN)
                 end
+                unless child.const_defined?(:SECOND_OPTION_LABEL)
+                    child.const_set(:SECOND_OPTION_LABEL, LocaleKey::SELL_OPTION)
+                end
+                unless child.const_defined?(:SECOND_OPTION_ACTION)
+                    child.const_set(:SECOND_OPTION_ACTION, -> (player, shopkeeper, shop) {
+                        shop.ask_sell(player)
+                    })
+                end
             end
         end
     end
 
-    def initialize()
+    def initialize
         @shopkeeper = Character.new(self.class::SHOPKEEPER)
         @inventory = self.class::INVENTORY
         @sign = self.class::SIGN
@@ -39,7 +50,10 @@ class Shop
     def propose_purchases_to(player, special_dialog = Character::DEFAULT_DIALOG)
         show_sign
         question_box = ASCIIPicture.new(
-            [format(Locale.get_localized(LocaleKey::ASK_SHOP_ACTION), player.get_quantity_of(self.class::CURRENCY))] + Locale.get_localized(LocaleKey::SHOP_OPTIONS)
+            [format(Locale.get_localized(LocaleKey::ASK_SHOP_ACTION), player.get_quantity_of(self.class::CURRENCY))] +
+            Locale.get_localized(LocaleKey::SHOP_OPTIONS_FIRST) +
+            ['2) ' + Locale.get_localized(self.class::SECOND_OPTION_LABEL) + '...'] +
+            Locale.get_localized(LocaleKey::SHOP_OPTIONS_LAST)
         )
         question_box.frame(' ', ' ')
         @shopkeeper.show
@@ -53,18 +67,7 @@ class Shop
                 return TRANSACTION_DONE
             end
         when '2'
-            sold_bundle = player.choose_item_to_sell(self.class::RETAIL_PERCENT)
-            if (sold_bundle != nil) && (
-                Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ASK_CONFIRMATION_SELLING), {
-                    LocaleKey::F_ITEM => sold_bundle.get_name,
-                    LocaleKey::F_VALUE => sold_bundle.get_value(self.class::RETAIL_PERCENT)
-                }))
-            )
-                player.remove_item(sold_bundle.get_item, sold_bundle.get_quantity)
-                player.give_item(Bundle.new(self.class::CURRENCY, sold_bundle.get_value(self.class::RETAIL_PERCENT)))
-                SoundManager.play('shop_bell_sell')
-                return propose_purchases_to(player, self.class::SOLD_DIALOG)
-            end
+            self.class::SECOND_OPTION_ACTION.call(player, @shopkeeper, self)
         when '3'
             player.see_items
         when '4'
@@ -120,12 +123,7 @@ class Shop
             item_bundle = @inventory[item_index]
             price = item_bundle.get_value
             if player.have?(self.class::CURRENCY, price)
-                if Narrator::ask_confirmation(
-                    format(Locale.get_localized(LocaleKey::ASK_CONFIRM_PURCHASE), {
-                        LocaleKey::F_ITEM => item_bundle.get_name,
-                        LocaleKey::F_VALUE => price
-                    })
-                )
+                if confirm(item_bundle, LocaleKey::ASK_CONFIRM_PURCHASE, price)
                     player.remove_item(self.class::CURRENCY, price)
                     player.give_item(Bundle.new(item_bundle.get_item, item_bundle.get_quantity))
                     SoundManager.play('shop_bell_buy')
@@ -142,6 +140,39 @@ class Shop
                 else
                     return propose_purchases_to(player, self.class::NO_MONEY_DIALOG)
                 end
+            end
+        end
+    end
+
+    def ask_sell(player)
+        sold_bundle = player.choose_item_to_sell(self.class::RETAIL_PERCENT)
+        if (sold_bundle != nil) && (confirm(sold_bundle, LocaleKey::ASK_CONFIRMATION_SELLING))
+            player.remove_item(sold_bundle.get_item, sold_bundle.get_quantity)
+            player.give_item(Bundle.new(self.class::CURRENCY, sold_bundle.get_value(self.class::RETAIL_PERCENT)))
+            SoundManager.play('shop_bell_sell')
+            return propose_purchases_to(player, self.class::SOLD_DIALOG)
+        end
+    end
+
+    def confirm(bundle, question, value = bundle.get_value(self.class::RETAIL_PERCENT))
+        Narrator.ask_confirmation(format(Locale.get_localized(question), {
+            LocaleKey::F_ITEM => bundle.get_name,
+            LocaleKey::F_VALUE => value
+        }))
+    end
+
+    def ask_upgrade(player)
+        choosen_armor = player.choose_armor_to_upgrade(self.class::UPGRADE_TAX)
+        if choosen_armor != nil
+            upgrade_cost = choosen_armor.upgrade_cost(self.class::UPGRADE_TAX)
+            if player.have?(self.class::CURRENCY, upgrade_cost) && confirm(choosen_armor, LocaleKey::ASK_CONFIRMATION_UPGRADING, upgrade_cost)
+                upgraded_armor = Armor.load(choosen_armor.get_save_data)
+                upgraded_armor.upgrade
+                player.give_item(Bundle.new(upgraded_armor, 1))
+                player.remove_item(choosen_armor, 1)
+                player.remove_item(self.class::CURRENCY, upgrade_cost)
+            else
+                return propose_purchases_to(player, self.class::NO_MONEY_DIALOG)
             end
         end
     end

@@ -100,6 +100,16 @@ class BundleStack
         return sellable_bundles
     end
 
+    def get_upgradable
+        upgradables = []
+        for bundle in @bundles
+            if bundle.get_item.kind_of? Armor
+                upgradables.append(bundle)
+            end
+        end
+        return upgradables
+    end
+
     def get_all
         return @bundles
     end

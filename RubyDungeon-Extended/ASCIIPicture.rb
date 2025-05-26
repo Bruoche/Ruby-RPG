@@ -230,4 +230,24 @@ class ASCIIPicture
         text_card.frame(' ', ' ')
         return item.get_picture.get_ascii + text_card.get_ascii
     end
+
+    def self.get_upgrading_card(item, index = NO_INDEX, upgrade_tax = 0)
+        upgraded_item = Item.load(item.get_save_data)
+        upgraded_item.upgrade
+        if index != NO_INDEX
+            index_string = index.to_s + ' | '
+        else
+            index_string = ''
+        end
+        price_string = Locale.get_localized(LocaleKey::CARD_PRICE) + item.upgrade_cost(upgrade_tax).to_s + ' ¤'
+        text_card = ASCIIPicture.new([
+            Utils.truncate(index_string + Locale.get_localized(item.get_name).capitalize, (ITEM_ICON_WIDTH - 2)).ljust(ITEM_ICON_WIDTH - 2),
+            price_string,
+            '',
+            Utils.center('♣ ' + item.get_defense.to_s + ' -> ♣ ' + upgraded_item.get_defense.to_s, ITEM_ICON_WIDTH - 2),
+            Utils.center(item.get_weight.to_s + ' Kg -> ' + upgraded_item.get_weight.to_s + ' Kg', ITEM_ICON_WIDTH - 2)
+        ])
+        text_card.frame(' ', ' ')
+        return item.get_picture.get_ascii + text_card.get_ascii
+    end
 end
