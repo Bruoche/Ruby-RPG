@@ -240,8 +240,9 @@ class ASCIIPicture
             index_string = ''
         end
         price_string = Locale.get_localized(LocaleKey::CARD_PRICE) + item.upgrade_cost(upgrade_tax).to_s + ' ¤'
+        upgrade_suffix = item.get_upgrade_suffix
         text_card = ASCIIPicture.new([
-            Utils.truncate(index_string + Locale.get_localized(item.get_name).capitalize, (ITEM_ICON_WIDTH - 2)).ljust(ITEM_ICON_WIDTH - 2),
+            Utils.truncate(index_string + Locale.get_localized(item.get_plain_name).capitalize, ITEM_ICON_WIDTH - (2 + upgrade_suffix.length)) + upgrade_suffix,
             price_string,
             '',
             Utils.center('♣ ' + item.get_defense.to_s + ' -> ♣ ' + upgraded_item.get_defense.to_s, ITEM_ICON_WIDTH - 2),

@@ -46,6 +46,10 @@ class Utils
         return (' ' * Utils.positive((width - string.length).div(2))) + string
     end
 
+    def self.align_right(string, width)
+        return (' ' * Utils.positive(width - string.length)) + string
+    end
+
     def self.multiline(string, width)
         multiline_string = []
         current_string = ''

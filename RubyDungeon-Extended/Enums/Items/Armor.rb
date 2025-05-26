@@ -75,6 +75,14 @@ class Armor < Item
         return Locale::get_localized(@type::ARTICLE) + ' ' + get_name
     end
 
+    def get_plain_name
+        return Locale::get_localized(@name)
+    end
+
+    def get_upgrade_suffix
+        return ' (+' + @upgrade_level.to_s + ' -> +' + (@upgrade_level + 1).to_s + ')'
+    end
+
     def get_description
         return Locale.get_localized(@description) + format(Locale.get_localized(LocaleKey::ARMOR_DESCRIPTION), {
             LocaleKey::F_DEFENSE => @defense,
