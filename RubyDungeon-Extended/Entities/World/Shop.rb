@@ -171,6 +171,7 @@ class Shop
                 player.give_item(Bundle.new(upgraded_armor, 1))
                 player.remove_item(choosen_armor, 1)
                 player.remove_item(self.class::CURRENCY, upgrade_cost)
+                SoundManager.play('forge')
             else
                 return propose_purchases_to(player, self.class::NO_MONEY_DIALOG)
             end

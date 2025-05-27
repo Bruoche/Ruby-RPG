@@ -214,6 +214,7 @@ class Narrator
         recruter = Character.new(Recruter)
         Narrator.write(LocaleKey::GUILD_INVITE_INTRO)
         Narrator.pause_text
+        MusicManager.get_instance.set_ambiance('Invitation')
         recruter.show
         recruter_dialog = recruter.make_dialog_box(dialog)
         Narrator.write(recruter_dialog.get_ascii)
