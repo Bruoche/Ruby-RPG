@@ -165,13 +165,15 @@ class Shop
         choosen_armor = player.choose_armor_to_upgrade(self.class::UPGRADE_TAX)
         if choosen_armor != nil
             upgrade_cost = choosen_armor.upgrade_cost(self.class::UPGRADE_TAX)
-            if player.have?(self.class::CURRENCY, upgrade_cost) && confirm(choosen_armor, LocaleKey::ASK_CONFIRMATION_UPGRADING, upgrade_cost)
-                upgraded_armor = Armor.load(choosen_armor.get_save_data)
-                upgraded_armor.upgrade
-                player.give_item(Bundle.new(upgraded_armor, 1))
-                player.remove_item(choosen_armor, 1)
-                player.remove_item(self.class::CURRENCY, upgrade_cost)
-                SoundManager.play('forge')
+            if player.have?(self.class::CURRENCY, upgrade_cost)
+                if confirm(choosen_armor, LocaleKey::ASK_CONFIRMATION_UPGRADING, upgrade_cost)
+                    upgraded_armor = Armor.load(choosen_armor.get_save_data)
+                    upgraded_armor.upgrade
+                    player.give_item(Bundle.new(upgraded_armor, 1))
+                    player.remove_item(choosen_armor, 1)
+                    player.remove_item(self.class::CURRENCY, upgrade_cost)
+                    SoundManager.play('forge')
+                end
             else
                 return propose_purchases_to(player, self.class::NO_MONEY_DIALOG)
             end
