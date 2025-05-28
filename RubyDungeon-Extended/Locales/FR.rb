@@ -7,8 +7,8 @@ class FR
         LocaleKey::NO => "Non",
         # Monster
         LocaleKey::BAT => "chauve-souris",
-        LocaleKey::GOBLIN_F => "gobline",
-        LocaleKey::GOBLIN_M => "goblin",
+        LocaleKey::GOBLIN_F => "gobeline",
+        LocaleKey::GOBLIN_M => "gobelin",
         LocaleKey::HARPY => "harpie",
         LocaleKey::KNIGHT_F => "chevalière",
         LocaleKey::NECROMANCER_F => "nécromancienne",
@@ -170,7 +170,7 @@ class FR
         LocaleKey::ICON_COMPLETES => "complètes",
         LocaleKey::ICON_LONG_COMPLETES => "complètes longues",
         LocaleKey::ICON_BALD => "chauve",
-        LocaleKey::ICON_RECEEDING => "calvicie",
+        LocaleKey::ICON_RECEEDING => "calvitie",
         LocaleKey::ICON_SHAVED => "rasé",
         LocaleKey::ICON_FLAT => "plaqués",
         LocaleKey::ICON_ATTACHED => "attachés",
@@ -453,8 +453,8 @@ class FR
         ],
         LocaleKey::PRESS_CONTINUE => "  (pressez \"Entrée\" pour continuer...)",
         LocaleKey::ENTER_ROOM => "Lorsque vous entrez dans ",
-        LocaleKey::EMPTY_ROOM_F => "vous la trouvez complètement vide.",
-        LocaleKey::EMPTY_ROOM_M => "vous le trouvez complètement vide.",
+        LocaleKey::EMPTY_ROOM_F => "celle-ci vous semble entièrement vide.",
+        LocaleKey::EMPTY_ROOM_M => "celui-ci vous semble entièrement vide.",
         LocaleKey::IN_A_ROOM => "Vous êtes dans ",
         LocaleKey::IS_EMPTY => " vide.",
         LocaleKey::MONSTER_ROOM => ", vous voyez %s.",
@@ -1062,7 +1062,7 @@ class FR
         LocaleKey::TELEPORTER_NAME => "un télé-cristal",
         LocaleKey::TELEPORTER_DESCRIPTION => "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés.",
         LocaleKey::TELEPORTER_PLURAL => "des télé-cristaux",
-        LocaleKey::GOBLIN_LOOT_COINS => ["En fouillant le corps du goblin vous remarquez une petite bourse accrochée à sa ceinture."],
+        LocaleKey::GOBLIN_LOOT_COINS => ["En fouillant le corps du gobelin vous remarquez une petite bourse accrochée à sa ceinture."],
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",
         LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ? (y/n)",
@@ -1079,7 +1079,7 @@ class FR
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options...",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",
-        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "à plus", "à la prochaine", "au revoir", "à la revoyure", "a la revoyure"],
+        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "à plus", "à la prochaine", "au revoir", "à la revoyure", "a la revoyure", "à bientôt"],
         LocaleKey::DIAL_SHOPKEEPER_REPEAT => "Comme je l'ai dit, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE => ["pas|autre|ailleur", "ici|coin|là|région|venez"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE => ["Non je ne viens effectivement pas d'ici.\nJe suis originaire de l'Est."],
@@ -1106,7 +1106,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH_POTION => ["Mes potions de soins sont d'une grande qualité, et c'est un moyen bien plus fiable de se soigner dans des situations d'urgences que vos bandages faits maisons."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_LOST_KNIGHT => ["perdu|perdue", "chevalier|chevalière|chevaliere"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_LOST_KNIGHT => ["Je n'ai aucune idée de qui vous parlez. Désolé."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GOBLINS => ["goblins|goblin"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_GOBLINS => ["gobelins|gobelin|goblins|goblin"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GOBLINS => [
             "Ces petites pestes sont très rares honnêtement. Je n'en ai jamais vu moi-même, mais j'ai entendu de nombreux récits à propos de leurs assauts sur quiconque s'aventurerais trop profond dans les forêts.\nDe ce que j'ai entendu ils sont bien plus communs dans la tour apparemment. Peut-être qu'eux aussi apprécient les trésors du donjon.",
             "En cela ils ressemblent aux aventuriers de plus d'une manière."
@@ -1128,7 +1128,7 @@ class FR
             "J'veux dire, réfléchissez-y. Peut-être que la tour joue des tours sur votre esprit, ou que quelque chose dans l'air vous fait délirer. Beaucoup de gens ayant été sous l'influence d'hallucinogènes ont des visions morbides de leurs propres morts, ou même de l'après. Ce qui pour moi est bien plus probable."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombes|catacombe|crypte|cryptes|entrée|intérieur|intérieure|intérieurs|dans|dedans|prison|prisons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'intérieur du donjon à part les rumeurs qui en circules. Désolé."],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["Je ne sais rien de l'intérieur du donjon à part les rumeurs qui en circulent. Désolé."],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE => "Je n'ai jamais été moi-même dans le donjon, donc ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON => ["donjon|tour|donjons"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON => [
@@ -1146,7 +1146,7 @@ class FR
             "Pour ce que ça vaut j'suis bien heureux d'être là en Automne. Comme ça je peux profiter des paysages et du climat tempéré sans risquer le coup de chaud."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_HOLY_EMPIRE => "Oui, j'aime énormément cet endroit. ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_NAME => ["ton|ta|t|votre|tu|vous", "appelle|appelez|nomme|nommez|prénom|prenom|nom"],
+        LocaleKey::DIAL_SHOPKEEPER_KEY_NAME => ["ton|appelle-tu|appelez-vous|ta|t|votre|tu|vous", "appelle|appelez|appelle-tu|appelez-vous|nomme|nommez|prénom|prenom|nom"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_NAME => ["Mon nom est Márton Orbán."],
         LocaleKey::DIAL_SHOPKEEPER_KEY_AGE => ["ton|ta|t|votre|tu|vous", "age|âge|vieux|jeune"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_AGE => ["j'ai 37 ans."],
@@ -1335,14 +1335,14 @@ class FR
         LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH_POTION => ["Je fais ces potions de soin moi-même. Pures et efficaces, vous trouverez pas plus puissant ailleur.\n... Encore moins ici en tout cas, vu le peu de concurrence dans le coin."],
         LocaleKey::DIAL_ALCHEMIST_KEY_LOST_KNIGHT => ["perdu|perdue", "chevalier|chevalière|chevaliere"],
         LocaleKey::DIAL_ALCHEMIST_TXT_LOST_KNIGHT => ["Je ne connais rien des habitants du donjon, désolée."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_GOBLINS => ["goblins|goblin"],
+        LocaleKey::DIAL_ALCHEMIST_KEY_GOBLINS => ["goblins|goblin|gobelins|gobelin"],
         LocaleKey::DIAL_ALCHEMIST_TXT_GOBLINS => [
             "",
             "Je n'en ai jamais vu par moi-même, et il serait certainement dangereux pour moi d'aller mettre le nez dans leurs affaires.\nMais d'après ce que j'ai lu, ils ne s'attaqueraient en vérité qu'à ceux qui envahissent et semblent menacer leur territoire.",
             "Territoires, qui, généralement, sont bien enfouis loin de là où nous avons nos propres affaires. Evidemment, lorsqu'un vent expensionniste nous pique ils deviennent donc une nuisance à nos travaux, mais je pense qu'il est injuste de leurs en vouloir pour simplement défendre leurs habitat.",
             "De plus, certaines études semblent pointer vers une intéligence bien plus avancée que ce que les stéréotypes laisseraient présager. Ayant des systèmes sociaux complexes, des technologie et outils à la fabrication avancée et des méthodes agriculturale discrète mais efficace pour leurs besoins."
         ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOBLINS => "Ah, les goblins. Ces petites créatures sont généralement haïes par la majorité des gens, ce qui peut ce comprendre...\nMais, il faut dire que ce sont aussi des êtres assez mal compris.",
+        LocaleKey::DIAL_ALCHEMIST_INTRO_GOBLINS => "Ah, les gobelins. Ces petites créatures sont généralement haïes par la majorité des gens, ce qui peut ce comprendre...\nMais, il faut dire que ce sont aussi des êtres assez mal compris.",
         LocaleKey::DIAL_ALCHEMIST_KEY_SLIME => ["slimes|slime"],
         LocaleKey::DIAL_ALCHEMIST_TXT_SLIME => [
             "Les slimes sont des créatures simples et généralement inoffensives, pour autant qu'on ne s'amuse pas à aller les toucher à main nues.",
