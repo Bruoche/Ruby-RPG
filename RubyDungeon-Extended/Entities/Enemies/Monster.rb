@@ -1,10 +1,10 @@
 class Monster
-    def initialize(life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, unpredictability, picture, loots = [])
+    def initialize(life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [])
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
         @intelligence = intelligence
-        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, name.get_gendered_the, unpredictability, healing_coeff, self)
+        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, name.get_gendered_the, unpredictability, cowardice, healing_coeff, self)
         @picture = picture
         @loots = loots
     end
@@ -79,6 +79,10 @@ class Monster
 
     def died?
         return @lifebar.is_empty
+    end
+
+    def escaped?
+        return @AI.escaped?
     end
 
     def choose_target(players)

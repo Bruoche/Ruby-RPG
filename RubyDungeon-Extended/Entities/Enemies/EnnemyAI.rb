@@ -3,17 +3,39 @@ class EnnemyAI
     CHOICE_MAGIC_ATTACK = 'magic_attack'
     CHOICE_HEAL = 'heal'
 
-    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, denomination, unpredictability, healing_coeff, parent_body)
+    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, denomination, unpredictability, cowardice, healing_coeff, parent_body)
         @basic_attack_messages = basic_attack_messages
         @magic_attack_messages = magic_attack_messages
         @heal_messages = heal_messages
+        @escape_message = escape_message
         @denomination = denomination
         @unpredictability = unpredictability
+        @cowardice = cowardice
         @healing_coeff = healing_coeff
         @body = parent_body
+        @escaped = false
     end
 
     def act(players, pack, strength, intelligence)
+        if @cowardice > 0
+            potential_damage = 0
+            for player in players
+                player_strength = player.get_strength
+                player_magic = Utils.average(player.get_intelligence)
+                if player_strength > player_magic
+                    player_damage = player_strength
+                else
+                    player_damage = player_magic
+                end
+                potential_damage = potential_damage + player_damage
+            end
+            if potential_damage > @body.get_current_life
+                if rand(100) <= @cowardice
+                    escape
+                    return
+                end
+            end
+        end
         if rand(100) >= @unpredictability
             act_logically(players, pack, strength, intelligence)
         else
@@ -144,6 +166,10 @@ class EnnemyAI
         return needyest_ally
     end
 
+    def escaped?
+        return @escaped
+    end
+
     def physical_attack(player, strength)
         SoundManager.play('swoosh')
         Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages.sample) % [player.get_name]}")
@@ -165,5 +191,12 @@ class EnnemyAI
         Narrator.write("#{@denomination.capitalize} #{@heal_messages.sample}")
         sleep Settings::BATTLE_ACTION_PAUSE
         ally.heal(rand(1..intelligence))
+    end
+
+    def escape
+        SoundManager.play('footsteps')
+        Narrator.write(format(Locale.get_localized(@escape_message.sample), @denomination))
+        sleep Settings::BATTLE_ACTION_PAUSE
+        @escaped = true
     end
 end

@@ -6,6 +6,10 @@ module LocaleKey
     BAT = :bat
     GOBLIN_F = :goblin_f
     GOBLIN_M = :goblin_m
+    GOBLIN_GUARD_F = :goblin_guard_f
+    GOBLIN_GUARD_M = :goblin_guard_m
+    FORAGER_GOBLIN_F = :forager_goblin_f
+    FORAGER_GOBLIN_M = :forager_goblin_m
     HARPY = :harpy
     KNIGHT_F = :knight_f
     KNIGHT_M = :knight_m
@@ -26,12 +30,16 @@ module LocaleKey
     ALCOVE = :alcove
     CELL = :cell
     CHAMBER = :chamber
+    CLEARING = :clearing
     CORRIDOR = :corridor
+    FOREST_GROUND = :forest_ground
     GEOLLE = :geolle
+    PATH = :path
     REFECTORY = :refectory
     ROOM = :room
     SLEEP_PLACE = :sleep_place
     TORTURE_CHAMBER = :torture_chamber
+    TRAIL = :trail
     TUNNEL = :tunnel
     # Female Adjectives
     AGILE_F = :agile_f
@@ -40,6 +48,7 @@ module LocaleKey
     AUTHORITARIAN_F = :authoritarian_f
     BIG_F = :big_f
     BLUISH_F = :bluish_f
+    CALM_F = :calm_f
     COLD_F = :cold_f
     DARK_F = :dark_f
     DRY_F = :dry_f
@@ -56,6 +65,7 @@ module LocaleKey
     LOST_F = :lost_f
     MUSCULAR_F = :muscular_f
     NARROW_F = :narrow_f
+    OVERGROWN_F = :overgrown_f
     POWERFULL_F = :powerfull_f
     RIGHT_F = :right_f
     RUINED_F = :ruined_f
@@ -70,6 +80,7 @@ module LocaleKey
     TALL_F = :tall_f
     TIRED_F = :tired_f
     WARY_F = :wary_f
+    WINDING_F = :winding_f
     WORRIED_F = :worried_f
     WORRYING_F = :worrying_f
     # Male Adjectives
@@ -79,6 +90,7 @@ module LocaleKey
     AUTHORITARIAN_M = :authoritarian_m
     BIG_M = :big_m
     BLUISH_M = :bluish_m
+    CALM_M = :calm_m
     COLD_M = :cold_m
     DARK_M = :dark_m
     DRY_M = :dry_m
@@ -95,6 +107,7 @@ module LocaleKey
     LOST_M = :lost_m
     MUSCULAR_M = :muscular_m
     NARROW_M = :narrow_m
+    OVERGROWN_M = :overgrown_m
     POWERFULL_M = :powerfull_m
     RIGHT_M = :right_m
     RUINED_M = :ruined_m
@@ -109,6 +122,7 @@ module LocaleKey
     TALL_M = :tall_m
     TIRED_M = :tired_m
     WARY_M = :wary_m
+    WINDING_M = :winding_m
     WORRIED_M = :worried_m
     WORRYING_M = :worrying_m
     # Player Icon
@@ -390,6 +404,7 @@ module LocaleKey
     MONSTER_STRIKE = :monster_strike
     MONSTER_SPELL = :monster_spell
     MONSTER_HEAL = :monster_heal
+    MONSTER_ESCAPE = :monster_heal
     MONSTER_BODIES = :monster_bodies
     MONSTER_BODY = :monster_body
     THE_MONSTERS = :the_monsters
@@ -621,8 +636,12 @@ module LocaleKey
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     CAVES_LOOT_ROPE = :cave_loot_rope
+    FOREST_LOOT_AMETHYST = :forest_loot_amethyst
+    CAVES_TRANSITION_FOREST = :caves_transition_forest
     OPEN_CAVE = :open_cave
     OPEN_CAVE_DESCRIPTION = :open_cave_description
+    FOREST_DESCRIPTION = :forest_description
+    FOREST_LOOT_ROPE = :forest_loot_rope
     PLACEHOLDER_ARRAY = :placeholder_array
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
@@ -678,7 +697,11 @@ module LocaleKey
     TELEPORTER_NAME = :teleporter_name
     TELEPORTER_DESCRIPTION = :teleporter_description
     TELEPORTER_PLURAL = :teleporter_plural
+    DETOX_FRUIT_NAME = :detox_fruit_name
+    DETOX_FRUIT_NAME_PLURAL = :detox_fruit_name_plural
     GOBLIN_LOOT_COINS = :goblin_loot_coins
+    GOBLIN_LOOT_FRUITS = :goblin_loot_fruits
+    GOBLIN_LOOT_HEALTH_POTION = :goblin_loot_health_potion
     A_HOLE = :a_hole
     ASK_USE_ROPE_HOLE = :ask_use_rope_hole
     STUCK_DOWN_HOLE = :stuck_down_hole

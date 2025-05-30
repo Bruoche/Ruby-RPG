@@ -49,7 +49,9 @@ class MonsterFactory
             [Locale.get_localized(LocaleKey::MONSTER_STRIKE)],
             [Locale.get_localized(LocaleKey::MONSTER_SPELL)],
             [Locale.get_localized(LocaleKey::MONSTER_HEAL)],
+            [Locale.get_localized(LocaleKey::MONSTER_ESCAPE)],
             monster_type::UNPREDICTABILITY,
+            monster_type::COWARDICE,
             picture,
             monster_type::LOOTS
         )

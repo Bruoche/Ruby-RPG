@@ -72,6 +72,11 @@ class Caves < Biome
     MAX_EXITS = 3
     TRANSITIONS = [
         BiomeTransition.new(
+            LocaleKey::CAVES_TRANSITION_FOREST,
+            12,
+            'UndergroundForest'
+        ),
+        BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             1,
             'DeepCatacombs'

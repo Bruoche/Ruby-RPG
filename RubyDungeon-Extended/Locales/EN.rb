@@ -9,6 +9,10 @@ class EN
         LocaleKey::BAT => "bat",
         LocaleKey::GOBLIN_F => "goblin",
         LocaleKey::GOBLIN_M => "goblin",
+        LocaleKey::GOBLIN_GUARD_F => "goblin guard",
+        LocaleKey::GOBLIN_GUARD_M => "goblin guard",
+        LocaleKey::FORAGER_GOBLIN_F => "goblin gatherer",
+        LocaleKey::FORAGER_GOBLIN_M => "goblin gatherer",
         LocaleKey::HARPY => "harpy",
         LocaleKey::KNIGHT_F => "knight",
         LocaleKey::NECROMANCER_F => "necromancer",
@@ -29,13 +33,17 @@ class EN
         LocaleKey::ALCOVE => "alcove",
         LocaleKey::CELL => "cell",
         LocaleKey::CHAMBER => "chamber",
+        LocaleKey::CLEARING => "clearing",
+        LocaleKey::FOREST_GROUND => "forest ground",
         LocaleKey::GEOLLE => "gaol",
         LocaleKey::ROOM => "room",
         LocaleKey::TORTURE_CHAMBER => "torture room",
         LocaleKey::CORRIDOR => "corridor",
+        LocaleKey::PATH => "path",
         LocaleKey::REFECTORY => "refectory",
         LocaleKey::SLEEP_PLACE => "dorm",
         LocaleKey::TUNNEL => "tunnel",
+        LocaleKey::TRAIL => "trail",
         # Female Adjectives
         LocaleKey::AGILE_F => "agile",
         LocaleKey::ANCIENT_F => "ancient",
@@ -43,6 +51,7 @@ class EN
         LocaleKey::AUTHORITARIAN_F => "authoritarian",
         LocaleKey::BIG_F => "big",
         LocaleKey::BLUISH_F => "bluish",
+        LocaleKey::CALM_F => "calm",
         LocaleKey::COLD_F => "cold",
         LocaleKey::DARK_F => "dark",
         LocaleKey::DRY_F => "dry",
@@ -59,6 +68,7 @@ class EN
         LocaleKey::LOST_F => "lost",
         LocaleKey::MUSCULAR_F => "muscular",
         LocaleKey::NARROW_F => "narrow",
+        LocaleKey::OVERGROWN_F => "overgrown",
         LocaleKey::POWERFULL_F => "powerfull",
         LocaleKey::RIGHT_F => "right",
         LocaleKey::RUINED_F => "ruined",
@@ -73,6 +83,7 @@ class EN
         LocaleKey::TALL_F => "tall",
         LocaleKey::TIRED_F => "tired",
         LocaleKey::WARY_F => "wary",
+        LocaleKey::WINDING_F => "winding",
         LocaleKey::WORRIED_F => "worried",
         LocaleKey::WORRYING_F => "worrying",
         # Male Adjectives
@@ -82,6 +93,7 @@ class EN
         LocaleKey::AUTHORITARIAN_M => "authoritarian",
         LocaleKey::BIG_M => "big",
         LocaleKey::BLUISH_M => "bluish",
+        LocaleKey::CALM_M => "calm",
         LocaleKey::COLD_M => "cold",
         LocaleKey::DARK_M => "dark",
         LocaleKey::DRY_M => "dry",
@@ -98,6 +110,7 @@ class EN
         LocaleKey::LOST_M => "lost",
         LocaleKey::MUSCULAR_M => "muscular",
         LocaleKey::NARROW_M => "narrow",
+        LocaleKey::OVERGROWN_M => "overgrown",
         LocaleKey::POWERFULL_M => "powerfull",
         LocaleKey::RIGHT_M => "right",
         LocaleKey::RUINED_M => "ruined",
@@ -112,6 +125,7 @@ class EN
         LocaleKey::TALL_M => "tall",
         LocaleKey::TIRED_M => "tired",
         LocaleKey::WARY_M => "wary",
+        LocaleKey::WINDING_M => "winding",
         LocaleKey::WORRIED_M => "worried",
         LocaleKey::WORRYING_M => "worrying",
         # Player Icon
@@ -917,11 +931,32 @@ class EN
             "You see a piece of broken crystal that's still big enough to be taken."
         ],
         LocaleKey::CAVES_LOOT_ROPE => ["As you search the large room, you notice a rope that was discarted among the tall grass."],
+        LocaleKey::CAVES_TRANSITION_FOREST => [
+            "As you move forward deeper into the caves, you slowly start to notice a light emerge at the end of the tunnel.",
+            "Surprised, but your curiosity picked, you move forward and out of the cave.",
+            "The darkness finally leaves you."
+        ],
         LocaleKey::OPEN_CAVE => "large open room",
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "You are in a cave. To your surprise, this part of the cave seems to recieve light from above.",
             "Looking up, you notice a gaping hole tearing the roof.",
             "The rubbles covering the ground seems to indicate that it collapsed from a higher layer."
+        ],
+        LocaleKey::FOREST_DESCRIPTION => [
+            "You are in what seems to be an underground forest.",
+            "Despite being in a deep cave, far from the sun's rays, a rich ecosystem seems to have developped here.",
+            "Many crystals embedded into the cave's roof shine through, not dissimilar to a night-time sky."
+        ],
+        LocaleKey::FOREST_LOOT_ROPE => [
+            "You see a few vines dangling from the trees that could be used as ropes."
+        ],
+        LocaleKey::FOREST_LOOT_AMETHYST => [
+            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
+            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
+            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
+            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
+            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
+            "As you are searching the area, you feel a heavy object strike your head suddently. After a quick second of astounment you look down and see that a crystal seemingly fell on your head."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
@@ -1061,7 +1096,11 @@ class EN
         LocaleKey::TELEPORTER_NAME => "a tele-crystal",
         LocaleKey::TELEPORTER_DESCRIPTION => "a very rare crystal holding a powerful power, canalised by a magical instrument making it able to transport its bearer to the dungeon exit or to one of their allies.",
         LocaleKey::TELEPORTER_PLURAL => "tele-crystals",
+        LocaleKey::DETOX_FRUIT_NAME => "detoxifying fruit",
+        LocaleKey::DETOX_FRUIT_NAME_PLURAL => "detoxifying fruits",
         LocaleKey::GOBLIN_LOOT_COINS => ["As you search the goblin's corpse, you notice a small purse tied to its belt."],
+        LocaleKey::GOBLIN_LOOT_FRUITS => ["Looking into the goblin's basket, you notice it had a few fruits in a basket."],
+        LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["You find a health potion in one the belt pocket of a goblin guard"],
         LocaleKey::THE_EXIT => "the exit",
         LocaleKey::A_HOLE => "a hole",
         LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down? (y/n)",

@@ -99,7 +99,7 @@ class Pack
 
     def are_dead
         for monster in @monsters
-            if (monster.died?)
+            if monster.died? || monster.escaped?
                 @monsters.delete_at(@monsters.index(monster))
             end
         end
@@ -109,6 +109,9 @@ class Pack
     def take_turns_against(players)
         for monster in @monsters
             monster.act(players, @monsters)
+            if monster.escaped?
+                @monsters.delete_at(@monsters.index(monster))
+            end
         end
     end
 

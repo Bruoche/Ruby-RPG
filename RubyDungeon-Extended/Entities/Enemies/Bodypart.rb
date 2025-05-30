@@ -14,6 +14,9 @@ class Bodypart
             data::BASE_MOVES.map(&:clone),
             [''],
             [''],
+            [''],
+            0,
+            0,
             0,
             ASCIIPicture.new([])
         )

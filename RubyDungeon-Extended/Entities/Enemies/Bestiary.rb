@@ -17,6 +17,9 @@ class Bestiary
                 unless child.const_defined?(:UNPREDICTABILITY)
                     child.const_set(:UNPREDICTABILITY, 5)
                 end
+                unless child.const_defined?(:COWARDICE)
+                    child.const_set(:COWARDICE, 0)
+                end
             end
         end
     end
