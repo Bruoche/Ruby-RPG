@@ -37,12 +37,19 @@ class Hole
                 move(player, @bottom)
             else
                 if player.have?(Rope.new)
-                    Narrator.write(LocaleKey::ASK_USE_ROPE_HOLE)
-                    if Narrator.user_input(player.get_name).downcase == 'y'
-                        roped_by(player)
-                        move(player, @bottom)
-                    else
-                        ask_jump(player)
+                    loop do
+                        Narrator.write(LocaleKey::ASK_USE_ROPE_HOLE)
+                        case Narrator.user_input(player.get_name).downcase
+                        when 'y'
+                            roped_by(player)
+                            move(player, @bottom)
+                            return
+                        when 'n'
+                            ask_jump(player)
+                            return
+                        else
+                            Narrator.unsupported_choice_error
+                        end
                     end
                 else
                     ask_jump(player)
@@ -91,16 +98,23 @@ class Hole
     end
 
     def ask_jump(player)
-        Narrator.write(LocaleKey::ASK_JUMP)
-        if Narrator.user_input(player.get_name).downcase == 'y'
-            Narrator.jump_hole(player)
-            SoundManager.play("swoosh")
-            sleep Settings::BATTLE_ACTION_PAUSE
-            player.set_room(@bottom)
-            player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
-            @skip_player = true
-        else
-            Narrator.write(LocaleKey::NEVERMIND_HOLE)
+        loop do
+            Narrator.write(LocaleKey::ASK_JUMP)
+            case Narrator.user_input(player.get_name).downcase
+            when 'y'
+                Narrator.jump_hole(player)
+                SoundManager.play("swoosh")
+                sleep Settings::BATTLE_ACTION_PAUSE
+                player.set_room(@bottom)
+                player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
+                @skip_player = true
+                return
+            when 'n'
+                Narrator.write(LocaleKey::NEVERMIND_HOLE)
+                return
+            else
+                Narrator.unsupported_choice_error
+            end
         end
     end
 end
