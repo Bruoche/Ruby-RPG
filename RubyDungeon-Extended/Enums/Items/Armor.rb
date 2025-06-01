@@ -91,7 +91,7 @@ class Armor < Item
     end
 
     def get_card_description
-        return Locale.get_localized(@description) + format(Locale.get_localized(LocaleKey::ARMOR_CARD_DESCRIPTION), {
+        return Locale.get_localized(@description) + "\n\n⛊ \s" + format(Locale.get_localized(LocaleKey::ARMOR_CARD_DESCRIPTION), {
             LocaleKey::F_DEFENSE => @defense,
             LocaleKey::F_WEIGHT => @weight
         })

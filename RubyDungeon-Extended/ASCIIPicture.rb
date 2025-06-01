@@ -245,7 +245,7 @@ class ASCIIPicture
             Utils.truncate(index_string + Locale.get_localized(item.get_plain_name).capitalize, ITEM_ICON_WIDTH - (2 + upgrade_suffix.length)) + upgrade_suffix,
             price_string,
             '',
-            Utils.center('♣ ' + item.get_defense.to_s + ' -> ♣ ' + upgraded_item.get_defense.to_s, ITEM_ICON_WIDTH - 2),
+            Utils.center('⛊  ' + item.get_defense.to_s + ' -> ⛊  ' + upgraded_item.get_defense.to_s, ITEM_ICON_WIDTH - 2),
             Utils.center(item.get_weight.to_s + ' Kg -> ' + upgraded_item.get_weight.to_s + ' Kg', ITEM_ICON_WIDTH - 2)
         ])
         text_card.frame(' ', ' ')

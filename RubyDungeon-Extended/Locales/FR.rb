@@ -1069,7 +1069,7 @@ class FR
             "Vous retournez sur vos pas."
         ],
         LocaleKey::ARMOR_DESCRIPTION => ", protège de %{#{LocaleKey::F_DEFENSE}} dégats et pèse %{#{LocaleKey::F_WEIGHT}} Kg",
-        LocaleKey::ARMOR_CARD_DESCRIPTION => "\n\n♣ %{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
+        LocaleKey::ARMOR_CARD_DESCRIPTION => "%{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
         LocaleKey::BANDAGES_NAME => "des bandages",
         LocaleKey::BANDAGES_DESCRIPTION => "restaure une quantité aléatoire de vos points de vies manquants",
         LocaleKey::BANDAGES_PLURAL => "des bandages",

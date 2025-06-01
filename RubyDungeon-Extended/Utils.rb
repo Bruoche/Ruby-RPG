@@ -55,7 +55,7 @@ class Utils
         current_string = ''
         for paragraph in string.split("\n")
             first = true
-            for word in paragraph.split
+            for word in paragraph.split(/ /)
                 if (current_string.length + (word.length + 1)) <= width
                     if first
                         first = false

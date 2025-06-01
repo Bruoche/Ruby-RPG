@@ -1068,7 +1068,7 @@ class EN
             "You turn back."
         ],
         LocaleKey::ARMOR_DESCRIPTION => ", protects from %{#{LocaleKey::F_DEFENSE}} damage and weight %{#{LocaleKey::F_WEIGHT}} Kg",
-        LocaleKey::ARMOR_CARD_DESCRIPTION => "\n\n♣ %{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
+        LocaleKey::ARMOR_CARD_DESCRIPTION => "%{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
         LocaleKey::BANDAGES_NAME => "some bandages",
         LocaleKey::BANDAGES_DESCRIPTION => "restores a random amount of your missing life-points",
         LocaleKey::BANDAGES_PLURAL => "bandages",
