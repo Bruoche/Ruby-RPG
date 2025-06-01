@@ -56,7 +56,7 @@ class ForagerGoblin < Bestiary
     FEMALE_CHANCES = 50
     HEALTH_MULTIPLIER = 0.25
     DAMAGE_MULTIPLIER = 0.25
-    PICTURE = 'goblin'
+    PICTURE = 'goblin_gatherer'
     LOOTS = [
         Loot.new(
             LocaleKey::GOBLIN_LOOT_FRUITS,

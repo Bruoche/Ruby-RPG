@@ -1,6 +1,6 @@
-module GoblinGuardF
+module FighterGoblinF
     NAMES = [
-        LocaleKey::GOBLIN_GUARD_F
+        LocaleKey::FIGHTER_GOBLIN_F
     ].freeze
 
     PREFIXES = [
@@ -26,9 +26,9 @@ module GoblinGuardF
     ].freeze
 end
 
-module GoblinGuardM
+module FighterGoblinM
     NAMES = [
-        LocaleKey::GOBLIN_GUARD_M
+        LocaleKey::FIGHTER_GOBLIN_M
     ].freeze
 
     PREFIXES = [
@@ -55,13 +55,13 @@ module GoblinGuardM
 end
 
 
-class GoblinGuard < Bestiary
-    FEMALE = GoblinGuardF
-    MALE = GoblinGuardM
+class FighterGoblin < Bestiary
+    FEMALE = FighterGoblinF
+    MALE = FighterGoblinM
     FEMALE_CHANCES = 50
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 1
-    PICTURE = 'goblin'
+    PICTURE = 'goblin_fighter'
     LOOTS = [
         Loot.new(
             LocaleKey::GOBLIN_LOOT_HEALTH_POTION,

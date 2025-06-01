@@ -60,7 +60,7 @@ class UndergroundForest < Biome
         ForagerGoblin,
         ForagerGoblin,
         ForagerGoblin,
-        GoblinGuard
+        FighterGoblin
     ]
     SAFE_CHANCES = 50
     MONSTER_AMOUNT_MULTIPLIER = 2

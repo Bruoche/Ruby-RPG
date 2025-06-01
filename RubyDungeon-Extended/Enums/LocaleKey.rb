@@ -6,8 +6,8 @@ module LocaleKey
     BAT = :bat
     GOBLIN_F = :goblin_f
     GOBLIN_M = :goblin_m
-    GOBLIN_GUARD_F = :goblin_guard_f
-    GOBLIN_GUARD_M = :goblin_guard_m
+    FIGHTER_GOBLIN_F = :fighter_goblin_f
+    FIGHTER_GOBLIN_M = :fighter_goblin_m
     FORAGER_GOBLIN_F = :forager_goblin_f
     FORAGER_GOBLIN_M = :forager_goblin_m
     HARPY = :harpy
