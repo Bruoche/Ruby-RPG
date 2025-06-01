@@ -152,17 +152,27 @@ class Party
         for player in @players do
             if (not player.exited?) && (not player.died?)
                 player.act
-                if player.just_won_fight?
-                    winning_players = get_fights[player.get_room.get_id]
-                    xp_gained = player.get_room.get_monsters.get_xp.div(winning_players.length)
-                    Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
-                    for winning_player in winning_players do
-                        winning_player.stop_fighting
-                        winning_player.give_xp(xp_gained)
-                    end
-                    MusicManager.get_instance.start
-                end
+                finish_fight_if_won(player)
             end
+        end
+    end
+
+    def finish_fight_if_won(player)
+        if player.just_won_fight?
+            winning_players = get_fights[player.get_room.get_id]
+            xp_gained = player.get_room.get_monsters.get_xp.div(winning_players.length)
+            Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
+            for winning_player in winning_players do
+                winning_player.stop_fighting
+                winning_player.give_xp(xp_gained)
+            end
+            MusicManager.get_instance.start
+        end
+    end
+
+    def check_won_fights
+        for player in @players do
+            finish_fight_if_won(player)
         end
     end
 end

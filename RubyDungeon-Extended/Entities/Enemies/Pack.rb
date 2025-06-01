@@ -99,7 +99,7 @@ class Pack
 
     def are_dead
         for monster in @monsters
-            if monster.died? || monster.escaped?
+            if (monster.died? || monster.escaped?)
                 @monsters.delete_at(@monsters.index(monster))
             end
         end

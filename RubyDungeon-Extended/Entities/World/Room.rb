@@ -127,7 +127,7 @@ class Room
     end
 
     def got_monsters?
-        return !((@monsters == nil) || (@monsters.are_dead))
+        return !((@monsters == nil) || @monsters.are_dead)
     end
 
     def get_monsters_plural_the
