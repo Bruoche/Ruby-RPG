@@ -104,7 +104,7 @@ class Hole
             when 'y'
                 Narrator.jump_hole(player)
                 SoundManager.play("swoosh")
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 player.set_room(@bottom)
                 player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
                 @skip_player = true

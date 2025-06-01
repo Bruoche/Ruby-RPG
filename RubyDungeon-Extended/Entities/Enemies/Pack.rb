@@ -90,6 +90,10 @@ class Pack
         return power
     end
 
+    def length
+        return @monsters.length
+    end
+
     def plural?
         return @monsters.length > 1
     end
@@ -168,7 +172,7 @@ class Pack
             if monster.died?
                 SoundManager.play('ennemy_death')
                 Narrator.monster_death(monster.get_name.get_gendered_the)
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 @monsters.delete_at(index)
                 for loot in monster.get_loots
                     attack.source.get_room.add_loot(loot)

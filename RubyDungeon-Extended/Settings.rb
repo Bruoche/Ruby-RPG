@@ -12,6 +12,7 @@ class Settings
         Settings::LOCALE_SYM => Locale::ID_EN
     }
     BATTLE_ACTION_PAUSE = 0.3
+    BATTLE_ACTION_SPEED_RATIO = 10
 
     def self.initialized?
         return SaveManager.settings_directory_made?
@@ -57,6 +58,26 @@ class Settings
         set_setting(LOCALE_SYM, locale)
     end
 
+    def self.get_pause_duration
+        current_player = World.get_instance.get_current_player
+        if currently_fighting(current_player)
+            room = World.get_instance.get_current_room
+            if (room != nil) && (room.get_monsters != nil)
+                nb_monsters = room.get_monsters.length
+            else
+                nb_monsters = 0
+            end
+        else
+            nb_monsters = 0
+        end
+        if nb_monsters > BATTLE_ACTION_SPEED_RATIO
+            battle_pause = (BATTLE_ACTION_PAUSE * BATTLE_ACTION_SPEED_RATIO) / nb_monsters
+            return battle_pause
+        else
+            return BATTLE_ACTION_PAUSE
+        end
+    end
+
     private
 
     def self.get_setting(key)
@@ -82,5 +103,13 @@ class Settings
 
     def self.save_settings
         SaveManager.save_settings(@@settings)
+    end
+
+    def self.currently_fighting(current_turn)
+        if current_turn == World::ENNEMYS_TURN
+            return true
+        else
+            return current_turn.fighting?
+        end
     end
 end

@@ -234,12 +234,12 @@ class Player
         else
             Narrator.hurt(get_name, damage_taken)
         end
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         @lifebar.damage(damage_taken)
         if died?
             SoundManager.play('player_death')
             Narrator.player_death(get_name)
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
         end
     end
 
@@ -255,7 +255,7 @@ class Player
             SoundManager.play('spell_fart')
             Narrator.player_spell_fail
         end
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE, self)
     end
 
@@ -282,7 +282,7 @@ class Player
         else
             SoundManager.play('spell_fart')
             Narrator.heal_spell_fail
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             return !ACTED
         end
     end
@@ -293,11 +293,11 @@ class Player
             SoundManager.play('heal_spell')
             if target == self
                 Narrator.self_heal(get_name, amount)
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 @lifebar.heal(amount)
             else
                 Narrator.heal_spell_cast(get_name, target.get_name)
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 target.heal(amount)
             end
             return ACTED
@@ -307,7 +307,7 @@ class Player
     def heal(amount)
         SoundManager.play('player_heal')
         Narrator.heal(get_name, amount)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         @lifebar.heal(amount)
     end
 
@@ -317,12 +317,12 @@ class Player
             SoundManager.play('player_heal')
             Narrator.heal(get_name, amount)
             @lifebar.heal(amount)
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             return ACTED
         else
             SoundManager.play('spell_fart')
             Narrator.dont_need_heal(get_name)
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             return !ACTED
         end
     end

@@ -46,7 +46,7 @@ class Weakpoint
         end
         SoundManager.play('ennemy_hurt')
         Narrator.hurt(@name.get_gendered_the, damage)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         @lifebar.damage(damage)
     end
 

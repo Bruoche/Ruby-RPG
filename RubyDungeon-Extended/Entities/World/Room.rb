@@ -187,18 +187,18 @@ class Room
             SoundManager.play('searching')
             Narrator.searching(@name.get_gendered_the)
             3.times do
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 Narrator.write_same_line('.')
             end
             Narrator.add_space_of(1)
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             @objects = @biome.get_loot
         end
         for loot in @monster_loots
             if loot.dropped?
                 bundle = loot.get_item
                 bundle.get_item.play_sound
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 @objects.append(bundle)
             end
         end

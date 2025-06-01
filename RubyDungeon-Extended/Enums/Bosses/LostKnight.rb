@@ -74,7 +74,7 @@ class LostKnight < Bestiary
     def self.slash(targets, allies, actor, boss)
         SoundManager.play('swoosh')
         Narrator.knight_slash
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         3.times do
             target = actor.choose_target(targets)
             target.hurt(Attack.new((actor.get_strength.div(2)), Attack::PHYSIC_TYPE, actor))
@@ -84,7 +84,7 @@ class LostKnight < Bestiary
     def self.limb_loss(name, boss)
         SoundManager.play('ennemy_death')
         Narrator.knight_limb_loss(name.get_gendered_the)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
     end
 
     def self.main_arm_loss(name, boss)
@@ -93,10 +93,10 @@ class LostKnight < Bestiary
             limb_loss(name, boss)
             SoundManager.play('taking_object')
             Narrator.knight_change_weapon_side(boss.get_name.get_gendered_the)
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             SoundManager.play('equip')
             Narrator.knight_phase_change
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             left_arm.add_special_move(SpecialMove.new(100, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
             left_arm.set_death_event(-> (name, boss) {defenseless(name, boss)})
         else
@@ -108,7 +108,7 @@ class LostKnight < Bestiary
         limb_loss(name, boss)
         SoundManager.play('unequip')
         Narrator.knight_defenseless(boss.get_name.get_gendered_the)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
     end
 
     # death event
@@ -116,9 +116,9 @@ class LostKnight < Bestiary
     def self.death(name, boss)
         SoundManager.play('ennemy_death')
         Narrator.knight_death1(boss.get_name.get_gendered_of)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         SoundManager.play('player_death')
         Narrator.knight_death2
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
     end
 end

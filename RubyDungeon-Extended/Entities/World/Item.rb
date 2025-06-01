@@ -73,12 +73,12 @@ class Item
     def use(target, user)
         Narrator.unknown_use
         SoundManager.play('spell_fart')
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         return !Player::ACTED
     end
 
     def play_sound
         SoundManager.play(self.class::SOUND)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
     end
 end

@@ -93,7 +93,7 @@ class Monster
         damage = attack.damage_dealt
         SoundManager.play('ennemy_hurt')
         Narrator.hurt(@name.get_gendered_the, damage)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         @lifebar.damage(damage)
         return Player::ACTED
     end
@@ -101,7 +101,7 @@ class Monster
     def heal(amount)
         SoundManager.play('monster_heal')
         Narrator.heal(@name.get_gendered_the, amount)
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         @lifebar.heal(amount)
     end
 

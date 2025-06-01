@@ -151,10 +151,12 @@ class Party
     def take_turns
         for player in @players do
             if (not player.exited?) && (not player.died?)
+                World.get_instance.set_current_player(player)
                 player.act
                 finish_fight_if_won(player)
             end
         end
+        World.get_instance.set_current_player(World::ENNEMYS_TURN)
     end
 
     def finish_fight_if_won(player)

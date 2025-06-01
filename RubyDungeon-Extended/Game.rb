@@ -51,7 +51,9 @@ class Game
             @party.take_turns
             @party.get_fights.each do |room, players|
                 begin
-                    World.get_instance.get_room(room).get_monsters.take_turns_against(players)
+                    room_instance = World.get_instance.get_room(room)
+                    World.get_instance.set_current_room(room_instance)
+                    room_instance.get_monsters.take_turns_against(players)
                     @party.check_won_fights
                 rescue => unexpected_exception
                     Narrator.unexpected_error

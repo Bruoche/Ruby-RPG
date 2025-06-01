@@ -66,7 +66,7 @@ class Biome
             if loot.dropped?
                 bundle = loot.get_item
                 bundle.get_item.play_sound
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
                 loots.append(bundle)
             end
         end

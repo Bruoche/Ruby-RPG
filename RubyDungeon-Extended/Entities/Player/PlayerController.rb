@@ -171,6 +171,7 @@ class PlayerController
             else
                 return !Player::ACTED
             end
+            World.get_instance.set_current_room(@player.get_room)
         else
             ask_action
         end
@@ -185,7 +186,7 @@ class PlayerController
                 Narrator.everything_taken_already(@player.get_room.get_this_denomination)
             else
                 Narrator.nothing_found
-                sleep Settings::BATTLE_ACTION_PAUSE
+                sleep Settings.get_pause_duration
             end
             return false
         else

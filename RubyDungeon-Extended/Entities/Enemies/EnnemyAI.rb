@@ -173,14 +173,14 @@ class EnnemyAI
     def physical_attack(player, strength)
         SoundManager.play('swoosh')
         Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages.sample) % [player.get_name]}")
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, @body))
     end
 
     def magic_attack(players, intelligence)
         SoundManager.play('monster_magic_charge')
         Narrator.write("#{@denomination.capitalize} #{@magic_attack_messages.sample}")
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         for player in players do
             player.hurt(Attack.new(intelligence, Attack::MAGIC_TYPE, @body))
         end
@@ -189,14 +189,14 @@ class EnnemyAI
     def heal_ally(ally, intelligence)
         SoundManager.play('monster_heal_spell')
         Narrator.write("#{@denomination.capitalize} #{@heal_messages.sample}")
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         ally.heal(rand(1..intelligence))
     end
 
     def escape
         SoundManager.play('footsteps')
         Narrator.write(format(Locale.get_localized(@escape_message.sample), @denomination))
-        sleep Settings::BATTLE_ACTION_PAUSE
+        sleep Settings.get_pause_duration
         @escaped = true
     end
 end

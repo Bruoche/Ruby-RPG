@@ -19,7 +19,7 @@ class Teleporter < Item
         if user.fighting?
             Narrator.teleporter_fail
             SoundManager.play('spell_fart')
-            sleep Settings::BATTLE_ACTION_PAUSE
+            sleep Settings.get_pause_duration
             return Player::ACTED
         else
             Narrator.teleporter_start

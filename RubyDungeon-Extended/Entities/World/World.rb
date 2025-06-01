@@ -1,6 +1,7 @@
 class World
     @instance = new
     AUTO_BIOME = nil
+    ENNEMYS_TURN = nil
 
     def generate_dungeon(party)
         @party = party
@@ -74,13 +75,34 @@ class World
         return @party.get_players_in(room)
     end
 
+    def get_current_player
+        return @current_player
+    end
+
+    def get_current_room
+        return @current_room
+    end
+
     def nb_players
         return @party.size
+    end
+
+    def set_current_player(player)
+        @current_player = player
+        if player != ENNEMYS_TURN
+            @current_room = player.get_room
+        end
+    end
+
+    def set_current_room(room)
+        @current_room = room
     end
 
     private
 
     def initialize(level)
         @rooms = {}
+        @current_player = ENNEMYS_TURN
+        @current_room = nil
     end
 end
