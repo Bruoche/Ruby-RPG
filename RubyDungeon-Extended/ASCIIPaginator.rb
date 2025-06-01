@@ -6,6 +6,7 @@ class ASCIIPaginator
         @current_page = nil
         @pages = []
         @last_first = last_first
+        @show_return_button = true
     end
 
     def append(picture)
@@ -20,7 +21,15 @@ class ASCIIPaginator
         end
         if @pages.length > 1
             Narrator.put_scrollbar(get_scroll_bar, @current_page, @pages.length)
+        else
+            if @show_return_button
+                Narrator.write(LocaleKey::GO_BACK_ENUMERATED)
+            end
         end
+    end
+
+    def set_show_return_button(show_return_button)
+        @show_return_button = show_return_button
     end
 
     def get_scroll_bar
@@ -34,7 +43,11 @@ class ASCIIPaginator
         else
             right_arrow = Locale.get_localized(LocaleKey::NEXT_PAGE_UNAVAILABLE)
         end
-        return_button = Locale.get_localized(LocaleKey::RETURN_BUTTON)
+        if @show_return_button
+            return_button = Locale.get_localized(LocaleKey::RETURN_BUTTON)
+        else
+            return_button = ''
+        end
         bar_length = (TTY::Screen.width - (left_arrow.length + return_button.length + right_arrow.length)).div(2)
         return left_arrow + '-' * bar_length + return_button + '-' * bar_length + right_arrow
     end

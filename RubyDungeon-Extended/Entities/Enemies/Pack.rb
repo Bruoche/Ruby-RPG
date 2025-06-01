@@ -12,6 +12,7 @@ class Pack
 
     def get_cards
         monster_cards = ASCIIPaginator.new
+        monster_cards.set_show_return_button(false)
         for monster in @monsters
             monster_cards.append(ASCIIPicture.new(ASCIIPicture.monster_card(monster)))
         end
