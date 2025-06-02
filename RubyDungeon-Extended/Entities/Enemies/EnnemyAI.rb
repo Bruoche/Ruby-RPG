@@ -194,7 +194,7 @@ class EnnemyAI
     end
 
     def escape
-        SoundManager.play('footsteps')
+        SoundManager.play('ennemy_footsteps')
         Narrator.write(format(Locale.get_localized(@escape_message.sample), @denomination))
         sleep Settings.get_pause_duration
         @escaped = true
