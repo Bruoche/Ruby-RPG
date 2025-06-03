@@ -7,7 +7,7 @@ module UndergroundForestF
     PREFIXES = [
         LocaleKey::SMALL_F,
         LocaleKey::TALL_F,
-        LocaleKey::LONG_M,
+        LocaleKey::LONG_F,
         LocaleKey::SPACIOUS_F
     ].freeze
 
@@ -45,7 +45,7 @@ end
 class UndergroundForest < Biome
     EXPECTED_LEVEL = 25
     PICTURE = 'forest'
-    EXPLORATION_TRACK = 'Dungeon Entrance'
+    EXPLORATION_TRACK = 'Forest'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = UndergroundForestF
     MALE = UndergroundForestM
