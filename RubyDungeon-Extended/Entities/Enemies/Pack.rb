@@ -112,10 +112,10 @@ class Pack
     end
 
     def take_turns_against(players)
-        for monster in @monsters
+        @monsters.delete_if do |monster|
             monster.act(players, @monsters)
             if monster.escaped?
-                @monsters.delete_at(@monsters.index(monster))
+                true
             end
         end
     end
