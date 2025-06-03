@@ -404,7 +404,7 @@ module LocaleKey
     MONSTER_STRIKE = :monster_strike
     MONSTER_SPELL = :monster_spell
     MONSTER_HEAL = :monster_heal
-    MONSTER_ESCAPE = :monster_heal
+    MONSTER_ESCAPE = :monster_escape
     MONSTER_BODIES = :monster_bodies
     MONSTER_BODY = :monster_body
     THE_MONSTERS = :the_monsters
