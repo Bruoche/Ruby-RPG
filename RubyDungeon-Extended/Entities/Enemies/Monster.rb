@@ -10,19 +10,11 @@ class Monster
     end
 
     def get_description
-        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), {
-            LocaleKey::F_SUBJECT => @name.get_gendered_a,
-            LocaleKey::F_LIFE => get_current_life,
-            LocaleKey::F_STRENGTH => get_strength
-        })
+        return description(@name.get_gendered_a)
     end
 
     def get_description_the
-        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), {
-            LocaleKey::F_SUBJECT => @name.get_gendered_the,
-            LocaleKey::F_LIFE => get_current_life,
-            LocaleKey::F_STRENGTH => get_strength
-        })
+        return description(@name.get_gendered_the)
     end
 
     def get_name
@@ -107,5 +99,18 @@ class Monster
 
     def act(players, pack)
         @AI.act(players, pack, @strength, @intelligence)
+    end
+
+    private
+
+    def description(name)
+        stat_strings = [
+            format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s),
+            format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s)
+        ]
+        if @intelligence > 0
+            stat_strings.append(format(Locale.get_localized(LocaleKey::INTELLIGENCE_DESCRIPTOR), get_intelligence.to_s))
+        end
+        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), name) + Utils.enumerate(stat_strings)
     end
 end

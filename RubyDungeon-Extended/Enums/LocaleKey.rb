@@ -401,6 +401,9 @@ module LocaleKey
     ASK_MEMBER_AIMED_AT = :ask_member_aimed_at
     WEAKPOINT_DESCRIPTION = :weakpoing_description
     MONSTER_DESCRIPTION = :monster_description
+    HEALTH_DESCRIPTOR = :health_descriptor
+    DAMAGE_DESCRIPTOR = :damage_descriptor
+    INTELLIGENCE_DESCRIPTOR = :intelligence_descriptor
     MONSTER_STRIKE = :monster_strike
     MONSTER_SPELL = :monster_spell
     MONSTER_HEAL = :monster_heal
