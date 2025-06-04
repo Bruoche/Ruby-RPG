@@ -67,7 +67,10 @@ class Shop
                 return TRANSACTION_DONE
             end
         when '2'
-            self.class::SECOND_OPTION_ACTION.call(player, @shopkeeper, self)
+            answer = self.class::SECOND_OPTION_ACTION.call(player, @shopkeeper, self)
+            if (answer.kind_of? String) || (answer.kind_of? Symbol)
+                return propose_purchases_to(player, answer)
+            end
         when '3'
             player.see_items
         when '4'
@@ -150,7 +153,7 @@ class Shop
             player.remove_item(sold_bundle.get_item, sold_bundle.get_quantity)
             player.give_item(Bundle.new(self.class::CURRENCY, sold_bundle.get_value(self.class::RETAIL_PERCENT)))
             SoundManager.play('shop_bell_sell')
-            return propose_purchases_to(player, self.class::SOLD_DIALOG)
+            return self.class::SOLD_DIALOG
         end
     end
 
@@ -175,7 +178,7 @@ class Shop
                     SoundManager.play('forge')
                 end
             else
-                return propose_purchases_to(player, self.class::NO_MONEY_DIALOG)
+                return self.class::NO_MONEY_DIALOG
             end
         end
     end
