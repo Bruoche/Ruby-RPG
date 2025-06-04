@@ -548,8 +548,8 @@ class EN
         ],
         LocaleKey::ASK_SHOP => [
             "What do you want to do?",
-            "    a) Return to the shop",
-            "    b) Leave to the main menu"
+            "    a) Continue",
+            "    b) Back to main menu"
         ],
         LocaleKey::ASK_VOLUME => "What volume do you want? (current volume: %s%%)",
         LocaleKey::ASK_SOUND_EFFECTS => [
