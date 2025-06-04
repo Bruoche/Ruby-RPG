@@ -641,7 +641,7 @@ class FR
         LocaleKey::ASK_ITEM_TARGET => "Sur qui utiliser %s ?",
         LocaleKey::ASK_GIFT_TARGET => "A qui donner %s ?",
         LocaleKey::ASK_ITEM_TO_SELL => "Quel objet souhaitez-vous vendre ?",
-        LocaleKey::ASK_ITEM_TO_UPGRADE => "Quelle armure souhaitez-vous améliorer ?",
+        LocaleKey::ASK_ITEM_TO_UPGRADE => "Quelle armure souhaitez-vous améliorer ? (%s ¤)",
         LocaleKey::ASK_PLAYER_REMOVED => "Quel membre de l'équipe supprimer ?",
         LocaleKey::PARRIED => " paré",
         LocaleKey::ASK_HEAL_TARGET => "Qui souhaitez-vous soigner ?",

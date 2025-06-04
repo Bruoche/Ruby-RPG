@@ -281,7 +281,7 @@ class Inventory
         upgradable_bundles = get_upgradable_items
         if upgradable_bundles.length > 0
             bundle_index = Narrator.ask_paginated(
-                LocaleKey::ASK_ITEM_TO_UPGRADE,
+                format(Locale.get_localized(LocaleKey::ASK_ITEM_TO_UPGRADE), player.get_quantity_of(Shop::DEFAULT_CURRENCY)),
                 upgradable_bundles, -> (bundle, index){
                     item_frame = ASCIIPicture.new(ASCIIPicture.get_upgrading_card(bundle.get_item, index, upgrade_tax))
                     item_frame.frame

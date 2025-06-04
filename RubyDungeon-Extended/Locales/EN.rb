@@ -640,7 +640,7 @@ class EN
         LocaleKey::ASK_ITEM_TARGET => "On who do you want to use %s?",
         LocaleKey::ASK_GIFT_TARGET => "To who do you give %s?",
         LocaleKey::ASK_ITEM_TO_SELL => "What item do you want to sell?",
-        LocaleKey::ASK_ITEM_TO_UPGRADE => "What armor do you want to upgrade?",
+        LocaleKey::ASK_ITEM_TO_UPGRADE => "What armor do you want to upgrade? (%s ¤)",
         LocaleKey::ASK_PLAYER_REMOVED => "Which team member do you want to remove?",
         LocaleKey::PARRIED => " parried",
         LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
