@@ -293,6 +293,12 @@ module ShopKeeper
             LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD
         ),
         Dialog.new(
+            DialogID::QUEST,
+            LocaleKey::DIAL_SHOPKEEPER_KEY_QUEST,
+            LocaleKey::DIAL_SHOPKEEPER_TXT_QUEST,
+            LocaleKey::DIAL_SHOPKEEPER_INTRO_QUEST
+        ),
+        Dialog.new(
             DialogID::HELLO,
             LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO,
             LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO,

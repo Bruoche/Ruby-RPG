@@ -287,6 +287,12 @@ module Alchemist
             LocaleKey::DIAL_ALCHEMIST_INTRO_GOD
         ),
         Dialog.new(
+            DialogID::QUEST,
+            LocaleKey::DIAL_ALCHEMIST_KEY_QUEST,
+            LocaleKey::DIAL_ALCHEMIST_TXT_QUEST,
+            LocaleKey::DIAL_ALCHEMIST_INTRO_QUEST
+        ),
+        Dialog.new(
             DialogID::HELLO,
             LocaleKey::DIAL_ALCHEMIST_KEY_HELLO,
             LocaleKey::DIAL_ALCHEMIST_TXT_HELLO

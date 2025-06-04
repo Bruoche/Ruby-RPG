@@ -28,6 +28,7 @@ module DialogID
     GOLD = 'gold'
     GOOD = 'good'
     GUILD = 'guild'
+    QUEST = 'quest'
     HAUBERK = 'hauberk'
     HAVE_YOU = 'have_you'
     HEALTH = 'health'

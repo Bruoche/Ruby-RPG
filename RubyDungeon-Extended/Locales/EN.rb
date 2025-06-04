@@ -1356,6 +1356,12 @@ class EN
             "Meanwhile my large catalogue of armors can cater to all budgets and fighting styles.\nFor those that need good protection for cheap, the heavier pieces will be perfect for you, but they might hinder your movements. Meanwhile more medium to light armors will allow to move freely while still improving your defense."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_RECOMMENDATION => "Well, ",
+        LocaleKey::DIAL_SHOPKEEPER_KEY_QUEST => ["quest|quests"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_QUEST => [
+            "if it is gold and glory you're after, I reckon that going as deep as you can down that tower out there is as good a quest as any.",
+            "Although, personally I'd much rather stay home then go in that cursed place.\nBut I guess that this is why I am the shopkeeper and you are the adventurer, eh?"
+        ],
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_QUEST => "A quest? I'm no tavern keeper, adventurer.\nBut ",
         LocaleKey::DIAL_ALCHEMIST_REPEAT => "As I was saying, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_NOT_FROM_HERE => ["from|origin|originally|born", "not|no|didn|here|in|there|country|other"],
         LocaleKey::DIAL_ALCHEMIST_TXT_NOT_FROM_HERE => ["I was born to the north of the country."],
@@ -1581,6 +1587,12 @@ class EN
             "The many stories I've heard and landscapes I've crossed have much more to teach then the capital ever could, now that my education is done."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_FATHER => "Yes, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_QUEST => ["quest|quests|mission|missions"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_QUEST => [
+            "the only people to pass through are adventurers and the townsfolks that would much rather we leave to their peace.",
+            "But if you need gold, just go scavange that tower and I'll buy back whatever you have of value."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_QUEST => "Ah, I'm sorry but we haven't recieved any quests from anyone here, since ",
         LocaleKey::DIAL_ALCHEMIST_KEY_BAD => ["bad|poorly|awfull|not|horrible|worst|worse"],
         LocaleKey::DIAL_ALCHEMIST_TXT_BAD => ["sorry to hear that."],
         LocaleKey::DIAL_ALCHEMIST_INTRO_BAD => "Oh, ",

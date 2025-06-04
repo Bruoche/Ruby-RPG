@@ -1358,6 +1358,12 @@ class FR
             "Ensuite, mon large catalogue d'armures peut répondre à tout les budgets et types de combattants.\nPour ceux ayant besoin d'une bonne protection pas cher, l'armure lourde est parfaite, mais elle risque de gêner vos mouvements. Pour ce qu'est des armures moyennes voir légère, celle-ci vous permettrons de bouger plus librement tout en offrant une bonne protection à un coût plus élevé."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_RECOMMENDATION => "Et bien, ",
+        LocaleKey::DIAL_SHOPKEEPER_KEY_QUEST => ["quete|quetes|quête|quêtes"],
+        LocaleKey::DIAL_SHOPKEEPER_TXT_QUEST => [
+            "si c'est la gloire et l'or que vous cherchez, j'imagine que partir aussi profondément que possible dans la tour là-bas vaut n'importe quelle autre quête à faire pour vous.",
+            "Mais, à votre place je préférerais bien mieux rester chez moi que visiter ce lieu maudit.\nMais j'imaginque que c'est pour ça que vous êtes les aventuriers et moi je suis le marchant hein?"
+        ],
+        LocaleKey::DIAL_SHOPKEEPER_INTRO_QUEST => "Une quête ? Je ne suis pas tavernier vous savez.\nMais ",
         LocaleKey::DIAL_ALCHEMIST_REPEAT => "Comme j'le disait, ",
         LocaleKey::DIAL_ALCHEMIST_KEY_NOT_FROM_HERE => ["pas|autre|ailleur", "ici|coin|là|région|venez"],
         LocaleKey::DIAL_ALCHEMIST_TXT_NOT_FROM_HERE => ["je suis née au nord du pays."],
@@ -1583,6 +1589,12 @@ class FR
             "Les nombreuses histoires que j'ai entendue, et les paysages que j'ai traversée ont bien plus à m'apprendre que la capitale, maintenant que mon éducation est terminée."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_FATHER => "Oui, ",
+        LocaleKey::DIAL_ALCHEMIST_KEY_QUEST => ["quête|quêtes|quete|quetes|mission|missions"],
+        LocaleKey::DIAL_ALCHEMIST_TXT_QUEST => [
+            "il n'y a que des aventuriers et les villageois qui passent par ici, et que ces derniers préféreraient autant qu'on les laisse tranquille.",
+            "Mais si c'est de l'or qu'il vous faut, allez simplement fouiller cette tour pour tout objet de valeur à revendre."
+        ],
+        LocaleKey::DIAL_ALCHEMIST_INTRO_QUEST => "Ah, désolée mais nous n'avons reçu aucune quête dans les environs, puisqu'",
         LocaleKey::DIAL_ALCHEMIST_KEY_BAD => ["mal|mauvais|mauvaise|pas|horrible|pire|terrible|horriblement|dur|non|moyen|bof|coussi|coussa"],
         LocaleKey::DIAL_ALCHEMIST_TXT_BAD => ["désolée d'entendre ça."],
         LocaleKey::DIAL_ALCHEMIST_INTRO_BAD => "Oh, ",

@@ -795,6 +795,9 @@ module LocaleKey
     DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN = :dial_shopkeeper_key_how_you_doin
     DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN = :dial_shopkeeper_txt_how_you_doin
     DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN = :dial_shopkeeper_intro_how_you_doin
+    DIAL_SHOPKEEPER_KEY_QUEST = :dial_shopkeeper_key_quest
+    DIAL_SHOPKEEPER_TXT_QUEST = :dial_shopkeeper_txt_quest
+    DIAL_SHOPKEEPER_INTRO_QUEST = :dial_shopkeeper_intro_quest
     DIAL_SHOPKEEPER_KEY_HELLO = :dial_shopkeeper_key_hello
     DIAL_SHOPKEEPER_TXT_HELLO = :dial_shopkeeper_txt_hello
     DIAL_SHOPKEEPER_INTRO_HELLO = :dial_shopkeeper_intro_hello
@@ -1039,6 +1042,9 @@ module LocaleKey
     DIAL_ALCHEMIST_KEY_HEALTH_PELLET = :dial_alchemist_key_health_pellet
     DIAL_ALCHEMIST_TXT_HEALTH_PELLET = :dial_alchemist_txt_health_pellet
     DIAL_ALCHEMIST_INTRO_HEALTH_PELLET = :dial_alchemist_intro_health_pellet
+    DIAL_ALCHEMIST_KEY_QUEST = :dial_alchemist_key_quest
+    DIAL_ALCHEMIST_TXT_QUEST = :dial_alchemist_txt_quest
+    DIAL_ALCHEMIST_INTRO_QUEST = :dial_alchemist_intro_quest
     DIAL_BLACKSMITH_REPEAT = :dial_blacksmith_repeat
     F_CURRENT = :current
     F_TOTAL = :total
