@@ -44,6 +44,9 @@ class EN
         LocaleKey::SLEEP_PLACE => "dorm",
         LocaleKey::TUNNEL => "tunnel",
         LocaleKey::TRAIL => "trail",
+        LocaleKey::MARSH => "marsh",
+        LocaleKey::SWAMP => "swamp",
+        LocaleKey::BOG => "bog",
         # Female Adjectives
         LocaleKey::AGILE_F => "agile",
         LocaleKey::ANCIENT_F => "ancient",
@@ -960,6 +963,16 @@ class EN
             "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
             "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
             "As you are searching the area, you feel a heavy object strike your head suddently. After a quick second of astounment you look down and see that a crystal seemingly fell on your head."
+        ],
+        LocaleKey::FOREST_TRANSITION_SWAMP => [
+            "As you go deeper into the forest you feel the ground getting wetter.",
+            "The uneaven ground lead to an increasing amount of stagnating water, and as dirt turns to mud the vegetation become increasingly sparse.",
+            "You have entered a swamp."
+        ],
+        LocaleKey::SWAMP_DESCRIPTION => [
+            "You are standing knee-deep within mud, the few paches of clear water turning brown as your steps disturb the earth beneath.",
+            "Walking against the resistance of the liquids while your feets are sinking proves difficult, but you dredge through.",
+            "You feel the coldness of the sludge biting your legs and the smell of rotten eggs suffocating you."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",

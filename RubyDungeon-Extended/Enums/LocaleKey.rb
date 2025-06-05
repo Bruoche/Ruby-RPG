@@ -28,16 +28,19 @@ module LocaleKey
     ARM = :arm
     # Rooms
     ALCOVE = :alcove
+    BOG = :bog
     CELL = :cell
     CHAMBER = :chamber
     CLEARING = :clearing
     CORRIDOR = :corridor
     FOREST_GROUND = :forest_ground
     GEOLLE = :geolle
+    MARSH = :marsh
     PATH = :path
     REFECTORY = :refectory
     ROOM = :room
     SLEEP_PLACE = :sleep_place
+    SWAMP = :swamp
     TORTURE_CHAMBER = :torture_chamber
     TRAIL = :trail
     TUNNEL = :tunnel
@@ -639,12 +642,14 @@ module LocaleKey
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     CAVES_LOOT_ROPE = :cave_loot_rope
-    FOREST_LOOT_AMETHYST = :forest_loot_amethyst
     CAVES_TRANSITION_FOREST = :caves_transition_forest
     OPEN_CAVE = :open_cave
     OPEN_CAVE_DESCRIPTION = :open_cave_description
     FOREST_DESCRIPTION = :forest_description
     FOREST_LOOT_ROPE = :forest_loot_rope
+    FOREST_LOOT_AMETHYST = :forest_loot_amethyst
+    FOREST_TRANSITION_SWAMP = :forest_transition_swamp
+    SWAMP_DESCRIPTION = :swamp_description
     PLACEHOLDER_ARRAY = :placeholder_array
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog

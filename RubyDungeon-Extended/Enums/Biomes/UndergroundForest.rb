@@ -62,7 +62,7 @@ class UndergroundForest < Biome
         ForagerGoblin,
         FighterGoblin
     ]
-    SAFE_CHANCES = 50
+    SAFE_CHANCES = 60
     MONSTER_AMOUNT_MULTIPLIER = 2
     LOOT = [
         Loot.new(
@@ -79,6 +79,11 @@ class UndergroundForest < Biome
     MIN_EXITS = 2
     MAX_EXITS = 4
     TRANSITIONS = [
+        BiomeTransition.new(
+            LocaleKey::FOREST_TRANSITION_SWAMP,
+            10,
+            'Swamp'
+        ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             5,

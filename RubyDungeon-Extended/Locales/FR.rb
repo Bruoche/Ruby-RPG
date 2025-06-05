@@ -44,6 +44,9 @@ class FR
         LocaleKey::SLEEP_PLACE => "dortoir",
         LocaleKey::TUNNEL => "tunnel",
         LocaleKey::TRAIL => "piste",
+        LocaleKey::MARSH => "marais",
+        LocaleKey::SWAMP => "marécage",
+        LocaleKey::BOG => "tourbière",
         # Female Adjectives
         LocaleKey::AGILE_F => "agile",
         LocaleKey::ANCIENT_F => "ancienne",
@@ -961,6 +964,16 @@ class FR
             "Vous remarquez un petit cristal simplement posé sur le sol, au milieu de l'herbe.",
             "Vous remarquez un petit cristal simplement posé sur le sol, au milieu de l'herbe.",
             "Alors que vous fouillez les environs, un objet lourd vous frappe soudainement le crâne. Après quelques secondes d'abasourdissement, vous regardez au sol et remarquez qu'un cristal semble vous être tombé dessus."
+        ],
+        LocaleKey::FOREST_TRANSITION_SWAMP => [
+            "Alors que vous vous enfoncez plus profondément dans la forêt, vous sentez que le sol se gorge d'eau.",
+            "L'irrégularité du terrain semble conserver de plus en plus d'eau stagnante, et alors que la terre laisse place à la boue la végétation se rarifie.",
+            "Vous venez de pénétrer un marais."
+        ],
+        LocaleKey::SWAMP_DESCRIPTION => [
+            "La boue dans laquelle vous vous tenez monte jusqu'à vos genoux, et les rares flaques d'eau claire tournent au marron lorsque vos pas en remuent le fond.",
+            "Alors que vos pieds s'enfoncent dans la terre et que l'eau résiste à tout vos pas, marcher s'avère difficile.",
+            "La froideur de la mélasse vous mord les jambes et l'odeur d'oeuf pourris est étouffante."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
