@@ -1,10 +1,10 @@
 class Monster
-    def initialize(life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [])
+    def initialize(life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [], attack_effects = [])
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
         @intelligence = intelligence
-        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, name.get_gendered_the, unpredictability, cowardice, healing_coeff, self)
+        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, name.get_gendered_the, unpredictability, cowardice, healing_coeff, self, attack_effects)
         @picture = picture
         @loots = loots
     end

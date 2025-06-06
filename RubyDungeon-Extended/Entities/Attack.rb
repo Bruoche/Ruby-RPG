@@ -2,11 +2,13 @@ class Attack
     PHYSIC_TYPE = 0
     MAGIC_TYPE = 1
     FALL_TYPE = 2
+    POISON_TYPE = 3
 
-    def initialize(damage, type, source)
+    def initialize(damage, type, source, effects = [])
         @damage = damage
         @type = type
         @source = source
+        @effects = effects
     end
 
     def damage
@@ -19,6 +21,10 @@ class Attack
 
     def source
         return @source
+    end
+
+    def effects
+        return @effects
     end
 
     def damage_dealt
@@ -41,6 +47,8 @@ class Attack
             best_roll = first_roll > second_roll ? first_roll : second_roll
             return best_roll
         when Attack::FALL_TYPE
+            return @damage
+        when Attack::POISON_TYPE
             return @damage
         else
             Narrator.unexpected_damage_type_error

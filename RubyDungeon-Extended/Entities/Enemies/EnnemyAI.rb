@@ -3,7 +3,7 @@ class EnnemyAI
     CHOICE_MAGIC_ATTACK = 'magic_attack'
     CHOICE_HEAL = 'heal'
 
-    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, denomination, unpredictability, cowardice, healing_coeff, parent_body)
+    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, denomination, unpredictability, cowardice, healing_coeff, parent_body, attack_effects)
         @basic_attack_messages = basic_attack_messages
         @magic_attack_messages = magic_attack_messages
         @heal_messages = heal_messages
@@ -14,6 +14,7 @@ class EnnemyAI
         @healing_coeff = healing_coeff
         @body = parent_body
         @escaped = false
+        @attack_effects = attack_effects
     end
 
     def act(players, pack, strength, intelligence)
@@ -174,7 +175,7 @@ class EnnemyAI
         SoundManager.play('swoosh')
         Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages.sample) % [player.get_name]}")
         sleep Settings.get_pause_duration
-        player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, @body))
+        player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, @body, @attack_effects))
     end
 
     def magic_attack(players, intelligence)

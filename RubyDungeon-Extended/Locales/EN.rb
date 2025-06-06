@@ -26,6 +26,7 @@ class EN
         LocaleKey::SLIME => "slime",
         LocaleKey::SPRIGGAN => "spriggan",
         LocaleKey::ZOMBIE_M => "undead",
+        LocaleKey::POISON_SPIDER_F => "swamp spider",
         # Bodyparts
         LocaleKey::HEAD => "head",
         LocaleKey::ARM => "arm",

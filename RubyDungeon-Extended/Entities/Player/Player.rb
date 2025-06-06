@@ -200,7 +200,12 @@ class Player
 
     def hurt(attack)
         damage = attack.damage_dealt
-        if attack.type != Attack::FALL_TYPE
+        if defense_ignored(attack.type)
+            damage_taken = damage
+            dodge_score = 0
+            defense_score = 0
+            defense_text = ''
+        else
             dodge_score = rand(0..@stats.agility.div(2))
             if dodge_score > damage
                 dodge_score = damage
@@ -216,11 +221,6 @@ class Player
             else
                 defense_text = ''
             end
-        else
-            damage_taken = damage
-            dodge_score = 0
-            defense_score = 0
-            defense_text = ''
         end
         if damage_taken > 0
             SoundManager.play('player_hurt')
@@ -229,7 +229,7 @@ class Player
         else
             SoundManager.play('dodge')
         end
-        if attack.type != Attack::FALL_TYPE
+        if defense_ignored(attack.type)
             Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
         else
             Narrator.hurt(get_name, damage_taken)
@@ -408,5 +408,9 @@ class Player
 
     def stealth_score
         return (@stats.agility**2).div(2)
+    end
+
+    def defense_ignored(attack_type)
+        return (attack_type != Attack::POISON_TYPE) && (attack_type != ATTACK::FALL_TYPE)
     end
 end

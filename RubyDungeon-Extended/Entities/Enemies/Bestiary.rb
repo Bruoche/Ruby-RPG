@@ -20,6 +20,9 @@ class Bestiary
                 unless child.const_defined?(:COWARDICE)
                     child.const_set(:COWARDICE, 0)
                 end
+                unless child.const_defined?(:ATTACK_EFFECTS)
+                    child.const_set(:ATTACK_EFFECTS, [])
+                end
             end
         end
     end

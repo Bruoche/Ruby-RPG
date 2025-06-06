@@ -1,6 +1,6 @@
 module PoisonSpiderF
     NAMES = [
-        LocaleKey::SPIDER
+        LocaleKey::POISON_SPIDER
     ].freeze
 
     PREFIXES = [
@@ -27,4 +27,17 @@ class PoisonSpider < Bestiary
     DAMAGE_MULTIPLIER = 1
     PICTURE = 'spider'
     UNPREDICTABILITY = 100
+    ATTACK_EFFECTS = [
+        AttackEffect.new(
+            -> (player, monster, inflicted_damage) {
+                if inflicted_damage > 0
+                    player.add_status(Poison.new(5, 10, monster))
+                    puts "poisonned"
+                    SoundManager.play('potion')
+                end
+            },
+            100,
+            [Attack::PHYSIC_TYPE]
+        )
+    ]
 end

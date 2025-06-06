@@ -15,6 +15,7 @@ module LocaleKey
     KNIGHT_M = :knight_m
     NECROMANCER_F = :necromancer_f
     NECROMANCER_M = :necromancer_m
+    POISON_SPIDER = :poison_spider
     PRISONNER_F = :prisonner_f
     PRISONNER_M = :prisonner_m
     SKELETON = :skeleton
