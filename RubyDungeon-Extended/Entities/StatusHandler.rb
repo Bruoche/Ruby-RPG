@@ -40,11 +40,9 @@ class StatusHandler
     def add(new_status)
         already_have_it = false
         for status in @statuses
-            if !already_have_it
-                if status.class == new_status.class
-                    already_have_it = true
-                    status.append(new_status.length)
-                end
+            if !already_have_it && (status.class == new_status.class)
+                already_have_it = true
+                status.append(new_status.length)
             end
         end
         if !already_have_it

@@ -93,7 +93,8 @@ class ASCIIPicture
     def frame(horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME, corner_piece = DEFAULT_CORNER_PIECE)
         new_picture = [corner_piece + (horizontal_line * @width) + corner_piece]
         @picture.each.with_index(0) do |line, y|
-            new_picture.append(vertical_line + line.ljust(@width) + vertical_line)
+            adjusted_line = line.gsub(/[\u200B-\u200D\uFEFF\u200D\uFE0E]/, '')
+            new_picture.append(vertical_line + adjusted_line.ljust(@width) + vertical_line)
         end
         new_picture.append(corner_piece + (horizontal_line * @width) + corner_piece)
         @picture = new_picture

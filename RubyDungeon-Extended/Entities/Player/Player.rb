@@ -230,12 +230,13 @@ class Player
             SoundManager.play('dodge')
         end
         if defense_ignored(attack.type)
-            Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
-        else
             Narrator.hurt(get_name, damage_taken)
+        else
+            Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
         end
         sleep Settings.get_pause_duration
         @lifebar.damage(damage_taken)
+        attack.try_effects(self, damage_taken)
         if died?
             SoundManager.play('player_death')
             Narrator.player_death(get_name)
@@ -411,6 +412,6 @@ class Player
     end
 
     def defense_ignored(attack_type)
-        return (attack_type != Attack::POISON_TYPE) && (attack_type != ATTACK::FALL_TYPE)
+        return (attack_type == Attack::POISON_TYPE) || (attack_type == Attack::FALL_TYPE)
     end
 end

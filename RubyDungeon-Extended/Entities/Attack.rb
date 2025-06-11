@@ -23,10 +23,6 @@ class Attack
         return @source
     end
 
-    def effects
-        return @effects
-    end
-
     def damage_dealt
         case @type
         when Attack::PHYSIC_TYPE
@@ -53,6 +49,12 @@ class Attack
         else
             Narrator.unexpected_damage_type_error
             return 0
+        end
+    end
+
+    def try_effects(target, effective_damage)
+        for effect in @effects
+            effect.try(target, self, effective_damage)
         end
     end
 end

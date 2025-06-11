@@ -53,7 +53,8 @@ class MonsterFactory
             monster_type::UNPREDICTABILITY,
             monster_type::COWARDICE,
             picture,
-            monster_type::LOOTS
+            monster_type::LOOTS,
+            monster_type::ATTACK_EFFECTS
         )
     end
 

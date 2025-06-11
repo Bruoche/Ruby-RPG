@@ -1,6 +1,6 @@
 class Poison < Status
     SAVED = false
-    ICON = '☠︎︎'
+    ICON = '☠︎︎ '
 
     def initialize(duration, amount, source)
         super

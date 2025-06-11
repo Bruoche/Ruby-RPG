@@ -26,7 +26,7 @@ class FR
         LocaleKey::SLIME => "slime",
         LocaleKey::SPRIGGAN => "spriggan",
         LocaleKey::ZOMBIE_M => "mort-vivant",
-        LocaleKey::POISON_SPIDER_F => "araignée maraicageuse",
+        LocaleKey::POISON_SPIDER => "araignée maraicageuse",
         # Bodyparts
         LocaleKey::HEAD => "tête",
         LocaleKey::ARM => "bras",

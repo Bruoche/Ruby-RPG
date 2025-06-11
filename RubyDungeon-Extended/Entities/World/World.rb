@@ -11,6 +11,7 @@ class World
         else
             biome = Entrance
         end
+        biome = Swamp
         biome_id = biome.name
         @entrance = Room.new(biome, RoomID.new(biome_id, 0), exit)
         @rooms = {Exit.name => [exit], biome_id => [@entrance]}
