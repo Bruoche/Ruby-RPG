@@ -15,7 +15,7 @@ class Poison < Status
             name = name.get_gendered_the
         end
         Narrator.write(format(Locale.get_localized(LocaleKey::POISON_AFFECT), name.capitalize))
-        SoundManager.play('potion')
+        SoundManager.play('poison')
         sleep Settings.get_pause_duration
         host.hurt(Attack.new(@amount, Attack::POISON_TYPE, @source))
     end
