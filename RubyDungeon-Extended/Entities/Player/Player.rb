@@ -67,6 +67,10 @@ class Player
         return @stats.strength
     end
 
+    def get_raw_strength
+        return @stats.raw_strength
+    end
+
     def get_strength_to_string
         return @stats.strength_to_string
     end
@@ -79,8 +83,16 @@ class Player
         return @stats.agility
     end
 
+    def get_raw_agility
+        return @stats.raw_agility
+    end
+
     def get_agility_to_string
         return @stats.agility_to_string
+    end
+
+    def get_defense
+        return @stats.defense
     end
 
     def get_defense_to_string
@@ -379,6 +391,14 @@ class Player
 
     def choose_armor_to_upgrade(upgrade_tax)
         return @inventory.choose_armor_to_upgrade(self, upgrade_tax)
+    end
+
+    def print_status
+        Narrator.print_status(self)
+    end
+
+    def get_statuses_descriptions
+        return @status_handler.get_descriptions
     end
 
     def add_status(status)

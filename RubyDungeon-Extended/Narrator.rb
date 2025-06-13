@@ -354,6 +354,57 @@ class Narrator
         end
     end
 
+    def self.print_status(player)
+        Narrator.write(player.get_icon.get_ascii)
+        Narrator.add_space_of(1)
+        Narrator.write(format(Locale.get_localized(LocaleKey::STATUS_INTRO), {
+            LocaleKey::F_SUBJECT => player.get_name,
+            LocaleKey::F_LEVEL => player.get_level.to_s
+        }))
+        Narrator.write(format(Locale.get_localized(LocaleKey::STATUS_STATS), {
+            LocaleKey::F_LIFE => player.health_to_string,
+            LocaleKey::F_STRENGTH => player.get_raw_strength.to_s,
+            LocaleKey::F_INTELLIGENCE => player.get_intelligence.to_s,
+            LocaleKey::F_AGILITY => player.get_raw_agility.to_s
+        }))
+        Narrator.print_weight_status(player)
+        statuses_description = player.get_statuses_descriptions
+        if statuses_description.length > 0
+            Narrator.add_space_of(1)
+            Narrator.write(statuses_description)
+        end
+        Narrator.pause_text
+    end
+
+    def self.print_weight_status(player)
+        encumbrance_score = (player.get_agility*100).div(player.get_raw_agility)
+        if encumbrance_score <= 0
+            if (player.get_strength <= 0)
+                Narrator.write(LocaleKey::WEIGHT_MAX)
+            else
+                if (player.get_strength < player.get_raw_strength)
+                    Narrator.write(LocaleKey::WEIGHT_STRENGTH_REDUCED)
+                else
+                    Narrator.write(LocaleKey::WEIGHT_AGI_MAX)
+                end
+            end
+        elsif encumbrance_score <= 25
+            Narrator.write(LocaleKey::WEIGHT_THREE_QUARTER)
+        elsif encumbrance_score <= 50
+            Narrator.write(LocaleKey::WEIGHT_HALF)
+        elsif encumbrance_score <= 75
+            Narrator.write(LocaleKey::WEIGHT_QUARTER)
+        elsif encumbrance_score < 100
+            Narrator.write(LocaleKey::WEIGHT_SMALL)
+        else
+            if player.get_defense > 0
+                Narrator.write(LocaleKey::WEIGHT_NONE)
+            else
+                Narrator.write(LocaleKey::NO_ARMOR)
+            end
+        end
+    end
+
     def self.start_fight(plural)
         Narrator.add_space_of(1)
         if plural

@@ -85,6 +85,9 @@ class PlayerController
                 @fighting = true
                 return fight_action
             end
+        when '6'
+            @player.print_status
+            return !Player::ACTED
         else
             Narrator.unsupported_choice_error
             return ask_action
@@ -147,6 +150,9 @@ class PlayerController
                 @fighting = true
                 return Player::ACTED
             end
+        when '6'
+            @player.print_status
+            return propose_combat
         else
             Narrator.unsupported_choice_error
             return propose_combat

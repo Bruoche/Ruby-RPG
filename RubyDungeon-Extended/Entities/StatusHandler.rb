@@ -37,6 +37,14 @@ class StatusHandler
         return icons
     end
 
+    def get_descriptions
+        descriptions = ""
+        for status in @statuses
+            descriptions += format(status.get_description)
+        end
+        return descriptions
+    end
+
     def add(new_status)
         already_have_it = false
         for status in @statuses

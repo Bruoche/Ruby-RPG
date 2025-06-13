@@ -17,6 +17,9 @@ class Status
                 unless child.const_defined?(:ICON)
                     child.const_set(:ICON, '@')
                 end
+                unless child.const_defined?(:DESCRIPTION)
+                    child.const_set(:DESCRIPTION, "")
+                end
             end
         end
     end
@@ -47,6 +50,15 @@ class Status
         return @duration
     end
 
+    def get_description
+        if self.class::DESCRIPTION.length > 0
+            ending = " "
+        else
+            ending = ""
+        end
+        return Locale.get_localized(self.class::DESCRIPTION) + ending
+    end
+
     def visible?
         return !self.class::HIDDEN
     end
@@ -66,7 +78,7 @@ class Status
             if @duration == INFINITE
                 duration_string = ''
             else
-                duration_string = '(' + @duration.to_s + ')'
+                duration_string = '(' + @duration.to_s + ') '
             end
             return self.class::ICON + duration_string
         end
