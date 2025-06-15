@@ -723,6 +723,11 @@ module LocaleKey
     TELEPORTER_PLURAL = :teleporter_plural
     DETOX_FRUIT_NAME = :detox_fruit_name
     DETOX_FRUIT_NAME_PLURAL = :detox_fruit_name_plural
+    DETOX_FRUIT_DESCRIPTION = :detox_fruit_description
+    DETOX_FRUIT_USE_SELF = :detox_fruit_use_self
+    DETOX_FRUIT_USE_OTHER = :detox_fruit_use_other
+    DETOX_FRUIT_NO_EFFECT = :detox_fruit_no_effect
+    DETOX_FRUIT_DETOX = :detox_fruit_detox
     GOBLIN_LOOT_COINS = :goblin_loot_coins
     GOBLIN_LOOT_FRUITS = :goblin_loot_fruits
     GOBLIN_LOOT_HEALTH_POTION = :goblin_loot_health_potion

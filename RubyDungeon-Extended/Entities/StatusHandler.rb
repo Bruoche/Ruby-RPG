@@ -74,10 +74,8 @@ class StatusHandler
     end
 
     def remove(status)
-        for current_status in @statuses
-            if current_status.class == status.class
-                @statuses.delete_at(@statuses.index(current_status))
-            end
+        @statuses.delete_if do |current_status|
+            current_status.class == status
         end
     end
 

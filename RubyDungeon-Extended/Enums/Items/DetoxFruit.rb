@@ -1,8 +1,7 @@
 class DetoxFruit < Item
     NAME = LocaleKey::DETOX_FRUIT_NAME
     PLURAL_NAME = LocaleKey::DETOX_FRUIT_NAME_PLURAL
-    SOUND = 'potion'
-    PICTURE = 'health_potion'
+    SOUND = 'fruit_bite'
 
     def initialize(soin_min, soin_max = soin_min)
         @soin = rand(soin_min.to_i..soin_max.to_i)
@@ -10,16 +9,26 @@ class DetoxFruit < Item
     end
 
     def get_description
-        return format(Locale.get_localized(LocaleKey::HEALTH_POTION_DESCRIPTION), @soin)
+        return format(Locale.get_localized(LocaleKey::DETOX_FRUIT_DESCRIPTION), @soin)
     end
 
     def use(target, user)
         if target == user
-            Narrator.use_self(user.get_name, LocaleKey::HEALTH_POTION_USE_SELF)
+            Narrator.use_self(user.get_name, LocaleKey::DETOX_FRUIT_USE_SELF)
         else
-            Narrator.use_other(user.get_name, target.get_name, LocaleKey::HEALTH_POTION_USE_OTHER)
+            Narrator.use_other(user.get_name, target.get_name, LocaleKey::DETOX_FRUIT_USE_OTHER)
         end
         play_sound
+        if [true, false].sample
+            target.remove_status(Poison)
+            Narrator.write(LocaleKey::DETOX_FRUIT_DETOX)
+            SoundManager.play('poison_cleanse')
+            sleep Settings.get_pause_duration
+        else
+            Narrator.write(LocaleKey::DETOX_FRUIT_NO_EFFECT)
+            SoundManager.play('spell_fart')
+            sleep Settings.get_pause_duration
+        end
         target.heal(@soin)
         @destroyed = true
         return Player::ACTED
