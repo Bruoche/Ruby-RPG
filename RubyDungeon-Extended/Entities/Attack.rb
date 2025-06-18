@@ -57,4 +57,8 @@ class Attack
             effect.try(target, self, effective_damage)
         end
     end
+
+    def add_effect(effect)
+        @effects.append(effect)
+    end
 end

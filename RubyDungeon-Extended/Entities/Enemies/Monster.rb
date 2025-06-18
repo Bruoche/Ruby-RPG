@@ -7,6 +7,7 @@ class Monster
         @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, name.get_gendered_the, unpredictability, cowardice, healing_coeff, self, attack_effects)
         @picture = picture
         @loots = loots
+        @status_handler = StatusHandler.new
     end
 
     def get_description
@@ -69,6 +70,10 @@ class Monster
         @strength = amount
     end
 
+    def status_handler
+        return @status_handler
+    end
+
     def died?
         return @lifebar.is_empty
     end
@@ -87,6 +92,7 @@ class Monster
         Narrator.hurt(@name.get_gendered_the, damage)
         sleep Settings.get_pause_duration
         @lifebar.damage(damage)
+        attack.try_effects(self, damage)
         return Player::ACTED
     end
 
@@ -99,6 +105,7 @@ class Monster
 
     def act(players, pack)
         @AI.act(players, pack, @strength, @intelligence)
+        @status_handler.end_of_turn_actions(self)
     end
 
     private

@@ -715,6 +715,10 @@ module LocaleKey
     HEALTH_STONE_NAME = :health_stone_name
     HEALTH_STONE_DESCRIPTION = :health_stone_description
     HEALTH_STONE_PLURAL = :health_stone_plural
+    POISON_POTION_NAME = :poison_potion_name
+    POISON_POTION_PLURAL = :poison_potion_plural
+    POISON_POTION_DESCRIPTION = :poison_potion_description
+    POISON_POTION_USE = :poison_potion_use
     PRISON_KEY_NAME = :prison_key_name
     PRISON_KEY_DESCRIPTION = :prison_key_description
     PRISON_KEY_PLURAL = :prison_key_plural
@@ -731,6 +735,7 @@ module LocaleKey
     GOBLIN_LOOT_COINS = :goblin_loot_coins
     GOBLIN_LOOT_FRUITS = :goblin_loot_fruits
     GOBLIN_LOOT_HEALTH_POTION = :goblin_loot_health_potion
+    POISON_SPIDER_LOOT_POISON = :poison_spider_loot_poison
     A_HOLE = :a_hole
     ASK_USE_ROPE_HOLE = :ask_use_rope_hole
     STUCK_DOWN_HOLE = :stuck_down_hole

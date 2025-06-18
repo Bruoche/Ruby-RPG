@@ -26,6 +26,14 @@ class PoisonSpider < Bestiary
     HEALTH_MULTIPLIER = 0.5
     DAMAGE_MULTIPLIER = 1
     PICTURE = 'spider'
+    LOOTS = [
+        Loot.new(
+            LocaleKey::POISON_SPIDER_LOOT_POISON,
+            10,
+            PoisonPotion,
+            [5, 10]
+        )
+    ]
     UNPREDICTABILITY = 100
     ATTACK_EFFECTS = [
         AttackEffect.new(

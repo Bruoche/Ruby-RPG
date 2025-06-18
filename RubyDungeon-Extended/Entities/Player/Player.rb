@@ -119,6 +119,10 @@ class Player
         return @status_handler.get_icons
     end
 
+    def status_handler
+        return @status_handler
+    end
+
     def get_escape_chances(monsters_power)
         if (monsters_power == 0)
             return Utils::HUNDRED_PERCENT
@@ -257,7 +261,7 @@ class Player
     end
 
     def strength_attack
-        return Attack.new(@stats.strength, Attack::PHYSIC_TYPE, self)
+        return make_attack(@stats.strength, Attack::PHYSIC_TYPE)
     end
 
     def magic_attack
@@ -269,7 +273,7 @@ class Player
             Narrator.player_spell_fail
         end
         sleep Settings.get_pause_duration
-        return Attack.new(@stats.intelligence, Attack::MAGIC_TYPE, self)
+        return make_attack(@stats.intelligence, Attack::MAGIC_TYPE)
     end
 
     def heal_spell
@@ -413,6 +417,10 @@ class Player
         @status_handler.remove(status_class)
     end
 
+    def reduce_duration_of(status_class, amount = 1)
+        @status_handler.reduce_of(status_class, amount)
+    end
+
     def to_string(player)
         if player == Narrator::RETURN_BUTTON
             return Locale.get_localized(LocaleKey::ABORT)
@@ -433,5 +441,13 @@ class Player
 
     def defense_ignored(attack_type)
         return (attack_type == Attack::POISON_TYPE) || (attack_type == Attack::FALL_TYPE)
+    end
+
+    def make_attack(damage, type)
+        attack = Attack.new(damage, type, self)
+        for effect in @status_handler.get_attack_effects
+            attack.add_effect(effect)
+        end
+        return attack
     end
 end

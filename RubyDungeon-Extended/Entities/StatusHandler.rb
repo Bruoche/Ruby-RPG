@@ -45,6 +45,16 @@ class StatusHandler
         return descriptions
     end
 
+    def get_attack_effects
+        attack_effects = []
+        for status in @statuses
+            for effect in status.get_effects
+                attack_effects.append(effect)
+            end
+        end
+        return attack_effects
+    end
+
     def add(new_status)
         already_have_it = false
         for status in @statuses
@@ -76,6 +86,15 @@ class StatusHandler
     def remove(status)
         @statuses.delete_if do |current_status|
             current_status.class == status
+        end
+    end
+
+    def reduce_of(status, amount)
+        @statuses.delete_if do |current_status|
+            if current_status.class == status
+                current_status.reduce_duration_of(amount)
+                current_status.depleted?
+            end
         end
     end
 

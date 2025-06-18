@@ -20,6 +20,9 @@ class Status
                 unless child.const_defined?(:DESCRIPTION)
                     child.const_set(:DESCRIPTION, "")
                 end
+                unless child.const_defined?(:ATTACK_EFFECTS)
+                    child.const_set(:ATTACK_EFFECTS, [])
+                end
             end
         end
     end
@@ -57,6 +60,10 @@ class Status
             ending = ""
         end
         return Locale.get_localized(self.class::DESCRIPTION) + ending
+    end
+
+    def get_effects
+        return self.class::ATTACK_EFFECTS
     end
 
     def visible?
@@ -99,6 +106,10 @@ class Status
     end
 
     def tick_down(duration = 1)
+        reduce_duration_of(duration)
+    end
+
+    def reduce_duration_of(amount = 1)
         if (@duration != INFINITE) && (@duration > 0)
             @duration -= 1
         end
