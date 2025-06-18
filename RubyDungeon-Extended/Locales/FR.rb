@@ -534,6 +534,7 @@ class FR
         LocaleKey::TELEPORTER_FAIL => "Alors que vous tentez d'aggriper l'artéfact pour vous échapper, vos adversaires vous en empêchent.",
         LocaleKey::TELEPORTER_START => "Lorsque vous prenez la pierre en votre main, une douce chaleur en émane.",
         LocaleKey::POISON_DESCRIPTION => "Vous sentez votre corps entier brûler alors que le poison traverse vos veines.",
+        LocaleKey::POISON_ATTACK_DESCRIPTION => "Votre arme est enduite de poison.",
         LocaleKey::POISONNED => "%s se fait empoisonner",
         LocaleKey::POISON_AFFECT => "%s sent le poison brûler en son corps.",
         LocaleKey::HEALING_DESCRIPTION => "Vous sentez une douce chaleur émerger de vous-même pendant que les blessures sur votre corps se soignent doucement.",

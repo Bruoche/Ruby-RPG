@@ -2,7 +2,12 @@ class Status
     INFINITE = nil
 
     def initialize(*args)
-        @duration = args[0]
+        duration = args[0]
+        if duration == "" || duration == INFINITE
+            @duration = INFINITE
+        else
+            @duration = duration.to_i
+        end
     end
 
     def self.inherited(child)
@@ -10,6 +15,9 @@ class Status
             if child == t.self
                 unless child.const_defined?(:SAVED)
                     child.const_set(:SAVED, true)
+                end
+                unless child.const_defined?(:FORCE_SAVE)
+                    child.const_set(:FORCE_SAVE, false)
                 end
                 unless child.const_defined?(:HIDDEN)
                     child.const_set(:HIDDEN, false)
@@ -38,7 +46,7 @@ class Status
     end
 
     def get_save_data
-        if @duration == INFINITE && self.class::SAVED
+        if self.class::FORCE_SAVE || (@duration == INFINITE && self.class::SAVED)
             return build_save_data
         else
             return ''

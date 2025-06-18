@@ -536,6 +536,7 @@ class EN
         LocaleKey::POISON_DESCRIPTION => "You feel your whole body burn as poison courses through your veins.",
         LocaleKey::POISONNED => "%s gets poisonned",
         LocaleKey::POISON_AFFECT => "%s feels the poison burn within themselves.",
+        LocaleKey::POISON_ATTACK_DESCRIPTION => "Your weapon is coated in poison.",
         LocaleKey::HEALING_DESCRIPTION => "You feel a warmth rise from within you, as your body slowly heal itself.",
         LocaleKey::KNIGHT_SLASH => "The knight delivers a powerful strike with his sword, intending to slash his enemy.",
         LocaleKey::KNIGHT_LIMB_LOSS => "%s break under the blows.",

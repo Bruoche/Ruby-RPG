@@ -353,6 +353,7 @@ module LocaleKey
     POISON_DESCRIPTION = :poison_description
     POISONNED = :poisonned
     POISON_AFFECT = :poison_affect
+    POISON_ATTACK_DESCRIPTION = :poison_attack_description
     HEALING_DESCRIPTION = :healing_description
     KNIGHT_SLASH = :knight_slash
     KNIGHT_LIMB_LOSS = :knight_limb_loss

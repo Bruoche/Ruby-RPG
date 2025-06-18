@@ -1,6 +1,7 @@
 class PoisonAttack < Status
-#    HIDDEN = true
-    DESCRIPTION = "Your weapon is coated in poison." #TODO localize
+    FORCE_SAVE = true
+    ICON = "🌢 "
+    DESCRIPTION = LocaleKey::POISON_ATTACK_DESCRIPTION
     ATTACK_EFFECTS = [
         AttackEffect.new(
             -> (target, source, inflicted_damage) {
@@ -20,6 +21,10 @@ class PoisonAttack < Status
             [Attack::PHYSIC_TYPE]
         )
     ]
+
+    def build_save_data
+        return self.class.name + "|" + @duration.to_s
+    end
 
     def initialize(nb_attacks = 1)
         super
