@@ -1,10 +1,10 @@
 class Pack
-    def initialize(biome)
+    def initialize(biome, room)
         @monsters = Array.new
         @initial_monsters = Array.new
         monsters = biome.get_monsters
         for monster_data in monsters
-            monster = MonsterFactory.make_monster(monster_data, biome, monsters.length)
+            monster = MonsterFactory.make_monster(monster_data, biome, monsters.length, room)
             @monsters.append(monster)
             @initial_monsters.append(monster)
         end
@@ -104,7 +104,9 @@ class Pack
 
     def are_dead
         for monster in @monsters
-            if (monster.died? || monster.escaped?)
+            if monster.died?
+                death_event(monster)
+            elsif monster.escaped?
                 @monsters.delete_at(@monsters.index(monster))
             end
         end
@@ -170,16 +172,22 @@ class Pack
             return response
         else
             if monster.died?
-                SoundManager.play('ennemy_death')
-                Narrator.monster_death(monster.get_name.get_gendered_the)
-                sleep Settings.get_pause_duration
-                @monsters.delete_at(index)
-                for loot in monster.get_loots
-                    attack.source.get_room.add_loot(loot)
-                end
+                death_event(monster)
                 response[:dead] = true
             end
         end
         return response
+    end
+
+    private
+
+    def death_event(monster)
+        SoundManager.play('ennemy_death')
+        Narrator.monster_death(monster.get_name.get_gendered_the)
+        sleep Settings.get_pause_duration
+        @monsters.delete_at(@monsters.index(monster))
+        for loot in monster.get_loots
+            monster.get_room.add_loot(loot)
+        end
     end
 end

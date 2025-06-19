@@ -13,7 +13,7 @@ class Room
         if biome.is_safe_room(new_biome)
             @monsters = nil
         else
-            @monsters = Pack.new(biome)
+            @monsters = Pack.new(biome, self)
         end
         @biome = biome
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))

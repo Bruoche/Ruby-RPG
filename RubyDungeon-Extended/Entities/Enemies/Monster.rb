@@ -1,5 +1,5 @@
 class Monster
-    def initialize(life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [], attack_effects = [])
+    def initialize(room, life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [], attack_effects = [])
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
@@ -8,6 +8,7 @@ class Monster
         @picture = picture
         @loots = loots
         @status_handler = StatusHandler.new
+        @room = room
     end
 
     def get_description
@@ -64,6 +65,10 @@ class Monster
 
     def get_max_life
         return @lifebar.get_max_life
+    end
+
+    def get_room
+        return @room
     end
 
     def set_strength(amount)
