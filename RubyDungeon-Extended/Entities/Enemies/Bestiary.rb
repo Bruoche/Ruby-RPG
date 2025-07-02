@@ -23,6 +23,11 @@ class Bestiary
                 unless child.const_defined?(:ATTACK_EFFECTS)
                     child.const_set(:ATTACK_EFFECTS, [])
                 end
+                unless child.const_defined?(:DEATH_EVENT)
+                    child.const_set(:DEATH_EVENT, -> (players, dead_monster, pack) {
+                        # no death event by default
+                    })
+                end
             end
         end
     end

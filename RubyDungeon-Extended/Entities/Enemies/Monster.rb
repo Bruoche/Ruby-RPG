@@ -1,5 +1,7 @@
 class Monster
-    def initialize(room, life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [], attack_effects = [])
+    NO_DEATH_EVENT = -> (players, monster, pack) {}
+
+    def initialize(room, life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [], attack_effects = [], death_event = NO_DEATH_EVENT)
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
@@ -9,6 +11,7 @@ class Monster
         @loots = loots
         @status_handler = StatusHandler.new
         @room = room
+        @death_event = death_event
     end
 
     def get_description
@@ -111,6 +114,14 @@ class Monster
     def act(players, pack)
         @AI.act(players, pack, @strength, @intelligence)
         @status_handler.end_of_turn_actions(self)
+    end
+
+    def death_event(players, pack)
+        @death_event.call(players, self, pack)
+    end
+
+    def set_death_event(death_event)
+        @death_event = death_event
     end
 
     private

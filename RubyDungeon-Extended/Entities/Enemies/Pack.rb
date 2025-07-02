@@ -122,6 +122,14 @@ class Pack
         end
     end
 
+    def add(monster)
+        @monsters.append(monster)
+        @initial_monsters.append(monster)
+        SoundManager.play('ennemy_added')
+        Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ADDED), monster.get_name.get_gendered_a.capitalize))
+        sleep Settings.get_pause_duration
+    end
+
     def hurt_single(attack)
         if (plural?)
             choosen_ennemy = Narrator.ask(LocaleKey::ASK_MONSTER_AIMED_AT, @monsters, -> (monster){to_string(monster)}, attack.source.get_name)
@@ -189,5 +197,10 @@ class Pack
         for loot in monster.get_loots
             monster.get_room.add_loot(loot)
         end
+        players = World.get_instance.get_players_in(monster.get_room)
+        players.delete_if do |player|
+            !player.fighting?
+        end
+        monster.death_event(players, self)
     end
 end

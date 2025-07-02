@@ -6,6 +6,7 @@ class Bodypart
         strength = ((BaseStats::BASE_STRENGTH + power_bonus) * data::DAMAGE_MULTIPLIER * strength_proportion).div(100)
         intelligence = ((BaseStats::BASE_INTELLIGENCE + power_bonus) * data::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * data::MAGIC_PROPORTION).round.div(100)
         @actor = Monster.new(
+            # todo add room here
             Integer(health),
             Integer(strength),
             Integer(intelligence),
@@ -15,14 +16,14 @@ class Bodypart
             [''],
             [''],
             [''],
-            [''],
             0,
             0,
-            0,
-            ASCIIPicture.new([])
+            ASCIIPicture.new([]),
+            [],
+            [],
+            data::DEATH_EVENT
         )
         @special_moves = data::SPECIAL_MOVES.map(&:clone)
-        @death_event = data::DEATH_EVENT
     end
 
     def is?(id)
@@ -54,7 +55,7 @@ class Bodypart
     end
 
     def set_death_event(death_event)
-        @death_event = death_event
+        @actor.set_death_event(death_event)
     end
 
     def act(targets, pack, parent)
@@ -69,6 +70,6 @@ class Bodypart
     end
 
     def death_event(parent)
-        @death_event.call(@actor.get_name, parent)
+        @actor.death_event(@actor.get_name, parent) # TODO fix here (used to give bodypart name + parent, now should be giving players monster)
     end
 end

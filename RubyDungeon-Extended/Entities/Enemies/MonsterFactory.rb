@@ -55,7 +55,8 @@ class MonsterFactory
             monster_type::COWARDICE,
             picture,
             monster_type::LOOTS,
-            monster_type::ATTACK_EFFECTS
+            monster_type::ATTACK_EFFECTS,
+            monster_type::DEATH_EVENT
         )
     end
 

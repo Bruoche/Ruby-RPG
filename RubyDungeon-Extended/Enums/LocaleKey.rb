@@ -10,6 +10,7 @@ module LocaleKey
     FIGHTER_GOBLIN_M = :fighter_goblin_m
     FORAGER_GOBLIN_F = :forager_goblin_f
     FORAGER_GOBLIN_M = :forager_goblin_m
+    GIANT_SLIME = :giant_slime
     HARPY = :harpy
     KNIGHT_F = :knight_f
     KNIGHT_M = :knight_m
@@ -355,6 +356,7 @@ module LocaleKey
     POISON_AFFECT = :poison_affect
     POISON_ATTACK_DESCRIPTION = :poison_attack_description
     HEALING_DESCRIPTION = :healing_description
+    SLIME_DIVIDE = :slime_divide
     KNIGHT_SLASH = :knight_slash
     KNIGHT_LIMB_LOSS = :knight_limb_loss
     KNIGHT_CHANGE_WEAPON_SIDE = :knight_change_weapon_side
@@ -430,6 +432,7 @@ module LocaleKey
     MONSTER_ESCAPE = :monster_escape
     MONSTER_BODIES = :monster_bodies
     MONSTER_BODY = :monster_body
+    MONSTER_ADDED = :monster_added
     THE_MONSTERS = :the_monsters
     ASK_EQUIPPED_ARMOR = :ask_equipped_armor
     ASK_REMOVED_ARMOR = :ask_removed_armor

@@ -74,6 +74,10 @@ class Name
         end
     end
 
+    def set_base_name(new_name)
+        @name = new_name
+    end
+
     private
 
     def denomination
