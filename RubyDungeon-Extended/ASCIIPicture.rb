@@ -121,7 +121,11 @@ class ASCIIPicture
             (' ' * Utils.positive((width - stat_string.length).div(2))) + stat_string
         ])
         monster_info.frame
-        return picture + monster_info.get_ascii
+        monster_info_ascii = []
+        for row in monster_info.get_ascii
+            monster_info_ascii.append(Utils.center(row, monster.get_picture.width))
+        end
+        return picture + monster_info_ascii
     end
 
 
