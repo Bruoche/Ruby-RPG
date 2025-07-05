@@ -51,7 +51,7 @@ end
 class Swamp < Biome
     EXPECTED_LEVEL = 27
     PICTURE = 'swamp'
-    EXPLORATION_TRACK = 'Dungeon Entrance'
+    EXPLORATION_TRACK = 'Swamp'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = SwampF
     MALE = SwampM
