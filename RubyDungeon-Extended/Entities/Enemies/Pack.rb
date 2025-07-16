@@ -1,12 +1,16 @@
 class Pack
+    GENERATE_EMPTY = nil
+
     def initialize(biome, room)
         @monsters = Array.new
         @initial_monsters = Array.new
-        monsters = biome.get_monsters
-        for monster_data in monsters
-            monster = MonsterFactory.make_monster(monster_data, biome, monsters.length, room)
-            @monsters.append(monster)
-            @initial_monsters.append(monster)
+        if biome != GENERATE_EMPTY
+            monsters = biome.get_monsters
+            for monster_data in monsters
+                monster = MonsterFactory.make_monster(monster_data, biome, monsters.length, room)
+                @monsters.append(monster)
+                @initial_monsters.append(monster)
+            end
         end
     end
 

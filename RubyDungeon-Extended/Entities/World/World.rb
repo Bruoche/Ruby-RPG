@@ -11,9 +11,11 @@ class World
         else
             biome = Entrance
         end
+        biome = VillageExterior # TODO remove
         biome_id = biome.name
+        @rooms = {Exit.name => [exit]}
         @entrance = Room.new(biome, RoomID.new(biome_id, 0), exit)
-        @rooms = {Exit.name => [exit], biome_id => [@entrance]}
+        @rooms[biome_id] = [@entrance]
         return @entrance
     end
 

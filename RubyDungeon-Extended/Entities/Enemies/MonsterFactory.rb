@@ -1,9 +1,9 @@
 class MonsterFactory
     PICTURE_PREFIX = 'Ennemies/'
 
-    def self.make_monster(monster_data, biome, nb_monsters, room)
+    def self.make_monster(monster_data, biome, nb_monsters, room, bestiary = biome::BESTIARY)
         if monster_data == nil
-            return make_from_scratch(biome, room, nb_monsters)
+            return make_from_scratch(biome, room, nb_monsters, bestiary)
         else
             if monster_data::IS_BOSS == false
                 return Monster.new(room, monster_data)
@@ -15,8 +15,8 @@ class MonsterFactory
 
     private
 
-    def self.make_from_scratch(biome, room, nb_monsters)
-        monster_type = biome::BESTIARY.sample
+    def self.make_from_scratch(biome, room, nb_monsters, bestiary = biome::BESTIARY)
+        monster_type = bestiary.sample
         if biome::MONSTER_POWER_BONUS > 0
             difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
         else

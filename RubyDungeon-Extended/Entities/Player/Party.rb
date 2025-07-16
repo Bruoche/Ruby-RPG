@@ -162,8 +162,12 @@ class Party
     def finish_fight_if_won(player)
         if player.just_won_fight?
             winning_players = get_fights[player.get_room.get_id]
-            xp_gained = player.get_room.get_monsters.get_xp.div(winning_players.length)
-            Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
+            if player.get_room.get_monsters != nil
+                xp_gained = player.get_room.get_monsters.get_xp.div(winning_players.length)
+                Narrator.victory_scene(player.get_room.get_monsters.was_plural, xp_gained)
+            else
+                xp_gained = 0
+            end
             for winning_player in winning_players do
                 winning_player.stop_fighting
                 winning_player.give_xp(xp_gained)

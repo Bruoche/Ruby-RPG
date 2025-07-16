@@ -6,14 +6,19 @@ class Room
         @id = id
         @name = Name.new(biome)
         if precedent_room != nil
-            new_biome = (precedent_room.get_biome != biome)
+            is_new_biome = (precedent_room.get_biome != biome)
         else
-            new_biome = false
+            is_new_biome = false
         end
-        if biome.is_safe_room(new_biome)
+        if biome.is_safe_room(is_new_biome)
             @monsters = nil
         else
             @monsters = Pack.new(biome, self)
+        end
+        if biome.has_passives
+            @passives = PassiveGroup.new(biome, self)
+        else
+            @passives = PassiveGroup.new(PassiveGroup::GENERATE_EMPTY, self)
         end
         @biome = biome
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))
@@ -86,7 +91,8 @@ class Room
                     -> {@biome.describe},
                     picture,
                     @name.get_gendered_the,
-                    @monsters.get_description
+                    @monsters.get_description,
+                    @passives.get_description
                 )
             else
                 Narrator.describe_empty_room(
@@ -94,7 +100,8 @@ class Room
                     -> {@biome.describe},
                     @picture,
                     @name.get_gendered_a,
-                    @name.female?
+                    @name.female?,
+                    @passives.get_description
                 )
             end
             @arrival = false
@@ -109,7 +116,8 @@ class Room
                 -> {@biome.describe},
                 picture,
                 @name.get_gendered_a,
-                monsters_description
+                monsters_description,
+                @passives.get_description
             )
         end
     end
@@ -122,6 +130,10 @@ class Room
         return @monsters
     end
 
+    def get_passives
+        return @passives
+    end
+
     def get_monster_cards
         return @monsters.get_cards
     end
@@ -132,6 +144,20 @@ class Room
 
     def get_monsters_plural_the
         return @monsters.get_plural_the
+    end
+
+    def get_total_power
+        if @monsters != nil
+            monster_power = @monsters.get_current_power
+        else
+            monster_power = 0
+        end
+        if @passives != nil
+            passives_power = @passives.get_current_power
+        else
+            passives_power = 0
+        end
+        return monster_power + passives_power
     end
 
     def get_denomination
@@ -180,6 +206,16 @@ class Room
 
     def set_picture(new_picture)
         @picture = new_picture
+    end
+
+    def anger_passives
+        if @monsters == nil
+            @monsters = Pack.new(Pack::GENERATE_EMPTY, self)
+        end
+        for passive in @passives.empty
+            @monsters.add(passive)
+            true
+        end
     end
 
     def search

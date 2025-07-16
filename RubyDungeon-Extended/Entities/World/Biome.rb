@@ -26,6 +26,18 @@ class Biome
                 unless child.const_defined?(:MONSTER_AMOUNT_MULTIPLIER)
                     child.const_set(:MONSTER_AMOUNT_MULTIPLIER, 1)
                 end
+                unless child.const_defined?(:PASSIVE_AMOUNT_MULTIPLIER)
+                    child.const_set(:PASSIVE_AMOUNT_MULTIPLIER, 1)
+                end
+                unless child.const_defined?(:PASSIVE_BESTIARY)
+                    child.const_set(:PASSIVE_BESTIARY, [])
+                end
+                unless child.const_defined?(:NPCS)
+                    child.const_set(:NPCS, [])
+                end
+                unless child.const_defined?(:PASSIVES_CHANCE)
+                    child.const_set(:PASSIVES_CHANCE, 0)
+                end
                 unless child.const_defined?(:REQUIRED_BIOMES)
                     child.const_set(:REQUIRED_BIOMES, [])
                 end
@@ -37,27 +49,38 @@ class Biome
         Narrator.write(self::DESCRIPTION)
     end
 
-    def self.is_safe_room(new_biome)
+    def self.is_safe_room(is_new_biome)
         if self::SAFE_CHANCES == 0
             return false
         end
         if self::SAFE_CHANCES == 100
             return true
         end
-        if new_biome
+        if is_new_biome
             return rand(1..100) <= 99
         else
             return rand(1..100) <= self::SAFE_CHANCES
         end
     end
 
-    def self.get_monsters
-        nb_monsters_max = ((1 + self::MONSTER_AMOUNT_BONUS) * Math.sqrt(World.get_instance.nb_players)).truncate
-        nb_monsters_max = (nb_monsters_max * self::MONSTER_AMOUNT_MULTIPLIER).round
-        if nb_monsters_max < 1
-            nb_monsters_max = 1
+    def self.has_passives
+        if self::PASSIVES_CHANCE == 0
+            return false
         end
+        if self::PASSIVES_CHANCE == 100
+            return true
+        end
+        return rand(1..100) <= self::PASSIVES_CHANCE
+    end
+
+    def self.get_monsters
+        nb_monsters_max = calculate_nb_monsters
         return Array.new(rand(1..nb_monsters_max))
+    end
+
+    def self.get_passives
+        nb_passives_max = calculate_nb_monsters
+        return Array.new(rand(1..nb_passives_max))
     end
 
     def self.get_loot
@@ -88,5 +111,16 @@ class Biome
             end
         end
         return self
+    end
+
+    private
+
+    def self.calculate_nb_monsters
+        nb_monsters_max = ((1 + self::MONSTER_AMOUNT_BONUS) * Math.sqrt(World.get_instance.nb_players)).truncate
+        nb_monsters_max = (nb_monsters_max * self::MONSTER_AMOUNT_MULTIPLIER).round
+        if nb_monsters_max < 1
+            nb_monsters_max = 1
+        end
+        return nb_monsters_max
     end
 end

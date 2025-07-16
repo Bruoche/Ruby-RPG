@@ -262,14 +262,15 @@ class Narrator
         end
     end
 
-    def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description)
+    def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description, passives_description)
         describe_room(player, describe_biome, picture)
         write_same_line(Locale.get_localized(LocaleKey::ENTER_ROOM) + the_room)
         describe_monsters(player, monsters_description)
         describe_allies(player)
+        describe_passives(passives_description)
     end
 
-    def self.describe_empty_room(player, describe_biome, picture, the_room, female)
+    def self.describe_empty_room(player, describe_biome, picture, the_room, female, passives_description)
         describe_room(player, describe_biome, picture)
         write_same_line(Locale.get_localized(LocaleKey::ENTER_ROOM) + the_room + " ")
         if female
@@ -278,9 +279,10 @@ class Narrator
             Narrator.write(LocaleKey::EMPTY_ROOM_M)
         end
         describe_allies(player)
+        describe_passives(passives_description)
     end
 
-    def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description)
+    def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description, passives_description)
         describe_room(player, describe_biome, picture)
         write_same_line(Locale.get_localized(LocaleKey::IN_A_ROOM) + a_room)
         if monsters_description != nil
@@ -289,6 +291,7 @@ class Narrator
             Narrator.write(LocaleKey::IS_EMPTY)
         end
         describe_allies(player)
+        describe_passives(passives_description)
     end
 
     def self.describe_room(player, describe_biome, picture)
@@ -351,6 +354,12 @@ class Narrator
             else
                 Narrator.write(Locale.get_localized(LocaleKey::AND_DEAD_ALLIES), Utils.enumerate(dead_allies))
             end
+        end
+    end
+
+    def self.describe_passives(passives_description)
+        if passives_description != ''
+            Narrator.write(passives_description)
         end
     end
 
@@ -796,14 +805,14 @@ class Narrator
         Narrator.write(format(Locale.get_localized(LocaleKey::ARMOR_CHANGE_CONFIRMATION), armor_name))
     end
 
-    def self.ask_confirmation(question)
+    def self.ask_confirmation(question, player_name = NO_NAME_DISPLAYED)
         if !question.kind_of?(Array)
             question = [question]
         end
         for line in question
             Narrator.write(line)
         end
-        case Narrator.user_input.downcase
+        case Narrator.user_input(player_name).downcase
         when 'y'
             return true
         when 'n'

@@ -22,6 +22,10 @@ class PlayerController
         @just_entered_room = entered_room
     end
 
+    def start_fighting
+        @fighting = true
+    end
+
     def stop_fighting
         MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
         @fighting = false

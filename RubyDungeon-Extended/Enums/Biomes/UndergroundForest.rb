@@ -86,6 +86,11 @@ class UndergroundForest < Biome
         ),
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
+            1,
+            'VillageExterior'
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
             5,
             'Caves'
         )
