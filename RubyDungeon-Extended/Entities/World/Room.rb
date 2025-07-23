@@ -5,6 +5,7 @@ class Room
     def initialize(biome, id, precedent_room = nil)
         @id = id
         @name = Name.new(biome)
+        @biome = biome
         if precedent_room != nil
             is_new_biome = (precedent_room.get_biome != biome)
         else
@@ -20,7 +21,10 @@ class Room
         else
             @passives = PassiveGroup.new(PassiveGroup::GENERATE_EMPTY, self)
         end
-        @biome = biome
+        @npcs = []
+        for character_data in biome::NPCS
+            @npcs.append(Character.new(character_data, self))
+        end
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))
         if precedent_room != nil
             @adjacent_rooms[0] = precedent_room.get_id
@@ -47,28 +51,25 @@ class Room
         for requirement in @requirements
             if requirement.ignored?
                 return true
+            end
+            if !requirement.can_enter?(player)
+                requirement.impossible_entry_message
+                return false
+            end
+            requirement.ask_enter
+            Narrator.yes_or_no
+            case Narrator.user_input(player.get_name)
+            when '1'
+                requirement.entry_message
+                return true
+            when '2'
+                requirement.no_entry_message
+                return false
             else
-                if requirement.can_enter?(player)
-                    requirement.ask_enter
-                    Narrator.yes_or_no
-                    case Narrator.user_input(player.get_name)
-                    when '1'
-                        requirement.entry_message
-                        return true
-                    when '2'
-                        requirement.no_entry_message
-                        return false
-                    else
-                        Narrator.unsupported_choice_error
-                        return allow_entry_for(player)
-                    end
-                else
-                    requirement.impossible_entry_message
-                    return false
-                end
+                Narrator.unsupported_choice_error
+                return allow_entry_for(player)
             end
         end
-        return true
     end
 
     def exit_to(next_room)
@@ -146,6 +147,28 @@ class Room
         return @monsters.get_plural_the
     end
 
+    def got_npcs?
+        for npc in @npcs
+            if !npc.died?
+                return true
+            end
+        end
+        return false
+    end
+
+    def get_interactables
+        interactables = []
+        if got_monsters?
+            interactables.append(@monsters)
+        end
+        for npc in @npcs
+            if !npc.died?
+                interactables.append(npc)
+            end
+        end
+        return interactables
+    end
+
     def get_total_power
         if @monsters != nil
             monster_power = @monsters.get_current_power
@@ -209,12 +232,27 @@ class Room
     end
 
     def anger_passives
-        if @monsters == nil
-            @monsters = Pack.new(Pack::GENERATE_EMPTY, self)
+        initiate_monster_pack(@passives.empty)
+    end
+
+    def anger_npcs
+        for npc in @npcs
+            if !npc.fighting?
+                initiate_monster_pack([npc.get_fighter])
+                npc.start_fighting
+            end
         end
-        for passive in @passives.empty
-            @monsters.add(passive)
-            true
+    end
+
+    def anger(character)
+        for npc in @npcs
+            if npc == character
+                if !npc.fighting?
+                    initiate_monster_pack([npc.get_fighter])
+                    npc.start_fighting
+                end
+                return
+            end
         end
     end
 
@@ -268,6 +306,20 @@ class Room
             return '???'
         else
             return World.get_instance.get_room(room_id).get_denomination
+        end
+    end
+
+    private
+
+    def initiate_monster_pack(added_elements)
+        if added_elements.length <= 0
+            return
+        end
+        if @monsters == nil
+            @monsters = Pack.new(Pack::GENERATE_EMPTY, self)
+        end
+        for element in added_elements
+            @monsters.add(element)
         end
     end
 end

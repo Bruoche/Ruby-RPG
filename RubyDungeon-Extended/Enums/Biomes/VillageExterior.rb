@@ -17,7 +17,9 @@ class VillageExterior < Biome
         ForestGoblin,
         #add villager goblin
     ]
-    NPCS = []
+    NPCS = [
+        GoblinGuard
+    ]
     SAFE_CHANCES = 100
     PASSIVES_CHANCE = 100
     MONSTER_AMOUNT_MULTIPLIER = 2

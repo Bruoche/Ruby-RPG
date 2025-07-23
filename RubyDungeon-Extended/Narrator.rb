@@ -123,14 +123,21 @@ class Narrator
         Narrator.write(LocaleKey::INVENTORY_OPTIONS_SHOP)
     end
 
-    def self.player_options(room_name)
+    def self.player_options(room_name, have_npcs, have_monsters, interactibles)
         Narrator.write(LocaleKey::PLAYER_OPTIONS_FIRST)
         Narrator.write(Locale.get_localized(LocaleKey::PLAYER_OPTIONS_SEARCH) + room_name)
         Narrator.write(LocaleKey::PLAYER_OPTIONS_SECOND)
+        if interactibles.length > 1
+            Narrator.write(LocaleKey::INTERACTIBLES_OPTION)
+        elsif have_npcs
+            Narrator.write('    5) ' + format(Locale.get_localized(LocaleKey::NPC_INTERACT_OPTION), interactibles[0].get_name))
+        elsif have_monsters
+            Narrator.player_option_fight(interactibles[0].get_plural_the)
+        end
     end
 
     def self.player_option_fight(monster_denomination)
-        Narrator.write(Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + monster_denomination)
+        Narrator.write('    5) ' + Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + monster_denomination)
     end
 
     def self.stat_options(
@@ -803,6 +810,18 @@ class Narrator
 
     def self.ask_armor_replacement_confirmation(armor_name)
         Narrator.write(format(Locale.get_localized(LocaleKey::ARMOR_CHANGE_CONFIRMATION), armor_name))
+    end
+
+    def self.ask_character_options(player, name, special_interactions)
+        Narrator.write(LocaleKey::NPC_QUESTION_INTRO)
+        Narrator.write(format(Locale.get_localized(LocaleKey::NPC_OPTION_TALK), name))
+        option_index = Character::NB_OPTIONS_BEFORE_SPE_INTERACT
+        for special_interaction in special_interactions
+            Narrator.write(format('    %i) ', option_index) + Locale.get_localized(special_interaction.get_menu_option))
+            option_index += 1
+        end
+        Narrator.write(format(Locale.get_localized(LocaleKey::NPC_OPTION_ATTACK), option_index, name))
+        return Narrator.user_input(player.get_name).to_i
     end
 
     def self.ask_confirmation(question, player_name = NO_NAME_DISPLAYED)

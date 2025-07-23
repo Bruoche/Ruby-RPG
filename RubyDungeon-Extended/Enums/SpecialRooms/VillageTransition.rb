@@ -41,13 +41,14 @@ class VillageTransition
             move(player, @in)
             return
         end
-        if Narrator.ask_confirmation(format("Do you want to try and sneak through the door? (y/n) (%i%% chances of success)", player.get_escape_chances(room_power)), player.get_name) #TODO localize
+        if Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE), player.get_escape_chances(room_power)), player.get_name)
             if player.can_escape?(room_power)
                 move(player, @in)
                 return
             end
             Narrator.fail_sneak(true)
             player.get_room.anger_passives
+            player.get_room.anger_npcs
             player.start_fighting
             @acted = true
         end

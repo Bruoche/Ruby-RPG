@@ -4,8 +4,10 @@ class Character
     PERCENT_MARGIN_RIGHT_DIALOG = 20
     DEFAULT_DIALOG = nil
     NO_DIALOG_SPOKEN_LAST = nil
+    NB_OPTIONS_BEFORE_SPE_INTERACT = 2
+    NO_ROOM = nil
 
-    def initialize(character_data)
+    def initialize(character_data, room = NO_ROOM)
         @name = character_data::NAME
         @intro_dialog = character_data::INTRO_DIALOG
         @idle_dialog = character_data::IDLE_DIALOGS
@@ -20,14 +22,74 @@ class Character
         @character_met = []
         @dialogs_said = []
         @last_dialog_spoken = NO_DIALOG_SPOKEN_LAST
+        @is_willing_to_talk = character_data::WILLING_TO_TALK
+        @special_interactions = character_data::SPECIAL_INTERACTIONS
+        @aggressive_players = []
+        @fighting = false
+        @room = room
+        if room != NO_ROOM
+            @body = MonsterFactory.make_monster(MonsterFactory::STATS_AUTO, room.get_biome, 1, room, [character_data::COMBAT_BODY])
+        else
+            @body = nil
+        end
+        @start_fight_action = character_data::START_FIGHT_ACTION
+    end
+
+    def get_name
+        return Locale.get_localized(@name)
+    end
+
+    def get_fighter
+        return @body
     end
 
     def said_before?(dialog)
         return @dialogs_said.include?(dialog.get_id)
     end
 
+    def fighting?
+        return @fighting
+    end
+
+    def died?
+        return (@body != nil) && (@body.died?)
+    end
+
     def show
         Narrator.write(@picture.get_ascii)
+    end
+
+    def interact(player)
+        if @fighting
+            Narrator.write(format(Locale.get_localized(LocaleKey::NPC_UNAVAILABLE), get_name))
+            SoundManager.play('spell_fart')
+            return !Player::ACTED
+        end
+        loop do
+            option_selected = Narrator.ask_character_options(player, get_name, @special_interactions)
+            case option_selected
+            when 0
+                return !Player::ACTED
+            when 1
+                talk(player)
+            else
+                special_interaction_selected = option_selected - NB_OPTIONS_BEFORE_SPE_INTERACT
+                attack_index = (NB_OPTIONS_BEFORE_SPE_INTERACT + @special_interactions.length)
+                if (special_interaction_selected >= 0) && (special_interaction_selected < @special_interactions.length)
+                    acted = @special_interactions[special_interaction_selected].execute(self, player)
+                    if acted
+                        return Player::ACTED
+                    end
+                elsif option_selected == attack_index
+                    if Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::NPC_ATTACK_CONFIRM), get_name), player.get_name)
+                        anger_against(player)
+                        return !Player::ACTED
+                    end
+                else
+                    Narrator.unsupported_choice_error
+                end
+            end
+        end
     end
 
     def put_intro_with_action(question_box, player, dialog = DEFAULT_DIALOG)
@@ -64,6 +126,11 @@ class Character
     end
 
     def talk(interlocutor)
+        if !@is_willing_to_talk.call(self, interlocutor)
+            # TODO make the npc don't wanna interact event
+            Narrator.write("nuhuh")
+            return
+        end
         @interlocutor = interlocutor
         show
         Narrator.write(make_dialog_box(Locale.get_localized(@conversation_starter).sample).get_ascii)
@@ -83,6 +150,17 @@ class Character
                 answer(prompt)
             end
         end
+    end
+
+    def anger_against(player)
+        @aggressive_players.append(player)
+        player.start_fighting
+        @room.anger(self)
+    end
+
+    def start_fighting
+        @fighting = true
+        @start_fight_action.call(self, @room)
     end
 
     private

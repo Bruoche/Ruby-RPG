@@ -59,10 +59,10 @@ class PlayerController
     def ask_action
         @player.get_room.describe(@player)
         @just_entered_room = false
-        Narrator.player_options(@player.get_room.get_the_denomination)
-        if @player.get_room.got_monsters?
-            Narrator.player_option_fight(@player.get_room.get_monsters_plural_the)
-        end
+        monsters_present = @player.get_room.got_monsters?
+        npcs_present = @player.get_room.got_npcs?
+        interactables = @player.get_room.get_interactables
+        Narrator.player_options(@player.get_room.get_the_denomination, npcs_present, monsters_present, interactables)
         case Narrator.user_input(@player.get_name)
         when '0'
             SettingsMenu.options_menu
@@ -80,14 +80,43 @@ class PlayerController
         when '4'
             return Player::ACTED
         when '5'
-            if (not @player.get_room.got_monsters?)
+            if (interactables.length > 1)
+                choosen_index = Narrator.ask(
+                    LocaleKey::ASK_INTERACTION,
+                    interactables,
+                    -> (element) {
+                        if element == Narrator::RETURN_BUTTON
+                            return Locale.get_localized(LocaleKey::GO_BACK).capitalize
+                        elsif element.kind_of? Pack
+                            return Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + element.get_plural_the
+                        else
+                            return format(Locale.get_localized(LocaleKey::NPC_INTERACT_OPTION), element.get_name)
+                        end
+                    },
+                    @player.get_name
+                )
+                if choosen_index == Narrator::RETURN_BUTTON
+                    return ask_action
+                else
+                    interactable = interactables[choosen_index]
+                end
+            elsif interactables.length == 1
+                interactable = interactables[0]
+            else
                 Narrator.unsupported_choice_error
                 return ask_action
+            end
+            if interactable.kind_of? Pack
+                return attack_monsters
             else
-                Narrator.start_fight(@player.get_room.get_monsters.plural?)
-                MusicManager.get_instance.set_state(MusicManager::FIGHTING)
-                @fighting = true
-                return fight_action
+                acted = interactable.interact(@player)
+                if !acted
+                    if fighting?
+                        return act
+                    else
+                        return ask_action
+                    end
+                end
             end
         when '6'
             @player.print_status
@@ -133,6 +162,13 @@ class PlayerController
             Narrator.unsupported_choice_error
             return status
         end
+    end
+
+    def attack_monsters
+        Narrator.start_fight(@player.get_room.get_monsters.plural?)
+        MusicManager.get_instance.set_state(MusicManager::FIGHTING)
+        @fighting = true
+        return fight_action
     end
 
     def propose_combat

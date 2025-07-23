@@ -1,6 +1,6 @@
 class PoisonAttack < Status
     FORCE_SAVE = true
-    ICON = "🌢 "
+    ICON = '🌢 '
     DESCRIPTION = LocaleKey::POISON_ATTACK_DESCRIPTION
     ATTACK_EFFECTS = [
         AttackEffect.new(
@@ -23,7 +23,7 @@ class PoisonAttack < Status
     ]
 
     def build_save_data
-        return self.class.name + "|" + @duration.to_s
+        return self.class.name + '|' + @duration.to_s
     end
 
     def initialize(nb_attacks = 1)

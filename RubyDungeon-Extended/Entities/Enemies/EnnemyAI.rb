@@ -3,12 +3,12 @@ class EnnemyAI
     CHOICE_MAGIC_ATTACK = 'magic_attack'
     CHOICE_HEAL = 'heal'
 
-    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, denomination, unpredictability, cowardice, healing_coeff, parent_body, attack_effects)
+    def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, healing_coeff, parent_body, attack_effects)
         @basic_attack_messages = basic_attack_messages
         @magic_attack_messages = magic_attack_messages
         @heal_messages = heal_messages
         @escape_message = escape_message
-        @denomination = denomination
+        @denomination = parent_body.get_name.get_gendered_the
         @unpredictability = unpredictability
         @cowardice = cowardice
         @healing_coeff = healing_coeff
@@ -30,11 +30,9 @@ class EnnemyAI
                 end
                 potential_damage = potential_damage + player_damage
             end
-            if potential_damage > @body.get_current_life
-                if rand(100) <= @cowardice
-                    escape
-                    return
-                end
+            if (potential_damage > @body.get_current_life) && (rand(100) <= @cowardice)
+                escape
+                return
             end
         end
         if rand(100) >= @unpredictability

@@ -386,7 +386,7 @@ class FR
             "    3) Faire un inventaire",
             "    4) Attendre"
         ],
-        LocaleKey::PLAYER_FIGHT_OPTION => "    5) Attaquer ",
+        LocaleKey::PLAYER_FIGHT_OPTION => "Attaquer ",
         LocaleKey::STAT_UP_TITLE => "Quelle statistique souhaitez-vous augmenter ? (%{#{LocaleKey::F_CURRENT}}/%{#{LocaleKey::F_TOTAL}})",
         LocaleKey::STAT_UP_HEALTH       => "    1) ♥ Vie            (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_STRENGTH     => "    2) ♣ Force          (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
@@ -578,7 +578,10 @@ class FR
             "      1) Combattre"
         ],
         LocaleKey::PROPOSE_SNEAK => "      2) Rester discret (%s%% de chances de réussite)",
+        LocaleKey::INTERACTIBLES_OPTION => "    5) Intéractions...",
+        LocaleKey::NPC_INTERACT_OPTION => "Intéragir avec %s",
         LocaleKey::DESCRIBE_ENNEMIES => "Vous faites face à %s.",
+        LocaleKey::DESCRIBE_PASSIVES => "Vous voyez également %s à vos côtés, ne semblant pas vous vouloir de mal.",
         LocaleKey::FIGHT_ACTIONS => [
             "Que voulez-vous faire ?",
             "      1) Attaque physique",
@@ -593,6 +596,15 @@ class FR
             "      2) Non"
         ],
         LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Êtes-vous sûr de vouloir remplacer votre armure actuelle par %s ? (y/n)",
+        LocaleKey::NPC_QUESTION_INTRO => [
+            "Que souhaitez-vous faire ?",
+            "    0) Retour"
+        ],
+        LocaleKey::NPC_OPTION_TALK => "    1) Parler à %s",
+        LocaleKey::NPC_OPTION_ATTACK => "    %i) Attaquer %s",
+        LocaleKey::NPC_UNAVAILABLE => "Trop occupée à combattre, %s n'est pas disponible.",
+        LocaleKey::NPC_ATTACK_CONFIRM => "Attaquer %s? (y/n)",
+        LocaleKey::ASK_INTERACTION => "Que souhaitez-vous faire ?",
         LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées.",
         LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Impossible de passer à la page suivante. Page maximale atteinte.",
         LocaleKey::PAGE_DOWN_IMPOSSIBLE_ERROR => "Impossible de passer à la page précédente. Page minimale atteinte.",
@@ -1162,6 +1174,7 @@ class FR
         ],
         LocaleKey::JUMP_HOLE => "%s s'élance dans le trou, s'apprétant à l'impact.",
         LocaleKey::NEVERMIND_HOLE => "Ne souhaitant pas vous blesser, vous évitez le trou.",
+        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Souhaitez vous entrer discrètement dans le village ? (y/n) (%i%% chances de succès)",
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",

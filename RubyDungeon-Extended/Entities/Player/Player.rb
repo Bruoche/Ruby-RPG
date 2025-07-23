@@ -13,7 +13,6 @@ class Player
         @picture.load(              player_data[:picture])
         @stats.load(                player_data)
         @name =                     player_data[:name]
-        @lifebar = Lifebar.new(     player_data[:health].to_i)
         @time_played.parse(         player_data[:time_played])
         @savefile = savefile
         @controller = PlayerController.new(self)
@@ -30,7 +29,7 @@ class Player
     def get_save_data
         return {
             'name': @name,
-            'health': @lifebar.get_max_life,
+            'health': @stats.lifebar.get_max_life,
             'strength': @stats.raw_strength,
             'intelligence': @stats.intelligence,
             'agility': @stats.raw_agility,
@@ -100,19 +99,19 @@ class Player
     end
 
     def get_remaining_life
-        return @lifebar.get_life
+        return @stats.lifebar.get_life
     end
 
     def healthbar(size)
-        return @lifebar.healthbar(size)
+        return @stats.lifebar.healthbar(size)
     end
 
     def health_to_string
-        return @lifebar.life_to_string
+        return @stats.lifebar.life_to_string
     end
 
     def get_max_life
-        return @lifebar.get_max_life
+        return @stats.lifebar.get_max_life
     end
 
     def get_status_icons
@@ -153,7 +152,7 @@ class Player
     end
 
     def died?
-        return @lifebar.is_empty
+        return @stats.lifebar.is_empty
     end
 
     def exited?
@@ -255,7 +254,7 @@ class Player
             Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
         end
         sleep Settings.get_pause_duration
-        @lifebar.damage(damage_taken)
+        @stats.lifebar.damage(damage_taken)
         attack.try_effects(self, damage_taken)
         if died?
             SoundManager.play('player_death')
@@ -315,7 +314,7 @@ class Player
             if target == self
                 Narrator.self_heal(get_name, amount)
                 sleep Settings.get_pause_duration
-                @lifebar.heal(amount)
+                @stats.lifebar.heal(amount)
             else
                 Narrator.heal_spell_cast(get_name, target.get_name)
                 sleep Settings.get_pause_duration
@@ -329,15 +328,15 @@ class Player
         SoundManager.play('player_heal')
         Narrator.heal(get_name, amount)
         sleep Settings.get_pause_duration
-        @lifebar.heal(amount)
+        @stats.lifebar.heal(amount)
     end
 
     def patch_up
-        if (@lifebar.get_missing_life > 0)
-            amount = rand(1..(@lifebar.get_missing_life))
+        if (@stats.lifebar.get_missing_life > 0)
+            amount = rand(1..(@stats.lifebar.get_missing_life))
             SoundManager.play('player_heal')
             Narrator.heal(get_name, amount)
-            @lifebar.heal(amount)
+            @stats.lifebar.heal(amount)
             sleep Settings.get_pause_duration
             return ACTED
         else
@@ -349,7 +348,7 @@ class Player
     end
 
     def give_xp(amount)
-        @stats.add_xp(amount, @lifebar, get_name)
+        @stats.add_xp(amount, get_name)
     end
 
     def see_items

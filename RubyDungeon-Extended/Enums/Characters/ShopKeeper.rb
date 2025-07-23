@@ -1,4 +1,4 @@
-module ShopKeeper
+class ShopKeeper < CharacterData
     NAME = LocaleKey::SHOPKEEPER_NAME
     INTRO_DIALOG = LocaleKey::SHOPKEEPER_INTRO_DIALOG
     IDLE_DIALOGS = LocaleKey::SHOPKEEPER_IDLE_DIALOGS

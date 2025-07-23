@@ -6,7 +6,7 @@ class Monster
         @name = name
         @strength = strength
         @intelligence = intelligence
-        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, name.get_gendered_the, unpredictability, cowardice, healing_coeff, self, attack_effects)
+        @AI = EnnemyAI.new(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, healing_coeff, self, attack_effects)
         @picture = picture
         @loots = loots
         @status_handler = StatusHandler.new

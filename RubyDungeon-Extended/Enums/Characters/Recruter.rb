@@ -1,4 +1,4 @@
-module Recruter
+class Recruter < CharacterData
     NAME = ''
     INTRO_DIALOG = ''
     IDLE_DIALOGS = LocaleKey::PLACEHOLDER_ARRAY

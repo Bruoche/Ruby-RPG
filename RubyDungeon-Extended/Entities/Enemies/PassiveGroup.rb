@@ -19,7 +19,7 @@ class PassiveGroup
             for passive in @passives
                 passive_names.append(passive.get_name.get_gendered_a)
             end
-            return format("You also see %s with you, seeming to have no ill intent.", Utils.enumerate(passive_names)) #TODO localize
+            return format(Locale.get_localized(LocaleKey::DESCRIBE_PASSIVES), Utils.enumerate(passive_names))
         end
     end
 

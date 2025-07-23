@@ -1,4 +1,4 @@
-module Blacksmith
+class Blacksmith < CharacterData
     NAME = LocaleKey::BLACKSMITH_NAME
     INTRO_DIALOG = LocaleKey::BLACKSMITH_INTRO_DIALOG
     IDLE_DIALOGS = LocaleKey::BLACKSMITH_IDLE_DIALOGS

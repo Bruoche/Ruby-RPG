@@ -1,14 +1,15 @@
 class MonsterFactory
     PICTURE_PREFIX = 'Ennemies/'
+    STATS_AUTO = nil
 
     def self.make_monster(monster_data, biome, nb_monsters, room, bestiary = biome::BESTIARY)
-        if monster_data == nil
+        if monster_data == STATS_AUTO
             return make_from_scratch(biome, room, nb_monsters, bestiary)
         else
             if monster_data::IS_BOSS == false
-                return Monster.new(room, monster_data)
+                return Monster.new(room, *monster_data)
             else
-                return Boss.new(monster_data)
+                return Boss.new(*monster_data)
             end
         end
     end

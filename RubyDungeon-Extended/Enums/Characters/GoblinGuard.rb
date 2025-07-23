@@ -1,4 +1,4 @@
-class Alchemist < CharacterData
+class GoblinGuard < CharacterData
     NAME = LocaleKey::ALCHEMIST_NAME
     INTRO_DIALOG = LocaleKey::ALCHEMIST_INTRO_DIALOG
     IDLE_DIALOGS = LocaleKey::ALCHEMIST_IDLE_DIALOGS
@@ -9,6 +9,10 @@ class Alchemist < CharacterData
     PICTURE = 'alchemist'
     NAME_KNOWN = AlchemistAquinted
     PLAYER_NICKNAME = LocaleKey::ALCHEMIST_NICKNAME
+    COMBAT_BODY = FighterGoblin
+    START_FIGHT_ACTION = -> (character, room) {
+        room.anger_passives
+    }
     DIALOGS = [
         Dialog.new(
             DialogID::NAME,

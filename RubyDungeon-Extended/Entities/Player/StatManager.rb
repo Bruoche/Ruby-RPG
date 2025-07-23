@@ -1,6 +1,7 @@
 class StatManager
     def load(player_data)
         @equipment = Equipment.new
+        @lifebar = Lifebar.new(     player_data[:health].to_i)
         @strength =                 player_data[:strength].to_i
         @intelligence =             player_data[:intelligence].to_i
         @agility =                  player_data[:agility].to_i
@@ -19,6 +20,10 @@ class StatManager
 
     def current_xp
         return @current_xp
+    end
+
+    def lifebar
+        return @lifebar
     end
 
     def strength
@@ -106,7 +111,7 @@ class StatManager
         return @equipment
     end
 
-    def add_xp(amount, lifebar, character_name)
+    def add_xp(amount, character_name)
         @current_xp += amount
         while (@current_xp >= required_xp)
             MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
@@ -114,20 +119,20 @@ class StatManager
             Narrator.level_up
             @current_xp -= required_xp
             @level += 1
-            stat_up(lifebar, character_name)
-            lifebar.heal(lifebar.get_missing_life)
+            stat_up(character_name)
+            @lifebar.heal(@lifebar.get_missing_life)
         end
     end
 
     private
 
-    def stat_up(lifebar, character_name)
+    def stat_up(character_name)
         for i in 1..nb_stats_up do
             loop do
                 Narrator.stat_options(
                     i,
                     nb_stats_up,
-                    lifebar.get_max_life,
+                    @lifebar.get_max_life,
                     BaseStats::HEALTH_UPGRADE_PER_LEVEL,
                     @strength,
                     BaseStats::STRENGTH_UPGRADE_PER_LEVEL,
@@ -138,7 +143,7 @@ class StatManager
                 )
                 case Narrator.user_input(character_name)
                 when '1'
-                    lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
+                    @lifebar.increment(BaseStats::HEALTH_UPGRADE_PER_LEVEL)
                     break
                 when '2'
                     @strength += BaseStats::STRENGTH_UPGRADE_PER_LEVEL

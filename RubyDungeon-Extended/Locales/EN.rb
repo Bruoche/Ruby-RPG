@@ -386,7 +386,7 @@ class EN
             "    3) Take an inventory",
             "    4) Wait"
         ],
-        LocaleKey::PLAYER_FIGHT_OPTION => "    5) Attack ",
+        LocaleKey::PLAYER_FIGHT_OPTION => "Attack ",
         LocaleKey::STAT_UP_TITLE => "What stat do you want to upgrade? (%{#{LocaleKey::F_CURRENT}}/%{#{LocaleKey::F_TOTAL}})",
         LocaleKey::STAT_UP_HEALTH       => "    1) ♥ Life           (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_STRENGTH     => "    2) ♣ Strength       (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
@@ -578,7 +578,10 @@ class EN
             "      1) Fight"
         ],
         LocaleKey::PROPOSE_SNEAK => "      2) Remain discreet (%s%% success rate)",
+        LocaleKey::INTERACTIBLES_OPTION => "    5) Interactions...",
+        LocaleKey::NPC_INTERACT_OPTION => "Interact with %s",
         LocaleKey::DESCRIBE_ENNEMIES => "You face %s.",
+        LocaleKey::DESCRIBE_PASSIVES => "You also see %s with you, seeming to have no ill intent.",
         LocaleKey::FIGHT_ACTIONS => [
             "What do you want to do?",
             "      1) Physical attack",
@@ -593,6 +596,15 @@ class EN
             "      2) No"
         ],
         LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Are you sure you want to replace your current armor with %s? (y/n)",
+        LocaleKey::NPC_QUESTION_INTRO => [
+            "What do you want to do?",
+            "    0) Back"
+        ],
+        LocaleKey::NPC_OPTION_TALK => "    1) Talk to %s",
+        LocaleKey::NPC_OPTION_ATTACK => "    %i) Attack %s",
+        LocaleKey::NPC_UNAVAILABLE => "Too occupied fighting, %s is unavailable",
+        LocaleKey::NPC_ATTACK_CONFIRM => "Attack %s? (y/n)",
+        LocaleKey::ASK_INTERACTION => "What do you want to do?",
         LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Invalid choice, Please only write the corresponding number among the given options.",
         LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Cannot go to the next page. Maximal page number reached.",
         LocaleKey::PAGE_DOWN_IMPOSSIBLE_ERROR => "Cannot go to the previous page. Minimal page number reached.",
@@ -1160,6 +1172,7 @@ class EN
         ],
         LocaleKey::JUMP_HOLE => "%s leap inside of the hole, bracing for impact.",
         LocaleKey::NEVERMIND_HOLE => "Not wanting to hurt yourself, you avoid the hole.",
+        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (y/n) (%i%% chances of success)",
         LocaleKey::ASK_SAVE => "What save do you want to load?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Settings | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Write what you wish to say: (say goodbye to end the conversation)",
