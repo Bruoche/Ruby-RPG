@@ -21,10 +21,7 @@ class Room
         else
             @passives = PassiveGroup.new(PassiveGroup::GENERATE_EMPTY, self)
         end
-        @npcs = []
-        for character_data in biome::NPCS
-            @npcs.append(Character.new(character_data, self))
-        end
+        @npcs = CharacterGroup.new(biome::NPCS, self)
         @adjacent_rooms = Array.new(rand((1+biome::MIN_EXITS)..(1 + biome::MAX_EXITS)))
         if precedent_room != nil
             @adjacent_rooms[0] = precedent_room.get_id
@@ -93,16 +90,14 @@ class Room
                     picture,
                     @name.get_gendered_the,
                     @monsters.get_description,
-                    @passives.get_description
                 )
             else
                 Narrator.describe_empty_room(
                     player,
                     -> {@biome.describe},
-                    @picture,
+                    picture,
                     @name.get_gendered_a,
                     @name.female?,
-                    @passives.get_description
                 )
             end
             @arrival = false
@@ -117,10 +112,14 @@ class Room
                 -> {@biome.describe},
                 picture,
                 @name.get_gendered_a,
-                monsters_description,
-                @passives.get_description
+                monsters_description
             )
         end
+        Narrator.describe_extras(
+            player,
+            @passives.get_description,
+            @npcs.get_description
+        )
     end
 
     def get_id
@@ -148,12 +147,7 @@ class Room
     end
 
     def got_npcs?
-        for npc in @npcs
-            if !npc.died?
-                return true
-            end
-        end
-        return false
+        @npcs.any?
     end
 
     def get_interactables
@@ -161,10 +155,8 @@ class Room
         if got_monsters?
             interactables.append(@monsters)
         end
-        for npc in @npcs
-            if !npc.died?
-                interactables.append(npc)
-            end
+        for npc in @npcs.get_interactables
+            interactables.append(npc)
         end
         return interactables
     end
@@ -236,7 +228,7 @@ class Room
     end
 
     def anger_npcs
-        for npc in @npcs
+        for npc in @npcs.get_interactables
             if !npc.fighting?
                 initiate_monster_pack([npc.get_fighter])
                 npc.start_fighting
@@ -245,7 +237,7 @@ class Room
     end
 
     def anger(character)
-        for npc in @npcs
+        for npc in @npcs.get_interactables
             if npc == character
                 if !npc.fighting?
                     initiate_monster_pack([npc.get_fighter])

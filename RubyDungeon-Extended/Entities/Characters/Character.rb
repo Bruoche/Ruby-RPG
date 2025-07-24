@@ -9,6 +9,7 @@ class Character
 
     def initialize(character_data, room = NO_ROOM)
         @name = character_data::NAME
+        @description = character_data::ROOM_DESCRIPTION
         @intro_dialog = character_data::INTRO_DIALOG
         @idle_dialog = character_data::IDLE_DIALOGS
         @conversation_starter = character_data::CONVERSATION_STARTER
@@ -37,6 +38,10 @@ class Character
 
     def get_name
         return Locale.get_localized(@name)
+    end
+
+    def get_description
+        return format(Locale.get_localized(@description), get_name)
     end
 
     def get_fighter

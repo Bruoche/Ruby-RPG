@@ -582,6 +582,7 @@ class EN
         LocaleKey::NPC_INTERACT_OPTION => "Interact with %s",
         LocaleKey::DESCRIBE_ENNEMIES => "You face %s.",
         LocaleKey::DESCRIBE_PASSIVES => "You also see %s with you, seeming to have no ill intent.",
+        LocaleKey::DEFAULT_NPC_DESCRIPTION => "%s is here with you.",
         LocaleKey::FIGHT_ACTIONS => [
             "What do you want to do?",
             "      1) Physical attack",
@@ -1096,6 +1097,35 @@ class EN
             "..."
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "adventurer",
+        LocaleKey::GOBLIN_GUARD_NAME => "a goblin guard",
+        LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "'f off'.",
+        LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
+            "Need anything?",
+            "Any questions?",
+            "Don't hesitate if anything catches your eye.",
+            "Is everything going alright?"
+        ],
+        LocaleKey::GOBLIN_GUARD_CONVERSATION_STARTER => [
+            "'f off",
+            "ffoff?",
+            "go away"
+        ],
+        LocaleKey::GOBLIN_GUARD_CONVERSATION_KEEPER => [
+            "Any other questions?",
+            "Was that all you wanted to ask?",
+            "Anything else?",
+            "Anyway, did you need anything else?",
+            "Don't hesitate if you have any other questions."
+        ],
+        LocaleKey::GOBLIN_GUARD_UNKNOWN_DIALOGS => [
+            "Sorry, but I didn't understand.",
+            "Could you please repeat?",
+            "I don't think I understood that well...",
+            "My apologies, but I don't think I got that right...",
+            "What?"
+        ],
+        LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
+        LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "You use the prison key to open the great door.",

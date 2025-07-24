@@ -582,6 +582,7 @@ class FR
         LocaleKey::NPC_INTERACT_OPTION => "Intéragir avec %s",
         LocaleKey::DESCRIBE_ENNEMIES => "Vous faites face à %s.",
         LocaleKey::DESCRIBE_PASSIVES => "Vous voyez également %s à vos côtés, ne semblant pas vous vouloir de mal.",
+        LocaleKey::DEFAULT_NPC_DESCRIPTION => "A vos côtés se trouve %s.",
         LocaleKey::FIGHT_ACTIONS => [
             "Que voulez-vous faire ?",
             "      1) Attaque physique",
@@ -1097,6 +1098,7 @@ class FR
             "..."
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "aventurier",
+        LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "Vous utilisez la clef de la prison afin d'ouvrir la grande porte.",

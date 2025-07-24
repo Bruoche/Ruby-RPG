@@ -381,6 +381,7 @@ module LocaleKey
     NPC_INTERACT_OPTION = :npc_interact_option
     DESCRIBE_ENNEMIES = :describe_ennemies
     DESCRIBE_PASSIVES = :describe_passives
+    DEFAULT_NPC_DESCRIPTION = :default_npc_description
     FIGHT_ACTIONS = :fight_actions
     ESCAPE_COMBAT = :escape_combat
     TRY_AGAIN = :try_again
@@ -700,6 +701,14 @@ module LocaleKey
     BLACKSMITH_CONVERSATION_KEEPER = :blacksmith_conversation_keeper
     BLACKSMITH_UNKNOWN_DIALOGS = :blacksmith_unknown_dialogs
     BLACKSMITH_NICKNAME = :blacksmith_nickname
+    GUARD_NPC_DESCRIPTION = :guard_npc_description
+    GOBLIN_GUARD_NAME = :goblin_guard_name
+    GOBLIN_GUARD_INTRO_DIALOG = :goblin_guard_intro_dialog
+    GOBLIN_GUARD_IDLE_DIALOGS = :goblin_guard_idle_dialogs
+    GOBLIN_GUARD_CONVERSATION_STARTER = :goblin_guard_conversation_starter
+    GOBLIN_GUARD_CONVERSATION_KEEPER = :goblin_guard_conversation_keeper
+    GOBLIN_GUARD_UNKNOWN_DIALOGS = :goblin_guard_unknown_dialogs
+    GOBLIN_GUARD_NICKNAME = :alchemist_nickname
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
     BOSS_CELL_REQ_REFUSE = :boss_cell_req_refuse
@@ -1091,6 +1100,7 @@ module LocaleKey
     DIAL_ALCHEMIST_TXT_QUEST = :dial_alchemist_txt_quest
     DIAL_ALCHEMIST_INTRO_QUEST = :dial_alchemist_intro_quest
     DIAL_BLACKSMITH_REPEAT = :dial_blacksmith_repeat
+    DIAL_GOBLIN_GUARD_REPEAT = :dial_goblin_guard_repeat
     F_AGILITY = :agility
     F_ALLIES = :allies
     F_AMOUNT = :amount

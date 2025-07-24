@@ -4,6 +4,9 @@ class CharacterData
     def self.inherited(child)
         TracePoint.trace(:end) do |t|
             if child == t.self
+                unless child.const_defined?(:ROOM_DESCRIPTION)
+                    child.const_set(:ROOM_DESCRIPTION, LocaleKey::DEFAULT_NPC_DESCRIPTION)
+                end
                 unless child.const_defined?(:WILLING_TO_TALK)
                     child.const_set(:WILLING_TO_TALK, -> (npc, player) {true})
                 end

@@ -13,9 +13,8 @@ class VillageExterior < Biome
         FighterGoblin,
         FighterGoblin,
         FighterGoblin,
-        ForestGoblin,
-        ForestGoblin,
-        #add villager goblin
+        VillagerGoblin,
+        VillagerGoblin
     ]
     NPCS = [
         GoblinGuard

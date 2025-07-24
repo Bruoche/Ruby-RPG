@@ -269,15 +269,13 @@ class Narrator
         end
     end
 
-    def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description, passives_description)
+    def self.describe_monsters_room(player, describe_biome, picture, the_room, monsters_description)
         describe_room(player, describe_biome, picture)
         write_same_line(Locale.get_localized(LocaleKey::ENTER_ROOM) + the_room)
         describe_monsters(player, monsters_description)
-        describe_allies(player)
-        describe_passives(passives_description)
     end
 
-    def self.describe_empty_room(player, describe_biome, picture, the_room, female, passives_description)
+    def self.describe_empty_room(player, describe_biome, picture, the_room, female)
         describe_room(player, describe_biome, picture)
         write_same_line(Locale.get_localized(LocaleKey::ENTER_ROOM) + the_room + " ")
         if female
@@ -285,11 +283,9 @@ class Narrator
         else
             Narrator.write(LocaleKey::EMPTY_ROOM_M)
         end
-        describe_allies(player)
-        describe_passives(passives_description)
     end
 
-    def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description, passives_description)
+    def self.describe_current_room(player, describe_biome, picture, a_room, monsters_description)
         describe_room(player, describe_biome, picture)
         write_same_line(Locale.get_localized(LocaleKey::IN_A_ROOM) + a_room)
         if monsters_description != nil
@@ -297,8 +293,6 @@ class Narrator
         else
             Narrator.write(LocaleKey::IS_EMPTY)
         end
-        describe_allies(player)
-        describe_passives(passives_description)
     end
 
     def self.describe_room(player, describe_biome, picture)
@@ -327,6 +321,12 @@ class Narrator
                 LocaleKey::F_ENNEMIES => monsters_description
             }))
         end
+    end
+
+    def self.describe_extras(player, passives_description, character_descriptions)
+        describe_allies(player)
+        describe_passives(passives_description)
+        describe_npcs(character_descriptions)
     end
 
     def self.describe_allies(player)
@@ -367,6 +367,12 @@ class Narrator
     def self.describe_passives(passives_description)
         if passives_description != ''
             Narrator.write(passives_description)
+        end
+    end
+
+    def self.describe_npcs(character_descriptions)
+        if character_descriptions.length > 0
+            Narrator.write(character_descriptions)
         end
     end
 
