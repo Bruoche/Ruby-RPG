@@ -211,6 +211,7 @@ class Player
 
     def set_room(room)
         @room = room
+        @room.execute_entry_event(self)
     end
 
     def set_save(savefile)

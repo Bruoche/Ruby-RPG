@@ -768,6 +768,7 @@ module LocaleKey
     JUMP_HOLE = :jump_hole
     NEVERMIND_HOLE = :nevermind_hole
     ASK_SNEAK_VILLAGE_ENTRANCE = :village_entrance
+    GOBLIN_ATTACK = :goblins_attack
     THE_EXIT = :the_exit
     ASK_SAVE = :ask_save
     OPEN_SETTINGS_OPTION = :open_settings_option

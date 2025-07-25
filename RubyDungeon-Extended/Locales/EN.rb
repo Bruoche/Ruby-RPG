@@ -1203,6 +1203,7 @@ class EN
         LocaleKey::JUMP_HOLE => "%s leap inside of the hole, bracing for impact.",
         LocaleKey::NEVERMIND_HOLE => "Not wanting to hurt yourself, you avoid the hole.",
         LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (y/n) (%i%% chances of success)",
+        LocaleKey::GOBLIN_ATTACK => "Seeing you assault their village, all the goblins decide to attack you on sight.",
         LocaleKey::ASK_SAVE => "What save do you want to load?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Settings | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Write what you wish to say: (say goodbye to end the conversation)",

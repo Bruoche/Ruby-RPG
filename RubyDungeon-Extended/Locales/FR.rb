@@ -1177,6 +1177,7 @@ class FR
         LocaleKey::JUMP_HOLE => "%s s'élance dans le trou, s'apprétant à l'impact.",
         LocaleKey::NEVERMIND_HOLE => "Ne souhaitant pas vous blesser, vous évitez le trou.",
         LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Souhaitez vous entrer discrètement dans le village ? (y/n) (%i%% chances de succès)",
+        LocaleKey::GOBLIN_ATTACK => "Vous voyant prendre d'attaque leur village, les goblins se jettent sur vous.",
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",

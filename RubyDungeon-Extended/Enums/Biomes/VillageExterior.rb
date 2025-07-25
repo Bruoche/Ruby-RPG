@@ -8,7 +8,6 @@ class VillageExterior < Biome
     FEMALE_CHANCES = 40
     BACKTRACK_CHANCES = 95
     DESCRIPTION = LocaleKey::FOREST_DESCRIPTION
-    BESTIARY = []
     PASSIVE_BESTIARY = [
         FighterGoblin,
         FighterGoblin,

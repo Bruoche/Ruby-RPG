@@ -208,15 +208,16 @@ class PlayerController
         if next_room != Narrator::RETURN_BUTTON
             next_room_instance = @player.get_room.exit_to(next_room)
             if next_room_instance.allow_entry_for(@player)
-                @player.set_room(next_room_instance)
                 @just_entered_room = true
                 SoundManager.play('footsteps')
+                acted = @player.set_room(next_room_instance)
+            else
+                acted = false
             end
             if next_room_instance.get_biome::SPECIAL
-                return next_room_instance.acted?
-            else
-                return !Player::ACTED
+                acted = acted || next_room_instance.acted?
             end
+            return acted
             World.get_instance.set_current_room(@player.get_room)
         else
             ask_action

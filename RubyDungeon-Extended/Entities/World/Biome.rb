@@ -41,6 +41,11 @@ class Biome
                 unless child.const_defined?(:REQUIRED_BIOMES)
                     child.const_set(:REQUIRED_BIOMES, [])
                 end
+                unless child.const_defined?(:ENTRY_EVENT)
+                    child.const_set(:ENTRY_EVENT, -> (room, player) {
+                        return !Player::ACTED
+                    })
+                end
             end
         end
     end

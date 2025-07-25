@@ -42,6 +42,7 @@ class Room
         @requirements = @biome.get_entry_requirements
         @monster_loots = []
         @picture = @biome::PICTURE
+        @entry_event = @biome::ENTRY_EVENT
     end
 
     def allow_entry_for(player)
@@ -193,6 +194,10 @@ class Room
 
     def get_adjacent_rooms
         return @adjacent_rooms
+    end
+
+    def execute_entry_event(player)
+        return @entry_event.call(self, player)
     end
 
     def searched_before?
