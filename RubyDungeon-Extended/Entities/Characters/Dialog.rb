@@ -5,14 +5,15 @@ class Dialog
     NO_INTRO = ''
     NO_REACTION = nil
 
-    def initialize(id, trigger_words, sentences, intro = NO_INTRO, precedent_dialog_required = NO_PRECEDENT_DIAL_REQ, requirements = NO_REQUIREMENTS, reaction = NO_REACTION)
+    def initialize(id, trigger_words, sentences, intro = NO_INTRO, precedent_dialog_required = NO_PRECEDENT_DIAL_REQ, requirements = NO_REQUIREMENTS, reaction_before_answer = NO_REACTION, reaction_after_answer = NO_REACTION)
         @id = id
         @trigger_words = trigger_words
         @sentences = sentences
         @intro = intro
         @precedent_dialog_required = precedent_dialog_required
         @requirements = requirements
-        @reaction = reaction
+        @reaction_before = reaction_before_answer
+        @reaction_after = reaction_after_answer
     end
 
     def self.process_sentence(sentence_heard)
@@ -60,10 +61,17 @@ class Dialog
         return (@precedent_dialog_required == NO_PRECEDENT_DIAL_REQ)
     end
 
-    def react(player, npc)
-        if @reaction != NO_REACTION
-            @reaction.call(player, npc)
+    def react_before_answer(player, npc)
+        if @reaction_before != NO_REACTION
+            @reaction_before.call(player, npc)
         end
+    end
+
+    def react_after_answer(player, npc)
+        if @reaction_after != NO_REACTION
+            return @reaction_after.call(player, npc)
+        end
+        return !Player::ACTED
     end
 
     private

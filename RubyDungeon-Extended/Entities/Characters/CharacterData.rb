@@ -8,7 +8,7 @@ class CharacterData
                     child.const_set(:ROOM_DESCRIPTION, LocaleKey::DEFAULT_NPC_DESCRIPTION)
                 end
                 unless child.const_defined?(:WILLING_TO_TALK)
-                    child.const_set(:WILLING_TO_TALK, -> (npc, player) {true})
+                    child.const_set(:WILLING_TO_TALK, -> (npc, player, is_already_talking) {true})
                 end
                 unless child.const_defined?(:SPECIAL_INTERACTIONS)
                     child.const_set(:SPECIAL_INTERACTIONS, [])

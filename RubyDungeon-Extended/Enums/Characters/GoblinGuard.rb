@@ -13,6 +13,25 @@ class GoblinGuard < CharacterData
     START_FIGHT_ACTION = -> (character, room) {
         room.anger_passives
     }
+    WILLING_TO_TALK = -> (npc, player, is_already_talking) {
+        if (npc.get_aggressive_players.include? player) || player.has_status?(GoblinMurderer)
+            if !is_already_talking
+                Narrator.write(LocaleKey::GOBLIN_GUARD_AGGRESSIVE)
+                SoundManager.play('spell_fart')
+                Narrator.pause_text
+            end
+            return false
+        end
+        if player.has_status?(AllowedEntry)
+            if !is_already_talking
+                Narrator.write(LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED)
+                SoundManager.play('spell_fart')
+                Narrator.pause_text
+            end
+            return false
+        end
+        return true
+    }
     ROOM_DESCRIPTION = LocaleKey::GUARD_NPC_DESCRIPTION
     IF_HEAR_OUT = -> (player) {player.has_status?(GoblinGuardHearOut)}
     LEARN_NAME = -> (player, npc) {player.add_status(NAME_KNOWN.new)}
@@ -22,7 +41,10 @@ class GoblinGuard < CharacterData
         player.add_status(NAME_KNOWN.new)
         player.add_status(GoblinGuardHearOut.new)
     }
-    ANGER = -> (player, npc) {npc.anger_against(player)}
+    ANGER = -> (player, npc) {
+        npc.anger_against(player)
+        return Player::ACTED
+    }
     DIALOGS = [
         Dialog.new(
             DialogID::ASK_NAME,
@@ -150,6 +172,7 @@ class GoblinGuard < CharacterData
             Dialog::NO_INTRO,
             Dialog::NO_PRECEDENT_DIAL_REQ,
             Dialog::NO_REQUIREMENTS,
+            Dialog::NO_REACTION,
             ANGER
         ),
         Dialog.new(

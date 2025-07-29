@@ -9,8 +9,8 @@ class FR
         LocaleKey::BAT => "chauve-souris",
         LocaleKey::GOBLIN_F => "gobeline",
         LocaleKey::GOBLIN_M => "gobelin",
-        LocaleKey::FIGHTER_GOBLIN_F => "guarde gobeline",
-        LocaleKey::FIGHTER_GOBLIN_M => "guarde gobelin",
+        LocaleKey::FIGHTER_GOBLIN_F => "garde gobeline",
+        LocaleKey::FIGHTER_GOBLIN_M => "garde gobelin",
         LocaleKey::FORAGER_GOBLIN_F => "gobeline cueilleuse",
         LocaleKey::FORAGER_GOBLIN_M => "gobelin cueilleur",
         LocaleKey::GIANT_SLIME => "slime géant",
@@ -793,11 +793,11 @@ class FR
         LocaleKey::STARTER_PLASTRON_NAME => "jaque d'ancien soldat",
         LocaleKey::STARTER_PLASTRON_DESC => "un simple gilet moletonné semblant dater d'un autre siècle. Protégé par une simple plaque en métal attachée sur le torse",
         LocaleKey::H30_GAUNTLETS_NAME => "gantelets de garde",
-        LocaleKey::H30_GAUNTLETS_DESC => "une paire de gants en cuir avec de larges plaques de métal protégeant l'avant-bras et les coudes. Généralement portés par des guardes n'ayant pas besoin de beaucoup de mobilité.",
+        LocaleKey::H30_GAUNTLETS_DESC => "une paire de gants en cuir avec de larges plaques de métal protégeant l'avant-bras et les coudes. Généralement portés par des gardes n'ayant pas besoin de beaucoup de mobilité.",
         LocaleKey::H30_GREAVES_NAME => "bottes de garde",
-        LocaleKey::H30_GREAVES_DESC => "une paide de lourdes bottes en cuir avec des large renforts en métal protégeant les jambes. Généralement portées par des guardes n'ayant pas besoin de beaucoup de mobilité.",
+        LocaleKey::H30_GREAVES_DESC => "une paide de lourdes bottes en cuir avec des large renforts en métal protégeant les jambes. Généralement portées par des gardes n'ayant pas besoin de beaucoup de mobilité.",
         LocaleKey::H30_HELM_NAME => "casque de garde",
-        LocaleKey::H30_HELM_DESC => "un casque cylindrique large offrant une grande protection à la tête. Généralement porté par des guardes n'ayant pas besoin de beaucoup de mobilité.",
+        LocaleKey::H30_HELM_DESC => "un casque cylindrique large offrant une grande protection à la tête. Généralement porté par des gardes n'ayant pas besoin de beaucoup de mobilité.",
         LocaleKey::H30_PLASTRON_NAME => "robe de maille de garde",
         LocaleKey::H30_PLASTRON_DESC => "une robe à manche longue en maille déscendant jusqu'au genou recouvert d'un fin surcôt, protégeant tout le corps contre d'éventuelles attaques.",
         LocaleKey::H40_GAUNTLETS_NAME => "canons de soldat lourds",
@@ -1098,7 +1098,7 @@ class FR
             "..."
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "aventurier",
-        LocaleKey::GOBLIN_GUARD_NAME => "un guarde goblin",
+        LocaleKey::GOBLIN_GUARD_NAME => "une garde gobline",
         LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto ! Körkubagedo !\nTö bëdèsoe sö todutrëd dök köpoduk.",
         LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
             "..."
@@ -1116,6 +1116,8 @@ class FR
             "Kosäpor sö Kö Rakröt Bëdès sö pöko köpoduk söd."
         ],
         LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
+        LocaleKey::GOBLIN_GUARD_AGGRESSIVE => "Après que vous l'ayez attaqué, la garde gobline refuse maintenant de vous parler.",
+        LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "La garde gobline est trop occupée pour vous parler plus, vous faisant simplement geste de passer à travers le portail du village comme bon vous semble.",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
@@ -1179,7 +1181,7 @@ class FR
         LocaleKey::DETOX_FRUIT_DETOX => "Vous vous sentez soulagé·e alors que le poison quitte votre corps.",
         LocaleKey::GOBLIN_LOOT_COINS => ["En fouillant le corps du gobelin vous remarquez une petite bourse accrochée à sa ceinture."],
         LocaleKey::GOBLIN_LOOT_FRUITS => ["Lorsque vous regardez dans le sac du gobelin, vous y trouvez quelques fruits."],
-        LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un guarde goblin."],
+        LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un garde goblin."],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["En examinant le cadabre de l'araignée, vous parevenez à extraire le venin de ses crocs encore intact."],
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",

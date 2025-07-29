@@ -708,7 +708,9 @@ module LocaleKey
     GOBLIN_GUARD_CONVERSATION_STARTER = :goblin_guard_conversation_starter
     GOBLIN_GUARD_CONVERSATION_KEEPER = :goblin_guard_conversation_keeper
     GOBLIN_GUARD_UNKNOWN_DIALOGS = :goblin_guard_unknown_dialogs
-    GOBLIN_GUARD_NICKNAME = :alchemist_nickname
+    GOBLIN_GUARD_NICKNAME = :goblin_guard_nickname
+    GOBLIN_GUARD_AGGRESSIVE = :goblin_guard_aggressive
+    GOBLIN_GUARD_ALREADY_AUTHORISED = :goblin_guard_already_authorised
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
     BOSS_CELL_REQ_REFUSE = :boss_cell_req_refuse

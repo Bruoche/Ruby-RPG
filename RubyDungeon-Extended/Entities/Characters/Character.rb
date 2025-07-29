@@ -6,6 +6,7 @@ class Character
     NO_DIALOG_SPOKEN_LAST = nil
     NB_OPTIONS_BEFORE_SPE_INTERACT = 2
     NO_ROOM = nil
+    ALREADY_TALKING = true
 
     def initialize(character_data, room = NO_ROOM)
         @name = character_data::NAME
@@ -48,6 +49,10 @@ class Character
         return @body
     end
 
+    def get_aggressive_players
+        return @aggressive_players
+    end
+
     def said_before?(dialog)
         return @dialogs_said.include?(dialog.get_id)
     end
@@ -68,15 +73,21 @@ class Character
         if @fighting
             Narrator.write(format(Locale.get_localized(LocaleKey::NPC_UNAVAILABLE), get_name))
             SoundManager.play('spell_fart')
+            Narrator.pause_text
             return !Player::ACTED
         end
         loop do
+            show
+            Narrator.add_space_of(1)
             option_selected = Narrator.ask_character_options(player, get_name, @special_interactions)
             case option_selected
             when 0
                 return !Player::ACTED
             when 1
-                talk(player)
+                skip_turn = talk(player)
+                if skip_turn
+                    return Player::ACTED
+                end
             else
                 special_interaction_selected = option_selected - NB_OPTIONS_BEFORE_SPE_INTERACT
                 attack_index = (NB_OPTIONS_BEFORE_SPE_INTERACT + @special_interactions.length)
@@ -131,10 +142,8 @@ class Character
     end
 
     def talk(interlocutor)
-        if !@is_willing_to_talk.call(self, interlocutor)
-            # TODO make the npc don't wanna interact event
-            Narrator.write("nuhuh")
-            return
+        if !@is_willing_to_talk.call(self, interlocutor, !ALREADY_TALKING)
+            return !Player::ACTED
         end
         @interlocutor = interlocutor
         show
@@ -148,11 +157,17 @@ class Character
                 Narrator.write(make_dialog_box(Locale.get_localized(@conversation_keeper).sample).get_ascii)
             else
                 if said_bye?(prompt)
-                    return
+                    return !Player::ACTED
                 end
                 show
                 dialog_triggered = false
-                answer(prompt)
+                is_turn_skipped = answer(prompt)
+                if is_turn_skipped
+                    return Player::ACTED
+                elsif !@is_willing_to_talk.call(self, interlocutor, ALREADY_TALKING)
+                    Narrator.pause_text
+                    return !Player::ACTED
+                end
             end
         end
     end
@@ -188,10 +203,10 @@ class Character
     def answer(prompt)
         for dialog in @dialogs do
             if dialog.triggered?(prompt, @last_dialog_spoken, @interlocutor)
-                dialog.react(@interlocutor, self)
+                dialog.react_before_answer(@interlocutor, self)
                 print_answer(dialog)
                 @last_dialog_spoken = dialog.get_id
-                return
+                return dialog.react_after_answer(@interlocutor, self)
             end
         end
         Narrator.write(make_dialog_box(Locale.get_localized(@unknown_dialogs).sample).get_ascii)

@@ -116,6 +116,8 @@ class PlayerController
                     else
                         return ask_action
                     end
+                else
+                    return Player::ACTED
                 end
             end
         when '6'

@@ -1098,12 +1098,12 @@ class EN
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "adventurer",
         LocaleKey::GOBLIN_GUARD_NAME => "a goblin guard",
-        LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto ! Körkubagedo !\nTö bëdèsoe sö todutrëd dök köpoduk.",
+        LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto! Körkubagedo!\nTö bëdèsoe sö todutrëd dök köpoduk.",
         LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
             "..."
         ],
         LocaleKey::GOBLIN_GUARD_CONVERSATION_STARTER => [
-            "Kör kobakëto ! Körkubagedo !\nTö bëdèsoe sö todutrëd dök köpoduk."
+            "Kör kobakëto! Körkubagedo!\nTö bëdèsoe sö todutrëd dök köpoduk."
         ],
         LocaleKey::GOBLIN_GUARD_CONVERSATION_KEEPER => [
             "Dëkabogu sö dëkaos?",
@@ -1115,6 +1115,8 @@ class EN
             "Kosäpor sö Kö Rakröt Bëdès sö pöko köpoduk söd."
         ],
         LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
+        LocaleKey::GOBLIN_GUARD_AGGRESSIVE => "After your attack against it, the goblin guard now refuse to talk to you",
+        LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "The goblin guard is too occupied guarding the door to talk to you any more, simply gesturing you to pass through the village's entrance if you so desire.",
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
