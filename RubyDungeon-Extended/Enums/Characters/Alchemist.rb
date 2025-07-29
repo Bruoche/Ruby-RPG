@@ -16,7 +16,7 @@ class Alchemist < CharacterData
             LocaleKey::DIAL_ALCHEMIST_TXT_AQUINTENCE,
             LocaleKey::DIAL_ALCHEMIST_INTRO_AQUINTENCE,
             DialogID::ASK_NAME,
-            Dialog::NO_PRECEDENT_DIAL_REQ,
+            Dialog::NO_REQUIREMENTS,
             -> (player, npc) {player.add_status(NAME_KNOWN.new)}
         ),
         Dialog.new(

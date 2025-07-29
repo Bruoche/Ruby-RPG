@@ -1,5 +1,4 @@
-class GoblinMurderer < Status
-    SAVED = false
+class GoblinGuardHearOut < Status
     HIDDEN = true
 
     def initialize(duration = Status::INFINITE)

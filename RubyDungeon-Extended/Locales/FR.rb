@@ -1098,6 +1098,24 @@ class FR
             "..."
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "aventurier",
+        LocaleKey::GOBLIN_GUARD_NAME => "un guarde goblin",
+        LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto ! Körkubagedo !\nTö bëdèsoe sö todutrëd dök köpoduk.",
+        LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_GUARD_CONVERSATION_STARTER => [
+            "Kör kobakëto ! Körkubagedo !\nTö bëdèsoe sö todutrëd dök köpoduk."
+        ],
+        LocaleKey::GOBLIN_GUARD_CONVERSATION_KEEPER => [
+            "Dëkabogu sö dëkaos ?",
+            "Dëkabogu sö dëkaos tödoer #{Locale::PLAYER_NAME}.",
+            "Kör sö këtogubu köpogur sö dëkaos ? Pöko."
+        ],
+        LocaleKey::GOBLIN_GUARD_UNKNOWN_DIALOGS => [
+            "Erkosä sö Kö Rakröt Bëdès sö pöko kös tarkorbakö söd korkö pöko sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès.",
+            "Kosäpor sö Kö Rakröt Bëdès sö pöko köpoduk söd."
+        ],
+        LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
@@ -1181,7 +1199,7 @@ class FR
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",
-        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "à plus", "à la prochaine", "au revoir", "à la revoyure", "a la revoyure", "à bientôt"],
+        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "à plus", "à la prochaine", "au revoir", "à la revoyure", "a la revoyure", "à bientôt", "0"],
         LocaleKey::DIAL_SHOPKEEPER_REPEAT => "Comme je l'ai dit, ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE => ["pas|autre|ailleur", "ici|coin|là|région|venez"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE => ["Non je ne viens effectivement pas d'ici.\nJe suis originaire de l'Est."],
@@ -1670,6 +1688,65 @@ class FR
             "En revanche, évitez de les croquer pour maximiser les résultats, et prenez garde de ne pas vous étouffer en plein combat."
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Ah oui, je suis très fière de celui-là.\n",
+        LocaleKey::DIAL_BLACKSMITH_REPEAT => "",
+        LocaleKey::DIAL_GOBLIN_GUARD_REPEAT => "Dëkabogu sö Kö Rakröt Bëdès ",
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME => ["pöko|poko", "#{Locale::PLAYER_NAME}", "köpodugus|kopodugus"],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME_NICKNAME => ["pöko|poko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "köpodugus|kopodugus"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_NAME_HEAR_OUT => ["Kosäpor sö Kö Rakröt Bëdès."],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_NAME => ["Kosäpor sö Kö Rakröt Bëdès. Todkörragosaborkus sö Kö Rakröt Bëdès kosäpor sö pöko köpoduk."],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_PEACE => ["kobakëtodutregobu|kobaketodutregobu|toderkoburëkobu|toderkoburekobu|koptoderkoburëkobu|koptoderkoburekobu|toduderkoburëkobu|toduderkoburekobu|koptoduderkoburëkobu|koptoduderkoburëkobu"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_PEACE_HEAR_OUT => [
+            "Kös sö Kö Rakröt Bëdès sö köpogur #{Locale::PLAYER_NAME}. Erkorakröt sö Kö Rakröt Bëdès tö tarkorbakö...",
+            "Todkusaborköspo kobukör kö tarkorbakö sö kobukörkada sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès.",
+            "Kopkobakëtogeopra tö köpoduk korkö erköpo sö dök köpoduk. Todkadä këtogubu #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_PEACE => [
+            "Kosäpor sö #{Locale::PLAYER_NAME} sö pöko köpoduk ? Kosäpor kö tarkorbakö sö pöko köpoduk sö pör söedso.",
+            "Korkëtogubu sö #{Locale::PLAYER_NAME} sö dök köpogur sö dëkaos ? Dëkaos sö bëdèsoe todök sö dök ?"
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_HELP => ["toderköpo|toderkopo"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_HELP => [
+            "Kobukör toderköpo sö köpoduk sö #{Locale::PLAYER_NAME}.",
+            "Koptöter kobakëtodutrëgobu tö köpoduk todök sö dök köpoduk. Kobukör totrëkobu sö Kö Rakröt Bëdès tö bëdèsoe korkö popör kö bëdèsoe sö dök köpoduk."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_TRADE => ["sodottöter|sodottoter|kopsodottöter|kopsodottoter|töter|toter|koptöter|koptoter"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_TRADE => [
+            "Erkosodottöter dëkaos sö köpoduk kö tarkorbakö korkö sö erkö sö erkö… Kobukör erköpo sö dök köpoduk.",
+            "Koptöter kobakëtodutregobu tö köpoduk todök sö dök köpoduk."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_LEARN => ["tosedorerksäpor|tosedorerksapor|koptosedorerksäpor|koptosedorerksapor|kosäpor|kosapor|kopkosäpor|kopkosapor", "köpoduk|kopoduk|pöko|poko"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_LEARN => [
+            "Sö Kö Rakröt Bëdès sö körragosaborkus tötresèop tödoer sö tarkorbakö kö kosäpor köpoduk. Erkö sö Kö Pöko Tarkö sö dasdöter kosäpor korkö erkokosaborkös erkö sö Kö Pöko Tarkö sö dasdöter kobakëtogospor sö köpoduk.",
+            "Kobukör korkëtogubagedo sö #{Locale::PLAYER_NAME} sö dök köpoduk. Koptöter kobakëtodutregobu tö köpoduk todök sö dök köpoduk."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ELDER => ["pöko|poko|koppöko|koppoko|kopöko|kopoko|pör|por|koppör|koppor|kopör|kopor|kör|kor|kopkör|kopkor", "köpodubugurku|kopodubugurku"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ELDER => [
+            "Pöko sö köpodubugurku ?...",
+            "Rakröt sö Kö Rakröt Bëdès tö popör bëdèsoe korkö kör kö bëdèsoe sö köpodubugurku… Kopkosäpor sö bëdèsoe toderkoburëkobu sö köpoduk sö köpodubugurku. Tö köpoduk sö koprëkor todök sö köpoduk.",
+            "Kör sö kobakëto."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_ENTER => ["bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "korkëtogubagedo|korketogubagedo|todök|todok|kopkorkëtogubagedo|kopkorketogubagedo|koptodök|koptodok"],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_ENTER_LEARN_NAME => ["#{Locale::PLAYER_NAME}", "korkëtogubagedo|korketogubagedo|todök|todok|kopkorkëtogubagedo|kopkorketogubagedo|koptodök|koptodok"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_ENTER_HEAR_OUT => [
+            "Tödoer sö #{Locale::PLAYER_NAME} korkëtogubagedo sö dök köpoduk köpogur sö köpogugus ?",
+            "Totrëkobu tö bëdèsoe kö köpoduk. Dëkaobu tö bëdèsoe kö dök köpoduk. Tordöter tö bëdèsoe kö dëkaos tökobu.\nSö körraega tötresèop sö dëkaos ?"
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_ENTER => [
+            "Korkëtogubagedo tö köpoduk söd sö dök köpoduk. Kopkorkëtogubagedo tö tarkorbakö sö dök köpoduk köpogur totrëkobu. Kopkorkëtogubagedo tö tarkorbakö sö dok köpoduk köpogur tordöter.\nToderkoburëkobu kö köpoduk sö dök köpoduk tötresèop todutrëd kö tarkorbakö sö dök köpoduk.",
+            "Körkubagedo kobakëto dök köpoduk tötresèop sö todutrëd."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_THREAT => ["koptotrëkobu|koptotrekobu|totrëkobu|totrekobu|koppopör|koppopor|koppopor"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_THREAT => [
+            "Pöko sö #{Locale::PLAYER_NAME} sö kobakëtodugusabor. Sö todutrëd dök köpoduk. Sö todutrëd köpoduk.",
+            "Koptoderkoburëkobu sö Kö Rakröt Bëdès sö dök köpoduk. Koptoderkoburëkobu tö köpoduk sö dök köpoduk."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_HELLO => ["poko|pöko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako"],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_HELLO_LEARN_NAME => ["poko|pöko", "#{Locale::PLAYER_NAME}"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_HELLO_HEAR_OUT => ["Säpogu sö Kö Rakröt Bëdès sö #{Locale::PLAYER_NAME}."],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_HELLO => ["Säpogu sö Kö Rakröt Bëdès sö #{Locale::PLAYER_NAME}"],
+        LocaleKey::DIAL_GOBLIN_GUARD_INTRO_HELLO => "Kosäpor sö pöko köpoduk... ",
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_WHAT => ["sö|so|kö|ko|tö|to"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_WHAT => ["Erkosä sö Kö Rakröt Bëdès sö kös korkö pöko sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès."],
         LocaleKey::DIAL_KEY_PLAYER_NAME => ["#{Locale::PLAYER_NAME}"]
     }
 end
