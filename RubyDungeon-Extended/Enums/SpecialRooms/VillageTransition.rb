@@ -27,7 +27,7 @@ class VillageTransition
     end
 
     def get_denomination
-        return Locale.get_localized(LocaleKey::A_HOLE)
+        return Locale.get_localized(LocaleKey::VILLAGE_ENTRANCE)
     end
 
     def allow_entry_for(player)

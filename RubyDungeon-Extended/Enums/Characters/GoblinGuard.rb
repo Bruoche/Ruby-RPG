@@ -9,7 +9,7 @@ class GoblinGuard < CharacterData
     PICTURE = 'alchemist'
     NAME_KNOWN = GoblinGuardAquinted
     PLAYER_NICKNAME = LocaleKey::GOBLIN_GUARD_NICKNAME
-    COMBAT_BODY = FighterGoblin
+    COMBAT_BODY = FighterGoblinHeavy
     START_FIGHT_ACTION = -> (character, room) {
         room.anger_passives
     }

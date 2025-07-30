@@ -977,6 +977,12 @@ class FR
             "Enfin l'obscurité est derrière vous."
         ],
         LocaleKey::OPEN_CAVE => "grande salle ouverte",
+        LocaleKey::VILLAGE_HUB => "place du village",
+        LocaleKey::VILLAGE_HUB_DESCRIPTION => [
+            "Vous êtes dans une placette de village, constituée simplement d'un puit entouré par de petites maisons en bois.",
+            "A votre gauche se trouve une maison dont l'envergure dépasse largement le reste des bâtiments de ce lieu, et à votre droite semble se trouver une forge.",
+            "Les larges murs encerclant le village vous donnent un sentiment de sécurité."
+        ],
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "À votre surprise, cette portion de la grotte semble reçevoir la lumière de la surface.",
             "En relevant votre regard, vous remarquez un gouffre béant s'ouvrant dans le plafond.",
@@ -1196,6 +1202,7 @@ class FR
         ],
         LocaleKey::JUMP_HOLE => "%s s'élance dans le trou, s'apprétant à l'impact.",
         LocaleKey::NEVERMIND_HOLE => "Ne souhaitant pas vous blesser, vous évitez le trou.",
+        LocaleKey::VILLAGE_ENTRANCE => "les portes du village",
         LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Souhaitez vous entrer discrètement dans le village ? (y/n) (%i%% chances de succès)",
         LocaleKey::GOBLIN_ATTACK => "Vous voyant prendre d'attaque leur village, les goblins se jettent sur vous.",
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",

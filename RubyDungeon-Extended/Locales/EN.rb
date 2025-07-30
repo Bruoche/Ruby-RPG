@@ -986,6 +986,12 @@ class EN
             "Despite being in a deep cave, far from the sun's rays, a rich ecosystem seems to have developped here.",
             "Many crystals embedded into the cave's roof shine through, not dissimilar to a night-time sky."
         ],
+        LocaleKey::VILLAGE_HUB => "village hub",
+        LocaleKey::VILLAGE_HUB_DESCRIPTION => [
+            "You are in a village hub, small wooden houses surrounding a simple well.",
+            "To your left is an especially large house, and to your right what seems to be a sort of forge.",
+            "The large walls encircling the whole village gives it a sense of calm and security."
+        ],
         LocaleKey::FOREST_LOOT_ROPE => [
             "You see a few vines dangling from the trees that could be used as ropes."
         ],
@@ -1194,6 +1200,7 @@ class EN
         ],
         LocaleKey::JUMP_HOLE => "%s leap inside of the hole, bracing for impact.",
         LocaleKey::NEVERMIND_HOLE => "Not wanting to hurt yourself, you avoid the hole.",
+        LocaleKey::VILLAGE_ENTRANCE => "the village's gates",
         LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (y/n) (%i%% chances of success)",
         LocaleKey::GOBLIN_ATTACK => "Seeing you assault their village, all the goblins decide to attack you on sight.",
         LocaleKey::ASK_SAVE => "What save do you want to load?",

@@ -674,6 +674,8 @@ module LocaleKey
     CAVES_LOOT_ROPE = :cave_loot_rope
     CAVES_TRANSITION_FOREST = :caves_transition_forest
     OPEN_CAVE = :open_cave
+    VILLAGE_HUB = :village_hub
+    VILLAGE_HUB_DESCRIPTION = :village_hub_description
     OPEN_CAVE_DESCRIPTION = :open_cave_description
     FOREST_DESCRIPTION = :forest_description
     FOREST_LOOT_ROPE = :forest_loot_rope
@@ -769,7 +771,8 @@ module LocaleKey
     ASK_JUMP = :ask_jump
     JUMP_HOLE = :jump_hole
     NEVERMIND_HOLE = :nevermind_hole
-    ASK_SNEAK_VILLAGE_ENTRANCE = :village_entrance
+    VILLAGE_ENTRANCE = :village_entrance
+    ASK_SNEAK_VILLAGE_ENTRANCE = :ask_sneak_village_entrance
     GOBLIN_ATTACK = :goblins_attack
     THE_EXIT = :the_exit
     ASK_SAVE = :ask_save

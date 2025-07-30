@@ -1,6 +1,6 @@
 module GoblinVillageF
     NAMES = [
-        LocaleKey::OPEN_CAVE,
+        LocaleKey::VILLAGE_HUB,
     ].freeze
 end
 
@@ -12,10 +12,13 @@ class GoblinVillage < Biome
     FEMALE = GoblinVillageF
     FEMALE_CHANCES = 100
     BACKTRACK_CHANCES = 95
-    DESCRIPTION = LocaleKey::OPEN_CAVE_DESCRIPTION
+    DESCRIPTION = LocaleKey::VILLAGE_HUB_DESCRIPTION
     PASSIVE_BESTIARY = [
         FighterGoblin,
-        FighterGoblin,
+        FighterGoblinHeavy,
+        FighterGoblinHeavy,
+        VillagerGoblin,
+        VillagerGoblin,
         VillagerGoblin,
         VillagerGoblin,
         VillagerGoblin
