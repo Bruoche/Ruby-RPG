@@ -66,7 +66,7 @@ class PlayerController
         case Narrator.user_input(@player.get_name)
         when '0'
             SettingsMenu.options_menu
-            return !Player::ACTED
+            return ask_action
         when '1'
             return propose_exploration
         when '2'
@@ -122,7 +122,7 @@ class PlayerController
             end
         when '6'
             @player.print_status
-            return !Player::ACTED
+            return ask_action
         else
             Narrator.unsupported_choice_error
             return ask_action
