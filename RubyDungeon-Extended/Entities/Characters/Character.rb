@@ -42,7 +42,11 @@ class Character
     end
 
     def get_description
-        return format(Locale.get_localized(@description), get_name)
+        if fighting?
+            return format(Locale.get_localized(LocaleKey::NPC_FIGHTING_DESCRIPTION), get_name)
+        else
+            return format(Locale.get_localized(@description), get_name)
+        end
     end
 
     def get_fighter

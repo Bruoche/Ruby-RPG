@@ -583,6 +583,7 @@ class FR
         LocaleKey::DESCRIBE_ENNEMIES => "Vous faites face à %s.",
         LocaleKey::DESCRIBE_PASSIVES => "Vous voyez également %s à vos côtés, ne semblant pas vous vouloir de mal.",
         LocaleKey::DEFAULT_NPC_DESCRIPTION => "A vos côtés se trouve %s.",
+        LocaleKey::NPC_FIGHTING_DESCRIPTION => "Vous voyez %s en position de combat.",
         LocaleKey::FIGHT_ACTIONS => [
             "Que voulez-vous faire ?",
             "      1) Attaque physique",

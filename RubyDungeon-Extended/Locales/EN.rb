@@ -583,6 +583,7 @@ class EN
         LocaleKey::DESCRIBE_ENNEMIES => "You face %s.",
         LocaleKey::DESCRIBE_PASSIVES => "You also see %s with you, seeming to have no ill intent.",
         LocaleKey::DEFAULT_NPC_DESCRIPTION => "%s is here with you.",
+        LocaleKey::NPC_FIGHTING_DESCRIPTION => "You see %s ready to fight.",
         LocaleKey::FIGHT_ACTIONS => [
             "What do you want to do?",
             "      1) Physical attack",

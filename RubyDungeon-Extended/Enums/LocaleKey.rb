@@ -382,6 +382,7 @@ module LocaleKey
     DESCRIBE_ENNEMIES = :describe_ennemies
     DESCRIBE_PASSIVES = :describe_passives
     DEFAULT_NPC_DESCRIPTION = :default_npc_description
+    NPC_FIGHTING_DESCRIPTION = :npc_fighting_description
     FIGHT_ACTIONS = :fight_actions
     ESCAPE_COMBAT = :escape_combat
     TRY_AGAIN = :try_again

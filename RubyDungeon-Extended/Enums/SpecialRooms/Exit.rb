@@ -26,7 +26,7 @@ class Exit
         SaveManager.save_player(player)
         Narrator.pause_text
         player.exit
-        return true
+        return false
     end
 
     def acted?
