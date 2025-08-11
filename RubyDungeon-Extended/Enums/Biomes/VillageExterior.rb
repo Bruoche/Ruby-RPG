@@ -11,8 +11,8 @@ class VillageExterior < Biome
     PASSIVE_BESTIARY = [
         FighterGoblin,
         FighterGoblin,
-        FighterGoblin,
-        VillagerGoblin,
+        FighterGoblinHeavy,
+        FighterGoblinHeavy,
         VillagerGoblin
     ]
     NPCS = [

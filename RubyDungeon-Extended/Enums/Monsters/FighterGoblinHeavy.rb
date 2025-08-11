@@ -4,7 +4,7 @@ class FighterGoblinHeavy < Bestiary
     FEMALE_CHANCES = 50
     HEALTH_MULTIPLIER = 1.2
     DAMAGE_MULTIPLIER = 1
-    PICTURE = 'goblin_fighter'
+    PICTURE = 'goblin_gard'
     LOOTS = [
         Loot.new(
             LocaleKey::GOBLIN_LOOT_HEALTH_POTION,

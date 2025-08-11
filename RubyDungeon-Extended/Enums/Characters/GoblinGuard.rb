@@ -6,7 +6,7 @@ class GoblinGuard < CharacterData
     CONVERSATION_KEEPER = LocaleKey::GOBLIN_GUARD_CONVERSATION_KEEPER
     REPEAT_INTRO = LocaleKey::DIAL_GOBLIN_GUARD_REPEAT
     UNKNOWN_DIALOGS = LocaleKey::GOBLIN_GUARD_UNKNOWN_DIALOGS
-    PICTURE = 'alchemist'
+    PICTURE = 'goblin_guard'
     NAME_KNOWN = GoblinGuardAquinted
     PLAYER_NICKNAME = LocaleKey::GOBLIN_GUARD_NICKNAME
     EXPECTED_BRIBE_VALUE = 49
@@ -47,7 +47,7 @@ class GoblinGuard < CharacterData
             end
         })
     ]
-    COMBAT_BODY = FighterGoblinHeavy
+    COMBAT_BODY = GoblinGuardBody
     START_FIGHT_ACTION = -> (character, room) {
         room.anger_passives
     }
