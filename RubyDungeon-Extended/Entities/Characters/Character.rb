@@ -187,6 +187,10 @@ class Character
         @start_fight_action.call(self, @room)
     end
 
+    def add_loot(loot)
+        @body.add_loot(loot)
+    end
+
     private
 
     def said_bye?(prompt)

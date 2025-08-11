@@ -754,8 +754,8 @@ class Narrator
         Narrator.write(LocaleKey::GIVE_OPTION)
     end
 
-    def self.ask_quantity_given(item_name)
-        Narrator.write(format(Locale.get_localized(LocaleKey::ASK_QUANTITY_GIVEN), item_name))
+    def self.ask_quantity_given(question, item_name)
+        Narrator.write(format(Locale.get_localized(question), item_name))
     end
 
     def self.ask_quantity_sold(item_name)

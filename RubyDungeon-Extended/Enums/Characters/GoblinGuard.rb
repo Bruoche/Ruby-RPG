@@ -9,6 +9,44 @@ class GoblinGuard < CharacterData
     PICTURE = 'alchemist'
     NAME_KNOWN = GoblinGuardAquinted
     PLAYER_NICKNAME = LocaleKey::GOBLIN_GUARD_NICKNAME
+    EXPECTED_BRIBE_VALUE = 49
+    SPECIAL_INTERACTIONS = [
+        SpecialInteraction.new(LocaleKey::GOBLIN_GUARD_BRIBE, -> (character, player) {
+            loop do
+                if player.has_status?(AllowedEntry)
+                    Narrator.write(LocaleKey::BRIBE_UNNECESSARY)
+                    Narrator.pause_text
+                    return
+                end
+                item_presented = player.choose_item(LocaleKey::ASK_ITEM_TO_SHOW)
+                if item_presented == nil
+                    return
+                end
+                is_valuable = item_presented.get_value >= EXPECTED_BRIBE_VALUE
+                is_valuable = (is_valuable || (item_presented.get_item.instance_of?(Coins) && (item_presented.get_quantity >= EXPECTED_BRIBE_VALUE)))
+                if is_valuable
+                    if !Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN), item_presented.get_name))
+                        return
+                    end
+                    item_given = player.remove_item(item_presented.get_item, item_presented.get_quantity)
+                    player.add_status(AllowedEntry.new)
+                    character.add_loot(Loot.new(
+                        LocaleKey::LOOT_GOBLIN_GIFT,
+                        100,
+                        item_given.get_item.class,
+                        item_given.get_item.data_as_array,
+                        item_given.get_quantity
+                    ))
+                    Narrator.write(LocaleKey::GOBLIN_ACCEPT_GIFT)
+                    Narrator.pause_text
+                    return
+                else
+                    Narrator.write(LocaleKey::GOBLIN_NOT_INTERESTED)
+                    Narrator.pause_text
+                end
+            end
+        })
+    ]
     COMBAT_BODY = FighterGoblinHeavy
     START_FIGHT_ACTION = -> (character, room) {
         room.anger_passives
@@ -25,7 +63,6 @@ class GoblinGuard < CharacterData
         if player.has_status?(AllowedEntry)
             if !is_already_talking
                 Narrator.write(LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED)
-                SoundManager.play('spell_fart')
                 Narrator.pause_text
             end
             return false

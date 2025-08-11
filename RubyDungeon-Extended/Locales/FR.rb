@@ -679,6 +679,15 @@ class FR
         LocaleKey::ASK_GIFT_TARGET => "A qui donner %s ?",
         LocaleKey::ASK_ITEM_TO_SELL => "Quel objet souhaitez-vous vendre ?",
         LocaleKey::ASK_ITEM_TO_UPGRADE => "Quelle armure souhaitez-vous améliorer ? (%s ¤)",
+        LocaleKey::ASK_ITEM_TO_SHOW => "Quel objet souhaitez-vous montrer au goblin ?",
+        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Êtes-vous sûr de vouloir donner %s à la garde gobline ? (y/n)",
+        LocaleKey::GOBLIN_NOT_INTERESTED => "La garde gobline ne semble pas intéressée par ce que vous lui montrez.",
+        LocaleKey::GOBLIN_ACCEPT_GIFT => [
+            "La gobline observe avec attention l'objet que vous lui tendez, sa posture semblant se détendre légèrement. Elle fait signe aux goblins se tenant près de la porte de venir chercher votre offrande.",
+            "Alors que ceux-ci s'exécutent, elle vous fait signe que vous pourrez dorénavent visiter le village comme bon vous semble, prête à ne pas vous considérer comme une menace malgré sa méfiance."
+        ],
+        LocaleKey::LOOT_GOBLIN_GIFT => ["Vous voyez le cadeau que vous aviez offert au goblins au milieu de leurs corps gisants."],
+        LocaleKey::BRIBE_UNNECESSARY => "Vous ayant déjà permit d'entrer, la garde gobline ne semble pas interessée par vos possessions.",
         LocaleKey::ASK_PLAYER_REMOVED => "Quel membre de l'équipe supprimer ?",
         LocaleKey::PARRIED => " paré",
         LocaleKey::ASK_HEAL_TARGET => "Qui souhaitez-vous soigner ?",
@@ -1125,6 +1134,7 @@ class FR
         LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
         LocaleKey::GOBLIN_GUARD_AGGRESSIVE => "Après que vous l'ayez attaqué, la garde gobline refuse maintenant de vous parler.",
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "La garde gobline est trop occupée pour vous parler plus, vous faisant simplement geste de passer à travers le portail du village comme bon vous semble.",
+        LocaleKey::GOBLIN_GUARD_BRIBE => "Montrer un objet...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [

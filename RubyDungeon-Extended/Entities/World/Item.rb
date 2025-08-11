@@ -33,6 +33,15 @@ class Item
         end
     end
 
+    def data_as_array
+        data_string = get_save_data.split('|')[1]
+        if data_string != nil
+            return data_string.split(', ')
+        else
+            return []
+        end
+    end
+
     def get_save_data
         return self.class.name
     end

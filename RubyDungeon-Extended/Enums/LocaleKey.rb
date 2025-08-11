@@ -455,7 +455,13 @@ module LocaleKey
     ASK_GIFT_TARGET = :ask_gift_target
     ASK_ITEM_TO_SELL = :ask_item_to_sell
     ASK_ITEM_TO_UPGRADE = :ask_item_to_upgrade
+    ASK_ITEM_TO_SHOW = :ask_item_to_show
     ASK_PLAYER_REMOVED = :ask_player_removed
+    ASK_CONFIRMATION_GIVING_GOBLIN = :ask_confirmation_giving_goblin
+    GOBLIN_NOT_INTERESTED = :goblin_not_interested
+    GOBLIN_ACCEPT_GIFT = :goblin_accept_gift
+    LOOT_GOBLIN_GIFT = :loot_goblin_gift
+    BRIBE_UNNECESSARY = :bribe_unnecessary
     PARRIED = :parried
     ASK_HEAL_TARGET = :ask_heal_target
     ASK_DESTINATION = :ask_destination
@@ -714,6 +720,7 @@ module LocaleKey
     GOBLIN_GUARD_NICKNAME = :goblin_guard_nickname
     GOBLIN_GUARD_AGGRESSIVE = :goblin_guard_aggressive
     GOBLIN_GUARD_ALREADY_AUTHORISED = :goblin_guard_already_authorised
+    GOBLIN_GUARD_BRIBE = :goblin_guard_bribe
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
     BOSS_CELL_REQ_REFUSE = :boss_cell_req_refuse

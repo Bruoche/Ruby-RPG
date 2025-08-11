@@ -1,6 +1,6 @@
 class SpecialInteraction
     def initialize(menu_option, action)
-        @menu_option
+        @menu_option = menu_option
         @action = action
     end
 

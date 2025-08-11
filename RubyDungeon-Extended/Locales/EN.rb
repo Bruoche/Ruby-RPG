@@ -678,6 +678,15 @@ class EN
         LocaleKey::ASK_GIFT_TARGET => "To who do you give %s?",
         LocaleKey::ASK_ITEM_TO_SELL => "What item do you want to sell?",
         LocaleKey::ASK_ITEM_TO_UPGRADE => "What armor do you want to upgrade? (%s ¤)",
+        LocaleKey::ASK_ITEM_TO_SHOW => "What item do you want to show to the goblin?",
+        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Do you want to give %s to the guard? (y/n)",
+        LocaleKey::GOBLIN_NOT_INTERESTED => "The goblin guard doesn't seems to show any interest in what you are showing to her.",
+        LocaleKey::GOBLIN_ACCEPT_GIFT => [
+            "The goblin cautiously observe the item you offer her, before seemingly untensing in agreement. She signal other goblins at the entrance to come to you and get it.",
+            "As they do so, she gesture you to go into the village as you see fit, willing to no longer consider you a threat, although still keeping an eye on you."
+        ],
+        LocaleKey::LOOT_GOBLIN_GIFT => ["You see the gift that was dealth to the goblins lying among their still warm corpses."],
+        LocaleKey::BRIBE_UNNECESSARY => "The goblin already having given you permission to enter, she show no interest in your belongings.",
         LocaleKey::ASK_PLAYER_REMOVED => "Which team member do you want to remove?",
         LocaleKey::PARRIED => " parried",
         LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
@@ -1124,6 +1133,7 @@ class EN
         LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
         LocaleKey::GOBLIN_GUARD_AGGRESSIVE => "After your attack against it, the goblin guard now refuse to talk to you",
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "The goblin guard is too occupied guarding the door to talk to you any more, simply gesturing you to pass through the village's entrance if you so desire.",
+        LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
@@ -1159,6 +1169,7 @@ class EN
         LocaleKey::AMETHYST_PLURAL => "amethysts",
         LocaleKey::ROPE_NAME => "a rope",
         LocaleKey::ROPE_DESCRIPTION => "long and robust, it must be able to widstand heavy weights",
+        LocaleKey::ROPE_PLURAL => "ropes",
         LocaleKey::DEVNOTE_NAME => "goodbye note",
         LocaleKey::DEVNOTE_DESCRIPTION => "thanks for playing",
         LocaleKey::HEALTH_POTION_NAME => "a health potion",

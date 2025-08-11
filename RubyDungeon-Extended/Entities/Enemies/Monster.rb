@@ -90,6 +90,10 @@ class Monster
         return @AI.escaped?
     end
 
+    def add_loot(loot)
+        @loots.append(loot)
+    end
+
     def choose_target(players)
         return @AI.choose_target(players, @strength)
     end

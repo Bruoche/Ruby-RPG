@@ -64,11 +64,11 @@ class Inventory
     def remove(item, quantity = 1)
         for bundle in @bundles
             if bundle.contains?(item)
-                bundle.remove(item, quantity)
+                removed_bundle = bundle.remove(item, quantity)
                 if bundle.depleted?
                     @bundles.delete_at(@bundles.index(bundle))
                 end
-                return
+                return removed_bundle
             end
         end
     end
@@ -178,6 +178,20 @@ class Inventory
         return used
     end
 
+    def choose_item(player_name, question)
+        bundle_index = Narrator.ask(question, @bundles, -> (bundle){to_string(bundle)}, player_name)
+        if bundle_index == Narrator::RETURN_BUTTON
+            return nil
+        end
+        bundle_stack = @bundles[bundle_index]
+        bundle = bundle_stack.choose_bundle(player_name)
+        if bundle == nil
+            return nil
+        end
+        amount = choose_amount(bundle, player_name)
+        return Bundle.new(bundle.get_item, amount)
+    end
+
     def give_item(bundle, allies, giver)
         ally_index = Narrator.ask(format(Locale.get_localized(LocaleKey::ASK_GIFT_TARGET), bundle.get_name), allies, ->(ally){giver.to_string(ally)})
         if ally_index == Narrator::RETURN_BUTTON
@@ -193,25 +207,7 @@ class Inventory
         if bundle == BundleStack::NO_ITEM_CHOSEN
             return !Player::ACTED
         end
-        if bundle.get_quantity > 1
-            amount_choosen = false
-            while !amount_choosen
-                Narrator.ask_quantity_given(bundle.get_name)
-                amount = Narrator::user_input(giver.get_name)
-                if amount != amount.to_i.to_s
-                    Narrator.unsupported_choice_error
-                else
-                    amount = amount.to_i
-                    if amount < 0
-                        Narrator.negative_quantity_error
-                    else
-                        amount_choosen = true
-                    end
-                end
-            end
-        else
-            amount = 1
-        end
+        amount = choose_amount(bundle, player_name)
         reciever.give_item(bundle_stack.remove(bundle.get_item, amount))
         if bundle_stack.depleted?
             @bundles.delete_at(@bundles.index(bundle_stack))
@@ -219,11 +215,32 @@ class Inventory
         return !Player::ACTED
     end
 
-    def choose_bundle_to_sell(player, retail_coeff)
+    def choose_amount(bundle, giver_name)
+        if bundle.get_quantity > 1
+            loop do
+                Narrator.ask_quantity_given(LocaleKey::ASK_QUANTITY_GIVEN, bundle.get_name)
+                amount = Narrator::user_input(giver_name)
+                if amount != amount.to_i.to_s
+                    Narrator.unsupported_choice_error
+                else
+                    amount = amount.to_i
+                    if amount < 0
+                        Narrator.negative_quantity_error
+                    else
+                        return amount
+                    end
+                end
+            end
+        else
+            return 1
+        end
+    end
+
+    def choose_bundle_to_sell(player, retail_coeff, specific_question = LocaleKey::ASK_ITEM_TO_SELL)
         sellable_bundles = get_sellable_items
         if sellable_bundles.length > 0
             bundle_index = Narrator.ask_paginated(
-                LocaleKey::ASK_ITEM_TO_SELL,
+                specific_question,
                 sellable_bundles, -> (bundle, index){
                     item_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(bundle, index, retail_coeff))
                     item_frame.frame

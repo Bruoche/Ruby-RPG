@@ -382,7 +382,7 @@ class Player
     end
 
     def remove_item(item, quantity = 1)
-        @inventory.remove(item, quantity)
+        return @inventory.remove(item, quantity)
     end
 
     def equip(item)
@@ -393,8 +393,12 @@ class Player
         return @stats.get_equipment.manage(@inventory, @name)
     end
 
-    def choose_item_to_sell(retail_coeff)
-        return @inventory.choose_bundle_to_sell(self, retail_coeff)
+    def choose_item(question)
+        return @inventory.choose_item(@name, question)
+    end
+
+    def choose_item_to_sell(retail_coeff, specific_question = LocaleKey::ASK_ITEM_TO_SELL)
+        return @inventory.choose_bundle_to_sell(self, retail_coeff, specific_question)
     end
 
     def choose_armor_to_upgrade(upgrade_tax)
