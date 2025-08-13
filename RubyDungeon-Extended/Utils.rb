@@ -1,6 +1,7 @@
 class Utils
     HUNDRED_PERCENT = 100
     PUNCTUATION = ['.', '?', '!']
+    DIACRITICS = [*0x1DC0..0x1DFF, *0x0300..0x036F, *0xFE20..0xFE2F].pack('U*')
 
     def self.average(max_value)
         return (max_value+1)/2

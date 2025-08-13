@@ -39,8 +39,7 @@ class Dialog
         if @trigger_words == NO_TRIGGER_NEEDED
             return true
         end
-        player_prompt = Dialog.process_sentence(player.get_name)
-        player_trigger = player_prompt.join('|')
+        player_trigger = promptify(player.get_name)
         triggers = Locale::get_localized(@trigger_words)
         for required_trigger in triggers
             required_trigger = required_trigger.gsub(Locale::PLAYER_NAME, player_trigger)
@@ -88,5 +87,15 @@ class Dialog
             end
         end
         return true
+    end
+
+    def promptify(name)
+        accented_player_prompt = Dialog.process_sentence(name)
+        player_prompt = []
+        for accented_word in accented_player_prompt
+            player_prompt.append(accented_word)
+            player_prompt.append(accented_word.unicode_normalize(:nfd).tr(Utils::DIACRITICS, '').unicode_normalize(:nfc))
+        end
+        return player_prompt.join('|')
     end
 end
