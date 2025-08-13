@@ -80,7 +80,7 @@ class Room
 
     def describe(player)
         picture = @picture
-        if got_monsters?
+        if got_monsters? || got_passives?
             picture += MONSTER_PRESENT_PICTURE_SUFFIX
         end
         if player.just_entered_room?
@@ -141,6 +141,10 @@ class Room
 
     def got_monsters?
         return !((@monsters == nil) || @monsters.are_dead)
+    end
+
+    def got_passives?
+        return !((@passives == nil) || @passives.length <= 0)
     end
 
     def get_monsters_plural_the

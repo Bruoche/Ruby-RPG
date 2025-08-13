@@ -1,6 +1,6 @@
 class VillageExterior < Biome
     EXPECTED_LEVEL = 27
-    PICTURE = 'forest'
+    PICTURE = 'village_entrance'
     EXPLORATION_TRACK = 'Forest'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = UndergroundForestF
