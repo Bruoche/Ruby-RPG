@@ -21,7 +21,7 @@ class DetoxFruit < Item
         play_sound
         if [true, false].sample
             target.remove_status(Poison)
-            Narrator.write(LocaleKey::DETOX_FRUIT_DETOX)
+            Narrator.write(LocaleKey::DETOX_DETOX)
             SoundManager.play('poison_cleanse')
             sleep Settings.get_pause_duration
         else

@@ -207,7 +207,7 @@ class Inventory
         if bundle == BundleStack::NO_ITEM_CHOSEN
             return !Player::ACTED
         end
-        amount = choose_amount(bundle, player_name)
+        amount = choose_amount(bundle, giver.get_name)
         reciever.give_item(bundle_stack.remove(bundle.get_item, amount))
         if bundle_stack.depleted?
             @bundles.delete_at(@bundles.index(bundle_stack))
