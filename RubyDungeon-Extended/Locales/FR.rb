@@ -1270,6 +1270,10 @@ class FR
         LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Souhaitez vous entrer discrètement dans le village ? (y/n) (%i%% chances de succès)",
         LocaleKey::GOBLIN_ATTACK => "Vous voyant prendre d'attaque leur village, les goblins se jettent sur vous.",
         LocaleKey::VILLAGE_FORGE => "une petite forge",
+        LocaleKey::FORGE_EMPTY => [
+            "Lors de votre arrivée dans la petite forge, vous remarquez que celle-ci fût entièrement vidée avant votre arrivée, ne vous laissant que des cendres chaudes comme trésor à prendre.",
+            "Ce lieu n'ayant rien pour vous, vous rebroussez chemin vers le reste du village."
+        ],
         LocaleKey::ASK_SAVE => "Quelle sauvegarde charger ?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Options | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Ecrivez ce que vous souhaitez dire : (dites au-revoir pour finir la conversation)",

@@ -1269,6 +1269,10 @@ class EN
         LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (y/n) (%i%% chances of success)",
         LocaleKey::GOBLIN_ATTACK => "Seeing you assault their village, all the goblins decide to attack you on sight.",
         LocaleKey::VILLAGE_FORGE => "a small forge",
+        LocaleKey::FORGE_EMPTY => [
+            "As you arrive to the small forge, you notice everything has been emptied before your arrival, only warm embers having been left for you to take.",
+            "With nothing for you here, you decide to go back to the rest of the village."
+        ],
         LocaleKey::ASK_SAVE => "What save do you want to load?",
         LocaleKey::OPEN_SETTINGS_OPTION => "0) Settings | 6) Status",
         LocaleKey::DIALOG_QUESTION => "Write what you wish to say: (say goodbye to end the conversation)",

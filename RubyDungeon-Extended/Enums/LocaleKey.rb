@@ -823,6 +823,7 @@ module LocaleKey
     ASK_SNEAK_VILLAGE_ENTRANCE = :ask_sneak_village_entrance
     GOBLIN_ATTACK = :goblins_attack
     VILLAGE_FORGE = :village_forge
+    FORGE_EMPTY = :forge_empty
     THE_EXIT = :the_exit
     ASK_SAVE = :ask_save
     OPEN_SETTINGS_OPTION = :open_settings_option

@@ -20,7 +20,12 @@ class VillageShop
     end
 
     def allow_entry_for(player)
-        @shop.enter(player)
+        if !player.has_status?(GoblinMurderer)
+            @shop.enter(player)
+        else
+            Narrator.write(LocaleKey::FORGE_EMPTY)
+            Narrator.pause_text
+        end
         return false
     end
 
