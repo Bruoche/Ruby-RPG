@@ -5,7 +5,7 @@ class GoblinForge < Shop
     NO_MONEY_DIALOG = LocaleKey::GOBLIN_BLACKSMITH_FUND_INSUFFICIENT
     SOLD_DIALOG = LocaleKey::GOBLIN_BLACKSMITH_THANK
     RETAIL_PERCENT = 90
-    MUSIC = 'Adventurers Waltz'
+    MUSIC = 'Goblin Village'
     SHOPKEEPER = GoblinBlacksmith
     SECOND_OPTION_LABEL = LocaleKey::UPGRADE_LABEL
     SECOND_OPTION_ACTION = -> (player, shopkeeper, shop) {

@@ -7,7 +7,7 @@ end
 class GoblinVillage < Biome
     EXPECTED_LEVEL = 27
     PICTURE = 'goblin_village'
-    EXPLORATION_TRACK = 'Cave Entrance'
+    EXPLORATION_TRACK = 'Goblin Village'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = GoblinVillageF
     FEMALE_CHANCES = 100
