@@ -1,0 +1,18 @@
+class GoblinBlacksmith < CharacterData
+    NAME = LocaleKey::GOBLIN_BLACKSMITH_NAME
+    INTRO_DIALOG = LocaleKey::GOBLIN_BLACKSMITH_INTRO_DIALOG
+    IDLE_DIALOGS = LocaleKey::GOBLIN_BLACKSMITH_IDLE_DIALOGS
+    CONVERSATION_STARTER = LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_STARTER
+    CONVERSATION_KEEPER = LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_KEEPER
+    REPEAT_INTRO = LocaleKey::DIAL_GOBLIN_BLACKSMITH_REPEAT
+    UNKNOWN_DIALOGS = LocaleKey::GOBLIN_BLACKSMITH_UNKNOWN_DIALOGS
+    PICTURE = 'goblin_blacksmith'
+    NAME_KNOWN = GoblinBlacksmithAquinted
+    PLAYER_NICKNAME = LocaleKey::GOBLIN_BLACKSMITH_NICKNAME
+    WILLING_TO_TALK = -> (npc, player, is_already_talking) {
+        Narrator.write(LocaleKey::GOBLIN_BLACKSMITH_NO_TALK)
+        Narrator.pause_text
+        return false
+    }
+    DIALOGS = []
+end

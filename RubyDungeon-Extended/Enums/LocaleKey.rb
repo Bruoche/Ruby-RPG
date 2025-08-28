@@ -503,6 +503,8 @@ module LocaleKey
     BLACKSMITH_COIN_INSUFFICIENT = :blacksmith_coin_insufficient
     BLACKSMITH_NO_MONEY = :blacksmith_no_money
     BLACKSMITH_PURCHASE = :blacksmith_purchase
+    GOBLIN_BLACKSMITH_THANK = :goblin_blacksmith_thank
+    GOBLIN_BLACKSMITH_FUND_INSUFFICIENT = :goblin_blacksmith_fund_insufficient
     ASK_SHOP_ACTION = :ask_shop_action
     SELL_OPTION = :sell_option
     UPGRADE_LABEL = :upgrade_label
@@ -734,6 +736,14 @@ module LocaleKey
     BLACKSMITH_CONVERSATION_KEEPER = :blacksmith_conversation_keeper
     BLACKSMITH_UNKNOWN_DIALOGS = :blacksmith_unknown_dialogs
     BLACKSMITH_NICKNAME = :blacksmith_nickname
+    BLACKSMITH_NO_TALK = :blacksmith_no_talk
+    GOBLIN_BLACKSMITH_NAME = :goblin_blacksmith_name
+    GOBLIN_BLACKSMITH_INTRO_DIALOG = :goblin_blacksmith_intro_dialog
+    GOBLIN_BLACKSMITH_IDLE_DIALOGS = :goblin_blacksmith_idle_dialogs
+    GOBLIN_BLACKSMITH_CONVERSATION_STARTER = :goblin_blacksmith_conversation_starter
+    GOBLIN_BLACKSMITH_CONVERSATION_KEEPER = :goblin_blacksmith_conversation_keeper
+    GOBLIN_BLACKSMITH_UNKNOWN_DIALOGS = :goblin_blacksmith_unknown_dialogs
+    GOBLIN_BLACKSMITH_NICKNAME = :goblin_blacksmith_nickname
     GUARD_NPC_DESCRIPTION = :guard_npc_description
     GOBLIN_GUARD_NAME = :goblin_guard_name
     GOBLIN_GUARD_INTRO_DIALOG = :goblin_guard_intro_dialog
@@ -745,6 +755,7 @@ module LocaleKey
     GOBLIN_GUARD_AGGRESSIVE = :goblin_guard_aggressive
     GOBLIN_GUARD_ALREADY_AUTHORISED = :goblin_guard_already_authorised
     GOBLIN_GUARD_BRIBE = :goblin_guard_bribe
+    GOBLIN_BLACKSMITH_NO_TALK = :goblin_blacksmith_no_talk
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
     BOSS_CELL_REQ_REFUSE = :boss_cell_req_refuse
@@ -1144,6 +1155,7 @@ module LocaleKey
     DIAL_ALCHEMIST_TXT_QUEST = :dial_alchemist_txt_quest
     DIAL_ALCHEMIST_INTRO_QUEST = :dial_alchemist_intro_quest
     DIAL_BLACKSMITH_REPEAT = :dial_blacksmith_repeat
+    DIAL_GOBLIN_BLACKSMITH_REPEAT = :dial_goblin_blacksmith_repeat
     DIAL_GOBLIN_GUARD_REPEAT = :dial_goblin_guard_repeat
     DIAL_GOBLIN_GUARD_KEY_ASK_NAME = :dial_goblin_guard_key_ask_name
     DIAL_GOBLIN_GUARD_KEY_ASK_NAME_NICKNAME = :dial_goblin_guard_key_ask_name_nickname

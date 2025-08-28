@@ -729,6 +729,8 @@ class FR
         LocaleKey::BLACKSMITH_COIN_INSUFFICIENT => "Pas assez... Non.",
         LocaleKey::BLACKSMITH_NO_MONEY => "Non, il faut des pièces.",
         LocaleKey::BLACKSMITH_PURCHASE => "...",
+        LocaleKey::GOBLIN_BLACKSMITH_THANK => "Käda sö Kö Köpoega Degäerk tö sodottöter #{Locale::PLAYER_NAME}.",
+        LocaleKey::GOBLIN_BLACKSMITH_FUND_INSUFFICIENT => "Toderköpo kö aüro dëkaobu.\nTöterpo kö aüro kobuköpa köpogur sö sodottöter.",
         LocaleKey::ASK_SHOP_ACTION => "Que souhaitez-vous faire ? (%s ¤)",
         LocaleKey::SHOP_OPTIONS_FIRST => [
             "",
@@ -1138,6 +1140,27 @@ class FR
             "..."
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "aventurier",
+        LocaleKey::GOBLIN_BLACKSMITH_NAME => "goblin blacksmith",
+        LocaleKey::GOBLIN_BLACKSMITH_INTRO_DIALOG => "Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö.",
+        LocaleKey::GOBLIN_BLACKSMITH_IDLE_DIALOGS => [
+            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
+            "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
+            "Tödoer kö dëkaos ?",
+            "Kobukör sodottöter sö köpoduk.",
+            "Kobukör töter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo #{Locale::PLAYER_NAME}."
+        ],
+        LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_STARTER => ["Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö."],
+        LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_KEEPER => [
+            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
+            "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
+            "Tödoer kö dëkaos ?",
+            "Kobukör sodottöter sö köpoduk.",
+            "Kobukör töter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo #{Locale::PLAYER_NAME}."
+        ],
+        LocaleKey::GOBLIN_BLACKSMITH_UNKNOWN_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_BLACKSMITH_NICKNAME => "tarkorbakö",
         LocaleKey::GOBLIN_GUARD_NAME => "une garde gobline",
         LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto ! Körkubagedo !\nTö bëdèsoe sö todutrëd dök köpoduk.",
         LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
@@ -1160,6 +1183,7 @@ class FR
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "La garde gobline est trop occupée pour vous parler plus, vous faisant simplement geste de passer à travers le portail du village comme bon vous semble.",
         LocaleKey::GOBLIN_GUARD_BRIBE => "Montrer un objet...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
+        LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Bien qu'il accepte de faire commerce avec vous, le forgeron semble trop occupé pour discuter.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "Vous utilisez la clef de la prison afin d'ouvrir la grande porte.",
@@ -1739,6 +1763,7 @@ class FR
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Ah oui, je suis très fière de celui-là.\n",
         LocaleKey::DIAL_BLACKSMITH_REPEAT => "",
+        LocaleKey::DIAL_GOBLIN_BLACKSMITH_REPEAT => "",
         LocaleKey::DIAL_GOBLIN_GUARD_REPEAT => "Dëkabogu sö Kö Rakröt Bëdès ",
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME => ["pöko|poko", "#{Locale::PLAYER_NAME}", "köpodugus|kopodugus"],
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME_NICKNAME => ["pöko|poko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "köpodugus|kopodugus"],

@@ -728,6 +728,8 @@ class EN
         LocaleKey::BLACKSMITH_COIN_INSUFFICIENT => "Not enough... No.",
         LocaleKey::BLACKSMITH_NO_MONEY => "No, 'must have coins.",
         LocaleKey::BLACKSMITH_PURCHASE => "...",
+        LocaleKey::GOBLIN_BLACKSMITH_THANK => "Käda sö Kö Köpoega Degäerk tö sodottöter #{Locale::PLAYER_NAME}.",
+        LocaleKey::GOBLIN_BLACKSMITH_FUND_INSUFFICIENT => "Toderköpo kö aüro dëkaobu.\nTöterpo kö aüro kobuköpa köpogur sö sodottöter.",
         LocaleKey::ASK_SHOP_ACTION => "What do you want to do? (%s ¤)",
         LocaleKey::SHOP_OPTIONS_FIRST => [
             "",
@@ -1137,6 +1139,27 @@ class EN
             "..."
         ],
         LocaleKey::BLACKSMITH_NICKNAME => "adventurer",
+        LocaleKey::GOBLIN_BLACKSMITH_NAME => "goblin blacksmith",
+        LocaleKey::GOBLIN_BLACKSMITH_INTRO_DIALOG => "Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö.",
+        LocaleKey::GOBLIN_BLACKSMITH_IDLE_DIALOGS => [
+            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
+            "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
+            "Tödoer kö dëkaos?",
+            "Kobukör sodottöter sö köpoduk.",
+            "Kobukör töter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo #{Locale::PLAYER_NAME}."
+        ],
+        LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_STARTER => ["Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö."],
+        LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_KEEPER => [
+            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
+            "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
+            "Tödoer kö dëkaos?",
+            "Kobukör sodottöter sö köpoduk.",
+            "Kobukör töter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo #{Locale::PLAYER_NAME}."
+        ],
+        LocaleKey::GOBLIN_BLACKSMITH_UNKNOWN_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_BLACKSMITH_NICKNAME => "tarkorbakö",
         LocaleKey::GOBLIN_GUARD_NAME => "a goblin guard",
         LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto! Körkubagedo!\nTö bëdèsoe sö todutrëd dök köpoduk.",
         LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
@@ -1159,6 +1182,7 @@ class EN
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "The goblin guard is too occupied guarding the door to talk to you any more, simply gesturing you to pass through the village's entrance if you so desire.",
         LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
+        LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Even if they agree to trade with you, the blacksmith seems too occupied for chit-chat.",
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "You use the prison key to open the great door.",
@@ -1738,6 +1762,7 @@ class EN
         ],
         LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Oh yeah, I'm really proud of this one.\n",
         LocaleKey::DIAL_BLACKSMITH_REPEAT => "",
+        LocaleKey::DIAL_GOBLIN_BLACKSMITH_REPEAT => "",
         LocaleKey::DIAL_GOBLIN_GUARD_REPEAT => "Dëkabogu sö Kö Rakröt Bëdès ",
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME => ["pöko|poko", "#{Locale::PLAYER_NAME}", "köpodugus|kopodugus"],
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME_NICKNAME => ["pöko|poko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "köpodugus|kopodugus"],
