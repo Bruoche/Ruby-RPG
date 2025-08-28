@@ -2,6 +2,7 @@ class DetoxJuice < Item
     NAME = LocaleKey::DETOX_JUICE_NAME
     PLURAL_NAME = LocaleKey::DETOX_JUICE_NAME_PLURAL
     SOUND = 'potion'
+    PICTURE = 'detox_potion'
 
     def initialize(soin_min, soin_max = soin_min)
         @soin = rand(soin_min.to_i..soin_max.to_i)
