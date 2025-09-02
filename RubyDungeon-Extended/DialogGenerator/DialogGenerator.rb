@@ -148,7 +148,7 @@ class DialogGenerator
                 if consonant_before_accent_in(word[1..-1])
                     return {
                         :future => "kop" + word,
-                        :past => "erko" + inverse_consonnant_of(word[0]) + word[1..-1]
+                        :past => "erko" + inverse_consonnant_of(word[0]) + word[1..-1] #fix, didn't work
                     }
                 else
                     return {
