@@ -35,7 +35,7 @@ class GoblinVillage < Biome
             'Caves'
         ),
     ]
-    REQUIRED_BIOMES = ['VillageTransition', 'VillageShop']
+    REQUIRED_BIOMES = ['VillageTransition', 'VillageShop', 'TranslatorHome']
     ENTRY_EVENT = -> (room, player) {
         if player.has_status?(GoblinMurderer) && room.got_passives?
             Narrator.write(LocaleKey::GOBLIN_ATTACK)

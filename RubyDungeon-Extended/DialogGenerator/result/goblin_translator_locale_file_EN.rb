@@ -1,1836 +1,12 @@
-class EN
-    TEXTS = {
-        # General
-        Locale::ID_FR => "French",
-        Locale::ID_EN => "English",
-        LocaleKey::YES => "Yes",
-        LocaleKey::NO => "No",
-        # Monster
-        LocaleKey::BAT => "bat",
-        LocaleKey::GOBLIN_F => "goblin",
-        LocaleKey::GOBLIN_M => "goblin",
-        LocaleKey::FIGHTER_GOBLIN_F => "goblin guard",
-        LocaleKey::FIGHTER_GOBLIN_M => "goblin guard",
-        LocaleKey::FORAGER_GOBLIN_F => "goblin gatherer",
-        LocaleKey::FORAGER_GOBLIN_M => "goblin gatherer",
-        LocaleKey::GIANT_SLIME => "giant slime",
-        LocaleKey::HARPY => "harpy",
-        LocaleKey::KNIGHT_F => "knight",
-        LocaleKey::NECROMANCER_F => "necromancer",
-        LocaleKey::PRISONNER_F => "forgotten prisoner",
-        LocaleKey::SPIDER => "spider",
-        LocaleKey::ZOMBIE_F => "undead",
-        LocaleKey::KNIGHT_M => "knight",
-        LocaleKey::NECROMANCER_M => "necromancer",
-        LocaleKey::PRISONNER_M => "forgotten prisoner",
-        LocaleKey::SKELETON => "skeleton",
-        LocaleKey::SLIME => "slime",
-        LocaleKey::SPRIGGAN => "spriggan",
-        LocaleKey::ZOMBIE_M => "undead",
-        LocaleKey::POISON_SPIDER => "swamp spider",
-        # Bodyparts
-        LocaleKey::HEAD => "head",
-        LocaleKey::ARM => "arm",
-        # Rooms
-        LocaleKey::ALCOVE => "alcove",
-        LocaleKey::CELL => "cell",
-        LocaleKey::CHAMBER => "chamber",
-        LocaleKey::CLEARING => "clearing",
-        LocaleKey::FOREST_GROUND => "forest ground",
-        LocaleKey::GEOLLE => "gaol",
-        LocaleKey::ROOM => "room",
-        LocaleKey::TORTURE_CHAMBER => "torture room",
-        LocaleKey::CORRIDOR => "corridor",
-        LocaleKey::PATH => "path",
-        LocaleKey::REFECTORY => "refectory",
-        LocaleKey::SLEEP_PLACE => "dorm",
-        LocaleKey::TUNNEL => "tunnel",
-        LocaleKey::TRAIL => "trail",
-        LocaleKey::MARSH => "marsh",
-        LocaleKey::SWAMP => "swamp",
-        LocaleKey::BOG => "bog",
-        # Female Adjectives
-        LocaleKey::AGILE_F => "agile",
-        LocaleKey::ANCIENT_F => "ancient",
-        LocaleKey::ANGRY_F => "angry",
-        LocaleKey::AUTHORITARIAN_F => "authoritarian",
-        LocaleKey::BIG_F => "big",
-        LocaleKey::BLUISH_F => "bluish",
-        LocaleKey::CALM_F => "calm",
-        LocaleKey::COLD_F => "cold",
-        LocaleKey::DARK_F => "dark",
-        LocaleKey::DRY_F => "dry",
-        LocaleKey::DUSTY_F => "dusty",
-        LocaleKey::FLOODED_F => "flooded",
-        LocaleKey::GLISTENING_F => "glistening",
-        LocaleKey::GREEN_F => "green",
-        LocaleKey::GREYISH_F => "grayish",
-        LocaleKey::HUMID_F => "humid",
-        LocaleKey::ISOLATED_F => "isolated",
-        LocaleKey::JADED_F => "jaded",
-        LocaleKey::LEFT_F => "left",
-        LocaleKey::LONG_F => "long",
-        LocaleKey::LOST_F => "lost",
-        LocaleKey::MUSCULAR_F => "muscular",
-        LocaleKey::NARROW_F => "narrow",
-        LocaleKey::OVERGROWN_F => "overgrown",
-        LocaleKey::POWERFULL_F => "powerfull",
-        LocaleKey::RIGHT_F => "right",
-        LocaleKey::RUINED_F => "ruined",
-        LocaleKey::SCARY_F => "terrifying",
-        LocaleKey::SCOUT_F => "scout",
-        LocaleKey::SHINY_F => "shiny",
-        LocaleKey::SILENT_F => "silent",
-        LocaleKey::SMALL_F => "small",
-        LocaleKey::SMART_F => "smart",
-        LocaleKey::SPACIOUS_F => "spacious",
-        LocaleKey::STRANGE_F => "strange",
-        LocaleKey::TALL_F => "tall",
-        LocaleKey::TIRED_F => "tired",
-        LocaleKey::WARY_F => "wary",
-        LocaleKey::WINDING_F => "winding",
-        LocaleKey::WORRIED_F => "worried",
-        LocaleKey::WORRYING_F => "worrying",
-        # Male Adjectives
-        LocaleKey::AGILE_M => "agile",
-        LocaleKey::ANCIENT_M => "ancient",
-        LocaleKey::ANGRY_M => "angry",
-        LocaleKey::AUTHORITARIAN_M => "authoritarian",
-        LocaleKey::BIG_M => "big",
-        LocaleKey::BLUISH_M => "bluish",
-        LocaleKey::CALM_M => "calm",
-        LocaleKey::COLD_M => "cold",
-        LocaleKey::DARK_M => "dark",
-        LocaleKey::DRY_M => "dry",
-        LocaleKey::DUSTY_M => "dusty",
-        LocaleKey::FLOODED_M => "flooded",
-        LocaleKey::GLISTENING_M => "glistening",
-        LocaleKey::GREEN_M => "green",
-        LocaleKey::GREYISH_M => "grayish",
-        LocaleKey::HUMID_M => "humid",
-        LocaleKey::ISOLATED_M => "isolated",
-        LocaleKey::JADED_M => "jaded",
-        LocaleKey::LEFT_M => "left",
-        LocaleKey::LONG_M => "long",
-        LocaleKey::LOST_M => "lost",
-        LocaleKey::MUSCULAR_M => "muscular",
-        LocaleKey::NARROW_M => "narrow",
-        LocaleKey::OVERGROWN_M => "overgrown",
-        LocaleKey::POWERFULL_M => "powerfull",
-        LocaleKey::RIGHT_M => "right",
-        LocaleKey::RUINED_M => "ruined",
-        LocaleKey::SCARY_M => "scary",
-        LocaleKey::SCOUT_M => "scout",
-        LocaleKey::SHINY_M => "shiny",
-        LocaleKey::SILENT_M => "silent",
-        LocaleKey::SMALL_M => "small",
-        LocaleKey::SMART_M => "smart",
-        LocaleKey::SPACIOUS_M => "spacious",
-        LocaleKey::STRANGE_M => "strange",
-        LocaleKey::TALL_M => "tall",
-        LocaleKey::TIRED_M => "tired",
-        LocaleKey::WARY_M => "wary",
-        LocaleKey::WINDING_M => "winding",
-        LocaleKey::WORRIED_M => "worried",
-        LocaleKey::WORRYING_M => "worrying",
-        # Player Icon
-        LocaleKey::ICON_PALE => "pale",
-        LocaleKey::ICON_HALF => "dark",
-        LocaleKey::ICON_BLACK => "black",
-        LocaleKey::ICON_THIN => "lean",
-        LocaleKey::ICON_MEDIUM => "medium",
-        LocaleKey::ICON_LARGE => "large",
-        LocaleKey::ICON_WHITE => "white",
-        LocaleKey::ICON_LIGHT => "light",
-        LocaleKey::ICON_DARK => "dark",
-        LocaleKey::ICON_AVERAGES => "average",
-        LocaleKey::ICON_ROUNDS => "round",
-        LocaleKey::ICON_LARGES => "large",
-        LocaleKey::ICON_FLATS => "flat",
-        LocaleKey::ICON_SMALL_ROUND_M => "small and round",
-        LocaleKey::ICON_NARROW_M => "narrow",
-        LocaleKey::ICON_MEDIUM_M => "medium",
-        LocaleKey::ICON_LARGE_M => "large",
-        LocaleKey::ICON_NONE_M => "none",
-        LocaleKey::ICON_ROUNDS_M => "round",
-        LocaleKey::ICON_MINIS_M => "mini",
-        LocaleKey::ICON_MEDIUMS_M => "medium",
-        LocaleKey::ICON_LARGES_M => "large",
-        LocaleKey::ICON_UNIBROW => "unibrow",
-        LocaleKey::ICON_NONE => "none",
-        LocaleKey::ICON_BARBICHE => "stubble",
-        LocaleKey::ICON_MINIBOUC => "mini-goatee",
-        LocaleKey::ICON_BOUC => "goatee",
-        LocaleKey::ICON_THIN_BOUC => "thin goatee",
-        LocaleKey::ICON_POINTY_BOUC => "pointy goatee",
-        LocaleKey::ICON_LONG_BOUC => "long goatee",
-        LocaleKey::ICON_LARGE_BOUC => "large goatee",
-        LocaleKey::ICON_SMALL_BEARD => "small beard",
-        LocaleKey::ICON_BEARD => "beard",
-        LocaleKey::ICON_LONG_BEARD => "long beard",
-        LocaleKey::ICON_NARROW => "thin",
-        LocaleKey::ICON_BUSH => "bush",
-        LocaleKey::ICON_HORSESHOE => "horseshoe",
-        LocaleKey::ICON_FUMANCHU => "Fu Manchu",
-        LocaleKey::ICON_BRUSH => "brush",
-        LocaleKey::ICON_CRAYON => "crayon",
-        LocaleKey::ICON_FRENCH => "french",
-        LocaleKey::ICON_HOOK => "hooked",
-        LocaleKey::ICON_BIKEHANDLE => "bike handle",
-        LocaleKey::ICON_NONES_M => "none",
-        LocaleKey::ICON_PREPUBESCENT => "prepubescent",
-        LocaleKey::ICON_LONG_PREPUBESCENT => "long prepubescent",
-        LocaleKey::ICON_START_GROWTH => "stubble",
-        LocaleKey::ICON_THINS => "thin",
-        LocaleKey::ICON_SHORT_CUT => "short cut",
-        LocaleKey::ICON_POINTY_SIDEBURN => "pointy",
-        LocaleKey::ICON_MEDIUMS => "medium",
-        LocaleKey::ICON_LONG_SIDEBURNS => "long",
-        LocaleKey::ICON_COMPLETES => "full",
-        LocaleKey::ICON_LONG_COMPLETES => "long full",
-        LocaleKey::ICON_BALD => "bald",
-        LocaleKey::ICON_RECEEDING => "receding",
-        LocaleKey::ICON_SHAVED => "shaved",
-        LocaleKey::ICON_FLAT => "flat",
-        LocaleKey::ICON_ATTACHED => "attached",
-        LocaleKey::ICON_SHORT_M => "short",
-        LocaleKey::ICON_SPIKY => "spiky",
-        LocaleKey::ICON_FRINGE1 => "bangs 1",
-        LocaleKey::ICON_FRINGE2 => "bangs 2",
-        LocaleKey::ICON_FLAT_FRINGE => "flat bangs",
-        LocaleKey::ICON_SHORT_BLIND_FRINGE => "short blind bangs",
-        LocaleKey::ICON_BLIND_FRINGE => "blind bangs",
-        LocaleKey::ICON_OVER_EYES => "over the eyes",
-        LocaleKey::ICON_EYE_COVER => "over an eye",
-        LocaleKey::ICON_STRAIGHT_STRANDS => "straight strands",
-        LocaleKey::ICON_DIAGONALS_STRANDS => "diagonal strands",
-        LocaleKey::ICON_LARGE_STRANDS => "large strands",
-        LocaleKey::ICON_MOHAWK => "mohawk",
-        LocaleKey::ICON_VERY_SHORT_M => "very short",
-        LocaleKey::ICON_SQUARE => "square cut",
-        LocaleKey::ICON_LONG_SQUARE => "long square cut",
-        LocaleKey::ICON_LONG_FLAT => "long slick",
-        LocaleKey::ICON_LONG_PUFFY => "long thick",
-        LocaleKey::ICON_PONYTAIL => "ponytail",
-        LocaleKey::ICON_PIGTAILS => "pigtails",
-        LocaleKey::ICON_BUN => "bun",
-        LocaleKey::ICON_BLACKS => "black",
-        # Other
-        LocaleKey::NAME_TEMPLATE => "%{#{LocaleKey::F_PREFIX}} %{#{LocaleKey::F_SUFFIX}} %{#{LocaleKey::F_NAME}}",
-        LocaleKey::AND_SPACED => " and ",
-        LocaleKey::PAGE => "Page",
-        LocaleKey::A_F => "a ",
-        LocaleKey::A_M => "a ",
-        LocaleKey::AN_F => "an ",
-        LocaleKey::AN_M => "an ",
-        LocaleKey::THE_N => "the ",
-        LocaleKey::THE_F => "the ",
-        LocaleKey::THE_M => "the ",
-        LocaleKey::THIS_F => "that ",
-        LocaleKey::THIS_M => "that ",
-        LocaleKey::OF_N => "of the ",
-        LocaleKey::OF_F => "of the ",
-        LocaleKey::OF_M => "of the ",
-        LocaleKey::NOTHING => "nothing",
-        LocaleKey::YOURSELF => "yourself",
-        LocaleKey::GO_BACK => "back...",
-        LocaleKey::ABORT => "cancel...",
-        LocaleKey::GO_BACK_ENUMERATED => "    0) Back...",
-        LocaleKey::ABORT_ENUMERATED   => "    0) Cancel...",
-        LocaleKey::WARNING_POP_UP => [
-            "",
-            "Warning:",
-            "Death in this game will lose all ongoing progression in the dungeon.",
-            "Exit the dungeon to save your progress.",
-            "",
-            "Terminal info:",
-            "Press [Ctrl + C] to close the game.",
-            "Press [Alt + Enter] to put the game in fullscreen.",
-            "",
-            "For an optimal experience, ensure you see four grey squares under this text:",
-            "░ ▒ ▓ █",
-            "",
-            "If that's not the case, please change your terminal settings to select a font that support these characters",
-            "(for exemple: Consolas)",
-            ""
-        ],
-        LocaleKey::WARNING_POP_UP_OPTIONS => [
-            "    1) Ok",
-            "    2) Don't show again"
-        ],
-        LocaleKey::WARNING_POP_UP_SETTINGS => [
-            "Would you like this warning to appear at game launch?",
-            "    1) Show at launch",
-            "    2) Don't show"
-        ],
-        LocaleKey::MAIN_MENU_OPTIONS => [
-            "",
-            "",
-            "    1) Enter the dungeon",
-            "    2) Settings",
-            "    3) Quit"
-        ],
-        LocaleKey::PARTY_LIST_TITLE => "Adventurers entering the dungeon: ",
-        LocaleKey::PARTY_MANAGE_OPTIONS => [
-            "",
-            "",
-            "    0) Back",
-            "    1) Add a new member to the party"
-        ],
-        LocaleKey::PARTY_MANAGE_REMOVE_OPTION => "    2) Remove a member of the party",
-        LocaleKey::START_TRAVEL_OPTION => ") Start your journey",
-        LocaleKey::NEW_OR_OLD_CHARACTER => [
-            "    0) Back",
-            "    1) New character",
-            "    2) Existing character"
-        ],
-        LocaleKey::CHARACTER_CREATION_OPTIONS => [
-            "What do you want to customize?",
-            "    0) Confirm appearance",
-            "    1) Body",
-            "    2) Facial features",
-            "    3) Facial hair",
-            "    4) Hairs"
-        ],
-        LocaleKey::BODY_OPTIONS => [
-            "What do you want to customize?",
-            "    0) Back...",
-            "    1) Skin color",
-            "    2) Bodytype",
-        ],
-        LocaleKey::FEATURES_OPTIONS => [
-            "What feature do you want to change?",
-            "    0) Back...",
-            "    1) Eye color",
-            "    2) Ears",
-            "    3) Nose",
-            "    4) Eyebrows",
-        ],
-        LocaleKey::CHARACTER_CREATION_BEARD_OPTIONS => [
-            "What do you want to change?",
-            "    0) Back...",
-            "    1) Mustache",
-            "    2) Chin",
-            "    3) Sideburns",
-            "    4) Color"
-        ],
-        LocaleKey::CHARACTER_CREATION_HAIR_OPTIONS => [
-            "What do you want to change?",
-            "    0) Back...",
-            "    1) Haircut",
-            "    2) Hair color"
-        ],
-        LocaleKey::CHARACTER_CREATION_HAIRSTYLE_OPTIONS => [
-            "What part of the haircut do you want to change?",
-            "    0) Back...",
-            "    1) Front",
-            "    2) Back"
-        ],
-        LocaleKey::SETTINGS_OPTIONS => [
-            "What settings do you wish to manage?",
-            "    0) Back...",
-            "    1) Images height",
-            "    2) Audio",
-            "    3) Language",
-            "    4) Infos"
-        ],
-        LocaleKey::ASSET_SIZE_VERIFICATION => "If you can read this text the images are of an appropriate height.",
-        LocaleKey::CURRENT_MUSIC_VOLUME => "Music volume: ",
-        LocaleKey::CURRENT_SOUND_EFFECTS => "Sound effects: ",
-        LocaleKey::SOUND_OPTIONS => [
-            "What do you want to change?",
-            "    0) Back...",
-            "    1) Adjust music volume",
-            "    2) Activate/Deactivate sound effects"
-        ],
-        LocaleKey::ASSET_SIZE_OPTIONS => [
-            "Please make sure that the text above the image is readable without scrolling.",
-            "If such is the case, your images are of an appropriate size.",
-            "",
-            "Otherwise, try putting the images to a smaller size,",
-            "Or reduce the size of the text in your terminal options.",
-            "",
-            "What image size do you want?",
-            "    0) Back",
-            "    1) Tall (recommended)",
-            "    2) Small"
-        ],
-        LocaleKey::LANGUAGE_SETTINGS_TITLE => "What language do you prefer? (Current: %s)",
-        LocaleKey::LANGUAGE_POP_UP_TITLE => "What language do you prefer?",
-        LocaleKey::CURRENT_EQUIPMENT_TITLE => "Current equipment: ",
-        LocaleKey::EQUIPMENT_OPTIONS => [
-            "What do you want to do?",
-            "    0) Back",
-            "    1) Equip a new piece of armor"
-        ],
-        LocaleKey::EQUIPMENT_REMOVE_OPTION => "    2) Remove piece of armor",
-        LocaleKey::INVENTORY_OPTIONS => [
-            "",
-            "What do you want to do?",
-            "      0) Back",
-            "      1) Use an item",
-            "      2) Manage equipment"
-        ],
-        LocaleKey::INVENTORY_OPTIONS_SHOP => [
-            "",
-            "What do you want to do?",
-            "    0) Back...",
-            "    1) Manage equipment"
-        ],
-        LocaleKey::PLAYER_OPTIONS_FIRST => [
-            "What do you want to do?",
-            "    1) Go to..."
-        ],
-        LocaleKey::PLAYER_OPTIONS_SEARCH => "    2) Search ",
-        LocaleKey::PLAYER_OPTIONS_SECOND => [
-            "    3) Take an inventory",
-            "    4) Wait"
-        ],
-        LocaleKey::PLAYER_FIGHT_OPTION => "Attack ",
-        LocaleKey::STAT_UP_TITLE => "What stat do you want to upgrade? (%{#{LocaleKey::F_CURRENT}}/%{#{LocaleKey::F_TOTAL}})",
-        LocaleKey::STAT_UP_HEALTH       => "    1) ♥ Life           (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
-        LocaleKey::STAT_UP_STRENGTH     => "    2) ♣ Strength       (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
-        LocaleKey::STAT_UP_INTELLIGENCE => "    3) ♠ Intelligence   (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
-        LocaleKey::STAT_UP_AGILITY      => "    4) ♦ Agility        (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
-        LocaleKey::TELEPORT_OPTIONS => [
-            "Where do you want to go?",
-            "    0) Cancel",
-            "    1) The exit"
-        ],
-        LocaleKey::TELEPORT_JOIN_OPTION => "Join ",
-        LocaleKey::YES_OR_NO => [
-            "    1) Yes",
-            "    2) No"
-        ],
-        LocaleKey::NO_ITEMS_TO_USE => "You have no items to use.",
-        LocaleKey::NO_ITEMS_TO_SELL => "No items to sell.",
-        LocaleKey::NO_ITEMS_TO_UPGRADE => "No armor to upgrade.",
-        LocaleKey::NO_ITEMS_TO_EQUIP => "No items to equip.",
-        LocaleKey::INVENTORY_TITLE => "You possess: ",
-        LocaleKey::SHOP_INTRO => [
-            "",
-            "On your way to the dungeon,",
-            "You decide to make a quick stop to a nearby shop to see what equipment you may employ, anticipating what awaits you.",
-            ""
-        ],
-        LocaleKey::GUILD_INVITE_INTRO => "While you were following your usual route, an imposing man approach you, a jovial expression plastered on his face.",
-        LocaleKey::GUILD_INVITE_PARTY_DIALOG => "Ay, y'all are adventurers right?\nA guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.\nYou lot seems quite tough, I'm sure you'll feel right at home. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.",
-        LocaleKey::GUILD_INVITE_DIALOG => "Ay, you are an adventurer right?\nA guild recently opened in the village, as a base of operation for those that are exploring this newly appearing tower.\nYou seems quite tough, I'm sure you'll feel right at home. Plus, we've got beer and equippment to sell, so I'm sure you'll find what you need there.",
-        LocaleKey::GUILD_INVITE_END => "Before you can answer, the man hands you invites to the Adventurer's Guild and leave.",
-        LocaleKey::ASK_OUTSIDE_DESTINATION => [
-            "Where do you want to go?",
-            "    0) The dungeon",
-            "    1) The Adventurer's Guild",
-            "    2) Small shop"
-        ],
-        LocaleKey::GUILD_DESCRIPTION => [
-            "When you enter the large building where the Adventurer's Guild is hosted, ",
-            "You are greeted by a large open hall, filled with fighters and bustling with the jovial discussions surrounding the tables set in front of a bar.",
-            "The sight of this put into perspective just how many people decided to move here to explore that recently discovered tower.",
-            "On your left, you also notice that a forge and some small shop had been set-up inside the building, offering various useful equipment.",
-            "",
-            "Though it is noisy there, the warm ambiance of this place comforts you after all the time spent in the cold loneliness of the dungeon."
-        ],
-        LocaleKey::ASK_GUILD_ACTION => [
-            "What do you want to do?",
-            "    0) Exit the guild",
-            "    1) Go to the forge",
-            "    2) Go to the shop"
-        ],
-        LocaleKey::FIRST_INTRO => [
-            "You are not quite sure of your reason to come to this place.",
-            "But whether you search for treasure, power or simply knowledge,",
-            "You now stand afoot of the dungeon rumored to be bottomless.",
-            "",
-            "Armed with your courage and a sword, you enter the dark building."
-        ],
-        LocaleKey::NEW_MEMBERS_INTRO => [
-            "After your last experience in the dungeon,",
-            "You decide to come back more numerous, new members joining your party.",
-            "These dungeons became an obsession to you, and you must uncover its depth no matter the cost."
-        ],
-        LocaleKey::RETURN_INTRO => [
-            "Despite having survived the dungeon something in you seemed beckoned by it.",
-            "A profound need to discover what's hidden deeper, to uncover its treasures and to make its power yours.",
-            "You open the doors of the mysterious tower, but, to your surprise as you enter you find that everything inside of it has changed."
-        ],
-        LocaleKey::THANK_YOU_NOTE => [
-            "You open the carfully folded paper and read its content: ",
-            "",
-            "",
-            "      Congratulations!",
-            "    You have finished the demo of Ruby Dungeon and beaten its boss.",
-            "    I sincerely hope you have enjoyed the game, and thank you for playing it to completion.",
-            "",
-            "     You are now free to do whatever you want in the dungeon now, there are no more secrets to uncover here.",
-            "   The full game will hopefully come out in the following months, and your save will still be compatible with it.",
-            "   (You will just need to put your \"save\" folder inside the full game's folder).",
-            "",
-            "     In hope this is only a Goodbye,",
-            "       - Bruoche",
-            ""
-        ],
-        LocaleKey::PRESS_CONTINUE => "  (press \"Enter\" to continue...)",
-        LocaleKey::ENTER_ROOM => "As you enter ",
-        LocaleKey::EMPTY_ROOM_F => "it appear to be entirely empty.",
-        LocaleKey::EMPTY_ROOM_M => "it appear to be entirely empty.",
-        LocaleKey::IN_A_ROOM => "You are inside of ",
-        LocaleKey::IS_EMPTY => " that seems empty.",
-        LocaleKey::MONSTER_ROOM => ", you see %s.",
-        LocaleKey::MONSTER_ROOM_FIGHTING => ", you see %{#{LocaleKey::F_ALLIES}} fighting %{#{LocaleKey::F_ENNEMIES}}.",
-        LocaleKey::DEAD_ALLY => "The body of %s lies on the ground.",
-        LocaleKey::DEAD_ALLIES => "The bodies of %s all lie on the ground.",
-        LocaleKey::ALLY_ASIDE => "At your side is ",
-        LocaleKey::ALLIES_ASIDE => "At your side are ",
-        LocaleKey::AND_DEAD_ALLY => "and the body of ",
-        LocaleKey::AND_DEAD_ALLIES => "and the bodies of ",
-        LocaleKey::ATTACK_MONSTERS => "You leap on the monsters ahead of you.",
-        LocaleKey::ATTACK_MONSTER => "You leap on the monster ahead of you.",
-        LocaleKey::AVOID_FIGHT => "Not wanting to fight %s, you keep a low profile.",
-        LocaleKey::FAIL_ESCAPE_PLURAL => "As you attempt to avoid the monsters, they notice your presence and charge.",
-        LocaleKey::FAIL_ESCAPE_SINGLE => "As you attempt to avoid the monster, it notices your presence and charge.",
-        LocaleKey::GAME_OVER_PLURAL => "Unfortunately, the monsters' assault gets the best of you and you fall to the ground.",
-        LocaleKey::GAME_OVER_SINGLE => "Unfortunately, the monster's assault gets the best of you and you fall to the ground.",
-        LocaleKey::ESCAPE => "Deciding the fight isn't worth it, you escape.",
-        LocaleKey::ESCAPE_FAIL_PLURAL => "You try to escape, but the monsters do not let you do so.",
-        LocaleKey::ESCAPE_FAIL_SINGLE => "You try to escape, but the monster does not let you do so.",
-        LocaleKey::VICTORY_PLURAL => "Victory! Every monster dies and you obtain %d points of experience.",
-        LocaleKey::VICTORY_SINGLE => "Victory! The monster dies and you obtain %d points of experience.",
-        LocaleKey::EXPLORATION_CONTINUE => "You return to your exploration of the dungeon.",
-        LocaleKey::EXIT_SCARED => "Too frightened by the horrors of the dungeon, ",
-        LocaleKey::EXIT_DONE => "Having completed your journey, ",
-        LocaleKey::EXIT_SURVIVED => [
-            "You leave the strange tower.",
-            "You have survived.",
-            ""
-        ],
-        LocaleKey::HURT_MESSAGE => "%{#{LocaleKey::F_TARGET}} takes %{#{LocaleKey::F_AMOUNT}} damage.",
-        LocaleKey::DETAILED_HURT_MESSAGE => "%{#{LocaleKey::F_TARGET}} takes %{#{LocaleKey::F_AMOUNT}} damage. (%{#{LocaleKey::F_TOTAL}} taken, %{#{LocaleKey::F_DODGED}} dodged%{#{LocaleKey::F_PARRIED}})",
-        LocaleKey::HEAL_MESSAGE => "%{#{LocaleKey::F_TARGET}} replenishes %{#{LocaleKey::F_AMOUNT}} health points.",
-        LocaleKey::DONT_NEED_HEAL => "%s isn't wounded and therefore doesn't need healing.",
-        LocaleKey::HEAL_FAIL_MESSAGE => "You do not know how to heal yourself.",
-        LocaleKey::HEAL_SPELL_MESSAGE => "%{#{LocaleKey::F_SOURCE}} heals %{#{LocaleKey::F_TARGET}}.",
-        LocaleKey::SELF_HEAL_MESSAGE => "%{#{LocaleKey::F_TARGET}} replenishes %{#{LocaleKey::F_AMOUNT}} health points.",
-        LocaleKey::SPELL_FAIL => "Deprived of magical power, you are unable to cast any spell.",
-        LocaleKey::SPELL_CAST => "%s cast a magical attack.",
-        LocaleKey::MONSTER_DEATH => "%s falls under your blows.",
-        LocaleKey::PLAYER_DEATH => "%s falls to the ground.",
-        LocaleKey::OBTAIN_ITEM => "%{#{LocaleKey::F_TARGET}} obtains %{#{LocaleKey::F_ITEM}}.",
-        LocaleKey::REMOVE_ARMOR => "%{#{LocaleKey::F_TARGET}} removes %{#{LocaleKey::F_ITEM}}.",
-        LocaleKey::EQUIP_ARMOR => "%{#{LocaleKey::F_TARGET}} equips %{#{LocaleKey::F_ITEM}}.",
-        LocaleKey::SEARCHING => "You search %s for any item that may come of use",
-        LocaleKey::ALREADY_TAKEN => "You have already taken everything there is to take in %s.",
-        LocaleKey::NOTHING_FOUND => "You find nothing of value.",
-        LocaleKey::LEVEL_UP => "Level up!",
-        LocaleKey::UNKNOWN_USE => "You do not know how to use this item...",
-        LocaleKey::BANDAGE_USE_SELF => "%s uses their bandages to heal their wounds...",
-        LocaleKey::BANDAGE_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} uses their bandages to heal the wounds of %{#{LocaleKey::F_TARGET}}...",
-        LocaleKey::TOSS_COIN => "You toss the coin in the air",
-        LocaleKey::COIN_TOSS_SUSPENSE => "The coin falls back and rolls on itself before settling",
-        LocaleKey::COIN_TOSS_RESULT => "The coin fell onto %s.",
-        LocaleKey::HEALTH_POTION_USE_SELF => "%s drinks a health potion...",
-        LocaleKey::HEALTH_POTION_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} gives a health potion to %{#{LocaleKey::F_TARGET}}...",
-        LocaleKey::HEALTH_STONE_USE_SELF => "%s use a health pellet...",
-        LocaleKey::HEALTH_STONE_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} use a health pellet on %{#{LocaleKey::F_TARGET}}...",
-        LocaleKey::TELEPORTER_FAIL => "As you try to take the artifact to escape, your adversaries stop you.",
-        LocaleKey::TELEPORTER_START => "As you take the stone in the palm of your hand, a soft warmth emanates from it.",
-        LocaleKey::POISON_DESCRIPTION => "You feel your whole body burn as poison courses through your veins.",
-        LocaleKey::POISONNED => "%s gets poisonned",
-        LocaleKey::POISON_AFFECT => "%s feels the poison burn within themselves.",
-        LocaleKey::POISON_ATTACK_DESCRIPTION => "Your weapon is coated in poison.",
-        LocaleKey::HEALING_DESCRIPTION => "You feel a warmth rise from within you, as your body slowly heal itself.",
-        LocaleKey::SLIME_DIVIDE => "Despite being blown into a green puddle, the wet remains %s forment deux slimes.",
-        LocaleKey::KNIGHT_SLASH => "The knight delivers a powerful strike with his sword, intending to slash his enemy.",
-        LocaleKey::KNIGHT_LIMB_LOSS => "%s break under the blows.",
-        LocaleKey::KNIGHT_CHANGE_WEAPON_SIDE => "%s switch his weapon to his left hand.",
-        LocaleKey::KNIGHT_PHASE_CHANGE => "He seems to be taken by a sudden and unforeseen resolution.",
-        LocaleKey::KNIGHT_DEFENSELESS => "%s let his sword fall to the ground, powerless.",
-        LocaleKey::KNIGHT_DEATH_FIRST => "The helmet %s crumples under the blow,",
-        LocaleKey::KNIGHT_DEATH_SECOND => "As the metal crush his skull, a sinister crunch resonates inside of it.",
-        LocaleKey::KNIGHT_DEATH_THIRD => "The knight remains immobile for a few instants before suddently collapsing.",
-        LocaleKey::ASK_NAME => "What is your name?",
-        LocaleKey::CURRENT_NAME => "Current name: ",
-        LocaleKey::ASK_CONFIRM_CHARACTER => [
-            "Is this who you are?",
-            "    0) Cancel character creation",
-            "    1) Change name",
-            "    2) Change appearance",
-            "    3) Confirm"
-        ],
-        LocaleKey::ASK_SHOP => [
-            "What do you want to do?",
-            "    a) Continue",
-            "    b) Back to main menu"
-        ],
-        LocaleKey::ASK_VOLUME => "What volume do you want? (current volume: %s%%)",
-        LocaleKey::ASK_SOUND_EFFECTS => [
-            "Do you want sound effects?",
-            "    0) Back...",
-            "    1) Yes",
-            "    2) No"
-        ],
-        LocaleKey::ASK_USE => "What do you want to do with %s?",
-        LocaleKey::GIVE_OPTION => "    2) Give",
-        LocaleKey::ASK_QUANTITY_GIVEN => "How many %s do you wish to give?",
-        LocaleKey::ASK_QUANTITY_SOLD => "How many %s do you wish to sell?",
-        LocaleKey::PROPOSE_COMBAT => [
-            "What do you want to do?",
-            "      1) Fight"
-        ],
-        LocaleKey::PROPOSE_SNEAK => "      2) Remain discreet (%s%% success rate)",
-        LocaleKey::INTERACTIBLES_OPTION => "    5) Interactions...",
-        LocaleKey::NPC_INTERACT_OPTION => "Interact with %s",
-        LocaleKey::DESCRIBE_ENNEMIES => "You face %s.",
-        LocaleKey::DESCRIBE_PASSIVES => "You also see %s with you, seeming to have no ill intent.",
-        LocaleKey::DEFAULT_NPC_DESCRIPTION => "%s is here with you.",
-        LocaleKey::NPC_FIGHTING_DESCRIPTION => "You see %s ready to fight.",
-        LocaleKey::FIGHT_ACTIONS => [
-            "What do you want to do?",
-            "      1) Physical attack",
-            "      2) Magical attack",
-            "      3) Healing spell",
-            "      4) Use an item..."
-        ],
-        LocaleKey::ESCAPE_COMBAT => "      5) Escape... (%d%% success rate)",
-        LocaleKey::TRY_AGAIN => [
-            "Try again?",
-            "      1) Yes",
-            "      2) No"
-        ],
-        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Are you sure you want to replace your current armor with %s? (y/n)",
-        LocaleKey::NPC_QUESTION_INTRO => [
-            "What do you want to do?",
-            "    0) Back"
-        ],
-        LocaleKey::NPC_OPTION_TALK => "    1) Talk to %s",
-        LocaleKey::NPC_OPTION_ATTACK => "    %i) Attack %s",
-        LocaleKey::NPC_UNAVAILABLE => "Too occupied fighting, %s is unavailable",
-        LocaleKey::NPC_ATTACK_CONFIRM => "Attack %s? (y/n)",
-        LocaleKey::ASK_INTERACTION => "What do you want to do?",
-        LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Invalid choice, Please only write the corresponding number among the given options.",
-        LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Cannot go to the next page. Maximal page number reached.",
-        LocaleKey::PAGE_DOWN_IMPOSSIBLE_ERROR => "Cannot go to the previous page. Minimal page number reached.",
-        LocaleKey::EMPTY_NAME_ERROR => "The names cannot be empty.",
-        LocaleKey::FORBIDDEN_CHAR_ERROR => "The names cannot contain special characters.",
-        LocaleKey::NO_FILE_FOUND_ERROR => "No file named %s were found.",
-        LocaleKey::NEGATIVE_QUANTITY_ERROR => "You cannot give a negative amount of items, please write a positive number.",
-        LocaleKey::UNEXPECTED_DAMAGE_TYPE_ERROR => "<< unexpected damage type encountered >>",
-        LocaleKey::UNEXPECTED_ERROR => "<< an unexpected error occurred >>",
-        LocaleKey::CLOSE_GAME_CONFIRM => [
-            "Are you sure you wish to close the game? (y/n)",
-            "All unsaved progress will be lost."
-        ],
-        LocaleKey::PRECEDENT_PAGE             => "< a) Previous page | ",
-        LocaleKey::PRECEDENT_PAGE_UNAVAILABLE => "< a) (unavailable)  | ",
-        LocaleKey::NEXT_PAGE             => " |     z) Next page >",
-        LocaleKey::NEXT_PAGE_UNAVAILABLE => " | z) (unavailable) >",
-        LocaleKey::RETURN_BUTTON => " [ 0) Back ] ",
-        LocaleKey::NO_IMAGE_FOUND => "     (no image \"%s\" were found)",
-        LocaleKey::LEVEL_ABBREVIATION => " Lvl. ",
-        LocaleKey::TIME_PLAYED => "Time played: ",
-        LocaleKey::CARD_LEVEL => "Level: ",
-        LocaleKey::CARD_HEALTH => "Health: ",
-        LocaleKey::CARD_STRENGTH => "Strength: ",
-        LocaleKey::CARD_AGILITY => "Agility: ",
-        LocaleKey::CARD_INTELLIGENCE => "Intelligence: ",
-        LocaleKey::CARD_PRICE => "Price: ",
-        LocaleKey::UNSAVED_RETURN_CONFIRM => [
-            "Are you sure you want to go back? (y/n)",
-            "The change made will not be saved."
-        ],
-        LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM => [
-            "Are you sure you want to go back? (y/n)",
-            "The selected characters won't be saved."
-        ],
-        LocaleKey::ASK_MONSTER_AIMED_AT => "What enemy do you want to attack?",
-        LocaleKey::ASK_MEMBER_AIMED_AT => "What member do you aim at?",
-        LocaleKey::STATUS_INTRO => "You are %{#{LocaleKey::F_SUBJECT}}, a level %{#{LocaleKey::F_LEVEL}} aventurer.",
-        LocaleKey::STATUS_STATS => "You have %{#{LocaleKey::F_LIFE}} health, a strength of %{#{LocaleKey::F_STRENGTH}}, an intelligence of %{#{LocaleKey::F_INTELLIGENCE}} and %{#{LocaleKey::F_AGILITY}} agility.",
-        LocaleKey::WEIGHT_MAX => "The weight of your armor is so great it nearly immobilize you, unable to dodge or strike ennemies.",
-        LocaleKey::WEIGHT_STRENGTH_REDUCED => "The weight of your armor is so great that you become unable to move effectively, stopping you from dodging ennemy attacks and slowing your punches down.",
-        LocaleKey::WEIGHT_AGI_MAX => "The weight of your armor is so great that you become unable to move effectively, stopping you from dodging ennemy attacks.",
-        LocaleKey::WEIGHT_THREE_QUARTER => "The weight of your armor press against your body heavily, slowing you down and greatly reducing your abilty to sneak or dodge against ennemies.",
-        LocaleKey::WEIGHT_HALF => "You can feel your armor weighing against you, slowing you down when trying to dodge or sneak past ennemies.",
-        LocaleKey::WEIGHT_QUARTER => "Your armor weighs you down slightly when trying to dodge or sneak past ennemies.",
-        LocaleKey::WEIGHT_SMALL => "You can barely feel the weight of your armor, only slightly your ability to dodge and move discretely.",
-        LocaleKey::WEIGHT_NONE => "You cannot even feel the weight of your armor, able to move freely.",
-        LocaleKey::NO_ARMOR => "You are not wearing any armor.",
-        LocaleKey::WEAKPOINT_DESCRIPTION => "%{#{LocaleKey::F_SUBJECT}} with %{#{LocaleKey::F_LIFE}} health points",
-        LocaleKey::MONSTER_DESCRIPTION => "%s with ",
-        LocaleKey::HEALTH_DESCRIPTOR => "%s health points",
-        LocaleKey::DAMAGE_DESCRIPTOR => "%s damage",
-        LocaleKey::INTELLIGENCE_DESCRIPTOR => "%s intelligence",
-        LocaleKey::MONSTER_STRIKE => "strike %s.",
-        LocaleKey::MONSTER_SPELL => "casts a spell.",
-        LocaleKey::MONSTER_HEAL => "casts a healing aura.",
-        LocaleKey::MONSTER_BODIES => "the bodies of the monsters you previously killed",
-        LocaleKey::MONSTER_BODY => "the body of the monster you previously killed",
-        LocaleKey::MONSTER_ADDED => "%s join the fight.",
-        LocaleKey::THE_MONSTERS => "the monsters",
-        LocaleKey::ASK_EQUIPPED_ARMOR => "What armor piece do you want to equip?",
-        LocaleKey::ASK_REMOVED_ARMOR => "What armor piece do you want to remove?",
-        LocaleKey::NO_ARMOR_EQUIPPED => "No armor equipped for %s",
-        LocaleKey::ASK_ITEM_IN_STACK => "Which do you choose specifically?",
-        LocaleKey::ASK_ITEM_TO_USE => "What item do you want to use?",
-        LocaleKey::USAGE_EQUIP => "Equip",
-        LocaleKey::USAGE_USE => "Use",
-        LocaleKey::ASK_ITEM_TARGET => "On who do you want to use %s?",
-        LocaleKey::ASK_GIFT_TARGET => "To who do you give %s?",
-        LocaleKey::ASK_ITEM_TO_SELL => "What item do you want to sell?",
-        LocaleKey::ASK_ITEM_TO_UPGRADE => "What armor do you want to upgrade? (%s ¤)",
-        LocaleKey::ASK_ITEM_TO_SHOW => "What item do you want to show to the goblin?",
-        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Do you want to give %s to the guard? (y/n)",
-        LocaleKey::GOBLIN_NOT_INTERESTED => "The goblin guard doesn't seems to show any interest in what you are showing to her.",
-        LocaleKey::GOBLIN_ACCEPT_GIFT => [
-            "The goblin cautiously observe the item you offer her, before seemingly untensing in agreement. She signal other goblins at the entrance to come to you and get it.",
-            "As they do so, she gesture you to go into the village as you see fit, willing to no longer consider you a threat, although still keeping an eye on you."
-        ],
-        LocaleKey::LOOT_GOBLIN_GIFT => ["You see the gift that was dealth to the goblins lying among their still warm corpses."],
-        LocaleKey::BRIBE_UNNECESSARY => "The goblin already having given you permission to enter, she show no interest in your belongings.",
-        LocaleKey::ASK_PLAYER_REMOVED => "Which team member do you want to remove?",
-        LocaleKey::PARRIED => " parried",
-        LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
-        LocaleKey::ASK_DESTINATION => "Where do you go?",
-        LocaleKey::ASK_ITEM_TAKEN => "What items do you take?",
-        LocaleKey::ASK_CORPULENCE => "What constitution do you want?",
-        LocaleKey::ASK_EARS => "What ears do you want?",
-        LocaleKey::ASK_NOSE => "What nose do you want?",
-        LocaleKey::ASK_EYEBROWS => "What eyebrows shape do you want?",
-        LocaleKey::ASK_MOUSTACHE => "What mustache do you want?",
-        LocaleKey::ASK_BEARD => "What beard do you want?",
-        LocaleKey::ASK_SIDEBURNS => "What sideburns do you want?",
-        LocaleKey::ASK_HAIRCUT => "What haircut do you want?",
-        LocaleKey::ASK_FEATURE => "What feature do you want?",
-        LocaleKey::ASK_COLOR => "What color?",
-        LocaleKey::KEEP_CORPULENCE => "Keep the constitution",
-        LocaleKey::KEEP_EARS => "Keep the ears",
-        LocaleKey::KEEP_NOSE => "Keep the nose",
-        LocaleKey::KEEP_EYEBROWS => "Keep the eyebrows",
-        LocaleKey::KEEP_MOUSTACHE => "Keep the mustache",
-        LocaleKey::KEEP_BEARD => "Keep the beard",
-        LocaleKey::KEEP_SIDEBURNS => "Keep the sideburns",
-        LocaleKey::KEEP_HAIRSTYLE => "Keep the hairstyle",
-        LocaleKey::KEEP_FEATURE => "Keep the feature",
-        LocaleKey::KEEP_COLOR => "Keep the color",
-        LocaleKey::STAY_IN => "stay in %s",
-        LocaleKey::MERCHANT_THANK => "Thank you greatly for your purchase.",
-        LocaleKey::MERCHANT_FUND_INSUFFICIENT => "Sorry, but %s gold coins won't suffice...",
-        LocaleKey::MERCHANT_COIN_INSUFFICIENT => "Sorry, but a single gold coin will not suffice...",
-        LocaleKey::MERCHANT_NO_MONEY => "My apology, but without money you won't be able to buy anything in this establishment.",
-        LocaleKey::MERCHANT_PURCHASE => "A pleasure to do business with you.",
-        LocaleKey::ALCHEMIST_THANK => "Thank you, hope it'll serve you well!",
-        LocaleKey::ALCHEMIST_FUND_INSUFFICIENT => "Sorry, but %s gold coins won't be enough...",
-        LocaleKey::ALCHEMIST_COIN_INSUFFICIENT => "Sorry, but a gold coin won't be enough...",
-        LocaleKey::ALCHEMIST_NO_MONEY => "I'm sorry, but I cannot give you anything for free.",
-        LocaleKey::ALCHEMIST_PURCHASE => "Thank you very much.",
-        LocaleKey::BLACKSMITH_THANK => "...",
-        LocaleKey::BLACKSMITH_FUND_INSUFFICIENT => "Not enough... No.",
-        LocaleKey::BLACKSMITH_COIN_INSUFFICIENT => "Not enough... No.",
-        LocaleKey::BLACKSMITH_NO_MONEY => "No, 'must have coins.",
-        LocaleKey::BLACKSMITH_PURCHASE => "...",
-        LocaleKey::GOBLIN_BLACKSMITH_THANK => "Käda sö Kö Köpoega Degäerk tö sodottöter #{Locale::PLAYER_NAME}.",
-        LocaleKey::GOBLIN_BLACKSMITH_FUND_INSUFFICIENT => "Toderköpo kö aüro dëkaobu.\nTöterpo kö aüro kobuköpa köpogur sö sodottöter.",
-        LocaleKey::ASK_SHOP_ACTION => "What do you want to do? (%s ¤)",
-        LocaleKey::SHOP_OPTIONS_FIRST => [
-            "",
-            "0) Leave the shop",
-            "1) Buy...",
-        ],
-        LocaleKey::SHOP_OPTIONS_LAST => [
-            "3) Check inventory",
-            "4) Talk to the shopkeeper"
-        ],
-        LocaleKey::SELL_OPTION => "Sell",
-        LocaleKey::UPGRADE_LABEL => "Upgrade",
-        LocaleKey::ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
-        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Are you sure you want to upgrade %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
-        LocaleKey::ASK_ITEM_BOUGHT => "What item do you want to buy? (%s ¤)",
-        LocaleKey::ASK_CONFIRM_PURCHASE => "Are you sure you want to buy %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
-        LocaleKey::ARMORS_PLURAL => "armors",
-        LocaleKey::BLACK_LEATHER_GAUNTLETS_NAME => "black leather gloves",
-        LocaleKey::BLACK_LEATHER_GAUNTLETS_DESC => "a thin pair of gloves in some sort of black leather, extremely lightweight and flexible, yet incredibly solid",
-        LocaleKey::BLACK_LEATHER_GREAVES_NAME => "black leather greaves",
-        LocaleKey::BLACK_LEATHER_GREAVES_DESC => "a thin pair of greaves in some sort of black leather, extremely lightweight and flexible, yet incredibly solid",
-        LocaleKey::BLACK_LEATHER_HELM_NAME => "black leather helmet",
-        LocaleKey::BLACK_LEATHER_HELM_DESC => "a pointy helmet with large flaps protecting the sides of the face made in some sort of black leather that's incredibly light weight and durable",
-        LocaleKey::BLACK_LEATHER_PLASTRON_NAME => "black leather plastron",
-        LocaleKey::BLACK_LEATHER_PLASTRON_DESC => "a long plastron made in some sort of black leather that is lightweight and solid covered by a large dark cloth",
-        LocaleKey::DRESS_GAUNTLET_NAME => "discreet vambrace",
-        LocaleKey::DRESS_GAUNTLET_DESC => "refined leather vambraces protecting decently its bearer's forearms",
-        LocaleKey::DRESS_GREAVES_NAME => "noble chopines",
-        LocaleKey::DRESS_GREAVES_DESC => "a pair of tall shoes used to make its wearer appear taller. Not practical in the midst of battle, but currently very trendy",
-        LocaleKey::DRESS_HELM_NAME => "escoffion",
-        LocaleKey::DRESS_HELM_DESC => "a veiled refined hat with two horns, protecting very little but currently very trendy among nobles",
-        LocaleKey::DRESS_PLASTRON_NAME => "noble dress",
-        LocaleKey::DRESS_PLASTRON_DESC => "long dress with its leather collar decorated by gem stones. An outfit very trendy for those who can afford it",
-        LocaleKey::HEAVY_GAUNTLET_NAME => "reinforced gloves",
-        LocaleKey::HEAVY_GAUNTLET_DESC => "leather gloves reinforced by large metal plates, offering a decent protection despite its weight",
-        LocaleKey::HEAVY_GREAVES_NAME => "reinforced boots",
-        LocaleKey::HEAVY_GREAVES_DESC => "leather boots reinforced by large metal plates, weighing them down considerably",
-        LocaleKey::HEAVY_HELM_NAME => "helmet and cervelliere",
-        LocaleKey::HEAVY_HELM_DESC => "a pointy iron helmet covering a mail coiffe. Offer a great protection to the head despite its relative weight",
-        LocaleKey::HEAVY_PLASTRON_NAME => "short sleeved hauberk",
-        LocaleKey::HEAVY_PLASTRON_DESC => "a short sleeved chain mail shirt covered by a thin cloth surcoat",
-        LocaleKey::IRON_GAUNTLETS_NAME => "iron vambrace",
-        LocaleKey::IRON_GAUNTLETS_DESC => "a pair of thin leather gloves upon which thin iron plates are attached, offering a great protection for its weight",
-        LocaleKey::IRON_GREAVES_NAME => "iron greaves",
-        LocaleKey::IRON_GREAVES_DESC => "a pair of thin iron vambraces protecting its wearer's tibias",
-        LocaleKey::IRON_HELM_NAME => "iron helmet",
-        LocaleKey::IRON_HELM_DESC => "a pointy iron helmet with short cheekpieces protecting the side of the face. Offer a decent protection for its weight",
-        LocaleKey::IRON_PLASTRON_NAME => "iron plastron",
-        LocaleKey::IRON_PLASTRON_DESC => "a short plastron protecting the most essentials orgams. offer a good protection despite being incomplete",
-        LocaleKey::LEATHER_GAUNTLETS_NAME => "leather vambrace",
-        LocaleKey::LEATHER_GAUNTLETS_DESC => "a pair of simple leather vambrace protecting its wearer forearm",
-        LocaleKey::LEATHER_GREAVES_NAME => "leather shoes",
-        LocaleKey::LEATHER_GREAVES_DESC => "a pair of simple leather shoes protecting only against the roughness of the ground",
-        LocaleKey::LEATHER_HELM_NAME => "leather cervelliere",
-        LocaleKey::LEATHER_HELM_DESC => "a simple leather helmet protecting rudimentarly its wearer's head",
-        LocaleKey::LEATHER_PLASTRON_NAME => "leather plastron",
-        LocaleKey::LEATHER_PLASTRON_DESC => "a leather plastron offering decent protection for its weight",
-        LocaleKey::NOBLE_GAUNTLETS_NAME => "noble gloves",
-        LocaleKey::NOBLE_GAUNTLETS_DESC => "a pair of refined gloves protecting decently its wearer's hands",
-        LocaleKey::NOBLE_GREAVES_NAME => "noble poulaines",
-        LocaleKey::NOBLE_GREAVES_DESC => "a pair of long black shoes. Very trendy currently",
-        LocaleKey::NOBLE_HELM_NAME => "leather hat",
-        LocaleKey::NOBLE_HELM_DESC => "a refined leather hat offering very little protection but fairly trendy among noble",
-        LocaleKey::NOBLE_PLASTRON_NAME => "noble houppelande",
-        LocaleKey::NOBLE_PLASTRON_DESC => "a long garment falling down to its wearer's knee with especially long sleeves. This piece of clothing is very trendy for those who can afford it",
-        LocaleKey::STARTER_GAUNTLETS_NAME => "old soldier's gauntlets",
-        LocaleKey::STARTER_GAUNTLETS_DESC => "the hard leather it is made of clearly got deteriorated by time",
-        LocaleKey::STARTER_GREAVES_NAME => "old soldier's greaves",
-        LocaleKey::STARTER_GREAVES_DESC => "a simple pair of boots protected by some short rusted metal plates that only cover the ankles",
-        LocaleKey::STARTER_HELM_NAME => "old soldier's helmet",
-        LocaleKey::STARTER_HELM_DESC => "a round metal helmet that only protect against the most basic of attacks",
-        LocaleKey::STARTER_PLASTRON_NAME => "old soldier's gambeson",
-        LocaleKey::STARTER_PLASTRON_DESC => "a simple padded jacket seeming to be from another century. Protected by a simple metal plate on its torso",
-        LocaleKey::H30_GAUNTLETS_NAME => "guard's gauntlets",
-        LocaleKey::H30_GAUNTLETS_DESC => "a pair of heavy leather gloves with large metal plaques protecting the forearm and elbows. Often worn by guard that don't need to move much.",
-        LocaleKey::H30_GREAVES_NAME => "guard's boots",
-        LocaleKey::H30_GREAVES_DESC => "a pair of heavy leather boots with thick metallic reinforcement protecting the wearer's legs. Often worn by guard that don't need to move much.",
-        LocaleKey::H30_HELM_NAME => "guard's helm",
-        LocaleKey::H30_HELM_DESC => "a large cylindrical helm offering great protection for the head. Often worn by guard that don't need to move much.",
-        LocaleKey::H30_PLASTRON_NAME => "guard's mail dress",
-        LocaleKey::H30_PLASTRON_DESC => "a long-sleeved mail dress going all the way to the knee with a thin surcoat, protecting most of the body against eventual attacks.",
-        LocaleKey::H40_GAUNTLETS_NAME => "heavy soldier vambraces",
-        LocaleKey::H40_GAUNTLETS_DESC => "a pair of heavy vambraces protecting the entire arm and hands, offering barely any openings to the ennemy.",
-        LocaleKey::H40_GREAVES_NAME => "heavy soldier boots",
-        LocaleKey::H40_GREAVES_DESC => "a pair of heavy metallic boots protecting the entire lower legs.",
-        LocaleKey::H40_HELM_NAME => "heavy soldier sallet",
-        LocaleKey::H40_HELM_DESC => "a heavy sallet covering the entire face paired with a large bevor, offering ideal protection to the head despite it's weight.",
-        LocaleKey::H40_PLASTRON_NAME => "heavy soldier cuirass",
-        LocaleKey::H40_PLASTRON_DESC => "an incredibly bulky cuirass protecting the entire upper body, paired with pauldron protecting the shoulders and a long mail for the upper legs.",
-        LocaleKey::H50_GAUNTLETS_NAME => "joust vambraces",
-        LocaleKey::H50_GAUNTLETS_DESC => "a pair of heavy vambraces displaying unnecessarily large couters on the elbows. Meant to widstand the heaviest lance strikes.",
-        LocaleKey::H50_GREAVES_NAME => "joust greaves",
-        LocaleKey::H50_GREAVES_DESC => "a pair of long bulky greaves protecting heavily the entire legs against any injury.",
-        LocaleKey::H50_HELM_NAME => "joust helmet",
-        LocaleKey::H50_HELM_DESC => "a thick metallic helmet protecting the entire head. Meant to widstand the heaviest lance strikes.",
-        LocaleKey::H50_PLASTRON_NAME => "joust cuirass",
-        LocaleKey::H50_PLASTRON_DESC => "a large full cuirass protecting the entire torso. As well as it's large spauldron, this piece also display a large heavy reinforcement on the entire right mimicing a sort of metallic shoulder-cape.",
-        LocaleKey::H60_GAUNTLETS_NAME => "heavy goblin guard gauntlets",
-        LocaleKey::H60_GAUNTLETS_DESC => "a pair of overwhelmingly large and bulky gauntlets, paired with large couters. Originally made for goblins and then adapted to fit humans proportions, those gauntlets akwardky only display three large slots for the fingers, forcing two fingers per slot.",
-        LocaleKey::H60_GREAVES_NAME => "heavy goblin guard boots",
-        LocaleKey::H60_GREAVES_DESC => "a pair of overwhelmingly large and bulky boots that rise up to the knee. Originally made for goblins before being adapted to fit humans proportions.",
-        LocaleKey::H60_HELM_NAME => "heavy goblin guard helm",
-        LocaleKey::H60_HELM_DESC => "a long beak-like helmet originally made for goblins to which leather straps had been attached to fit on a human head. A long chainmail curtain falls from the helmet, protecting the whole head.",
-        LocaleKey::H60_PLASTRON_NAME => "heavy goblin guard cuirass",
-        LocaleKey::H60_PLASTRON_DESC => "a solid cuirass originally made for goblins, adapted to fit a human torso. Paired with two extremely large shoulder pads made to double as protection for the upper arm.",
-        LocaleKey::M30_GAUNTLETS_NAME => "plain vambraces",
-        LocaleKey::M30_GAUNTLETS_DESC => "simple leather gauntlets reinforced by metallic tubes to offer a decent protection for cheap.",
-        LocaleKey::M30_GREAVES_NAME => "reinforced boots",
-        LocaleKey::M30_GREAVES_DESC => "a pair of plain leather boots reinforced by metallic tubes to offer a decent protection for cheap.",
-        LocaleKey::M30_HELM_NAME => "plain bassinet with mail",
-        LocaleKey::M30_HELM_DESC => "a simple metallic open-faced helmet paired with a chainmail hood to offer a decent protection to the head for cheap.",
-        LocaleKey::M30_PLASTRON_NAME => "plain mail dress",
-        LocaleKey::M30_PLASTRON_DESC => "a simple long-sleeved mail dress protecting the entire body down to the knee, held by a simple belt. Offering a decent protection for cheap.",
-        LocaleKey::M40_GAUNTLETS_NAME => "modest vambraces",
-        LocaleKey::M40_GAUNTLETS_DESC => "a pair of simple vambraces offering good protection for the entire arm.",
-        LocaleKey::M40_GREAVES_NAME => "modest boots",
-        LocaleKey::M40_GREAVES_DESC => "a simple pair of leather boots reinforced with metallic pieces, equipped as well with a pair of poleyn for additionnal protection to the knee.",
-        LocaleKey::M40_HELM_NAME => "sallet and bevor",
-        LocaleKey::M40_HELM_DESC => "a simple open-faced sallet paired with a large bevor offering protection to most of the head.",
-        LocaleKey::M40_PLASTRON_NAME => "modest mail dress",
-        LocaleKey::M40_PLASTRON_DESC => "a long-sleeved mail dress offering protection to the entire body, covered by a thin plain surcoat.",
-        LocaleKey::M50_GAUNTLETS_NAME => "long vambrace",
-        LocaleKey::M50_GAUNTLETS_DESC => "a pair of long vambraces protecting the entire arm.",
-        LocaleKey::M50_GREAVES_NAME => "long greaves",
-        LocaleKey::M50_GREAVES_DESC => "a pair of thin long greeves protecting the entire legs while not adding unnecessary weight.",
-        LocaleKey::M50_HELM_NAME => "closed-face helmet",
-        LocaleKey::M50_HELM_DESC => "a well-made helmet offering protection to the entire face without too much unnecessary weight.",
-        LocaleKey::M50_PLASTRON_NAME => "long cuirass",
-        LocaleKey::M50_PLASTRON_DESC => "a plain breastplate paired with two thin shoulder pads displaying particuarly long tassets.",
-        LocaleKey::M60_GAUNTLETS_NAME => "goblin guard gauntlets",
-        LocaleKey::M60_GAUNTLETS_DESC => "large gauntlets going up to the elbows, doubling as couters. Originally made for goblins and then adapted to fit human proportions, those gauntlets akwardky only display three large slots for the fingers, forcing two fingers per slot",
-        LocaleKey::M60_GREAVES_NAME => "goblin guard boots",
-        LocaleKey::M60_GREAVES_DESC => "large boots going up to the knee, doubling as genouilleres. Originally made for goblins, and then adapted to fit human proportions.",
-        LocaleKey::M60_HELM_NAME => "goblin guard helmet",
-        LocaleKey::M60_HELM_DESC => "an open-faced goblin helmet that's been reinforced with metal sheets to offer greater protection to a human face.",
-        LocaleKey::M60_PLASTRON_NAME => "goblin guard cuirass",
-        LocaleKey::M60_PLASTRON_DESC => "a large metallic cuirass of goblin design that has been adapted to fit human proportions.",
-        LocaleKey::L30_GAUNTLETS_NAME => "thin arm cannons",
-        LocaleKey::L30_GAUNTLETS_DESC => "thin metallic tubes made to offer a good protection to the arms without adding unnecessary weight.",
-        LocaleKey::L30_GREAVES_NAME => "thin reinforced boots",
-        LocaleKey::L30_GREAVES_DESC => "pointy leather boots with thin metallic plaques added to offer more protection to the feet without adding weight.",
-        LocaleKey::L30_HELM_NAME => "thin bassinet",
-        LocaleKey::L30_HELM_DESC => "a thin open-faced bassinet made to protect the entire head without adding any noticeable weight.",
-        LocaleKey::L30_PLASTRON_NAME => "thin breastplate with gambeson",
-        LocaleKey::L30_PLASTRON_DESC => "a padded tunic worn with a thin metallic breastplate, made to offer a good protection without adding unnecessary weight.",
-        LocaleKey::L40_GAUNTLETS_NAME => "discrete leather gauntlets",
-        LocaleKey::L40_GAUNTLETS_DESC => "a pair of reinforced leather gauntlet offering a great protection to the arms without standing out",
-        LocaleKey::L40_GREAVES_NAME => "discrete leather boots",
-        LocaleKey::L40_GREAVES_DESC => "long leather boots reinforced with a bit of metal, offering a great protection to the lower legs without standing out.",
-        LocaleKey::L40_HELM_NAME => "long mail hood",
-        LocaleKey::L40_HELM_DESC => "a long hood protecting the entire head and torso, made of a thin chainmail that offer great protection without adding unnecessary weight",
-        LocaleKey::L40_PLASTRON_NAME => "long mail dress",
-        LocaleKey::L40_PLASTRON_DESC => "a long-sleeved chainmail dress going all the way down to the ankle, made to offer great protection without adding any unnecessary weight.",
-        LocaleKey::L50_GAUNTLETS_NAME => "conquerant's vambraces",
-        LocaleKey::L50_GAUNTLETS_DESC => "thin vambraces portraying angular couters on the elbows.",
-        LocaleKey::L50_GREAVES_NAME => "conquerant's greaves",
-        LocaleKey::L50_GREAVES_DESC => "thin and angular greaves offering great protection without adding any noticeable weight, perfect for long travels.",
-        LocaleKey::L50_HELM_NAME => "conquerant's hat and bevor",
-        LocaleKey::L50_HELM_DESC => "a pointy metalic hat paired with a tall bevor, protecting the head and face against both attacks and elements while minimising weight.",
-        LocaleKey::L50_PLASTRON_NAME => "conquerant's cuirasse",
-        LocaleKey::L50_PLASTRON_DESC => "an angular and thin metallic cuirass offering a great protection without restraining the weearer's movements, portraying large pointy spauldrons and tassets.",
-        LocaleKey::L60_GAUNTLETS_NAME => "comissioned vambraces",
-        LocaleKey::L60_GAUNTLETS_DESC => "thin vambraces protecting the whole arm, simple and light yet surprisingly durable. Even if some design decisions are uniquely goblin, they are custom-made for human proportions.",
-        LocaleKey::L60_GREAVES_NAME => "comissioned boots",
-        LocaleKey::L60_GREAVES_DESC => "wide yet light boots that go up to the knee, doubling as a genouillere. Custom made for human proportions in a special alloy that's made to be light yet extremely durable.",
-        LocaleKey::L60_HELM_NAME => "comissioned helmet",
-        LocaleKey::L60_HELM_DESC => "an open-faced helmet similar to the one's worn by goblin guards, but made with ellongated side-flaps to fit perfectly a human face and offer great protection for a light weight.",
-        LocaleKey::L60_PLASTRON_NAME => "comissioned chestplate",
-        LocaleKey::L60_PLASTRON_DESC => "a light yet durable chestplate custom-made for human proportions. Paired with a light gambesson threaded with a mix of thin metallic thread and cotton.",
-        LocaleKey::THE_ARMS => "the arms",
-        LocaleKey::THE_LEGS => "the legs",
-        LocaleKey::THE_HEAD => "the head",
-        LocaleKey::THE_BODY => "the body",
-        LocaleKey::A_PAIR_OF => "a pair of",
-        LocaleKey::A_M_SPACELESS => "a",
-        LocaleKey::DISMAL_CELL => "dismal cell",
-        LocaleKey::DISMAL_CELL_DESCRIPTION => [
-            "you are inside a dark gaol, broken chains littering the ground."
-        ],
-        LocaleKey::CATACOMBS_DESCRIPTION => [
-            "You are inside catacombs filled with tombs and remains all arranged in elaborate ways.",
-            "This place is much drier than the dungeon entrance, the darkness surrounding you thicker than ever.",
-            "The stagnating air and dust leave a dry taste in your throat."
-        ],
-        LocaleKey::CATACOMBS_LOOT_BANDAGE => ["You notice some shrouds that are still clean enough to be used as bandages."],
-        LocaleKey::CATACOMBS_LOOT_COINS => [
-            "You notice that one of of the urns still keep a few coins in its bottom",
-            "You see a few coins displayed as an offering to one of the corpse left in this place"
-        ],
-        LocaleKey::CATACOMBS_TRANSITION_PRISON => [
-            "As you desperately advance inside of the catacombs,",
-            "You finally notice a small crevice in a wall that is similar to the one you used to come in here.",
-            "As you penetrate it, you see great stone walls",
-            "At first, they remind you of the dungeon entrance...",
-            "",
-            "But, something about this place seems much older than the rest of the dungeon."
-        ],
-        LocaleKey::CATACOMBS_TRANSITION_DEEPER => [
-            "While you were going deeper and deeper within the catacombs,",
-            "You see a doorway within the obscurity.",
-            "As you approach, you notice that it is going deeper yet within the earth, and that no torches are set-up to lit its bottom.",
-            "",
-            "You take one of the torches left on the wall aside the entrance, and venture down the stairs."
-        ],
-        LocaleKey::DEEP_CATACOMBS_DESCRIPTION => [
-            "You are surrounded by darkness, your flickering torch being the only lightsource in these tight places.",
-            "The air is cold, and some humidity seeps through the grounds beneath your feet.",
-            "This place seems dedicated to the dead too, much like the catacombs above, but here rot seems to have melted away most traces of the passage of man."
-        ],
-        LocaleKey::DEEP_CATACOMBS_LOOT_BANDAGE => ["All you can find that's not completely rotted out is an old and humid shroud you could use as bandage."],
-        LocaleKey::DEEP_CATACOMBS_TRANSITION_CAVES => [
-            "After what felt like an eternity in the crypts, you notice a portion where the wall had crumbled.",
-            "As you approach, you see that the cavity open to a natural cave.",
-            "",
-            "You enter the cave, happy to leave this acursed place."
-        ],
-        LocaleKey::ENTRANCE_DESCRIPTION => [
-            "You are surrounded by thick stone walls.",
-            "The air is humid and darkness reigns inside the old fortress,",
-            "The faint drafts of fresh air carressing your back are a reminder to your proximity with the outside world."
-        ],
-        LocaleKey::ENTRANCE_HOLE_DESCRIPTION => [
-            "You are still within the dungeon's entrance.",
-            "But, it seems the very floor collapsed here.",
-            "The sight of that giant gaping hole sitting in the middle of the room makes you uneasy."
-        ],
-        LocaleKey::ENTRANCE_LOOT_BANDAGE => ["You notice draperies you can tear in order to build some bandages."],
-        LocaleKey::ENTRANCE_LOOT_COINS => [
-            "You find a few coins dropped on a table",
-            "You find a small purse put away in a shelf"
-        ],
-        LocaleKey::ENTRANCE_LOOT_HEALTH_POTION => [
-            "You see a health potion settled on a table.",
-            "You find a health potion stored inside of a dresser."
-        ],
-        LocaleKey::ENTRANCE_TRANSITION_CATACOMBS => [
-            "As you move forward inside of the dungeon, you arrive to narrow corridors descending deeper inside the earth.",
-            "You venture inside what seems to be a place of rest for the old inhabitants of this dungeon, now long gone."
-        ],
-        LocaleKey::PRISON_DESCRIPTION => [
-            "You are in what seems to be an old prison.",
-            "Even if this place is more welcoming than the catacombs, it isn't so by a lot.",
-            "You are taken by a feeling of unease as you walk into a place that seems to bear the weight of a somber history."
-        ],
-        LocaleKey::PRISON_LOOT_HEALTH_POTION => [
-            "You see a health potion settled on a table among diverse tools.",
-            "You find a health potion sorted inside some furniture.",
-            "You notice a health potion forgotten on the ground in some corner of the room."
-        ],
-        LocaleKey::PRISON_LOOT_BANDAGE => ["You notice prisoner uniforms you could tear apart to make bandages."],
-        LocaleKey::PRISON_LOOT_KEY => ["You notice a key hung on the wall."],
-        LocaleKey::PRISON_TRANSITION_CELL => [
-            "You arrive in front of the large metal door.",
-            "Despite its great age and the obvious rust, it still seems too heavy to be forced open.",
-            "",
-            "As you listen carefully, you can hear a weakened breath piercing through the metal door."
-        ],
-        LocaleKey::KNIGHT_NAME => "lost knight",
-        LocaleKey::KNIGHT_HEAD => "head of the lost knight",
-        LocaleKey::KNIGHT_RIGHT_ARM => "right arm of the lost knight",
-        LocaleKey::KNIGHT_LEFT_ARM => "left arm of the lost knight",
-        LocaleKey::KNIGHT_LEFT_ATTACK => "strike %s with his elbow.",
-        LocaleKey::KNIGHT_RIGHT_ATTACK => "strike %s with his sword.",
-        LocaleKey::KNIGHT_LOOT_COINS => ["On the knight's corpse, you find a large purse attached to its belt."],
-        LocaleKey::KNIGHT_LOOT_NOTE => ["In a fold of its chestplate, you notice a note poking out."],
-        LocaleKey::CAVE_DESCRIPTION => [
-            "You are in a cave.",
-            "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
-            "As you look closer, you notice that what you thought to be reflections from the wall's humidity, were in fact crystals embedded in the cave's stone."
-        ],
-        LocaleKey::CAVES_LOOT_AMETHYST => [
-            "You notice that one of the crystal is partially detached from the cave's wall.",
-            "You find a crystal that was already detached from the stone walls.",
-            "You see a piece of broken crystal that's still big enough to be taken."
-        ],
-        LocaleKey::CAVES_LOOT_ROPE => ["As you search the large room, you notice a rope that was discarted among the tall grass."],
-        LocaleKey::CAVES_TRANSITION_FOREST => [
-            "As you move forward deeper into the caves, you slowly start to notice a light emerge at the end of the tunnel.",
-            "Surprised, but your curiosity picked, you move forward and out of the cave.",
-            "The darkness finally leaves you."
-        ],
-        LocaleKey::OPEN_CAVE => "large open room",
-        LocaleKey::OPEN_CAVE_DESCRIPTION => [
-            "You are in a cave. To your surprise, this part of the cave seems to recieve light from above.",
-            "Looking up, you notice a gaping hole tearing the roof.",
-            "The rubbles covering the ground seems to indicate that it collapsed from a higher layer."
-        ],
-        LocaleKey::FOREST_DESCRIPTION => [
-            "You are in what seems to be an underground forest.",
-            "Despite being in a deep cave, far from the sun's rays, a rich ecosystem seems to have developped here.",
-            "Many crystals embedded into the cave's roof shine through, not dissimilar to a night-time sky."
-        ],
-        LocaleKey::VILLAGE_HUB => "village hub",
-        LocaleKey::VILLAGE_HUB_DESCRIPTION => [
-            "You are in a village hub, small wooden houses surrounding a simple well.",
-            "To your left is an especially large house, and to your right what seems to be a sort of forge.",
-            "The large walls encircling the whole village gives it a sense of calm and security."
-        ],
-        LocaleKey::FOREST_LOOT_ROPE => [
-            "You see a few vines dangling from the trees that could be used as ropes."
-        ],
-        LocaleKey::FOREST_LOOT_AMETHYST => [
-            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
-            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
-            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
-            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
-            "You notice a small crystal simply dropped on the ground, peaking out of the grass.",
-            "As you are searching the area, you feel a heavy object strike your head suddently. After a quick second of astounment you look down and see that a crystal seemingly fell on your head."
-        ],
-        LocaleKey::FOREST_TRANSITION_SWAMP => [
-            "As you go deeper into the forest you feel the ground getting wetter.",
-            "The uneaven ground lead to an increasing amount of stagnating water, and as dirt turns to mud the vegetation become increasingly sparse.",
-            "You have entered a swamp."
-        ],
-        LocaleKey::SWAMP_DESCRIPTION => [
-            "You are standing knee-deep within mud, the few paches of clear water turning brown as your steps disturb the earth beneath.",
-            "Walking against the resistance of the liquids while your feets are sinking proves difficult, but you dredge through.",
-            "You feel the coldness of the sludge biting your legs and the smell of rotten eggs suffocating you."
-        ],
-        LocaleKey::PLACEHOLDER_ARRAY => [],
-        LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
-        LocaleKey::SHOPKEEPER_INTRO_DIALOG => "Hello traveler.\nPlease, do not hesitate to observe my wares and tell me if anything catches your eyes.",
-        LocaleKey::SHOPKEEPER_IDLE_DIALOGS => [
-            "So, found anything interesting?",
-            "Tell me if you need anything."
-        ],
-        LocaleKey::SHOPKEEPER_CONVERSATION_STARTER => [
-            "Anything I can do for you?",
-            "Mh?",
-            "A question you wanted to ask?"
-        ],
-        LocaleKey::SHOPKEEPER_CONVERSATION_KEEPER => [
-            "Anything else you wanted to know?",
-            "Wanted to ask something else?",
-            "So can I help with anything else?",
-            "Is that all?",
-            "...",
-            "Any other questions?"
-        ],
-        LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS => [
-            "My apology, but I don't think I quite understood that...",
-            "Huh?",
-            "Sorry, but I don't understand what you mean by this.",
-            "I'm not sure I'm understanding this well..."
-        ],
-        LocaleKey::ALCHEMIST_NAME => "Alchimist",
-        LocaleKey::ALCHEMIST_INTRO_DIALOG => "Hello, #{Locale::PLAYER_NAME}.\nEverything I have to sell is on the shelves, and if you have any questions, don't hesitate to ask. I'm here for that.",
-        LocaleKey::ALCHEMIST_IDLE_DIALOGS => [
-            "Need anything?",
-            "Any questions?",
-            "Don't hesitate if anything catches your eye.",
-            "Is everything going alright?"
-        ],
-        LocaleKey::ALCHEMIST_CONVERSATION_STARTER => [
-            "Wanted to ask me something?",
-            "Yes?",
-            "May I help you?"
-        ],
-        LocaleKey::ALCHEMIST_CONVERSATION_KEEPER => [
-            "Any other questions?",
-            "Was that all you wanted to ask?",
-            "Anything else?",
-            "Anyway, did you need anything else?",
-            "Don't hesitate if you have any other questions."
-        ],
-        LocaleKey::ALCHEMIST_UNKNOWN_DIALOGS => [
-            "Sorry, but I didn't understand.",
-            "Could you please repeat?",
-            "I don't think I understood that well...",
-            "My apologies, but I don't think I got that right...",
-            "What?"
-        ],
-        LocaleKey::ALCHEMIST_NICKNAME => "friend",
-        LocaleKey::BLACKSMITH_NAME => "Blacksmith",
-        LocaleKey::BLACKSMITH_INTRO_DIALOG => "...",
-        LocaleKey::BLACKSMITH_IDLE_DIALOGS => [
-            "...",
-            "...",
-            "...",
-            "Hm...",
-            "...",
-            "...",
-            "...",
-            "Hm hmm..."
-        ],
-        LocaleKey::BLACKSMITH_CONVERSATION_STARTER => [
-            "Hm?",
-            "Hm?",
-            "...",
-            "...",
-            "...",
-            "...",
-            "...",
-            "Hm..."
-        ],
-        LocaleKey::BLACKSMITH_CONVERSATION_KEEPER => [
-            "Hm?",
-            "Hm?",
-            "...",
-            "...",
-            "...",
-            "...",
-            "...",
-            "Hm..."
-        ],
-        LocaleKey::BLACKSMITH_UNKNOWN_DIALOGS => [
-            "..."
-        ],
-        LocaleKey::BLACKSMITH_NICKNAME => "adventurer",
-        LocaleKey::GOBLIN_BLACKSMITH_NAME => "goblin blacksmith",
-        LocaleKey::GOBLIN_BLACKSMITH_INTRO_DIALOG => "Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö.",
-        LocaleKey::GOBLIN_BLACKSMITH_IDLE_DIALOGS => [
-            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
-            "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
-            "Tödoer kö dëkaos?",
-            "Kobukör sodottöter sö köpoduk.",
-            "Kobukör töter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo #{Locale::PLAYER_NAME}."
-        ],
-        LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_STARTER => ["Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö."],
-        LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_KEEPER => [
-            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
-            "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
-            "Tödoer kö dëkaos?",
-            "Kobukör sodottöter sö köpoduk.",
-            "Kobukör töter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo #{Locale::PLAYER_NAME}."
-        ],
-        LocaleKey::GOBLIN_BLACKSMITH_UNKNOWN_DIALOGS => [
-            "..."
-        ],
-        LocaleKey::GOBLIN_BLACKSMITH_NICKNAME => "tarkorbakö",
-        LocaleKey::GOBLIN_GUARD_NAME => "a goblin guard",
-        LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto! Körkubagedo!\nTö bëdèsoe sö todutrëd dök köpoduk.",
-        LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
-            "..."
-        ],
-        LocaleKey::GOBLIN_GUARD_CONVERSATION_STARTER => [
-            "Kör kobakëto! Körkubagedo!\nTö bëdèsoe sö todutrëd dök köpoduk."
-        ],
-        LocaleKey::GOBLIN_GUARD_CONVERSATION_KEEPER => [
-            "Dëkabogu sö dëkaos?",
-            "Dëkabogu sö dëkaos tödoer #{Locale::PLAYER_NAME}.",
-            "Kör sö këtogubu köpogur sö dëkaos? Pöko."
-        ],
-        LocaleKey::GOBLIN_GUARD_UNKNOWN_DIALOGS => [
-            "Erkosä sö Kö Rakröt Bëdès sö pöko kös tarkorbakö söd korkö pöko sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès.",
-            "Kosäpor sö Kö Rakröt Bëdès sö pöko köpoduk söd."
-        ],
-        LocaleKey::GOBLIN_GUARD_NICKNAME => "bëdèsoe",
-        LocaleKey::GOBLIN_GUARD_AGGRESSIVE => "After your attack against it, the goblin guard now refuse to talk to you",
-        LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "The goblin guard is too occupied guarding the door to talk to you any more, simply gesturing you to pass through the village's entrance if you so desire.",
-        LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
-        LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
-        LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Even if they agree to trade with you, the blacksmith seems too occupied for chit-chat.",
-        LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
-        LocaleKey::BOSS_CELL_REQ_ENTRY => [
-            "You use the prison key to open the great door.",
-            "You push on it, its rusted hinges giving you trouble.",
-            "As you give it your all you manage to force the door open.",
-            "",
-            "You enter what seems to be a prison cell.",
-            "You can see at the end of the dark room a knight in an old and battle-damaged armor.",
-            "Its rust barely covered by what once would have been a noble surcoat."
-        ],
-        LocaleKey::BOSS_CELL_REQ_REFUSE => [
-            "You decide not to risk opening the door.",
-            "Therefore, you turn back from where you came."
-        ],
-        LocaleKey::BOSS_CELL_REQ_CANT => [
-            "As you try to open the door it resist you, seemingly locked by key.",
-            "",
-            "You turn back."
-        ],
-        LocaleKey::ARMOR_DESCRIPTION => ", protects from %{#{LocaleKey::F_DEFENSE}} damage and weight %{#{LocaleKey::F_WEIGHT}} Kg",
-        LocaleKey::ARMOR_CARD_DESCRIPTION => "%{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
-        LocaleKey::BANDAGES_NAME => "some bandages",
-        LocaleKey::BANDAGES_DESCRIPTION => "restores a random amount of your missing life-points",
-        LocaleKey::BANDAGES_PLURAL => "bandages",
-        LocaleKey::COINS_NAME => "a gold coin",
-        LocaleKey::COINS_DESCRIPTION => "Main currecy that is currently used in the main countries composing the Great Alliance",
-        LocaleKey::COINS_PLURAL => "gold coins",
-        LocaleKey::COIN_HEAD => "head",
-        LocaleKey::COIN_TAIL => "tail",
-        LocaleKey::AMETHYST_NAME => "an amethyst",
-        LocaleKey::AMETHYST_DESCRIPTION => "can be sold for a few coins",
-        LocaleKey::AMETHYST_PLURAL => "amethysts",
-        LocaleKey::ROPE_NAME => "a rope",
-        LocaleKey::ROPE_DESCRIPTION => "long and robust, it must be able to widstand heavy weights",
-        LocaleKey::ROPE_PLURAL => "ropes",
-        LocaleKey::DEVNOTE_NAME => "goodbye note",
-        LocaleKey::DEVNOTE_DESCRIPTION => "thanks for playing",
-        LocaleKey::HEALTH_POTION_NAME => "a health potion",
-        LocaleKey::HEALTH_POTION_DESCRIPTION => "restore %s health points",
-        LocaleKey::HEALTH_POTION_PLURAL => "health potions",
-        LocaleKey::HEALTH_STONE_NAME => "a health pellet",
-        LocaleKey::HEALTH_STONE_DESCRIPTION => "restore %{#{LocaleKey::F_LIFE}} health points each turn, during %{#{LocaleKey::F_AMOUNT}} turns",
-        LocaleKey::HEALTH_STONE_PLURAL => "health pellets",
-        LocaleKey::POISON_POTION_NAME => "a vial of poison",
-        LocaleKey::POISON_POTION_PLURAL => "vials of posion",
-        LocaleKey::POISON_POTION_DESCRIPTION => "coat your weapon with poison, allow the next physical attack to inflict it to ennemies",
-        LocaleKey::POISON_POTION_USE => "%s coat their weapon in poison.",
-        LocaleKey::PRISON_KEY_NAME => "a key",
-        LocaleKey::PRISON_KEY_DESCRIPTION => "must open a door somewhere",
-        LocaleKey::PRISON_KEY_PLURAL => "keys",
-        LocaleKey::TELEPORTER_NAME => "a tele-crystal",
-        LocaleKey::TELEPORTER_DESCRIPTION => "a very rare crystal holding a powerful power, canalised by a magical instrument making it able to transport its bearer to the dungeon exit or to one of their allies.",
-        LocaleKey::TELEPORTER_PLURAL => "tele-crystals",
-        LocaleKey::DETOX_FRUIT_NAME => "a detoxifying fruit",
-        LocaleKey::DETOX_FRUIT_NAME_PLURAL => "detoxifying fruits",
-        LocaleKey::DETOX_FRUIT_DESCRIPTION => "a glowing fruit from the underground forest that restores %s health points and has a 50%% chance of healing poison.",
-        LocaleKey::DETOX_FRUIT_USE_SELF => "%s eat the detoxifying fruit.",
-        LocaleKey::DETOX_FRUIT_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} give a detoxifying fruit to %{#{LocaleKey::F_TARGET}}...",
-        LocaleKey::DETOX_FRUIT_NO_EFFECT => "You feel no effect.",
-        LocaleKey::DETOX_JUICE_NAME => "a detoxifying juice",
-        LocaleKey::DETOX_JUICE_NAME_PLURAL => "detoxifying juices",
-        LocaleKey::DETOX_JUICE_DESCRIPTION => "a small bottle of bright yellow fruit concentrate that emit a soft glow, restores %s health points and cleanse poison.",
-        LocaleKey::DETOX_JUICE_USE_SELF => "%s drink the detoxifying juice.",
-        LocaleKey::DETOX_JUICE_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} give a detoxifying juice to %{#{LocaleKey::F_TARGET}}...",
-        LocaleKey::DETOX_DETOX => "You feel relief as the poison is cleansed out of your body.",
-        LocaleKey::GOBLIN_LOOT_COINS => ["As you search the goblin's corpse, you notice a small purse tied to its belt."],
-        LocaleKey::GOBLIN_LOOT_FRUITS => ["Looking into the goblin's basket, you notice it had a few fruits in a basket."],
-        LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["You find a health potion in one the belt pocket of a goblin guard"],
-        LocaleKey::POISON_SPIDER_LOOT_POISON => ["By examining the spider's corpse, you manage to extract some venom from it's still intact fangs."],
-        LocaleKey::THE_EXIT => "the exit",
-        LocaleKey::A_HOLE => "a hole",
-        LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down? (y/n)",
-        LocaleKey::STUCK_DOWN_HOLE => "You observe the hole casting a soft light into the cave, but see no way up to it.",
-        LocaleKey::ATTACH_ROPE => "You attach the rope to a nearby pillar that seems solid enough.",
-        LocaleKey::CLIMB_ROPE_DOWN => "You start your slow descent into the hole",
-        LocaleKey::CLIMB_ROPE_UP => "You painstakingly climb the long rope back up",
-        LocaleKey::ASK_JUMP => [
-            "You approach the hole and look down. You can see nothing but darkness, with no idea of how deep it goes down.",
-            "Jump in the chasm? (y/n)"
-        ],
-        LocaleKey::JUMP_HOLE => "%s leap inside of the hole, bracing for impact.",
-        LocaleKey::NEVERMIND_HOLE => "Not wanting to hurt yourself, you avoid the hole.",
-        LocaleKey::VILLAGE_ENTRANCE => "the village's gates",
-        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (y/n) (%i%% chances of success)",
-        LocaleKey::GOBLIN_ATTACK => "Seeing you assault their village, all the goblins decide to attack you on sight.",
-        LocaleKey::VILLAGE_FORGE => "a small forge",
-        LocaleKey::FORGE_EMPTY => [
-            "As you arrive to the small forge, you notice everything has been emptied before your arrival, only warm embers having been left for you to take.",
-            "With nothing for you here, you decide to go back to the rest of the village."
-        ],
-        LocaleKey::ASK_SAVE => "What save do you want to load?",
-        LocaleKey::OPEN_SETTINGS_OPTION => "0) Settings | 6) Status",
-        LocaleKey::DIALOG_QUESTION => "Write what you wish to say: (say goodbye to end the conversation)",
-        LocaleKey::DIALOG_END_KEYWORDS => ["bye", "goodbye", "farewell", "0"],
-        LocaleKey::DIAL_SHOPKEEPER_REPEAT => "As I said, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_FROM_HERE => ["from|origin|originally|born", "not|no|didn|here|in|there|country|other"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_FROM_HERE => ["No, I am indeed not from here.\nI come from the east."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ORIGIN => ["you|your", "from|born|country|where|story|origin"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ORIGIN => [
-            "I was born in the eastern part of the Holy Empire. Spent my younger years there, but quickly started traveling all around the broader continent.",
-            "Travel has always been an essential advantage for the shop, with minimal fees for the right to pass merchandise in between kingdoms I've been able to sell the greatest rarities for the most competitive of prices.",
-            "The only issues with travel are the time investment and bandits, really."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ALLIANCE => ["what|great|why|when|how|tell", "alliance|allience"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ALLIANCE => [
-            "",
-            "The Great Alliance is a congregation of most countries in this continent, and also some coastal ones in the southern continent across the sea.",
-            "A treaty that assembles us all under one currency and ensures peace in the continent to help global trades.",
-            "It's the very reason I'm able to seize an opportunity such as this one."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_ALLIANCE => "You don't know about it?\nThe people here direly lack education on their own politic. But I guess that not everybody needs to know what's going on in the world.",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_BLACK_LEATHER => ["black|dark", "leather"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_BLACK_LEATHER => [
-            "Black leather is a rare material obtained from a specific beast before undergoing a great deal of treatments to be refined into the supple, light and solid material that make armors of the highest quality.",
-            "Although, I am no expert and that is the full extent of my knowledge on the specific process."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH_POTION => ["health|life|heal", "potion|potions"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH_POTION => ["My health potions are of a great quality, and it's a much more reliable way to heal in emergency situations than your makeshift bandages."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_LOST_KNIGHT => ["lost", "knight"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_LOST_KNIGHT => ["I have no clue who that is. Sorry."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GOBLINS => ["goblins|goblin"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GOBLINS => [
-            "Those little pests are fairly rare I'll be honest. Never saw one in person myself, but heard numerous tales of them assaulting those that have gone too deep in forests.\nThey're much more common in the tower from what I've heard, maybe they too enjoy the amount of trinkets this place holds.",
-            "In that they seem to resemble adventurers in more ways than one."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_SLIME => ["slimes|slime"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_SLIME => [
-            "A fairly common creature, slimes are pretty much found anywhere where the temperature is mild and the moisture high.",
-            "What's weird about those in the dungeon on the other hand is how aggressive they are, but regardless I've heard that they're not much of a threat either ways."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_UNDEAD => ["undead|undeads|zombie|zombies|skeleton|skeletons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_UNDEAD => [
-            "Plenty of adventurers have claimed to come back to life and be fine in the dungeon, while others said they saw hostile mindless undeads walking the deeper halls of this tower...",
-            "None of it all makes sense, why would some come back fine and others not? Unless those undead aren't adventurers, but then I don't see who they could be, or why they would be any different from the rest."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["back|from|i|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
-            "You are not the only one talking about coming back from death in the dungeon, most of those that have gone to the dungeon and back ended up killed at some point according to themselves.\nThat is if they didn't escape after seeing the first monster.",
-            "Although, you lot claim that you just get sent back to the moment you entered the dungeon when you die, meaning there's no actual proof of your deaths apart from some hazy memory... So I personally think that what you all think to be deaths are actually hallucinations.",
-            "I mean, think about it. Maybe this dungeon play mind-tricks, or something in its air makes you delirious. Plenty of people who were under the influences of hallucinogenics talked about morbid visions of their own death, or even of what comes after. This to me is a much more plausible explanation at least."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombs|catacomb|crypt|crypts|entrance|inner|interior|inside|insides|prison|prisons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON_INSIDE => ["I don't know anything about the tower's insides beyond a few hear-says. Sorry."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_DUNGEON_INSIDE => "I have never been to the dungeon myself, so ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON => ["dungeon|tower|dungeons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DUNGEON => [
-            "Little is known about the dungeons, and a lot of what people say seems to be fabulations if you ask me.",
-            "According to the locals, that tower would have just appeared suddenly overnight without anyone knowing who put it there.",
-            "I think that's madness to even humor such an unlikely story, but the people here clearly wouldn't have had the means to make such a place with so many treasures to be found.",
-            "The amount of monsters there is worrying too, some of which seems to come straight from old tales that had no proof of their existence elsewhere.",
-            "Either way. Even if I'm skeptical, what's certain is that this place is a one-of-a-kind occurrence, and it's no wonder so many people come from all around the continent to explore it."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HOLY_EMPIRE => ["your|holy", "empire|native|hometown|home|birthplace|country|kingdom"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HOLY_EMPIRE => [
-            "It is a kingdom much further from there, to the east, and more or less equal in size.",
-            "I always feel like the days pass much faster there than they do here, and it's also a lot colder where I used to live.",
-            "Nevertheless, you may have more tender winters, and more bountiful crops before those times come, but I always felt the summers were way too hot here.",
-            "If anything I'm glad to be here during the fall. I can enjoy the tempered climate and beautiful scenery without feeling like I'm going to pass out."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_HOLY_EMPIRE => "Yeah, I like that place a lot. ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_NAME => ["your|you", "name|called|named|call"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_NAME => ["My name is Márton Orbán."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_AGE => ["your|you", "age|old"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_AGE => ["I'm 37 years old."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_AGE => "I don't see how's that's any concern of yours, but if you're so curious ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ARMOR_WEIGHT => ["armor|armors|helmet|plastron|chestplate|legware|boots|shoes|gloves|gauntlets", "weight|heavy|medium|light|kg"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_WEIGHT => [
-            "The weight of an armor will mostly affect how agile you can be.\nIt'll be harder to move with an armor that's particularly heavy, and in extreme cases you might even have a harder time striking your enemies if your armor is too heavy for you.",
-            "Not every armor are weighted the same though, the cheapest armors will be quite heavy for how much they protect you, while the most expensive are made in high-quality materials with advanced manufacturing techniques that will make it very protective for its weight."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ARMOR_PROTECTION => ["armor|helmet|plastron|chestplate|legware|boots|shoes|gloves|gauntlets", "protection|strength|defense"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ARMOR_PROTECTION => [
-            "Armor protection will allow you to get a more reliable way of avoiding injuries than just trying to dodge every punches thrown at you.\nA good enough armor can make you invincible, and will at least increase your chances of surviving if you take one that fits you."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_AGILITY => ["agility|agile|stealth|stealthy|sneak|sneaking"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_AGILITY => [
-            "agility can be a great skill to have in a place as dangerous as the dungeon. Allowing you to sneak past dangerous encounters and dodge attacks could save your life.",
-            "Also, if you're that kind of adventurer, your best bet is to go for light armor, which protects you without restraining your movements."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_AGILITY => "Not sure why you ask me about this, but ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH => ["health|healthy|life"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH => [
-            "health is absolutely crucial for any adventurer. If you get too injured you have everything to lose. So you better make sure to be in your best shape when going deep in the dungeon."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_HEALTH => "I don't know why you need me to tell you this, but ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_STRENGTH => ["strength|force|strong"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_STRENGTH => [
-            "strength can be a sure-fire way to crush individual enemies, but brute force won't go a long way if you end up swarmed without a good defense to go with it.",
-            "I cannot stress enough the importance of getting some good armor to go with those biceps of yours, preferrably some medium-weight armor that won't restrain your punches too much."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_STRENGTH => "My humble opinion is that ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_INTELLIGENCE => ["intelligence|intelligent|smart|magic"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_INTELLIGENCE => [
-            "If you're more of the smart type you might want to use a bit of magic in the dungeon. Even if it can be a bit unreliable it's also a very powerful tool that can crush large groups and heal you and your allies"
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ADVICES => ["advice|tips|tip|trick|tricks|advices|help"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ADVICES => [
-            "if you want my two cents on this tower, you'd better not go too deep unprepared.",
-            "Despite many claiming they can come back from death in there, it is clear that many still enter the dungeon never to be seen again.\nAnd for those that do, few come with all their head left.",
-            "So, if you have already found gold and treasure out there, I think it's best to head back and secure it here without risking any lost.\nYou might even take the opportunity to spend a few coins here while you're at it."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVICES => "I'm no adventurer, but ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_DISCOUNTS => ["free|discount|discounts|gift|offer|sale"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_DISCOUNTS => ["this isn't a charity.\nI can not make a profit if I spend my time giving away discounts to the first person that ask for them, you know?"],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_DISCOUNTS => "I'm sorry, but ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_TOO_EXPENSIVE => ["here|your|you|that|prices|price|it", "high|expensive|much|lot|scam|scammer"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_TOO_EXPENSIVE => ["I for one believe that my prices are within my ware's market value.", "But I apologize if what I sell is beyond your budget."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_TOO_EXPENSIVE => "Is that so?\n",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HAVE_YOU => ["have|sell|got", "you|your"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HAVE_YOU => ["Everything I sell is right there on the counter, take a look for yourself.", "My apology if I happen to lack something you're looking for."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_FUCK_YOU => ["fuck|hate|fucked", "you|yourself|off|get"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_FUCK_YOU => ["The adventurer's here truly have no sense of customs.\nIs it the tower's aura getting to your nerves or you just never had any education?"],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_FUCK_YOU => "How rude.\n",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GET_LOST => ["go|get|burn", "hell|lost"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GET_LOST => ["wishing much of the same to you.", "Now, if we could just focus on the buying, please.\nThis is a shop, after all."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GET_LOST => "Sure, sure, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_THREAT => ["kill|murder|hurt", "you"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_THREAT => ["this isn't the dungeon here. Actions have consequences out there."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_THREAT => "Oh, so we are going with threats, huh?\nMay I remind you that ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HOW_YOU_DOIN => ["how|are|is", "going|you|doing|feel|good|well|ok"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HOW_YOU_DOIN => ["doing fine. Thank you for asking."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_HOW_YOU_DOIN => "Well, I'm ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HELLO => ["hello|hi|salutations"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HELLO => ["Hello. Again."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_HELLO => "Oh... Hum... ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_MERCHANT_NAME => ["márton|marton|orban|orbán"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_MERCHANT_NAME => ["Yes, that's my name."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding|where"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_VILLAGE => [
-            "It's a pretty standard countryside village here, not much would be going on if it wasn't for the suddent apparition of that tower there.",
-            "Although, even with the new businesses blooming all around the place, the displeasing smell of cattle remains.\nMoreover, no offense, but much of the same is to be said about your colleagues adventurers. A lot of them spend their time going to the tower and back without a single bath in between, and even existing near them prove challenging."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_YEAR => ["what|which|is|are", "when|year|time"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_YEAR => ["it's the year 1414."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_YEAR => "What? You mean, you forgot the year we're at?... I mean sure, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_NOT_HELPING => ["not|no|don", "help|helping|helpfull|usefull|use|serve"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_NOT_HELPING => ["I'm sorry to hear that."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_OLD_SOLDIER => ["old", "soldier|soldiers|armor|armors|helmet|chestplate"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_OLD_SOLDIER => [
-            "that armor used to be employed by soldiers years ago, but it's been repurposed and repaired for a second life in our modern world.",
-            "As you can guess from its price, it's not the most intricately designed piece of armor. But, you won't find better protection for so low a price.\nSo, that's a great deal if your budget is tight."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_OLD_SOLDIER => "Oh yeah, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_POULAINES => ["poulaines|poulaine"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_POULAINES => ["very fashionable currently.\nAn odd pick for an adventurer, undoubtedly, but if you care about style more than protection they are the shoes for you."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_POULAINES => "Ah yes, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_CHOPINES => ["chopines|chopine"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_CHOPINES => ["A great choice for the ladies. Feminine and making you look taller, they are all the rage in the courts.\nAlthough, as for the dungeons you'd risk breaking your ankles with those."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GAMBESON => ["gambesson|gambessons|gambeson|gambesons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GAMBESON => [
-            "Gambesons are a great way to protect yourself on a low budget, and it's pretty comfortable despite the weight of this one.\nThey work simply by layering thick layers of padding and fabric to absorb blows.",
-            "But, this one we have is a bit on the heavier side, with its added metal plate on the chest to give extra protection at the cost of weighing a bit more on the shoulders."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HOUPPELANDE => ["houpelande|houpelandes|houppelande|houppelandes|houppeland|houppelands"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HOUPPELANDE => [
-            "Houppelandes are beautiful costumes that really highlight the masculine form.",
-            "Of course taking such a precious fabric into the dirty and dangerous halls of the dungeon aren't really advised, but I won't stop you from living your truth if fashion is of great importance to you."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_HOUPPELANDE => "Ah, a great choice. ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ESCOFFION => ["escoffion|escofion|escoffions|escofions"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ESCOFFION => [
-            "Escoffion are the newest chic haircut in this country, and this hat is just what you need if you want in on it too.",
-            "I won't lie about the fact that I personally find this trend a little ridiculous, but, I guess that I'm just getting old.\nPlus, I am not from this country so I'm not in on the local fashion."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_ESCOFFION => "Right, the horned hat. ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_HAUBERK => ["hauberk|hauberc|hauberks|haubercs"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_HAUBERK => [
-            "Hauberks are mail robes that offer great protection, and our model comes with a complementary surcoat to offer aditionnal coverage.",
-            "This one is the heaviest of our pieces, but, you won't find a more protective armor in our humble shop."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_CERVELIERE => ["heavy|cerveliere|cervelieres", "cerveliere|cervelieres|helmet|helmets"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_CERVELIERE => [
-            "Protecting the skull is paramount in the dangerous halls of the dungeon.\nThis heavy helmet and cerveliere combo is perfect for that, giving two thick layers of protection to your cranium so you can be sure to avoid concussions."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_TELECRYSTAL => ["telecrystal|tele|telecrystals", "telecrystal|crystal|telecrystals|crystals"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_TELECRYSTAL => [
-            "",
-            "It is a very powerful magic artefact that can prove most usefull during your adventures, wether you are trying to make a quick escape to the exit or to join a faraway ally, this crystal allow you to do so instantly.",
-            "Allthemore, thanks to the incredible power of the crystal and its robust design, this artefact will be endlessly reusable too."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_TELECRYSTAL => "Right, the telecrystal. My most prized article.",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_WHERE_DUNGEON => ["where|way|road|path|lead|toward|towards", "dungeon|tower|dungeons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_WHERE_DUNGEON => ["Right down the small road, to the right once out of the shop.\nIt should be hard to miss, as signs have been recently added pointing toward it."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GENDER => ["you|your|are|re", "boy|man|girl|woman|female|male"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GENDER => ["I am a man."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GENDER => "Is it not obvious?... ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_SUPPLIER => ["stocks|stock|supplier|suppliers|supply|supplies|merchandise|merchandises", "from|who|where"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_SUPPLIER => ["I supply the stocks myself, as I travel from country to country I buy what one's have to offer and sell what they lack."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_WEATHER => ["weather|out|sunny|rain|rainy|cloudy"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_WEATHER => ["it's not too cold.", "I appreciate that we can still enjoy a bit of sunlight when coming home from work."],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_WEATHER => "We've seen better days, but ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_SEASON => ["which|what", "season|seasons"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_SEASON => ["it's currently fall.\n Did you not notice the tree's got all orange?"],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_SEASON => "Hum, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_ADVENTURER => ["adventurer|adventurers|explorer|explorers|us"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_ADVENTURER => [
-            "adventurers represent most of my clientele, so I'd be foolish not to enjoy their presence.",
-            "But I'll admit not all adventurers are equal, and a lot are perticularly rude.",
-            "I get it tho, truly.\nIt's hard to maintain good customs when you're life is constantly on the line and you get hardened by battles and tenuous work.",
-            "Even I know I'm getting a bit rough because of the constant travels, so I can only empathize with the struggles of the adventuring life."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_ADVENTURER => "Well, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_STUPID => ["you|your|are", "stupid|dumb|idiot|dumbass"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_STUPID => [
-            "whatever you say.",
-            "It's not an adventurer that's gonna make me feel insecure about my intellect."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_STUPID => "Sure, sure, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GOD => ["believe|worship|think|your|have", "religion|religions|god|gods|divinity|divine"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GOD => [
-            "Do I look like some kind of profane to you?",
-            "I only believe in the one true God worshipped in this holy continent."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOD => "What kind of question is this? ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_OTHER_GOD => ["other|multiple|many", "god|gods|divinity|divine"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_OTHER_GOD => ["Such blasphemy do not amuse me.\nOnly one God can exist by very definition."],
-        LocaleKey::DIAL_SHOPKEEPER_KEY_GOLD => ["gold|golds|coin|coins|money|moneys"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_GOLD => [
-            "your best bet to get some gold is to go out in the dungeon and search for any treasure you can bring back.",
-            "And, if you find anything good, I'll even be willing to buy it from you directly at a fair price."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_GOLD => "Well, with that tower appearing close by, I think that ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommand|recommend"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_RECOMMENDATION => [
-            "I've got a wide array of tools that all can prove usefull for your adventures.",
-            "Potions are a great way to heal reliably, if you ever get in a bind in the dungeon.",
-            "Meanwhile my large catalogue of armors can cater to all budgets and fighting styles.\nFor those that need good protection for cheap, the heavier pieces will be perfect for you, but they might hinder your movements. Meanwhile more medium to light armors will allow to move freely while still improving your defense."
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_RECOMMENDATION => "Well, ",
-        LocaleKey::DIAL_SHOPKEEPER_KEY_QUEST => ["quest|quests"],
-        LocaleKey::DIAL_SHOPKEEPER_TXT_QUEST => [
-            "if it is gold and glory you're after, I reckon that going as deep as you can down that tower out there is as good a quest as any.",
-            "Although, personally I'd much rather stay home then go in that cursed place.\nBut I guess that this is why I am the shopkeeper and you are the adventurer, eh?"
-        ],
-        LocaleKey::DIAL_SHOPKEEPER_INTRO_QUEST => "A quest? I'm no tavern keeper, adventurer.\nBut ",
-        LocaleKey::DIAL_ALCHEMIST_REPEAT => "As I was saying, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_NOT_FROM_HERE => ["from|origin|originally|born", "not|no|didn|here|in|there|country|other"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_NOT_FROM_HERE => ["I was born to the north of the country."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_NOT_FROM_HERE => "Well I'm not from very far either, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_ORIGIN => ["you|your", "from|born|country|where|story|origin"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ORIGIN => [
-            "I was born up north, in the capital of Mourre.",
-            "My father worked there as an alchemist, at the king's court.\nThis is where I got my education on alchemy and other occult arts."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_ALLIANCE => ["what|great|why|when|how|tell", "alliance|allience"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ALLIANCE => [
-            "the \"Great Alliance\" is treaty that was initially signed by the northen kingdoms, in 1340.",
-            "It was initially a military treaty, but then that lead to more exchanges, morphing into a commercial accord that consecutively got spread to other countries in this continent during the 50s.\nThis is up to 1385, where our dear Kingdom of Livrou joined them.",
-            "This treaty then got renewed in 1402, making the name of \"Great Allience\" official. As it got renewed, the treaty included even more countries from the continent, as well as some neighbouring countries in the South.\nIt's also during this time that the standardised gold coin started to replace the localised currencies, so to simplify international exchange."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ALLIANCE => "From what I can recall, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH_POTION => ["health|life|heal", "potion|potions"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH_POTION => ["I make my health potions myself. Efficient and pure, you won't find more powerfull elsewhere.\n... Especially so here, considering how little concurence there is."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_LOST_KNIGHT => ["lost", "knight"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_LOST_KNIGHT => ["I know nothing of the inhabitants of the dungeon, sorry."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_GOBLINS => ["goblins|goblin"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GOBLINS => [
-            "",
-            "I never saw any in person, and it would likely be dangerous for me to put my nose in their business.\nBut from what I've read, they actually only attack those they feel is invading or threatening their territory.",
-            "Territory that, genearally, is burried well far from our own. Of course, when an expensionist wind takes us, they become an annoyance for our projects, but I think it's unfair to hold against them the simple fact of defending their habitats.",
-            "All the more, some studies seems to point out an inteligence much more advanced then the stereotypes would lead us to believe. Having complex social hierarchies, technologies and tools of advanced manufacture as well as stealthy yet efficient agricultural techniques."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOBLINS => "Ah, goblins. these little critters are generally hated by nobles and commonfolks alike, which is understandable...\nBut, I must say that they are also quite missunderstood.",
-        LocaleKey::DIAL_ALCHEMIST_KEY_SLIME => ["slimes|slime"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_SLIME => [
-            "The slimes are simple and generally inoffensive creatures, as long as we don't go poking 'em bare handed.",
-            "Intrestingly enough, it is quite hard to exactly class them, seeming closer to a mushroom then an animal despite their relative speed."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_UNDEAD => ["undead|undeads|zombie|zombies|skeleton|skeletons"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_UNDEAD => ["The stories about undeads in the dungeon are quite unique, so far such accounts of necromancy were only confined to the realm of legends. The implications of such creatures existing would be massive for advancements in contemporary occult sciences."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_RESUSCITATE => ["back|from|i|got|adventurer|adventurers", "death|died|killed|undied|resuscitated|resurrected"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_RESUSCITATE => [
-            "Most adventurers here have had similar experiences.\nIt's hard to exactly pinpoint the phenomenon that lead to coming back from death, but it's sure that it doesn't let indifferent no matter what's the force bringing you back.",
-            "Observations made with multiple time sensitive objects seems to show a sort of temporal phenomenon, bringing adventurers and their possessions to the exact time where they entered the dungeon when they die, even if the rest of the world outside continue it's course unnaffected by this phenomenon.",
-            "But, so far it is currently impossible to define why, or even how such a thing is possible, nor what the long term consequences could be for the adventurers.",
-            "Be sure to take it easy. Such experiences is nothing light to go through, and I can only advise taking care of yourself in the dungeon. As long as nothing is certain, it's best to be carefull."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_DUNGEON_INSIDE => ["catacombs|catacomb|crypt|crypts|entrance|inner|interior|inside|insides|prison|prisons"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_DUNGEON_INSIDE => ["You'd be better served by talking of this subject to other adventurers that did visit the dungeon."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_DUNGEON_INSIDE => "Having never been to the dungeon, I don't have any expertise to give on that.\n",
-        LocaleKey::DIAL_ALCHEMIST_KEY_DUNGEON => ["dungeon|tower|dungeons"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_DUNGEON => [
-            "My work in the guild confines me to my post of merchand, and I don't have the capacity to go adventuring in the tower on my own either way.\nBut, I remain profoundly intrigued by this strange place.",
-            "If what the locals say is factual, then everything lead to believe that this place is magical in nature, and thus would probably have been intentionally brought.",
-            "The question then is, who would place it here, and to what end?\nFor now nothing seem to demonstrate a true use for the place by anyone that'd own it, but the dungeon is the ideal playfield for an adventurer on the other hand. Could it be then that this tower was made only to entertain such activities? A place made to be sacaged and pillaged forever?",
-            "And if that is the case, could this tower have been made to be explored by it's creator themselves, or is it meant to bring other adventurers to it?",
-            "So many questions... And yet so little informations to draw reliable conclusions from... I can hardly contain my enthousiasm of learning more from the stories told by adventurers returning from their explorations."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_DUNGEON => "It's trully facinating. ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HOLY_EMPIRE => ["holy", "empire|country|kingdom"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HOLY_EMPIRE => [
-            "The Holy Empire is probably one of the largest coalition of the continent, Largly surpassing the Kingdom of Livrou, tho they are not as united.",
-            "They joined the Great Allience more or less at the same time as us, and have strong commercial ties with most countries in the allience, especially ours."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_NAME => ["your|you", "name|called|named|call"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_NAME => ["My name is Nicolette, daughter of Musa al-Bakir."],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ASK_NAME => ["My name is Nicolette, daughter of Musa al-Bakir.", "What's yours?"],
-        LocaleKey::DIAL_ALCHEMIST_KEY_AGE => ["your|you", "age|old"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_AGE => ["I'm 28 years old."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_AGE => "You know, it isn't very polite to ask a lady about her age, eh? But, if you're so interested, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_INTELLIGENCE => ["intelligence|intelligent|smart|magic"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_INTELLIGENCE => [
-            "Magic is actually a pretty wide field, that's deeply intertwined with science. But in the broadest sense, it's all about canalising the energies present in both a mage's soul and it's environment to create desirable results."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_ADVICES => ["advice|tips|tip|trick|tricks|advices|help"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ADVICES => [
-            "All I can advise you on with my expertise is, don't drink anything in a lab, and be wary of anything that look magical when you don't know what it does.",
-            "Except when you're an alchemist like me of course, me I can drink whatever I want in my lab.\n\n\n\n... But I usually avoid it, most of the stuff in the lab is toxic."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ADVICES => "I am no fighter, and, considering the fact that you made it here so far, you're likely more capable then I am when it comes to adventuring.\n",
-        LocaleKey::DIAL_ALCHEMIST_KEY_DISCOUNTS => ["free|discount|discounts|gift|offer|sale"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_DISCOUNTS => ["the price is the price. Otherwise that'd be unfair for the other adventurers that don't get a discount."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_DISCOUNTS => "I'm sorry, but ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_TOO_EXPENSIVE => ["here|your|you|that|prices|price|it", "high|expensive|much|lot|scam|scammer"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_TOO_EXPENSIVE => ["if you are out of budget, I'm sure you can find what you need to fill your pockets in the tower."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_TOO_EXPENSIVE => "Ah, I'm sorry to hear that, but ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HAVE_YOU => ["have|sell|got", "you|your"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HAVE_YOU => [
-            "All my articles are exposed on the shelf, but if you need other types of equipments, don't hesitate to give a visit to my colleague up front, the blacksmith.",
-            "Maybe he'll have what you seek."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_FUCK_YOU => ["fuck|hate|fucked", "you|yourself|off|get"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_FUCK_YOU => ["We're in a convivial place here, and I don't see what justify so much hostility."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_FUCK_YOU => "Woah, relax friend.\n",
-        LocaleKey::DIAL_ALCHEMIST_KEY_GET_LOST => ["go|get|burn", "hell|lost"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GET_LOST => ["", "I'm only trying to help here."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GET_LOST => "Why? ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_THREAT => ["kill|murder|hurt", "you"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_THREAT => ["I highly recommand not using violence in a room filled with seasoned wariors."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_THREAT => "No matter what makes you say such things, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HOW_YOU_DOIN => ["how|are|is", "going|you|doing|feel|good|well|ok"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HOW_YOU_DOIN => ["I'm doing good, thank you. How about you, friend?"],
-        LocaleKey::DIAL_ALCHEMIST_KEY_HELLO => ["hello|hi|salutations"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HELLO => ["Hi again, #{Locale::PLAYER_NAME}."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_MERCHANT_NAME => ["nicolette|nicolet|nikolette|nikolet|nicole|nikole"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_MERCHANT_NAME => ["It's me, yeah."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_VILLAGE => ["village|here|town|villagers|townsfolks|villager|townsfolk|place|surrounding|where"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_VILLAGE => [
-            "It's not quite as lively as the city here, but, with this guild we still get plenty of people to see 'round, so I'm not too bored nonetheless.",
-            "As for the locals though, it's clear they are plenty close-minded.\nWe could feel on our arrival that we were looked down upon as soon as the guild was settled.",
-            "And, I don't know if it's how I look or my field of research, but I sometimes feel like they hold me in especially low regards..."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_YEAR => ["what|which|is|are", "when|year|time"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_YEAR => ["We are in the autumn of 1414, in our 10th lunar cycle of the year."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_NOT_HELPING => ["not|no|don", "help|helping|helpfull|usefull|use|serve"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_NOT_HELPING => ["Sorry if my knowledge can't satisfy your curiosity."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_ESCOFFION => ["escoffion|escofion|escoffions|escofions"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ESCOFFION => [
-            "I find it to give better silhouette then regular headwares, making it much less flat."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_ESCOFFION => "A nice hairdo, right?\n",
-        LocaleKey::DIAL_ALCHEMIST_KEY_TELECRYSTAL => ["telecrystal|tele|telecrystals", "telecrystal|crystal|telecrystals|crystals"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_TELECRYSTAL => [
-            "",
-            "They work by finding \"nodes\" in the fabric of our world's, and transport us to them.",
-            "But, this tool used to be pretty niche since only a few place used to have such nodes.",
-            "That changed when the tower appeared, though. Apparently, the entrance of the dungeon is in itself a massive dimmensionnal node, and the mere fact of standing inside the dungeon also generate nodes all around oneself.",
-            "Therefore, the telecrystal is able to transport adventurers to the exit or eachothers when they visit the tower. Which in turn largely popularised the tool among them."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_TELECRYSTAL => "Oh yes, those contraptions are very interesting.",
-        LocaleKey::DIAL_ALCHEMIST_KEY_GENDER => ["you|your|are|re", "girl|woman|female"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GENDER => ["This is of much little import."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GENDER => "Why would you care 'bout that? ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_SUPPLIER => ["stocks|stock|supplier|suppliers|supply|supplies|merchandise|merchandises", "from|who|where"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_SUPPLIER => ["All my merchandise is ellaborated with care by myself, and the raw materials are delivered to me through the guild's network."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_WEATHER => ["weather|out|sunny|rain|rainy|cloudy"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_WEATHER => ["For now the weather is still holding on. It's warmer here then up north at least."],
-        LocaleKey::DIAL_ALCHEMIST_KEY_SEASON => ["which|what", "season|seasons"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_SEASON => ["we are in autumn. Though the weather is still warm currently, we can see that the trees are starting to loose their leaves."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_SEASON => "Hum, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_ADVENTURER => ["adventurer|adventurers|explorer|explorers|us|mercenaries|mercenary|adventuring"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_ADVENTURER => [
-            "Even if I'm part of the adventurer's guild, I am not an adventurer myself. I'm pretty sure you can guess that much from the way I dress by the way.",
-            "But, my work here lead me to regularly interact with all sorts of people like you.\nWhat's clear, is that most of them work in this field out of necessity. When you're down in the moat, you can hardly make enough to live with traditionnal labour, and thus brigantism and mercenary gigs are some of the only ways to make ends meet when you know how to fight. Most notably for those who have a criminal past and struggle to reintegrate.\nFrom that assumption, mercenarism is probably the best option of the two.",
-            "Honestly, I hope this tower may lead some to find more stable living conditions, offering many treasures in a controlled environment.\nBut, on that front I wouldn't be surprised if the King's court was to try and take control of this place in order to hoard it's gains."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_STUPID => ["you|your|are", "stupid|dumb|idiot|dumbass"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_STUPID => [
-            "I'm not sure why you'd say such a thing."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_GOD => ["believe|worship|think|your|have", "religion|religions|god|gods|divinity|divine"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GOD => [
-            "I think it's best we avoid divisive topics like religion.",
-            "If you are a non-believer, that's your business, me I'm just here to sell potions."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOD => "Well... ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_OTHER_GOD => ["other|multiple|many", "god|gods|divinity|divine"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_OTHER_GOD => [
-            "Well, when we look at the civilisations predating ours, many of them turns out to be polytheist.",
-            "That kind of opinions could get me incinerated, but I do think it isn't absurd to emit the possibility of multiple entities governing the laws of our universe."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_GOLD => ["gold|golds|coin|coins|money|moneys"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GOLD => [
-            "maybe you should sell the items you won't need in order to meet your needs.",
-            "Beside alchemy, my second role is to estimate the value of and buy the treasures adventurer's find in name of the guild."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOLD => "If you are running dry on gold, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_RECOMMENDATION => ["recommandation|recommendation|recommandations|recommendations|recommand|recommend"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_RECOMMENDATION => [
-            "Everything depends on your specific needs, if you can cast powerfull healing spells my potions will more then likely have little use to you, but they can still save your life in situations where you cannot let your health up to chance.",
-            "As for my health pellets, those can be especially usefull to solo adventurers that'd need a continuous heal while they attack their ennemies."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_TXT_AQUINTENCE => ["happy to make your aquintance, #{Locale::PLAYER_NAME}."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_AQUINTENCE => "Well, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_JOKE => ["aucassin|ocassin|aucassins"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_JOKE => ["Ha. Ha. Very funny. No one ever told me that one."],
-        LocaleKey::DIAL_ALCHEMIST_TXT_WRONG_NAME => ["I'd be surprised if this was your name..."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_WRONG_NAME => "Mh, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_GUILD => ["guild|guilds"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GUILD => [
-            "The adventurer's guild allow to support freelance mercenaries in their endeavors, wether that's for housing, food, equipments or finding jobs and building a network of other adventurers.",
-            "It's been a few years that I've been working for them as an alchemist and broker.\nIt's been enjoyable, even if the pay's far below what I could get."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GUILD => "A neat concept, eh?\n",
-        LocaleKey::DIAL_ALCHEMIST_KEY_CAT_EARS => ["cat|cats|kitten|kittens|kitty|feline", "ears|earband|ear|earbands|hats|hat|look|style|head|headware|headwear|headwears"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_CAT_EARS => ["that's not intentional."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_CAT_EARS => "Oh, you mean my escoffion? No it's just a hat to hold my hair into shape... But now you say it I guess it do kind of look like a cat.\nThough ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_AMETHYST => ["amethyst|ametyst|amethysts|amethist|ametysts|amethists|ametist|ametists"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_AMETHYST => [
-            "I've been studying the samples adventuers brung to me closely, and found something interesting.",
-            "Everything about the amethists from the dungeon show them to be perfectly normal. Same density, same color, same clarity and even its reaction to heat is like the normal stuff, leaving very little doubts that they are genuine amethysts...",
-            "But, one single thing is off; The structure.",
-            "Each naturally occuring crystal has it's own internal structure that inform how they form. Some form in a square-shaped pattern, other in more complex shapes... But they each have a single structure followed by all of its formations.\nAnd, for those it'd at first seem to be the case too, as they do have the general shape of a regular amethyst formation.",
-            "Except, when taking a closer look, they don't follow the normal pattern of amethysts under close observation. It's not perfectly smooth so it doesn't seem to be polished, and do follow a sort of triangular pattern, but that's not what the micro-structure of amethysts is supposed to be.\nIt's almost, like... As if someone had rechiseled very precisely amethysts to look exactly like natural amethysts... And I have no clue why that would be the case."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_AMETHYST => "Oh, that's funny you're talking about that, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_MARTON => ["marton|márton|orban|orbán|other|outside", "marton|márton|orban|orbán|marchant|merchant|guy|dude|shop"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_MARTON => ["I don't know much about him, I didn't get the occasion to talk to him so far honestly."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_MARTON => "Hmm... That's the traveling merchant that got installed a little before the guild arrived right?\n",
-        LocaleKey::DIAL_ALCHEMIST_KEY_BLACKSMITH => ["blacksmith|blacksmiths|across|other|guild", "blacksmith|blacksmiths|guy|dude|smith"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_BLACKSMITH => [
-            "The blacksmith across my shop has been at it for a while, he worked for the guild long before I joined myself.",
-            "He doesn't talk, so people tend to find him rude or intimidating, but when you get to know him he's actually pretty sweet.\nAs they say, actions speak louder then words anyway.",
-            "And, as for what's of your concern, he's a hell of a good blacksmith. If you need anything armor-related, he's the guy to see."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_KING => ["king|kings|siarl|court"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_KING => [
-            "The king of Livrou is King Siarl VII, \"the stern\".",
-            "Having taken the throne in 1393 after overthrowing his own father at only seventeen years old, he lead many victories with an iron fist.\nI think that nearly becoming illegitimate in favor of foreign tradings during his young adult life hardened him early, making him a much harder ruler then his father was. But, he also is a more level-headed ruler, to say the least.",
-            "My father saw him grow since he was a little kid during his service funilly enough. He described him as fairly reserved as a kid, but he quickly turned out brillant in combat and on the battlefields."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_MOURRE => ["your|you|native|mourre|moure|capital|capitals|the|our", "city|mourre|moure|capital|capitals"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_MOURRE => [
-            "The capital of our country is Mourre.\nA great city up north set on an immense island within a giant river.",
-            "It's very pretty too, I highly advise giving it a visit during the summer.\nAnd, though the cost of living is much higher, it was great for my field of work, between the King's court's academy and many libraries."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_LIVROU => ["that|this|your|our|you|my|where|name|livrou|in|which|what", "kingdom|kingdoms|country|countries|livrou"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_LIVROU => [
-            "We are in the Kingdom of Livrou.",
-            "It's one of the great nations of the Great Alliance.",
-            "Currently we're heading toward what may be a dark era for our nation, as instability seems to show it's face in the court and restlessness creep up within lords.\nBut, as of now, we're the second biggest kingdom of the continent, behind the Holy Empire."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_KEY_FATHER => ["your|you|mussa|musa|al-bakir|albakir|bakir", "daughter|daughter|dad|dads|father|fathers|mussa|al-bakir|albakir|bakir"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_FATHER => [
-            "Mussa al-Bakir is my father.",
-            "He is a renowned alchemist that work for the King of Livrou himself.\nHe was in great part responsible for my education in the occult, though I did also follow two doctorates on top of his private lessons in Mourre.",
-            "I'd like to think that he made me a brillant scholar, but he does not see of a good eye that I'm \"wasting\" my time working for the lower class instead of getting renowned among nobles.\nBut I'm enjoying my time with y'all much more then I appreciate the company of fools that pretend to have figured out the world without having ever left their court.",
-            "The many stories I've heard and landscapes I've crossed have much more to teach then the capital ever could, now that my education is done."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_FATHER => "Yes, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_QUEST => ["quest|quests|mission|missions"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_QUEST => [
-            "the only people to pass through are adventurers and the townsfolks that would much rather we leave to their peace.",
-            "But if you need gold, just go scavange that tower and I'll buy back whatever you have of value."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_QUEST => "Ah, I'm sorry but we haven't recieved any quests from anyone here, since ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_BAD => ["bad|poorly|awfull|not|horrible|worst|worse"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_BAD => ["sorry to hear that."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_BAD => "Oh, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_GOOD => ["good|fine|great|ok|alright|best|better"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_GOOD => ["happy to hear that."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_GOOD => "Well, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_NEUTRAL => ["going|it|day|another"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_NEUTRAL => ["it's not always easy eh."],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_NEUTRAL => "Yeah I get it, ",
-        LocaleKey::DIAL_ALCHEMIST_KEY_HEALTH_PELLET => ["pellets|pellet"],
-        LocaleKey::DIAL_ALCHEMIST_TXT_HEALTH_PELLET => [
-            "They are a remedy of my own making.",
-            "I've discovered that by distilling health potions to a very concentrated sirup, and then hardening it with sugar like a candy, I can make pellets that progressively heals you as they melt.",
-            "Though, be sure not to munch on it if you want the best results, and beware of chocking hazards in the heat of battle."
-        ],
-        LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Oh yeah, I'm really proud of this one.\n",
-        LocaleKey::DIAL_BLACKSMITH_REPEAT => "",
-        LocaleKey::DIAL_GOBLIN_BLACKSMITH_REPEAT => "",
-        LocaleKey::DIAL_GOBLIN_GUARD_REPEAT => "Dëkabogu sö Kö Rakröt Bëdès ",
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME => ["pöko|poko", "#{Locale::PLAYER_NAME}", "köpodugus|kopodugus"],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME_NICKNAME => ["pöko|poko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "köpodugus|kopodugus"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_NAME_HEAR_OUT => ["Kosäpor sö Kö Rakröt Bëdès."],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_NAME => ["Kosäpor sö Kö Rakröt Bëdès. Todkörragosaborkus sö Kö Rakröt Bëdès kosäpor sö pöko köpoduk."],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_PEACE => ["kobakëtodutregobu|kobaketodutregobu|toderkoburëkobu|toderkoburekobu|koptoderkoburëkobu|koptoderkoburekobu|toduderkoburëkobu|toduderkoburekobu|koptoduderkoburëkobu|koptoduderkoburëkobu"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_PEACE_HEAR_OUT => [
-            "Kös sö Kö Rakröt Bëdès sö köpogur #{Locale::PLAYER_NAME}. Erkorakröt sö Kö Rakröt Bëdès tö tarkorbakö...",
-            "Todkusaborköspo kobukör kö tarkorbakö sö kobukörkada sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès.",
-            "Kopkobakëtogeopra tö köpoduk korkö erköpo sö dök köpoduk. Todkadä këtogubu #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_PEACE => [
-            "Kosäpor sö #{Locale::PLAYER_NAME} sö pöko köpoduk? Kosäpor kö tarkorbakö sö pöko köpoduk sö pör söedso.",
-            "Korkëtogubu sö #{Locale::PLAYER_NAME} sö dök köpogur sö dëkaos? Dëkaos sö bëdèsoe todök sö dök?"
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_HELP => ["toderköpo|toderkopo"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_HELP => [
-            "Kobukör toderköpo sö köpoduk sö #{Locale::PLAYER_NAME}.",
-            "Koptöter kobakëtodutrëgobu tö köpoduk todök sö dök köpoduk. Kobukör totrëkobu sö Kö Rakröt Bëdès tö bëdèsoe korkö popör kö bëdèsoe sö dök köpoduk."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_TRADE => ["sodottöter|sodottoter|kopsodottöter|kopsodottoter|töter|toter|koptöter|koptoter"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_TRADE => [
-            "Erkosodottöter dëkaos sö köpoduk kö tarkorbakö korkö sö erkö sö erkö… Kobukör erköpo sö dök köpoduk.",
-            "Koptöter kobakëtodutregobu tö köpoduk todök sö dök köpoduk."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_LEARN => ["tosedorerksäpor|tosedorerksapor|koptosedorerksäpor|koptosedorerksapor|kosäpor|kosapor|kopkosäpor|kopkosapor", "köpoduk|kopoduk|pöko|poko"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_LEARN => [
-            "Sö Kö Rakröt Bëdès sö körragosaborkus tötresèop tödoer sö tarkorbakö kö kosäpor köpoduk. Erkö sö Kö Pöko Tarkö sö dasdöter kosäpor korkö erkokosaborkös erkö sö Kö Pöko Tarkö sö dasdöter kobakëtogospor sö köpoduk.",
-            "Kobukör korkëtogubagedo sö #{Locale::PLAYER_NAME} sö dök köpoduk. Koptöter kobakëtodutregobu tö köpoduk todök sö dök köpoduk."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ELDER => ["pöko|poko|koppöko|koppoko|kopöko|kopoko|pör|por|koppör|koppor|kopör|kopor|kör|kor|kopkör|kopkor", "köpodubugurku|kopodubugurku"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ELDER => [
-            "Pöko sö köpodubugurku?...",
-            "Rakröt sö Kö Rakröt Bëdès tö popör bëdèsoe korkö kör kö bëdèsoe sö köpodubugurku… Kopkosäpor sö bëdèsoe toderkoburëkobu sö köpoduk sö köpodubugurku. Tö köpoduk sö koprëkor todök sö köpoduk.",
-            "Kör sö kobakëto."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_ENTER => ["bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "korkëtogubagedo|korketogubagedo|todök|todok|kopkorkëtogubagedo|kopkorketogubagedo|koptodök|koptodok"],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_ENTER_LEARN_NAME => ["#{Locale::PLAYER_NAME}", "korkëtogubagedo|korketogubagedo|todök|todok|kopkorkëtogubagedo|kopkorketogubagedo|koptodök|koptodok"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_ENTER_HEAR_OUT => [
-            "Tödoer sö #{Locale::PLAYER_NAME} korkëtogubagedo sö dök köpoduk köpogur sö köpogugus?",
-            "Totrëkobu tö bëdèsoe kö köpoduk. Dëkaobu tö bëdèsoe kö dök köpoduk. Tordöter tö bëdèsoe kö dëkaos tökobu.\nSö körraega tötresèop sö dëkaos?"
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_ENTER => [
-            "Korkëtogubagedo tö köpoduk söd sö dök köpoduk. Kopkorkëtogubagedo tö tarkorbakö sö dök köpoduk köpogur totrëkobu. Kopkorkëtogubagedo tö tarkorbakö sö dok köpoduk köpogur tordöter.\nToderkoburëkobu kö köpoduk sö dök köpoduk tötresèop todutrëd kö tarkorbakö sö dök köpoduk.",
-            "Körkubagedo kobakëto dök köpoduk tötresèop sö todutrëd."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_THREAT => ["koptotrëkobu|koptotrekobu|totrëkobu|totrekobu|koppopör|koppopor|koppopor"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_THREAT => [
-            "Pöko sö #{Locale::PLAYER_NAME} sö kobakëtodugusabor. Sö todutrëd dök köpoduk. Sö todutrëd köpoduk.",
-            "Koptoderkoburëkobu sö Kö Rakröt Bëdès sö dök köpoduk. Koptoderkoburëkobu tö köpoduk sö dök köpoduk."
-        ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_HELLO => ["poko|pöko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako"],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_HELLO_LEARN_NAME => ["poko|pöko", "#{Locale::PLAYER_NAME}"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_HELLO_HEAR_OUT => ["Säpogu sö Kö Rakröt Bëdès sö #{Locale::PLAYER_NAME}."],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_HELLO => ["Säpogu sö Kö Rakröt Bëdès sö #{Locale::PLAYER_NAME}"],
-        LocaleKey::DIAL_GOBLIN_GUARD_INTRO_HELLO => "Kosäpor sö pöko köpoduk... ",
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_WHAT => ["sö|so|kö|ko|tö|to"],
-        LocaleKey::DIAL_GOBLIN_GUARD_TXT_WHAT => ["Erkosä sö Kö Rakröt Bëdès sö kös korkö pöko sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès."],
-        LocaleKey::DIAL_KEY_PLAYER_NAME => ["#{Locale::PLAYER_NAME}"],
-        # autogenerated via DialogGenerator:
+,
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NOTHING => ["no|verb|no|verb|erkno|verb|erkno|verb|kobno|verb|kobno|verb"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NOTHING => [
-            "A lack of verb in a sentence means \"Being\" as a verb.",
-            "When \"No verb\" is a verb, it can also appear as \"Erkö\" or \"Köpo\" for past and future."
+            "\"No verb\" means a nothing, or can also mean \"Being\" as a verb.",
+            "When \"No verb\" is a verb, it can also appear as \"Erkno verb\" or \"Kobno verb\" for past and future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_NOTHING => ["nothing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NOTHING => [
+            "\"Nothing\" can be said \"No verb\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NOTHING => ["being"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NOTHING => [
@@ -1838,7 +14,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ARMOR => ["abadurä|abadura|erkabadurä|erkabadura|kobabadurä|kobabadura"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ARMOR => [
-            "\"Abadurä\" means a armor, or \"Armoring\" as a verb.",
+            "\"Abadurä\" means a armor, or can also mean \"Armoring\" as a verb.",
             "When \"Abadurä\" is a verb, it can also appear as \"Erkabadurä\" or \"Kobabadurä\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ARMOR => ["armor"],
@@ -1858,6 +34,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GOLD => [
             "\"Gold\" can be said \"Aüro\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOLD => ["adding|gold|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GOLD => [
+            "\"Adding gold to\" can be said \"Aüro\" in a goblin talk, or also as \"Erkaüro\" for a past or \"Kopaüro\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOLDIER => ["bëdès|bedes|erkoëdès|erkoedes|kopbëdès|kopbedes"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOLDIER => [
             "\"Bëdès\" means a soldier, or can also mean \"Being or acting like a soldier\" as a verb.",
@@ -1867,9 +47,13 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOLDIER => [
             "\"Soldier\" can be said \"Bëdès\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOLDIER => ["being|or|acting|like|a|soldier"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOLDIER => [
+            "\"Being or acting like a soldier\" can be said \"Bëdès\" in a goblin talk, or also as \"Erkoëdès\" for a past or \"Kopbëdès\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ADVENTURER => ["bëdèsoe|bedesoe|erkoëdèsoe|erkoedesoe|kopbëdèsoe|kopbedesoe"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ADVENTURER => [
-            "\"Bëdèsoe\" means a adventurer, or \"Adventuring\" as a verb.",
+            "\"Bëdèsoe\" means a adventurer, or can also mean \"Adventuring\" as a verb.",
             "When \"Bëdèsoe\" is a verb, it can also appear as \"Erkoëdèsoe\" or \"Kopbëdèsoe\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ADVENTURER => ["adventurer"],
@@ -1889,18 +73,31 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NECKLACE => [
             "\"Necklace\" can be said \"Boëdea\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NECKLACE => ["putting|a|necklace|on"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NECKLACE => [
+            "\"Putting a necklace on\" can be said \"Boëdea\" in a goblin talk, or also as \"Erkoboëdea\" for a past or \"Kopboëdea\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GOLD_OLD_NAME => ["buburkrörtrakror|buburkrortrakror|erkobuburkrörtrakror|erkobuburkrortrakror|kopbuburkrörtrakror|kopbuburkrortrakror"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GOLD_OLD_NAME => [
-            "\"Buburkrörtrakror\" is an old word for \"gold\", but we now rather use \"Aüro\""
+            "\"Buburkrörtrakror\" means a gold old name, or can also mean \"\" as a verb.",
+            "When \"Buburkrörtrakror\" is a verb, it can also appear as \"Erkobuburkrörtrakror\" or \"Kopbuburkrörtrakror\" for past and future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GOLD_OLD_NAME => ["gold|old|name"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GOLD_OLD_NAME => [
+            "\"Gold old name\" can be said \"Buburkrörtrakror\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOLD_OLD_NAME => [""],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GOLD_OLD_NAME => [
+            "\"\" can be said \"Buburkrörtrakror\" in a goblin talk, or also as \"Erkobuburkrörtrakror\" for a past or \"Kopbuburkrörtrakror\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GREASE_FAT_SLIPPERY => ["där|dar|erkoär|erkoar|kopdär|kopdar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GREASE_FAT_SLIPPERY => [
-            "\"Där\" means a grease, fat or something slippery, or also \"Greasing\" as a verb.",
+            "\"Där\" means a grease/fat/slippery, or can also mean \"Greasing\" as a verb.",
             "When \"Där\" is a verb, it can also appear as \"Erkoär\" or \"Kopdär\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GREASE_FAT_SLIPPERY => ["grease|fat|slippery"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GREASE_FAT_SLIPPERY => [
-            "Anything like a grease, a fat or something slippery can is called \"Där\" in a goblin talk."
+            "\"Grease/fat/slippery\" can be said \"Där\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GREASE_FAT_SLIPPERY => ["greasing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GREASE_FAT_SLIPPERY => [
@@ -1908,7 +105,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RELAXING => ["däs|das|erkoäs|erkoas|kopdäs|kopdas"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RELAXING => [
-            "\"Däs\" means a relaxing, or \"Relaxing\" as a verb.",
+            "\"Däs\" means a relaxing, or can also mean \"Relaxing\" as a verb.",
             "When \"Däs\" is a verb, it can also appear as \"Erkoäs\" or \"Kopdäs\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_RELAXING => ["relaxing"],
@@ -1921,7 +118,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FULL => ["dasdöter|dasdoter|erkoasdöter|erkoasdoter|kopdasdöter|kopdasdoter"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FULL => [
-            "\"Dasdöter\" means a full, or \"Filling\" as a verb.",
+            "\"Dasdöter\" means a full, or can also mean \"Filling\" as a verb.",
             "When \"Dasdöter\" is a verb, it can also appear as \"Erkoasdöter\" or \"Kopdasdöter\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FULL => ["full"],
@@ -1934,7 +131,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SIT => ["däsgegobukre|dasgegobukre|erkoäsgegobukre|erkoasgegobukre|kopdäsgegobukre|kopdasgegobukre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SIT => [
-            "\"Däsgegobukre\" means a sit, or \"Sitting\" as a verb.",
+            "\"Däsgegobukre\" means a sit, or can also mean \"Sitting\" as a verb.",
             "When \"Däsgegobukre\" is a verb, it can also appear as \"Erkoäsgegobukre\" or \"Kopdäsgegobukre\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SIT => ["sit"],
@@ -1947,7 +144,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SLEEP => ["däsgobubor|dasgobubor|erkoäsgobubor|erkoasgobubor|kopdäsgobubor|kopdasgobubor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SLEEP => [
-            "\"Däsgobubor\" means a sleep, or \"Sleeping\" as a verb.",
+            "\"Däsgobubor\" means a sleep, or can also mean \"Sleeping\" as a verb.",
             "When \"Däsgobubor\" is a verb, it can also appear as \"Erkoäsgobubor\" or \"Kopdäsgobubor\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SLEEP => ["sleep"],
@@ -1960,14 +157,14 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_REST => ["dasoregodarkör|dasoregodarkor|erkoasoregodarkör|erkoasoregodarkor|kopdasoregodarkör|kopdasoregodarkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_REST => [
-            "\"Dasoregodarkör\" means a rest, or \"Lying down\" as a verb.",
+            "\"Dasoregodarkör\" means a rest, or can also mean \"Lying down\" as a verb.",
             "When \"Dasoregodarkör\" is a verb, it can also appear as \"Erkoasoregodarkör\" or \"Kopdasoregodarkör\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_REST => ["rest"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_REST => [
             "\"Rest\" can be said \"Dasoregodarkör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_REST => ["lying"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_REST => ["lying|down"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_REST => [
             "\"Lying down\" can be said \"Dasoregodarkör\" in a goblin talk, or also as \"Erkoasoregodarkör\" for a past or \"Kopdasoregodarkör\" for a future."
         ],
@@ -1980,14 +177,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BODY => [
             "\"Body\" can be said \"Dasoregotrë\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BODY => ["giving|a|body|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BODY => [
+            "\"Giving a body to\" can be said \"Dasoregotrë\" in a goblin talk, or also as \"Erkoasoregotrë\" for a past or \"Kopdasoregotrë\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CORPSE => ["dasosegotrëregobu|dasosegotreregobu|erkoasosegotrëregobu|erkoasosegotreregobu|kopdasosegotrëregobu|kopdasosegotreregobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CORPSE => [
-            "\"Dasosegotrëregobu\" means a corpse, or can also be an expression for \"Killing\" as a verb.",
+            "\"Dasosegotrëregobu\" means a corpse, or can also mean \"Making into a corpse\" as a verb.",
             "When \"Dasosegotrëregobu\" is a verb, it can also appear as \"Erkoasosegotrëregobu\" or \"Kopdasosegotrëregobu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CORPSE => ["corpse"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CORPSE => [
             "\"Corpse\" can be said \"Dasosegotrëregobu\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CORPSE => ["making|into|a|corpse"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CORPSE => [
+            "\"Making into a corpse\" can be said \"Dasosegotrëregobu\" in a goblin talk, or also as \"Erkoasosegotrëregobu\" for a past or \"Kopdasosegotrëregobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FEATHER => ["degadarköpago|degadarkopago|erkoegadarköpago|erkoegadarkopago|kopdegadarköpago|kopdegadarkopago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FEATHER => [
@@ -1998,9 +203,9 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FEATHER => [
             "\"Feather\" can be said \"Degadarköpago\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FEATHER => ["tickling"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FEATHER => ["using|a|feather|on|or|tickling"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FEATHER => [
-            "\"Using a feather on\" or \"Tickling\" can be said \"Degadarköpago\" in a goblin talk, or also as \"Erkoegadarköpago\" for a past or \"Kopdegadarköpago\" for a future."
+            "\"Using a feather on or tickling\" can be said \"Degadarköpago\" in a goblin talk, or also as \"Erkoegadarköpago\" for a past or \"Kopdegadarköpago\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_METAL => ["degaerköpo|degaerkopo|erkoegaerköpo|erkoegaerkopo|kopdegaerköpo|kopdegaerkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_METAL => [
@@ -2011,6 +216,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_METAL => [
             "\"Metal\" can be said \"Degaerköpo\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_METAL => ["adding|metal|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_METAL => [
+            "\"Adding metal to\" can be said \"Degaerköpo\" in a goblin talk, or also as \"Erkoegaerköpo\" for a past or \"Kopdegaerköpo\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LEAF => ["degaktöpago|degaktopago|erkoegaktöpago|erkoegaktopago|kopdegaktöpago|kopdegaktopago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LEAF => [
             "\"Degaktöpago\" means a leaf, or can also mean \"Adding leafs to\" as a verb.",
@@ -2020,22 +229,26 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LEAF => [
             "\"Leaf\" can be said \"Degaktöpago\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LEAF => ["adding|leafs|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LEAF => [
+            "\"Adding leafs to\" can be said \"Degaktöpago\" in a goblin talk, or also as \"Erkoegaktöpago\" for a past or \"Kopdegaktöpago\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BIT_PART_THAT_SMALL => ["dëka|deka|erkoëka|erkoeka|kopdëka|kopdeka"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BIT_PART_THAT_SMALL => [
-            "\"Dëka\" means a bit, part, portion, or anything small, or can also mean \"Being small\" or \"Making small\" as a verb.",
+            "\"Dëka\" means a bit/part/that/small, or can also mean \"Being or making small\" as a verb.",
             "When \"Dëka\" is a verb, it can also appear as \"Erkoëka\" or \"Kopdëka\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BIT_PART_THAT_SMALL => ["bit|part|that|small"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BIT_PART_THAT_SMALL => [
-            "\"Bit\", \"Part\", and \"Small\" can all be said with \"Dëka\" in a goblin talk."
+            "\"Bit/part/that/small\" can be said \"Dëka\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BIT_PART_THAT_SMALL => ["being|making|shrink|shrinking", "small|shrink"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BIT_PART_THAT_SMALL => ["being|or|making|small"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BIT_PART_THAT_SMALL => [
-            "\"Being small\" or \"Making small\" can be said \"Dëka\" in a goblin talk, or also as \"Erkoëka\" for a past or \"Kopdëka\" for a future."
+            "\"Being or making small\" can be said \"Dëka\" in a goblin talk, or also as \"Erkoëka\" for a past or \"Kopdëka\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DECLARATION => ["dëkabogu|dekabogu|erkoëkabogu|erkoekabogu|kopdëkabogu|kopdekabogu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DECLARATION => [
-            "\"Dëkabogu\" means a declaration, or \"Saying\" as a verb.",
+            "\"Dëkabogu\" means a declaration, or can also mean \"Saying\" as a verb.",
             "When \"Dëkabogu\" is a verb, it can also appear as \"Erkoëkabogu\" or \"Kopdëkabogu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DECLARATION => ["declaration"],
@@ -2048,12 +261,16 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_POWDER => ["dekaëka|dekaeka|erkoekaëka|erkoekaeka|kopdekaëka|kopdekaeka"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_POWDER => [
-            "\"Dekaëka\" means a powder, or can also mean \"Turning into a powder\" or \"Adding powder to\" as a verb.",
+            "\"Dekaëka\" means a powder, or can also mean \"Turning into a powder or adding powder to\" as a verb.",
             "When \"Dekaëka\" is a verb, it can also appear as \"Erkoekaëka\" or \"Kopdekaëka\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_POWDER => ["powder"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_POWDER => [
             "\"Powder\" can be said \"Dekaëka\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_POWDER => ["turning|into|a|powder|or|adding|powder|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_POWDER => [
+            "\"Turning into a powder or adding powder to\" can be said \"Dekaëka\" in a goblin talk, or also as \"Erkoekaëka\" for a past or \"Kopdekaëka\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FRAGILE => ["dëkagobugubu|dekagobugubu|erkoëkagobugubu|erkoekagobugubu|kopdëkagobugubu|kopdekagobugubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FRAGILE => [
@@ -2070,16 +287,16 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BROKEN_FEW => ["dëkaobu|dekaobu|erkoëkaobu|erkoekaobu|kopdëkaobu|kopdekaobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BROKEN_FEW => [
-            "\"Dëkaobu\" means a broken or a few, or can also mean \"Breaking/reducing\" as a verb.",
+            "\"Dëkaobu\" means a broken/few, or can also mean \"Breaking/reducing\" as a verb.",
             "When \"Dëkaobu\" is a verb, it can also appear as \"Erkoëkaobu\" or \"Kopdëkaobu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BROKEN_FEW => ["broken|few"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BROKEN_FEW => [
-            "\"Broken\", or \"Few\" can both be said \"Dëkaobu\" in a goblin talk."
+            "\"Broken/few\" can be said \"Dëkaobu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BROKEN_FEW => ["breaking|reducing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BROKEN_FEW => [
-            "\"Breaking\" or \"Reducing\" can be said \"Dëkaobu\" in a goblin talk, or also as \"Erkoëkaobu\" for a past or \"Kopdëkaobu\" for a future."
+            "\"Breaking/reducing\" can be said \"Dëkaobu\" in a goblin talk, or also as \"Erkoëkaobu\" for a past or \"Kopdëkaobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BRICKS => ["dëkaok|dekaok|erkoëkaok|erkoekaok|kopdëkaok|kopdekaok"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BRICKS => [
@@ -2090,18 +307,26 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BRICKS => [
             "\"Bricks\" can be said \"Dëkaok\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BRICKS => ["adding|brick|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BRICKS => [
+            "\"Adding brick to\" can be said \"Dëkaok\" in a goblin talk, or also as \"Erkoëkaok\" for a past or \"Kopdëkaok\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHAT_SOMETHING_THING => ["dëkaos|dekaos|erkoëkaos|erkoekaos|kopdëkaos|kopdekaos"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHAT_SOMETHING_THING => [
-            "\"Dëkaos\" means a thing or \"Something\", or can also mean \"Doing something\" as a verb, but it also equate to \"What\" or \"Doing what\" in a question.",
+            "\"Dëkaos\" means a what?/something/thing, or can also mean \"Doing what or doing something\" as a verb.",
             "When \"Dëkaos\" is a verb, it can also appear as \"Erkoëkaos\" or \"Kopdëkaos\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHAT_SOMETHING_THING => ["what|something|thing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHAT_SOMETHING_THING => [
-            "\"What?\", \"Something\" or \"Thing\" can all be said \"Dëkaos\" in a goblin talk."
+            "\"What?/something/thing\" can be said \"Dëkaos\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHAT_SOMETHING_THING => ["doing|what|or|doing|something"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WHAT_SOMETHING_THING => [
+            "\"Doing what or doing something\" can be said \"Dëkaos\" in a goblin talk, or also as \"Erkoëkaos\" for a past or \"Kopdëkaos\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HOME => ["dök|dok|erkodök|erkodok|kopdök|kopdok"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HOME => [
-            "\"Dök\" means a home, or mean \"Making into a home\" as a verb.",
+            "\"Dök\" means a home, or can also mean \"Making into a home\" as a verb.",
             "When \"Dök\" is a verb, it can also appear as \"Erkodök\" or \"Kopdök\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_HOME => ["home"],
@@ -2121,7 +346,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_COWARD => [
             "\"Coward\" can be said \"Erdë\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_COWARD => ["caution|cautious"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_COWARD => ["being|cautious"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_COWARD => [
             "\"Being cautious\" can be said \"Erdë\" in a goblin talk, or also as \"Erkerdë\" for a past or \"Koberdë\" for a future."
         ],
@@ -2136,7 +361,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PAIN => ["hurting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PAIN => [
-            "\"Being hurt\" can be said \"Erdëkaobu\" in a goblin talk, or also as \"Erkerdëkaobu\" for a past or \"Koberdëkaobu\" for a future."
+            "\"Hurting\" can be said \"Erdëkaobu\" in a goblin talk, or also as \"Erkerdëkaobu\" for a past or \"Koberdëkaobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_VENOM => ["erdëkaobugeror|erdekaobugeror|erkerdëkaobugeror|erkerdekaobugeror|koberdëkaobugeror|koberdekaobugeror"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_VENOM => [
@@ -2173,30 +398,35 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SICK => [
             "\"Sick\" can be said \"Erdëkaopududuk\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SICK => ["being", "sick"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SICK => ["being|sick"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SICK => [
             "\"Being sick\" can be said \"Erdëkaopududuk\" in a goblin talk, or also as \"Erkerdëkaopududuk\" for a past or \"Koberdëkaopududuk\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_PAST_OLD => ["erkö|erko|erkerkö|erkerko|koberkö|koberko"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_PAST_OLD => [
-            "\"Erkö\" means a past, or old, and also mean \"Was\" as a verb, being the past form of \"Being\".",
+            "\"Erkö\" means a past / old, or can also mean \"Past of being\" as a verb.",
+            "When \"Erkö\" is a verb, it can also appear as \"Erkerkö\" or \"Koberkö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_PAST_OLD => ["past|old"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PAST_OLD => [
-            "\"Past\" and \"Old\" can be said \"Erkö\" in a goblin talk."
+            "\"Past / old\" can be said \"Erkö\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PAST_OLD => ["was"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PAST_OLD => ["past|of|being"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PAST_OLD => [
-            "\"Was\" can be said \"Erkö\" in a goblin talk, or also as \"Erkerkö\" for a past or \"Koberkö\" for a future."
+            "\"Past of being\" can be said \"Erkö\" in a goblin talk, or also as \"Erkerkö\" for a past or \"Koberkö\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CLOSE_PAST => ["erkökedogubu|erkokedogubu|erkerkökedogubu|erkerkokedogubu|koberkökedogubu|koberkokedogubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CLOSE_PAST => [
-            "\"Erkökedogubu\" means a close past, or last time, or can also mean \"Having recently been\" as a verb.",
+            "\"Erkökedogubu\" means a close past (last time), or can also mean \"Having recently been\" as a verb.",
             "When \"Erkökedogubu\" is a verb, it can also appear as \"Erkerkökedogubu\" or \"Koberkökedogubu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CLOSE_PAST => ["close", "past"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CLOSE_PAST => ["close|past"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CLOSE_PAST => [
-            "\"Close past\" and \"Last time\" can be said \"Erkökedogubu\" in a goblin talk."
+            "\"Close past (last time)\" can be said \"Erkökedogubu\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLOSE_PAST => ["having|recently|been"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CLOSE_PAST => [
+            "\"Having recently been\" can be said \"Erkökedogubu\" in a goblin talk, or also as \"Erkerkökedogubu\" for a past or \"Koberkökedogubu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EGG_ROUND => ["erköopur|erkoopur|erkerköopur|erkerkoopur|koberköopur|koberkoopur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_EGG_ROUND => [
@@ -2207,7 +437,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_EGG_ROUND => [
             "\"Egg/round\" can be said \"Erköopur\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EGG_ROUND => ["making|make", "round"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EGG_ROUND => ["making|round"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_EGG_ROUND => [
             "\"Making round\" can be said \"Erköopur\" in a goblin talk, or also as \"Erkerköopur\" for a past or \"Koberköopur\" for a future."
         ],
@@ -2220,6 +450,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MOUNTAIN => [
             "\"Mountain\" can be said \"Erköpa\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MOUNTAIN => ["being|in|a|mountain"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MOUNTAIN => [
+            "\"Being in a mountain\" can be said \"Erköpa\" in a goblin talk, or also as \"Erkerköpa\" for a past or \"Koberköpa\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_PROBLEM => ["erköpagedogur|erkopagedogur|erkerköpagedogur|erkerkopagedogur|koberköpagedogur|koberkopagedogur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_PROBLEM => [
             "\"Erköpagedogur\" means a problem, or can also mean \"Cause issues for\" as a verb.",
@@ -2229,18 +463,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PROBLEM => [
             "\"Problem\" can be said \"Erköpagedogur\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PROBLEM => ["cause|issues|for"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PROBLEM => [
+            "\"Cause issues for\" can be said \"Erköpagedogur\" in a goblin talk, or also as \"Erkerköpagedogur\" for a past or \"Koberköpagedogur\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_END_ROCK_STONE => ["erköpo|erkopo|erkerköpo|erkerkopo|koberköpo|koberkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_END_ROCK_STONE => [
-            "\"Erköpo\" means a end or rock, or can also mean \"Ending\", \"Standing\" or even \"Throwing rocks at\" as a verb.",
+            "\"Erköpo\" means a end/rock/stone, or can also mean \"Ending/standing/throwing rocks at\" as a verb.",
             "When \"Erköpo\" is a verb, it can also appear as \"Erkerköpo\" or \"Koberköpo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_END_ROCK_STONE => ["end|rock|stone"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_END_ROCK_STONE => [
-            "\"End\", \"Rock\" and \"Stone\" can be said \"Erköpo\" in a goblin talk."
+            "\"End/rock/stone\" can be said \"Erköpo\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_END_ROCK_STONE => ["ending|standing|throwing|rocks|at"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_END_ROCK_STONE => [
-            "\"Ending\", \"Standing\" \"Throwing rocks at\" can be said \"Erköpo\" in a goblin talk, or also as \"Erkerköpo\" for a past or \"Koberköpo\" for a future."
+            "\"Ending/standing/throwing rocks at\" can be said \"Erköpo\" in a goblin talk, or also as \"Erkerköpo\" for a past or \"Koberköpo\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MALACHITE => ["erköpoburebago|erkopoburebago|erkerköpoburebago|erkerkopoburebago|koberköpoburebago|koberkopoburebago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MALACHITE => [
@@ -2251,6 +489,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MALACHITE => [
             "\"Malachite\" can be said \"Erköpoburebago\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MALACHITE => ["adding|malachite"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MALACHITE => [
+            "\"Adding malachite\" can be said \"Erköpoburebago\" in a goblin talk, or also as \"Erkerköpoburebago\" for a past or \"Koberköpoburebago\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_VEGETABLE => ["erköpogesodar|erkopogesodar|erkerköpogesodar|erkerkopogesodar|koberköpogesodar|koberkopogesodar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_VEGETABLE => [
             "\"Erköpogesodar\" means a vegetable, or can also mean \"Planting vegetables\" as a verb.",
@@ -2260,27 +502,35 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_VEGETABLE => [
             "\"Vegetable\" can be said \"Erköpogesodar\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_VEGETABLE => ["planting|vegetables"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_VEGETABLE => [
+            "\"Planting vegetables\" can be said \"Erköpogesodar\" in a goblin talk, or also as \"Erkerköpogesodar\" for a past or \"Koberköpogesodar\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_IRON => ["erköporegedo|erkoporegedo|erkerköporegedo|erkerkoporegedo|koberköporegedo|koberkoporegedo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_IRON => [
-            "\"Erköporegedo\" means a iron, or can also mean \"Adding iron to\" as a verb.",
+            "\"Erköporegedo\" means a iron (material), or can also mean \"Adding iron to\" as a verb.",
             "When \"Erköporegedo\" is a verb, it can also appear as \"Erkerköporegedo\" or \"Koberköporegedo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_IRON => ["iron"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_IRON => [
-            "\"Iron\" can be said \"Erköporegedo\" in a goblin talk."
+            "\"Iron (material)\" can be said \"Erköporegedo\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_IRON => ["adding|iron|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_IRON => [
+            "\"Adding iron to\" can be said \"Erköporegedo\" in a goblin talk, or also as \"Erkerköporegedo\" for a past or \"Koberköporegedo\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TOOTH => ["erköposugedar|erkoposugedar|erkerköposugedar|erkerkoposugedar|koberköposugedar|koberkoposugedar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TOOTH => [
-            "\"Erköposugedar\" means a tooth, or can also be an expression for \"Biting gently\" as a verb.",
+            "\"Erköposugedar\" means a tooth, or can also mean \"An expression for biting gently\" as a verb.",
             "When \"Erköposugedar\" is a verb, it can also appear as \"Erkerköposugedar\" or \"Koberköposugedar\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TOOTH => ["tooth"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TOOTH => [
             "\"Tooth\" can be said \"Erköposugedar\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TOOTH => ["nibble"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TOOTH => ["an|expression|for|biting|gently"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TOOTH => [
-            "\"Nibble\" can be said \"Erköposugedar\" in a goblin talk, or also as \"Erkerköposugedar\" for a past or \"Koberköposugedar\" for a future."
+            "\"An expression for biting gently\" can be said \"Erköposugedar\" in a goblin talk, or also as \"Erkerköposugedar\" for a past or \"Koberköposugedar\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WIND => ["erkör|erkor|erkerkör|erkerkor|koberkör|koberkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WIND => [
@@ -2291,40 +541,44 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WIND => [
             "\"Wind\" can be said \"Erkör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WIND => ["blowing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WIND => ["blowing|air"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WIND => [
             "\"Blowing air\" can be said \"Erkör\" in a goblin talk, or also as \"Erkerkör\" for a past or \"Koberkör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TONGUE => ["erkötaresogedar|erkotaresogedar|erkerkötaresogedar|erkerkotaresogedar|koberkötaresogedar|koberkotaresogedar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TONGUE => [
-            "\"Erkötaresogedar\" means a tongue, or can also mean \"Touching with a tongue\" as a verb.",
+            "\"Erkötaresogedar\" means a tongue, or can also mean \"Touching with your tongue\" as a verb.",
             "When \"Erkötaresogedar\" is a verb, it can also appear as \"Erkerkötaresogedar\" or \"Koberkötaresogedar\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TONGUE => ["tongue"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TONGUE => [
             "\"Tongue\" can be said \"Erkötaresogedar\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TONGUE => ["touching|with|your|tongue"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TONGUE => [
+            "\"Touching with your tongue\" can be said \"Erkötaresogedar\" in a goblin talk, or also as \"Erkerkötaresogedar\" for a past or \"Koberkötaresogedar\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HAPPY => ["kadä|kada|erkokadä|erkokada|kopkadä|kopkada"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HAPPY => [
-            "\"Kadä\" means a happy, or also \"Enjoying\" or \"Liking\" as a verb.",
+            "\"Kadä\" means a happy, or can also mean \"Enjoying\" as a verb.",
             "When \"Kadä\" is a verb, it can also appear as \"Erkokadä\" or \"Kopkadä\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_HAPPY => ["happy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_HAPPY => [
             "\"Happy\" can be said \"Kadä\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HAPPY => ["enjoying|liking"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HAPPY => ["enjoying"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HAPPY => [
             "\"Enjoying\" can be said \"Kadä\" in a goblin talk, or also as \"Erkokadä\" for a past or \"Kopkadä\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LOVE_ANY => ["kadätodu|kadatodu|erkokadätodu|erkokadatodu|kopkadätodu|kopkadatodu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LOVE_ANY => [
-            "\"Kadätodu\" means any kind of love, or can also mean \"Loving\" in general as a verb.",
+            "\"Kadätodu\" means a love any, or can also mean \"Loving\" as a verb.",
             "When \"Kadätodu\" is a verb, it can also appear as \"Erkokadätodu\" or \"Kopkadätodu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LOVE_ANY => ["love"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LOVE_ANY => ["love|any"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LOVE_ANY => [
-            "\"Love\" in all contexts can be said \"Kadätodu\" in a goblin talk."
+            "\"Love any\" can be said \"Kadätodu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOVE_ANY => ["loving"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LOVE_ANY => [
@@ -2332,27 +586,27 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LOVE_FRIENDLY => ["kadätogubu|kadatogubu|erkokadätogubu|erkokadatogubu|kopkadätogubu|kopkadatogubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LOVE_FRIENDLY => [
-            "\"Kadätogubu\" means a love of friend, or can also mean \"Loving\" as a verb in a friend context also.",
+            "\"Kadätogubu\" means a love friendly, or can also mean \"Loving\" as a verb.",
             "When \"Kadätogubu\" is a verb, it can also appear as \"Erkokadätogubu\" or \"Kopkadätogubu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LOVE_FRIENDLY => ["love", "friendly|friend"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LOVE_FRIENDLY => ["love|friendly"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LOVE_FRIENDLY => [
-            "\"Love\" can be said \"Kadätogubu\" in a goblin talk for friends."
+            "\"Love friendly\" can be said \"Kadätogubu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOVE_FRIENDLY => ["loving", "friendly|friend"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOVE_FRIENDLY => ["loving"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LOVE_FRIENDLY => [
-            "\"Loving\" for a friend can be said \"Kadätogubu\" in a goblin talk, or also as \"Erkokadätogubu\" for a past or \"Kopkadätogubu\" for a future."
+            "\"Loving\" can be said \"Kadätogubu\" in a goblin talk, or also as \"Erkokadätogubu\" for a past or \"Kopkadätogubu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LOVE_ROMANTIC => ["kadätosud|kadatosud|erkokadätosud|erkokadatosud|kopkadätosud|kopkadatosud"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LOVE_ROMANTIC => [
-            "\"Kadätosud\" means a romantic love, or can also mean \"Loving romantically\" as a verb.",
+            "\"Kadätosud\" means a love romantic, or can also mean \"Loving\" as a verb.",
             "When \"Kadätosud\" is a verb, it can also appear as \"Erkokadätosud\" or \"Kopkadätosud\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LOVE_ROMANTIC => ["love", "romantic"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LOVE_ROMANTIC => ["love|romantic"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LOVE_ROMANTIC => [
-            "\"Love\" in a romantic context can be said \"Kadätosud\" in a goblin talk."
+            "\"Love romantic\" can be said \"Kadätosud\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOVE_ROMANTIC => ["loving", "romantically"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOVE_ROMANTIC => ["loving"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LOVE_ROMANTIC => [
             "\"Loving\" can be said \"Kadätosud\" in a goblin talk, or also as \"Erkokadätosud\" for a past or \"Kopkadätosud\" for a future."
         ],
@@ -2365,18 +619,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PLAINS => [
             "\"Plains\" can be said \"Kebogedoktö\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PLAINS => ["putting|in|plains"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PLAINS => [
+            "\"Putting in plains\" can be said \"Kebogedoktö\" in a goblin talk, or also as \"Erkokebogedoktö\" for a past or \"Kopkebogedoktö\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EARTH_DIRT => ["keboktö|kebokto|erkokeboktö|erkokebokto|kopkeboktö|kopkebokto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_EARTH_DIRT => [
-            "\"Keboktö\" means a earth or a dirt, or can also mean \"Adding earth to\" or \"Borrowing\" as a verb.",
+            "\"Keboktö\" means a earth / dirt, or can also mean \"Adding earth to or borrowing\" as a verb.",
             "When \"Keboktö\" is a verb, it can also appear as \"Erkokeboktö\" or \"Kopkeboktö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_EARTH_DIRT => ["earth|dirt"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_EARTH_DIRT => [
-            "\"Earth\", or \"Dirt\" can be said \"Keboktö\" in a goblin talk."
+            "\"Earth / dirt\" can be said \"Keboktö\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EARTH_DIRT => ["borrowing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EARTH_DIRT => ["adding|earth|to|or|borrowing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_EARTH_DIRT => [
-            "\"Borrowing\" can be said \"Keboktö\" in a goblin talk, or also as \"Erkokeboktö\" for a past or \"Kopkeboktö\" for a future."
+            "\"Adding earth to or borrowing\" can be said \"Keboktö\" in a goblin talk, or also as \"Erkokeboktö\" for a past or \"Kopkeboktö\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MUD => ["keboktösdop|keboktosdop|erkokeboktösdop|erkokeboktosdop|kopkeboktösdop|kopkeboktosdop"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MUD => [
@@ -2387,6 +645,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MUD => [
             "\"Mud\" can be said \"Keboktösdop\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MUD => ["adding|mud|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MUD => [
+            "\"Adding mud to\" can be said \"Keboktösdop\" in a goblin talk, or also as \"Erkokeboktösdop\" for a past or \"Kopkeboktösdop\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ABRICOT => ["kedoarkrör|kedoarkror|erkokedoarkrör|erkokedoarkror|kopkedoarkrör|kopkedoarkror"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ABRICOT => [
             "\"Kedoarkrör\" means a abricot, or can also mean \"Eating abricots\" as a verb.",
@@ -2395,6 +657,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ABRICOT => ["abricot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ABRICOT => [
             "\"Abricot\" can be said \"Kedoarkrör\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ABRICOT => ["eating|abricots"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ABRICOT => [
+            "\"Eating abricots\" can be said \"Kedoarkrör\" in a goblin talk, or also as \"Erkokedoarkrör\" for a past or \"Kopkedoarkrör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SWAMP => ["kedogeboktösdop|kedogeboktosdop|erkokedogeboktösdop|erkokedogeboktosdop|kopkedogeboktösdop|kopkedogeboktosdop"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SWAMP => [
@@ -2405,9 +671,13 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SWAMP => [
             "\"Swamp\" can be said \"Kedogeboktösdop\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SWAMP => ["putting|in|a|swamp"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SWAMP => [
+            "\"Putting in a swamp\" can be said \"Kedogeboktösdop\" in a goblin talk, or also as \"Erkokedogeboktösdop\" for a past or \"Kopkedogeboktösdop\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WARM => ["kedogubukröt|kedogubukrot|erkokedogubukröt|erkokedogubukrot|kopkedogubukröt|kopkedogubukrot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WARM => [
-            "\"Kedogubukröt\" means a warm, or \"Warming\" as a verb.",
+            "\"Kedogubukröt\" means a warm, or can also mean \"Warming\" as a verb.",
             "When \"Kedogubukröt\" is a verb, it can also appear as \"Erkokedogubukröt\" or \"Kopkedogubukröt\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WARM => ["warm"],
@@ -2427,18 +697,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FINGER => [
             "\"Finger\" can be said \"Këegopra\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FINGER => ["touching|with|your|finger"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FINGER => [
+            "\"Touching with your finger\" can be said \"Këegopra\" in a goblin talk, or also as \"Erkokëegopra\" for a past or \"Kopkëegopra\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ROOT => ["kegobugeboktö|kegobugebokto|erkokegobugeboktö|erkokegobugebokto|kopkegobugeboktö|kopkegobugebokto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ROOT => [
-            "\"Kegobugeboktö\" means a root, or can also mean \"Taking roots\" as a verb.",
+            "\"Kegobugeboktö\" means a root, or can also mean \"Taking roots in\" as a verb.",
             "When \"Kegobugeboktö\" is a verb, it can also appear as \"Erkokegobugeboktö\" or \"Kopkegobugeboktö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ROOT => ["root"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ROOT => [
             "\"Root\" can be said \"Kegobugeboktö\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ROOT => ["taking", "roots"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ROOT => ["taking|roots|in"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ROOT => [
-            "\"Taking roots\" can be said \"Kegobugeboktö\" in a goblin talk, or also as \"Erkokegobugeboktö\" for a past or \"Kopkegobugeboktö\" for a future."
+            "\"Taking roots in\" can be said \"Kegobugeboktö\" in a goblin talk, or also as \"Erkokegobugeboktö\" for a past or \"Kopkegobugeboktö\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NECK => ["kegobugodarkör|kegobugodarkor|erkokegobugodarkör|erkokegobugodarkor|kopkegobugodarkör|kopkegobugodarkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NECK => [
@@ -2449,6 +723,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NECK => [
             "\"Neck\" can be said \"Kegobugodarkör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NECK => ["putting|your|neck|on"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NECK => [
+            "\"Putting your neck on\" can be said \"Kegobugodarkör\" in a goblin talk, or also as \"Erkokegobugodarkör\" for a past or \"Kopkegobugodarkör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TORCH => ["kegobukröt|kegobukrot|erkokegobukröt|erkokegobukrot|kopkegobukröt|kopkegobukrot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TORCH => [
             "\"Kegobukröt\" means a torch, or can also mean \"Either burning or lighting with a torch\" as a verb.",
@@ -2458,22 +736,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TORCH => [
             "\"Torch\" can be said \"Kegobukröt\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TORCH => ["torching"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TORCH => ["either|burning|or|lighting|with|a|torch"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TORCH => [
-            "Either burning or lighting with a torch can be said \"Kegobukröt\" in a goblin talk, or also as \"Erkokegobukröt\" for a past or \"Kopkegobukröt\" for a future."
+            "\"Either burning or lighting with a torch\" can be said \"Kegobukröt\" in a goblin talk, or also as \"Erkokegobukröt\" for a past or \"Kopkegobukröt\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NOSE => ["kegoburë|kegobure|erkokegoburë|erkokegobure|kopkegoburë|kopkegobure"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NOSE => [
-            "\"Kegoburë\" means a nose, or can also mean \"Touching with a nose\" or be a expression for smelling as a verb.",
+            "\"Kegoburë\" means a nose, or can also mean \"Touching with your nose or an expression for smelling\" as a verb.",
             "When \"Kegoburë\" is a verb, it can also appear as \"Erkokegoburë\" or \"Kopkegoburë\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_NOSE => ["nose"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NOSE => [
             "\"Nose\" can be said \"Kegoburë\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NOSE => ["sniffing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NOSE => ["touching|with|your|nose|or|an|expression|for|smelling"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NOSE => [
-            "\"sniffing\" can be said \"Kegoburë\" in a goblin talk, or also as \"Erkokegoburë\" for a past or \"Kopkegoburë\" for a future."
+            "\"Touching with your nose or an expression for smelling\" can be said \"Kegoburë\" in a goblin talk, or also as \"Erkokegoburë\" for a past or \"Kopkegoburë\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SKULL => ["kegoburkör|kegoburkor|erkokegoburkör|erkokegoburkor|kopkegoburkör|kopkegoburkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SKULL => [
@@ -2484,6 +762,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SKULL => [
             "\"Skull\" can be said \"Kegoburkör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SKULL => ["putting|skulls|on"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SKULL => [
+            "\"Putting skulls on\" can be said \"Kegoburkör\" in a goblin talk, or also as \"Erkokegoburkör\" for a past or \"Kopkegoburkör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RABBIT => ["kegobusäpago|kegobusapago|erkokegobusäpago|erkokegobusapago|kopkegobusäpago|kopkegobusapago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RABBIT => [
             "\"Kegobusäpago\" means a rabbit, or can also mean \"Acting like a rabbit\" as a verb.",
@@ -2493,9 +775,13 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RABBIT => [
             "\"Rabbit\" can be said \"Kegobusäpago\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RABBIT => ["acting|like|a|rabbit"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RABBIT => [
+            "\"Acting like a rabbit\" can be said \"Kegobusäpago\" in a goblin talk, or also as \"Erkokegobusäpago\" for a past or \"Kopkegobusäpago\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_USE => ["kegoprä|kegopra|erkokegoprä|erkokegopra|kopkegoprä|kopkegopra"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_USE => [
-            "\"Kegoprä\" means a use, and \"Using\" as a verb.",
+            "\"Kegoprä\" means a use, or can also mean \"Using\" as a verb.",
             "When \"Kegoprä\" is a verb, it can also appear as \"Erkokegoprä\" or \"Kopkegoprä\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_USE => ["use"],
@@ -2515,6 +801,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SNAKE => [
             "\"Snake\" can be said \"Kegopsë\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SNAKE => ["acting|like|a|snake"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SNAKE => [
+            "\"Acting like a snake\" can be said \"Kegopsë\" in a goblin talk, or also as \"Erkokegopsë\" for a past or \"Kopkegopsë\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LEG => ["kegopukör|kegopukor|erkokegopukör|erkokegopukor|kopkegopukör|kopkegopukor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LEG => [
             "\"Kegopukör\" means a leg, or can also mean \"Kicking\" as a verb.",
@@ -2530,12 +820,12 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_STICK_THIN_NARROW => ["këkobu|kekobu|erkokëkobu|erkokekobu|kopkëkobu|kopkekobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_STICK_THIN_NARROW => [
-            "\"Këkobu\" means a stick, a thin or a narrow thing, or can also mean \"Thinning\" as a verb.",
+            "\"Këkobu\" means a stick / thin / narrow, or can also mean \"Thinning\" as a verb.",
             "When \"Këkobu\" is a verb, it can also appear as \"Erkokëkobu\" or \"Kopkëkobu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_STICK_THIN_NARROW => ["stick|thin|narrow"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_STICK_THIN_NARROW => [
-            "\"Stick\", \"Thin\" or \"Narrow\" can all be said \"Këkobu\" in a goblin talk."
+            "\"Stick / thin / narrow\" can be said \"Këkobu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_STICK_THIN_NARROW => ["thinning"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_STICK_THIN_NARROW => [
@@ -2549,6 +839,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ARM => ["arm"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ARM => [
             "\"Arm\" can be said \"Këkobubur\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ARM => ["using|arms|on|something"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ARM => [
+            "\"Using arms on something\" can be said \"Këkobubur\" in a goblin talk, or also as \"Erkokëkobubur\" for a past or \"Kopkëkobubur\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BONE => ["këkoburegodar|kekoburegodar|erkokëkoburegodar|erkokekoburegodar|kopkëkoburegodar|kopkekoburegodar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BONE => [
@@ -2572,9 +866,13 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_EAR => [
             "\"Ear\" can be said \"Keobusä\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EAR => ["expression|for|hearing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_EAR => [
+            "\"Expression for hearing\" can be said \"Keobusä\" in a goblin talk, or also as \"Erkokeobusä\" for a past or \"Kopkeobusä\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HAND => ["keoprä|keopra|erkokeoprä|erkokeopra|kopkeoprä|kopkeopra"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HAND => [
-            "\"Keoprä\" means a hand, or \"Touching\" as a verb.",
+            "\"Keoprä\" means a hand, or can also mean \"Touching\" as a verb.",
             "When \"Keoprä\" is a verb, it can also appear as \"Erkokeoprä\" or \"Kopkeoprä\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_HAND => ["hand"],
@@ -2587,12 +885,12 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BOTTOM_DOWN => ["këpo|kepo|erkokëpo|erkokepo|kopkëpo|kopkepo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BOTTOM_DOWN => [
-            "\"Këpo\" means a bottom, down, or \"Lowering\" as a verb.",
+            "\"Këpo\" means a bottom/down, or can also mean \"Lowering\" as a verb.",
             "When \"Këpo\" is a verb, it can also appear as \"Erkokëpo\" or \"Kopkëpo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BOTTOM_DOWN => ["bottom|down"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BOTTOM_DOWN => [
-            "\"Bottom\" and \"Down\" can be said \"Këpo\" in a goblin talk."
+            "\"Bottom/down\" can be said \"Këpo\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BOTTOM_DOWN => ["lowering"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BOTTOM_DOWN => [
@@ -2607,7 +905,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FOOT => [
             "\"Foot\" can be said \"Këpogur\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FOOT => ["stepping", "on"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FOOT => ["stepping|on"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FOOT => [
             "\"Stepping on\" can be said \"Këpogur\" in a goblin talk, or also as \"Erkokëpogur\" for a past or \"Kopkëpogur\" for a future."
         ],
@@ -2626,21 +924,25 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_PLACE => ["këto|keto|erkokëto|erkoketo|kopkëto|kopketo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_PLACE => [
-            "\"Këto\" means a place, or can also mean \"Being somewhere\" as a verb.",
+            "\"Këto\" means a place (endroit), or can also mean \"Being somewhere\" as a verb.",
             "When \"Këto\" is a verb, it can also appear as \"Erkokëto\" or \"Kopkëto\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_PLACE => ["place"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PLACE => [
-            "\"Place\" can be said \"Këto\" in a goblin talk."
+            "\"Place (endroit)\" can be said \"Këto\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PLACE => ["being|somewhere"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PLACE => [
+            "\"Being somewhere\" can be said \"Këto\" in a goblin talk, or also as \"Erkokëto\" for a past or \"Kopkëto\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CLOSE_HERE => ["këtogubu|ketogubu|erkokëtogubu|erkoketogubu|kopkëtogubu|kopketogubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CLOSE_HERE => [
-            "\"Këtogubu\" means a here, close, or can also mean \"Approaching\" as a verb.",
+            "\"Këtogubu\" means a close / here, or can also mean \"Approaching\" as a verb.",
             "When \"Këtogubu\" is a verb, it can also appear as \"Erkokëtogubu\" or \"Kopkëtogubu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CLOSE_HERE => ["close|here"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CLOSE_HERE => [
-            "\"Close\" and \"here\" can both be said \"Këtogubu\" in a goblin talk."
+            "\"Close / here\" can be said \"Këtogubu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLOSE_HERE => ["approaching"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CLOSE_HERE => [
@@ -2648,16 +950,16 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WITH_ACCOMPANIED_OF => ["këtogugu|ketogugu|erkokëtogugu|erkoketogugu|kopkëtogugu|kopketogugu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WITH_ACCOMPANIED_OF => [
-            "\"Këtogugu\" means a with, accompanied of, or can also mean \"Being accompanied\" or \"Accompagnying\" as a verb.",
+            "\"Këtogugu\" means a with/accompanied of, or can also mean \"Being accompanied or accompagnying\" as a verb.",
             "When \"Këtogugu\" is a verb, it can also appear as \"Erkokëtogugu\" or \"Kopkëtogugu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WITH_ACCOMPANIED_OF => ["with|accompanied", "with|of"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WITH_ACCOMPANIED_OF => ["with|accompanied|of"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WITH_ACCOMPANIED_OF => [
-            "\"With\" \"Accompanied of\" can be said \"Këtogugu\" in a goblin talk."
+            "\"With/accompanied of\" can be said \"Këtogugu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WITH_ACCOMPANIED_OF => ["accompanied|accompagnying"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WITH_ACCOMPANIED_OF => ["being|accompanied|or|accompagnying"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WITH_ACCOMPANIED_OF => [
-            "\"Being accompanied\" or \"Accompagnying\" can be said \"Këtogugu\" in a goblin talk, or also as \"Erkokëtogugu\" for a past or \"Kopkëtogugu\" for a future."
+            "\"Being accompanied or accompagnying\" can be said \"Këtogugu\" in a goblin talk, or also as \"Erkokëtogugu\" for a past or \"Kopkëtogugu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_PATH => ["këtogur|ketogur|erkokëtogur|erkoketogur|kopkëtogur|kopketogur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_PATH => [
@@ -2668,33 +970,33 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PATH => [
             "\"Path\" can be said \"Këtogur\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PATH => ["going"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PATH => ["going|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PATH => [
             "\"Going to\" can be said \"Këtogur\" in a goblin talk, or also as \"Erkokëtogur\" for a past or \"Kopkëtogur\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHERE_SOMEWHERE => ["këtogus|ketogus|erkokëtogus|erkoketogus|kopkëtogus|kopketogus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHERE_SOMEWHERE => [
-            "\"Këtogus\" means a somewhere, or can also mean \"Being lost\" as a verb, or \"Where\" in a question.",
+            "\"Këtogus\" means a where?/somewhere, or can also mean \"Being lost\" as a verb.",
             "When \"Këtogus\" is a verb, it can also appear as \"Erkokëtogus\" or \"Kopkëtogus\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHERE_SOMEWHERE => ["where|somewhere"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHERE_SOMEWHERE => [
-            "\"Where\" or \"Somewhere\" can both be said \"Këtogus\" in a goblin talk."
+            "\"Where?/somewhere\" can be said \"Këtogus\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHERE_SOMEWHERE => ["lost"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHERE_SOMEWHERE => ["being|lost"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WHERE_SOMEWHERE => [
             "\"Being lost\" can be said \"Këtogus\" in a goblin talk, or also as \"Erkokëtogus\" for a past or \"Kopkëtogus\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FAR_AWAY => ["kobakëto|kobaketo|erkokobakëto|erkokobaketo|kopkobakëto|kopkobaketo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FAR_AWAY => [
-            "\"Kobakëto\" means a far, away, or can also mean \"Going far\" as a verb.",
+            "\"Kobakëto\" means a far / away, or can also mean \"Going far\" as a verb.",
             "When \"Kobakëto\" is a verb, it can also appear as \"Erkokobakëto\" or \"Kopkobakëto\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FAR_AWAY => ["far|away"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FAR_AWAY => [
-            "\"Far\" or \"Away\" can be said \"Kobakëto\" in a goblin talk."
+            "\"Far / away\" can be said \"Kobakëto\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FAR_AWAY => ["going|leaving", "far"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FAR_AWAY => ["going|far"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FAR_AWAY => [
             "\"Going far\" can be said \"Kobakëto\" in a goblin talk, or also as \"Erkokobakëto\" for a past or \"Kopkobakëto\" for a future."
         ],
@@ -2707,7 +1009,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LOST => [
             "\"Lost\" can be said \"Kobakëtodu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOST => ["loosing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LOST => ["loosing|something"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LOST => [
             "\"Loosing something\" can be said \"Kobakëtodu\" in a goblin talk, or also as \"Erkokobakëtodu\" for a past or \"Kopkobakëtodu\" for a future."
         ],
@@ -2720,7 +1022,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MADNESS => [
             "\"Madness\" can be said \"Kobakëtodugusabor\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MADNESS => ["crazy"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MADNESS => ["being|crazy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MADNESS => [
             "\"Being crazy\" can be said \"Kobakëtodugusabor\" in a goblin talk, or also as \"Erkokobakëtodugusabor\" for a past or \"Kopkobakëtodugusabor\" for a future."
         ],
@@ -2733,44 +1035,44 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PEACE => [
             "\"Peace\" can be said \"Kobakëtodutregobu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PEACE => ["making", "peace"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PEACE => ["making|peace"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PEACE => [
             "\"Making peace\" can be said \"Kobakëtodutregobu\" in a goblin talk, or also as \"Erkokobakëtodutregobu\" for a past or \"Kopkobakëtodutregobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RESPECT => ["kobakëtogeopra|kobaketogeopra|erkokobakëtogeopra|erkokobaketogeopra|kopkobakëtogeopra|kopkobaketogeopra"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RESPECT => [
-            "\"Kobakëtogeopra\" means a respect, or can also mean \"Respecting\" or \"Keeping your hands to yourself\" as a verb.",
+            "\"Kobakëtogeopra\" means a respect, or can also mean \"Respecting or keeping your hands to yourself\" as a verb.",
             "When \"Kobakëtogeopra\" is a verb, it can also appear as \"Erkokobakëtogeopra\" or \"Kopkobakëtogeopra\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_RESPECT => ["respect"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RESPECT => [
             "\"Respect\" can be said \"Kobakëtogeopra\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RESPECT => ["respecting"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RESPECT => ["respecting|or|keeping|your|hands|to|yourself"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RESPECT => [
-            "\"Respecting\" can be said \"Kobakëtogeopra\" in a goblin talk, or also as \"Erkokobakëtogeopra\" for a past or \"Kopkobakëtogeopra\" for a future."
+            "\"Respecting or keeping your hands to yourself\" can be said \"Kobakëtogeopra\" in a goblin talk, or also as \"Erkokobakëtogeopra\" for a past or \"Kopkobakëtogeopra\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WRONG_FAKE_BELIEF_MISTAKE => ["kobakëtogospor|kobaketogospor|erkokobakëtogospor|erkokobaketogospor|kopkobakëtogospor|kopkobaketogospor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WRONG_FAKE_BELIEF_MISTAKE => [
-            "\"Kobakëtogospor\" means a fake belief, wrong, mistake, or can also mean \"Being mistaken\" as a verb.",
+            "\"Kobakëtogospor\" means a wrong/fake belief/mistake, or can also mean \"Being mistaken\" as a verb.",
             "When \"Kobakëtogospor\" is a verb, it can also appear as \"Erkokobakëtogospor\" or \"Kopkobakëtogospor\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WRONG_FAKE_BELIEF_MISTAKE => ["wrong|fake|belief|mistake"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WRONG_FAKE_BELIEF_MISTAKE => [
-            "\"Wrong\", \"Fake belief and \"Mistake\" can all be said \"Kobakëtogospor\" in a goblin talk."
+            "\"Wrong/fake belief/mistake\" can be said \"Kobakëtogospor\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WRONG_FAKE_BELIEF_MISTAKE => ["mistaken|mistaking"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WRONG_FAKE_BELIEF_MISTAKE => ["being|mistaken"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WRONG_FAKE_BELIEF_MISTAKE => [
             "\"Being mistaken\" can be said \"Kobakëtogospor\" in a goblin talk, or also as \"Erkokobakëtogospor\" for a past or \"Kopkobakëtogospor\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MATE_BIRTH => ["kobuegaredarkör|kobuegaredarkor|erkokobuegaredarkör|erkokobuegaredarkor|kopkobuegaredarkör|kopkobuegaredarkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MATE_BIRTH => [
-            "\"Kobuegaredarkör\" means a mate, birth, or can also mean \"Mating\" as a verb.",
+            "\"Kobuegaredarkör\" means a mate/birth, or can also mean \"Mating\" as a verb.",
             "When \"Kobuegaredarkör\" is a verb, it can also appear as \"Erkokobuegaredarkör\" or \"Kopkobuegaredarkör\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MATE_BIRTH => ["mate|birth"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MATE_BIRTH => [
-            "\"Mate\" and \"Birth\" can both be said \"Kobuegaredarkör\" in a goblin talk."
+            "\"Mate/birth\" can be said \"Kobuegaredarkör\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MATE_BIRTH => ["mating"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MATE_BIRTH => [
@@ -2781,7 +1083,7 @@ class EN
             "\"Kobuegatrë\" means a grown goods, or can also mean \"Farming\" as a verb.",
             "When \"Kobuegatrë\" is a verb, it can also appear as \"Erkokobuegatrë\" or \"Kopkobuegatrë\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GROWN_GOODS => ["grown", "goods"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GROWN_GOODS => ["grown|goods"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GROWN_GOODS => [
             "\"Grown goods\" can be said \"Kobuegatrë\" in a goblin talk."
         ],
@@ -2804,42 +1106,42 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SACRED_HOLY => ["kobugurttö|kobugurtto|erkokobugurttö|erkokobugurtto|kopkobugurttö|kopkobugurtto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SACRED_HOLY => [
-            "\"Kobugurttö\" means a sacred, holy, or can also mean \"Making sacred\" as a verb.",
+            "\"Kobugurttö\" means a sacred/holy, or can also mean \"Making sacred\" as a verb.",
             "When \"Kobugurttö\" is a verb, it can also appear as \"Erkokobugurttö\" or \"Kopkobugurttö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SACRED_HOLY => ["sacred|holy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SACRED_HOLY => [
-            "\"Sacred\" and \"Holy\" can both be said \"Kobugurttö\" in a goblin talk."
+            "\"Sacred/holy\" can be said \"Kobugurttö\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SACRED_HOLY => ["making", "sacred"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SACRED_HOLY => ["making|sacred"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SACRED_HOLY => [
             "\"Making sacred\" can be said \"Kobugurttö\" in a goblin talk, or also as \"Erkokobugurttö\" for a past or \"Kopkobugurttö\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MANY_NUMEROUS_A_LOT => ["kobuköpa|kobukopa|erkokobuköpa|erkokobukopa|kopkobuköpa|kopkobukopa"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MANY_NUMEROUS_A_LOT => [
-            "\"Kobuköpa\" means a many, a lot, or can also mean \"Making numerous\" as a verb.",
+            "\"Kobuköpa\" means a many / numerous / a lot, or can also mean \"Making numerous\" as a verb.",
             "When \"Kobuköpa\" is a verb, it can also appear as \"Erkokobuköpa\" or \"Kopkobuköpa\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MANY_NUMEROUS_A_LOT => ["many|numerous|lot"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MANY_NUMEROUS_A_LOT => ["many|numerous|a|lot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MANY_NUMEROUS_A_LOT => [
-            "\"Many\", \"Numerous\" can be said \"Kobuköpa\" in a goblin talk."
+            "\"Many / numerous / a lot\" can be said \"Kobuköpa\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MANY_NUMEROUS_A_LOT => ["multiplying"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MANY_NUMEROUS_A_LOT => ["making|numerous"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MANY_NUMEROUS_A_LOT => [
             "\"Making numerous\" can be said \"Kobuköpa\" in a goblin talk, or also as \"Erkokobuköpa\" for a past or \"Kopkobuköpa\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CAN_ABLE => ["kobukör|kobukor|erkokobukör|erkokobukor|kopkobukör|kopkobukor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CAN_ABLE => [
-            "\"Kobukör\" means a can, able, or can also mean \"Able of doing\" as a verb.",
+            "\"Kobukör\" means a can/able, or can also mean \"Can able\" as a verb.",
             "When \"Kobukör\" is a verb, it can also appear as \"Erkokobukör\" or \"Kopkobukör\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CAN_ABLE => ["able", "noun|a"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CAN_ABLE => ["can|able"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CAN_ABLE => [
             "\"Can/able\" can be said \"Kobukör\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CAN_ABLE => ["can|able"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CAN_ABLE => [
-            "\"Able of doing\" can be said \"Kobukör\" in a goblin talk, or also as \"Erkokobukör\" for a past or \"Kopkobukör\" for a future."
+            "\"Can able\" can be said \"Kobukör\" in a goblin talk, or also as \"Erkokobukör\" for a past or \"Kopkobukör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GOOD => ["kobukörkada|kobukorkada|erkokobukörkada|erkokobukorkada|kopkobukörkada|kopkobukorkada"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GOOD => [
@@ -2856,12 +1158,12 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NEW_STATE => ["kobukörra|kobukorra|erkokobukörra|erkokobukorra|kopkobukörra|kopkobukorra"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NEW_STATE => [
-            "\"Kobukörra\" means a change, or can also mean \"Becoming\" as a verb.",
+            "\"Kobukörra\" means a new state, or can also mean \"Becoming\" as a verb.",
             "When \"Kobukörra\" is a verb, it can also appear as \"Erkokobukörra\" or \"Kopkobukörra\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_NEW_STATE => ["change"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_NEW_STATE => ["new|state"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NEW_STATE => [
-            "\"Change\" can be said \"Kobukörra\" in a goblin talk."
+            "\"New state\" can be said \"Kobukörra\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NEW_STATE => ["becoming"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NEW_STATE => [
@@ -2889,14 +1191,18 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WOLF => [
             "\"Wolf\" can be said \"Kobukrör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WOLF => ["acting|like|a|wolf"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WOLF => [
+            "\"Acting like a wolf\" can be said \"Kobukrör\" in a goblin talk, or also as \"Erkokobukrör\" for a past or \"Kopkobukrör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_AMBER_COAL_ASHES_DRY => ["kobukröt|kobukrot|erkokobukröt|erkokobukrot|kopkobukröt|kopkobukrot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_AMBER_COAL_ASHES_DRY => [
-            "\"Kobukröt\" means a amber, coal, ashes or dry, or can also mean \"Drying\" as a verb.",
+            "\"Kobukröt\" means a amber/coal/ashes/dry, or can also mean \"Drying\" as a verb.",
             "When \"Kobukröt\" is a verb, it can also appear as \"Erkokobukröt\" or \"Kopkobukröt\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_AMBER_COAL_ASHES_DRY => ["amber|coal|ashes|dry"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_AMBER_COAL_ASHES_DRY => [
-            "\"Amber\" \"Coal\", \"Ashes\" and \"Dry\" can be said \"Kobukröt\" in a goblin talk."
+            "\"Amber/coal/ashes/dry\" can be said \"Kobukröt\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_AMBER_COAL_ASHES_DRY => ["drying"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_AMBER_COAL_ASHES_DRY => [
@@ -2904,12 +1210,16 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CHARTREUSE_GREEN => ["kobuktö|kobukto|erkokobuktö|erkokobukto|kopkobuktö|kopkobukto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CHARTREUSE_GREEN => [
-            "\"Kobuktö\" means a chartreuse green, or can also mean \"Making chartreuse\" or \"Being chartreuse\" as a verb.",
+            "\"Kobuktö\" means a chartreuse green, or can also mean \"Making or being chartreuse\" as a verb.",
             "When \"Kobuktö\" is a verb, it can also appear as \"Erkokobuktö\" or \"Kopkobuktö\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CHARTREUSE_GREEN => ["chartreuse"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CHARTREUSE_GREEN => ["chartreuse|green"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CHARTREUSE_GREEN => [
             "\"Chartreuse green\" can be said \"Kobuktö\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CHARTREUSE_GREEN => ["making|or|being|chartreuse"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CHARTREUSE_GREEN => [
+            "\"Making or being chartreuse\" can be said \"Kobuktö\" in a goblin talk, or also as \"Erkokobuktö\" for a past or \"Kopkobuktö\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FOREST => ["kobuktöpago|kobuktopago|erkokobuktöpago|erkokobuktopago|kopkobuktöpago|kopkobuktopago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FOREST => [
@@ -2920,9 +1230,13 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FOREST => [
             "\"Forest\" can be said \"Kobuktöpago\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FOREST => ["going|in|a|forest"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FOREST => [
+            "\"Going in a forest\" can be said \"Kobuktöpago\" in a goblin talk, or also as \"Erkokobuktöpago\" for a past or \"Kopkobuktöpago\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HUNT => ["kodurdöter|kodurdoter|erkokodurdöter|erkokodurdoter|kopkodurdöter|kopkodurdoter"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HUNT => [
-            "\"Kodurdöter\" means a hunt, or can also mean \"Hunting\" or \"Gathering\" as a verb.",
+            "\"Kodurdöter\" means a hunt, or can also mean \"Hunting/gathering\" as a verb.",
             "When \"Kodurdöter\" is a verb, it can also appear as \"Erkokodurdöter\" or \"Kopkodurdöter\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_HUNT => ["hunt"],
@@ -2931,29 +1245,29 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HUNT => ["hunting|gathering"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HUNT => [
-            "\"Hunting\" and \"Gathering\" can both be said \"Kodurdöter\" in a goblin talk, or also as \"Erkokodurdöter\" for a past or \"Kopkodurdöter\" for a future."
+            "\"Hunting/gathering\" can be said \"Kodurdöter\" in a goblin talk, or also as \"Erkokodurdöter\" for a past or \"Kopkodurdöter\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MOON => ["kogububurbör|kogububurbor|erkokogububurbör|erkokogububurbor|kopkogububurbör|kopkogububurbor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MOON => [
-            "\"Kogububurbör\" means a moon, or \"Shining\" as a verb.",
+            "\"Kogububurbör\" means a moon, or can also mean \"Nothing\" as a verb.",
             "When \"Kogububurbör\" is a verb, it can also appear as \"Erkokogububurbör\" or \"Kopkogububurbör\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MOON => ["moon"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MOON => [
             "\"Moon\" can be said \"Kogububurbör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MOON => ["shining|shine"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MOON => ["nothing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MOON => [
-            "\"Shining\" can be said \"Kogububurbör\" in a goblin talk, or also as \"Erkokogububurbör\" for a past or \"Kopkogububurbör\" for a future."
+            "\"Nothing\" can be said \"Kogububurbör\" in a goblin talk, or also as \"Erkokogububurbör\" for a past or \"Kopkogububurbör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LARGE_THING => ["köpa|kopa|erkoköpa|erkokopa|kopköpa|kopkopa"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LARGE_THING => [
             "\"Köpa\" means a large thing, or can also mean \"Enlarging\" as a verb.",
             "When \"Köpa\" is a verb, it can also appear as \"Erkoköpa\" or \"Kopköpa\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LARGE_THING => ["large"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LARGE_THING => ["large|thing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LARGE_THING => [
-            "\"Large\" can be said \"Köpa\" in a goblin talk."
+            "\"Large thing\" can be said \"Köpa\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LARGE_THING => ["enlarging"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LARGE_THING => [
@@ -2961,87 +1275,103 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ALONE_WITHOUT => ["köpagogu|kopagogu|erkoköpagogu|erkokopagogu|kopköpagogu|kopkopagogu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ALONE_WITHOUT => [
-            "\"Köpagogu\" means a alone, without, or can also mean \"Avoiding people\" or \"Getting rid of\" as a verb.",
+            "\"Köpagogu\" means a alone/without, or can also mean \"Avoiding people / getting rid of\" as a verb.",
             "When \"Köpagogu\" is a verb, it can also appear as \"Erkoköpagogu\" or \"Kopköpagogu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ALONE_WITHOUT => ["alone|without"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ALONE_WITHOUT => [
-            "\"Alone\" and \"without\" can both be said \"Köpagogu\" in a goblin talk."
+            "\"Alone/without\" can be said \"Köpagogu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ALONE_WITHOUT => ["avoiding|rid|ridding"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ALONE_WITHOUT => ["avoiding|people|getting|rid|of"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ALONE_WITHOUT => [
-            "\"Avoiding people\", \"Getting rid of\" can be said \"Köpagogu\" in a goblin talk, or also as \"Erkoköpagogu\" for a past or \"Kopköpagogu\" for a future."
+            "\"Avoiding people / getting rid of\" can be said \"Köpagogu\" in a goblin talk, or also as \"Erkoköpagogu\" for a past or \"Kopköpagogu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FUTURE_GROUP_MULTIPLE => ["köpo|kopo|erkoköpo|erkokopo|kopköpo|kopkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FUTURE_GROUP_MULTIPLE => [
-            "\"Köpo\" means a future, group, multiple, or can also mean \"grouping\" as a verb, and more often is also used for the future of \"To be\".",
-            "When \"Köpo\" is for \"Grouping\", it can also appear as \"Erkoköpo\" or \"Kopköpo\" for past and future."
+            "\"Köpo\" means a future/group/multiple, or can also mean \"Future of to be / grouping\" as a verb.",
+            "When \"Köpo\" is a verb, it can also appear as \"Erkoköpo\" or \"Kopköpo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FUTURE_GROUP_MULTIPLE => ["future|group|multiple"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FUTURE_GROUP_MULTIPLE => [
-            "\"Future\", \"Group\" or \"Multiple\" can be said \"Köpo\" in a goblin talk."
+            "\"Future/group/multiple\" can be said \"Köpo\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FUTURE_GROUP_MULTIPLE => ["future|grouping", "be|grouping"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FUTURE_GROUP_MULTIPLE => ["future|of|to|be|grouping"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FUTURE_GROUP_MULTIPLE => [
-            "\"Will be\" is conjugated as \"Köpo\", but this also mean \"Grouping\" in a goblin talk, and then can appear as \"Erkoköpo\" for a past or \"Kopköpo\" for a future."
+            "\"Future of to be / grouping\" can be said \"Köpo\" in a goblin talk, or also as \"Erkoköpo\" for a past or \"Kopköpo\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SUNSET => ["köpoburebogur|kopoburebogur|erkoköpoburebogur|erkokopoburebogur|kopköpoburebogur|kopkopoburebogur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SUNSET => [
-            "\"Köpoburebogur\" means a sunset, or can also be a expression for a \"Welcome exit\" as a verb.",
+            "\"Köpoburebogur\" means a sunset, or can also mean \"Expression for a welcome exit\" as a verb.",
             "When \"Köpoburebogur\" is a verb, it can also appear as \"Erkoköpoburebogur\" or \"Kopköpoburebogur\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SUNSET => ["sunset"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SUNSET => [
             "\"Sunset\" can be said \"Köpoburebogur\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SUNSET => ["expression|for|a|welcome|exit"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SUNSET => [
+            "\"Expression for a welcome exit\" can be said \"Köpoburebogur\" in a goblin talk, or also as \"Erkoköpoburebogur\" for a past or \"Kopköpoburebogur\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ELDER_CHIEF => ["köpodubugurku|kopodubugurku|erkoköpodubugurku|erkokopodubugurku|kopköpodubugurku|kopkopodubugurku"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ELDER_CHIEF => [
-            "\"Köpodubugurku\" means a elder / chief', or can also mean \"Becoming an elder\" as a verb.",
+            "\"Köpodubugurku\" means a elder / chief, or can also mean \"Becoming an elder\" as a verb.",
             "When \"Köpodubugurku\" is a verb, it can also appear as \"Erkoköpodubugurku\" or \"Kopköpodubugurku\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ELDER_CHIEF => ["elder|chief'"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ELDER_CHIEF => ["elder|chief"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ELDER_CHIEF => [
-            "\"Elder / chief'\" can be said \"Köpodubugurku\" in a goblin talk."
+            "\"Elder / chief\" can be said \"Köpodubugurku\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ELDER_CHIEF => ["becoming|an|elder"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ELDER_CHIEF => [
+            "\"Becoming an elder\" can be said \"Köpodubugurku\" in a goblin talk, or also as \"Erkoköpodubugurku\" for a past or \"Kopköpodubugurku\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MALE_GOBLIN => ["köpodugeobu|kopodugeobu|erkoköpodugeobu|erkokopodugeobu|kopköpodugeobu|kopkopodugeobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MALE_GOBLIN => [
-            "\"Köpodugeobu\" means a male goblin, or can also be a euphemism for males mating as a verb.",
+            "\"Köpodugeobu\" means a male goblin, or can also mean \"Euphemism for males mating\" as a verb.",
             "When \"Köpodugeobu\" is a verb, it can also appear as \"Erkoköpodugeobu\" or \"Kopköpodugeobu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MALE_GOBLIN => ["male|goblin"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MALE_GOBLIN => [
             "\"Male goblin\" can be said \"Köpodugeobu\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MALE_GOBLIN => ["euphemism|for|males|mating"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MALE_GOBLIN => [
+            "\"Euphemism for males mating\" can be said \"Köpodugeobu\" in a goblin talk, or also as \"Erkoköpodugeobu\" for a past or \"Kopköpodugeobu\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FEMALE_GOBLIN => ["köpodugurku|kopodugurku|erkoköpodugurku|erkokopodugurku|kopköpodugurku|kopkopodugurku"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FEMALE_GOBLIN => [
-            "\"Köpodugurku\" means a female goblin, or can also be an expression for \"Laying eggs\" as a verb.",
+            "\"Köpodugurku\" means a female goblin, or can also mean \"Lay eggs\" as a verb.",
             "When \"Köpodugurku\" is a verb, it can also appear as \"Erkoköpodugurku\" or \"Kopköpodugurku\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FEMALE_GOBLIN => ["female|goblin"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FEMALE_GOBLIN => [
             "\"Female goblin\" can be said \"Köpodugurku\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FEMALE_GOBLIN => ["lay|laying", "eggs"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FEMALE_GOBLIN => ["lay|eggs"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FEMALE_GOBLIN => [
-            "\"Laying eggs\" can be said \"Köpodugurku\" in a goblin talk, or also as \"Erkoköpodugurku\" for a past or \"Kopköpodugurku\" for a future."
+            "\"Lay eggs\" can be said \"Köpodugurku\" in a goblin talk, or also as \"Erkoköpodugurku\" for a past or \"Kopköpodugurku\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHO_SOMEONE => ["köpodugus|kopodugus|erkoköpodugus|erkokopodugus|kopköpodugus|kopkopodugus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHO_SOMEONE => [
-            "\"Köpodugus\" means a someone, or can also mean \"Hiding one's identity\" as a verb, and can correspond to \"Who\" when used in a question.",
+            "\"Köpodugus\" means a who?/someone, or can also mean \"Hiding ones identity\" as a verb.",
             "When \"Köpodugus\" is a verb, it can also appear as \"Erkoköpodugus\" or \"Kopköpodugus\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHO_SOMEONE => ["who|someone"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHO_SOMEONE => [
-            "\"Who\" and \"Someone\" can both be said \"Köpodugus\" in a goblin talk."
+            "\"Who?/someone\" can be said \"Köpodugus\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHO_SOMEONE => ["hiding|ones|identity"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WHO_SOMEONE => [
+            "\"Hiding ones identity\" can be said \"Köpodugus\" in a goblin talk, or also as \"Erkoköpodugus\" for a past or \"Kopköpodugus\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GOBLIN_TRIBE => ["köpoduk|kopoduk|erkoköpoduk|erkokopoduk|kopköpoduk|kopkopoduk"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GOBLIN_TRIBE => [
-            "\"Köpoduk\" means a goblin, tribe, or can also mean \"Grouping as a tribe\" as a verb.",
+            "\"Köpoduk\" means a goblin/tribe, or can also mean \"Grouping as a tribe\" as a verb.",
             "When \"Köpoduk\" is a verb, it can also appear as \"Erkoköpoduk\" or \"Kopköpoduk\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GOBLIN_TRIBE => ["goblin|tribe"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GOBLIN_TRIBE => [
-            "\"Goblin\" and \"Tribe\" can be said \"Köpoduk\" in a goblin talk."
+            "\"Goblin/tribe\" can be said \"Köpoduk\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOBLIN_TRIBE => ["grouping|as|a|tribe"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GOBLIN_TRIBE => [
@@ -3049,30 +1379,38 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_OUTSIDER_GUEST => ["köpodukubagedo|kopodukubagedo|erkoköpodukubagedo|erkokopodukubagedo|kopköpodukubagedo|kopkopodukubagedo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_OUTSIDER_GUEST => [
-            "\"Köpodukubagedo\" means a outsider or a guest, or can also mean \"Being invited to\" as a verb.",
+            "\"Köpodukubagedo\" means a outsider / guest, or can also mean \"Being invited to\" as a verb.",
             "When \"Köpodukubagedo\" is a verb, it can also appear as \"Erkoköpodukubagedo\" or \"Kopköpodukubagedo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_OUTSIDER_GUEST => ["outsider|guest"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_OUTSIDER_GUEST => [
-            "\"Outsider\" or \"Guest\" can be said \"Köpodukubagedo\" in a goblin talk."
+            "\"Outsider / guest\" can be said \"Köpodukubagedo\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_OUTSIDER_GUEST => ["invited"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_OUTSIDER_GUEST => ["being|invited|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_OUTSIDER_GUEST => [
-            "\"Being invited\" can be said \"Köpodukubagedo\" in a goblin talk, or also as \"Erkoköpodukubagedo\" for a past or \"Kopköpodukubagedo\" for a future."
+            "\"Being invited to\" can be said \"Köpodukubagedo\" in a goblin talk, or also as \"Erkoköpodukubagedo\" for a past or \"Kopköpodukubagedo\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ANCESTOR => ["köpodurku|kopodurku|erkoköpodurku|erkokopodurku|kopköpodurku|kopkopodurku"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ANCESTOR => [
-            "\"Köpodurku\" means a ancestor, or can also mean \"Becoming an ancestor\" as a verb, often used as an euphemism for \"Dying\".",
+            "\"Köpodurku\" means a ancestor, or can also mean \"Becoming an ancestor euphemism for death\" as a verb.",
             "When \"Köpodurku\" is a verb, it can also appear as \"Erkoköpodurku\" or \"Kopköpodurku\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ANCESTOR => ["ancestor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ANCESTOR => [
             "\"Ancestor\" can be said \"Köpodurku\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ANCESTOR => ["becoming|an|ancestor|euphemism|for|death"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ANCESTOR => [
+            "\"Becoming an ancestor euphemism for death\" can be said \"Köpodurku\" in a goblin talk, or also as \"Erkoköpodurku\" for a past or \"Kopköpodurku\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOMETHING_MADE => ["köpoega|kopoega|erkoköpoega|erkokopoega|kopköpoega|kopkopoega"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOMETHING_MADE => [
-            "\"Köpoega\" means a fabricated object, or can also mean \"Making\" as a verb.",
+            "\"Köpoega\" means a something made, or can also mean \"Making\" as a verb.",
             "When \"Köpoega\" is a verb, it can also appear as \"Erkoköpoega\" or \"Kopköpoega\" for past and future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOMETHING_MADE => ["something|made"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOMETHING_MADE => [
+            "\"Something made\" can be said \"Köpoega\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOMETHING_MADE => ["making"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOMETHING_MADE => [
@@ -3080,58 +1418,62 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHY_FOR_SOME_REASON => ["köpogugus|kopogugus|erkoköpogugus|erkokopogugus|kopköpogugus|kopkopogugus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHY_FOR_SOME_REASON => [
-            "\"Köpogugus\" means a \"For some reason\", or can also mean \"Acting for unknown motives\" or \"Erraticaly\" as a verb, and can also mean \"Why\" when used in a question.",
+            "\"Köpogugus\" means a why?/for some reason, or can also mean \"Acting for unknown motives or erraticaly\" as a verb.",
             "When \"Köpogugus\" is a verb, it can also appear as \"Erkoköpogugus\" or \"Kopköpogugus\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHY_FOR_SOME_REASON => ["why"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHY_FOR_SOME_REASON => ["why|for|some|reason"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHY_FOR_SOME_REASON => [
-            "\"Why\" or \"For some reason\" can both be said \"Köpogugus\" in a goblin talk."
+            "\"Why?/for some reason\" can be said \"Köpogugus\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHY_FOR_SOME_REASON => ["erraticaly"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHY_FOR_SOME_REASON => ["acting|for|unknown|motives|or|erraticaly"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WHY_FOR_SOME_REASON => [
             "\"Acting for unknown motives or erraticaly\" can be said \"Köpogugus\" in a goblin talk, or also as \"Erkoköpogugus\" for a past or \"Kopköpogugus\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RESULT_OBJECTIVE_IN_ORDER_TO => ["köpogur|kopogur|erkoköpogur|erkokopogur|kopköpogur|kopkopogur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RESULT_OBJECTIVE_IN_ORDER_TO => [
-            "\"Köpogur\" means a result, objective, or \"To\", or can also mean \"Trying to\" as a verb.",
+            "\"Köpogur\" means a result/objective/in order to, or can also mean \"Trying to\" as a verb.",
             "When \"Köpogur\" is a verb, it can also appear as \"Erkoköpogur\" or \"Kopköpogur\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_RESULT_OBJECTIVE_IN_ORDER_TO => ["result|objective|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_RESULT_OBJECTIVE_IN_ORDER_TO => ["result|objective|in|order|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RESULT_OBJECTIVE_IN_ORDER_TO => [
-            "\"Result\", \"Objective\" and \"In order to\" can all be said with \"Köpogur\" in a goblin talk."
+            "\"Result/objective/in order to\" can be said \"Köpogur\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RESULT_OBJECTIVE_IN_ORDER_TO => ["trying"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RESULT_OBJECTIVE_IN_ORDER_TO => ["trying|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RESULT_OBJECTIVE_IN_ORDER_TO => [
             "\"Trying to\" can be said \"Köpogur\" in a goblin talk, or also as \"Erkoköpogur\" for a past or \"Kopköpogur\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_STRENGTH_STRONG => ["koprëkor|koprekor|erkokoprëkor|erkokoprekor|kopkoprëkor|kopkoprekor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_STRENGTH_STRONG => [
-            "\"Koprëkor\" means a strength, strong, or can also mean \"Using strength for something\" as a verb.",
+            "\"Koprëkor\" means a strength / strong, or can also mean \"Using strength for something\" as a verb.",
             "When \"Koprëkor\" is a verb, it can also appear as \"Erkokoprëkor\" or \"Kopkoprëkor\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_STRENGTH_STRONG => ["strength|strong"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_STRENGTH_STRONG => [
-            "\"Strength\" and \"Strong\" can both be said \"Koprëkor\" in a goblin talk."
+            "\"Strength / strong\" can be said \"Koprëkor\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_STRENGTH_STRONG => ["using|strength|for|something"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_STRENGTH_STRONG => [
+            "\"Using strength for something\" can be said \"Koprëkor\" in a goblin talk, or also as \"Erkokoprëkor\" for a past or \"Kopkoprëkor\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MOVING_GOING_COMING => ["kör|kor|erkokör|erkokor|kopkör|kopkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MOVING_GOING_COMING => [
-            "\"Kör\" means a move, or can also mean \"Moving\", \"Going\" or \"Coming\" as a verb.",
+            "\"Kör\" means a moving/going/coming, or can also mean \"Moving\" as a verb.",
             "When \"Kör\" is a verb, it can also appear as \"Erkokör\" or \"Kopkör\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MOVING_GOING_COMING => ["move"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MOVING_GOING_COMING => ["moving|going|coming"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MOVING_GOING_COMING => [
-            "\"Move\" can be said \"Kör\" in a goblin talk."
+            "\"Moving/going/coming\" can be said \"Kör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MOVING_GOING_COMING => ["moving|going|coming"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MOVING_GOING_COMING => ["moving"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MOVING_GOING_COMING => [
-            "\"Moving\", \"Going and \"Coming\" can all be said \"Kör\" in a goblin talk, or also as \"Erkokör\" for a past or \"Kopkör\" for a future."
+            "\"Moving\" can be said \"Kör\" in a goblin talk, or also as \"Erkokör\" for a past or \"Kopkör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOMETHING_THAT_FLY => ["körbago|korbago|erkokörbago|erkokorbago|kopkörbago|kopkorbago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOMETHING_THAT_FLY => [
-            "\"Körbago\" means a flying thing, or just \"Flying\" as a verb.",
+            "\"Körbago\" means a something that fly, or can also mean \"Flying\" as a verb.",
             "When \"Körbago\" is a verb, it can also appear as \"Erkokörbago\" or \"Kopkörbago\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOMETHING_THAT_FLY => ["fly"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOMETHING_THAT_FLY => ["something|that|fly"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOMETHING_THAT_FLY => [
             "\"Something that fly\" can be said \"Körbago\" in a goblin talk."
         ],
@@ -3206,16 +1548,16 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FOREVER_ETERNITY => ["korköerkubu|korkoerkubu|erkokorköerkubu|erkokorkoerkubu|kopkorköerkubu|kopkorkoerkubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FOREVER_ETERNITY => [
-            "\"Korköerkubu\" means a forever, eternity, or can also mean \"Making last\" or \"Preserving\" as a verb.",
+            "\"Korköerkubu\" means a forever/eternity, or can also mean \"Making last or preserving\" as a verb.",
             "When \"Korköerkubu\" is a verb, it can also appear as \"Erkokorköerkubu\" or \"Kopkorköerkubu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FOREVER_ETERNITY => ["forever|eternity"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FOREVER_ETERNITY => [
-            "\"Forever\" and \"Eternity\" can be said \"Korköerkubu\" in a goblin talk."
+            "\"Forever/eternity\" can be said \"Korköerkubu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FOREVER_ETERNITY => ["making|preserving", "last|preserving"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FOREVER_ETERNITY => ["making|last|or|preserving"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FOREVER_ETERNITY => [
-            "\"Making last\" or \"Preserving\" can be said \"Korköerkubu\" in a goblin talk, or also as \"Erkokorköerkubu\" for a past or \"Kopkorköerkubu\" for a future."
+            "\"Making last or preserving\" can be said \"Korköerkubu\" in a goblin talk, or also as \"Erkokorköerkubu\" for a past or \"Kopkorköerkubu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DAY => ["korköpoburbu|korkopoburbu|erkokorköpoburbu|erkokorkopoburbu|kopkorköpoburbu|kopkorkopoburbu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DAY => [
@@ -3226,9 +1568,9 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DAY => [
             "\"Day\" can be said \"Korköpoburbu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DAY => ["illuminate"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DAY => ["making|day"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DAY => [
-            "\"Making day\", or \"Illuminate\", can be said \"Korköpoburbu\" in a goblin talk, or also as \"Erkokorköpoburbu\" for a past or \"Kopkorköpoburbu\" for a future."
+            "\"Making day\" can be said \"Korköpoburbu\" in a goblin talk, or also as \"Erkokorköpoburbu\" for a past or \"Kopkorköpoburbu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NIGHT => ["korkötoder|korkotoder|erkokorkötoder|erkokorkotoder|kopkorkötoder|kopkorkotoder"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NIGHT => [
@@ -3238,6 +1580,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_NIGHT => ["night"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NIGHT => [
             "\"Night\" can be said \"Korkötoder\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NIGHT => ["doing|at|night"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NIGHT => [
+            "\"Doing at night\" can be said \"Korkötoder\" in a goblin talk, or also as \"Erkokorkötoder\" for a past or \"Kopkorkötoder\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EXIT => ["körkubagedo|korkubagedo|erkokörkubagedo|erkokorkubagedo|kopkörkubagedo|kopkorkubagedo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_EXIT => [
@@ -3274,6 +1620,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DIFFERNCE => [
             "\"Differnce\" can be said \"Körraega\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DIFFERNCE => ["making|different"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DIFFERNCE => [
+            "\"Making different\" can be said \"Körraega\" in a goblin talk, or also as \"Erkokörraega\" for a past or \"Kopkörraega\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SURPRISED => ["körragosaborkus|korragosaborkus|erkokörragosaborkus|erkokorragosaborkus|kopkörragosaborkus|kopkorragosaborkus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SURPRISED => [
             "\"Körragosaborkus\" means a surprised, or can also mean \"Being surprised\" as a verb.",
@@ -3283,7 +1633,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SURPRISED => [
             "\"Surprised\" can be said \"Körragosaborkus\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SURPRISED => ["being", "surprised"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SURPRISED => ["being|surprised"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SURPRISED => [
             "\"Being surprised\" can be said \"Körragosaborkus\" in a goblin talk, or also as \"Erkokörragosaborkus\" for a past or \"Kopkörragosaborkus\" for a future."
         ],
@@ -3344,7 +1694,7 @@ class EN
             "\"Krör\" means a bite mark, or can also mean \"Biting\" as a verb.",
             "When \"Krör\" is a verb, it can also appear as \"Erkokrör\" or \"Kobokrör\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BITE_MARK => ["bite"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BITE_MARK => ["bite|mark"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BITE_MARK => [
             "\"Bite mark\" can be said \"Krör\" in a goblin talk."
         ],
@@ -3387,14 +1737,18 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ORANGE => [
             "\"Orange\" can be said \"Krötepra\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ORANGE => ["making|orange"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ORANGE => [
+            "\"Making orange\" can be said \"Krötepra\" in a goblin talk, or also as \"Erkokrötepra\" for a past or \"Kobokrötepra\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_PLANT => ["ktö|kto|erkoktö|erkokto|koboktö|kobokto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_PLANT => [
-            "\"Ktö\" means a plant, or can also mean \"Planting\" as a verb.",
+            "\"Ktö\" means a plant (green), or can also mean \"Planting\" as a verb.",
             "When \"Ktö\" is a verb, it can also appear as \"Erkoktö\" or \"Koboktö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_PLANT => ["plant"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PLANT => [
-            "\"Plant\" can be said \"Ktö\" in a goblin talk."
+            "\"Plant (green)\" can be said \"Ktö\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PLANT => ["planting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PLANT => [
@@ -3409,14 +1763,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BERRY => [
             "\"Berry\" can be said \"Ktöeka\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BERRY => ["eating|berries"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BERRY => [
+            "\"Eating berries\" can be said \"Ktöeka\" in a goblin talk, or also as \"Erkoktöeka\" for a past or \"Koboktöeka\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ALKEKENGI => ["ktöekaragerot|ktoekaragerot|erkoktöekaragerot|erkoktoekaragerot|koboktöekaragerot|koboktoekaragerot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ALKEKENGI => [
-            "\"Ktöekaragerot\" means a alkekengi, or can also mean \"Eating alkekengi\" as a verb.",
+            "\"Ktöekaragerot\" means a alkekengi (amour en cage), or can also mean \"Eating alkekengi\" as a verb.",
             "When \"Ktöekaragerot\" is a verb, it can also appear as \"Erkoktöekaragerot\" or \"Koboktöekaragerot\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ALKEKENGI => ["alkekengi"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ALKEKENGI => [
-            "\"Alkekengi\" can be said \"Ktöekaragerot\" in a goblin talk."
+            "\"Alkekengi (amour en cage)\" can be said \"Ktöekaragerot\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ALKEKENGI => ["eating|alkekengi"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ALKEKENGI => [
+            "\"Eating alkekengi\" can be said \"Ktöekaragerot\" in a goblin talk, or also as \"Erkoktöekaragerot\" for a past or \"Koboktöekaragerot\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GRASS => ["ktökobu|ktokobu|erkoktökobu|erkoktokobu|koboktökobu|koboktokobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GRASS => [
@@ -3427,6 +1789,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GRASS => [
             "\"Grass\" can be said \"Ktökobu\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GRASS => ["planting|or|adding|grass|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GRASS => [
+            "\"Planting or adding grass to\" can be said \"Ktökobu\" in a goblin talk, or also as \"Erkoktökobu\" for a past or \"Koboktökobu\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_YELLOW => ["ktökobugut|ktokobugut|erkoktökobugut|erkoktokobugut|koboktökobugut|koboktokobugut"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_YELLOW => [
             "\"Ktökobugut\" means a yellow, or can also mean \"Being or making yellow\" as a verb.",
@@ -3435,6 +1801,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_YELLOW => ["yellow"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_YELLOW => [
             "\"Yellow\" can be said \"Ktökobugut\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_YELLOW => ["being|or|making|yellow"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_YELLOW => [
+            "\"Being or making yellow\" can be said \"Ktökobugut\" in a goblin talk, or also as \"Erkoktökobugut\" for a past or \"Koboktökobugut\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TREE => ["ktöpago|ktopago|erkoktöpago|erkoktopago|koboktöpago|koboktopago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TREE => [
@@ -3445,6 +1815,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TREE => [
             "\"Tree\" can be said \"Ktöpago\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TREE => ["going|in|a|tree"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TREE => [
+            "\"Going in a tree\" can be said \"Ktöpago\" in a goblin talk, or also as \"Erkoktöpago\" for a past or \"Koboktöpago\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DEEP_GREEN => ["ktörkopu|ktorkopu|erkoktörkopu|erkoktorkopu|koboktörkopu|koboktorkopu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DEEP_GREEN => [
             "\"Ktörkopu\" means a deep green, or can also mean \"Making into a deep green color\" as a verb.",
@@ -3453,6 +1827,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DEEP_GREEN => ["deep|green"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DEEP_GREEN => [
             "\"Deep green\" can be said \"Ktörkopu\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DEEP_GREEN => ["making|into|a|deep|green|color"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DEEP_GREEN => [
+            "\"Making into a deep green color\" can be said \"Ktörkopu\" in a goblin talk, or also as \"Erkoktörkopu\" for a past or \"Koboktörkopu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_APPLE => ["ktötagodar|ktotagodar|erkoktötagodar|erkoktotagodar|koboktötagodar|koboktotagodar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_APPLE => [
@@ -3463,6 +1841,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_APPLE => [
             "\"Apple\" can be said \"Ktötagodar\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_APPLE => ["eating|apples"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_APPLE => [
+            "\"Eating apples\" can be said \"Ktötagodar\" in a goblin talk, or also as \"Erkoktötagodar\" for a past or \"Koboktötagodar\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FRUIT => ["ktötar|ktotar|erkoktötar|erkoktotar|koboktötar|koboktotar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FRUIT => [
             "\"Ktötar\" means a fruit, or can also mean \"Eating fruits\" as a verb.",
@@ -3471,6 +1853,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FRUIT => ["fruit"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FRUIT => [
             "\"Fruit\" can be said \"Ktötar\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FRUIT => ["eating|fruits"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FRUIT => [
+            "\"Eating fruits\" can be said \"Ktötar\" in a goblin talk, or also as \"Erkoktötar\" for a past or \"Koboktötar\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_COPPER => ["pagoburegotrë|pagoburegotre|erkopagoburegotrë|erkopagoburegotre|koppagoburegotrë|koppagoburegotre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_COPPER => [
@@ -3481,6 +1867,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_COPPER => [
             "\"Copper\" can be said \"Pagoburegotrë\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_COPPER => ["adding|copper|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_COPPER => [
+            "\"Adding copper to\" can be said \"Pagoburegotrë\" in a goblin talk, or also as \"Erkopagoburegotrë\" for a past or \"Koppagoburegotrë\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HEAD => ["pagodarkör|pagodarkor|erkopagodarkör|erkopagodarkor|koppagodarkör|koppagodarkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HEAD => [
             "\"Pagodarkör\" means a head, or can also mean \"Putting head in something\" as a verb.",
@@ -3490,14 +1880,18 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_HEAD => [
             "\"Head\" can be said \"Pagodarkör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HEAD => ["putting|head|in|something"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HEAD => [
+            "\"Putting head in something\" can be said \"Pagodarkör\" in a goblin talk, or also as \"Erkopagodarkör\" for a past or \"Koppagodarkör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TOP_UP_TALL => ["pakö|pako|erkopakö|erkopako|koppakö|koppako"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TOP_UP_TALL => [
-            "\"Pakö\" means a top, up, tall, or can also mean \"Raising\" as a verb.",
+            "\"Pakö\" means a top/up/tall, or can also mean \"Raising\" as a verb.",
             "When \"Pakö\" is a verb, it can also appear as \"Erkopakö\" or \"Koppakö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TOP_UP_TALL => ["top|up|tall"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TOP_UP_TALL => [
-            "\"Top\", \"Up\" and \"Tall\" can be said \"Pakö\" in a goblin talk."
+            "\"Top/up/tall\" can be said \"Pakö\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TOP_UP_TALL => ["raising"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TOP_UP_TALL => [
@@ -3512,6 +1906,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_HEART => [
             "\"Heart\" can be said \"Pobök\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HEART => ["adding|hearts|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HEART => [
+            "\"Adding hearts to\" can be said \"Pobök\" in a goblin talk, or also as \"Erkopobök\" for a past or \"Koppobök\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SUN => ["poburbökor|poburbokor|erkopoburbökor|erkopoburbokor|koppoburbökor|koppoburbokor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SUN => [
             "\"Poburbökor\" means a sun, or can also mean \"Shining too bright\" as a verb.",
@@ -3520,6 +1918,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SUN => ["sun"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SUN => [
             "\"Sun\" can be said \"Poburbökor\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SUN => ["shining|too|bright"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SUN => [
+            "\"Shining too bright\" can be said \"Poburbökor\" in a goblin talk, or also as \"Erkopoburbökor\" for a past or \"Koppoburbökor\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LIGHT => ["poburbör|poburbor|erkopoburbör|erkopoburbor|koppoburbör|koppoburbor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LIGHT => [
@@ -3549,16 +1951,16 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TALK => ["pöko|poko|erkopöko|erkopoko|koppöko|koppoko"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TALK => [
-            "\"Pöko\" means a talk, or can also mean \"Talking\" or \"Asking\" as a verb.",
+            "\"Pöko\" means a talk, or can also mean \"Talking or asking\" as a verb.",
             "When \"Pöko\" is a verb, it can also appear as \"Erkopöko\" or \"Koppöko\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TALK => ["talk"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TALK => [
             "\"Talk\" can be said \"Pöko\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TALK => ["talking|asking"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TALK => ["talking|or|asking"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TALK => [
-            "\"Talking\" or \"Asking\" can be said \"Pöko\" in a goblin talk, or also as \"Erkopöko\" for a past or \"Koppöko\" for a future."
+            "\"Talking or asking\" can be said \"Pöko\" in a goblin talk, or also as \"Erkopöko\" for a past or \"Koppöko\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MAGIC => ["pökodu|pokodu|erkopökodu|erkopokodu|koppökodu|koppokodu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MAGIC => [
@@ -3569,13 +1971,13 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MAGIC => [
             "\"Magic\" can be said \"Pökodu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MAGIC => ["casting"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MAGIC => ["casting|magic"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MAGIC => [
             "\"Casting magic\" can be said \"Pökodu\" in a goblin talk, or also as \"Erkopökodu\" for a past or \"Koppökodu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ATTACK => ["popör|popor|erkopopör|erkopopor|koppopör|koppopor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ATTACK => [
-            "\"Popör\" means a attack, or can also mean \"Striking\" or \"Fighting\" as a verb.",
+            "\"Popör\" means a attack, or can also mean \"Striking / fighting\" as a verb.",
             "When \"Popör\" is a verb, it can also appear as \"Erkopopör\" or \"Koppopör\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ATTACK => ["attack"],
@@ -3584,7 +1986,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ATTACK => ["striking|fighting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ATTACK => [
-            "\"Striking\" and \"Fighting\" can both be said \"Popör\" in a goblin talk, or also as \"Erkopopör\" for a past or \"Koppopör\" for a future."
+            "\"Striking / fighting\" can be said \"Popör\" in a goblin talk, or also as \"Erkopopör\" for a past or \"Koppopör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SIGHT => ["pör|por|erkopör|erkopor|koppör|koppor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SIGHT => [
@@ -3608,6 +2010,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHITE => [
             "\"White\" can be said \"Porakrör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHITE => ["making|or|being|white"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WHITE => [
+            "\"Making or being white\" can be said \"Porakrör\" in a goblin talk, or also as \"Erkoporakrör\" for a past or \"Kopporakrör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BLACK => ["porakrötegobu|porakrotegobu|erkoporakrötegobu|erkoporakrotegobu|kopporakrötegobu|kopporakrotegobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BLACK => [
             "\"Porakrötegobu\" means a black, or can also mean \"Being or making black\" as a verb.",
@@ -3616,6 +2022,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BLACK => ["black"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BLACK => [
             "\"Black\" can be said \"Porakrötegobu\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BLACK => ["being|or|making|black"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BLACK => [
+            "\"Being or making black\" can be said \"Porakrötegobu\" in a goblin talk, or also as \"Erkoporakrötegobu\" for a past or \"Kopporakrötegobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FLOWER => ["poraktö|porakto|erkoporaktö|erkoporakto|kopporaktö|kopporakto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FLOWER => [
@@ -3626,6 +2036,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FLOWER => [
             "\"Flower\" can be said \"Poraktö\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FLOWER => ["planting|or|adding|flowers"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FLOWER => [
+            "\"Planting or adding flowers\" can be said \"Poraktö\" in a goblin talk, or also as \"Erkoporaktö\" for a past or \"Kopporaktö\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BLUE => ["pörbago|porbago|erkopörbago|erkoporbago|koppörbago|kopporbago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BLUE => [
             "\"Pörbago\" means a blue, or can also mean \"Being or making blue\" as a verb.",
@@ -3634,6 +2048,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BLUE => ["blue"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BLUE => [
             "\"Blue\" can be said \"Pörbago\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BLUE => ["being|or|making|blue"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BLUE => [
+            "\"Being or making blue\" can be said \"Pörbago\" in a goblin talk, or also as \"Erkopörbago\" for a past or \"Koppörbago\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BEAUTY => ["poregadä|poregada|erkoporegadä|erkoporegada|kopporegadä|kopporegada"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BEAUTY => [
@@ -3644,6 +2062,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BEAUTY => [
             "\"Beauty\" can be said \"Poregadä\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BEAUTY => ["making|beautifull"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BEAUTY => [
+            "\"Making beautifull\" can be said \"Poregadä\" in a goblin talk, or also as \"Erkoporegadä\" for a past or \"Kopporegadä\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RED => ["poregotrë|poregotre|erkoporegotrë|erkoporegotre|kopporegotrë|kopporegotre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RED => [
             "\"Poregotrë\" means a red, or can also mean \"Making or being red\" as a verb.",
@@ -3652,6 +2074,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_RED => ["red"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RED => [
             "\"Red\" can be said \"Poregotrë\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RED => ["making|or|being|red"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RED => [
+            "\"Making or being red\" can be said \"Poregotrë\" in a goblin talk, or also as \"Erkoporegotrë\" for a past or \"Kopporegotrë\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_COLOR => ["prä|pra|erkoprä|erkopra|koboprä|kobopra"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_COLOR => [
@@ -3675,9 +2101,9 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TANGIBLE => [
             "\"Tangible\" can be said \"Rä\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TANGIBLE => ["feeling", "touch"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TANGIBLE => ["feeling"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TANGIBLE => [
-            "\"Feeling\" with touch can be said \"Rä\" in a goblin talk, or also as \"Erkorä\" for a past or \"Koprä\" for a future."
+            "\"Feeling\" can be said \"Rä\" in a goblin talk, or also as \"Erkorä\" for a past or \"Koprä\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_COLD => ["rakrör|rakror|erkorakrör|erkorakror|koprakrör|koprakror"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_COLD => [
@@ -3688,7 +2114,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_COLD => [
             "\"Cold\" can be said \"Rakrör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_COLD => ["making", "cold"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_COLD => ["making|cold"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_COLD => [
             "\"Making cold\" can be said \"Rakrör\" in a goblin talk, or also as \"Erkorakrör\" for a past or \"Koprakrör\" for a future."
         ],
@@ -3740,14 +2166,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_COAL => [
             "\"Coal\" can be said \"Regobuburkröt\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_COAL => ["adding|coal|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_COAL => [
+            "\"Adding coal to\" can be said \"Regobuburkröt\" in a goblin talk, or also as \"Erkoregobuburkröt\" for a past or \"Kopregobuburkröt\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ARGILE => ["regobugeboktö|regobugebokto|erkoregobugeboktö|erkoregobugebokto|kopregobugeboktö|kopregobugebokto"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ARGILE => [
-            "\"Regobugeboktö\" means a argile, or can also mean \"Making with argile\" or \"Covering in argile\" as a verb.",
+            "\"Regobugeboktö\" means a argile, or can also mean \"Making with argile or covering in argile\" as a verb.",
             "When \"Regobugeboktö\" is a verb, it can also appear as \"Erkoregobugeboktö\" or \"Kopregobugeboktö\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ARGILE => ["argile"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ARGILE => [
             "\"Argile\" can be said \"Regobugeboktö\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ARGILE => ["making|with|argile|or|covering|in|argile"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ARGILE => [
+            "\"Making with argile or covering in argile\" can be said \"Regobugeboktö\" in a goblin talk, or also as \"Erkoregobugeboktö\" for a past or \"Kopregobugeboktö\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HEAVY => ["regobukëpo|regobukepo|erkoregobukëpo|erkoregobukepo|kopregobukëpo|kopregobukepo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HEAVY => [
@@ -3758,7 +2192,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_HEAVY => [
             "\"Heavy\" can be said \"Regobukëpo\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HEAVY => ["making", "heavy"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HEAVY => ["making|heavy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HEAVY => [
             "\"Making heavy\" can be said \"Regobukëpo\" in a goblin talk, or also as \"Erkoregobukëpo\" for a past or \"Kopregobukëpo\" for a future."
         ],
@@ -3784,6 +2218,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BABY => [
             "\"Baby\" can be said \"Regodarkör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BABY => ["acting|like|a|baby|or|treating|like|a|baby|in|context"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BABY => [
+            "\"Acting like a baby or treating like a baby in context\" can be said \"Regodarkör\" in a goblin talk, or also as \"Erkoregodarkör\" for a past or \"Kopregodarkör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SEED => ["regorkëto|regorketo|erkoregorkëto|erkoregorketo|kopregorkëto|kopregorketo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SEED => [
             "\"Regorkëto\" means a seed, or can also mean \"Planting seeds\" as a verb.",
@@ -3793,14 +2231,18 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SEED => [
             "\"Seed\" can be said \"Regorkëto\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SEED => ["planting|seeds"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SEED => [
+            "\"Planting seeds\" can be said \"Regorkëto\" in a goblin talk, or also as \"Erkoregorkëto\" for a past or \"Kopregorkëto\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MEAT_MUSCLE => ["regotrë|regotre|erkoregotrë|erkoregotre|kopregotrë|kopregotre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MEAT_MUSCLE => [
-            "\"Regotrë\" means a meat, muscle, or can also mean \"Butcher\" as a verb.",
+            "\"Regotrë\" means a meat/muscle, or can also mean \"Butcher\" as a verb.",
             "When \"Regotrë\" is a verb, it can also appear as \"Erkoregotrë\" or \"Kopregotrë\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MEAT_MUSCLE => ["meat|muscle"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MEAT_MUSCLE => [
-            "\"Meat\" and \"Muscle\" can both be said \"Regotrë\" in a goblin talk."
+            "\"Meat/muscle\" can be said \"Regotrë\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MEAT_MUSCLE => ["butcher"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MEAT_MUSCLE => [
@@ -3815,9 +2257,9 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOMETHING_ALIVE => [
             "\"Something alive\" can be said \"Rëkobu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOMETHING_ALIVE => ["breathing|living"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOMETHING_ALIVE => ["breathing|or|living"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOMETHING_ALIVE => [
-            "\"Breathing\" or \"Living\" can be said \"Rëkobu\" in a goblin talk, or also as \"Erkorëkobu\" for a past or \"Koprëkobu\" for a future."
+            "\"Breathing or living\" can be said \"Rëkobu\" in a goblin talk, or also as \"Erkorëkobu\" for a past or \"Koprëkobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOUL => ["rëkopsud|rekopsud|erkorëkopsud|erkorekopsud|koprëkopsud|koprekopsud"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOUL => [
@@ -3827,6 +2269,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOUL => ["soul"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOUL => [
             "\"Soul\" can be said \"Rëkopsud\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOUL => ["giving|soul|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOUL => [
+            "\"Giving soul to\" can be said \"Rëkopsud\" in a goblin talk, or also as \"Erkorëkopsud\" for a past or \"Koprëkopsud\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HEARING => ["sä|sa|erkosä|erkosa|kopsä|kopsa"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HEARING => [
@@ -3854,66 +2300,83 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ATTENTION => [
             "\"Listening\" can be said \"Säpogu\" in a goblin talk, or also as \"Erkosäpogu\" for a past or \"Kopsäpogu\" for a future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ENVELOPE_SKIN => ["sdä|sda|erkosdä|erkosda|kopsdä|kopsda"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ENVELOPE_SKIN => ["sdä|sda|erkosdä|erkosda|kobosdä|kobosda"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ENVELOPE_SKIN => [
-            "\"Sdä\" means a envelope, a skin, or can also mean \"Envelopping\" as a verb.",
-            "When \"Sdä\" is a verb, it can also appear as \"Erkosdä\" or \"Kopsdä\" for past and future."
+            "\"Sdä\" means a envelope/skin, or can also mean \"Envelopping\" as a verb.",
+            "When \"Sdä\" is a verb, it can also appear as \"Erkosdä\" or \"Kobosdä\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ENVELOPE_SKIN => ["envelope|skin"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ENVELOPE_SKIN => [
-            "\"Envelope\" or \"Skin\" can be said \"Sdä\" in a goblin talk."
+            "\"Envelope/skin\" can be said \"Sdä\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ENVELOPE_SKIN => ["envelopping"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ENVELOPE_SKIN => [
-            "\"Envelopping\" can be said \"Sdä\" in a goblin talk, or also as \"Erkosdä\" for a past or \"Kopsdä\" for a future."
+            "\"Envelopping\" can be said \"Sdä\" in a goblin talk, or also as \"Erkosdä\" for a past or \"Kobosdä\" for a future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FRUIT_SKIN => ["sdäkedoar|sdakedoar|erkosdäkedoar|erkosdakedoar|kobosdäkedoar|kobosdakedoar"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FRUIT_SKIN => [
+            "\"Sdäkedoar\" means a fruit skin, or can also mean \"Adding fruit skins\" as a verb.",
+            "When \"Sdäkedoar\" is a verb, it can also appear as \"Erkosdäkedoar\" or \"Kobosdäkedoar\" for past and future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FRUIT_SKIN => ["fruit|skin"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FRUIT_SKIN => [
+            "\"Fruit skin\" can be said \"Sdäkedoar\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FRUIT_SKIN => ["adding|fruit|skins"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FRUIT_SKIN => [
-            "\"Adding fruit skins\" can be said \"Sdäkedoar\" in a goblin talk, or also as \"Erkosdäkedoar\" for a past or \"Kopsdäkedoar\" for a future."
+            "\"Adding fruit skins\" can be said \"Sdäkedoar\" in a goblin talk, or also as \"Erkosdäkedoar\" for a past or \"Kobosdäkedoar\" for a future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EMPTY_SHELL_HUSK => ["sdäske|sdaske|erkosdäske|erkosdaske|kopsdäske|kopsdaske"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EMPTY_SHELL_HUSK => ["sdäske|sdaske|erkosdäske|erkosdaske|kobosdäske|kobosdaske"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_EMPTY_SHELL_HUSK => [
-            "\"Sdäske\" means a empty shell, husk, or can also be a synonym for \"Emptying\" as a verb.",
-            "When \"Sdäske\" is a verb, it can also appear as \"Erkosdäske\" or \"Kopsdäske\" for past and future."
+            "\"Sdäske\" means a empty shell / husk, or can also mean \"Synonim for emptying\" as a verb.",
+            "When \"Sdäske\" is a verb, it can also appear as \"Erkosdäske\" or \"Kobosdäske\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_EMPTY_SHELL_HUSK => ["empty|husk", "shell|husk"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_EMPTY_SHELL_HUSK => ["empty|shell|husk"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_EMPTY_SHELL_HUSK => [
-            "\"Empty shell\" or \"Husk\" can be said \"Sdäske\" in a goblin talk."
+            "\"Empty shell / husk\" can be said \"Sdäske\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BARK => ["sdätobago|sdatobago|erkosdätobago|erkosdatobago|kopsdätobago|kopsdatobago"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EMPTY_SHELL_HUSK => ["synonim|for|emptying"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_EMPTY_SHELL_HUSK => [
+            "\"Synonim for emptying\" can be said \"Sdäske\" in a goblin talk, or also as \"Erkosdäske\" for a past or \"Kobosdäske\" for a future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BARK => ["sdätobago|sdatobago|erkosdätobago|erkosdatobago|kobosdätobago|kobosdatobago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BARK => [
             "\"Sdätobago\" means a bark, or can also mean \"Adding bark to something\" as a verb.",
-            "When \"Sdätobago\" is a verb, it can also appear as \"Erkosdätobago\" or \"Kopsdätobago\" for past and future."
+            "When \"Sdätobago\" is a verb, it can also appear as \"Erkosdätobago\" or \"Kobosdätobago\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BARK => ["bark"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BARK => [
             "\"Bark\" can be said \"Sdätobago\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BARK => ["adding|bark|to|something"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BARK => [
+            "\"Adding bark to something\" can be said \"Sdätobago\" in a goblin talk, or also as \"Erkosdätobago\" for a past or \"Kobosdätobago\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CLOTHES => ["sëagobueka|seagobueka|erkosëagobueka|erkoseagobueka|kopsëagobueka|kopseagobueka"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CLOTHES => [
             "\"Sëagobueka\" means a clothes, or can also mean \"Giving clothes to\" as a verb.",
             "When \"Sëagobueka\" is a verb, it can also appear as \"Erkosëagobueka\" or \"Kopsëagobueka\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CLOTHES => ["clothes|clothe"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CLOTHES => ["clothes"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CLOTHES => [
             "\"Clothes\" can be said \"Sëagobueka\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLOTHES => ["clothing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLOTHES => ["giving|clothes|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CLOTHES => [
-            "\"Clothing\" can be said \"Sëagobueka\" in a goblin talk, or also as \"Erkosëagobueka\" for a past or \"Kopsëagobueka\" for a future."
+            "\"Giving clothes to\" can be said \"Sëagobueka\" in a goblin talk, or also as \"Erkosëagobueka\" for a past or \"Kopsëagobueka\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_IMITATION_COPY => ["sëakobuegaobudugus|seakobuegaobudugus|erkosëakobuegaobudugus|erkoseakobuegaobudugus|kopsëakobuegaobudugus|kopseakobuegaobudugus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_IMITATION_COPY => [
-            "\"Sëakobuegaobudugus\" means a imitation, copy, or \"Imitating\" and \"Copying\" as a verb.",
+            "\"Sëakobuegaobudugus\" means a imitation/copy, or can also mean \"Imitating/copying\" as a verb.",
             "When \"Sëakobuegaobudugus\" is a verb, it can also appear as \"Erkosëakobuegaobudugus\" or \"Kopsëakobuegaobudugus\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_IMITATION_COPY => ["imitation|copy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_IMITATION_COPY => [
-            "\"Imitation\" and \"Copy\" can be said \"Sëakobuegaobudugus\" in a goblin talk."
+            "\"Imitation/copy\" can be said \"Sëakobuegaobudugus\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_IMITATION_COPY => ["imitating|copying"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_IMITATION_COPY => [
-            "\"Imitating\" and \"Copying\" can be said \"Sëakobuegaobudugus\" in a goblin talk, or also as \"Erkosëakobuegaobudugus\" for a past or \"Kopsëakobuegaobudugus\" for a future."
+            "\"Imitating/copying\" can be said \"Sëakobuegaobudugus\" in a goblin talk, or also as \"Erkosëakobuegaobudugus\" for a past or \"Kopsëakobuegaobudugus\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LEATHER => ["sedadarkör|sedadarkor|erkosedadarkör|erkosedadarkor|kopsedadarkör|kopsedadarkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LEATHER => [
@@ -3924,6 +2387,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LEATHER => [
             "\"Leather\" can be said \"Sedadarkör\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LEATHER => ["adding|leather|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LEATHER => [
+            "\"Adding leather to\" can be said \"Sedadarkör\" in a goblin talk, or also as \"Erkosedadarkör\" for a past or \"Kopsedadarkör\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BLOOD => ["sedopdärko|sedopdarko|erkosedopdärko|erkosedopdarko|kopsedopdärko|kopsedopdarko"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BLOOD => [
             "\"Sedopdärko\" means a blood, or can also mean \"Making bloody\" as a verb.",
@@ -3933,7 +2400,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BLOOD => [
             "\"Blood\" can be said \"Sedopdärko\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BLOOD => ["bloody"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BLOOD => ["making|bloody"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BLOOD => [
             "\"Making bloody\" can be said \"Sedopdärko\" in a goblin talk, or also as \"Erkosedopdärko\" for a past or \"Kopsedopdärko\" for a future."
         ],
@@ -3959,7 +2426,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CLAW => [
             "\"Claw\" can be said \"Sëkegopra\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLAW => ["clawing"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLAW => ["clawing|at"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CLAW => [
             "\"Clawing at\" can be said \"Sëkegopra\" in a goblin talk, or also as \"Erkosëkegopra\" for a past or \"Kopsëkegopra\" for a future."
         ],
@@ -3985,6 +2452,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CLOUD => [
             "\"Cloud\" can be said \"Seobaköpo\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CLOUD => ["adding|clouds|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CLOUD => [
+            "\"Adding clouds to\" can be said \"Seobaköpo\" in a goblin talk, or also as \"Erkoseobaköpo\" for a past or \"Kopseobaköpo\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SMOKE => ["seobaköpogerot|seobakopogerot|erkoseobaköpogerot|erkoseobakopogerot|kopseobaköpogerot|kopseobakopogerot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SMOKE => [
             "\"Seobaköpogerot\" means a smoke, or can also mean \"Smoking\" as a verb.",
@@ -4007,7 +2478,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TAR => [
             "\"Tar\" can be said \"Seodärboregèrot\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TAR => ["putting", "tar"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TAR => ["putting|tar|on"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TAR => [
             "\"Putting tar on\" can be said \"Seodärboregèrot\" in a goblin talk, or also as \"Erkoseodärboregèrot\" for a past or \"Kopseodärboregèrot\" for a future."
         ],
@@ -4020,18 +2491,18 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WATER => [
             "\"Water\" can be said \"Sëop\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WATER => ["wetting"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WATER => ["adding|water|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WATER => [
             "\"Adding water to\" can be said \"Sëop\" in a goblin talk, or also as \"Erkosëop\" for a past or \"Kopsëop\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_JUICE_SAUCE => ["sëopedar|seopedar|erkosëopedar|erkoseopedar|kopsëopedar|kopseopedar"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_JUICE_SAUCE => [
-            "\"Sëopedar\" means a juice, sauce, or can also mean \"Juicing\" as a verb.",
+            "\"Sëopedar\" means a juice / sauce, or can also mean \"Juicing\" as a verb.",
             "When \"Sëopedar\" is a verb, it can also appear as \"Erkosëopedar\" or \"Kopsëopedar\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_JUICE_SAUCE => ["juice|sauce"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_JUICE_SAUCE => [
-            "\"Juice, sauce\" can be said \"Sëopedar\" in a goblin talk."
+            "\"Juice / sauce\" can be said \"Sëopedar\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_JUICE_SAUCE => ["juicing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_JUICE_SAUCE => [
@@ -4046,6 +2517,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SLIME => [
             "\"Slime (creature)\" can be said \"Sëoperègobu\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SLIME => ["acting|like|a|slime"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SLIME => [
+            "\"Acting like a slime\" can be said \"Sëoperègobu\" in a goblin talk, or also as \"Erkosëoperègobu\" for a past or \"Kopsëoperègobu\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_LAKE => ["seopköpa|seopkopa|erkoseopköpa|erkoseopkopa|kopseopköpa|kopseopkopa"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_LAKE => [
             "\"Seopköpa\" means a lake, or can also mean \"Putting in a lake\" as a verb.",
@@ -4054,6 +2529,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_LAKE => ["lake"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_LAKE => [
             "\"Lake\" can be said \"Seopköpa\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_LAKE => ["putting|in|a|lake"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_LAKE => [
+            "\"Putting in a lake\" can be said \"Seopköpa\" in a goblin talk, or also as \"Erkoseopköpa\" for a past or \"Kopseopköpa\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RIVER => ["seopkör|seopkor|erkoseopkör|erkoseopkor|kopseopkör|kopseopkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RIVER => [
@@ -4064,49 +2543,57 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RIVER => [
             "\"River\" can be said \"Seopkör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DUMB => ["sgëkosabor|sgekosabor|erkosgëkosabor|erkosgekosabor|kopsgëkosabor|kopsgekosabor"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RIVER => ["being|in|a|river"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RIVER => [
+            "\"Being in a river\" can be said \"Seopkör\" in a goblin talk, or also as \"Erkoseopkör\" for a past or \"Kopseopkör\" for a future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DUMB => ["sgëkosabor|sgekosabor|erkosgëkosabor|erkosgekosabor|kobosgëkosabor|kobosgekosabor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DUMB => [
-            "\"Sgëkosabor\" means a dumb, or can also mean \"Making dumb\" as a verb.",
-            "When \"Sgëkosabor\" is a verb, it can also appear as \"Erkosgëkosabor\" or \"Kopsgëkosabor\" for past and future."
+            "\"Sgëkosabor\" means a dumb (simple minded), or can also mean \"Making dumb\" as a verb.",
+            "When \"Sgëkosabor\" is a verb, it can also appear as \"Erkosgëkosabor\" or \"Kobosgëkosabor\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DUMB => ["dumb"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DUMB => [
-            "\"Dumb\" can be said \"Sgëkosabor\" in a goblin talk."
+            "\"Dumb (simple minded)\" can be said \"Sgëkosabor\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOMETHING_EMPTY_HOLE => ["skë|ske|erkoskë|erkoske|kopskë|kopske"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DUMB => ["making|dumb"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DUMB => [
+            "\"Making dumb\" can be said \"Sgëkosabor\" in a goblin talk, or also as \"Erkosgëkosabor\" for a past or \"Kobosgëkosabor\" for a future."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOMETHING_EMPTY_HOLE => ["skë|ske|erkoskë|erkoske|koboskë|koboske"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOMETHING_EMPTY_HOLE => [
-            "\"Skë\" means a something empty, hole, or \"Emptying\" or \"Digging\" as a verb.",
-            "When \"Skë\" is a verb, it can also appear as \"Erkoskë\" or \"Kopskë\" for past and future."
+            "\"Skë\" means a something empty / hole, or can also mean \"Emptying / digging\" as a verb.",
+            "When \"Skë\" is a verb, it can also appear as \"Erkoskë\" or \"Koboskë\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOMETHING_EMPTY_HOLE => ["empty|hole"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOMETHING_EMPTY_HOLE => ["something|empty|hole"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOMETHING_EMPTY_HOLE => [
-            "\"Empty\" and \"Hole\" can both be said \"Skë\" in a goblin talk."
+            "\"Something empty / hole\" can be said \"Skë\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOMETHING_EMPTY_HOLE => ["emptying|digging"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOMETHING_EMPTY_HOLE => [
-            "\"Emptying\" and \"Digging\" can both be said \"Skë\" in a goblin talk, or also as \"Erkoskë\" for a past or \"Kopskë\" for a future."
+            "\"Emptying / digging\" can be said \"Skë\" in a goblin talk, or also as \"Erkoskë\" for a past or \"Koboskë\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ONE_ONLY => ["söd|sod|erkosöd|erkosod|kopsöd|kopsod"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ONE_ONLY => [
-            "\"Söd\" means a one, only, or can also mean \"Making unique\" as a verb.",
+            "\"Söd\" means a one / only, or can also mean \"Making unique\" as a verb.",
             "When \"Söd\" is a verb, it can also appear as \"Erkosöd\" or \"Kopsöd\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ONE_ONLY => ["one|only"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ONE_ONLY => [
-            "\"One\", \"Only\" can be said \"Söd\" in a goblin talk."
+            "\"One / only\" can be said \"Söd\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ONE_ONLY => ["making", "unique"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ONE_ONLY => ["making|unique"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ONE_ONLY => [
             "\"Making unique\" can be said \"Söd\" in a goblin talk, or also as \"Erkosöd\" for a past or \"Kopsöd\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EXCHANGE_TRADE => ["sodottöter|sodottoter|erkosodottöter|erkosodottoter|kopsodottöter|kopsodottoter"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_EXCHANGE_TRADE => [
-            "\"Sodottöter\" means a exchange, trade, or can also mean \"Exchanging\" as a verb.",
+            "\"Sodottöter\" means a exchange / trade, or can also mean \"Exchanging\" as a verb.",
             "When \"Sodottöter\" is a verb, it can also appear as \"Erkosodottöter\" or \"Kopsodottöter\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_EXCHANGE_TRADE => ["exchange|trade"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_EXCHANGE_TRADE => [
-            "\"Exchange\" or \"Trade\" can be said \"Sodottöter\" in a goblin talk."
+            "\"Exchange / trade\" can be said \"Sodottöter\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EXCHANGE_TRADE => ["exchanging"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_EXCHANGE_TRADE => [
@@ -4121,6 +2608,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RARE => [
             "\"Rare\" can be said \"Söedso\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RARE => ["making|or|being|rare"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RARE => [
+            "\"Making or being rare\" can be said \"Söedso\" in a goblin talk, or also as \"Erkosöedso\" for a past or \"Kopsöedso\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MOUTH => ["sogetrë|sogetre|erkosogetrë|erkosogetre|kopsogetrë|kopsogetre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MOUTH => [
             "\"Sogetrë\" means a mouth, or can also mean \"Putting in your mouth\" as a verb.",
@@ -4129,6 +2620,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MOUTH => ["mouth"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MOUTH => [
             "\"Mouth\" can be said \"Sogetrë\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_MOUTH => ["putting|in|your|mouth"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MOUTH => [
+            "\"Putting in your mouth\" can be said \"Sogetrë\" in a goblin talk, or also as \"Erkosogetrë\" for a past or \"Kopsogetrë\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_COOKED => ["taregèdogubukröt|taregedogubukrot|erkotaregèdogubukröt|erkotaregedogubukrot|koptaregèdogubukröt|koptaregedogubukrot"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_COOKED => [
@@ -4152,14 +2647,22 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BIRD => [
             "\"Bird\" can be said \"Tarköpago\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BIRD => ["acting|like|a|bird"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BIRD => [
+            "\"Acting like a bird\" can be said \"Tarköpago\" in a goblin talk, or also as \"Erkotarköpago\" for a past or \"Koptarköpago\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ANIMAL => ["tarkör|tarkor|erkotarkör|erkotarkor|koptarkör|koptarkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ANIMAL => [
-            "\"Tarkör\" means a animal, or can also mean \"Acting in a animalistic way\" as a verb.",
+            "\"Tarkör\" means a animal, or can also mean \"Acting in a savage way\" as a verb.",
             "When \"Tarkör\" is a verb, it can also appear as \"Erkotarkör\" or \"Koptarkör\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ANIMAL => ["animal"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ANIMAL => [
             "\"Animal\" can be said \"Tarkör\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ANIMAL => ["acting|in|a|savage|way"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ANIMAL => [
+            "\"Acting in a savage way\" can be said \"Tarkör\" in a goblin talk, or also as \"Erkotarkör\" for a past or \"Koptarkör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HUMAN => ["tarkorbakö|tarkorbako|erkotarkorbakö|erkotarkorbako|koptarkorbakö|koptarkorbako"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HUMAN => [
@@ -4170,6 +2673,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_HUMAN => [
             "\"Human\" can be said \"Tarkorbakö\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HUMAN => ["acting|like|a|human"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HUMAN => [
+            "\"Acting like a human\" can be said \"Tarkorbakö\" in a goblin talk, or also as \"Erkotarkorbakö\" for a past or \"Koptarkorbakö\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SANGLIER => ["tarkörbobur|tarkorbobur|erkotarkörbobur|erkotarkorbobur|koptarkörbobur|koptarkorbobur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SANGLIER => [
             "\"Tarkörbobur\" means a sanglier, or can also mean \"Acting like a sanglier\" as a verb.",
@@ -4178,6 +2685,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SANGLIER => ["sanglier"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SANGLIER => [
             "\"Sanglier\" can be said \"Tarkörbobur\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SANGLIER => ["acting|like|a|sanglier"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SANGLIER => [
+            "\"Acting like a sanglier\" can be said \"Tarkörbobur\" in a goblin talk, or also as \"Erkotarkörbobur\" for a past or \"Koptarkörbobur\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SPIDER => ["tarkörseagobueka|tarkorseagobueka|erkotarkörseagobueka|erkotarkorseagobueka|koptarkörseagobueka|koptarkorseagobueka"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SPIDER => [
@@ -4188,6 +2699,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SPIDER => [
             "\"Spider\" can be said \"Tarkörseagobueka\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SPIDER => ["acting|like|a|spider"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SPIDER => [
+            "\"Acting like a spider\" can be said \"Tarkörseagobueka\" in a goblin talk, or also as \"Erkotarkörseagobueka\" for a past or \"Koptarkörseagobueka\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SHEEP => ["tarkörsedobagobu|tarkorsedobagobu|erkotarkörsedobagobu|erkotarkorsedobagobu|koptarkörsedobagobu|koptarkorsedobagobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SHEEP => [
             "\"Tarkörsedobagobu\" means a sheep, or can also mean \"Acting like a sheep\" as a verb.",
@@ -4196,6 +2711,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SHEEP => ["sheep"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SHEEP => [
             "\"Sheep\" can be said \"Tarkörsedobagobu\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SHEEP => ["acting|like|a|sheep"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SHEEP => [
+            "\"Acting like a sheep\" can be said \"Tarkörsedobagobu\" in a goblin talk, or also as \"Erkotarkörsedobagobu\" for a past or \"Koptarkörsedobagobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FISH => ["tarkösdop|tarkosdop|erkotarkösdop|erkotarkosdop|koptarkösdop|koptarkosdop"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FISH => [
@@ -4206,6 +2725,10 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FISH => [
             "\"Fish\" can be said \"Tarkösdop\" in a goblin talk."
         ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FISH => ["adding|fish|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FISH => [
+            "\"Adding fish to\" can be said \"Tarkösdop\" in a goblin talk, or also as \"Erkotarkösdop\" for a past or \"Koptarkösdop\" for a future."
+        ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOUR => ["tarkrör|tarkror|erkotarkrör|erkotarkror|koptarkrör|koptarkror"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOUR => [
             "\"Tarkrör\" means a sour, or can also mean \"Tasting acid\" as a verb.",
@@ -4215,9 +2738,9 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOUR => [
             "\"Sour\" can be said \"Tarkrör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOUR => ["souring"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOUR => ["tasting|acid"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOUR => [
-            "\"Tasting sour\" can be said \"Tarkrör\" in a goblin talk, or also as \"Erkotarkrör\" for a past or \"Koptarkrör\" for a future."
+            "\"Tasting acid\" can be said \"Tarkrör\" in a goblin talk, or also as \"Erkotarkrör\" for a past or \"Koptarkrör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MARK => ["toderbrä|toderbra|erkotoderbrä|erkotoderbra|koptoderbrä|koptoderbra"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MARK => [
@@ -4247,12 +2770,12 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SAFE_PROTECTOR => ["toderkoburëkobu|toderkoburekobu|erkotoderkoburëkobu|erkotoderkoburekobu|koptoderkoburëkobu|koptoderkoburekobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SAFE_PROTECTOR => [
-            "\"Toderkoburëkobu\" means a protector, safe, or can also mean \"Protecting\" as a verb.",
+            "\"Toderkoburëkobu\" means a safe / protector, or can also mean \"Protecting\" as a verb.",
             "When \"Toderkoburëkobu\" is a verb, it can also appear as \"Erkotoderkoburëkobu\" or \"Koptoderkoburëkobu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SAFE_PROTECTOR => ["safe|protector"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SAFE_PROTECTOR => [
-            "\"Safe\" or \"Protector\" can both be said \"Toderkoburëkobu\" in a goblin talk."
+            "\"Safe / protector\" can be said \"Toderkoburëkobu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SAFE_PROTECTOR => ["protecting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SAFE_PROTECTOR => [
@@ -4260,27 +2783,27 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HELP_POSSESSION => ["toderköpo|toderkopo|erkotoderköpo|erkotoderkopo|koptoderköpo|koptoderkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HELP_POSSESSION => [
-            "\"Toderköpo\" means a help, possession, or can also mean \"Helping\", \"Holding\", \"Having\" or even \"Keeping\" as a verb.",
+            "\"Toderköpo\" means a help / possession, or can also mean \"Helping / holding / having / keeping\" as a verb.",
             "When \"Toderköpo\" is a verb, it can also appear as \"Erkotoderköpo\" or \"Koptoderköpo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_HELP_POSSESSION => ["help|possession"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_HELP_POSSESSION => [
-            "\"Help\" or \"Possession\" can both be said \"Toderköpo\" in a goblin talk."
+            "\"Help / possession\" can be said \"Toderköpo\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_HELP_POSSESSION => ["helping|holding|having|keeping"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_HELP_POSSESSION => [
-            "\"Helping\", \"Holding\", \"Having\" and \"Keeping\" can all be said \"Toderköpo\" in a goblin talk, or also as \"Erkotoderköpo\" for a past or \"Koptoderköpo\" for a future."
+            "\"Helping / holding / having / keeping\" can be said \"Toderköpo\" in a goblin talk, or also as \"Erkotoderköpo\" for a past or \"Koptoderköpo\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ANTIDOTE_REMEDY => ["toderköporaegaobu|toderkoporaegaobu|erkotoderköporaegaobu|erkotoderkoporaegaobu|koptoderköporaegaobu|koptoderkoporaegaobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ANTIDOTE_REMEDY => [
-            "\"Toderköporaegaobu\" means a antidote or remedy, or can also mean \"Healing of poison\" as a verb.",
+            "\"Toderköporaegaobu\" means a antidote / remedy, or can also mean \"Healing of poison\" as a verb.",
             "When \"Toderköporaegaobu\" is a verb, it can also appear as \"Erkotoderköporaegaobu\" or \"Koptoderköporaegaobu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ANTIDOTE_REMEDY => ["antidote|remedy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ANTIDOTE_REMEDY => [
-            "\"Antidote\" and \"Remedy\" can be said \"Toderköporaegaobu\" in a goblin talk."
+            "\"Antidote / remedy\" can be said \"Toderköporaegaobu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ANTIDOTE_REMEDY => ["healing", "poison"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ANTIDOTE_REMEDY => ["healing|of|poison"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ANTIDOTE_REMEDY => [
             "\"Healing of poison\" can be said \"Toderköporaegaobu\" in a goblin talk, or also as \"Erkotoderköporaegaobu\" for a past or \"Koptoderköporaegaobu\" for a future."
         ],
@@ -4293,7 +2816,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ENJOYABLE => [
             "\"Enjoyable\" can be said \"Todkadä\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ENJOYABLE => ["making", "enjoy"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ENJOYABLE => ["making|enjoy"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ENJOYABLE => [
             "\"Making enjoy\" can be said \"Todkadä\" in a goblin talk, or also as \"Erkotodkadä\" for a past or \"Koptodkadä\" for a future."
         ],
@@ -4306,7 +2829,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PRODUCT => [
             "\"Product\" can be said \"Todköpoega\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PRODUCT => ["being", "made"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PRODUCT => ["being|made"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PRODUCT => [
             "\"Being made\" can be said \"Todköpoega\" in a goblin talk, or also as \"Erkotodköpoega\" for a past or \"Koptodköpoega\" for a future."
         ],
@@ -4315,11 +2838,11 @@ class EN
             "\"Todkörragosaborkus\" means a surprised thing, or can also mean \"Being surprised\" as a verb.",
             "When \"Todkörragosaborkus\" is a verb, it can also appear as \"Erkotodkörragosaborkus\" or \"Koptodkörragosaborkus\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SURPRISED_THING => ["surprised"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SURPRISED_THING => ["surprised|thing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SURPRISED_THING => [
-            "\"Surprised\" can be said \"Todkörragosaborkus\" in a goblin talk."
+            "\"Surprised thing\" can be said \"Todkörragosaborkus\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SURPRISED_THING => ["being", "surprised"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SURPRISED_THING => ["being|surprised"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SURPRISED_THING => [
             "\"Being surprised\" can be said \"Todkörragosaborkus\" in a goblin talk, or also as \"Erkotodkörragosaborkus\" for a past or \"Koptodkörragosaborkus\" for a future."
         ],
@@ -4332,7 +2855,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PREY => [
             "\"Prey\" can be said \"Todkrördar\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PREY => ["being", "eaten"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PREY => ["being|eaten"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PREY => [
             "\"Being eaten\" can be said \"Todkrördar\" in a goblin talk, or also as \"Erkotodkrördar\" for a past or \"Koptodkrördar\" for a future."
         ],
@@ -4345,31 +2868,35 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_NEWBORN => [
             "\"Newborn\" can be said \"Todkupuegaredarkör\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NEWBORN => ["being", "born"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NEWBORN => ["being|born"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NEWBORN => [
             "\"Being born\" can be said \"Todkupuegaredarkör\" in a goblin talk, or also as \"Erkotodkupuegaredarkör\" for a past or \"Koptodkupuegaredarkör\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DESIRING_WANTING => ["tödoer|todoer|erkotödoer|erkotodoer|koptödoer|koptodoer"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DESIRING_WANTING => [
-            "\"Tödoer\" means a desiring, wanting, or \"Desiring\" or \"Wanting\" as a verb.",
+            "\"Tödoer\" means a desiring / wanting, or can also mean \"Desiring or wanting\" as a verb.",
             "When \"Tödoer\" is a verb, it can also appear as \"Erkotödoer\" or \"Koptödoer\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DESIRING_WANTING => ["desiring|wanting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DESIRING_WANTING => [
-            "\"Desiring\" or \"Wanting\" can be said \"Tödoer\" in a goblin talk."
+            "\"Desiring / wanting\" can be said \"Tödoer\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DESIRING_WANTING => ["desiring|wanting"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DESIRING_WANTING => ["desiring|or|wanting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DESIRING_WANTING => [
-            "\"Desiring\" or \"Wanting\" can be said \"Tödoer\" in a goblin talk, or also as \"Erkotödoer\" for a past or \"Koptödoer\" for a future."
+            "\"Desiring or wanting\" can be said \"Tödoer\" in a goblin talk, or also as \"Erkotödoer\" for a past or \"Koptödoer\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_INSIDE_INSIDE_OF_INHABIT => ["todök|todok|erkotodök|erkotodok|koptodök|koptodok"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_INSIDE_INSIDE_OF_INHABIT => [
-            "\"Todök\" means a inside or is a synonim of \"Entering\" as a verb.",
+            "\"Todök\" means a inside/inside of /inhabit, or can also mean \"Synonim of entering\" as a verb.",
             "When \"Todök\" is a verb, it can also appear as \"Erkotodök\" or \"Koptodök\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_INSIDE_INSIDE_OF_INHABIT => ["inside|inside|of|inhabit"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_INSIDE_INSIDE_OF_INHABIT => [
-            "\"Inside\" can be said \"Todök\" in a goblin talk."
+            "\"Inside/inside of /inhabit\" can be said \"Todök\" in a goblin talk."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_INSIDE_INSIDE_OF_INHABIT => ["synonim|of|entering"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_INSIDE_INSIDE_OF_INHABIT => [
+            "\"Synonim of entering\" can be said \"Todök\" in a goblin talk, or also as \"Erkotodök\" for a past or \"Koptodök\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_PRESENTATION => ["todpör|todpor|erkotodpör|erkotodpor|koptodpör|koptodpor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_PRESENTATION => [
@@ -4389,26 +2916,26 @@ class EN
             "\"Toduderkoburëkobu\" means a protected thing, or can also mean \"Being protected\" as a verb.",
             "When \"Toduderkoburëkobu\" is a verb, it can also appear as \"Erkotoduderkoburëkobu\" or \"Koptoduderkoburëkobu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_PROTECTED_THING => ["protected"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_PROTECTED_THING => ["protected|thing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_PROTECTED_THING => [
-            "\"Protected\" can be said \"Toduderkoburëkobu\" in a goblin talk."
+            "\"Protected thing\" can be said \"Toduderkoburëkobu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PROTECTED_THING => ["being", "protected"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_PROTECTED_THING => ["being|protected"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_PROTECTED_THING => [
             "\"Being protected\" can be said \"Toduderkoburëkobu\" in a goblin talk, or also as \"Erkotoduderkoburëkobu\" for a past or \"Koptoduderkoburëkobu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DANGER_WORRYING => ["todutrëd|todutred|erkotodutrëd|erkotodutred|koptodutrëd|koptodutred"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DANGER_WORRYING => [
-            "\"Todutrëd\" means a danger, a worrying thing, or can also mean \"Endangering\" or \"Causing worries\" as a verb.",
+            "\"Todutrëd\" means a danger / worrying, or can also mean \"Endangering or causing worries\" as a verb.",
             "When \"Todutrëd\" is a verb, it can also appear as \"Erkotodutrëd\" or \"Koptodutrëd\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DANGER_WORRYING => ["danger|worrying"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DANGER_WORRYING => [
-            "\"Danger\" or \"Worrying\" can be said \"Todutrëd\" in a goblin talk."
+            "\"Danger / worrying\" can be said \"Todutrëd\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DANGER_WORRYING => ["endangering|causing|worries"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DANGER_WORRYING => ["endangering|or|causing|worries"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DANGER_WORRYING => [
-            "\"Endangering\" or \"Causing worries\" can be said \"Todutrëd\" in a goblin talk, or also as \"Erkotodutrëd\" for a past or \"Koptodutrëd\" for a future."
+            "\"Endangering or causing worries\" can be said \"Todutrëd\" in a goblin talk, or also as \"Erkotodutrëd\" for a past or \"Koptodutrëd\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DIVISIVE => ["toduttödod|toduttodod|erkotoduttödod|erkotoduttodod|koptoduttödod|koptoduttodod"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DIVISIVE => [
@@ -4432,7 +2959,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ALL => [
             "\"All\" can be said \"Tökobu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ALL => ["making", "whole"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ALL => ["making|whole"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ALL => [
             "\"Making whole\" can be said \"Tökobu\" in a goblin talk, or also as \"Erkotökobu\" for a past or \"Koptökobu\" for a future."
         ],
@@ -4445,7 +2972,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_EVERYONE => [
             "\"Everyone\" can be said \"Tökopuduk\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EVERYONE => ["with", "everyone"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_EVERYONE => ["sharing|with|everyone"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_EVERYONE => [
             "\"Sharing with everyone\" can be said \"Tökopuduk\" in a goblin talk, or also as \"Erkotökopuduk\" for a past or \"Koptökopuduk\" for a future."
         ],
@@ -4454,7 +2981,7 @@ class EN
             "\"Tordöter\" means a act of taking, or can also mean \"Taking\" as a verb.",
             "When \"Tordöter\" is a verb, it can also appear as \"Erkotordöter\" or \"Koptordöter\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ACT_OF_TAKING => ["act", "taking"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ACT_OF_TAKING => ["act|of|taking"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ACT_OF_TAKING => [
             "\"Act of taking\" can be said \"Tordöter\" in a goblin talk."
         ],
@@ -4477,7 +3004,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GIFT => ["töter|toter|erkotöter|erkototer|koptöter|koptoter"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GIFT => [
-            "\"Töter\" means a gift, or can also mean \"Giving\" or \"Handing\" as a verb.",
+            "\"Töter\" means a gift, or can also mean \"Giving handing\" as a verb.",
             "When \"Töter\" is a verb, it can also appear as \"Erkotöter\" or \"Koptöter\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GIFT => ["gift"],
@@ -4486,7 +3013,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GIFT => ["giving|handing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GIFT => [
-            "\"Giving\" or \"Handing\" can be said \"Töter\" in a goblin talk, or also as \"Erkotöter\" for a past or \"Koptöter\" for a future."
+            "\"Giving handing\" can be said \"Töter\" in a goblin talk, or also as \"Erkotöter\" for a past or \"Koptöter\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RESCUE => ["totërkobu|toterkobu|erkototërkobu|erkototerkobu|koptotërkobu|koptoterkobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RESCUE => [
@@ -4503,14 +3030,14 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WARN => ["totrdë|totrde|erkototrdë|erkototrde|koptotrdë|koptotrde"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WARN => [
-            "\"Totrdë\" means a warning, or can also mean \"Warning\" as a verb.",
+            "\"Totrdë\" means a warn, or can also mean \"Warning\" as a verb.",
             "When \"Totrdë\" is a verb, it can also appear as \"Erkototrdë\" or \"Koptotrdë\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WARN => ["warning"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WARN => ["warn"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WARN => [
-            "\"Warning\" can be said \"Totrdë\" in a goblin talk."
+            "\"Warn\" can be said \"Totrdë\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WARN => ["warn"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WARN => ["warning"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WARN => [
             "\"Warning\" can be said \"Totrdë\" in a goblin talk, or also as \"Erkototrdë\" for a past or \"Koptotrdë\" for a future."
         ],
@@ -4523,7 +3050,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ADVICE => [
             "\"Advice\" can be said \"Totrdëkobu\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ADVICE => ["giving", "advice"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_ADVICE => ["giving|advice"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ADVICE => [
             "\"Giving advice\" can be said \"Totrdëkobu\" in a goblin talk, or also as \"Erkototrdëkobu\" for a past or \"Koptotrdëkobu\" for a future."
         ],
@@ -4555,25 +3082,25 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_UNWILLING_OR_FORCED_WAR => ["totrëkobugubu|totrekobugubu|erkototrëkobugubu|erkototrekobugubu|koptotrëkobugubu|koptotrekobugubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_UNWILLING_OR_FORCED_WAR => [
-            "\"Totrëkobugubu\" means a war, unwilling or forced, or can also mean \"Forcing\" or \"Waging war\" as a verb.",
+            "\"Totrëkobugubu\" means a unwilling or forced / war, or can also mean \"Forcing / waging war\" as a verb.",
             "When \"Totrëkobugubu\" is a verb, it can also appear as \"Erkototrëkobugubu\" or \"Koptotrëkobugubu\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_UNWILLING_OR_FORCED_WAR => ["unwilling|or|forced|war"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_UNWILLING_OR_FORCED_WAR => [
-            "\"Unwilling\", \"Forced\" or \"War\" can be said \"Totrëkobugubu\" in a goblin talk."
+            "\"Unwilling or forced / war\" can be said \"Totrëkobugubu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_UNWILLING_OR_FORCED_WAR => ["forcing|waging|war"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_UNWILLING_OR_FORCED_WAR => [
-            "\"Forcing\" or \"Waging war\" can both be said \"Totrëkobugubu\" in a goblin talk, or also as \"Erkototrëkobugubu\" for a past or \"Koptotrëkobugubu\" for a future."
+            "\"Forcing / waging war\" can be said \"Totrëkobugubu\" in a goblin talk, or also as \"Erkototrëkobugubu\" for a past or \"Koptotrëkobugubu\" for a future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOURCE_BECAUSE => ["tötresèop|totreseop|erkotötresèop|erkototreseop|koptötresèop|koptotreseop"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOURCE_BECAUSE => [
-            "\"Tötresèop\" means a source, because, or can also mean \"Producing\" as a verb.",
+            "\"Tötresèop\" means a source / because, or can also mean \"Producing\" as a verb.",
             "When \"Tötresèop\" is a verb, it can also appear as \"Erkotötresèop\" or \"Koptötresèop\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOURCE_BECAUSE => ["source|because"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SOURCE_BECAUSE => [
-            "\"Source\" and \"Because\" can both be said \"Tötresèop\" in a goblin talk."
+            "\"Source / because\" can be said \"Tötresèop\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOURCE_BECAUSE => ["producing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOURCE_BECAUSE => [
@@ -4581,12 +3108,12 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_STOP_FINISH => ["totrköpo|totrkopo|erkototrköpo|erkototrkopo|koptotrköpo|koptotrkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_STOP_FINISH => [
-            "\"Totrköpo\" means a stop, finish, or can also mean \"Stopping\" as a verb.",
+            "\"Totrköpo\" means a stop / finish, or can also mean \"Stopping\" as a verb.",
             "When \"Totrköpo\" is a verb, it can also appear as \"Erkototrköpo\" or \"Koptotrköpo\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_STOP_FINISH => ["stop|finish"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_STOP_FINISH => [
-            "\"Stop\" and \"Finish\" can both be said \"Totrköpo\" in a goblin talk."
+            "\"Stop / finish\" can be said \"Totrköpo\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_STOP_FINISH => ["stopping"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_STOP_FINISH => [
@@ -4601,7 +3128,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DIVIDED => [
             "\"Divided\" can be said \"Tottödod\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DIVIDED => ["being", "divided"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DIVIDED => ["being|divided"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DIVIDED => [
             "\"Being divided\" can be said \"Tottödod\" in a goblin talk, or also as \"Erkotottödod\" for a past or \"Koptottödod\" for a future."
         ],
@@ -4626,6 +3153,8 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FOOD => ["food"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FOOD => [
             "\"Food\" can be said \"Trë\" in a goblin talk."
-        ]
-    }
-end
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FOOD => ["turning|into|food"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FOOD => [
+            "\"Turning into food\" can be said \"Trë\" in a goblin talk, or also as \"Erkotrë\" for a past or \"Kobotrë\" for a future."
+        ],
