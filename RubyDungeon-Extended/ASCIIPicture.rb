@@ -114,16 +114,16 @@ class ASCIIPicture
             stat_string = stat_string + ' ♠ ' + monster.get_intelligence.to_s
         end
         monster_info = ASCIIPicture.new([
-            (' ' * Utils.positive((width - monster.get_name.as_text.length).div(2))) + Utils.truncate(monster.get_name.as_text.capitalize, width),
+            (' ' * MathUtils.positive((width - monster.get_name.as_text.length).div(2))) + TextFormatter.truncate(monster.get_name.as_text.capitalize, width),
             (' ' * MONSTER_HEALTH_MARGIN) + monster.healthbar(width - (MONSTER_HEALTH_MARGIN * 2)) + (' ' * MONSTER_HEALTH_MARGIN),
             (' ' * MONSTER_HEALTH_MARGIN) + "(#{monster.get_life_to_string} ♥)",
-            Utils.center(" " + monster.status_handler.get_icons.strip, width),
-            (' ' * Utils.positive((width - stat_string.length).div(2))) + stat_string
+            TextFormatter.center(" " + monster.status_handler.get_icons.strip, width),
+            (' ' * MathUtils.positive((width - stat_string.length).div(2))) + stat_string
         ])
         monster_info.frame
         monster_info_ascii = []
         for row in monster_info.get_ascii
-            monster_info_ascii.append(Utils.center(row, monster.get_picture.width))
+            monster_info_ascii.append(TextFormatter.center(row, monster.get_picture.width))
         end
         return picture + monster_info_ascii
     end
@@ -134,7 +134,7 @@ class ASCIIPicture
         strength_string = ' ♣ ' + player.get_strength_to_string
         physical_defense_string = player.get_defense_to_string.rjust((ICON_SIZE - 2) - strength_string.length)
         return [
-            picture[0].ljust(ICON_SIZE) + ' | ' + Utils.truncate(' ' + player.get_name, ICON_SIZE),
+            picture[0].ljust(ICON_SIZE) + ' | ' + TextFormatter.truncate(' ' + player.get_name, ICON_SIZE),
             picture[1].ljust(ICON_SIZE) + ' | ',
             picture[2].ljust(ICON_SIZE) + ' | ' + player.healthbar(ICON_SIZE - 2) + ' ',
             picture[3].ljust(ICON_SIZE) + ' | ' + "(#{player.health_to_string} ♥)",
@@ -158,7 +158,7 @@ class ASCIIPicture
             picture[6].ljust(ICON_SIZE),
             picture[7].ljust(ICON_SIZE),
             ' ' + ('‾' * (ICON_SIZE - 2)),
-            Utils.truncate(' ' + player.get_name, ICON_SIZE),
+            TextFormatter.truncate(' ' + player.get_name, ICON_SIZE),
             Locale.get_localized(LocaleKey::LEVEL_ABBREVIATION) + player.get_level_to_string,
             '',
             ' ' + player.healthbar(ICON_SIZE - 2),
@@ -176,7 +176,7 @@ class ASCIIPicture
         if (index != EMPTY_INDEX)
             index = index.to_s.rjust(4) + '|'
         end
-        name =                      Utils.truncate(player_data[:name].to_s, 50).ljust(50)
+        name =                      TextFormatter.truncate(player_data[:name].to_s, 50).ljust(50)
         health =                    player_data[:health].to_s.ljust(10)
         strength =                  player_data[:strength].to_s.ljust(10)
         intelligence =              player_data[:intelligence].to_s.ljust(10)
@@ -228,10 +228,10 @@ class ASCIIPicture
             price_string = ''
         end
         text_card = ASCIIPicture.new([
-            Utils.truncate(index_string + Locale.get_localized(item.get_name).capitalize, (ITEM_ICON_WIDTH - 2)).ljust(ITEM_ICON_WIDTH - 2),
+            TextFormatter.truncate(index_string + Locale.get_localized(item.get_name).capitalize, (ITEM_ICON_WIDTH - 2)).ljust(ITEM_ICON_WIDTH - 2),
             price_string,
             ''
-        ] + Utils.multiline(' ' + item.get_card_description.capitalize, (ITEM_ICON_WIDTH - 2)))
+        ] + TextFormatter.multiline(' ' + item.get_card_description.capitalize, (ITEM_ICON_WIDTH - 2)))
         text_card.frame(' ', ' ')
         return item.get_picture.get_ascii + text_card.get_ascii
     end
@@ -247,11 +247,11 @@ class ASCIIPicture
         price_string = Locale.get_localized(LocaleKey::CARD_PRICE) + item.upgrade_cost(upgrade_tax).to_s + ' ¤'
         upgrade_suffix = item.get_upgrade_suffix
         text_card = ASCIIPicture.new([
-            Utils.truncate(index_string + Locale.get_localized(item.get_plain_name).capitalize, ITEM_ICON_WIDTH - (2 + upgrade_suffix.length)) + upgrade_suffix,
+            TextFormatter.truncate(index_string + Locale.get_localized(item.get_plain_name).capitalize, ITEM_ICON_WIDTH - (2 + upgrade_suffix.length)) + upgrade_suffix,
             price_string,
             '',
-            Utils.center('⛊  ' + item.get_defense.to_s + ' -> ⛊  ' + upgraded_item.get_defense.to_s, ITEM_ICON_WIDTH - 2),
-            Utils.center(item.get_weight.to_s + ' Kg -> ' + upgraded_item.get_weight.to_s + ' Kg', ITEM_ICON_WIDTH - 2)
+            TextFormatter.center('⛊  ' + item.get_defense.to_s + ' -> ⛊  ' + upgraded_item.get_defense.to_s, ITEM_ICON_WIDTH - 2),
+            TextFormatter.center(item.get_weight.to_s + ' Kg -> ' + upgraded_item.get_weight.to_s + ' Kg', ITEM_ICON_WIDTH - 2)
         ])
         text_card.frame(' ', ' ')
         return item.get_picture.get_ascii + text_card.get_ascii

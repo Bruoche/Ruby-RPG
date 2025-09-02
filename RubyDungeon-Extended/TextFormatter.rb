@@ -1,11 +1,6 @@
-class Utils
-    HUNDRED_PERCENT = 100
+class TextFormatter
     PUNCTUATION = ['.', '?', '!']
     DIACRITICS = [*0x1DC0..0x1DFF, *0x0300..0x036F, *0xFE20..0xFE2F].pack('U*')
-
-    def self.average(max_value)
-        return (max_value+1)/2
-    end
 
     def self.truncate(string, size)
         if string.length > size
@@ -35,20 +30,12 @@ class Utils
         end
     end
 
-    def self.positive(number)
-        if number < 0
-            return 0
-        else
-            return number
-        end
-    end
-
     def self.center(string, width)
-        return (' ' * Utils.positive((width - string.length).div(2))) + string
+        return (' ' * MathUtils.positive((width - string.length).div(2))) + string
     end
 
     def self.align_right(string, width)
-        return (' ' * Utils.positive(width - string.length)) + string
+        return (' ' * MathUtils.positive(width - string.length)) + string
     end
 
     def self.multiline(string, width)

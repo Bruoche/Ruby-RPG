@@ -67,7 +67,7 @@ class BundleStack
         if (@bundles.size == 1)
             return @bundles[0].get_name
         else
-            suffix = Utils.get_string_numbering(get_total_amount)
+            suffix = TextFormatter.get_string_numbering(get_total_amount)
             if suffix != ''
                 suffix = ' ' + suffix
             end
@@ -82,7 +82,7 @@ class BundleStack
         if (@bundles.size == 1)
             return @bundles[0].get_description
         else
-            prefix = Utils.get_string_numbering(get_total_amount)
+            prefix = TextFormatter.get_string_numbering(get_total_amount)
             if prefix != ''
                 prefix = prefix + ' '
             end

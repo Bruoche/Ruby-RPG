@@ -317,7 +317,7 @@ class Narrator
             Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ROOM), monsters_description))
         else
             Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ROOM_FIGHTING), {
-                LocaleKey::F_ALLIES => Utils.enumerate(allies_fighting),
+                LocaleKey::F_ALLIES => TextFormatter.enumerate(allies_fighting),
                 LocaleKey::F_ENNEMIES => monsters_description
             }))
         end
@@ -346,20 +346,20 @@ class Narrator
             if dead_allies.length == 1
                 Narrator.write(format(Locale.get_localized(LocaleKey::DEAD_ALLY), dead_allies[0]))
             elsif dead_allies.length > 1
-                Narrator.write(format(Locale.get_localized(LocaleKey::DEAD_ALLIES), Utils.enumerate(dead_allies)))
+                Narrator.write(format(Locale.get_localized(LocaleKey::DEAD_ALLIES), TextFormatter.enumerate(dead_allies)))
             end
         else
             if allies.length == 1
                 write_same_line(Locale.get_localized(LocaleKey::ALLY_ASIDE) + allies[0])
             elsif allies.length > 1
-                write_same_line(Locale.get_localized(LocaleKey::ALLIES_ASIDE) + Utils.enumerate(allies))
+                write_same_line(Locale.get_localized(LocaleKey::ALLIES_ASIDE) + TextFormatter.enumerate(allies))
             end
             if dead_allies.empty?
                 Narrator.write('.')
             elsif dead_allies.length == 1
                 Narrator.write(Locale.get_localized(LocaleKey::AND_DEAD_ALLY), dead_allies[0])
             else
-                Narrator.write(Locale.get_localized(LocaleKey::AND_DEAD_ALLIES), Utils.enumerate(dead_allies))
+                Narrator.write(Locale.get_localized(LocaleKey::AND_DEAD_ALLIES), TextFormatter.enumerate(dead_allies))
             end
         end
     end

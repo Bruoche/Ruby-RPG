@@ -51,7 +51,7 @@ class Player
     end
 
     def get_name
-        return Utils.truncate(@name, TTY::Screen.width.div(2))
+        return TextFormatter.truncate(@name, TTY::Screen.width.div(2))
     end
 
     def get_level
@@ -124,14 +124,14 @@ class Player
 
     def get_escape_chances(monsters_power)
         if (monsters_power == 0)
-            return Utils::HUNDRED_PERCENT
+            return MathUtils::HUNDRED_PERCENT
         end
 		spot_risk = (monsters_power - stealth_score)
-        spot_risk = (spot_risk*Utils::HUNDRED_PERCENT)/(monsters_power)
+        spot_risk = (spot_risk*MathUtils::HUNDRED_PERCENT)/(monsters_power)
         if spot_risk <= 0
-            return Utils::HUNDRED_PERCENT
+            return MathUtils::HUNDRED_PERCENT
         end
-		return Utils::HUNDRED_PERCENT - spot_risk
+		return MathUtils::HUNDRED_PERCENT - spot_risk
 	end
 
     def can_escape?(monsters_power)

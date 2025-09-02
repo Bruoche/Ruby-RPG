@@ -5,7 +5,7 @@ class Bundle
     end
 
     def get_name
-        suffix = Utils.get_string_numbering(@quantity)
+        suffix = TextFormatter.get_string_numbering(@quantity)
         if suffix != ''
             suffix = ' ' + suffix
         end
@@ -34,7 +34,7 @@ class Bundle
     end
 
     def get_description(override_description = '')
-        numbering = Utils.get_string_numbering(@quantity)
+        numbering = TextFormatter.get_string_numbering(@quantity)
         if numbering != ''
             numbering = numbering + ' '
         end

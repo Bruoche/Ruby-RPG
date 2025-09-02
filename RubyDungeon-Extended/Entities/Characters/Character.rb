@@ -129,7 +129,7 @@ class Character
 
     def make_dialog_box(dialog, width = TTY::Screen.width, show_next_arrow = false)
         used_width = width - (4 + (TTY::Screen.width * PERCENT_MARGIN_RIGHT_DIALOG).div(100))
-        multiline_dialog = Utils.multiline(insert_name(Locale.get_localized(dialog)), used_width)
+        multiline_dialog = TextFormatter.multiline(insert_name(Locale.get_localized(dialog)), used_width)
         while multiline_dialog.length < MIN_DIALOG_HEIGHT
             multiline_dialog.append(' ' * used_width)
         end
@@ -242,7 +242,7 @@ class Character
     def add_intro(sentence, dialog)
         intro = get_intro(dialog)
         if intro != Dialog::NO_INTRO
-            if !Utils::PUNCTUATION.include? intro.strip[-1]
+            if !TextFormatter::PUNCTUATION.include? intro.strip[-1]
                 if sentence[0] != nil
                     sentence[0] = sentence[0].downcase
                 end

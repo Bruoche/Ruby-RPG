@@ -38,9 +38,9 @@ class Armor < Item
 
     def calculate_armor_defense
         max_monster_strength = BaseStats::BASE_STRENGTH + (get_effective_level * BaseStats::NB_STATS_PER_LEVEL)
-        average_monster_strength = Utils::average(max_monster_strength)
+        average_monster_strength = MathUtils.average(max_monster_strength)
         damage_difference = max_monster_strength - average_monster_strength
-        required_protection = Utils.average(average_monster_strength + damage_difference.div(2))
+        required_protection = MathUtils.average(average_monster_strength + damage_difference.div(2))
         return (required_protection * @weightclass::PROTECTION_PERCENTAGE).div(100)
     end
 

@@ -94,7 +94,7 @@ class Dialog
         player_prompt = []
         for accented_word in accented_player_prompt
             player_prompt.append(accented_word)
-            player_prompt.append(accented_word.unicode_normalize(:nfd).tr(Utils::DIACRITICS, '').unicode_normalize(:nfc))
+            player_prompt.append(accented_word.unicode_normalize(:nfd).tr(TextFormatter::DIACRITICS, '').unicode_normalize(:nfc))
         end
         return player_prompt.join('|')
     end

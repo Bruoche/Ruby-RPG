@@ -84,7 +84,7 @@ class Shop
     def show_sign
         if @sign != NO_SIGN
             for line in ASCIIPicture.new(ASCIIPrinter::PREFIX + ASCIIPrinter::UNSCALABLE_PREFIX + @sign).get_ascii
-                Narrator.write(Utils.center(line, TTY::Screen.width))
+                Narrator.write(TextFormatter.center(line, TTY::Screen.width))
             end
         end
     end

@@ -22,7 +22,7 @@ class EnnemyAI
             potential_damage = 0
             for player in players
                 player_strength = player.get_strength
-                player_magic = Utils.average(player.get_intelligence)
+                player_magic = MathUtils.average(player.get_intelligence)
                 if player_strength > player_magic
                     player_damage = player_strength
                 else
@@ -96,7 +96,7 @@ class EnnemyAI
     end
 
     def calculate_potential_heal(needyest_ally, intelligence)
-        average_spell_power = Utils.average(intelligence)
+        average_spell_power = MathUtils.average(intelligence)
         life_to_heal = needyest_ally.get_missing_life
         if life_to_heal > average_spell_power
             average_heal = average_spell_power
@@ -115,7 +115,7 @@ class EnnemyAI
     end
 
     def calculate_potential_spell_damage(players, intelligence)
-        average_spell_power = Utils.average(intelligence)
+        average_spell_power = MathUtils.average(intelligence)
         potential_spell_damage = 0
         for player in players do
             potential_damage = player.get_remaining_life

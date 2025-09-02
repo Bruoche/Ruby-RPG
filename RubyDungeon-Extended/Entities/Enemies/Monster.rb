@@ -138,6 +138,6 @@ class Monster
         if @intelligence > 0
             stat_strings.append(format(Locale.get_localized(LocaleKey::INTELLIGENCE_DESCRIPTOR), get_intelligence.to_s))
         end
-        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), name) + Utils.enumerate(stat_strings)
+        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), name) + TextFormatter.enumerate(stat_strings)
     end
 end

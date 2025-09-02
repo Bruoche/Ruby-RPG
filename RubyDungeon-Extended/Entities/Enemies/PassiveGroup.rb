@@ -19,7 +19,7 @@ class PassiveGroup
             for passive in @passives
                 passive_names.append(passive.get_name.get_gendered_a)
             end
-            return format(Locale.get_localized(LocaleKey::DESCRIBE_PASSIVES), Utils.enumerate(passive_names))
+            return format(Locale.get_localized(LocaleKey::DESCRIBE_PASSIVES), TextFormatter.enumerate(passive_names))
         end
     end
 
