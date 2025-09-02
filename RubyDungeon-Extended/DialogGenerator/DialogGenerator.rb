@@ -3,6 +3,7 @@ require 'FileUtils'
 
 class DialogGenerator
     BASE_PATH = "./RubyDungeon-Extended/DialogGenerator/"
+    SOURCE_PATH = "source/"
     PATH = BASE_PATH + "result/"
     DEFAULT_LOCALE = "EN"
     VOICED_CONSONANTS = ["b", "d", "g"]
@@ -19,7 +20,7 @@ class DialogGenerator
         locale_files = {}
         files = []
         for locale in locales.keys do
-            files.append(File.open(BASE_PATH + path_to_csv + "_" + locale.downcase + ".csv"))
+            files.append(File.open(BASE_PATH + SOURCE_PATH + path_to_csv + "_" + locale.downcase + ".csv"))
             last_file = files[-1].read.force_encoding("iso-8859-1").encode('UTF-8', :invalid => :replace).split("\n")
             localized_sources[locale] = last_file
             locale_files[locale] = ",\n"
