@@ -2,6 +2,7 @@ require './RubyDungeon-Extended/DialogGenerator/DialogGenerator.rb'
 
 TRANSLATION_INDEX_NOUN = 0
 TRANSLATION_INDEX_VERB = 2
+KEY_COLUMN = TRANSLATION_INDEX_NOUN
 GOBLIN_INDEX = 1
 GOBLIN_TO_ENGLISH = {
     "key" => -> (current_locale_key, row, locale) {return format("        LocaleKey::%s => [\"%s\"],\n", current_locale_key, DialogGenerator.format_goblin_trigger(row[GOBLIN_INDEX]))},
@@ -69,4 +70,4 @@ EN_GOBLIN_TRANSLATOR = {
     "_etg_verb" => ENGLISH_TO_GOBLIN_VERBS
 }
 
-DialogGenerator.generate_dialogs_from("goblin_dictionnary", "goblin_translator", EN_GOBLIN_TRANSLATOR, GOBLIN_TRANSLATIONS_LOCALISED)
+DialogGenerator.generate_dialogs_from("goblin_dictionnary", "goblin_translator", EN_GOBLIN_TRANSLATOR, GOBLIN_TRANSLATIONS_LOCALISED, ",")

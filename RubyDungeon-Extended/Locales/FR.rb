@@ -1184,6 +1184,26 @@ class FR
         LocaleKey::GOBLIN_GUARD_BRIBE => "Montrer un objet...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Bien qu'il accepte de faire commerce avec vous, le forgeron semble trop occupé pour discuter.",
+        LocaleKey::GOBLIN_TRANSLATOR_NAME => "un goblin",
+        LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire dans et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!",
+        LocaleKey::GOBLIN_TRANSLATOR_IDLE_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_STARTER => [
+            "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire dans et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!"
+        ],
+        LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_KEEPER => [
+            "'Avez un question à posée?",
+            "Dites juste à Kö Pöko Tarkö un mot et Kö Pöko Tarkö traduira un mot pour vous!",
+            "Voulez que Kö Pöko Tarkö traduise un truc pour vous?",
+            "Un question?"
+        ],
+        LocaleKey::GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS => [
+            "Kö Pöko Tarkö s'excuse, mais Kö Pöko ignore un signification de ce que vous avez dit...",
+            "Kö Pöko Tarkö s'excuse, mais Kö Pöko ignore un signification de ce que vous avez dit...",
+            "Kö Pöko Tarkö craint que Kö Pöko Tarkö ai mal compris...",
+            "Kö Pöko Tarkö ignore malheuresement comment traduire ce que vous venez de dire..."
+        ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "Vous utilisez la clef de la prison afin d'ouvrir la grande porte.",
@@ -1827,9 +1847,57 @@ class FR
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_WHAT => ["sö|so|kö|ko|tö|to"],
         LocaleKey::DIAL_GOBLIN_GUARD_TXT_WHAT => ["Erkosä sö Kö Rakröt Bëdès sö kös korkö pöko sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès."],
         LocaleKey::DIAL_KEY_PLAYER_NAME => ["#{Locale::PLAYER_NAME}"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GRAMMAR => ["grammaire|phrase|phrases"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_REPEAT => "Kö Pöko Tarkö disait, ",
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GRAMMAR => [
+            "Un parole gobline s'ordonne différemment d'un parole humaine.\nLà où les humains disent en premier un sujet, puis un action et un objet, les goblins disent en premier un action puis un sujet et un objet.",
+            "Un sujet et un objet seront tout deux précédé par un article. Soit \"Sö\" pour un nom singulier, \"Kö\" pour un nom pluriel ou \"Tö\" pour un entièreté d'un groupe.",
+            "Donc, un example est \"Certains humans savent un langue gobline\" dans votre language, deviens \"Savoir certains humains un langue goblin\".\nCela donnant en langue gobline \"Kosäpor kö tarkorbakö sö pöko köpoduk\".",
+            "Pour ce qu'est des verbes, pour dire qu'un action est ponctuelle au lieu de continue, les goblins utilisent un suffixe \"Po\" ou \"Bo\". Et pour préciser qu'un action est rapide les goblins utilisent un suffixe \"Rpo\".",
+            "Un example est \"Aimer\" se traduit en \"Kadätodu\", là où « Avoir aimé\" se traduit en \"Kadätodubo\" et \"Avoir aimé rapidement\" est \"Kadätodurpo\".\nUn autre example est \"Manger\" se traduisant en \"Krördar\", \"Avoir mangé\" se traduisant \"Krördarpo\" et \"Avoir mangé rapidement\" se traduisant également en \"Krördarpo\", puisque krördar fini déjà avec un \"r\".",
+            "Les verbes peuvent également être conjugé avec un passé et un future, via un prefix \"Erk\" ou \"Erko\" pour un passé et \"Kop\", \"Kob\" ou \"Kobo\" pour un future.\nPour un example \"Aider\" est \"Toderköpo\", \"Aidait\" est \"Erkododerköpo\" et \"Aidera\" est \"Koptoderköpo\".",
+            "Quelle version d'un préfix est utilisé dépend d'un verbe... Mais Kö Pöko Tarkö dira juste à un #{Locale::PLAYER_NAME} comment chaque verbe se conjuge quand Kö Pöko Tarkö les traduira pour rendre un apprentissage facile.",
+            "Aussi, parfois dans un phrase un sujet peux manquer, ou même un sujet et un objet.\nSi un sujet manque, on présume qu'un sujet est \"Vous\", et si un sujet et un objet manque également on présume un objet comme étant \"moi\".",
+            "De même, quand un verbe est absent on présume qu'un verbe est \"Être\".",
+            "Pour un example, \"Kadä sö köpoduk tö ktöpago\" signifie \"Un goblin aime les arbes\"\n\"Kadä tö ktöpago\" signifie \"Vous aime les arbes\",\nEt \"Kadä\" signifie \"Vous aime moi\".\nUn autre example étant \"Sö tarkorbakö\" signifiant \"Vous est un humain\".",
+            "Enfin, tout les mots dans un phrase peuvent avoir tout les fonctions.\nUn example est que \"Kerortarsëop\" en début signifie « Boir\", mais en tant que sujet ou objet \"Sö kerortarsëop\" signifie \"un boisson\", et ajouté après un mot en tant qu'un adjectif signifie \"Buvable\".\nDonc, un example est \"Kerortarsëop sö kerortarsëop kerortarsëop\" signifie \"Vous bois un boisson buvable\".",
+            "Là où un parole humaine requier de changer un mot pour changer sa fonction, pour un parole gobline changer un position d'un mot suffit.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ARTICLES => ["article|articles|sö|so|kö|ko|tö|to|article|articles|so|so|ko|ko|to|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ARTICLES => [
+            "Les sujets et les objets dans un phrase sont précédé par un article en parole gobline, soit \"Sö\" pour les noms singuliers, \"Kö\" pour les noms pluriels et \"Tö\" pour un totalité d'un groupe.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_CONJUGAISON => ["conjugaison|conjugaisons|conjugue"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_CONJUGAISON => [
+            "Vous peux préciser qu'un verbe est fait à un moment ponctuel, au lieu d'être un action continue, avec un suffixe \"Po\", ou également qu'un action est rapide avec \"Rpo\".\nDe plus, un préfix \"Erk\" ou \"Erko\" peux être utilisé pour marquer un action fait dans un passé, et un préfix \"Kob\", \"Kobo\" ou \"Kop\" pour marquer un action dans un future.",
+            "Un prefix utilisé dépend du début d'un verbe, donc pour vous faciliter un tâche Kö Pöko Tarkö vous donnera tout les conjugaisons d'un verbe quand Kö Pöko Tarkö vous traduira.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KNOW_ENGLISH => ["sait|savez|appris|apprit|connaît|connaissez|humains|humain|français|parole|parlez|parle|connait|francais", "bien|bon"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KNOW_ENGLISH => [
+            "c'est un mission de Kö Pöko Tarkö d'apprendre un parole humaine. Merci de remarquer.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KNOW_ENGLISH => "Oh?... Et bien, ",
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_LEARNED_HOW => ["comment|quand", "humain|français|parole|parle|parlez|parler|francais"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_LEARNED_HOW => [
+            "Un parole humaine a été enseignée à Kö Pöko Tarkö\nDepuis des générations un portion de notre tribut à gardée cette tradition depuis qu'un passé est passé.\n\nKö Pöko Tarkö à simplement continué cette tradition.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_RAKROT => ["rakröt|rakrot", "bedes|bëdès|bedès"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_RAKROT => [
+            "Un goblin est nommé Kö Rakröt bëdès car Kö Rakröt Bëdès est un goblin faisant fuir les aventuriers approchant notre village.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KO_RAKROT => "Un garde au portes hein?\n",
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_POKO_TARKO => ["pöko|poko", "tarkö|tarko"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_POKO_TARKO => [
+            "C'est avec qui vous parlez!\nKö Pöko Tarkö est nommé ainsi car Kö Pöko Tarkö travaille à connaître un parole humaine.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_KOPOEGA_DEGAERK => ["degäerk|degaerk"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_KOPOEGA_DEGAERK => [
+            "Kö Köpoega Degäerk est un forgeron de notre tribut, un bon forgeron. Visite Kö Köpoega si vous souhaite quelques échanges, Kö Köpoega Degäerk peux échanger contre des ors rares et utiles.",
+        ],
+        # Autogenerated via DialogGenerator
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NOTHING => ["aucun","verb"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NOTHING => [
-            "Une phrase sans verbe signifie \"Être\".",
+            "Un phrase sans verbe signifie \"Être\".",
             "Il peux également apparaître comme \"Erkö\" ou \"Köpo\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NOTHING => ["être|etre"],
@@ -1982,7 +2050,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CORPSE => ["dasosegotrëregobu|dasosegotreregobu|erkoasosegotrëregobu|erkoasosegotreregobu|kopdasosegotrëregobu|kopdasosegotreregobu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CORPSE => [
-            "\"Dasosegotrëregobu\" signifie un cadavre, ou peux aussi être une expression pour \"Tuer\" quand utilisé comme verbe.",
+            "\"Dasosegotrëregobu\" signifie un cadavre, ou peux aussi être un expression pour \"Tuer\" quand utilisé comme verbe.",
             "Quand \"Dasosegotrëregobu\" est un verbe, il peux également apparaître comme \"Erkoasosegotrëregobu\" ou \"Kopdasosegotrëregobu\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CORPSE => ["cadavre"],
@@ -1991,7 +2059,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FEATHER => ["degadarköpago|degadarkopago|erkoegadarköpago|erkoegadarkopago|kopdegadarköpago|kopdegadarkopago"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FEATHER => [
-            "\"Degadarköpago\" signifie un plume, ou peux aussi signifier \"Uttliser une plume ou chatouiller\" comme verbe.",
+            "\"Degadarköpago\" signifie un plume, ou peux aussi signifier \"Uttliser un plume ou chatouiller\" comme verbe.",
             "Quand \"Degadarköpago\" est un verbe, il peux également apparaître comme \"Erkoegadarköpago\" ou \"Kopdegadarköpago\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FEATHER => ["plume"],
@@ -2000,7 +2068,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FEATHER => ["chatouiller"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FEATHER => [
-            "\"Uttliser une plume\" ou \"Chatouiller\" peux se dire \"Degadarköpago\" en parole gobline, ou avec \"Erkoegadarköpago\" au passé ou \"Kopdegadarköpago\" au futur."
+            "\"Uttliser un plume\" ou \"Chatouiller\" peux se dire \"Degadarköpago\" en parole gobline, ou avec \"Erkoegadarköpago\" au passé ou \"Kopdegadarköpago\" au futur."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_METAL => ["degaerköpo|degaerkopo|erkoegaerköpo|erkoegaerkopo|kopdegaerköpo|kopdegaerkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_METAL => [
@@ -2092,7 +2160,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHAT_SOMETHING_THING => ["dëkaos|dekaos|erkoëkaos|erkoekaos|kopdëkaos|kopdekaos"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHAT_SOMETHING_THING => [
-            "\"Dëkaos\" signifie \"Quelquechose\", ou \"Faire quelque chose\" comme verbe, mais il peux aussi équivaloir à \"Quoi\" ou \"Faire quoi\" dans une question.",
+            "\"Dëkaos\" signifie \"Quelquechose\", ou \"Faire quelque chose\" comme verbe, mais il peux aussi équivaloir à \"Quoi\" ou \"Faire quoi\" dans un question.",
             "Quand \"Dëkaos\" est un verbe, il peux également apparaître comme \"Erkoëkaos\" ou \"Kopdëkaos\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHAT_SOMETHING_THING => ["quoi|quelquechose"],
@@ -2671,7 +2739,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHERE_SOMEWHERE => ["këtogus|ketogus|erkokëtogus|erkoketogus|kopkëtogus|kopketogus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHERE_SOMEWHERE => [
-            "\"Këtogus\" signifie un quelquepart, ou peux aussi signifier \"Être perdu\" comme verbe, dans une question il signifie également \"Où\".",
+            "\"Këtogus\" signifie un quelquepart, ou peux aussi signifier \"Être perdu\" comme verbe, dans un question il signifie également \"Où\".",
             "Quand \"Këtogus\" est un verbe, il peux également apparaître comme \"Erkokëtogus\" ou \"Kopkëtogus\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHERE_SOMEWHERE => ["où|quelquepart|ou|quelquepart"],
@@ -3007,7 +3075,7 @@ class FR
             "\"Köpodugeobu\" signifie un goblin male, ou peux aussi être un euphemisme pour l'accouplement comme verbe.",
             "Quand \"Köpodugeobu\" est un verbe, il peux également apparaître comme \"Erkoköpodugeobu\" ou \"Kopköpodugeobu\" pour un passé et un future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MALE_GOBLIN => ["goblin|male"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MALE_GOBLIN => ["goblin", "male"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MALE_GOBLIN => [
             "\"Goblin male\" peux se dire \"Köpodugeobu\" en parole gobline."
         ],
@@ -3026,7 +3094,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHO_SOMEONE => ["köpodugus|kopodugus|erkoköpodugus|erkokopodugus|kopköpodugus|kopkopodugus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHO_SOMEONE => [
-            "\"Köpodugus\" signifie un quelqu'un, ou peux aussi signifier \"Cacher son identité\" comme verbe, et signifie \"Qui\" dans une question.",
+            "\"Köpodugus\" signifie un quelqu'un, ou peux aussi signifier \"Cacher son identité\" comme verbe, et signifie \"Qui\" dans un question.",
             "Quand \"Köpodugus\" est un verbe, il peux également apparaître comme \"Erkoköpodugus\" ou \"Kopköpodugus\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHO_SOMEONE => ["qui|quelqu"],
@@ -3035,16 +3103,16 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GOBLIN_TRIBE => ["köpoduk|kopoduk|erkoköpoduk|erkokopoduk|kopköpoduk|kopkopoduk"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GOBLIN_TRIBE => [
-            "\"Köpoduk\" signifie un goblin ou tribut, ou peux aussi signifier \"Former une tribut\" comme verbe.",
+            "\"Köpoduk\" signifie un goblin ou tribut, ou peux aussi signifier \"Former un tribut\" comme verbe.",
             "Quand \"Köpoduk\" est un verbe, il peux également apparaître comme \"Erkoköpoduk\" ou \"Kopköpoduk\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GOBLIN_TRIBE => ["goblin|tribut"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GOBLIN_TRIBE => [
             "\"Goblin\" et \"Tribut\" peuvent se dire \"Köpoduk\" en parole gobline."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOBLIN_TRIBE => ["former|une|tribut"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOBLIN_TRIBE => ["former|un|tribut"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GOBLIN_TRIBE => [
-            "\"Former une tribut\" peux se dire \"Köpoduk\" en parole gobline, ou avec \"Erkoköpoduk\" au passé ou \"Kopköpoduk\" au futur."
+            "\"Former un tribut\" peux se dire \"Köpoduk\" en parole gobline, ou avec \"Erkoköpoduk\" au passé ou \"Kopköpoduk\" au futur."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_OUTSIDER_GUEST => ["köpodukubagedo|kopodukubagedo|erkoköpodukubagedo|erkokopodukubagedo|kopköpodukubagedo|kopkopodukubagedo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_OUTSIDER_GUEST => [
@@ -3079,16 +3147,16 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHY_FOR_SOME_REASON => ["köpogugus|kopogugus|erkoköpogugus|erkokopogugus|kopköpogugus|kopkopogugus"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHY_FOR_SOME_REASON => [
-            "\"Köpogugus\" signifie un \"Une raison quelconque\", ou peux aussi signifier \"Agir pour une raison inconnue\" ou \"erratique\" comme verbe, ou peux correspondre à \"Pourquoi\" lorsque utilisé dans une phrase.",
+            "\"Köpogugus\" signifie un \"Un raison quelconque\", ou peux aussi signifier \"Agir pour un raison inconnue\" ou \"erratique\" comme verbe, ou peux correspondre à \"Pourquoi\" lorsque utilisé dans un phrase.",
             "Quand \"Köpogugus\" est un verbe, il peux également apparaître comme \"Erkoköpogugus\" ou \"Kopköpogugus\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHY_FOR_SOME_REASON => ["pourquoi"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHY_FOR_SOME_REASON => [
-            "\"Pourquoi\" et \"Une raison quelconque\" peuvent se dire \"Köpogugus\" en parole gobline."
+            "\"Pourquoi\" et \"Un raison quelconque\" peuvent se dire \"Köpogugus\" en parole gobline."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_WHY_FOR_SOME_REASON => ["erratique"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_WHY_FOR_SOME_REASON => [
-            "\"Agir pour une raison inconnue\" ou \"Erratique\" peuvent se dire \"Köpogugus\" en parole gobline, ou avec \"Erkoköpogugus\" au passé ou \"Kopköpogugus\" au futur."
+            "\"Agir pour un raison inconnue\" ou \"Erratique\" peuvent se dire \"Köpogugus\" en parole gobline, ou avec \"Erkoköpogugus\" au passé ou \"Kopköpogugus\" au futur."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RESULT_OBJECTIVE_IN_ORDER_TO => ["köpogur|kopogur|erkoköpogur|erkokopogur|kopköpogur|kopkopogur"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RESULT_OBJECTIVE_IN_ORDER_TO => [
@@ -3218,7 +3286,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DAY => ["korköpoburbu|korkopoburbu|erkogorköpoburbu|erkogorkopoburbu|kopkorköpoburbu|kopkorkopoburbu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DAY => [
-            "\"Korköpoburbu\" signifie un jour, ou peux aussi signifier \"Faire venir le jour\", une expression pour \"Illuminer\", comme verbe.",
+            "\"Korköpoburbu\" signifie un jour, ou peux aussi signifier \"Faire venir le jour\", un expression pour \"Illuminer\", comme verbe.",
             "Quand \"Korköpoburbu\" est un verbe, il peux également apparaître comme \"Erkogorköpoburbu\" ou \"Kopkorköpoburbu\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DAY => ["jour"],
@@ -3820,7 +3888,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOUL => ["rëkopsud|rekopsud|erkorëkopsud|erkorekopsud|koprëkopsud|koprekopsud"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOUL => [
-            "\"Rëkopsud\" signifie un âme, ou peux aussi signifier \"Donner une âme à\" comme verbe.",
+            "\"Rëkopsud\" signifie un âme, ou peux aussi signifier \"Donner un âme à\" comme verbe.",
             "Quand \"Rëkopsud\" est un verbe, il peux également apparaître comme \"Erkorëkopsud\" ou \"Koprëkopsud\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SOUL => ["âme|ame"],
@@ -4057,7 +4125,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_RIVER => ["seopkör|seopkor|erkoseopkör|erkoseopkor|kopseopkör|kopseopkor"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_RIVER => [
-            "\"Seopkör\" signifie un rivière, ou peux aussi signifier \"Être ou mettre dans une rivière\" comme verbe.",
+            "\"Seopkör\" signifie un rivière, ou peux aussi signifier \"Être ou mettre dans un rivière\" comme verbe.",
             "Quand \"Seopkör\" est un verbe, il peux également apparaître comme \"Erkoseopkör\" ou \"Kopseopkör\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_RIVER => ["rivière|riviere"],
@@ -4181,7 +4249,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SPIDER => ["tarkörseagobueka|tarkorseagobueka|erkotarkörseagobueka|erkotarkorseagobueka|koptarkörseagobueka|koptarkorseagobueka"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SPIDER => [
-            "\"Tarkörseagobueka\" signifie un araignée, ou peux aussi signifier \"Agir comme une araignée\" comme verbe.",
+            "\"Tarkörseagobueka\" signifie un araignée, ou peux aussi signifier \"Agir comme un araignée\" comme verbe.",
             "Quand \"Tarkörseagobueka\" est un verbe, il peux également apparaître comme \"Erkotarkörseagobueka\" ou \"Koptarkörseagobueka\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_SPIDER => ["araignée|araignee"],
@@ -4555,7 +4623,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_UNWILLING_OR_FORCED_WAR => ["totrëkobugubu|totrekobugubu|erkodotrëkobugubu|erkodotrekobugubu|koptotrëkobugubu|koptotrekobugubu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_UNWILLING_OR_FORCED_WAR => [
-            "\"Totrëkobugubu\" signifie un guerre, forcé, ou peux aussi signifier \"Forcer\" ou \"Mener une guerre\" comme verbe.",
+            "\"Totrëkobugubu\" signifie un guerre, forcé, ou peux aussi signifier \"Forcer\" ou \"Mener un guerre\" comme verbe.",
             "Quand \"Totrëkobugubu\" est un verbe, il peux également apparaître comme \"Erkodotrëkobugubu\" ou \"Koptotrëkobugubu\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_UNWILLING_OR_FORCED_WAR => ["forcé|guerre|force|guerre"],
@@ -4564,7 +4632,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_UNWILLING_OR_FORCED_WAR => ["forcer|mener", "forcer|guerre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_UNWILLING_OR_FORCED_WAR => [
-            "\"Forcer\" et \"Mener une guerre\" peuvent se dire \"Totrëkobugubu\" en parole gobline, ou avec \"Erkodotrëkobugubu\" au passé ou \"Koptotrëkobugubu\" au futur."
+            "\"Forcer\" et \"Mener un guerre\" peuvent se dire \"Totrëkobugubu\" en parole gobline, ou avec \"Erkodotrëkobugubu\" au passé ou \"Koptotrëkobugubu\" au futur."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOURCE_BECAUSE => ["tötresèop|totreseop|erkotötresèop|erkototreseop|koptötresèop|koptotreseop"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOURCE_BECAUSE => [

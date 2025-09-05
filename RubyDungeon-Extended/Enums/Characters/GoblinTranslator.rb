@@ -1,25 +1,57 @@
 class GoblinTranslator < CharacterData
-    NAME = LocaleKey::SHOPKEEPER_NAME
-    INTRO_DIALOG = LocaleKey::SHOPKEEPER_INTRO_DIALOG
-    IDLE_DIALOGS = LocaleKey::SHOPKEEPER_IDLE_DIALOGS
-    CONVERSATION_STARTER = LocaleKey::SHOPKEEPER_CONVERSATION_STARTER
-    CONVERSATION_KEEPER = LocaleKey::SHOPKEEPER_CONVERSATION_KEEPER
-    REPEAT_INTRO = LocaleKey::DIAL_SHOPKEEPER_REPEAT
-    UNKNOWN_DIALOGS = LocaleKey::SHOPKEEPER_UNKNOWN_DIALOGS
+    NAME = LocaleKey::GOBLIN_TRANSLATOR_NAME
+    INTRO_DIALOG = LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG
+    IDLE_DIALOGS = LocaleKey::GOBLIN_TRANSLATOR_IDLE_DIALOGS
+    CONVERSATION_STARTER = LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_STARTER
+    CONVERSATION_KEEPER = LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_KEEPER
+    REPEAT_INTRO = LocaleKey::DIAL_GOBLIN_TRANSLATOR_REPEAT
+    UNKNOWN_DIALOGS = LocaleKey::GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS
     PICTURE = 'merchant'
     NAME_KNOWN = nil
     PLAYER_NICKNAME = 'human'
     COMBAT_BODY = VillagerGoblin
     DIALOGS = [
         Dialog.new(
+            DialogID::GRAMMAR,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GRAMMAR,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GRAMMAR
+        ),
+        Dialog.new(
+            DialogID::CONJUGAISON,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_CONJUGAISON,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_CONJUGAISON
+        ),
+        Dialog.new(
+            DialogID::KNOW_ENGLISH,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KNOW_ENGLISH,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KNOW_ENGLISH,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KNOW_ENGLISH
+        ),
+        Dialog.new(
+            DialogID::LEARNED_HOW,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_LEARNED_HOW,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_LEARNED_HOW
+        ),
+        Dialog.new(
+            DialogID::KO_RAKROT,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_RAKROT,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_RAKROT,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KO_RAKROT
+        ),
+        Dialog.new(
+            DialogID::KO_POKO_TARKO,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_POKO_TARKO,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_POKO_TARKO
+        ),
+        Dialog.new(
+            DialogID::KO_KOPOEGA_DEGAERK,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_KOPOEGA_DEGAERK,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_KOPOEGA_DEGAERK
+        ),
+        Dialog.new(
             DialogID::TRANSLATE_NOTHING_GTE,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NOTHING,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NOTHING
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_NOTHING_ETG_VERB,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NOTHING,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NOTHING
         ),
         Dialog.new(
             DialogID::TRANSLATE_ARMOR_GTE,
@@ -310,16 +342,6 @@ class GoblinTranslator < CharacterData
             DialogID::TRANSLATE_BRICKS_ETG_NOUN,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BRICKS,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BRICKS
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_WHAT_SOMETHING_THING_GTE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHAT_SOMETHING_THING,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHAT_SOMETHING_THING
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_WHAT_SOMETHING_THING_ETG_NOUN,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHAT_SOMETHING_THING,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHAT_SOMETHING_THING
         ),
         Dialog.new(
             DialogID::TRANSLATE_HOME_GTE,
@@ -1152,21 +1174,6 @@ class GoblinTranslator < CharacterData
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_MANY_NUMEROUS_A_LOT
         ),
         Dialog.new(
-            DialogID::TRANSLATE_CAN_ABLE_GTE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CAN_ABLE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CAN_ABLE
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_CAN_ABLE_ETG_NOUN,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CAN_ABLE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CAN_ABLE
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_CAN_ABLE_ETG_VERB,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CAN_ABLE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CAN_ABLE
-        ),
-        Dialog.new(
             DialogID::TRANSLATE_GOOD_GTE,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GOOD,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GOOD
@@ -1425,16 +1432,6 @@ class GoblinTranslator < CharacterData
             DialogID::TRANSLATE_ANCESTOR_ETG_NOUN,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ANCESTOR,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ANCESTOR
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_SOMETHING_MADE_GTE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOMETHING_MADE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOMETHING_MADE
-        ),
-        Dialog.new(
-            DialogID::TRANSLATE_SOMETHING_MADE_ETG_VERB,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOMETHING_MADE,
-            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOMETHING_MADE
         ),
         Dialog.new(
             DialogID::TRANSLATE_WHY_FOR_SOME_REASON_GTE,
@@ -3200,6 +3197,51 @@ class GoblinTranslator < CharacterData
             DialogID::TRANSLATE_FOOD_ETG_NOUN,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FOOD,
             LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FOOD
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_SOMETHING_MADE_GTE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_SOMETHING_MADE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_SOMETHING_MADE
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_SOMETHING_MADE_ETG_VERB,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SOMETHING_MADE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_SOMETHING_MADE
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_WHAT_SOMETHING_THING_GTE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WHAT_SOMETHING_THING,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WHAT_SOMETHING_THING
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_WHAT_SOMETHING_THING_ETG_NOUN,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHAT_SOMETHING_THING,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHAT_SOMETHING_THING
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_CAN_ABLE_GTE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_CAN_ABLE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_CAN_ABLE
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_CAN_ABLE_ETG_NOUN,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_CAN_ABLE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_CAN_ABLE
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_CAN_ABLE_ETG_VERB,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_CAN_ABLE,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_CAN_ABLE
+        ),
+        Dialog.new(
+            DialogID::TRANSLATE_NOTHING_ETG_VERB,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_NOTHING,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_NOTHING
+        ),
+        Dialog.new(
+            DialogID::ARTICLES,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ARTICLES,
+            LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ARTICLES
         )
     ]
 end

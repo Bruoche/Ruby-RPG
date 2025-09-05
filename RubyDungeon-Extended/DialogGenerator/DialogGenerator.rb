@@ -14,8 +14,9 @@ class DialogGenerator
     O_COLUMN = ["ö", "o", "ü", "u"]
     A_COLUMN = ["ä", "a"]
     E_COLUMN = ["ë", "è", "e"]
+    SEPARATOR = ';'
 
-    def self.generate_dialogs_from(path_to_csv, npc_name, dialogs_alts, locales)
+    def self.generate_dialogs_from(path_to_csv, npc_name, dialogs_alts, locales, separator = SEPARATOR)
         localized_sources = {}
         locale_files = {}
         files = []
@@ -32,20 +33,30 @@ class DialogGenerator
             dialogs_alts.each do |alt_key, dialogs_formats|
                 rows = {}
                 for locale in locales.keys do
-                    rows[locale] = localized_sources[locale][row_index].split(',')
+                    row = localized_sources[locale][row_index]
+                    if row != nil
+                        rows[locale] = row.split(separator)
+                    else
+                        rows[locale] = []
+                    end
                 end
-                base_dialog_key = format_key(rows[DEFAULT_LOCALE][TRANSLATION_INDEX_NOUN])
-                dialog_key = ("translate_" + base_dialog_key).upcase + alt_key.upcase
+                base_dialog_key = format_key(rows[DEFAULT_LOCALE][KEY_COLUMN])
+                dialog_key = (base_dialog_key).upcase + alt_key.upcase
                 dialog_keys += format("    %s = '%s'\n", dialog_key, dialog_key.downcase)
                 dialog_file += format("        Dialog.new(\n            DialogID::%s", dialog_key)
                 dialogs_formats.each do |key_type, formatter|
                     base_key = "dial_" + npc_name + '_' + key_type + alt_key + '_' + base_dialog_key
                     key = base_key.upcase
                     locale_keys += format("    %s = :%s\n", key, base_key)
+                    added_dialogs = ""
                     locales.each do |locale, localised_texts|
-                        locale_files[locale] += formatter.call(key, rows[locale], localised_texts)
+                        added_text = formatter.call(key, rows[locale], localised_texts)
+                        locale_files[locale] += added_text
+                        added_dialogs += added_text
                     end
-                    dialog_file += format(",\n            LocaleKey::%s", key)
+                    if added_dialogs != ""
+                        dialog_file += format(",\n            LocaleKey::%s", key)
+                    end
                 end
                 dialog_file += "\n        ),\n"
             end
@@ -72,8 +83,14 @@ class DialogGenerator
     end
 
     def self.format_key(text)
+        if text == nil
+            text = ""
+        end
         text.downcase!
         text = text.split("(")[0]
+        if text == nil
+            text = ""
+        end
         text.gsub! "\/", ' '
         text = text.strip
         text.gsub! " ", '_'

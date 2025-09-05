@@ -1183,6 +1183,26 @@ class EN
         LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Even if they agree to trade with you, the blacksmith seems too occupied for chit-chat.",
+        LocaleKey::GOBLIN_TRANSLATOR_NAME => "a goblin",
+        LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö can help you translate all words from a goblin talk to a human talk and from human talk to goblin talk if you want to.\nOr, if you want Kö Pöko Tarkö can also explain the difference of grammar in goblin talk and how goblin talk sentences are made... Just tell Kö Pöko Tarkö whatever you need!",
+        LocaleKey::GOBLIN_TRANSLATOR_IDLE_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_STARTER => [
+            "Kö Pöko Tarkö can help you translate all words from a goblin talk to a human talk and from human talk to goblin talk if you want to.\nOr, if you want Kö Pöko Tarkö can also explain the difference of grammar in goblin talk and how goblin talk sentences are made... Just tell Kö Pöko Tarkö whatever you need!"
+        ],
+        LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_KEEPER => [
+            "Have a question to ask?",
+            "Just tell Kö Pöko Tarkö a word and Kö Pöko Tarkö will translate a word for you!",
+            "Want Kö Pöko Tarkö to translate something for you?",
+            "A question?"
+        ],
+        LocaleKey::GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS => [
+            "Kö Pöko Tarkö apologise, but Kö Pöko Tarkö ignore what you said....",
+            "Kö Pöko Tarkö apologise, but Kö Pöko Tarkö ignore what you said...",
+            "Kö Pöko Tarkö fear Kö Pöko Tarkö missunderstood the word you said...",
+            "Kö Pöko Tarkö unfortunately ignore all translations of what you said..."
+        ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
             "You use the prison key to open the great door.",
@@ -1826,8 +1846,55 @@ class EN
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_WHAT => ["sö|so|kö|ko|tö|to"],
         LocaleKey::DIAL_GOBLIN_GUARD_TXT_WHAT => ["Erkosä sö Kö Rakröt Bëdès sö kös korkö pöko sö #{Locale::PLAYER_NAME} sö Kö Rakröt Bëdès."],
         LocaleKey::DIAL_KEY_PLAYER_NAME => ["#{Locale::PLAYER_NAME}"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_REPEAT => "Kö Pöko Tarkö said, ",
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GRAMMAR => ["grammar|sentence|sentences|order"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GRAMMAR => [
+            "A talk of goblins order differently then a talk of humans.\nWhile humans say a subject first, followed by a action and a object, goblins say a action first, followed by a subject and a object.",
+            "A subject and a object are both prefixed by a article. Either \"Sö\" for a singular noun, \"Kö\" when multiple and \"Tö\" for when talking about a totality of a group.",
+            "So, a example be \"Some humans know a talk of goblin\" in your langage, being \"Know some human a talk goblin\".\nWhich when translating all words give \"Kosäpor kö tarkorbakö sö pöko köpoduk\".",
+            "As for all verbs, to say a action is executed during a punctual moment instead of a period, Goblins use a suffix \"Po\" or \"Bo\". And to say it was done fast goblins use a suffix \"Rpo\".",
+            "A example be \"Loving\" translate into \"Kadätodu\", while \"Love\" translate into \"Kadätodubo\" et \"Love fast\" is \"Kadätodurpo\".\nA other example be \"Eating\" is \"Krördar\", \"Eat\" is \"Krördarpo\" and \"Eat fast\" is also \"Krördarpo\", because Krördar finish with a \"r\" already.",
+            "Verbs can also be conjugated as a past or a future, with a prefix \"Erk\" or \"Erko\" for a past and \"Kop\", \"Kob\" or \"Kobo\" for a future.\nFor a example \"Helping\" is \"Toderköpo\", \"Was helping\" is \"Erkododerköpo\" and \"Will be helping\" is \"Koptoderköpo\".",
+            "Which version of a prefix is used depends on how a verb start... But Kö Pöko Tarkö will just tell a {name} how a verb conjugate each time Kö Pöko Tarkö translate a word to make a learning easy.",
+            "Also, sometimes in a sentence a subject can be missing, or even a subject and a object.\nIf a subject is missing we will assume a subject to be \"You\", and if both a subject and a object is missing we also assume a object is \"me\".",
+            "Similarily, when a verb is missing we assume a verb to be \"Being\".",
+            "For a example, \"Kadä sö köpoduk tö ktöpago.\" means \"A goblin like all trees.\"\n\"Kadä tö ktöpago.\" means \"You like all trees.\",\nAnd \"Kadä.\" means \"You like me.\".\nA other example be \"Sö tarkorbakö.\" means \"You are a human.\".",
+            "Finally, All words can have all functions according to where a word is in a sentence.\nA example be \"Kerortarsëop\" used in a begining mean \"Drinking\", but as a subject or a object \"Sö kerortarsëop\" means \"a drink\", and added after a word as a adjective it means \"Drinkable\".\nSo, a example be \"Kerortarsëop sö kerortarsëop kerortarsëop\" means \"You drink a drinkable drink\".",
+            "Where human talk require changing a word's spelling to change a function, goblin talk only require changing a word's position.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ARTICLES => ["article|articles|sö|so|kö|ko|tö|to|article|articles|so|so|ko|ko|to|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ARTICLES => [
+            "All subjects and All objects in a sentence are preceded by a article, either \"Sö\" for singular objects, \"Kö\" for plural objects and \"Tö\" for a totality of a group.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_CONJUGAISON => ["conjugaison|conjugate"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_CONJUGAISON => [
+            "You can specify that a verb is done at a punctual time, instead of continually, with a suffix \"Po\", or also that a action is done fast using \"Rpo\" instead.\nOn top of that, a prefix \"Erk\" or \"Erko\" can be used to mark a verb happening in a past, and a prefix \"Kob\", \"Kobo\" or \"Kop\" can be used to mark a verb in a future.",
+            "Which prefix is used depend on how a verb start, so to make a learning easy for you Kö Pöko Tarkö will simply give you all conjugaisons of each verbs when Kö Pöko Tarkö translate them.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KNOW_ENGLISH => ["knowing|know|learned|learn|learning|talk|talking|speak|speaking|well|good|great", "humans|human|language|english"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KNOW_ENGLISH => [
+            "it's my life purpose to know human talk. Thanks for saying so.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KNOW_ENGLISH => "Oh?... Well, ",
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_LEARNED_HOW => ["how", "human|english|talk|talking|speaking|speak"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_LEARNED_HOW => [
+            "A talk of humans have been taught to me\nFor generations a portion of our tribe kept that tradition since a past's past.\n\nKö Pöko Tarkö simply kept at it.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_RAKROT => ["rakröt|rakrot", "bëdès|bedes"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_RAKROT => [
+            "A goblin is named Kö Rakröt bëdès because Kö Rakröt Bëdès is usually a goblin that handle warding off adventurers approaching our village.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KO_RAKROT => "A guard up front right?\n",
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_POKO_TARKO => ["tarko|tarkö"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_POKO_TARKO => [
+            "That's who you're talking to!\nKö Pöko Tarkö is named this way because of Kö Pöko Tarkö's work on learning a human talk.",
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_KOPOEGA_DEGAERK => ["köpoega|kopoega"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_KOPOEGA_DEGAERK => [
+            "Kö Köpoega Degäerk is a blacksmith of a tribe, a great blacksmith. Give Kö Köpoega a visit if you want some trades, a blacksmith is willing to trade for some rare and usable gold.",
+        ],
         # autogenerated via DialogGenerator:
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NOTHING => ["no|verb|no|verb|erkno|verb|erkno|verb|kobno|verb|kobno|verb"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_NOTHING => ["no", "verb"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_NOTHING => [
             "A lack of verb in a sentence means \"Being\" as a verb.",
             "When \"No verb\" is a verb, it can also appear as \"Erkö\" or \"Köpo\" for past and future."
@@ -2097,7 +2164,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_WHAT_SOMETHING_THING => ["what|something|thing"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_WHAT_SOMETHING_THING => [
-            "\"What?\", \"Something\" or \"Thing\" can all be said \"Dëkaos\" in a goblin talk."
+            "\"What\", \"Something\" or \"Thing\" can all be said \"Dëkaos\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_HOME => ["dök|dok|erkodök|erkodok|kopdök|kopdok"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_HOME => [
@@ -2850,7 +2917,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GOOD => [
             "\"Good\" can be said \"Kobukörkada\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOOD => ["making|good"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOOD => ["making", "good"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GOOD => [
             "\"Making good\" can be said \"Kobukörkada\" in a goblin talk, or also as \"Erkogobukörkada\" for a past or \"Kopkobukörkada\" for a future."
         ],
@@ -2999,7 +3066,7 @@ class EN
             "\"Köpodubugurku\" means a elder / chief', or can also mean \"Becoming an elder\" as a verb.",
             "When \"Köpodubugurku\" is a verb, it can also appear as \"Erkoköpodubugurku\" or \"Kopköpodubugurku\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ELDER_CHIEF => ["elder|chief'"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ELDER_CHIEF => ["elder|chief"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ELDER_CHIEF => [
             "\"Elder / chief'\" can be said \"Köpodubugurku\" in a goblin talk."
         ],
@@ -3008,7 +3075,7 @@ class EN
             "\"Köpodugeobu\" means a male goblin, or can also be a euphemism for males mating as a verb.",
             "When \"Köpodugeobu\" is a verb, it can also appear as \"Erkoköpodugeobu\" or \"Kopköpodugeobu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MALE_GOBLIN => ["male|goblin"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_MALE_GOBLIN => ["male", "goblin"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_MALE_GOBLIN => [
             "\"Male goblin\" can be said \"Köpodugeobu\" in a goblin talk."
         ],
@@ -3017,7 +3084,7 @@ class EN
             "\"Köpodugurku\" means a female goblin, or can also be an expression for \"Laying eggs\" as a verb.",
             "When \"Köpodugurku\" is a verb, it can also appear as \"Erkoköpodugurku\" or \"Kopköpodugurku\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FEMALE_GOBLIN => ["female|goblin"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FEMALE_GOBLIN => ["female", "goblin"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_FEMALE_GOBLIN => [
             "\"Female goblin\" can be said \"Köpodugurku\" in a goblin talk."
         ],
