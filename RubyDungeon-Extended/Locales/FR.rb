@@ -936,7 +936,7 @@ class FR
             "Vous prenez une des torches placées sur le mur près de l'entrée, et vous enfoncez dans l'obscurité."
         ],
         LocaleKey::DEEP_CATACOMBS_DESCRIPTION => [
-            "Vous êtes plongé dans l'obscurité, votre torche vascillante servant d'unique source de lumière en ces lieux étroits.",
+            "Vous êtes plongé·e dans l'obscurité, votre torche vascillante servant d'unique source de lumière en ces lieux étroits.",
             "L'air est frais, et une certaine humidité commence à s'immiscer au travers de la terre sous vos pieds.",
             "Cet endroit semble également dédié aux morts, tel les catacombes, mais ici la moisissure a rongée la majorité des traces du passage des hommes en ce lieu."
         ],
@@ -1013,16 +1013,27 @@ class FR
             "Enfin l'obscurité est derrière vous."
         ],
         LocaleKey::OPEN_CAVE => "grande salle ouverte",
+        LocaleKey::VILLAGE_ENTRANCE_DESCRIPTION => [
+            "Vous êtes dans ce qui semble être une forêt souterraine.",
+            "Un grand mur de bois vous fait fasse, une lourde porte en sellant son centre.",
+            "Une sorte de village goblin semble habiter cette grotte."
+        ],
         LocaleKey::VILLAGE_HUB => "place du village",
         LocaleKey::VILLAGE_HUB_DESCRIPTION => [
             "Vous êtes dans une placette de village, constituée simplement d'un puit entouré par de petites maisons en bois.",
             "A votre gauche se trouve une maison dont l'envergure dépasse largement le reste des bâtiments de ce lieu, et à votre droite semble se trouver une forge.",
             "Les larges murs encerclant le village vous donnent un sentiment de sécurité."
         ],
+        LocaleKey::VILLAGE_HUT => "hutte",
+        LocaleKey::VILLAGE_HOME_DESCRIPTION => [
+            "Vous êtes dans une petite habitation faite de bois et d'argile, forcé·e de courber votre dos pour ne pas heurter votre tête contre son plafond.",
+            "Une petite ouverture au sommet de la hutte laisse la douce lumière naturelle de la cave entrer la pièce, bien que l'endroit reste sombre pour des yeux humains.",
+            "L'air ici est plus sec que dans le reste de la grotte, et la température plus douce. Les tissus doux jonchant le sol offre un peu de repos pour vos pieds endoloris par le voyage."
+        ],
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "À votre surprise, cette portion de la grotte semble reçevoir la lumière de la surface.",
             "En relevant votre regard, vous remarquez un gouffre béant s'ouvrant dans le plafond.",
-            "Les décombres jonchant le sol semblent indiquer que ce dernier c'est effondré à un étage supérieur."
+            "Les décombres jonchant le sol semblent indiquer que ce dernier s'est effondré à un étage supérieur."
         ],
         LocaleKey::FOREST_DESCRIPTION => [
             "Vous êtes dans ce qui semble être une forêt souterraine.",
@@ -1386,7 +1397,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_INTRO_AGILITY => "Je ne vois pas pourquoi vous me demandez ça, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_HEALTH => ["santé|sante|santee|santée|vie"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HEALTH => [
-            "une bonne santée est crucialle pour tout aventurier. Si vous veniez à être griévement blessé vous auriez tout à perdre. Donc, assurez-vous d'être dans votre meilleure forme lorsque vous vous aventurez plus profondément dans le donjon."
+            "une bonne santée est crucialle pour tout aventurier. Si vous veniez à être griévement blessé·e vous auriez tout à perdre. Donc, assurez-vous d'être dans votre meilleure forme lorsque vous vous aventurez plus profondément dans le donjon."
         ],
         LocaleKey::DIAL_SHOPKEEPER_INTRO_HEALTH => "Je ne devrais pas avoir besoin de vous le dire, mais ",
         LocaleKey::DIAL_SHOPKEEPER_KEY_STRENGTH => ["force|fort|muscles|muscle|musculature"],

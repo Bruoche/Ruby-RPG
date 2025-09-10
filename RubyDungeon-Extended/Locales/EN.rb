@@ -1022,11 +1022,22 @@ class EN
             "Despite being in a deep cave, far from the sun's rays, a rich ecosystem seems to have developped here.",
             "Many crystals embedded into the cave's roof shine through, not dissimilar to a night-time sky."
         ],
+        LocaleKey::VILLAGE_ENTRANCE_DESCRIPTION => [
+            "You are in what seems to be an underground forest.",
+            "A tall wooden wall is facing you, a large gate guarding it's center.",
+            "Some sort of village of goblins awaits before you, living among the cave."
+        ],
         LocaleKey::VILLAGE_HUB => "village hub",
         LocaleKey::VILLAGE_HUB_DESCRIPTION => [
             "You are in a village hub, small wooden houses surrounding a simple well.",
             "To your left is an especially large house, and to your right what seems to be a sort of forge.",
             "The large walls encircling the whole village gives it a sense of calm and security."
+        ],
+        LocaleKey::VILLAGE_HUT => "hut",
+        LocaleKey::VILLAGE_HOME_DESCRIPTION => [
+            "You are in a small home made of wood and argile, focred to lower your head a little in order to not bump against it's curved roof.",
+            "A small opening at the top of the hut let the soft light of the cave's roof enter the home, but it's nonetheless quite dark for human eyes.",
+            "The air is dryer then the humid cave's exterior, and the temperature warmer even if still pretty mild. Soft cloth pave the ground, offering a bit of comfort to your tired feet."
         ],
         LocaleKey::FOREST_LOOT_ROPE => [
             "You see a few vines dangling from the trees that could be used as ropes."

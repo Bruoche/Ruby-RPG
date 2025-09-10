@@ -707,8 +707,11 @@ module LocaleKey
     CAVES_LOOT_ROPE = :cave_loot_rope
     CAVES_TRANSITION_FOREST = :caves_transition_forest
     OPEN_CAVE = :open_cave
+    VILLAGE_ENTRANCE_DESCRIPTION = :village_entrance_description
     VILLAGE_HUB = :village_hub
     VILLAGE_HUB_DESCRIPTION = :village_hub_description
+    VILLAGE_HUT = :village_hut
+    VILLAGE_HOME_DESCRIPTION = :village_home_description
     OPEN_CAVE_DESCRIPTION = :open_cave_description
     FOREST_DESCRIPTION = :forest_description
     FOREST_LOOT_ROPE = :forest_loot_rope

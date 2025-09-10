@@ -1,42 +1,50 @@
-module GoblinVillageF
+module GoblinHomeF
     NAMES = [
-        LocaleKey::VILLAGE_HUB,
+        LocaleKey::VILLAGE_HUT,
+    ].freeze
+
+    PREFIXES = [
+        LocaleKey::SMALL_F
+    ].freeze
+
+    SUFFIXES = [
+        LocaleKey::ISOLATED_F,
+        LocaleKey::DARK_F,
+        LocaleKey::DUSTY_F,
+        LocaleKey::NARROW_F
     ].freeze
 end
 
-class GoblinVillage < Biome
+class GoblinHome < Biome
     EXPECTED_LEVEL = 27
-    PICTURE = 'goblin_village'
+    PICTURE = 'goblin_hut'
     EXPLORATION_TRACK = 'Goblin Village'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
-    FEMALE = GoblinVillageF
+    FEMALE = GoblinHomeF
     FEMALE_CHANCES = 100
-    BACKTRACK_CHANCES = 95
-    DESCRIPTION = LocaleKey::VILLAGE_HUB_DESCRIPTION
+    BACKTRACK_CHANCES = 0
+    DESCRIPTION = LocaleKey::VILLAGE_HOME_DESCRIPTION
     PASSIVE_BESTIARY = [
         FighterGoblin,
         FighterGoblinHeavy,
-        FighterGoblinHeavy,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
         VillagerGoblin,
         VillagerGoblin,
         VillagerGoblin,
         VillagerGoblin,
         VillagerGoblin
     ]
-    MONSTER_AMOUNT_MULTIPLIER = 1.3
+    MONSTER_AMOUNT_MULTIPLIER = 0.2
     SAFE_CHANCES = 100
-    PASSIVES_CHANCE = 100
+    PASSIVES_CHANCE = 90
     LOOT = []
-    MIN_EXITS = 2
-    MAX_EXITS = 3
-    TRANSITIONS = [
-        BiomeTransition.new(
-            BiomeTransition::NO_MESSAGE,
-            100,
-            'Caves'
-        ),
-    ]
-    REQUIRED_BIOMES = ['VillageTransition', 'VillageShop', 'TranslatorHome']
+    MIN_EXITS = 0
+    MAX_EXITS = 0
     ENTRY_EVENT = -> (room, player) {
         if player.has_status?(GoblinMurderer) && room.got_passives?
             Narrator.write(LocaleKey::GOBLIN_ATTACK)
