@@ -433,7 +433,6 @@ module LocaleKey
     WEIGHT_SMALL = :weight_small
     WEIGHT_NONE = :weight_none
     NO_ARMOR = :no_armor
-    WEAKPOINT_DESCRIPTION = :weakpoing_description
     MONSTER_DESCRIPTION = :monster_description
     HEALTH_DESCRIPTOR = :health_descriptor
     DAMAGE_DESCRIPTOR = :damage_descriptor

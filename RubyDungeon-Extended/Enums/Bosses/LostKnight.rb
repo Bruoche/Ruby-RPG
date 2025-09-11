@@ -14,9 +14,11 @@ module LostKnightLeftArmM
     NAMES = [LocaleKey::KNIGHT_LEFT_ARM]
 end
 
-class LostKnightHead
+class LostKnightHead < Bestiary
     ID = 'head'
-    HEALTH_MULTIPLIER = 1.75
+    IS_WEAKPOINT = true
+    HEALTH_MULTIPLIER = 4
+    DAMAGE_MULTIPLIER = 0
     FEMALE = LostKnightHeadF
     FEMALE_CHANCES = 100
     DEATH_EVENT = -> (players, head, boss) {LostKnight.death(head.get_name, boss)}
@@ -24,8 +26,8 @@ end
 
 class LostKnightLeftArm < Bestiary
     ID = 'left_arm'
-    HEALTH_MULTIPLIER = 0.75
-    DAMAGE_MULTIPLIER = 0.8
+    HEALTH_MULTIPLIER = 1
+    DAMAGE_MULTIPLIER = 1.2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
@@ -35,8 +37,8 @@ end
 
 class LostKnightRightArm < Bestiary
     ID = 'right_arm'
-    HEALTH_MULTIPLIER = 0.75
-    DAMAGE_MULTIPLIER = 1
+    HEALTH_MULTIPLIER = 1
+    DAMAGE_MULTIPLIER = 1.5
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
@@ -63,10 +65,8 @@ class LostKnight < Bestiary
             40
         )
     ]
-    WEAKPOINTS = [
-        LostKnightHead
-    ]
     BODYPARTS = [
+        LostKnightHead,
         LostKnightLeftArm,
         LostKnightRightArm
     ]

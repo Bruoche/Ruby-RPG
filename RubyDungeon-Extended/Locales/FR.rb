@@ -656,7 +656,6 @@ class FR
         LocaleKey::WEIGHT_SMALL => "Vous ne sentez pratiquement pas le poids de votre armure, ne génant qu'a peine votre abilité à rester discret et à esquiver les attaques de vos ennemis.",
         LocaleKey::WEIGHT_NONE => "Vous ne sentez même pas le poids de votre armure, qui vous laisse bouger librement sans gène.",
         LocaleKey::NO_ARMOR => "Vous ne portez pas d'armure.",
-        LocaleKey::WEAKPOINT_DESCRIPTION => "%{#{LocaleKey::F_SUBJECT}} avec %{#{LocaleKey::F_LIFE}} points de vies",
         LocaleKey::MONSTER_DESCRIPTION => "%s avec ",
         LocaleKey::HEALTH_DESCRIPTOR => "%s points de vies",
         LocaleKey::DAMAGE_DESCRIPTOR => "%s dégats",

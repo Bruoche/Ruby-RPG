@@ -24,14 +24,27 @@ class Bodypart
             data::DEATH_EVENT
         )
         @special_moves = data::SPECIAL_MOVES.map(&:clone)
+        @is_weakpoint = data::IS_WEAKPOINT
     end
 
     def is?(id)
         return id == @id
     end
 
+    def get_name
+        return @actor.get_name
+    end
+
     def get_description
         return @actor.get_description_the
+    end
+
+    def get_life
+        return @actor.get_current_life
+    end
+
+    def get_max_life
+        return @actor.get_max_life
     end
 
     def get_power
@@ -52,6 +65,10 @@ class Bodypart
 
     def died?
         return @actor.died?
+    end
+
+    def is_weakpoint?
+        return @is_weakpoint
     end
 
     def add_special_move(special_move)

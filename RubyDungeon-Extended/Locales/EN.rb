@@ -656,7 +656,6 @@ class EN
         LocaleKey::WEIGHT_SMALL => "You can barely feel the weight of your armor, only slightly your ability to dodge and move discretely.",
         LocaleKey::WEIGHT_NONE => "You cannot even feel the weight of your armor, able to move freely.",
         LocaleKey::NO_ARMOR => "You are not wearing any armor.",
-        LocaleKey::WEAKPOINT_DESCRIPTION => "%{#{LocaleKey::F_SUBJECT}} with %{#{LocaleKey::F_LIFE}} health points",
         LocaleKey::MONSTER_DESCRIPTION => "%s with ",
         LocaleKey::HEALTH_DESCRIPTOR => "%s health points",
         LocaleKey::DAMAGE_DESCRIPTOR => "%s damage",

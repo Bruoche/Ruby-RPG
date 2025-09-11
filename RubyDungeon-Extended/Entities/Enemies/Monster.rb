@@ -139,10 +139,10 @@ class Monster
     private
 
     def description(name)
-        stat_strings = [
-            format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s),
-            format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s)
-        ]
+        stat_strings = [format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s)]
+        if get_strength > 0
+            stat_strings.append(format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s))
+        end
         if get_intelligence > 0
             stat_strings.append(format(Locale.get_localized(LocaleKey::INTELLIGENCE_DESCRIPTOR), get_intelligence.to_s))
         end
