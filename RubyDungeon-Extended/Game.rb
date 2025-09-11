@@ -4,7 +4,8 @@ class Game
     MAIN_MENU_HEIGHT = 18
     RETAIL_PERCENT = 90
 
-    def initialize
+    def initialize(in_debug_mode)
+        @@in_debug_mode = in_debug_mode
         if !Settings.initialized?
             SettingsMenu.language_pop_up
         end
@@ -44,6 +45,14 @@ class Game
         end
     end
 
+    def self.catch_and_log(exception)
+        Narrator.unexpected_error
+        SaveManager.log(exception)
+        if @@in_debug_mode
+            raise exception
+        end
+    end
+
     def play
         entrance = World.get_instance.generate_dungeon(@party)
         @party.set_room(entrance)
@@ -56,8 +65,7 @@ class Game
                     room_instance.get_monsters.take_turns_against(players)
                     @party.check_won_fights
                 rescue => unexpected_exception
-                    Narrator.unexpected_error
-                    SaveManager.log(unexpected_exception)
+                    Game.catch_and_log(unexpected_exception)
                 end
             end
         end
@@ -65,10 +73,16 @@ class Game
     end
 
     def main_menu
+        if @@in_debug_mode
+            puts "WARNING : debug mode activated - Errors will crash the game without saving."
+            extra_height = 1
+        else
+            extra_height = 0
+        end
         empty_space = (TTY::Screen.height - MAIN_MENU_HEIGHT)
         top_space = empty_space.div(3)
         bottom_space = empty_space - top_space
-        Narrator.add_space_of(top_space - 1)
+        Narrator.add_space_of(top_space - (1 + extra_height))
         ASCIIPrinter.print('title')
         Narrator.main_menu_options
         Narrator.add_space_of(bottom_space)

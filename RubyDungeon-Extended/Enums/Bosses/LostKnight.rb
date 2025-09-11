@@ -19,7 +19,7 @@ class LostKnightHead
     HEALTH_MULTIPLIER = 1.75
     FEMALE = LostKnightHeadF
     FEMALE_CHANCES = 100
-    DEATH_EVENT = -> (head, boss) {LostKnight.death(head, boss)}
+    DEATH_EVENT = -> (players, head, boss) {LostKnight.death(head.get_name, boss)}
 end
 
 class LostKnightLeftArm < Bestiary
@@ -30,7 +30,7 @@ class LostKnightLeftArm < Bestiary
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     SPECIAL_MOVES = []
-    DEATH_EVENT = -> (arm, boss) {LostKnight.limb_loss(arm, boss)}
+    DEATH_EVENT = -> (players, arm, boss) {LostKnight.limb_loss(arm.get_name, boss)}
 end
 
 class LostKnightRightArm < Bestiary
@@ -43,7 +43,7 @@ class LostKnightRightArm < Bestiary
     SPECIAL_MOVES = [
         SpecialMove.new(33, -> (target, pack, damage, boss) {LostKnight.slash(target, pack, damage, boss)})
     ]
-    DEATH_EVENT = -> (arm, boss) {LostKnight.main_arm_loss(arm, boss)}
+    DEATH_EVENT = -> (players, arm, boss) {LostKnight.main_arm_loss(arm.get_name, boss)}
 end
 
 class LostKnight < Bestiary
@@ -98,7 +98,7 @@ class LostKnight < Bestiary
             Narrator.knight_phase_change
             sleep Settings.get_pause_duration
             left_arm.add_special_move(SpecialMove.new(100, -> (target, pack, damage, boss) {slash(target, pack, damage, boss)}))
-            left_arm.set_death_event(-> (name, boss) {defenseless(name, boss)})
+            left_arm.set_death_event(-> (players, left_arm, boss) {defenseless(left_arm.get_name, boss)})
         else
             defenseless(name, boss)
         end

@@ -1,26 +1,26 @@
 class Bodypart
-    def initialize(data, power_bonus)
+    def initialize(data, power_bonus, room)
         @id = data::ID
         strength_proportion = 100 - data::MAGIC_PROPORTION
         health = (BaseStats::BASE_HEALTH + power_bonus) * data::HEALTH_MULTIPLIER
         strength = ((BaseStats::BASE_STRENGTH + power_bonus) * data::DAMAGE_MULTIPLIER * strength_proportion).div(100)
         intelligence = ((BaseStats::BASE_INTELLIGENCE + power_bonus) * data::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * data::MAGIC_PROPORTION).round.div(100)
         @actor = Monster.new(
-            # todo add room here
+            room,
             Integer(health),
             Integer(strength),
             Integer(intelligence),
             data::HEALING_PROPORTION,
             Name.new(data),
             data::BASE_MOVES.map(&:clone),
-            [''],
-            [''],
-            [''],
-            0,
-            0,
+            data::SPELL_MOVES.map(&:clone),
+            data::HEAL_MOVES.map(&:clone),
+            data::ESCAPE_MOVE.map(&:clone),
+            data::UNPREDICTABILITY,
+            0, #limbs don't escape
             ASCIIPicture.new([]),
-            [],
-            [],
+            data::LOOTS,
+            data::ATTACK_EFFECTS,
             data::DEATH_EVENT
         )
         @special_moves = data::SPECIAL_MOVES.map(&:clone)
@@ -42,6 +42,14 @@ class Bodypart
         return @actor.get_strength
     end
 
+    def get_intelligence
+        return @actor.get_intelligence
+    end
+
+    def get_status_icons
+        return @actor.status_handler.get_icons.strip
+    end
+
     def died?
         return @actor.died?
     end
@@ -52,6 +60,10 @@ class Bodypart
 
     def set_strength(damage)
         @actor.set_strength(damage)
+    end
+
+    def status_handler
+        return @actor.status_handler
     end
 
     def set_death_event(death_event)
@@ -70,6 +82,6 @@ class Bodypart
     end
 
     def death_event(parent)
-        @actor.death_event(@actor.get_name, parent) # TODO fix here (used to give bodypart name + parent, now should be giving players monster)
+        @actor.death_event(parent)
     end
 end

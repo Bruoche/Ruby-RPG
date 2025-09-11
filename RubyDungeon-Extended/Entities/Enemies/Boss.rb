@@ -2,7 +2,8 @@ class Boss < Monster
     PART_KILLED = true
     PICTURE_PREFIX = 'Boss/'
 
-    def initialize(boss)
+    def initialize(room, boss)
+        @room = room
         multiplayer_scaling = Math.sqrt(World.get_instance.nb_players)
         power_bonus = (boss::POWER_BONUS * multiplayer_scaling).truncate
         @weakpoints = Array.new
@@ -11,12 +12,13 @@ class Boss < Monster
         end
         @bodyparts = Array.new
         for bodypart in boss::BODYPARTS
-            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss::BODYPARTS.length)))
+            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss::BODYPARTS.length), room))
         end
         @name = Name.new(boss)
         @initial_power = get_power
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + boss::PICTURE)
         @loots = boss::LOOTS
+        @death_event = boss::DEATH_EVENT
     end
 
     def get_power
@@ -46,8 +48,11 @@ class Boss < Monster
     end
 
     def get_intelligence
-        #TODO add intelligence support for bosses
-        return 0
+        intelligence = 0
+        for bodypart in @bodyparts
+            intelligence += bodypart.get_intelligence
+        end
+        return intelligence
     end
 
     def get_life_to_string
@@ -74,6 +79,27 @@ class Boss < Monster
             max_life += weakpoint.get_max_life
         end
         return max_life
+    end
+
+    def get_status_icons
+        statuses = ''
+        first = true
+        for bodypart in (@bodyparts + @weakpoints)
+            status_icons = bodypart.get_status_icons
+            if status_icons != ''
+                if first
+                    first = false
+                else
+                    statuses += ' '
+                end
+                statuses += status_icons
+            end
+        end
+        return statuses
+    end
+
+    def get_room
+        return @room
     end
 
     def healthbar(size)
@@ -105,6 +131,10 @@ class Boss < Monster
             end
         end
         return true
+    end
+
+    def escaped?
+        return false # for now no boss escape
     end
 
     def hurt(attack)

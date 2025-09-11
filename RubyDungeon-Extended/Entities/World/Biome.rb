@@ -5,6 +5,9 @@ class Biome
                 unless child.const_defined?(:SPECIAL)
                     child.const_set(:SPECIAL, false)
                 end
+                unless child.const_defined?(:BESTIARY)
+                    child.const_set(:BESTIARY, [])
+                end
                 unless child.const_defined?(:MONSTER_AMOUNT_BONUS)
                     child.const_set(:MONSTER_AMOUNT_BONUS, child.const_get(:EXPECTED_LEVEL).div(BaseStats::LEVELS_PER_EXTRA_MONSTER))
                 end

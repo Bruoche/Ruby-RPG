@@ -9,7 +9,7 @@ class MonsterFactory
             if monster_data::IS_BOSS == false
                 return Monster.new(room, *monster_data)
             else
-                return Boss.new(*monster_data)
+                return Boss.new(room, *monster_data)
             end
         end
     end
@@ -48,10 +48,10 @@ class MonsterFactory
             monster_intelligence,
             monster_type::HEALING_PROPORTION,
             name,
-            [Locale.get_localized(LocaleKey::MONSTER_STRIKE)],
-            [Locale.get_localized(LocaleKey::MONSTER_SPELL)],
-            [Locale.get_localized(LocaleKey::MONSTER_HEAL)],
-            [Locale.get_localized(LocaleKey::MONSTER_ESCAPE)],
+            monster_type::BASE_MOVES.map(&:clone),
+            monster_type::SPELL_MOVES.map(&:clone),
+            monster_type::HEAL_MOVES.map(&:clone),
+            monster_type::ESCAPE_MOVE.map(&:clone),
             monster_type::UNPREDICTABILITY,
             monster_type::COWARDICE,
             picture,

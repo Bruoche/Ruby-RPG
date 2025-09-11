@@ -117,7 +117,7 @@ class ASCIIPicture
             (' ' * MathUtils.positive((width - monster.get_name.as_text.length).div(2))) + TextFormatter.truncate(monster.get_name.as_text.capitalize, width),
             (' ' * MONSTER_HEALTH_MARGIN) + monster.healthbar(width - (MONSTER_HEALTH_MARGIN * 2)) + (' ' * MONSTER_HEALTH_MARGIN),
             (' ' * MONSTER_HEALTH_MARGIN) + "(#{monster.get_life_to_string} ♥)",
-            TextFormatter.center(" " + monster.status_handler.get_icons.strip, width),
+            TextFormatter.center(" " + monster.get_status_icons, width),
             (' ' * MathUtils.positive((width - stat_string.length).div(2))) + stat_string
         ])
         monster_info.frame

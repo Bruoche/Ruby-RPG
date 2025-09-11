@@ -30,6 +30,10 @@ class Weakpoint
         return @lifebar.get_max_life
     end
 
+    def get_status_icons
+        return ''
+    end
+
     def died?
         return @lifebar.is_empty
     end
@@ -51,6 +55,7 @@ class Weakpoint
     end
 
     def death_event(parent)
-        @death_event.call(@name, parent)
+        players = []
+        @death_event.call(players, self, parent)
     end
 end

@@ -51,8 +51,7 @@ class PlayerController
                 end
             end
         rescue => unexpected_exception
-            Narrator.unexpected_error
-            SaveManager.log(unexpected_exception)
+            Game.catch_and_log(unexpected_exception)
         end
     end
 

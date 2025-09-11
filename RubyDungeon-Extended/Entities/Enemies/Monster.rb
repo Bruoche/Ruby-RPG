@@ -70,6 +70,10 @@ class Monster
         return @lifebar.get_max_life
     end
 
+    def get_status_icons
+        return @status_handler.get_icons.strip
+    end
+
     def get_room
         return @room
     end
@@ -120,7 +124,11 @@ class Monster
         @status_handler.end_of_turn_actions(self)
     end
 
-    def death_event(players, pack)
+    def death_event(pack)
+        players = World.get_instance.get_players_in(get_room)
+        players.delete_if do |player|
+            !player.fighting?
+        end
         @death_event.call(players, self, pack)
     end
 
@@ -135,7 +143,7 @@ class Monster
             format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s),
             format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s)
         ]
-        if @intelligence > 0
+        if get_intelligence > 0
             stat_strings.append(format(Locale.get_localized(LocaleKey::INTELLIGENCE_DESCRIPTOR), get_intelligence.to_s))
         end
         return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), name) + TextFormatter.enumerate(stat_strings)

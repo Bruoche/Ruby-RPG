@@ -23,6 +23,18 @@ class Bestiary
                 unless child.const_defined?(:ATTACK_EFFECTS)
                     child.const_set(:ATTACK_EFFECTS, [])
                 end
+                unless child.const_defined?(:BASE_MOVES)
+                    child.const_set(:BASE_MOVES, [Locale.get_localized(LocaleKey::MONSTER_STRIKE)])
+                end
+                unless child.const_defined?(:SPELL_MOVES)
+                    child.const_set(:SPELL_MOVES, [Locale.get_localized(LocaleKey::MONSTER_STRIKE)])
+                end
+                unless child.const_defined?(:HEAL_MOVES)
+                    child.const_set(:HEAL_MOVES, [Locale.get_localized(LocaleKey::MONSTER_HEAL)])
+                end
+                unless child.const_defined?(:ESCAPE_MOVE)
+                    child.const_set(:ESCAPE_MOVE, [Locale.get_localized(LocaleKey::MONSTER_ESCAPE)])
+                end
                 unless child.const_defined?(:DEATH_EVENT)
                     child.const_set(:DEATH_EVENT, -> (players, dead_monster, pack) {
                         # no death event by default
