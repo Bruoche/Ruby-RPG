@@ -38,6 +38,7 @@ class FR
         LocaleKey::CLEARING => "clairière",
         LocaleKey::FOREST_GROUND => "terrain forestier",
         LocaleKey::GEOLLE => "geôle",
+        LocaleKey::ROAD => "route",
         LocaleKey::ROOM => "salle",
         LocaleKey::TORTURE_CHAMBER => "chambre de torture",
         LocaleKey::CORRIDOR => "couloir",
@@ -1029,6 +1030,16 @@ class FR
             "Vous êtes dans une petite habitation faite de bois et d'argile, forcé·e de courber votre dos pour ne pas heurter votre tête contre son plafond.",
             "Une petite ouverture au sommet de la hutte laisse la douce lumière naturelle de la cave pénétrer la pièce, bien que l'endroit reste sombre pour des yeux humains.",
             "L'air ici est plus sec que dans le reste de la grotte, et la température plus douce. Les tissus doux jonchant le sol offre un peu de repos pour vos pieds endoloris par le voyage."
+        ],
+        LocaleKey::VILLAGE_ROAD_DESCRIPTION => [
+            "Vous êtes dans un petit village, entouré·e de petites huttes éparpillées partout autour.",
+            "Le village est étonnamment petit et calme comparé aux endroits lugubres qu'il vous a fallu traverser pour arriver ici.",
+            "L'air frais de la cave se mélange aux odeurs de terre battue humide sous vos pieds, sans doute compactée par des millier de pattes goblines durant des siècles avant votre passage."
+        ],
+        LocaleKey::GOBLIN_ROAD_TRANSITION_HOME => [
+            "Vous approchez une des petites habitations, courbant votre stature disproportionelle afin de passer votre tête sous l'encadrement de la porte.",
+            "Celle-ci est dépourvue de serrure ou autre mécanisme pouvant la maintenir fermée, sa poignée statique ne servant qu'à offrir une prise plus accéssible lorsqu'on la tire vers sois.",
+            "Vous la poussez donc simplement avant d'entrer dans la hutte."
         ],
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "À votre surprise, cette portion de la grotte semble reçevoir la lumière de la surface.",

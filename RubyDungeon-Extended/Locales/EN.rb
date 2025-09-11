@@ -38,6 +38,7 @@ class EN
         LocaleKey::CLEARING => "clearing",
         LocaleKey::FOREST_GROUND => "forest ground",
         LocaleKey::GEOLLE => "gaol",
+        LocaleKey::ROAD => "road",
         LocaleKey::ROOM => "room",
         LocaleKey::TORTURE_CHAMBER => "torture room",
         LocaleKey::CORRIDOR => "corridor",
@@ -1037,7 +1038,17 @@ class EN
         LocaleKey::VILLAGE_HOME_DESCRIPTION => [
             "You are in a small home made of wood and argile, focred to lower your head a little in order to not bump against it's curved roof.",
             "A small opening at the top of the hut let the soft light of the cave's roof enter the home, but it's nonetheless quite dark for human eyes.",
-            "The air is dryer then the humid cave's exterior, and the temperature warmer even if still pretty mild. Soft cloth pave the ground, offering a bit of comfort to your tired feet."
+            "The air is dryer than the humid cave's exterior, and the temperature warmer even if still pretty mild. Soft cloth pave the ground, offering a bit of comfort to your tired feet."
+        ],
+        LocaleKey::VILLAGE_ROAD_DESCRIPTION => [
+            "You are in a small village, surrounded by small round huts scattered all around.",
+            "The village is a strangely calm and humble place compared to the increasingly odd places you had to traverse to get there.",
+            "The fresh air of the cave mix in with the earthy smell of the humid compacted ground beneath your feet, no doubt stepped on every day by thousands of goblins over the course of many centuries."
+        ],
+        LocaleKey::GOBLIN_ROAD_TRANSITION_HOME => [
+            "You approach one of the small homes, lowering your disproportional stature to duck your head beneath the door frame.",
+            "The door has no lock or closing mecanism, it's static handle only serving to give an easier grip when pulling it close.",
+            "You simply push it opened and enter the hut."
         ],
         LocaleKey::FOREST_LOOT_ROPE => [
             "You see a few vines dangling from the trees that could be used as ropes."
@@ -1746,13 +1757,13 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_KEY_BLACKSMITH => ["blacksmith|blacksmiths|across|other|guild", "blacksmith|blacksmiths|guy|dude|smith"],
         LocaleKey::DIAL_ALCHEMIST_TXT_BLACKSMITH => [
             "The blacksmith across my shop has been at it for a while, he worked for the guild long before I joined myself.",
-            "He doesn't talk, so people tend to find him rude or intimidating, but when you get to know him he's actually pretty sweet.\nAs they say, actions speak louder then words anyway.",
+            "He doesn't talk, so people tend to find him rude or intimidating, but when you get to know him he's actually pretty sweet.\nAs they say, actions speak louder than words anyway.",
             "And, as for what's of your concern, he's a hell of a good blacksmith. If you need anything armor-related, he's the guy to see."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_KING => ["king|kings|siarl|court"],
         LocaleKey::DIAL_ALCHEMIST_TXT_KING => [
             "The king of Livrou is King Siarl VII, \"the stern\".",
-            "Having taken the throne in 1393 after overthrowing his own father at only seventeen years old, he lead many victories with an iron fist.\nI think that nearly becoming illegitimate in favor of foreign tradings during his young adult life hardened him early, making him a much harder ruler then his father was. But, he also is a more level-headed ruler, to say the least.",
+            "Having taken the throne in 1393 after overthrowing his own father at only seventeen years old, he lead many victories with an iron fist.\nI think that nearly becoming illegitimate in favor of foreign tradings during his young adult life hardened him early, making him a much harder ruler than his father was. But, he also is a more level-headed ruler, to say the least.",
             "My father saw him grow since he was a little kid during his service funilly enough. He described him as fairly reserved as a kid, but he quickly turned out brillant in combat and on the battlefields."
         ],
         LocaleKey::DIAL_ALCHEMIST_KEY_MOURRE => ["your|you|native|mourre|moure|capital|capitals|the|our", "city|mourre|moure|capital|capitals"],

@@ -4,7 +4,8 @@ module GoblinHomeF
     ].freeze
 
     PREFIXES = [
-        LocaleKey::SMALL_F
+        LocaleKey::SMALL_F,
+        LocaleKey::TALL_F
     ].freeze
 
     SUFFIXES = [

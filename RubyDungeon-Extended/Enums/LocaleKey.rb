@@ -40,6 +40,7 @@ module LocaleKey
     MARSH = :marsh
     PATH = :path
     REFECTORY = :refectory
+    ROAD = :road
     ROOM = :room
     SLEEP_PLACE = :sleep_place
     SWAMP = :swamp
@@ -712,6 +713,8 @@ module LocaleKey
     VILLAGE_HUB_DESCRIPTION = :village_hub_description
     VILLAGE_HUT = :village_hut
     VILLAGE_HOME_DESCRIPTION = :village_home_description
+    VILLAGE_ROAD_DESCRIPTION = :village_road_description
+    GOBLIN_ROAD_TRANSITION_HOME = :goblin_road_transition_home
     OPEN_CAVE_DESCRIPTION = :open_cave_description
     FOREST_DESCRIPTION = :forest_description
     FOREST_LOOT_ROPE = :forest_loot_rope
