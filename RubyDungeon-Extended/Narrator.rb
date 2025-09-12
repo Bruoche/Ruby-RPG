@@ -689,6 +689,25 @@ class Narrator
         Narrator.write(LocaleKey::KNIGHT_DEATH_THIRD)
     end
 
+    def self.translator_intro(player, intro_question, sparing_reaction)
+        kill = true
+        loop do
+            Narrator.write(intro_question)
+            case Narrator.user_input(player.get_name).downcase
+            when 'a'
+                Narrator.write(sparing_reaction)
+                Narrator.pause_text
+                return !kill
+            when 'b'
+                if Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::NPC_ATTACK_CONFIRM), Locale.get_localized(LocaleKey::GOBLIN_TRANSLATOR_NAME)), player.get_name)
+                    return kill
+                end
+            end
+            Narrator.unsupported_choice_error
+        end
+    end
+
+
     def self.show_player_battle_cards(player)
         battle_cards = ASCIIRow.new
         for ally in World.get_instance.get_players_in(player.get_room)

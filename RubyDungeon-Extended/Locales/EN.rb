@@ -1219,10 +1219,53 @@ class EN
             "A question?"
         ],
         LocaleKey::GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS => [
-            "Kö Pöko Tarkö apologise, but Kö Pöko Tarkö ignore what you said....",
-            "Kö Pöko Tarkö apologise, but Kö Pöko Tarkö ignore what you said...",
+            "Kö Pöko Tarkö apologize, but Kö Pöko Tarkö ignore what you said....",
+            "Kö Pöko Tarkö apologize, but Kö Pöko Tarkö ignore what you said...",
             "Kö Pöko Tarkö fear Kö Pöko Tarkö missunderstood the word you said...",
             "Kö Pöko Tarkö unfortunately ignore all translations of what you said..."
+        ],
+        LocaleKey::TRANSLATOR_WHAT_HAVE_YOU_DONE => [
+            "You enter once again the talking goblin's home, but instead of welcoming you the creature seem to freeze in shock upon seeing you.",
+            "    \"Dëk-... What... You... Goblin blood on your hands... Why did you kill goblins?!",
+            "    Kö Pöko Tarkö taught you how talk goblins... You need only talk goblins to get anything... Goblins are peacefull!",
+            "    Were you here to kill only?...\"",
+            "",
+            "What do you do?",
+            "    a) Apologize.",
+            "    b) Kill."
+        ],
+        LocaleKey::TRANSLATOR_APOLOGY => [
+            "You explain yourself to the goblin, saying your intention are peacefull.",
+            "The goblin untense a little, seeming still a little shook but willing to give you the benefits of the doubt.",
+            "",
+            "You're not sure wether the goblin gives you a second chance out of genuine belief in your intentions, or out of fear of being next in line, but either way it will continue teaching you the goblin language."
+        ],
+        LocaleKey::TRANSLATOR_BEGGING => [
+            "You enter a small habitation, goblin blood smearing over the small wooden door as your hand push it open, your stature hunching under it's frame to fit.",
+            "To your surprise, as you enter the hut a small goblin start talking to you in english with a thick accent, cowering as it realise your arrival.",
+            "",
+            "    \"Eer- Eh- Erköpo! Erkö- W- Wait!",
+            "    You! Ko- M- My name is Kö Pöko Tarkö!",
+            "    Kö Pöko Tarkö can teach goblin talk! Please spare Kö Pöko Tarkö. Goblins are peacefull!\"",
+            "",
+            "What do you do?",
+            "    a) Spare the goblin",
+            "    b) Attack the goblin"
+        ],
+        LocaleKey::TRANSLATOR_SPARING => [
+            "You reassure the goblin that you do not intend on killing it.",
+            "Kö Pöko Tarkö seems to relax a little, a hint of gratefullness in his voice.",
+            "",
+            "    \"With goblin blood on your hands, all goblins will fight you away from a village...",
+            "    But, a grief can pass, and after learning a goblin talk you may be able to convince a guard to let you through peacefully during your next trip here.\"",
+        ],
+        LocaleKey::TRANSLATOR_GREETING => [
+            "You enter the small habitation, lowering your head to avoid bumping into the ceiling as you step in.",
+            "As you do, a goblin inhabiting the hut look at you in great surprise, freezing a few seconds before excitedly greeting you in a thick accent.",
+            "",
+            "    \"Hello you! My name is Kö Pöko Tarkö.",
+            "    Kö Pöko Tarkö know a human talk, and can teach a goblin talk to you.",
+            "    When knowing a goblin talk, you may be able convince a gard to let you in easy next visit here, and can attend our story time with Köpodubugurku.\""
         ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Try the prison key in the lock?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
@@ -3852,10 +3895,10 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DYING => ["regoburëkobu|regoburekobu|erkoregoburëkobu|erkoregoburekobu|kopregoburëkobu|kopregoburekobu|regoburëkoburpo|regoburëkobupo|regoburekoburpo|regoburekobupo|erkoregoburëkoburpo|erkoregoburëkobupo|erkoregoburekoburpo|erkoregoburekobupo|kopregoburëkoburpo|kopregoburëkobupo|kopregoburekoburpo|kopregoburekobupo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DYING => [
-            "\"Regoburëkobu\" means a dying, or can also mean \"Dying\" as a verb.",
+            "\"Regoburëkobu\" means a dead, or can also mean \"Dying\" as a verb.",
             "When \"Regoburëkobu\" is a verb, it can also appear as \"Erkoregoburëkobu\" or \"Kopregoburëkobu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DYING => ["dying"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DYING => ["dead"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DYING => [
             "\"Dying\" can be said \"Regoburëkobu\" in a goblin talk."
         ],

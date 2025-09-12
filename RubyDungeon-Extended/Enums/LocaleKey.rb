@@ -733,6 +733,11 @@ module LocaleKey
     GOBLIN_TRANSLATOR_CONVERSATION_STARTER = :goblin_translator_conversation_starter
     GOBLIN_TRANSLATOR_CONVERSATION_KEEPER = :goblin_translator_conversation_keeper
     GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS = :goblin_translator_unknown_dialogs
+    TRANSLATOR_WHAT_HAVE_YOU_DONE = :translator_what_have_you_done
+    TRANSLATOR_APOLOGY = :translator_apology
+    TRANSLATOR_BEGGING = :translator_begging
+    TRANSLATOR_SPARING = :translator_sparing
+    TRANSLATOR_GREETING = :translator_greeting
     ALCHEMIST_NAME = :alchemist_name
     ALCHEMIST_INTRO_DIALOG = :alchemist_intro_dialog
     ALCHEMIST_IDLE_DIALOGS = :alchemist_idle_dialogs

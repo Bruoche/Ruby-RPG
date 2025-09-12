@@ -439,7 +439,7 @@ class FR
             "    2) Aller au magasin"
         ],
         LocaleKey::FIRST_INTRO => [
-            "Vous n'êtes pas exactement sûr de la raison de votre venue en ce lieu.",
+            "Vous n'êtes pas exactement sûr·e de la raison de votre venue en ce lieu.",
             "Mais qu'il s'agisse d'une recherche de trésors, de pouvoir ou juste une soif de connaissances,",
             "Vous êtes maintenant au pieds d'un donjon étrange et réputé comme étant sans fond.",
             "",
@@ -598,7 +598,7 @@ class FR
             "      1) Oui",
             "      2) Non"
         ],
-        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Êtes-vous sûr de vouloir remplacer votre armure actuelle par %s ? (y/n)",
+        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Êtes-vous sûr·e de vouloir remplacer votre armure actuelle par %s ? (y/n)",
         LocaleKey::NPC_QUESTION_INTRO => [
             "Que souhaitez-vous faire ?",
             "    0) Retour"
@@ -618,7 +618,7 @@ class FR
         LocaleKey::UNEXPECTED_DAMAGE_TYPE_ERROR => "<< unexpected damage type encountered >>",
         LocaleKey::UNEXPECTED_ERROR => "<< an unexpected error occured >>",
         LocaleKey::CLOSE_GAME_CONFIRM => [
-            "Êtes vous sûr de vouloir fermer le jeu ? (y/n)",
+            "Êtes vous sûr·e de vouloir fermer le jeu ? (y/n)",
             "Toute progression non sauvegardée sera perdue."
         ],
         LocaleKey::PRECEDENT_PAGE             => "< a) Page précédente | ",
@@ -636,11 +636,11 @@ class FR
         LocaleKey::CARD_INTELLIGENCE => "Intelligence : ",
         LocaleKey::CARD_PRICE => "Prix : ",
         LocaleKey::UNSAVED_RETURN_CONFIRM => [
-            "Êtes-vous sûr de vouloir revenir en arrière ? (y/n)",
+            "Êtes-vous sûr·e de vouloir revenir en arrière ? (y/n)",
             "Les modifications effectuées ne seront pas sauvegardées."
         ],
         LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM => [
-            "Êtes-vous sûr de vouloir revenir en arrière ? (y/n)",
+            "Êtes-vous sûr·e de vouloir revenir en arrière ? (y/n)",
             "Les personnages sélectionnés ne seront pas sauvegardés"
         ],
         LocaleKey::ASK_MONSTER_AIMED_AT => "Quel ennemi souhaitez-vous attaquer ?",
@@ -680,7 +680,7 @@ class FR
         LocaleKey::ASK_ITEM_TO_SELL => "Quel objet souhaitez-vous vendre ?",
         LocaleKey::ASK_ITEM_TO_UPGRADE => "Quelle armure souhaitez-vous améliorer ? (%s ¤)",
         LocaleKey::ASK_ITEM_TO_SHOW => "Quel objet souhaitez-vous montrer au goblin ?",
-        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Êtes-vous sûr de vouloir donner %s à la garde gobline ? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Êtes-vous sûr·e de vouloir donner %s à la garde gobline ? (y/n)",
         LocaleKey::GOBLIN_NOT_INTERESTED => "La garde gobline ne semble pas intéressée par ce que vous lui montrez.",
         LocaleKey::GOBLIN_ACCEPT_GIFT => [
             "La gobline observe avec attention l'objet que vous lui tendez, sa posture semblant se détendre légèrement. Elle fait signe aux goblins se tenant près de la porte de venir chercher votre offrande.",
@@ -743,10 +743,10 @@ class FR
         ],
         LocaleKey::SELL_OPTION => "Vendre",
         LocaleKey::UPGRADE_LABEL => "Améliorer",
-        LocaleKey::ASK_CONFIRMATION_SELLING => "Êtes-vous sûr de vouloir vendre %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
-        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Êtes-vous sûr de vouloir améliorer %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_SELLING => "Êtes-vous sûr·e de vouloir vendre %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Êtes-vous sûr·e de vouloir améliorer %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
         LocaleKey::ASK_ITEM_BOUGHT => "Quel objet souhaitez-vous acheter ? (%s ¤)",
-        LocaleKey::ASK_CONFIRM_PURCHASE => "Êtes-vous sûr de vouloir acheter %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
+        LocaleKey::ASK_CONFIRM_PURCHASE => "Êtes-vous sûr·e de vouloir acheter %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
         LocaleKey::ARMORS_PLURAL => "des armures",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_NAME => "gants en cuir noir",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_DESC => "de fins gants en une sorte de cuir noir souple extrêmement léger mais pourtant surprenamment durable",
@@ -1224,6 +1224,49 @@ class FR
             "Kö Pöko Tarkö s'excuse, mais Kö Pöko ignore un signification de ce que vous avez dit...",
             "Kö Pöko Tarkö craint que Kö Pöko Tarkö ai mal compris...",
             "Kö Pöko Tarkö ignore malheuresement comment traduire ce que vous venez de dire..."
+        ],
+        LocaleKey::TRANSLATOR_WHAT_HAVE_YOU_DONE => [
+            "Vous entrez une fois de plus dans la maison du goblin, mais au lieu de vous accueillir celui-ci se fige soudainement, un air choqué.",
+            "    \"Dëk-... Que... Vous... Un sang goblin sur vos mains... Pourquoi vous avez tué des goblins?!",
+            "    Kö Pöko Tarkö vous a enseigné un parole gobline... Vous devez seulement parler aux goblins pour leur aide... Les goblins sont paisibles!",
+            "    Votre but est-il seul de tuer?...\"",
+            "",
+            "Que faites-vous ?",
+            "    a) S'excuser.",
+            "    b) Tuer."
+        ],
+        LocaleKey::TRANSLATOR_APOLOGY => [
+            "Vous vous expliquez au goblin, assurant vos que intentions sont paisibles.",
+            "Le goblin semble se détendre un peu, bien qu'encore sous le choc il vous donne le bénéfice du doute, prêt à continuer de vous enseigner le goblin.",
+            "",
+            "Vous n'êtes pas sûr·e de si cette seconde chance est dûe à une croyance sincère en vos bonnes intentions, ou si le goblin craint simplement d'être tué à son tour dans le cas où il vous contre-dirait."
+        ],
+        LocaleKey::TRANSLATOR_BEGGING => [
+            "Vous pénétrez dans une des habitations. Du sang goblin entache la petite porte en bois lorsque votre main la pousse, votre tête s'avachissant pour passer sous la petite toîture.",
+            "A votre surprise, lorsque vous entrez dans la petite hutte un goblin se met à vous parler avec un accent fort, se recroquevillant en vous voyant entrer.",
+            "",
+            "    \"Eer- Eh- Erköpo! Erk- Ah- Attendez !",
+            "    Vous! Ko- Je- Je m'appelle Kö Pöko Tarkö !",
+            "    Kö Pöko Tarkö peux vous apprendre la parole gobline... Epargnez Kö Pöko Tarkö ! Les goblins sont pacifique !\"",
+            "",
+            "Que faites-vous ?",
+            "    a) Epargner le goblin.",
+            "    b) Attaquer le goblin."
+        ],
+        LocaleKey::TRANSLATOR_SPARING => [
+            "Vous assurez le goblin que vous ne comptez pas le tuer.",
+            "Kö Pöko Tarkö semble se détendre quelque-peu, une touche de reconnaissance dans sa voix.",
+            "",
+            "    \"Avec du sang goblin sur vos mains, tout les goblins vous attaquerons à vue dans le village...",
+            "    Mais, un mal passera, et quand vous apprendrez la parole gobline vous pourrez convaincre un garde de vous laisser passer pacifiquement quand vous reviendrez.\"",
+        ],
+        LocaleKey::TRANSLATOR_GREETING => [
+            "Vous entrez dans une petite habitation, abaissant votre tête sous le plafond pour ne pas vous y cogner.",
+            "Lorsqu'il vous voit devant lui, le goblin occupant les lieux vous observe avec une expression abasourdie, se figeant quelques instant avant de vous accueillir dans un accent étrange avec enthousiasme.",
+            "",
+            "    \"Bonjour, vous ! Je m'appelle Kö Pöko Tarkö.",
+            "    Kö Pöko Tarkö connait un parole humaine, et peux apprendre un parole gobline à vous !",
+            "    Quand vous connaitrez un parole gobline, vous pourriez convaincre un garde de vous laisser rentrer plus facilement un prochaine fois. Et vous pourrez aussi comprendre les histoires de Köpodubugurku.\""
         ],
         LocaleKey::BOSS_CELL_REQ_QUESTION => "Essayer la clef de la prison sur la serrure ?",
         LocaleKey::BOSS_CELL_REQ_ENTRY => [
@@ -3852,12 +3895,12 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_DYING => ["regoburëkobu|regoburekobu|erkoregoburëkobu|erkoregoburekobu|kopregoburëkobu|kopregoburekobu|regoburëkoburpo|regoburëkobupo|regoburekoburpo|regoburekobupo|erkoregoburëkoburpo|erkoregoburëkobupo|erkoregoburekoburpo|erkoregoburekobupo|kopregoburëkoburpo|kopregoburëkobupo|kopregoburekoburpo|kopregoburekobupo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_DYING => [
-            "\"Regoburëkobu\" signifie un mourant, ou peux aussi signifier \"Mourrir\" comme verbe.",
+            "\"Regoburëkobu\" signifie un mort ou mourant, ou peux aussi signifier \"Mourrir\" comme verbe.",
             "Quand \"Regoburëkobu\" est un verbe, il peux également apparaître comme \"Erkoregoburëkobu\" ou \"Kopregoburëkobu\" pour un passé et un future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DYING => ["mourant"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DYING => ["mourant|mort"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DYING => [
-            "\"Mourant\" peux se dire \"Regoburëkobu\" en parole gobline."
+            "\"Mourant\" ou \"Mort\" peuvent se dire \"Regoburëkobu\" en parole gobline."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DYING => ["mourrir"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DYING => [

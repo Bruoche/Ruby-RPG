@@ -11,7 +11,7 @@ class World
         else
             biome = Entrance
         end
-        biome = BossCell # TODO remove
+        biome = VillageExterior # TODO remove
         biome_id = biome.name
         @rooms = {Exit.name => [exit]}
         @entrance = Room.new(biome, RoomID.new(biome_id, 0), exit)
