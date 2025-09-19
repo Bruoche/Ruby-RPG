@@ -27,8 +27,15 @@ LOCALES = {
     "FR" => {}
 }
 
-GOBLIN_TRANSLATOR_DIALOGS = {
+BASIC_FORMAT = {
     "" => DIALOG_BUILDER,
 }
 
-DialogGenerator.generate_dialogs_from("goblin_translator_dialogs", "goblin_translator", GOBLIN_TRANSLATOR_DIALOGS, LOCALES)
+DIALOGS_TO_GENERATE = [
+    "goblin_translator",
+    "goblin_elder"
+]
+
+for npc in DIALOGS_TO_GENERATE do
+    DialogGenerator.generate_dialogs_from(npc + "_dialogs", npc, BASIC_FORMAT, LOCALES)
+end

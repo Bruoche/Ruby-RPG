@@ -70,7 +70,7 @@ class DialogGenerator
         for file in files do
             file.close
         end
-        puts ">> done"
+        puts ">> " + npc_name + ": done."
     end
 
     def self.write(file_name, content)

@@ -68,5 +68,6 @@ class VillageTransition
     def move(player, direction)
         player.set_room(direction)
         player.set_entered_room(true)
+        SoundManager.play('footsteps')
     end
 end
