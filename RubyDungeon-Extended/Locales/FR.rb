@@ -1204,6 +1204,26 @@ class FR
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "La garde gobline est trop occupée pour vous parler plus, vous faisant simplement geste de passer à travers le portail du village comme bon vous semble.",
         LocaleKey::GOBLIN_GUARD_BRIBE => "Montrer un objet...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
+        LocaleKey::GOBLIN_ELDER_NAME => "an old goblin",
+        LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos ?",
+        LocaleKey::GOBLIN_ELDER_IDLE_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_ELDER_CONVERSATION_STARTER => [
+            "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos ?"
+        ],
+        LocaleKey::GOBLIN_ELDER_CONVERSATION_KEEPER => [
+            "Pöko sö köpodubugurku köpogur sö tödoer {name}.",
+            "Säpogu sö köpodubugurku kö pöko {name}.",
+            "Pöko sö köpodubugurku"
+        ],
+        LocaleKey::GOBLIN_ELDER_UNKNOWN_DIALOGS => [
+            "Kös sö köpodubugurku sö pöko {name}. Körrarko sö köpodubugurku.",
+            "Körrarko sö köpodubugurku tötresèop kös sö pöko {name}.",
+            "Erkopöko sö dëkaos ?"
+        ],
+        LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",
+        LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Sitting ahead of you is an old goblin, covered in large cloths keeping it warm.",
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Bien qu'il accepte de faire commerce avec vous, le forgeron semble trop occupé pour discuter.",
         LocaleKey::GOBLIN_TRANSLATOR_NAME => "un goblin",
         LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!",

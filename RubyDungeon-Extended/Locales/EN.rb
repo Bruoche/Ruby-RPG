@@ -1203,6 +1203,26 @@ class EN
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "The goblin guard is too occupied guarding the door to talk to you any more, simply gesturing you to pass through the village's entrance if you so desire.",
         LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
+        LocaleKey::GOBLIN_ELDER_NAME => "an old goblin",
+        LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos?",
+        LocaleKey::GOBLIN_ELDER_IDLE_DIALOGS => [
+            "..."
+        ],
+        LocaleKey::GOBLIN_ELDER_CONVERSATION_STARTER => [
+            "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos?"
+        ],
+        LocaleKey::GOBLIN_ELDER_CONVERSATION_KEEPER => [
+            "Pöko sö köpodubugurku köpogur sö tödoer {name}.",
+            "Säpogu sö köpodubugurku kö pöko {name}.",
+            "Pöko sö köpodubugurku"
+        ],
+        LocaleKey::GOBLIN_ELDER_UNKNOWN_DIALOGS => [
+            "Kös sö köpodubugurku sö pöko {name}. Körrarko sö köpodubugurku.",
+            "Körrarko sö köpodubugurku tötresèop kös sö pöko {name}.",
+            "Erkopöko sö dëkaos?"
+        ],
+        LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",
+        LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Sitting ahead of you is an old goblin, covered in large cloths keeping it warm.",
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Even if they agree to trade with you, the blacksmith seems too occupied for chit-chat.",
         LocaleKey::GOBLIN_TRANSLATOR_NAME => "a goblin",
         LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö can help you translate all words from a goblin talk to a human talk and from human talk to goblin talk if you want to.\nOr, if you want Kö Pöko Tarkö can also explain the difference of grammar in goblin talk and how goblin talk sentences are made... Just tell Kö Pöko Tarkö whatever you need!",

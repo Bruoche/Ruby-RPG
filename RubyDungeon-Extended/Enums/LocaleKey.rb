@@ -771,6 +771,14 @@ module LocaleKey
     GOBLIN_GUARD_AGGRESSIVE = :goblin_guard_aggressive
     GOBLIN_GUARD_ALREADY_AUTHORISED = :goblin_guard_already_authorised
     GOBLIN_GUARD_BRIBE = :goblin_guard_bribe
+    GOBLIN_ELDER_NAME = :goblin_elder_name
+    GOBLIN_ELDER_INTRO_DIALOG = :goblin_elder_intro_dialog
+    GOBLIN_ELDER_IDLE_DIALOGS = :goblin_elder_idle_dialogs
+    GOBLIN_ELDER_CONVERSATION_STARTER = :goblin_elder_conversation_starter
+    GOBLIN_ELDER_CONVERSATION_KEEPER = :goblin_elder_conversation_keeper
+    GOBLIN_ELDER_UNKNOWN_DIALOGS = :goblin_elder_unknown_dialogs
+    GOBLIN_ELDER_NICKNAME = :goblin_elder_nickname
+    GOBLIN_ELDER_NPC_DESCRIPTION = :goblin_elder_npc_description
     GOBLIN_BLACKSMITH_NO_TALK = :goblin_blacksmith_no_talk
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
@@ -1202,6 +1210,7 @@ module LocaleKey
     DIAL_GOBLIN_GUARD_INTRO_HELLO = :dial_goblin_guard_intro_hello
     DIAL_GOBLIN_GUARD_KEY_WHAT = :dial_goblin_guard_key_what
     DIAL_GOBLIN_GUARD_TXT_WHAT = :dial_goblin_guard_txt_what
+    DIAL_GOBLIN_ELDER_REPEAT = :dial_goblin_elder_repeat
     DIAL_GOBLIN_ELDER_KEY_ADVICES = :dial_goblin_elder_key_advices
     DIAL_GOBLIN_ELDER_TXT_ADVICES = :dial_goblin_elder_txt_advices
     DIAL_GOBLIN_ELDER_INTRO_ADVICES = :dial_goblin_elder_intro_advices
