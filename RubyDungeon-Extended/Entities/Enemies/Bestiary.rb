@@ -30,7 +30,7 @@ class Bestiary
                     child.const_set(:BASE_MOVES, [Locale.get_localized(LocaleKey::MONSTER_STRIKE)])
                 end
                 unless child.const_defined?(:SPELL_MOVES)
-                    child.const_set(:SPELL_MOVES, [Locale.get_localized(LocaleKey::MONSTER_STRIKE)])
+                    child.const_set(:SPELL_MOVES, [Locale.get_localized(LocaleKey::MONSTER_SPELL)])
                 end
                 unless child.const_defined?(:HEAL_MOVES)
                     child.const_set(:HEAL_MOVES, [Locale.get_localized(LocaleKey::MONSTER_HEAL)])

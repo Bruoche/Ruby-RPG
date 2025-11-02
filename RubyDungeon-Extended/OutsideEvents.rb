@@ -32,7 +32,7 @@ class OutsideEvents
             destination_is_dungeon = false
             while !destination_is_dungeon
                 MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
-                if (player.get_level >= GUILD_LEVEL) && (!player.has_status?(GuildMember))
+                if (player.get_level >= GUILD_LEVEL) && (!player.have_status?(GuildMember))
                     player.set_status(GuildMember.new)
                 end
                 Narrator.write(LocaleKey::ASK_OUTSIDE_DESTINATION)

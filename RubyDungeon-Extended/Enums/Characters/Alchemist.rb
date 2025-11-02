@@ -157,7 +157,7 @@ class Alchemist < CharacterData
             LocaleKey::DIAL_ALCHEMIST_TXT_ASK_NAME,
             Dialog::NO_INTRO,
             Dialog::NO_PRECEDENT_DIAL_REQ,
-            -> (player) {return !player.has_status?(NAME_KNOWN)}
+            -> (player) {return !player.have_status?(NAME_KNOWN)}
         ),
         Dialog.new(
             DialogID::NAME,
@@ -339,7 +339,7 @@ class Alchemist < CharacterData
             LocaleKey::DIAL_ALCHEMIST_TXT_WRONG_NAME,
             LocaleKey::DIAL_ALCHEMIST_INTRO_WRONG_NAME,
             DialogID::ASK_NAME,
-            -> (player) {!player.has_status?(NAME_KNOWN)}
+            -> (player) {!player.have_status?(NAME_KNOWN)}
         )
     ]
 end

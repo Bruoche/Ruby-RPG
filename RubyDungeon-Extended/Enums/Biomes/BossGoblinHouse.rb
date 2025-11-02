@@ -14,9 +14,23 @@ class BossGoblinHouse < Biome
     BACKTRACK_CHANCES = 0
     DESCRIPTION = LocaleKey::VILLAGE_HOME_DESCRIPTION
     NPCS = [
-        GoblinElder
+        GoblinAdvisorRightNpc,
+        GoblinElder,
+        GoblinAdvisorLeftNpc
     ]
     SAFE_CHANCES = 100
+    PASSIVES_CHANCE = 100
+    PASSIVE_AMOUNT_MULTIPLIER = 2
+    PASSIVE_BESTIARY = [
+        FighterGoblinHeavy,
+        FighterGoblin,
+        FighterGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin,
+        VillagerGoblin
+    ]
     LOOT = []
     MIN_EXITS = 0
     MAX_EXITS = 0

@@ -2,19 +2,23 @@ class Boss < Monster
     PART_KILLED = true
     PICTURE_PREFIX = 'Boss/'
 
-    def initialize(room, boss)
+    def initialize(room, boss_data)
         @room = room
         multiplayer_scaling = Math.sqrt(World.get_instance.nb_players)
-        power_bonus = (boss::POWER_BONUS * multiplayer_scaling).truncate
+        amount_bonus = boss_data::EXPECTED_LEVEL.div(BaseStats::LEVELS_PER_EXTRA_MONSTER)
+        expected_stats = boss_data::EXPECTED_LEVEL * BaseStats::NB_STATS_PER_LEVEL
+        power_bonus = (expected_stats * amount_bonus * multiplayer_scaling).truncate
         @bodyparts = Array.new
-        for bodypart in boss::BODYPARTS
-            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss::BODYPARTS.length), room))
+        for bodypart in boss_data::BODYPARTS
+            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss_data::BODYPARTS.length), room))
         end
-        @name = Name.new(boss)
+        @name = Name.new(boss_data)
         @initial_power = get_power
-        @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + boss::PICTURE)
-        @loots = boss::LOOTS
-        @death_event = boss::DEATH_EVENT
+        @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + boss_data::PICTURE)
+        @loots = boss_data::LOOTS
+        @death_event = boss_data::DEATH_EVENT
+        @type = boss_data.to_s
+        @status_handler = self
     end
 
     def get_power
@@ -85,6 +89,16 @@ class Boss < Monster
         return max_life
     end
 
+    def get_missing_life
+        missing_life = 0
+        for bodypart in @bodyparts
+            if bodypart.is_weakpoint?
+                missing_life += bodypart.get_missing_life
+            end
+        end
+        return missing_life
+    end
+
     def get_status_icons
         statuses = ''
         first = true
@@ -123,6 +137,10 @@ class Boss < Monster
         return @bodyparts
     end
 
+    def get_type
+        return @type
+    end
+
     def died?
         for bodypart in @bodyparts
             if (!bodypart.died? && bodypart.is_weakpoint?)
@@ -134,6 +152,25 @@ class Boss < Monster
 
     def escaped?
         return false # for now no boss escape
+    end
+
+    def status_handler
+        return @status_handler
+    end
+
+    def have?(status)
+        for bodypart in @bodyparts
+            if bodypart.status_handler.have?(status)
+                return true
+            end
+        end
+        return false
+    end
+
+    def add_status(status)
+        for bodypart in @bodyparts
+            bodypart.status_handler.add(status)
+        end
     end
 
     def hurt(attack)
@@ -158,7 +195,6 @@ class Boss < Monster
                 attack.type,
                 attack.source
             )
-
             i = 0
             while i < @bodyparts.length
                 hurt_result = hurt_part(@bodyparts[i], shared_attack)
@@ -177,6 +213,16 @@ class Boss < Monster
             return PART_KILLED
         end
         return !PART_KILLED
+    end
+
+    def heal(amount)
+        healed_amount = amount.div(@bodyparts.size)
+        if healed_amount <= 0
+            healed_amount = 1
+        end
+        for bodypart in @bodyparts
+            bodypart.heal(healed_amount)
+        end
     end
 
     def act(players, pack)

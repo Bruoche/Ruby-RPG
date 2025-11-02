@@ -14,6 +14,10 @@ class Pack
         end
     end
 
+    def get_all
+        return @monsters
+    end
+
     def get_cards
         monster_cards = ASCIIPaginator.new
         monster_cards.set_show_return_button(false)

@@ -155,6 +155,10 @@ class Room
         @npcs.any?
     end
 
+    def fighting_npcs
+        return @npcs.get_fightings
+    end
+
     def get_interactables
         interactables = []
         if got_monsters?
@@ -245,12 +249,12 @@ class Room
         end
     end
 
-    def anger(character)
+    def anger(character, attacked = !Character::FIRST_ATTACKED)
         for npc in @npcs.get_interactables
             if npc == character
                 if !npc.fighting?
                     initiate_monster_pack([npc.get_fighter])
-                    npc.start_fighting
+                    npc.start_fighting(attacked)
                 end
                 return
             end

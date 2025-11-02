@@ -15,8 +15,8 @@ class TranslatorHome < Biome
     MIN_EXITS = 0
     MAX_EXITS = 0
     ENTRY_EVENT = -> (room, player) {
-        if player.has_status?(TranslatorGreeted)
-            if player.has_status?(GoblinMurderer) && !player.has_status?(TranslatorScared)
+        if player.have_status?(TranslatorGreeted)
+            if player.have_status?(GoblinMurderer) && !player.have_status?(TranslatorScared)
                 will_attack = Narrator.translator_intro(player, LocaleKey::TRANSLATOR_WHAT_HAVE_YOU_DONE, LocaleKey::TRANSLATOR_APOLOGY)
                 give_everyone_status(TranslatorScared)
                 if will_attack
@@ -25,7 +25,7 @@ class TranslatorHome < Biome
             end
             return !Player::ACTED
         end
-        if player.has_status?(GoblinMurderer)
+        if player.have_status?(GoblinMurderer)
             will_attack = Narrator.translator_intro(player, LocaleKey::TRANSLATOR_BEGGING, LocaleKey::TRANSLATOR_SPARING)
             give_everyone_status(TranslatorScared)
             if will_attack

@@ -1,4 +1,6 @@
 class SpecialMove
+    END_TURN = true
+
     def initialize(probability, action)
         @probability = probability
         @action = action
@@ -8,7 +10,7 @@ class SpecialMove
         if (rand(100) < @probability)
             return @action.call(targets, allies, damage, boss)
         else
-            return nil
+            return !END_TURN
         end
     end
 end

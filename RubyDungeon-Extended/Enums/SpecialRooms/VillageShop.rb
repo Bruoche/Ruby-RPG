@@ -21,7 +21,7 @@ class VillageShop
 
     def allow_entry_for(player)
         SoundManager.play("footsteps")
-        if !player.has_status?(GoblinMurderer)
+        if !player.have_status?(GoblinMurderer)
             @shop.enter(player)
         else
             Narrator.write(LocaleKey::FORGE_EMPTY)

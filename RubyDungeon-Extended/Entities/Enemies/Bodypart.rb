@@ -12,18 +12,19 @@ class Bodypart
             Integer(intelligence),
             data::HEALING_PROPORTION,
             Name.new(data),
-            data::BASE_MOVES.map(&:clone),
-            data::SPELL_MOVES.map(&:clone),
-            data::HEAL_MOVES.map(&:clone),
-            data::ESCAPE_MOVE.map(&:clone),
+            data::BASE_MOVES,
+            data::SPELL_MOVES,
+            data::HEAL_MOVES,
+            data::ESCAPE_MOVE,
             data::UNPREDICTABILITY,
             0, #limbs don't escape
             ASCIIPicture.new([]),
+            data.to_s,
             data::LOOTS,
             data::ATTACK_EFFECTS,
-            data::DEATH_EVENT
+            data::DEATH_EVENT,
+            data::SPECIAL_MOVES
         )
-        @special_moves = data::SPECIAL_MOVES.map(&:clone)
         @is_weakpoint = data::IS_WEAKPOINT
     end
 
@@ -45,6 +46,10 @@ class Bodypart
 
     def get_max_life
         return @actor.get_max_life
+    end
+
+    def get_missing_life
+        return @actor.get_missing_life
     end
 
     def get_power
@@ -72,11 +77,15 @@ class Bodypart
     end
 
     def add_special_move(special_move)
-        @special_moves.append(special_move)
+        @actor.add_special_move(special_move)
     end
 
     def set_strength(damage)
         @actor.set_strength(damage)
+    end
+
+    def set_intelligence(amount)
+        @actor.set_intelligence(amount)
     end
 
     def status_handler
@@ -88,14 +97,15 @@ class Bodypart
     end
 
     def act(targets, pack, parent)
-        for special_move in @special_moves
-            special_move.attempt(targets, pack, @actor, parent)
-        end
-        @actor.act(targets, pack)
+        @actor.act(targets, pack, parent)
     end
 
     def hurt(attack)
         @actor.hurt(attack)
+    end
+
+    def heal(amount)
+        @actor.heal(amount)
     end
 
     def death_event(parent)

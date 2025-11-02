@@ -7,6 +7,7 @@ class Character
     NB_OPTIONS_BEFORE_SPE_INTERACT = 2
     NO_ROOM = nil
     ALREADY_TALKING = true
+    FIRST_ATTACKED = true
 
     def initialize(character_data, room = NO_ROOM)
         @name = character_data::NAME
@@ -102,7 +103,7 @@ class Character
                     end
                 elsif option_selected == attack_index
                     if Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::NPC_ATTACK_CONFIRM), get_name), player.get_name)
-                        anger_against(player)
+                        anger_against(player, FIRST_ATTACKED)
                         return !Player::ACTED
                     end
                 else
@@ -164,7 +165,6 @@ class Character
                     return !Player::ACTED
                 end
                 show
-                dialog_triggered = false
                 is_turn_skipped = answer(prompt)
                 if is_turn_skipped
                     return Player::ACTED
@@ -176,15 +176,15 @@ class Character
         end
     end
 
-    def anger_against(player)
+    def anger_against(player, first_attacked = !FIRST_ATTACKED)
         @aggressive_players.append(player)
         player.start_fighting
-        @room.anger(self)
+        @room.anger(self, first_attacked)
     end
 
-    def start_fighting
+    def start_fighting(first_attacked = !FIRST_ATTACKED)
         @fighting = true
-        @start_fight_action.call(self, @room)
+        @start_fight_action.call(self, @room, first_attacked)
     end
 
     def add_loot(loot)
@@ -276,7 +276,7 @@ class Character
 
     def insert_name_single(line)
         if line != nil
-            if (@interlocutor != nil) && @interlocutor.has_status?(@name_known_status)
+            if (@interlocutor != nil) && @interlocutor.have_status?(@name_known_status)
                 denomination = @interlocutor.get_name
             else
                 denomination = Locale.get_localized(@player_nickname)

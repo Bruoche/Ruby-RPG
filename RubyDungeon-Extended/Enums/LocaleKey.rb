@@ -357,6 +357,8 @@ module LocaleKey
     POISON_AFFECT = :poison_affect
     POISON_ATTACK_DESCRIPTION = :poison_attack_description
     HEALING_DESCRIPTION = :healing_description
+    RAGE_DESCRIPTION = :rage_description
+    RAGING = :raging
     SLIME_DIVIDE = :slime_divide
     KNIGHT_SLASH = :knight_slash
     KNIGHT_LIMB_LOSS = :knight_limb_loss
@@ -702,6 +704,13 @@ module LocaleKey
     KNIGHT_RIGHT_ATTACK = :knight_right_attack
     KNIGHT_LOOT_COINS = :knight_loot_coins
     KNIGHT_LOOT_NOTE = :kngiht_loot_note
+    GOBLIN_ELDER_BOSS_NAME = :goblin_elder_boss_name
+    GOBLIN_ELDER_HEAD = :goblin_elder_head
+    GOBLIN_ELDER_RIGHT_ARM = :goblin_elder_right_arm
+    GOBLIN_ELDER_LEFT_ARM = :goblin_elder_left_arm
+    GOBLIN_ELDER_RIGHT_ATTACK = :goblin_elder_right_attack
+    GOBLIN_ELDER_LEFT_ATTACK = :goblin_elder_left_attack
+    GOBLIN_ELDER_BITE_ATTACK = :goblin_elder_bite_attack
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     CAVES_LOOT_ROPE = :cave_loot_rope

@@ -147,7 +147,7 @@ class Player
         return @inventory.count(item)
     end
 
-    def has_status?(status)
+    def have_status?(status)
         return @status_handler.have?(status)
     end
 

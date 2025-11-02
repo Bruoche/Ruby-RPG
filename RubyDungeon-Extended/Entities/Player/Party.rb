@@ -95,7 +95,7 @@ class Party
 
     def got_status?(status_class)
         for player in @players do
-            if player.has_status?(status_class)
+            if player.have_status?(status_class)
                 return true
             end
         end

@@ -47,7 +47,7 @@ class GoblinHome < Biome
     MIN_EXITS = 0
     MAX_EXITS = 0
     ENTRY_EVENT = -> (room, player) {
-        if player.has_status?(GoblinMurderer) && room.got_passives?
+        if player.have_status?(GoblinMurderer) && room.got_passives?
             Narrator.write(LocaleKey::GOBLIN_ATTACK)
             room.anger_passives
             room.anger_npcs

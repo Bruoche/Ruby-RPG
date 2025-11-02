@@ -109,9 +109,9 @@ class ASCIIPicture
             width = MONSTER_CARD_WIDTH
         end
         picture = monster.get_picture.get_ascii
-        stat_string = '♣ ' + monster.get_strength.to_s
+        stat_string = '♣ ' + monster.get_strength_string
         if monster.get_intelligence > 0
-            stat_string = stat_string + ' ♠ ' + monster.get_intelligence.to_s
+            stat_string = stat_string + ' ♠ ' + monster.get_intelligence_string
         end
         monster_info = ASCIIPicture.new([
             (' ' * MathUtils.positive((width - monster.get_name.as_text.length).div(2))) + TextFormatter.truncate(monster.get_name.as_text.capitalize, width),

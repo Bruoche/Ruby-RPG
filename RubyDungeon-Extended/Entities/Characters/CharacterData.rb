@@ -17,7 +17,7 @@ class CharacterData
                     child.const_set(:COMBAT_BODY, NOT_FIGHTING)
                 end
                 unless child.const_defined?(:START_FIGHT_ACTION)
-                    child.const_set(:START_FIGHT_ACTION, -> (character, room) {
+                    child.const_set(:START_FIGHT_ACTION, -> (character, room, first_attacked) {
                         #do nothing by default
                     })
                 end

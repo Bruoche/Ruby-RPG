@@ -540,6 +540,8 @@ class EN
         LocaleKey::POISON_AFFECT => "%s feels the poison burn within themselves.",
         LocaleKey::POISON_ATTACK_DESCRIPTION => "Your weapon is coated in poison.",
         LocaleKey::HEALING_DESCRIPTION => "You feel a warmth rise from within you, as your body slowly heal itself.",
+        LocaleKey::RAGE_DESCRIPTION => "You are filled with rage.",
+        LocaleKey::RAGING => "%s is filled with rage.",
         LocaleKey::SLIME_DIVIDE => "Despite being blown into a green puddle, the wet remains %s forment deux slimes.",
         LocaleKey::KNIGHT_SLASH => "The knight delivers a powerful strike with his sword, intending to slash his enemy.",
         LocaleKey::KNIGHT_LIMB_LOSS => "%s break under the blows.",
@@ -995,6 +997,13 @@ class EN
         LocaleKey::KNIGHT_RIGHT_ATTACK => "strike %s with his sword.",
         LocaleKey::KNIGHT_LOOT_COINS => ["On the knight's corpse, you find a large purse attached to its belt."],
         LocaleKey::KNIGHT_LOOT_NOTE => ["In a fold of its chestplate, you notice a note poking out."],
+        LocaleKey::GOBLIN_ELDER_BOSS_NAME => "elder goblin",
+        LocaleKey::GOBLIN_ELDER_HEAD => "head of the elder goblin",
+        LocaleKey::GOBLIN_ELDER_RIGHT_ARM => "right arm of the elder goblin",
+        LocaleKey::GOBLIN_ELDER_LEFT_ARM => "left arm of the elder goblin",
+        LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK => "claws at %s.",
+        LocaleKey::GOBLIN_ELDER_LEFT_ATTACK => "claws at %s.",
+        LocaleKey::GOBLIN_ELDER_BITE_ATTACK => "bites %s.",
         LocaleKey::CAVE_DESCRIPTION => [
             "You are in a cave.",
             "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
@@ -1204,21 +1213,21 @@ class EN
         LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
         LocaleKey::GOBLIN_ELDER_NAME => "an old goblin",
-        LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos?",
+        LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö #{Locale::PLAYER_NAME}.\nKör sö köpodubugurku köpogur sö dëkaos?",
         LocaleKey::GOBLIN_ELDER_IDLE_DIALOGS => [
             "..."
         ],
         LocaleKey::GOBLIN_ELDER_CONVERSATION_STARTER => [
-            "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos?"
+            "Pöko sö köpodubugurku sö #{Locale::PLAYER_NAME}.\nKör sö köpodubugurku köpogur sö dëkaos?"
         ],
         LocaleKey::GOBLIN_ELDER_CONVERSATION_KEEPER => [
-            "Pöko sö köpodubugurku köpogur sö tödoer {name}.",
-            "Säpogu sö köpodubugurku kö pöko {name}.",
+            "Pöko sö köpodubugurku köpogur sö tödoer #{Locale::PLAYER_NAME}.",
+            "Säpogu sö köpodubugurku kö pöko #{Locale::PLAYER_NAME}.",
             "Pöko sö köpodubugurku"
         ],
         LocaleKey::GOBLIN_ELDER_UNKNOWN_DIALOGS => [
-            "Kös sö köpodubugurku sö pöko {name}. Körrarko sö köpodubugurku.",
-            "Körrarko sö köpodubugurku tötresèop kös sö pöko {name}.",
+            "Kös sö köpodubugurku sö pöko #{Locale::PLAYER_NAME}. Körrarko sö köpodubugurku.",
+            "Körrarko sö köpodubugurku tötresèop kös sö pöko #{Locale::PLAYER_NAME}.",
             "Erkopöko sö dëkaos?"
         ],
         LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",

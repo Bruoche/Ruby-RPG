@@ -58,9 +58,11 @@ class GiantSlime < Bestiary
             Slime::UNPREDICTABILITY,
             Slime::COWARDICE,
             ASCIIPicture.new(ASCIIPrinter::PREFIX + MonsterFactory::PICTURE_PREFIX + Slime::PICTURE + suffix),
+            Slime.to_s,
             Slime::LOOTS,
             Slime::ATTACK_EFFECTS,
-            Slime::DEATH_EVENT
+            Slime::DEATH_EVENT,
+            Slime::SPECIAL_MOVES
         ]
     end
 

@@ -616,7 +616,7 @@ class FR
         LocaleKey::NO_FILE_FOUND_ERROR => "Aucun fichier nommé %s n'a pu être trouvé.",
         LocaleKey::NEGATIVE_QUANTITY_ERROR => "Vous ne pouvez pas donner un nombre négatif d'objet, veuillez inscrire un nombre positif.",
         LocaleKey::UNEXPECTED_DAMAGE_TYPE_ERROR => "<< unexpected damage type encountered >>",
-        LocaleKey::UNEXPECTED_ERROR => "<< an unexpected error occured >>",
+        LocaleKey::UNEXPECTED_ERROR => "<< une erreur inattendue est survenue >>",
         LocaleKey::CLOSE_GAME_CONFIRM => [
             "Êtes vous sûr·e de vouloir fermer le jeu ? (y/n)",
             "Toute progression non sauvegardée sera perdue."
@@ -1204,26 +1204,26 @@ class FR
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "La garde gobline est trop occupée pour vous parler plus, vous faisant simplement geste de passer à travers le portail du village comme bon vous semble.",
         LocaleKey::GOBLIN_GUARD_BRIBE => "Montrer un objet...",
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
-        LocaleKey::GOBLIN_ELDER_NAME => "an old goblin",
-        LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos ?",
+        LocaleKey::GOBLIN_ELDER_NAME => "une gobline ancienne",
+        LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö #{Locale::PLAYER_NAME}.\nKör sö köpodubugurku köpogur sö dëkaos ?",
         LocaleKey::GOBLIN_ELDER_IDLE_DIALOGS => [
             "..."
         ],
         LocaleKey::GOBLIN_ELDER_CONVERSATION_STARTER => [
-            "Pöko sö köpodubugurku sö {name}.\nKör sö köpodubugurku köpogur sö dëkaos ?"
+            "Pöko sö köpodubugurku sö #{Locale::PLAYER_NAME}.\nKör sö köpodubugurku köpogur sö dëkaos ?"
         ],
         LocaleKey::GOBLIN_ELDER_CONVERSATION_KEEPER => [
-            "Pöko sö köpodubugurku köpogur sö tödoer {name}.",
-            "Säpogu sö köpodubugurku kö pöko {name}.",
+            "Pöko sö köpodubugurku köpogur sö tödoer #{Locale::PLAYER_NAME}.",
+            "Säpogu sö köpodubugurku kö pöko #{Locale::PLAYER_NAME}.",
             "Pöko sö köpodubugurku"
         ],
         LocaleKey::GOBLIN_ELDER_UNKNOWN_DIALOGS => [
-            "Kös sö köpodubugurku sö pöko {name}. Körrarko sö köpodubugurku.",
-            "Körrarko sö köpodubugurku tötresèop kös sö pöko {name}.",
+            "Kös sö köpodubugurku sö pöko #{Locale::PLAYER_NAME}. Körrarko sö köpodubugurku.",
+            "Körrarko sö köpodubugurku tötresèop kös sö pöko #{Locale::PLAYER_NAME}.",
             "Erkopöko sö dëkaos ?"
         ],
         LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",
-        LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Sitting ahead of you is an old goblin, covered in large cloths keeping it warm.",
+        LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Devant vous se trouve une vieille gobline, couverte de larges tissus la tenant au chaud.",
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Bien qu'il accepte de faire commerce avec vous, le forgeron semble trop occupé pour discuter.",
         LocaleKey::GOBLIN_TRANSLATOR_NAME => "un goblin",
         LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!",

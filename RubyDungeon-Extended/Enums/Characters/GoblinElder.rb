@@ -9,9 +9,17 @@ class GoblinElder < CharacterData
     PICTURE = 'goblin_guard'
     NAME_KNOWN = GoblinElderAquinted
     PLAYER_NICKNAME = LocaleKey::GOBLIN_ELDER_NICKNAME
-    COMBAT_BODY = GoblinGuardBody
-    START_FIGHT_ACTION = -> (character, room) {
+    COMBAT_BODY = GoblinElderBoss
+    START_FIGHT_ACTION = -> (character, room, first_attacked) {
+        room.anger_npcs
         room.anger_passives
+        if !World.get_instance.get_players_in(room)[0].have_status?(GoblinMurderer) && first_attacked
+            for goblin in room.get_monsters.get_all
+                if !goblin.is_a? Boss
+                    goblin.status_handler.add(Rage.new)
+                end
+            end
+        end
     }
     ROOM_DESCRIPTION = LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION
     LEARN_NAME = -> (player, npc) {player.add_status(NAME_KNOWN.new)}

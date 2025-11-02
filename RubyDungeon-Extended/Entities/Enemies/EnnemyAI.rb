@@ -4,10 +4,10 @@ class EnnemyAI
     CHOICE_HEAL = 'heal'
 
     def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, healing_coeff, parent_body, attack_effects)
-        @basic_attack_messages = basic_attack_messages
-        @magic_attack_messages = magic_attack_messages
-        @heal_messages = heal_messages
-        @escape_message = escape_message
+        @basic_attack_messages = basic_attack_messages.map(&:clone)
+        @magic_attack_messages = magic_attack_messages.map(&:clone)
+        @heal_messages = heal_messages.map(&:clone)
+        @escape_message = escape_message.map(&:clone)
         @denomination = parent_body.get_name.get_gendered_the
         @unpredictability = unpredictability
         @cowardice = cowardice
@@ -17,8 +17,13 @@ class EnnemyAI
         @attack_effects = attack_effects
     end
 
-    def act(players, pack, strength, intelligence)
-        if @cowardice > 0
+    def act(players, pack, strength, intelligence, status_handler)
+        is_enraged = status_handler.have?(Rage)
+        if is_enraged
+            strength = strength * 2
+            intelligence = intelligence * 2
+        end
+        if (@cowardice > 0) && !is_enraged
             potential_damage = 0
             for player in players
                 player_strength = player.get_strength
@@ -35,9 +40,14 @@ class EnnemyAI
                 return
             end
         end
-        if rand(100) >= @unpredictability
+        if (rand(100) >= @unpredictability) && !is_enraged
             act_logically(players, pack, strength, intelligence)
         else
+            if is_enraged
+                Narrator.write(format(Locale.get_localized(LocaleKey::RAGING), @denomination.capitalize))
+                SoundManager.play("rage")
+                sleep Settings.get_pause_duration
+            end
             act_quirky(players, pack, strength, intelligence)
         end
     end
