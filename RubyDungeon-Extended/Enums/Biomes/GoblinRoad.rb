@@ -66,7 +66,7 @@ class GoblinRoad < Biome
         VillagerGoblin,
         VillagerGoblin
     ]
-    MONSTER_AMOUNT_MULTIPLIER = 1.3
+    PASSIVE_AMOUNT_MULTIPLIER = 1.3
     SAFE_CHANCES = 100
     PASSIVES_CHANCE = 70
     LOOT = []

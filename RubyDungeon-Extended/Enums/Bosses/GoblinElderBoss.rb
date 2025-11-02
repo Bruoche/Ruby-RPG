@@ -70,6 +70,9 @@ class GoblinElderBoss < Bestiary
     ]
 
     def self.delegate(targets, allies, actor, boss, choosen_advisor)
+        if boss.have?(Rage)
+            return !SpecialMove::END_TURN
+        end
         for goblin in allies
             if (goblin.get_type == choosen_advisor.to_s)
                 advisor = goblin

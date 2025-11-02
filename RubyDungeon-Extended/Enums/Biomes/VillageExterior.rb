@@ -20,7 +20,7 @@ class VillageExterior < Biome
     ]
     SAFE_CHANCES = 100
     PASSIVES_CHANCE = 100
-    MONSTER_AMOUNT_MULTIPLIER = 2
+    PASSIVE_AMOUNT_MULTIPLIER = 2
     LOOT = []
     MIN_EXITS = 2
     MAX_EXITS = 4

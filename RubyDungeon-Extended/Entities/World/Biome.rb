@@ -87,7 +87,7 @@ class Biome
     end
 
     def self.get_passives
-        nb_passives_max = calculate_nb_monsters
+        nb_passives_max = calculate_nb_passives
         return Array.new(rand(1..nb_passives_max))
     end
 
@@ -124,8 +124,16 @@ class Biome
     private
 
     def self.calculate_nb_monsters
-        nb_monsters_max = ((1 + self::MONSTER_AMOUNT_BONUS) * Math.sqrt(World.get_instance.nb_players)).truncate
-        nb_monsters_max = (nb_monsters_max * self::MONSTER_AMOUNT_MULTIPLIER).round
+        return calculate_amount_multiplied_by(self::MONSTER_AMOUNT_MULTIPLIER)
+    end
+
+    def self.calculate_nb_passives
+        return calculate_amount_multiplied_by(self::PASSIVE_AMOUNT_MULTIPLIER)
+    end
+
+    def self.calculate_amount_multiplied_by(multiplier)
+            nb_monsters_max = ((1 + self::MONSTER_AMOUNT_BONUS) * Math.sqrt(World.get_instance.nb_players)).truncate
+        nb_monsters_max = (nb_monsters_max * multiplier).round
         if nb_monsters_max < 1
             nb_monsters_max = 1
         end

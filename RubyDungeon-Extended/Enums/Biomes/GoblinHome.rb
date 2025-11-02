@@ -40,7 +40,7 @@ class GoblinHome < Biome
         VillagerGoblin,
         VillagerGoblin
     ]
-    MONSTER_AMOUNT_MULTIPLIER = 0.2
+    PASSIVE_AMOUNT_MULTIPLIER = 0.2
     SAFE_CHANCES = 100
     PASSIVES_CHANCE = 90
     LOOT = []

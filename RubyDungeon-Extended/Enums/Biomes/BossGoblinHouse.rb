@@ -34,6 +34,14 @@ class BossGoblinHouse < Biome
     LOOT = []
     MIN_EXITS = 0
     MAX_EXITS = 0
+    ENTRY_EVENT = -> (room, player) {
+        if player.have_status?(GoblinMurderer) && room.got_passives?
+            Narrator.write(LocaleKey::GOBLIN_ATTACK)
+            room.anger_passives
+            room.anger_npcs
+        end
+        return !Player::ACTED
+    }
 
     def self.give_everyone_status(status)
         for player in World.get_instance.get_all_players
