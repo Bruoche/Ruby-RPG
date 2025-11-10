@@ -551,6 +551,13 @@ class EN
         LocaleKey::KNIGHT_DEATH_FIRST => "The helmet %s crumples under the blow,",
         LocaleKey::KNIGHT_DEATH_SECOND => "As the metal crush his skull, a sinister crunch resonates inside of it.",
         LocaleKey::KNIGHT_DEATH_THIRD => "The knight remains immobile for a few instants before suddently collapsing.",
+        LocaleKey::ELDER_GOBLIN_SURPRISE_ATTACK_DIRECT => "Your unprovocked surpise attack on their beloved elder angered all the surrounding goblins.",
+        LocaleKey::ELDER_GOBLIN_SURPRISE_ATTACK_ADVISOR => "Your unprovocked attack on it's caretaker sends the elder goblin into a frenzy.",
+        LocaleKey::ELDER_GOBLIN_DELEGATE => "%{#{LocaleKey::F_SUBJECT}} gestures to %{#{LocaleKey::F_OBJECT}} what to do.",
+        LocaleKey::ELDER_GOBLIN_LIMB_LOSS => "%s breaks under your assault.",
+        LocaleKey::ELDER_GOBLIN_ARMLESS => "As the goblins seems disarmed, unable to use her arms to cast spells, you notice her start to mumble goblin prayers with deep resolve.",
+        LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "As the frail gory corpse of the elder goblin hits the ground, her chair loosing balance and crashing down loudly with her, other goblins watch in shock and disbelief. Before turning to you with rage.",
+        LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "As the second caretaker of the elder goblin hits the ground, you can see heartbreak distort her face as rage fills her.",
         LocaleKey::ASK_NAME => "What is your name?",
         LocaleKey::CURRENT_NAME => "Current name: ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [
@@ -1190,6 +1197,7 @@ class EN
             "..."
         ],
         LocaleKey::GOBLIN_BLACKSMITH_NICKNAME => "tarkorbakö",
+        LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Even if they agree to trade with you, the blacksmith seems too occupied for chit-chat.",
         LocaleKey::GOBLIN_GUARD_NAME => "a goblin guard",
         LocaleKey::GOBLIN_GUARD_INTRO_DIALOG => "Kör kobakëto! Körkubagedo!\nTö bëdèsoe sö todutrëd dök köpoduk.",
         LocaleKey::GOBLIN_GUARD_IDLE_DIALOGS => [
@@ -1232,7 +1240,15 @@ class EN
         ],
         LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",
         LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Sitting ahead of you is an old goblin, covered in large cloths keeping it warm.",
-        LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Even if they agree to trade with you, the blacksmith seems too occupied for chit-chat.",
+        LocaleKey::GOBLIN_ADVISOR_NAME => "one of the elder goblin's caretakers",
+        LocaleKey::GOBLIN_ADVISOR_INTRO_DIALOG => "...",
+        LocaleKey::GOBLIN_ADVISOR_IDLE_DIALOGS => ["..."],
+        LocaleKey::GOBLIN_ADVISOR_CONVERSATION_STARTER => ["..."],
+        LocaleKey::GOBLIN_ADVISOR_CONVERSATION_KEEPER => ["..."],
+        LocaleKey::GOBLIN_ADVISOR_UNKNOWN_DIALOGS => ["..."],
+        LocaleKey::GOBLIN_ADVISOR_NICKNAME => "tarkorbakö",
+        LocaleKey::GOBLIN_ADVISOR_NO_TALK => "As you try to adress the small goblin directly, it simply redirect it's gaze to the elder. Seeming only interested in speaking on her behalf.",
+        LocaleKey::DIAL_GOBLIN_ADVISOR_REPEAT => "",
         LocaleKey::GOBLIN_TRANSLATOR_NAME => "a goblin",
         LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö can help you translate all words from a goblin talk to a human talk and from human talk to goblin talk if you want to.\nOr, if you want Kö Pöko Tarkö can also explain the difference of grammar in goblin talk and how goblin talk sentences are made... Just tell Kö Pöko Tarkö whatever you need!",
         LocaleKey::GOBLIN_TRANSLATOR_IDLE_DIALOGS => [
@@ -3256,12 +3272,14 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ELDER_CHIEF => ["köpodubugurku|kopodubugurku|erkoköpodubugurku|erkokopodubugurku|kopköpodubugurku|kopkopodubugurku|köpodubugurkurpo|köpodubugurkupo|kopodubugurkurpo|kopodubugurkupo|erkoköpodubugurkurpo|erkoköpodubugurkupo|erkokopodubugurkurpo|erkokopodubugurkupo|kopköpodubugurkurpo|kopköpodubugurkupo|kopkopodubugurkurpo|kopkopodubugurkupo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ELDER_CHIEF => [
-            "\"Köpodubugurku\" means a elder / chief', or can also mean \"Becoming an elder\" as a verb.",
-            "When \"Köpodubugurku\" is a verb, it can also appear as \"Erkoköpodubugurku\" or \"Kopköpodubugurku\" for past and future."
+            "\"Köpodubugurku\" means a elder, or can also mean \"Becoming an elder\" as a verb.",
+            "When \"Köpodubugurku\" is a verb, it can also appear as \"Erkoköpodubugurku\" or \"Kopköpodubugurku\" for past and future.",
+            "Elders are similar to what a human call chief, but is so because of a respected wisdom and not because of a authority.",
+            "Also, a elder here being alone, a elder name is simply \"Köpodubugurku\"."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ELDER_CHIEF => ["elder|chief"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_ELDER_CHIEF => [
-            "\"Elder / chief'\" can be said \"Köpodubugurku\" in a goblin talk."
+            "\"Elder\" or \"Chief\" can be said \"Köpodubugurku\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_MALE_GOBLIN => ["köpodugeobu|kopodugeobu|erkoköpodugeobu|erkokopodugeobu|kopköpodugeobu|kopkopodugeobu|köpodugeoburpo|köpodugeobupo|kopodugeoburpo|kopodugeobupo|erkoköpodugeoburpo|erkoköpodugeobupo|erkokopodugeoburpo|erkokopodugeobupo|kopköpodugeoburpo|kopköpodugeobupo|kopkopodugeoburpo|kopkopodugeobupo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_MALE_GOBLIN => [

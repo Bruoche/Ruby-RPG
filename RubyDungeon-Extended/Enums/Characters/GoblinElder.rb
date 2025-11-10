@@ -6,7 +6,7 @@ class GoblinElder < CharacterData
     CONVERSATION_KEEPER = LocaleKey::GOBLIN_ELDER_CONVERSATION_KEEPER
     REPEAT_INTRO = LocaleKey::DIAL_GOBLIN_ELDER_REPEAT
     UNKNOWN_DIALOGS = LocaleKey::GOBLIN_ELDER_UNKNOWN_DIALOGS
-    PICTURE = 'goblin_guard'
+    PICTURE = 'goblin_boss'
     NAME_KNOWN = GoblinElderAquinted
     PLAYER_NICKNAME = LocaleKey::GOBLIN_ELDER_NICKNAME
     COMBAT_BODY = GoblinElderBoss
@@ -14,6 +14,9 @@ class GoblinElder < CharacterData
         room.anger_npcs
         room.anger_passives
         if !World.get_instance.get_players_in(room)[0].have_status?(GoblinMurderer) && first_attacked
+            Narrator.write(LocaleKey::ELDER_GOBLIN_SURPRISE_ATTACK_DIRECT)
+            SoundManager.play("rage")
+            sleep Settings.get_pause_duration
             for goblin in room.get_monsters.get_all
                 if !goblin.is_a? Boss
                     goblin.status_handler.add(Rage.new)

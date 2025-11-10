@@ -44,9 +44,9 @@ class Character
 
     def get_description
         if fighting?
-            return format(Locale.get_localized(LocaleKey::NPC_FIGHTING_DESCRIPTION), get_name)
+            return format(Locale.get_localized(LocaleKey::NPC_FIGHTING_DESCRIPTION), get_name).capitalize
         else
-            return format(Locale.get_localized(@description), get_name)
+            return format(Locale.get_localized(@description), get_name).capitalize
         end
     end
 

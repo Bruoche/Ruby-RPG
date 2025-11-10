@@ -20,6 +20,10 @@ class Narrator
         print Locale.get_localized(text)
     end
 
+    def self.write_formatted(localkey_or_string, *inserted_substring)
+        write(format(Locale.get_localized(localkey_or_string), *inserted_substring))
+    end
+
     def self.warning_pop_up(automatic)
         Narrator.write(LocaleKey::WARNING_POP_UP)
         if automatic

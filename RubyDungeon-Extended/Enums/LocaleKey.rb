@@ -368,6 +368,13 @@ module LocaleKey
     KNIGHT_DEATH_FIRST = :knight_death_first
     KNIGHT_DEATH_SECOND = :knight_death_second
     KNIGHT_DEATH_THIRD = :knight_death_third
+    ELDER_GOBLIN_SURPRISE_ATTACK_DIRECT = :elder_goblin_surprise_attack_direct
+    ELDER_GOBLIN_SURPRISE_ATTACK_ADVISOR = :elder_goblin_surprise_attack_advisor
+    ELDER_GOBLIN_DELEGATE = :elder_goblin_delegate
+    ELDER_GOBLIN_LIMB_LOSS = :elder_goblin_limb_loss
+    ELDER_GOBLIN_ARMLESS = :elder_goblin_armless
+    GOBLIN_ELDER_BOSS_DEATH_RAGE = :goblin_elder_boss_death_rage
+    GOBLIN_ELDER_BOSS_GRIEF_RAGE = :goblin_elder_boss_grief_rage
     ASK_NAME = :ask_name
     CURRENT_NAME = :current_name
     ASK_CONFIRM_CHARACTER = :ask_confirm_character
@@ -788,6 +795,15 @@ module LocaleKey
     GOBLIN_ELDER_UNKNOWN_DIALOGS = :goblin_elder_unknown_dialogs
     GOBLIN_ELDER_NICKNAME = :goblin_elder_nickname
     GOBLIN_ELDER_NPC_DESCRIPTION = :goblin_elder_npc_description
+    GOBLIN_ADVISOR_NAME = :goblin_advisor_name
+    GOBLIN_ADVISOR_INTRO_DIALOG = :goblin_advisor_intro_dialog
+    GOBLIN_ADVISOR_IDLE_DIALOGS = :goblin_advisor_idle_dialogs
+    GOBLIN_ADVISOR_CONVERSATION_STARTER = :goblin_advisor_conversation_starter
+    GOBLIN_ADVISOR_CONVERSATION_KEEPER = :goblin_advisor_conversation_keeper
+    GOBLIN_ADVISOR_UNKNOWN_DIALOGS = :goblin_advisor_unknown_dialogs
+    GOBLIN_ADVISOR_NICKNAME = :goblin_advisor_nickname
+    GOBLIN_ADVISOR_NO_TALK = :goblin_advisor_no_talk
+    DIAL_GOBLIN_ADVISOR_REPEAT = :goblin_advisor_repeat
     GOBLIN_BLACKSMITH_NO_TALK = :goblin_blacksmith_no_talk
     BOSS_CELL_REQ_QUESTION = :boss_cell_req_question
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
@@ -2778,6 +2794,7 @@ module LocaleKey
     F_LIFE = :life
     F_NAME = :name
     F_NEW = :new
+    F_OBJECT = :object
     F_PARRIED = :parried
     F_PREFIX = :prefix
     F_SOURCE = :source

@@ -35,7 +35,7 @@ class GoblinElderLeftArm < Bestiary
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_LEFT_ATTACK]
     SPECIAL_MOVES = [
-        SpecialMove.new(100, -> (targets, pack, damage, boss) {GoblinElderBoss.delegate(targets, pack, damage, boss, GoblinAdvisorLeft)})
+        SpecialMove.new(100, -> (targets, pack, damage, boss) {GoblinElderBoss.delegate(targets, pack, damage, boss, GoblinAdvisorLeft, GoblinElderLeftArmM::NAMES[0])})
     ]
     DEATH_EVENT = -> (players, arm, boss) {GoblinElderBoss.arm_loss(arm.get_name, boss, GoblinElderRightArm::ID)}
 end
@@ -50,7 +50,7 @@ class GoblinElderRightArm < Bestiary
     FEMALE_CHANCES = 0
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK]
     SPECIAL_MOVES = [
-        SpecialMove.new(100, -> (target, pack, damage, boss) {GoblinElderBoss.delegate(target, pack, damage, boss, GoblinAdvisorRight)})
+        SpecialMove.new(100, -> (target, pack, damage, boss) {GoblinElderBoss.delegate(target, pack, damage, boss, GoblinAdvisorRight, GoblinElderRightArmM::NAMES[0])})
     ]
     DEATH_EVENT = -> (players, arm, boss) {GoblinElderBoss.arm_loss(arm.get_name, boss, GoblinElderLeftArm::ID)}
 end
@@ -58,9 +58,9 @@ end
 class GoblinElderBoss < Bestiary
     IS_BOSS = true
     EXPECTED_LEVEL = 12
-    MALE = GoblinElderF
-    FEMALE_CHANCES = 0
-    PICTURE = 'lost_knight'
+    FEMALE = GoblinElderF
+    FEMALE_CHANCES = 100
+    PICTURE = 'elder_goblin'
     LOOTS = [
     ]
     BODYPARTS = [
@@ -69,7 +69,7 @@ class GoblinElderBoss < Bestiary
         GoblinElderRightArm
     ]
 
-    def self.delegate(targets, allies, actor, boss, choosen_advisor)
+    def self.delegate(targets, allies, damage, boss, choosen_advisor, name)
         if boss.have?(Rage)
             return !SpecialMove::END_TURN
         end
@@ -80,7 +80,10 @@ class GoblinElderBoss < Bestiary
         end
         if (advisor != nil)
             SoundManager.play('swoosh')
-            Narrator.knight_slash
+            Narrator.write(format(Locale.get_localized(LocaleKey::ELDER_GOBLIN_DELEGATE), {
+                LocaleKey::F_SUBJECT => Locale.get_localized(name).capitalize,
+                LocaleKey::F_OBJECT => advisor.get_name.get_gendered_the
+            }))
             sleep Settings.get_pause_duration
             advisor.act(targets, allies, boss)
             return SpecialMove::END_TURN
@@ -90,29 +93,33 @@ class GoblinElderBoss < Bestiary
 
     def self.arm_loss(name, boss, other_arm_id)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss(name.get_gendered_the)
+        Narrator.write_formatted(LocaleKey::ELDER_GOBLIN_LIMB_LOSS, name.get_gendered_the)
         sleep Settings.get_pause_duration
         left_arm = boss.get_part_by(other_arm_id)
         if left_arm == nil
-            defenseless(name, boss)
+            armless(name, boss)
         end
     end
 
-    def self.defenseless(name, boss)
-        Narrator.knight_defenseless(boss.get_name.get_gendered_the)
+    def self.armless(name, boss)
+        Narrator.write_formatted(LocaleKey::ELDER_GOBLIN_ARMLESS, boss.get_name.get_gendered_the)
         sleep Settings.get_pause_duration
         head = boss.get_part_by(GoblinElderHead::ID)
         head.set_intelligence(head.get_strength * 6)
     end
 
     def self.death(name, boss)
-        SoundManager.play('ennemy_death')
-        Narrator.knight_death1(boss.get_name.get_gendered_of)
-        sleep Settings.get_pause_duration
+        any_goblin_enraged = false
         for goblin in boss.get_room.get_monsters.get_all
             if !goblin.is_a? Boss
                 goblin.status_handler.add(Rage.new)
+                any_goblin_enraged = true
             end
+        end
+        if any_goblin_enraged
+            Narrator.write(LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE)
+            SoundManager.play('rage')
+            sleep Settings.get_pause_duration
         end
     end
 end

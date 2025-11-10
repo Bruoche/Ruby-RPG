@@ -6,7 +6,7 @@ end
 
 class BossGoblinHouse < Biome
     EXPECTED_LEVEL = 27
-    PICTURE = 'goblin_translator_hut'
+    PICTURE = 'goblin_boss'
     EXPLORATION_TRACK = 'Goblin Village'
     COMBAT_TRACK = 'Dungeon Entrance Battle theme'
     FEMALE = BossGoblinHouseF
