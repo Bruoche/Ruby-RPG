@@ -8,7 +8,7 @@ class BossGoblinHouse < Biome
     EXPECTED_LEVEL = 27
     PICTURE = 'goblin_boss'
     EXPLORATION_TRACK = 'Goblin Village'
-    COMBAT_TRACK = 'Dungeon Entrance Battle theme'
+    COMBAT_TRACK = 'Goblin Elder'
     FEMALE = BossGoblinHouseF
     FEMALE_CHANCES = 100
     BACKTRACK_CHANCES = 0

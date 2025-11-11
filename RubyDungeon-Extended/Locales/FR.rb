@@ -1025,7 +1025,7 @@ class FR
         LocaleKey::CAVES_LOOT_ROPE => ["En fouillant la grande salle, vous remarquez une corde délaissée dans les friches."],
         LocaleKey::CAVES_TRANSITION_FOREST => [
             "Alors que vous avanciez dans la grotte, vous remarquez une lumière émergeant doucement au bout du tunnel.",
-            "Malgré votre surprise, votre curiosité est piquée et vous quittez les caves.",
+            "Malgré votre surprise, votre curiosité est piquée et vous quittez les tréfonds.",
             "Enfin l'obscurité est derrière vous."
         ],
         LocaleKey::OPEN_CAVE => "grande salle ouverte",

@@ -1024,7 +1024,7 @@ class EN
         LocaleKey::CAVES_LOOT_ROPE => ["As you search the large room, you notice a rope that was discarted among the tall grass."],
         LocaleKey::CAVES_TRANSITION_FOREST => [
             "As you move forward deeper into the caves, you slowly start to notice a light emerge at the end of the tunnel.",
-            "Surprised, but your curiosity picked, you move forward and out of the cave.",
+            "This is odd at such depth, and your curiosity is now picked. You move forward and out of the cave.",
             "The darkness finally leaves you."
         ],
         LocaleKey::OPEN_CAVE => "large open room",
@@ -1399,7 +1399,7 @@ class EN
         LocaleKey::GOBLIN_ATTACK => "Seeing you assault their village, all the goblins decide to attack you on sight.",
         LocaleKey::VILLAGE_FORGE => "a small forge",
         LocaleKey::FORGE_EMPTY => [
-            "As you arrive to the small forge, you notice everything has been emptied before your arrival, only warm embers having been left for you to take.",
+            "As you arrive to the small forge, you notice everything has been emptied before your arrival, only warm embers are left for you to take.",
             "With nothing for you here, you decide to go back to the rest of the village."
         ],
         LocaleKey::ASK_SAVE => "What save do you want to load?",
