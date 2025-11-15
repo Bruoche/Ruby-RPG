@@ -8,7 +8,7 @@ class Settings
         Settings::POP_UP_ON_START_SYM => 'true',
         Settings::PRINT_SMALL_SYM => 'false',
         Settings::MUSIC_VOLUME_SYM => 80,
-        Settings::SOUND_EFFECTS_SYM => 'true',
+        Settings::SOUND_EFFECTS_SYM => 80,
         Settings::LOCALE_SYM => Locale::ID_EN
     }
     BATTLE_ACTION_PAUSE = 0.3

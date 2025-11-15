@@ -35,12 +35,10 @@ Dir["RubyDungeon-Extended/*/Biomes/*.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*/SpecialRooms/*.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*/*/*.rb"].each {|file| require_if_valid(file)}
 
-Dir["ruby2d-main/"]
-
 require "fileutils" # Manage files (for saving)
 require "time" # Get current time (for playtime)
 require "tty-screen" # Get terminal dimension in char (for clean ascii printing)
-#require 'ruby2d' # Play sounds
+require 'ruby2d' # Play sounds
 
 TTY::Screen.height.times do
     puts
