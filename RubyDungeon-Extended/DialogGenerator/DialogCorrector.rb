@@ -18,7 +18,7 @@ class DialogCorrector
         if !line.include? "_KEY_GTE_"
             return line
         end
-        line_array = line.split /\[|\]/
+        line_array = line.split (/\[|\]/)
         first_cluster = true
         triggers = ""
         for trigger_cluster in line_array[1].split(/, |,/)

@@ -94,7 +94,7 @@ class Narrator
     def self.sound_options
         Narrator.write(Locale.get_localized(LocaleKey::CURRENT_MUSIC_VOLUME) + Settings.music_volume.to_s + '%')
         Narrator.add_space_of(1)
-        Narrator.write(Locale.get_localized(LocaleKey::CURRENT_SOUND_EFFECTS) + (Settings.sound_effects ? Locale.get_localized(LocaleKey::YES) : Locale.get_localized(LocaleKey::NO)))
+        Narrator.write(Locale.get_localized(LocaleKey::CURRENT_SOUND_EFFECTS) + (Settings.sound_effects_volume.to_s + '%'))
         add_space_of(3)
         Narrator.write(LocaleKey::SOUND_OPTIONS)
     end
@@ -762,16 +762,16 @@ class Narrator
         end
     end
 
-    def self.ask_desired_volume
-        Narrator.write(format(Locale.get_localized(LocaleKey::ASK_VOLUME), Settings.music_volume))
+    def self.ask_desired_volume(current_volume)
+        Narrator.write_formatted(LocaleKey::ASK_VOLUME, current_volume)
     end
 
     def self.ask_if_sound_effects
-        Narrator.write(LocaleKey::ASK_SOUND_EFFECTS)
+        Narrator.write_formatted(LocaleKey::ASK_SOUND_EFFECTS, Settings.sound_effects_volume)
     end
 
     def self.usage_options(item_name, usage_text)
-        Narrator.write(format(Locale::get_localized(LocaleKey::ASK_USE), item_name))
+        Narrator.write_formatted(LocaleKey::ASK_USE, item_name)
         Narrator.write(LocaleKey::ABORT_ENUMERATED)
         Narrator.write("    1) #{usage_text}")
         Narrator.write(LocaleKey::GIVE_OPTION)

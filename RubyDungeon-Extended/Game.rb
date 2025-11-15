@@ -16,6 +16,7 @@ class Game
         while game_running
             MusicManager.get_instance.start
             MusicManager.get_instance.set_ambiance('Title screen')
+            SoundManager.set_volume
             wanna_play = main_menu
             if wanna_play
                 while wanna_play
@@ -74,7 +75,7 @@ class Game
 
     def main_menu
         if @@in_debug_mode
-            puts "WARNING : debug mode activated - Errors will crash the game without saving."
+            Narrator.write("WARNING : debug mode activated - Errors will crash the game without saving.")
             extra_height = 1
         else
             extra_height = 0

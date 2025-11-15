@@ -30,8 +30,8 @@ class Settings
         return get_setting(MUSIC_VOLUME_SYM).to_i
     end
 
-    def self.sound_effects
-        return get_setting(SOUND_EFFECTS_SYM) == 'true'
+    def self.sound_effects_volume
+        return get_setting(SOUND_EFFECTS_SYM).to_i
     end
 
     def self.locale
@@ -50,8 +50,9 @@ class Settings
         set_setting(MUSIC_VOLUME_SYM, volume)
     end
 
-    def self.set_sound_effects(sound_effects)
-        set_setting(SOUND_EFFECTS_SYM, sound_effects)
+    def self.set_sound_effects_volume(volume)
+        set_setting(SOUND_EFFECTS_SYM, volume)
+        SoundManager.set_volume
     end
 
     def self.set_locale(locale)

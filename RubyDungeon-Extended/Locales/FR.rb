@@ -342,7 +342,7 @@ class FR
             "Que souhaitez-vous faire ?",
             "    0) Retour...",
             "    1) Modifier le volume de la musique",
-            "    2) Activer/Désactiver les effets sonores"
+            "    2) Modifier le volume des effets sonores"
         ],
         LocaleKey::ASSET_SIZE_OPTIONS => [
             "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut.",

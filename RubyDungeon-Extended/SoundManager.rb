@@ -4,8 +4,13 @@ class SoundManager
     EXTENSION = '.ogg'
 
     def self.play(sound_name)
-        if Settings.sound_effects
-            PreloadedSFX.get_instance.get_sfx(sound_name).play
+        sfx = PreloadedSFX.get_instance.get_sfx(sound_name)
+        if (sfx != nil)
+            sfx.play
         end
+    end
+
+    def self.set_volume
+        Sound.mix_volume = Settings.sound_effects_volume
     end
 end

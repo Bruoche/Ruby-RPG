@@ -342,7 +342,7 @@ class EN
             "What do you want to change?",
             "    0) Back...",
             "    1) Adjust music volume",
-            "    2) Activate/Deactivate sound effects"
+            "    2) Adjust sound effects volume"
         ],
         LocaleKey::ASSET_SIZE_OPTIONS => [
             "Please make sure that the text above the image is readable without scrolling.",

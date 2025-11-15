@@ -83,9 +83,10 @@ class SettingsMenu
             when '0'
                 return
             when '1'
-                music_volume_menu
+                Settings.set_music_volume(music_volume_menu(Settings::music_volume))
             when '2'
-                sound_effects_menu
+                Settings.set_sound_effects_volume(music_volume_menu(Settings::sound_effects_volume))
+                SoundManager.play("stat_up")
             else
                 Narrator.unsupported_choice_error
             end
@@ -114,12 +115,12 @@ class SettingsMenu
         end
     end
 
-    def self.music_volume_menu
-        Narrator.ask_desired_volume
+    def self.music_volume_menu(current_volume)
+        Narrator.ask_desired_volume(current_volume)
         new_volume = Narrator.user_input
         if new_volume.to_i.to_s != new_volume
             Narrator.unsupported_choice_error
-            return music_volume_menu
+            return music_volume_menu(current_volume)
         else
             new_volume = new_volume.to_i
         end
@@ -129,21 +130,6 @@ class SettingsMenu
         if new_volume > 100
             new_volume = 100
         end
-        Settings.set_music_volume(new_volume)
-    end
-
-    def self.sound_effects_menu
-        Narrator.ask_if_sound_effects
-        case Narrator.user_input
-        when '0'
-        when '1'
-            Settings.set_sound_effects(true)
-            SoundManager.play('stat_up')
-        when '2'
-            Settings.set_sound_effects(false)
-        else
-            Narrator.unsupported_choice_error
-            sound_effects_menu
-        end
+        return new_volume
     end
 end
