@@ -45,5 +45,11 @@ TTY::Screen.height.times do
 end
 PreloadedSFX.get_instance.load_sfxs
 debug = (ARGV[0] == "dev_mode")
+starting_biome_name = ARGV[1]
+if (starting_biome_name != nil) && (Object.const_defined? starting_biome_name)
+    starting_biome = Object.const_get(starting_biome_name)
+else
+    starting_biome = nil
+end
 ARGV.clear
-Game.new(debug)
+Game.new(debug, starting_biome)

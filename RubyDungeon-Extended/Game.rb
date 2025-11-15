@@ -4,7 +4,7 @@ class Game
     MAIN_MENU_HEIGHT = 18
     RETAIL_PERCENT = 90
 
-    def initialize(in_debug_mode)
+    def initialize(in_debug_mode = false, starting_biome = nil)
         @@in_debug_mode = in_debug_mode
         if !Settings.initialized?
             SettingsMenu.language_pop_up
@@ -26,7 +26,7 @@ class Game
                     Narrator.introduction(@party)
                     wanna_continue = true
                     while wanna_continue
-                        play
+                        play(starting_biome)
                         if @party.died?
                             wanna_continue = ask_continue
                         else
@@ -54,8 +54,8 @@ class Game
         end
     end
 
-    def play
-        entrance = World.get_instance.generate_dungeon(@party)
+    def play(starting_biome = nil)
+        entrance = World.get_instance.generate_dungeon(@party, starting_biome)
         @party.set_room(entrance)
         while !(@party.died? || @party.exited?)
             @party.take_turns
