@@ -126,6 +126,7 @@ class Game
         case choosen_option
         when '0'
             if Narrator.ask_confirmation(LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM)
+                @party = nil
                 return (not CHARACTER_SELECTED)
             end
         when '1'
@@ -138,7 +139,7 @@ class Game
                 return CHARACTER_SELECTED
             else
                 if (@party.size > 1) && (choosen_option == '2')
-                    @party.remove_player
+                    @party.ask_remove_player
                 else
                     Narrator.unsupported_choice_error
                 end
@@ -148,6 +149,12 @@ class Game
     end
 
     def get_character
+        loaded_saves = []
+        if @party != nil
+            for player in @party.get_players
+                loaded_saves.append(player.get_save)
+            end
+        end
         saves = SaveManager.get_saves
         character_creator = CharacterCreator.new
         if (saves != nil) && (saves.length > 0)
@@ -167,10 +174,15 @@ class Game
                     saves,
                     -> (save, index){
                         save_data = SaveManager.load(save)
-                        return ASCIIPicture.new(ASCIIPicture.get_card(save_data, index))
+                        return ASCIIPicture.new(ASCIIPicture.get_card(save_data, index, loaded_saves.include?(save)))
                     },
                     Narrator::NO_NAME_DISPLAYED,
-                    true
+                    true,
+                    Narrator::RETURN_BUTTON,
+                    -> (choosen_option) {
+                        !loaded_saves.include?((choosen_option).to_s)
+                    }
+
                 )
                 if save_index != Narrator::RETURN_BUTTON
                     save = saves[save_index]

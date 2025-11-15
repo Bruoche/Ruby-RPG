@@ -15,6 +15,8 @@ class ASCIIPicture
     IMPORTANT_CORNER_PIECE = '█'
     DEAD_HORIZONTAL_FRAME = '∙'
     DEAD_VERTICAL_FRAME = ':'
+    TIGHT_TOP_FRAME = "_"
+    TIGHT_BOTTOM_FRAME = "‾"
     NO_INDEX = nil
 
     def initialize(picture_path_or_ascii, single_line = true)
@@ -90,13 +92,13 @@ class ASCIIPicture
         @picture[y_coordinate][x_coordinate] = character
     end
 
-    def frame(horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME, corner_piece = DEFAULT_CORNER_PIECE)
+    def frame(horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME, corner_piece = DEFAULT_CORNER_PIECE, horizontal_line_bottom = horizontal_line, vertical_line_right = vertical_line)
         new_picture = [corner_piece + (horizontal_line * @width) + corner_piece]
         @picture.each.with_index(0) do |line, y|
             adjusted_line = line.gsub(/[\u200B-\u200D\uFEFF\u200D\uFE0E]/, '')
-            new_picture.append(vertical_line + adjusted_line.ljust(@width) + vertical_line)
+            new_picture.append(vertical_line + adjusted_line.ljust(@width) + vertical_line_right)
         end
-        new_picture.append(corner_piece + (horizontal_line * @width) + corner_piece)
+        new_picture.append(corner_piece + (horizontal_line_bottom * @width) + corner_piece)
         @picture = new_picture
         @width += 2
         @height += 2
@@ -172,7 +174,7 @@ class ASCIIPicture
         ]
     end
 
-    def self.get_card(player_data, index = EMPTY_INDEX)
+    def self.get_card(player_data, index = EMPTY_INDEX, unavailable = false)
         if (index != EMPTY_INDEX)
             index = index.to_s.rjust(4) + '|'
         end
@@ -200,20 +202,25 @@ class ASCIIPicture
         icon = PlayerIcon.new
         icon.load(icon_data)
         picture = icon.get_picture.get_ascii
-        return [
-            " __________________________________________________________________________________ ",
-            "|#{index} #{name   } | #{Locale.get_localized(LocaleKey::TIME_PLAYED).ljust(13)     }#{time_played} |",
-            "|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|",
-            "| #{picture[0].ljust(ICON_SIZE)} |                                             #{Locale.get_localized(LocaleKey::CARD_LEVEL).rjust(10)}#{level} |",
-            "| #{picture[1].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[2].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[3].ljust(ICON_SIZE)} |   #{Locale.get_localized(LocaleKey::CARD_HEALTH).rjust(10)  }#{health  }     #{Locale.get_localized(LocaleKey::CARD_AGILITY).rjust(20)     }#{agility     }   |",
-            "| #{picture[4].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[5].ljust(ICON_SIZE)} |                                                             |",
-            "| #{picture[6].ljust(ICON_SIZE)} |   #{Locale.get_localized(LocaleKey::CARD_STRENGTH).rjust(10)}#{strength}     #{Locale.get_localized(LocaleKey::CARD_INTELLIGENCE).rjust(20)}#{intelligence}   |",
-            "| #{picture[7].ljust(ICON_SIZE)} |                                                             |",
-            "|____________________|_____________________________________________________________|"
+        ascii = [
+            "#{index} #{name   } | #{Locale.get_localized(LocaleKey::TIME_PLAYED).ljust(13)     }#{time_played} ",
+            "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾",
+            " #{picture[0].ljust(ICON_SIZE)} |                                             #{Locale.get_localized(LocaleKey::CARD_LEVEL).rjust(10)}#{level} ",
+            " #{picture[1].ljust(ICON_SIZE)} |                                                             ",
+            " #{picture[2].ljust(ICON_SIZE)} |                                                             ",
+            " #{picture[3].ljust(ICON_SIZE)} |   #{Locale.get_localized(LocaleKey::CARD_HEALTH).rjust(10)  }#{health  }     #{Locale.get_localized(LocaleKey::CARD_AGILITY).rjust(20)     }#{agility     }   ",
+            " #{picture[4].ljust(ICON_SIZE)} |                                                             ",
+            " #{picture[5].ljust(ICON_SIZE)} |                                                             ",
+            " #{picture[6].ljust(ICON_SIZE)} |   #{Locale.get_localized(LocaleKey::CARD_STRENGTH).rjust(10)}#{strength}     #{Locale.get_localized(LocaleKey::CARD_INTELLIGENCE).rjust(20)}#{intelligence}   ",
+            " #{picture[7].ljust(ICON_SIZE)} |                                                             "
         ]
+        card = ASCIIPicture.new(ascii)
+        if unavailable
+            card.frame(DEAD_HORIZONTAL_FRAME, DEAD_VERTICAL_FRAME)
+        else
+            card.frame(TIGHT_TOP_FRAME, DEFAULT_VERTICAL_FRAME, DEFAULT_CORNER_PIECE, TIGHT_BOTTOM_FRAME)
+        end
+        return card.get_ascii
     end
 
     def self.get_selling_card(item, index = NO_INDEX, price_percentage = 100)

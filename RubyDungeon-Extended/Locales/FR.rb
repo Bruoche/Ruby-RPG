@@ -698,6 +698,7 @@ class FR
         LocaleKey::LOOT_GOBLIN_GIFT => ["Vous voyez le cadeau que vous aviez offert au goblins au milieu de leurs corps gisants."],
         LocaleKey::BRIBE_UNNECESSARY => "Vous ayant déjà permit d'entrer, la garde gobline ne semble pas interessée par vos possessions.",
         LocaleKey::ASK_PLAYER_REMOVED => "Quel membre de l'équipe supprimer ?",
+        LocaleKey::CONFIRM_DELETE_CHARACTER => "Êtes-vous sûr de vouloir supprimer %s ?\nLe personnage n'a pas été sauvegardé et sera définitevement perdu. (y/n)",
         LocaleKey::PARRIED => " paré",
         LocaleKey::ASK_HEAL_TARGET => "Qui souhaitez-vous soigner ?",
         LocaleKey::ASK_DESTINATION => "Où souhaitez-vous aller ?",

@@ -965,7 +965,7 @@ class Narrator
         end
     end
 
-    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON)
+    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
         options_pages = ASCIIPaginator.new(ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first)
         for i in 1..(options.length)
             options_pages.append(getter.call(options[i - 1], i))
@@ -975,7 +975,7 @@ class Narrator
             Narrator.add_space_of(1)
             Narrator.write(question)
             input = user_input(player_name)
-            if input.to_i.between?(1, options.length)
+            if input.to_i.between?(1, options.length) && extra_condition.call(input.to_i - 1)
                 return input.to_i - 1
             elsif input.capitalize == 'A'
                 options_pages.page_down

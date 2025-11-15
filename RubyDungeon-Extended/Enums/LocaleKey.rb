@@ -466,6 +466,7 @@ module LocaleKey
     ASK_ITEM_TO_UPGRADE = :ask_item_to_upgrade
     ASK_ITEM_TO_SHOW = :ask_item_to_show
     ASK_PLAYER_REMOVED = :ask_player_removed
+    CONFIRM_DELETE_CHARACTER = :confirm_delete_character
     ASK_CONFIRMATION_GIVING_GOBLIN = :ask_confirmation_giving_goblin
     GOBLIN_NOT_INTERESTED = :goblin_not_interested
     GOBLIN_ACCEPT_GIFT = :goblin_accept_gift

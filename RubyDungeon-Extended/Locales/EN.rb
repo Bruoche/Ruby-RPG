@@ -697,6 +697,7 @@ class EN
         LocaleKey::LOOT_GOBLIN_GIFT => ["You see the gift that was dealth to the goblins lying among their still warm corpses."],
         LocaleKey::BRIBE_UNNECESSARY => "The goblin already having given you permission to enter, she show no interest in your belongings.",
         LocaleKey::ASK_PLAYER_REMOVED => "Which team member do you want to remove?",
+        LocaleKey::CONFIRM_DELETE_CHARACTER => "Are you sure you want to remove %s?\nThis character has not yet been saved and will be deleted if removed. (y/n)",
         LocaleKey::PARRIED => " parried",
         LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
         LocaleKey::ASK_DESTINATION => "Where do you go?",
