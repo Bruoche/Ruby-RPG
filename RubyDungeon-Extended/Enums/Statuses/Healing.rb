@@ -9,6 +9,13 @@ class Healing < Status
     end
 
     def end_of_turn_action(host)
-        host.heal(@amount)
+        if !host.died?
+            host.heal(@amount)
+            reduce_duration_of(1)
+        end
+    end
+
+    def tick_down(duration = 1)
+        # Only tick down on heal
     end
 end
