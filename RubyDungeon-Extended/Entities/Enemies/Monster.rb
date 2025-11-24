@@ -1,7 +1,8 @@
 class Monster
     NO_DEATH_EVENT = -> (players, monster, pack) {}
+    NO_PARENT = nil
 
-    def initialize(room, life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, loots = [], attack_effects = [], death_event = NO_DEATH_EVENT)
+    def initialize(room, life, strength, intelligence, healing_coeff, name, basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, picture, type, loots = [], attack_effects = [], death_event = NO_DEATH_EVENT, special_moves = [])
         @lifebar = Lifebar.new(life)
         @name = name
         @strength = strength
@@ -12,6 +13,8 @@ class Monster
         @status_handler = StatusHandler.new
         @room = room
         @death_event = death_event
+        @special_moves = special_moves.map(&:clone)
+        @type = type
     end
 
     def get_description
@@ -54,6 +57,14 @@ class Monster
         return @lifebar.life_to_string
     end
 
+    def get_strength_string
+        return get_strength.to_s + rage_suffix
+    end
+
+    def get_intelligence_string
+        return get_intelligence.to_s + rage_suffix
+    end
+
     def healthbar(size)
         return @lifebar.healthbar(size)
     end
@@ -70,12 +81,28 @@ class Monster
         return @lifebar.get_max_life
     end
 
+    def get_status_icons
+        return @status_handler.get_icons.strip
+    end
+
     def get_room
         return @room
     end
 
+    def get_type
+        return @type
+    end
+
+    def add_special_move(special_move)
+        @special_moves.append(special_move)
+    end
+
     def set_strength(amount)
         @strength = amount
+    end
+
+    def set_intelligence(amount)
+        @intelligence = amount
     end
 
     def status_handler
@@ -115,12 +142,24 @@ class Monster
         @lifebar.heal(amount)
     end
 
-    def act(players, pack)
-        @AI.act(players, pack, @strength, @intelligence)
+    def act(players, pack, parent = NO_PARENT)
+        end_turn = false
+        for special_move in @special_moves
+            if !end_turn
+                end_turn = special_move.attempt(players, pack, self, parent)
+            end
+        end
+        if !end_turn
+            @AI.act(players, pack, @strength, @intelligence, @status_handler)
+        end
         @status_handler.end_of_turn_actions(self)
     end
 
-    def death_event(players, pack)
+    def death_event(pack)
+        players = World.get_instance.get_players_in(get_room)
+        players.delete_if do |player|
+            !player.fighting?
+        end
         @death_event.call(players, self, pack)
     end
 
@@ -131,13 +170,21 @@ class Monster
     private
 
     def description(name)
-        stat_strings = [
-            format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s),
-            format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s)
-        ]
-        if @intelligence > 0
+        stat_strings = [format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s)]
+        if get_strength > 0
+            stat_strings.append(format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s))
+        end
+        if get_intelligence > 0
             stat_strings.append(format(Locale.get_localized(LocaleKey::INTELLIGENCE_DESCRIPTOR), get_intelligence.to_s))
         end
         return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), name) + TextFormatter.enumerate(stat_strings)
+    end
+
+    def rage_suffix
+        if @status_handler.have? Rage
+            return " (x2)"
+        else
+            return ""
+        end
     end
 end

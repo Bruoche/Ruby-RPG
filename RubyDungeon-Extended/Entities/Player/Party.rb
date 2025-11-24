@@ -95,7 +95,7 @@ class Party
 
     def got_status?(status_class)
         for player in @players do
-            if player.has_status?(status_class)
+            if player.have_status?(status_class)
                 return true
             end
         end
@@ -114,8 +114,8 @@ class Party
         @players.append(player)
     end
 
-    def remove_player
-        player_index = Narrator.ask_complex_element(
+    def ask_remove_player
+        player_index = Narrator.ask_paginated(
             LocaleKey::ASK_PLAYER_REMOVED,
             @players,
             -> (player, index){
@@ -123,6 +123,12 @@ class Party
             }
         )
         if player_index != Narrator::RETURN_BUTTON
+            player = @players[player_index]
+            if player.get_save == SaveManager::NO_EXISTING_SAVEFILE
+                if !Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::CONFIRM_DELETE_CHARACTER), player.get_name))
+                    return ask_remove_player
+                end
+            end
             @players.delete_at(player_index)
         end
     end

@@ -6,9 +6,9 @@ class GoblinTranslator < CharacterData
     CONVERSATION_KEEPER = LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_KEEPER
     REPEAT_INTRO = LocaleKey::DIAL_GOBLIN_TRANSLATOR_REPEAT
     UNKNOWN_DIALOGS = LocaleKey::GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS
-    PICTURE = 'merchant'
+    PICTURE = 'goblin_translator'
     NAME_KNOWN = nil
-    PLAYER_NICKNAME = 'human'
+    PLAYER_NICKNAME = 'you'
     COMBAT_BODY = VillagerGoblin
     DIALOGS = [
         Dialog.new(

@@ -3,7 +3,7 @@ class World
     AUTO_BIOME = nil
     ENNEMYS_TURN = nil
 
-    def generate_dungeon(party)
+    def generate_dungeon(party, starting_biome = nil)
         @party = party
         exit = Exit.new(RoomID.new(Exit.name, 0))
         if party.get_level < (Entrance::EXPECTED_LEVEL * @party.size)
@@ -11,7 +11,9 @@ class World
         else
             biome = Entrance
         end
-        biome = VillageExterior # TODO remove
+        if starting_biome != nil
+            biome = starting_biome
+        end
         biome_id = biome.name
         @rooms = {Exit.name => [exit]}
         @entrance = Room.new(biome, RoomID.new(biome_id, 0), exit)

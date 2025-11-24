@@ -126,13 +126,13 @@ class Player
         if (monsters_power == 0)
             return MathUtils::HUNDRED_PERCENT
         end
-		spot_risk = (monsters_power - stealth_score)
+        spot_risk = (monsters_power - stealth_score)
         spot_risk = (spot_risk*MathUtils::HUNDRED_PERCENT)/(monsters_power)
         if spot_risk <= 0
             return MathUtils::HUNDRED_PERCENT
         end
-		return MathUtils::HUNDRED_PERCENT - spot_risk
-	end
+        return MathUtils::HUNDRED_PERCENT - spot_risk
+    end
 
     def can_escape?(monsters_power)
         perception_score = rand(monsters_power + 1)
@@ -147,7 +147,7 @@ class Player
         return @inventory.count(item)
     end
 
-    def has_status?(status)
+    def have_status?(status)
         return @status_handler.have?(status)
     end
 

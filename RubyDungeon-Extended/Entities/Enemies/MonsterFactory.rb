@@ -6,10 +6,10 @@ class MonsterFactory
         if monster_data == STATS_AUTO
             return make_from_scratch(biome, room, nb_monsters, bestiary)
         else
-            if monster_data::IS_BOSS == false
-                return Monster.new(room, *monster_data)
+            if monster_data::IS_BOSS
+                return Boss.new(room, *monster_data)
             else
-                return Boss.new(*monster_data)
+                return Monster.new(room, *monster_data)
             end
         end
     end
@@ -18,6 +18,9 @@ class MonsterFactory
 
     def self.make_from_scratch(biome, room, nb_monsters, bestiary = biome::BESTIARY)
         monster_type = bestiary.sample
+        if monster_type::IS_BOSS
+            return Boss.new(room, *monster_type)
+        end
         if biome::MONSTER_POWER_BONUS > 0
             difficulty_bonus = (biome::MONSTER_POWER_BONUS * Math.sqrt(World.get_instance.nb_players)).truncate
         else
@@ -32,8 +35,8 @@ class MonsterFactory
             min_intelligence = 0
         end
         monster_health = get_random_stat(BaseStats::BASE_HEALTH, monster_type::HEALTH_MULTIPLIER, nb_monsters, difficulty_bonus, 1)
-        monster_strength = get_random_stat(BaseStats::BASE_STRENGTH, (monster_type::DAMAGE_MULTIPLIER * strength_proportion)/100, nb_monsters, difficulty_bonus, min_strength)
-        monster_intelligence = get_random_stat(BaseStats::BASE_INTELLIGENCE, (monster_type::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * monster_type::MAGIC_PROPORTION)/100, nb_monsters, difficulty_bonus, min_intelligence)
+        monster_strength = get_random_stat(BaseStats::BASE_STRENGTH, (monster_type::DAMAGE_MULTIPLIER * strength_proportion).to_f/100, nb_monsters, difficulty_bonus, min_strength)
+        monster_intelligence = get_random_stat(BaseStats::BASE_INTELLIGENCE, (monster_type::DAMAGE_MULTIPLIER * BaseStats::INTELLIGENCE_COEFF * monster_type::MAGIC_PROPORTION).to_f/100, nb_monsters, difficulty_bonus, min_intelligence)
         name = Name.new(monster_type)
         if name.female?
             suffix = '_f'
@@ -48,16 +51,18 @@ class MonsterFactory
             monster_intelligence,
             monster_type::HEALING_PROPORTION,
             name,
-            [Locale.get_localized(LocaleKey::MONSTER_STRIKE)],
-            [Locale.get_localized(LocaleKey::MONSTER_SPELL)],
-            [Locale.get_localized(LocaleKey::MONSTER_HEAL)],
-            [Locale.get_localized(LocaleKey::MONSTER_ESCAPE)],
+            monster_type::BASE_MOVES.map(&:clone),
+            monster_type::SPELL_MOVES.map(&:clone),
+            monster_type::HEAL_MOVES.map(&:clone),
+            monster_type::ESCAPE_MOVE.map(&:clone),
             monster_type::UNPREDICTABILITY,
             monster_type::COWARDICE,
             picture,
+            monster_type.to_s,
             monster_type::LOOTS,
             monster_type::ATTACK_EFFECTS,
-            monster_type::DEATH_EVENT
+            monster_type::DEATH_EVENT,
+            monster_type::SPECIAL_MOVES
         )
     end
 

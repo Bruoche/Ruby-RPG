@@ -13,7 +13,7 @@ class GoblinGuard < CharacterData
     SPECIAL_INTERACTIONS = [
         SpecialInteraction.new(LocaleKey::GOBLIN_GUARD_BRIBE, -> (character, player) {
             loop do
-                if player.has_status?(AllowedEntry)
+                if player.have_status?(AllowedEntry)
                     Narrator.write(LocaleKey::BRIBE_UNNECESSARY)
                     Narrator.pause_text
                     return
@@ -48,11 +48,11 @@ class GoblinGuard < CharacterData
         })
     ]
     COMBAT_BODY = GoblinGuardBody
-    START_FIGHT_ACTION = -> (character, room) {
+    START_FIGHT_ACTION = -> (character, room, first_attacked) {
         room.anger_passives
     }
     WILLING_TO_TALK = -> (npc, player, is_already_talking) {
-        if (npc.get_aggressive_players.include? player) || player.has_status?(GoblinMurderer)
+        if (npc.get_aggressive_players.include? player) || player.have_status?(GoblinMurderer)
             if !is_already_talking
                 Narrator.write(LocaleKey::GOBLIN_GUARD_AGGRESSIVE)
                 SoundManager.play('spell_fart')
@@ -60,7 +60,7 @@ class GoblinGuard < CharacterData
             end
             return false
         end
-        if player.has_status?(AllowedEntry)
+        if player.have_status?(AllowedEntry)
             if !is_already_talking
                 Narrator.write(LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED)
                 Narrator.pause_text
@@ -70,7 +70,7 @@ class GoblinGuard < CharacterData
         return true
     }
     ROOM_DESCRIPTION = LocaleKey::GUARD_NPC_DESCRIPTION
-    IF_HEAR_OUT = -> (player) {player.has_status?(GoblinGuardHearOut)}
+    IF_HEAR_OUT = -> (player) {player.have_status?(GoblinGuardHearOut)}
     LEARN_NAME = -> (player, npc) {player.add_status(NAME_KNOWN.new)}
     HEAR_OUT = -> (player, npc) {player.add_status(GoblinGuardHearOut.new)}
     AUTH_ENTER = -> (player, npc) {for party_member in World.get_instance.get_all_players do party_member.add_status(AllowedEntry.new) end}

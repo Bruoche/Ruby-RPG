@@ -14,6 +14,10 @@ class Pack
         end
     end
 
+    def get_all
+        return @monsters
+    end
+
     def get_cards
         monster_cards = ASCIIPaginator.new
         monster_cards.set_show_return_button(false)
@@ -201,10 +205,6 @@ class Pack
         for loot in monster.get_loots
             monster.get_room.add_loot(loot)
         end
-        players = World.get_instance.get_players_in(monster.get_room)
-        players.delete_if do |player|
-            !player.fighting?
-        end
-        monster.death_event(players, self)
+        monster.death_event(self)
     end
 end

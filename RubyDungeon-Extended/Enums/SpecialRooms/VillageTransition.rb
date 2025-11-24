@@ -37,7 +37,7 @@ class VillageTransition
             return
         end
         room_power = player.get_room.get_total_power
-        if player.has_status?(AllowedEntry) || (room_power <= 0)
+        if player.have_status?(AllowedEntry) || (room_power <= 0)
             move(player, @in)
             return
         end
@@ -68,5 +68,6 @@ class VillageTransition
     def move(player, direction)
         player.set_room(direction)
         player.set_entered_room(true)
+        SoundManager.play('footsteps')
     end
 end

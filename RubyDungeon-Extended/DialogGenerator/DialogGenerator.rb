@@ -70,6 +70,7 @@ class DialogGenerator
         for file in files do
             file.close
         end
+        puts ">> " + npc_name + ": done."
     end
 
     def self.write(file_name, content)
@@ -198,6 +199,18 @@ class DialogGenerator
             end
         end
         return true
+    end
+
+    def self.consonant_after_accent_in(word)
+        consonnant_found_last = true
+        for letter in word.split("")
+            if CONSONANTS.include? letter
+                consonnant_found_last = true
+            elsif TONIC.include? letter
+                consonnant_found_last = false
+            end
+        end
+        return consonnant_found_last
     end
 
     def self.inverse_consonnant_of(word)

@@ -2,6 +2,8 @@ class MusicManager
     MUSIC_FOLDER = 'Osts/'
     FIGHTING = true
     FADEOUT_TIME = 500
+    FIGHTING_TRACK = :fighting_track
+    EXPLORATION_TRACK = :exploration_track
     NO_MUSIC = nil
     @instance = new
 
@@ -11,78 +13,32 @@ class MusicManager
 
     def start
         if !@running
-            current_volume = Settings.music_volume
-            Music.volume = current_volume
-            current_exploration_track = NO_MUSIC
-            current_fight_track = NO_MUSIC
-            exploration_music = NO_MUSIC
-            fighting_music = NO_MUSIC
+            @current_volume = Settings.music_volume
+            Music.volume = @current_volume
+            @tracks = {
+                EXPLORATION_TRACK => MusicInstance.new,
+                FIGHTING_TRACK => MusicInstance.new
+            }
             @running = true
-            music_manager = Thread.new do
-                was_fighting = nil
+            Thread.new do
                 while @running
                     volume = Settings.music_volume
-                    if volume != current_volume
-                        current_volume = volume
-                        Music.volume = current_volume
+                    if volume != @current_volume
+                        @current_volume = volume
+                        Music.volume = @current_volume
                     end
-                    if current_volume > 0
-                        if @exploration_track != current_exploration_track
-                            if exploration_music != NO_MUSIC
-                                exploration_music.fadeout(FADEOUT_TIME)
-                                exploration_music = NO_MUSIC
-                                sleep (FADEOUT_TIME*1.01)/1000
-                            end
-                            if @exploration_track != NO_MUSIC
-                                exploration_music = Music.new(SoundManager::SOUND_FOLDER + MUSIC_FOLDER + @exploration_track + SoundManager::EXTENSION)
-                                exploration_music.loop = true
-                                Music.volume = current_volume
-                            end
-                            current_exploration_track = @exploration_track
-                            exploration_track_switched = true
-                        end
-                        if @fight_track != current_fight_track
-                            if fighting_music != NO_MUSIC
-                                fighting_music.fadeout(FADEOUT_TIME)
-                            end
-                            if @fight_track != NO_MUSIC
-                                fighting_music = Music.new(SoundManager::SOUND_FOLDER + MUSIC_FOLDER + @fight_track + SoundManager::EXTENSION)
-                                fighting_music.loop = true
-                                Music.volume = current_volume
-                            else
-                                fighting_music = NO_MUSIC
-                            end
-                            current_fight_track = @fight_track
-                            fighting_track_switched = true
-                        end
+                    if @current_volume > 0
                         if @state == FIGHTING
-                            if (was_fighting != true) || fighting_track_switched
-                                if current_exploration_track != NO_MUSIC
-                                    exploration_music.fadeout(FADEOUT_TIME)
-                                end
-                                if current_fight_track != NO_MUSIC
-                                    fighting_music.play
-                                end
-                                was_fighting = true
-                                fighting_track_switched = false
-                            end
+                            switch_and_play_tracks_for(FIGHTING_TRACK, EXPLORATION_TRACK)
                         else
-                            if (was_fighting != false) || exploration_track_switched
-                                if current_fight_track != NO_MUSIC
-                                    fighting_music.fadeout(FADEOUT_TIME)
-                                end
-                                if current_exploration_track != NO_MUSIC
-                                    exploration_music.play
-                                end
-                                was_fighting = false
-                                exploration_track_switched = false
-                            end
+                            switch_and_play_tracks_for(EXPLORATION_TRACK, FIGHTING_TRACK)
                         end
                     end
                     sleep 0.2
                 end
-                exploration_music.fadeout(500)
-                fighting_music.fadeout(500)
+                for track in @tracks
+                    track.stop
+                end
             end
         end
     end
@@ -96,16 +52,27 @@ class MusicManager
     end
 
     def set_ambiance(exploration_track, fight_track = exploration_track)
-        @exploration_track = exploration_track
-        @fight_track = fight_track
+        @tracks[EXPLORATION_TRACK].set(exploration_track)
+        @tracks[FIGHTING_TRACK].set(fight_track)
     end
 
     private
 
     def initialize
         @state = !FIGHTING
+        @precedent_state = @state
         @running = false
-        @exploration_track = NO_MUSIC
-        @fight_track = NO_MUSIC
+    end
+
+    def switch_and_play_tracks_for(current_state_tracks, other_state_tracks)
+        if @state != @precedent_state
+            @precedent_state = @state
+            @tracks[other_state_tracks].stop
+            state_changed = true
+        end
+        song_switched = @tracks[current_state_tracks].switch_if_changed
+        if state_changed || song_switched
+            @tracks[current_state_tracks].play
+        end
     end
 end

@@ -20,6 +20,10 @@ class Narrator
         print Locale.get_localized(text)
     end
 
+    def self.write_formatted(localkey_or_string, *inserted_substring)
+        write(format(Locale.get_localized(localkey_or_string), *inserted_substring))
+    end
+
     def self.warning_pop_up(automatic)
         Narrator.write(LocaleKey::WARNING_POP_UP)
         if automatic
@@ -90,7 +94,7 @@ class Narrator
     def self.sound_options
         Narrator.write(Locale.get_localized(LocaleKey::CURRENT_MUSIC_VOLUME) + Settings.music_volume.to_s + '%')
         Narrator.add_space_of(1)
-        Narrator.write(Locale.get_localized(LocaleKey::CURRENT_SOUND_EFFECTS) + (Settings.sound_effects ? Locale.get_localized(LocaleKey::YES) : Locale.get_localized(LocaleKey::NO)))
+        Narrator.write(Locale.get_localized(LocaleKey::CURRENT_SOUND_EFFECTS) + (Settings.sound_effects_volume.to_s + '%'))
         add_space_of(3)
         Narrator.write(LocaleKey::SOUND_OPTIONS)
     end
@@ -689,6 +693,25 @@ class Narrator
         Narrator.write(LocaleKey::KNIGHT_DEATH_THIRD)
     end
 
+    def self.translator_intro(player, intro_question, sparing_reaction)
+        kill = true
+        loop do
+            Narrator.write(intro_question)
+            case Narrator.user_input(player.get_name).downcase
+            when 'a'
+                Narrator.write(sparing_reaction)
+                Narrator.pause_text
+                return !kill
+            when 'b'
+                if Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::NPC_ATTACK_CONFIRM), Locale.get_localized(LocaleKey::GOBLIN_TRANSLATOR_NAME)), player.get_name)
+                    return kill
+                end
+            end
+            Narrator.unsupported_choice_error
+        end
+    end
+
+
     def self.show_player_battle_cards(player)
         battle_cards = ASCIIRow.new
         for ally in World.get_instance.get_players_in(player.get_room)
@@ -739,16 +762,16 @@ class Narrator
         end
     end
 
-    def self.ask_desired_volume
-        Narrator.write(format(Locale.get_localized(LocaleKey::ASK_VOLUME), Settings.music_volume))
+    def self.ask_desired_volume(current_volume)
+        Narrator.write_formatted(LocaleKey::ASK_VOLUME, current_volume)
     end
 
     def self.ask_if_sound_effects
-        Narrator.write(LocaleKey::ASK_SOUND_EFFECTS)
+        Narrator.write_formatted(LocaleKey::ASK_SOUND_EFFECTS, Settings.sound_effects_volume)
     end
 
     def self.usage_options(item_name, usage_text)
-        Narrator.write(format(Locale::get_localized(LocaleKey::ASK_USE), item_name))
+        Narrator.write_formatted(LocaleKey::ASK_USE, item_name)
         Narrator.write(LocaleKey::ABORT_ENUMERATED)
         Narrator.write("    1) #{usage_text}")
         Narrator.write(LocaleKey::GIVE_OPTION)
@@ -942,7 +965,7 @@ class Narrator
         end
     end
 
-    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON)
+    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
         options_pages = ASCIIPaginator.new(ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first)
         for i in 1..(options.length)
             options_pages.append(getter.call(options[i - 1], i))
@@ -952,7 +975,7 @@ class Narrator
             Narrator.add_space_of(1)
             Narrator.write(question)
             input = user_input(player_name)
-            if input.to_i.between?(1, options.length)
+            if input.to_i.between?(1, options.length) && extra_condition.call(input.to_i - 1)
                 return input.to_i - 1
             elsif input.capitalize == 'A'
                 options_pages.page_down

@@ -4,7 +4,8 @@ class Game
     MAIN_MENU_HEIGHT = 18
     RETAIL_PERCENT = 90
 
-    def initialize
+    def initialize(in_debug_mode = false, starting_biome = nil)
+        @@in_debug_mode = in_debug_mode
         if !Settings.initialized?
             SettingsMenu.language_pop_up
         end
@@ -15,6 +16,7 @@ class Game
         while game_running
             MusicManager.get_instance.start
             MusicManager.get_instance.set_ambiance('Title screen')
+            SoundManager.set_volume
             wanna_play = main_menu
             if wanna_play
                 while wanna_play
@@ -24,7 +26,7 @@ class Game
                     Narrator.introduction(@party)
                     wanna_continue = true
                     while wanna_continue
-                        play
+                        play(starting_biome)
                         if @party.died?
                             wanna_continue = ask_continue
                         else
@@ -44,8 +46,16 @@ class Game
         end
     end
 
-    def play
-        entrance = World.get_instance.generate_dungeon(@party)
+    def self.catch_and_log(exception)
+        Narrator.unexpected_error
+        SaveManager.log(exception)
+        if @@in_debug_mode
+            raise exception
+        end
+    end
+
+    def play(starting_biome = nil)
+        entrance = World.get_instance.generate_dungeon(@party, starting_biome)
         @party.set_room(entrance)
         while !(@party.died? || @party.exited?)
             @party.take_turns
@@ -56,8 +66,7 @@ class Game
                     room_instance.get_monsters.take_turns_against(players)
                     @party.check_won_fights
                 rescue => unexpected_exception
-                    Narrator.unexpected_error
-                    SaveManager.log(unexpected_exception)
+                    Game.catch_and_log(unexpected_exception)
                 end
             end
         end
@@ -65,10 +74,16 @@ class Game
     end
 
     def main_menu
+        if @@in_debug_mode
+            Narrator.write("WARNING : debug mode activated - Errors will crash the game without saving.")
+            extra_height = 1
+        else
+            extra_height = 0
+        end
         empty_space = (TTY::Screen.height - MAIN_MENU_HEIGHT)
         top_space = empty_space.div(3)
         bottom_space = empty_space - top_space
-        Narrator.add_space_of(top_space - 1)
+        Narrator.add_space_of(top_space - (1 + extra_height))
         ASCIIPrinter.print('title')
         Narrator.main_menu_options
         Narrator.add_space_of(bottom_space)
@@ -111,6 +126,7 @@ class Game
         case choosen_option
         when '0'
             if Narrator.ask_confirmation(LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM)
+                @party = nil
                 return (not CHARACTER_SELECTED)
             end
         when '1'
@@ -123,7 +139,7 @@ class Game
                 return CHARACTER_SELECTED
             else
                 if (@party.size > 1) && (choosen_option == '2')
-                    @party.remove_player
+                    @party.ask_remove_player
                 else
                     Narrator.unsupported_choice_error
                 end
@@ -133,6 +149,12 @@ class Game
     end
 
     def get_character
+        loaded_saves = []
+        if @party != nil
+            for player in @party.get_players
+                loaded_saves.append(player.get_save)
+            end
+        end
         saves = SaveManager.get_saves
         character_creator = CharacterCreator.new
         if (saves != nil) && (saves.length > 0)
@@ -152,10 +174,15 @@ class Game
                     saves,
                     -> (save, index){
                         save_data = SaveManager.load(save)
-                        return ASCIIPicture.new(ASCIIPicture.get_card(save_data, index))
+                        return ASCIIPicture.new(ASCIIPicture.get_card(save_data, index, loaded_saves.include?(save)))
                     },
                     Narrator::NO_NAME_DISPLAYED,
-                    true
+                    true,
+                    Narrator::RETURN_BUTTON,
+                    -> (choosen_option) {
+                        !loaded_saves.include?((choosen_option).to_s)
+                    }
+
                 )
                 if save_index != Narrator::RETURN_BUTTON
                     save = saves[save_index]

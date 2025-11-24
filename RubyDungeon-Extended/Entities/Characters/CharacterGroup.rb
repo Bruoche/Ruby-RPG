@@ -16,6 +16,16 @@ class CharacterGroup
         return interactables
     end
 
+    def get_fightings
+        fighting = []
+        for character in @members
+            if character.fighting?
+                fighting.append(character)
+            end
+        end
+        return fighting
+    end
+
     def get_description
         descriptions = []
         for character in get_interactables

@@ -7,7 +7,7 @@ class VillageExterior < Biome
     MALE = UndergroundForestM
     FEMALE_CHANCES = 40
     BACKTRACK_CHANCES = 95
-    DESCRIPTION = LocaleKey::FOREST_DESCRIPTION
+    DESCRIPTION = LocaleKey::VILLAGE_ENTRANCE_DESCRIPTION
     PASSIVE_BESTIARY = [
         FighterGoblin,
         FighterGoblin,
@@ -20,7 +20,7 @@ class VillageExterior < Biome
     ]
     SAFE_CHANCES = 100
     PASSIVES_CHANCE = 100
-    MONSTER_AMOUNT_MULTIPLIER = 2
+    PASSIVE_AMOUNT_MULTIPLIER = 2
     LOOT = []
     MIN_EXITS = 2
     MAX_EXITS = 4
@@ -42,4 +42,12 @@ class VillageExterior < Biome
         )
     ]
     REQUIRED_BIOMES = ['VillageTransition']
+    ENTRY_EVENT = -> (room, player) {
+        if player.have_status?(GoblinMurderer) && room.got_passives?
+            Narrator.write(LocaleKey::GOBLIN_ATTACK)
+            room.anger_passives
+            room.anger_npcs
+        end
+        return !Player::ACTED
+    }
 end

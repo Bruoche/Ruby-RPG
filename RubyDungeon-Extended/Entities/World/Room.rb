@@ -80,7 +80,7 @@ class Room
 
     def describe(player)
         picture = @picture
-        if got_monsters? || got_passives?
+        if got_monsters? || got_passives? || got_npcs?
             picture += MONSTER_PRESENT_PICTURE_SUFFIX
         end
         if player.just_entered_room?
@@ -153,6 +153,10 @@ class Room
 
     def got_npcs?
         @npcs.any?
+    end
+
+    def fighting_npcs
+        return @npcs.get_fightings
     end
 
     def get_interactables
@@ -245,12 +249,12 @@ class Room
         end
     end
 
-    def anger(character)
+    def anger(character, attacked = !Character::FIRST_ATTACKED)
         for npc in @npcs.get_interactables
             if npc == character
                 if !npc.fighting?
                     initiate_monster_pack([npc.get_fighter])
-                    npc.start_fighting
+                    npc.start_fighting(attacked)
                 end
                 return
             end
