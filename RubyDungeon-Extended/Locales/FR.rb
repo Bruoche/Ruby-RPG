@@ -1185,12 +1185,12 @@ class FR
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Bien qu'il accepte de faire commerce avec vous, le forgeron semble trop occupé pour discuter.",
         LocaleKey::GOBLIN_TRANSLATOR_NAME => "un goblin",
-        LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire dans et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!",
+        LocaleKey::GOBLIN_TRANSLATOR_INTRO_DIALOG => "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!",
         LocaleKey::GOBLIN_TRANSLATOR_IDLE_DIALOGS => [
             "..."
         ],
         LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_STARTER => [
-            "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire dans et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!"
+            "Kö Pöko Tarkö peux vous aider à traduire tout mots d'un parole gobline à un parole humaine, et d'un parole humaine à un parole gobline si vous souhaite.\nOu, Kö Pöko Tarkö peux aussi expliquer la grammaire et comment faire des phrases dans un parole gobline... Dites juste à Kö Pöko Tarkö ce qu'il vous faut!"
         ],
         LocaleKey::GOBLIN_TRANSLATOR_CONVERSATION_KEEPER => [
             "'Avez un question à posée?",
