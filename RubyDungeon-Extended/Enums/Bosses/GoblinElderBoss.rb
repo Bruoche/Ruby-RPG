@@ -22,7 +22,7 @@ class GoblinElderHead < Bestiary
     FEMALE = GoblinElderHeadF
     FEMALE_CHANCES = 100
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_BITE_ATTACK]
-    DEATH_EVENT = -> (players, head, boss) {GoblinElderBoss.death(head.get_name, boss)}
+    DEATH_EVENT = -> (players, head, boss) {GoblinElderBoss.death(head.get_name, boss, players)}
 end
 
 class GoblinElderLeftArm < Bestiary
@@ -108,7 +108,7 @@ class GoblinElderBoss < Bestiary
         head.set_intelligence(head.get_strength * 6)
     end
 
-    def self.death(name, boss)
+    def self.death(name, boss, players)
         any_goblin_enraged = false
         for goblin in boss.get_room.get_monsters.get_all
             if !goblin.is_a? Boss
@@ -121,5 +121,9 @@ class GoblinElderBoss < Bestiary
             SoundManager.play('rage')
             sleep Settings.get_pause_duration
         end
+        for player in players
+            player.add_status(GoblinMurderer.new)
+        end
+        boss.get_room.set_exploration_track(MusicManager::NO_MUSIC)
     end
 end

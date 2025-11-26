@@ -43,6 +43,8 @@ class Room
         @monster_loots = []
         @picture = @biome::PICTURE
         @entry_event = @biome::ENTRY_EVENT
+        @exploration_track = @biome::EXPLORATION_TRACK
+        @combat_track = @biome::COMBAT_TRACK
     end
 
     def allow_entry_for(player)
@@ -204,6 +206,14 @@ class Room
         return @adjacent_rooms
     end
 
+    def get_exploration_track
+        return @exploration_track
+    end
+
+    def get_combat_track
+        return @combat_track
+    end
+
     def execute_entry_event(player)
         return @entry_event.call(self, player)
     end
@@ -234,6 +244,14 @@ class Room
 
     def set_picture(new_picture)
         @picture = new_picture
+    end
+
+    def set_exploration_track(track)
+        @exploration_track = track
+    end
+
+    def set_combat_track(track)
+        @combat_track = track
     end
 
     def anger_passives

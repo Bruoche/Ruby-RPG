@@ -2,11 +2,12 @@ class BiomeTransition
     NO_MESSAGE = nil
     NO_MAX_LEVEL_REQUIREMENTS = nil
 
-    def initialize(message, chances, biome, level_requirement_min = 0, level_requirement_max = NO_MAX_LEVEL_REQUIREMENTS)
+    def initialize(message, chances, biome, level_requirement_min = 0, level_requirement_max = NO_MAX_LEVEL_REQUIREMENTS, cut_music = true)
         @message = message
         @chances = chances
         @biome = biome
         @level_requirement_min = level_requirement_min
+        @cut_music = cut_music
     end
 
     def happened?(player_level)
@@ -24,7 +25,9 @@ class BiomeTransition
     def get_next_biome
         Narrator.add_space_of(1)
         if @message != NO_MESSAGE
-            MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+            if @cut_music
+                MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
+            end
             Narrator.write(@message)
             Narrator.add_space_of(1)
             Narrator.pause_text

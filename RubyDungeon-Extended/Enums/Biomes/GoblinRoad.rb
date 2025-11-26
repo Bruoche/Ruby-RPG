@@ -76,14 +76,20 @@ class GoblinRoad < Biome
         BiomeTransition.new(
             LocaleKey::GOBLIN_ROAD_TRANSITION_HOME,
             80,
-            'GoblinHome'
+            'GoblinHome',
+            0,
+            BiomeTransition::NO_MAX_LEVEL_REQUIREMENTS,
+            false
         )
     ]
     ENTRY_EVENT = -> (room, player) {
-        if player.have_status?(GoblinMurderer) && room.got_passives?
-            Narrator.write(LocaleKey::GOBLIN_ATTACK)
-            room.anger_passives
-            room.anger_npcs
+        if player.have_status?(GoblinMurderer)
+            room.set_exploration_track('Goblin Village - Empty')
+            if room.got_passives?
+                Narrator.write(LocaleKey::GOBLIN_ATTACK)
+                room.anger_passives
+                room.anger_npcs
+            end
         end
         return !Player::ACTED
     }

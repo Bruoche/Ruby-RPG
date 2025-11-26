@@ -186,7 +186,7 @@ class Player
     def act
         acted = false
         while !acted
-            MusicManager.get_instance.set_ambiance(@room.get_biome::EXPLORATION_TRACK, @room.get_biome::COMBAT_TRACK)
+            MusicManager.get_instance.set_ambiance(@room.get_exploration_track, @room.get_combat_track)
             acted = @controller.act
         end
         @status_handler.end_of_turn_actions(self)

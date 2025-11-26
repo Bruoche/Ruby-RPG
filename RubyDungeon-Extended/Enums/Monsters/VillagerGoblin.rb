@@ -20,5 +20,13 @@ class VillagerGoblin < Bestiary
         for player in players
             player.add_status(GoblinMurderer.new)
         end
+        room = goblin.get_room
+        if room.get_biome != VillageExterior
+            if room.get_biome == BossGoblinHouse
+                room.set_exploration_track(MusicManager::NO_MUSIC)
+            else
+                room.set_exploration_track('Goblin Village - Empty')
+            end
+        end
     }
 end
