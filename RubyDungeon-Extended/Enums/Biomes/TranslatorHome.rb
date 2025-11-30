@@ -26,6 +26,7 @@ class TranslatorHome < Biome
             return !Player::ACTED
         end
         if player.have_status?(GoblinMurderer)
+            room.set_exploration_track('Goblin Village - Empty')
             will_attack = Narrator.translator_intro(player, LocaleKey::TRANSLATOR_BEGGING, LocaleKey::TRANSLATOR_SPARING)
             give_everyone_status(TranslatorScared)
             if will_attack
