@@ -523,7 +523,7 @@ class FR
         LocaleKey::ALREADY_TAKEN => "Vous avez déjà pris tous les objets à prendre dans %s.",
         LocaleKey::NOTHING_FOUND => "Vous ne trouvez rien de valeur.",
         LocaleKey::LEVEL_UP => "Niveau supérieur !",
-        LocaleKey::UNKNOWN_USE => "Vous ne savez pas comment utiliser cet objet...",
+        LocaleKey::UNKNOWN_USE => "Vous ne savez pas quoi faire de cet objet...",
         LocaleKey::BANDAGE_USE_SELF => "%s utilise ses bandages pour soigner ses blessures...",
         LocaleKey::BANDAGE_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} utilise des bandages pour soigner les blessures de %{#{LocaleKey::F_TARGET}}...",
         LocaleKey::TOSS_COIN => "Vous lancez la pièce dans les airs",
@@ -825,7 +825,7 @@ class FR
         LocaleKey::H40_GAUNTLETS_NAME => "canons de soldat lourds",
         LocaleKey::H40_GAUNTLETS_DESC => "une paire de canons de bras lourds protégeant l'entièreté des bras et des mains, ne laissant que très peu d'ouvertures aux ennemis.",
         LocaleKey::H40_GREAVES_NAME => "bottes de soldats lourdes",
-        LocaleKey::H40_GREAVES_DESC => "une paire de bottes métaliques lourdes protégeant l'entièreté de la jambe jusqu'au genou.",
+        LocaleKey::H40_GREAVES_DESC => "une paire de bottes métalliques lourdes protégeant l'entièreté de la jambe jusqu'au genou.",
         LocaleKey::H40_HELM_NAME => "salade de soldat lourde",
         LocaleKey::H40_HELM_DESC => "une salade lourde protégeant l'entièreté du visage, doublée d'une large bavière protégeant la gorge, offre une protection idéale à la tête en dépit de soit poids.",
         LocaleKey::H40_PLASTRON_NAME => "cuirasse de soldat lourde",
@@ -837,7 +837,7 @@ class FR
         LocaleKey::H50_HELM_NAME => "casque de joute",
         LocaleKey::H50_HELM_DESC => "un casque en métal épais protégeant l'entièreté de la tête. Prévu pour supporter les plus lourdes frappes à la lance.",
         LocaleKey::H50_PLASTRON_NAME => "cuirasse de joute",
-        LocaleKey::H50_PLASTRON_DESC => "une cuirasse complète large protégeant l'entièreté du torse. En plus de ces épaulières larges, cette armure possède un très large renforcement couvrant l'entièreté du côté droit, ressemblant à une sorte de cape d'épaule métalique.",
+        LocaleKey::H50_PLASTRON_DESC => "une cuirasse complète large protégeant l'entièreté du torse. En plus de ces épaulières larges, cette armure possède un très large renforcement couvrant l'entièreté du côté droit, ressemblant à une sorte de cape d'épaule métallique.",
         LocaleKey::H60_GAUNTLETS_NAME => "gantlets de garde goblin lourd",
         LocaleKey::H60_GAUNTLETS_DESC => "une paire de gantelets excessivement large et lourds, jumelés de larges cubitières. Originellement fabriqué pour des goblins et ensuite adaptés aux proportions humaines, ces gantelets n'ont que trois larges emplacement pour les doigts, forçant deux doigts par emplacement.",
         LocaleKey::H60_GREAVES_NAME => "bottes de garde goblin lourd",
@@ -847,9 +847,9 @@ class FR
         LocaleKey::H60_PLASTRON_NAME => "cuirasse de garde goblin lourd",
         LocaleKey::H60_PLASTRON_DESC => "une cuirasse solide faite pour les goblins, ajusté pour un torse humain. S'y ajoute également deux larges épaulières réctangulaire qui servent également de protection pour l'avant-bras.",
         LocaleKey::M30_GAUNTLETS_NAME => "canons de bras simples",
-        LocaleKey::M30_GAUNTLETS_DESC => "de simples gantelets en cuir renforcés par des tubes métaliques afin d'offrir une protection décente à bas prix.",
+        LocaleKey::M30_GAUNTLETS_DESC => "de simples gantelets en cuir renforcés par des tubes métalliques afin d'offrir une protection décente à bas prix.",
         LocaleKey::M30_GREAVES_NAME => "bottes réenforcées simples",
-        LocaleKey::M30_GREAVES_DESC => "une paire de bottes en cuir simples renforcées par des tubes métaliques pour offrir une protection décente à bas prix.",
+        LocaleKey::M30_GREAVES_DESC => "une paire de bottes en cuir simples renforcées par des tubes métalliques pour offrir une protection décente à bas prix.",
         LocaleKey::M30_HELM_NAME => "bassinet simple et maille",
         LocaleKey::M30_HELM_DESC => "un casque simple doublé d'une capuche de maille offrant une protection décente à bas prix.",
         LocaleKey::M30_PLASTRON_NAME => "robe de maille simple",
@@ -881,11 +881,11 @@ class FR
         LocaleKey::L30_GAUNTLETS_NAME => "cannons à bras fin",
         LocaleKey::L30_GAUNTLETS_DESC => "de simples tubes en métal fin fabriqué pour offrir une bonne protection sans pour autant ajouter de poids superflux.",
         LocaleKey::L30_GREAVES_NAME => "bottes renforcées fines",
-        LocaleKey::L30_GREAVES_DESC => "bottes de cuirs pointues renforcées par de fines plaques métaliques afin d'offrir une bonne protection aux pieds sans pour autant ajouter de poids superflux.",
+        LocaleKey::L30_GREAVES_DESC => "bottes de cuirs pointues renforcées par de fines plaques métalliques afin d'offrir une bonne protection aux pieds sans pour autant ajouter de poids superflux.",
         LocaleKey::L30_HELM_NAME => "bassinet fin",
         LocaleKey::L30_HELM_DESC => "un casque fin fait pour protéger l'entièreté du crane sans pour autant peser sur la tête de son porteur.",
         LocaleKey::L30_PLASTRON_NAME => "plastron fin et jaque",
-        LocaleKey::L30_PLASTRON_DESC => "une tunique rembourrée portée avec un plastron métalique fin, permettant d'obtenir une bonne protection sans pour autant ajouter de poids superflux.",
+        LocaleKey::L30_PLASTRON_DESC => "une tunique rembourrée portée avec un plastron métallique fin, permettant d'obtenir une bonne protection sans pour autant ajouter de poids superflux.",
         LocaleKey::L40_GAUNTLETS_NAME => "gantlets de cuir discrets",
         LocaleKey::L40_GAUNTLETS_DESC => "une paire de gantlets en cuir renforcés offrant une bonne protection sans pour autant se faire remarquer.",
         LocaleKey::L40_GREAVES_NAME => "bottes en cuir discrètes",
@@ -1045,7 +1045,7 @@ class FR
         LocaleKey::VILLAGE_HOME_DESCRIPTION => [
             "Vous êtes dans une petite habitation faite de bois et d'argile, forcé·e de courber votre dos pour ne pas heurter votre tête contre son plafond.",
             "Une petite ouverture au sommet de la hutte laisse la douce lumière naturelle de la cave pénétrer la pièce, bien que l'endroit reste sombre pour des yeux humains.",
-            "L'air ici est plus sec que dans le reste de la grotte, et la température plus douce. Les tissus doux jonchant le sol offre un peu de repos pour vos pieds endoloris par le voyage."
+            "L'air ici est plus sec que dans le reste de la grotte, et la température plus douce. Les tissus doux jonchant le sol offrent un peu de repos pour vos pieds endoloris par le voyage."
         ],
         LocaleKey::VILLAGE_ROAD_DESCRIPTION => [
             "Vous êtes dans un petit village, entouré·e de petites huttes éparpillées partout autour.",
@@ -1220,6 +1220,12 @@ class FR
         LocaleKey::GOBLIN_GUARD_AGGRESSIVE => "Après que vous l'ayez attaqué, la garde gobline refuse maintenant de vous parler.",
         LocaleKey::GOBLIN_GUARD_ALREADY_AUTHORISED => "La garde gobline est trop occupée pour vous parler plus, vous faisant simplement geste de passer à travers le portail du village comme bon vous semble.",
         LocaleKey::GOBLIN_GUARD_BRIBE => "Montrer un objet...",
+        LocaleKey::GOBLIN_GUARD_SHOW_BADGE => [
+            "Lorsque vous montrez le petit pendentif métallique à la gobline, sa posture se relaxe soudainement, la surprise se lisant dans son regard.",
+            "    \"Ö... Sö bëdèsoe sö tarkorbakö köpo köpoduk. Kobukör korkëtogubagedo sö dök köpoduk.",
+            "",
+            "D'après sa posture, vous pouvez deviner que vous pouvez dorénavent aller librement dans le village."
+        ],
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::GOBLIN_ELDER_NAME => "une gobline ancienne",
         LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö #{Locale::PLAYER_NAME}.\nKör sö köpodubugurku köpogur sö dëkaos ?",
@@ -1379,6 +1385,13 @@ class FR
         LocaleKey::DETOX_JUICE_USE_SELF => "%s vois le jus détoxifiant.",
         LocaleKey::DETOX_JUICE_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} donne du jus détoxifiant à %{#{LocaleKey::F_TARGET}}...",
         LocaleKey::DETOX_DETOX => "Vous vous sentez soulagé·e alors que le poison quitte votre corps.",
+        LocaleKey::GOBLIN_BADGE_NAME => "un petit collier",
+        LocaleKey::GOBLIN_BADGE_PLURAL => "petits colliers",
+        LocaleKey::GOBLIN_BADGE_DESCRIPTION => "représente une main humaine et une patte gobline argentées tenant chaques extrêmités d'un disque doré. Le niveau de détail est surprenant pour un si petit bijou.",
+        LocaleKey::SHOW_GOBLIN_BADGE => "Vous brandissez fiérement le petit pendentif métallique.",
+        LocaleKey::PACIFY_GOBLIN => "%s s'appaise.",
+        LocaleKey::GOBLINS_NOT_FORGIVING => "Les goblins refusent de pardonner votre attaque.",
+        LocaleKey::GOBLINS_NOT_TRUSTING => "Lorsqu'ils voyent le sang innocent sur votre main tâcher le précieux pendentif, les goblins refusent de vous faire confience.",
         LocaleKey::GOBLIN_LOOT_COINS => ["En fouillant le corps du gobelin vous remarquez une petite bourse accrochée à sa ceinture."],
         LocaleKey::GOBLIN_LOOT_FRUITS => ["Lorsque vous regardez dans le sac du gobelin, vous y trouvez quelques fruits."],
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un garde goblin."],
@@ -1565,7 +1578,7 @@ class FR
         LocaleKey::DIAL_SHOPKEEPER_KEY_GAMBESON => ["jaque|jaques"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_GAMBESON => [
             "Une jaque est un bon moyen de vous protéger de manière abordable, et malgré son poids celle-ci est plutôt confortable.\nSa fabrication est simple, uniquement composée de nombreuses couches de tissus et de rembourrage amortissant les chocs.",
-            "Mais, celle-ci est un peu plus lourde que la moyenne, ayant une plaque métalique offrant une protection supplémentaire au torse, au coût d'un poids additionnel sur vos épaules."
+            "Mais, celle-ci est un peu plus lourde que la moyenne, ayant une plaque métallique offrant une protection supplémentaire au torse, au coût d'un poids additionnel sur vos épaules."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_HOUPPELANDE => ["houpelande|houpelandes|houppelande|houppelandes"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_HOUPPELANDE => [

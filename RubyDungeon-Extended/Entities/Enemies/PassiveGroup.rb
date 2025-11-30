@@ -47,6 +47,12 @@ class PassiveGroup
         @passives.append(monster)
     end
 
+    def add_all(monsters)
+        for monster in monsters
+            add(monster)
+        end
+    end
+
     def empty
         passives = @passives
         @passives = []

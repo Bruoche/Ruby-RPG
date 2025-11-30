@@ -187,6 +187,10 @@ class Character
         @start_fight_action.call(self, @room, first_attacked)
     end
 
+    def stop_fighting
+        @fighting = false
+    end
+
     def add_loot(loot)
         @body.add_loot(loot)
     end

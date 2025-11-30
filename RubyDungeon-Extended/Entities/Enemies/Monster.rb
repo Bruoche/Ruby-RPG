@@ -113,16 +113,20 @@ class Monster
         return @lifebar.is_empty
     end
 
-    def escaped?
-        return @AI.escaped?
-    end
-
     def add_loot(loot)
         @loots.append(loot)
     end
 
     def choose_target(players)
         return @AI.choose_target(players, @strength)
+    end
+
+    def leave
+        @room.make_monster_leave(self)
+    end
+
+    def pacify
+        @room.pacify(self)
     end
 
     def hurt(attack)

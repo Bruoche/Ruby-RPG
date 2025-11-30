@@ -84,7 +84,7 @@ class Room
             picture += MONSTER_PRESENT_PICTURE_SUFFIX
         end
         if player.just_entered_room?
-            if (@monsters != nil)
+            if (@monsters != nil) && !@monsters.empty?
                 Narrator.describe_monsters_room(
                     player,
                     -> {@biome.describe},
@@ -103,7 +103,7 @@ class Room
             end
             @arrival = false
         else
-            if (@monsters != nil)
+            if (@monsters != nil) && !@monsters.empty?
                 monsters_description = @monsters.get_description
             else
                 monsters_description = nil
@@ -259,6 +259,24 @@ class Room
                 return
             end
         end
+    end
+
+    def make_monster_leave(monster)
+        @monsters.leaving(monster)
+    end
+
+    def pacify(monster)
+        if !@monsters.has?(monster)
+            return
+        end
+        @monsters.leaving(monster)
+        for fighting_npc in @npcs.get_fightings
+            if fighting_npc.get_fighter == monster
+                fighting_npc.stop_fighting
+                return
+            end
+        end
+        @passives.add(monster)
     end
 
     def search

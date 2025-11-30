@@ -791,45 +791,15 @@ class Narrator
         return user_input(player_name)
     end
 
-    def self.ask_fight_action(player, monsters_description, escape_chances)
-        monster_cards_pages = player.get_room.get_monster_cards
-        loop do
-            monster_cards_pages.show(25)
-            Narrator.add_space_of(1)
-            show_player_battle_cards(player)
-            Narrator.write(format(Locale.get_localized(LocaleKey::DESCRIBE_ENNEMIES), monsters_description))
-            Narrator.add_space_of(1)
-            Narrator.write(LocaleKey::FIGHT_ACTIONS)
-            Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
-            input = user_input(player.get_name)
-            case input
-            when '1'
-                return player.get_room.get_monsters.hurt_single(player.strength_attack)
-            when '2'
-                player.get_room.get_monsters.hurt_magic(player.magic_attack)
-                return Player::ACTED
-            when '3'
-                return player.heal_spell
-            when '4'
-                return player.use_item
-            when '5'
-                if player.can_escape?(player.get_room.get_monsters.get_current_power)
-                    escape_scene
-                    return player.escape
-                else
-                    fail_escape(player.get_room.get_monsters.plural?)
-                    return Player::ACTED
-                end
-            else
-                if input.capitalize == 'A'
-                    monster_cards_pages.page_down
-                elsif input.capitalize == 'Z'
-                    monster_cards_pages.page_up
-                else
-                    unsupported_choice_error
-                end
-            end
-        end
+    def self.ask_fight_action(player, monsters_description, escape_chances, monster_cards_pages)
+        monster_cards_pages.show(25)
+        Narrator.add_space_of(1)
+        show_player_battle_cards(player)
+        Narrator.write(format(Locale.get_localized(LocaleKey::DESCRIBE_ENNEMIES), monsters_description))
+        Narrator.add_space_of(1)
+        Narrator.write(LocaleKey::FIGHT_ACTIONS)
+        Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
+        return input = user_input(player.get_name)
     end
 
     def self.ask_continue

@@ -788,6 +788,7 @@ module LocaleKey
     GOBLIN_GUARD_AGGRESSIVE = :goblin_guard_aggressive
     GOBLIN_GUARD_ALREADY_AUTHORISED = :goblin_guard_already_authorised
     GOBLIN_GUARD_BRIBE = :goblin_guard_bribe
+    GOBLIN_GUARD_SHOW_BADGE = :goblin_guard_show_badge
     GOBLIN_ELDER_NAME = :goblin_elder_name
     GOBLIN_ELDER_INTRO_DIALOG = :goblin_elder_intro_dialog
     GOBLIN_ELDER_IDLE_DIALOGS = :goblin_elder_idle_dialogs
@@ -856,6 +857,13 @@ module LocaleKey
     DETOX_JUICE_DESCRIPTION = :detox_juice_description
     DETOX_JUICE_USE_SELF = :detox_juice_use_self
     DETOX_JUICE_USE_OTHER = :detox_juice_use_other
+    GOBLIN_BADGE_NAME = :goblin_badge_name
+    GOBLIN_BADGE_PLURAL = :goblin_badge_plural
+    GOBLIN_BADGE_DESCRIPTION = :goblin_badge_description
+    SHOW_GOBLIN_BADGE = :show_goblin_badge
+    PACIFY_GOBLIN = :pacify_goblin
+    GOBLINS_NOT_FORGIVING = :goblins_not_forgiving
+    GOBLINS_NOT_TRUSTING = :goblins_not_trusting
     GOBLIN_LOOT_COINS = :goblin_loot_coins
     GOBLIN_LOOT_FRUITS = :goblin_loot_fruits
     GOBLIN_LOOT_HEALTH_POTION = :goblin_loot_health_potion

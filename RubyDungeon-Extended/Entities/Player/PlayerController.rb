@@ -39,8 +39,13 @@ class PlayerController
         begin
             if !(@player.died? || @player.exited?)
                 if @fighting
-                    MusicManager.get_instance.set_state(MusicManager::FIGHTING)
-                    return fight_action
+                    if @player.get_room.got_monsters?
+                        MusicManager.get_instance.set_state(MusicManager::FIGHTING)
+                        return fight_action
+                    else
+                        stop_fighting
+                        return ask_action
+                    end
                 else
                     MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
                     if @player.get_room.got_monsters?
@@ -201,7 +206,42 @@ class PlayerController
     end
 
     def fight_action
-        return Narrator.ask_fight_action(@player, @player.get_room.get_monsters.enumerate, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power))
+        monster_cards_pages = @player.get_room.get_monster_cards
+        loop do
+            input = Narrator.ask_fight_action(
+                @player,
+                @player.get_room.get_monsters.enumerate,
+                @player.get_escape_chances(@player.get_room.get_monsters.get_current_power),
+                monster_cards_pages
+            )
+            case input
+            when '1'
+                return @player.get_room.get_monsters.hurt_single(@player.strength_attack)
+            when '2'
+                @player.get_room.get_monsters.hurt_magic(@player.magic_attack)
+                return Player::ACTED
+            when '3'
+                return @player.heal_spell
+            when '4'
+                return @player.use_item
+            when '5'
+                if @player.can_escape?(@player.get_room.get_monsters.get_current_power)
+                    Narrator.escape_scene
+                    return @player.escape
+                else
+                    Narrator.fail_escape(@player.get_room.get_monsters.plural?)
+                    return Player::ACTED
+                end
+            else
+                if input.capitalize == 'A'
+                    monster_cards_pages.page_down
+                elsif input.capitalize == 'Z'
+                    monster_cards_pages.page_up
+                else
+                    Narrator.unsupported_choice_error
+                end
+            end
+        end
     end
 
     def propose_exploration

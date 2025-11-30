@@ -2,6 +2,7 @@ class EnnemyAI
     CHOICE_PHYSICAL_ATTACK = 'strike'
     CHOICE_MAGIC_ATTACK = 'magic_attack'
     CHOICE_HEAL = 'heal'
+    DEFAULT_MESSAGE = nil
 
     def initialize(basic_attack_messages, magic_attack_messages, heal_messages, escape_message, unpredictability, cowardice, healing_coeff, parent_body, attack_effects)
         @basic_attack_messages = basic_attack_messages.map(&:clone)
@@ -13,7 +14,6 @@ class EnnemyAI
         @cowardice = cowardice
         @healing_coeff = healing_coeff
         @body = parent_body
-        @escaped = false
         @attack_effects = attack_effects
     end
 
@@ -175,10 +175,6 @@ class EnnemyAI
         return needyest_ally
     end
 
-    def escaped?
-        return @escaped
-    end
-
     def physical_attack(player, strength)
         SoundManager.play('swoosh')
         Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages.sample) % [player.get_name]}")
@@ -202,10 +198,13 @@ class EnnemyAI
         ally.heal(rand(1..intelligence))
     end
 
-    def escape
+    def escape(message = DEFAULT_MESSAGE)
         SoundManager.play('ennemy_footsteps')
-        Narrator.write(format(Locale.get_localized(@escape_message.sample), @denomination))
+        if message == DEFAULT_MESSAGE
+            message = @escape_message.sample
+        end
+        Narrator.write(message)
         sleep Settings.get_pause_duration
-        @escaped = true
+        @body.leave
     end
 end

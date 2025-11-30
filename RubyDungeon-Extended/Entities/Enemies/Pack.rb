@@ -114,19 +114,27 @@ class Pack
         for monster in @monsters
             if monster.died?
                 death_event(monster)
-            elsif monster.escaped?
-                @monsters.delete_at(@monsters.index(monster))
             end
         end
         return @monsters.length == 0
     end
 
-    def take_turns_against(players)
-        @monsters.delete_if do |monster|
-            monster.act(players, @monsters)
-            if monster.escaped?
-                true
+    def has?(desired_monster)
+        for monster in @monsters
+            if monster == desired_monster
+                return true
             end
+        end
+        return false
+    end
+
+    def empty?
+        return @initial_monsters.empty?
+    end
+
+    def take_turns_against(players)
+        for monster in @monsters
+            monster.act(players, @monsters)
         end
     end
 
@@ -136,6 +144,13 @@ class Pack
         SoundManager.play('ennemy_added')
         Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ADDED), monster.get_name.get_gendered_a.capitalize))
         sleep Settings.get_pause_duration
+    end
+
+    def leaving(monster)
+        if has?(monster)
+            @monsters.delete_at(@monsters.index(monster))
+            @initial_monsters.delete_at(@initial_monsters.index(monster))
+        end
     end
 
     def hurt_single(attack)

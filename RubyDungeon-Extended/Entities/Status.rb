@@ -46,11 +46,15 @@ class Status
     end
 
     def get_save_data
-        if self.class::FORCE_SAVE || (@duration == INFINITE && self.class::SAVED)
+        if self.class::FORCE_SAVE || (@duration == INFINITE && saved?)
             return build_save_data
         else
             return ''
         end
+    end
+
+    def saved?
+        return self.class::SAVED
     end
 
     def build_save_data

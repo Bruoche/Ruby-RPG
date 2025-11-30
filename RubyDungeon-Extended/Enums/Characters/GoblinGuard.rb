@@ -22,6 +22,12 @@ class GoblinGuard < CharacterData
                 if item_presented == nil
                     return
                 end
+                if item_presented.get_item.class == GoblinBadge
+                    player.add_status(AllowedEntry.new(Status::INFINITE, true))
+                    Narrator.write(LocaleKey::GOBLIN_GUARD_SHOW_BADGE)
+                    Narrator.pause_text
+                    return
+                end
                 is_valuable = item_presented.get_value >= EXPECTED_BRIBE_VALUE
                 is_valuable = (is_valuable || (item_presented.get_item.instance_of?(Coins) && (item_presented.get_quantity >= EXPECTED_BRIBE_VALUE)))
                 if is_valuable
