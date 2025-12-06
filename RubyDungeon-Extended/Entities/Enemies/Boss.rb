@@ -226,7 +226,7 @@ class Boss < Monster
     end
 
     def act(players, pack)
-        for bodypart in @bodyparts
+        ArrayUtils.for_potential(@bodyparts) do |bodypart|
             bodypart.act(players, pack, self)
         end
     end

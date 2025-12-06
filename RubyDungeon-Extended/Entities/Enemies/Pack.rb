@@ -133,7 +133,7 @@ class Pack
     end
 
     def take_turns_against(players)
-        for monster in @monsters
+        ArrayUtils.for_potential(@monsters) do |monster|
             monster.act(players, @monsters)
         end
     end

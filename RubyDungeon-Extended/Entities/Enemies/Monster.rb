@@ -148,7 +148,7 @@ class Monster
 
     def act(players, pack, parent = NO_PARENT)
         end_turn = false
-        for special_move in @special_moves
+        ArrayUtils.for_potential(@special_moves) do |special_move|
             if !end_turn
                 end_turn = special_move.attempt(players, pack, self, parent)
             end
