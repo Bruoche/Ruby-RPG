@@ -797,6 +797,7 @@ module LocaleKey
     GOBLIN_ELDER_UNKNOWN_DIALOGS = :goblin_elder_unknown_dialogs
     GOBLIN_ELDER_NICKNAME = :goblin_elder_nickname
     GOBLIN_ELDER_NPC_DESCRIPTION = :goblin_elder_npc_description
+    GOBLIN_ELDER_GIVE_BADGE = :goblin_elder_give_badge
     GOBLIN_ADVISOR_NAME = :goblin_advisor_name
     GOBLIN_ADVISOR_INTRO_DIALOG = :goblin_advisor_intro_dialog
     GOBLIN_ADVISOR_IDLE_DIALOGS = :goblin_advisor_idle_dialogs

@@ -1247,6 +1247,11 @@ class EN
         ],
         LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",
         LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Sitting ahead of you is an old goblin, covered in large cloths keeping it warm.",
+        LocaleKey::GOBLIN_ELDER_GIVE_BADGE => [
+            "After her speech, the goblin turn to one of her caretakers and nods to him.",
+            "The small goblin turn to the back of the room and search a little, before coming back to you with a small weighty pendant.",
+            "He hands it to you carefully. The soft cool light falling from above you two reflecting on it's golden and silver shapes."
+        ],
         LocaleKey::GOBLIN_ADVISOR_NAME => "one of the elder goblin's caretakers",
         LocaleKey::GOBLIN_ADVISOR_INTRO_DIALOG => "...",
         LocaleKey::GOBLIN_ADVISOR_IDLE_DIALOGS => ["..."],

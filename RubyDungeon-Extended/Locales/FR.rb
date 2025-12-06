@@ -1247,6 +1247,11 @@ class FR
         ],
         LocaleKey::GOBLIN_ELDER_NICKNAME => "tarkorbakö",
         LocaleKey::GOBLIN_ELDER_NPC_DESCRIPTION => "Devant vous se trouve une vieille gobline, couverte de larges tissus la tenant au chaud.",
+        LocaleKey::GOBLIN_ELDER_GIVE_BADGE => [
+            "Après son monologue, la gobline se tourne vers un de ses aidant, lui faisant signe de chercher quelque chose.",
+            "Le petit goblin aquiesce et se dirige vers l'arrière de la hute, fouillant un peu avant de se diriger vers vous avec un petit pendentif.",
+            "Il vous le donne précautionneusement. La lumière bleutée tombant du plafond se reflétant doucement dans les formes dorées et argentées du bijou."
+        ],
         LocaleKey::GOBLIN_BLACKSMITH_NO_TALK => "Bien qu'il accepte de faire commerce avec vous, le forgeron semble trop occupé pour discuter.",
         LocaleKey::GOBLIN_ADVISOR_NAME => "un des aidants de la vieille gobline",
         LocaleKey::GOBLIN_ADVISOR_INTRO_DIALOG => "...",
