@@ -116,7 +116,7 @@ class StatManager
         while (@current_xp >= required_xp)
             MusicManager.get_instance.set_ambiance(MusicManager::NO_MUSIC)
             SoundManager.play('level_up')
-            Narrator.level_up
+            Narrator.level_up(character_name.capitalize)
             @current_xp -= required_xp
             @level += 1
             stat_up(character_name)

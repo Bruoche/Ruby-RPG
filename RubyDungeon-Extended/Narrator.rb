@@ -592,8 +592,9 @@ class Narrator
         Narrator.write(LocaleKey::NOTHING_FOUND)
     end
 
-    def self.level_up
-        Narrator.write(LocaleKey::LEVEL_UP)
+    def self.level_up(name)
+        Narrator.write(format(Locale.get_localized(LocaleKey::LEVEL_UP), name))
+        Narrator.pause_text
     end
 
     def self.unknown_use

@@ -522,7 +522,7 @@ class EN
         LocaleKey::SEARCHING => "You search %s for any item that may come of use",
         LocaleKey::ALREADY_TAKEN => "You have already taken everything there is to take in %s.",
         LocaleKey::NOTHING_FOUND => "You find nothing of value.",
-        LocaleKey::LEVEL_UP => "Level up!",
+        LocaleKey::LEVEL_UP => "%s levels up!",
         LocaleKey::UNKNOWN_USE => "You do not know what to do with this item...",
         LocaleKey::BANDAGE_USE_SELF => "%s uses their bandages to heal their wounds...",
         LocaleKey::BANDAGE_USE_OTHER => "%{#{LocaleKey::F_SOURCE}} uses their bandages to heal the wounds of %{#{LocaleKey::F_TARGET}}...",
