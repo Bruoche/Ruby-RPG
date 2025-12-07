@@ -750,6 +750,7 @@ module LocaleKey
     GOBLIN_TRANSLATOR_CONVERSATION_STARTER = :goblin_translator_conversation_starter
     GOBLIN_TRANSLATOR_CONVERSATION_KEEPER = :goblin_translator_conversation_keeper
     GOBLIN_TRANSLATOR_UNKNOWN_DIALOGS = :goblin_translator_unknown_dialogs
+    GOBLIN_TRANSLATOR_NICKNAME = :goblin_translator_nickname
     TRANSLATOR_WHAT_HAVE_YOU_DONE = :translator_what_have_you_done
     TRANSLATOR_APOLOGY = :translator_apology
     TRANSLATOR_BEGGING = :translator_begging

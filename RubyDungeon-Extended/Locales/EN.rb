@@ -1282,6 +1282,7 @@ class EN
             "Kö Pöko Tarkö fear Kö Pöko Tarkö missunderstood the word you said...",
             "Kö Pöko Tarkö unfortunately ignore all translations of what you said..."
         ],
+        LocaleKey::GOBLIN_TRANSLATOR_NICKNAME => "you",
         LocaleKey::TRANSLATOR_WHAT_HAVE_YOU_DONE => [
             "You enter once again the talking goblin's home, but instead of welcoming you the creature seem to freeze in shock upon seeing you.",
             "    \"Dëk-... What... You... Goblin blood on your hands... Why did you kill goblins?!",
