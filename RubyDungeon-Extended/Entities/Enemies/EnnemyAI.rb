@@ -203,7 +203,7 @@ class EnnemyAI
         if message == DEFAULT_MESSAGE
             message = @escape_message.sample
         end
-        Narrator.write(message)
+        Narrator.write_formatted(message, @denomination.capitalize)
         sleep Settings.get_pause_duration
         @body.leave
     end

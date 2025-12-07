@@ -2701,7 +2701,6 @@ class FR
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_SWAMP => [
             "\"Marécage\" peux se dire \"Kedogeboktösdop\" en parole gobline."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_SWAMP => ["mettre|ou|être|dans|un|marécage|mettre|ou|etre|dans|un|marecage"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_WARM => ["kedogubukröt|kedogubukrot|erkokedogubukröt|erkokedogubukrot|kopkedogubukröt|kopkedogubukrot|kedogubukrötrpo|kedogubukrötpo|kedogubukrotrpo|kedogubukrotpo|erkokedogubukrötrpo|erkokedogubukrötpo|erkokedogubukrotrpo|erkokedogubukrotpo|kopkedogubukrötrpo|kopkedogubukrötpo|kopkedogubukrotrpo|kopkedogubukrotpo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_WARM => [
             "\"Kedogubukröt\" signifie un chaleur, ou \"Chauffer\" comme verbe.",
@@ -2855,6 +2854,10 @@ class FR
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BONE => ["os"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BONE => [
             "\"Os\" peux se dire \"Këkoburegodar\" en parole gobline."
+        ],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BONE => ["ajouter", "os"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BONE => [
+            "\"Ajouter des os à\" peux se dire \"Këkoburegodar\" en parole gobline, ou \"Erkokëkoburegodar\" pour un passé et \"Kopkëkoburegodar\" pour un futur."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_EAR => ["keobusä|keobusa|erkokeobusä|erkokeobusa|kopkeobusä|kopkeobusa|keobusärpo|keobusäbo|keobusarpo|keobusapo|erkokeobusärpo|erkokeobusäbo|erkokeobusarpo|erkokeobusapo|kopkeobusärpo|kopkeobusäbo|kopkeobusarpo|kopkeobusapo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_EAR => [

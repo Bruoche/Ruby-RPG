@@ -672,6 +672,7 @@ class EN
         LocaleKey::MONSTER_STRIKE => "strike %s.",
         LocaleKey::MONSTER_SPELL => "casts a spell.",
         LocaleKey::MONSTER_HEAL => "casts a healing aura.",
+        LocaleKey::MONSTER_ESCAPE => "Fearing for it's life, %s escape.",
         LocaleKey::MONSTER_BODIES => "the bodies of the monsters you previously killed",
         LocaleKey::MONSTER_BODY => "the body of the monster you previously killed",
         LocaleKey::MONSTER_ADDED => "%s join the fight.",
@@ -2854,7 +2855,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_BONE => [
             "\"Bone\" can be said \"Këkoburegodar\" in a goblin talk."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BONE => ["adding|bones|to"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_BONE => ["adding|add", "bone|bones"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_BONE => [
             "\"Adding bones to\" can be said \"Këkoburegodar\" in a goblin talk, or also as \"Erkokëkoburegodar\" for a past or \"Kopkëkoburegodar\" for a future."
         ],
@@ -4164,7 +4165,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_ENVELOPE_SKIN => [
             "\"Envelopping\" can be said \"Sdä\" in a goblin talk, or also as \"Erkosdä\" for a past or \"Kopsdä\" for a future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FRUIT_SKIN => ["adding|fruit|skins"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_FRUIT_SKIN => ["adding|add", "fruit|fruits", "skin|skins"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_FRUIT_SKIN => [
             "\"Adding fruit skins\" can be said \"Sdäkedoar\" in a goblin talk, or also as \"Erkosdäkedoar\" for a past or \"Kopsdäkedoar\" for a future."
         ],
