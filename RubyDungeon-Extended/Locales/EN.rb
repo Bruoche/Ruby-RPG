@@ -1013,6 +1013,7 @@ class EN
         LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK => "claws at %s.",
         LocaleKey::GOBLIN_ELDER_LEFT_ATTACK => "claws at %s.",
         LocaleKey::GOBLIN_ELDER_BITE_ATTACK => "bites %s.",
+        LocaleKey::GOBLIN_LOOT_BADGE => "You find a small shiny necklace around the old goblin's corpse.",
         LocaleKey::CAVE_DESCRIPTION => [
             "You are in a cave.",
             "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",

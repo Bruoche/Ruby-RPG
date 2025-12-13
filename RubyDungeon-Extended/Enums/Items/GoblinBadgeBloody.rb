@@ -3,6 +3,7 @@ class GoblinBadgeBloody < Item
     PLURAL_NAME = LocaleKey::PRISON_KEY_PLURAL
     SOUND = 'key'
     USABLE_ON_OTHERS = false
+    DROP_CHANCE_SCALABLE = false
     GOBLINS = [
         'FighterGoblin',
         'FighterGoblinHeavy',
@@ -24,25 +25,12 @@ class GoblinBadgeBloody < Item
     end
 
     def use(target, user)
-        first = true
-        for monster in user.get_room.get_monsters.get_all
-            if GOBLINS.include?(monster.get_type)
-                if first
-                    first = false
-                    Narrator.write(LocaleKey::SHOW_GOBLIN_BADGE)
-                end
-                if !monster.status_handler.have?(Rage)
-                    if [true, false].sample
-                        monster.leave(LocaleKey::PACIFY_GOBLIN)
-                    else
-                        monster.add_status(Rage.new)
-                    end
-                end
+        GoblinBadge.act_on_peacefull_goblins(target, user, LocaleKey::SHOW_GOBLIN_BADGE, -> (goblin) {
+            if [true, false].sample
+                GoblinBadge.appease(goblin)
+            else
+                goblin.status_handler.add(Rage.new)
             end
-        end
-        if first
-            super(target, user)
-        end
-        return !Player::ACTED
+        })
     end
 end

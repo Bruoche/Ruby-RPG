@@ -719,6 +719,7 @@ module LocaleKey
     GOBLIN_ELDER_RIGHT_ATTACK = :goblin_elder_right_attack
     GOBLIN_ELDER_LEFT_ATTACK = :goblin_elder_left_attack
     GOBLIN_ELDER_BITE_ATTACK = :goblin_elder_bite_attack
+    GOBLIN_LOOT_BADGE = :goblin_loot_badge
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     CAVES_LOOT_ROPE = :cave_loot_rope

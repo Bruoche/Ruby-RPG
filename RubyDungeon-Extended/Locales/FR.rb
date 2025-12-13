@@ -1013,6 +1013,7 @@ class FR
         LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK => "griffe %s.",
         LocaleKey::GOBLIN_ELDER_LEFT_ATTACK => "griffe %s.",
         LocaleKey::GOBLIN_ELDER_BITE_ATTACK => "mords %s.",
+        LocaleKey::GOBLIN_LOOT_BADGE => "Vous voyez un collier brillant attaché autour du cou de la vieille gobline.",
         LocaleKey::CAVE_DESCRIPTION => [
             "Vous êtes dans une grotte.",
             "Bien que ce n'est pas le lieu le plus accueillant qui puisse être, et malgré l'obscurité ambiante, cet endroit est bien plus appaisant que les cryptes.",

@@ -62,6 +62,11 @@ class GoblinElderBoss < Bestiary
     FEMALE_CHANCES = 100
     PICTURE = 'elder_goblin'
     LOOTS = [
+        Loot.new(
+            LocaleKey::GOBLIN_LOOT_BADGE,
+            100,
+            GoblinBadgeBloody
+        )
     ]
     BODYPARTS = [
         GoblinElderHead,

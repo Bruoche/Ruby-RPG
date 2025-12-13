@@ -24,6 +24,12 @@ class GoblinBadge < Item
     end
 
     def use(target, user)
+        act_on_peacefull_goblins(target, user, LocaleKey::SHOW_GOBLIN_BADGE, -> (goblin) {
+            appease(goblin)
+        })
+    end
+
+    def self.act_on_peacefull_goblins(target, user, badge_message, action)
         room = user.get_room
         monsters = room.get_monsters
         if monsters == nil
@@ -36,7 +42,7 @@ class GoblinBadge < Item
                 if first
                     first = false
                     SoundManager.play('paper')
-                    Narrator.write(LocaleKey::SHOW_GOBLIN_BADGE)
+                    Narrator.write(badge_message)
                     sleep Settings.get_pause_duration
                     if room.get_biome == BossGoblinHouse
                         return refuse_peace(LocaleKey::GOBLINS_NOT_FORGIVING)
@@ -46,10 +52,7 @@ class GoblinBadge < Item
                     end
                 end
                 if !monster.status_handler.have?(Rage)
-                    SoundManager.play('ennemy_footsteps')
-                    Narrator.write_formatted(LocaleKey::PACIFY_GOBLIN, monster.get_name.get_gendered_the.capitalize)
-                    sleep Settings.get_pause_duration
-                    monster.pacify
+                    action.call(monster)
                 end
             end
         end
@@ -59,7 +62,14 @@ class GoblinBadge < Item
         return !Player::ACTED
     end
 
-    def refuse_peace(message)
+    def self.appease(goblin)
+        SoundManager.play('ennemy_footsteps')
+        Narrator.write_formatted(LocaleKey::PACIFY_GOBLIN, goblin.get_name.get_gendered_the.capitalize)
+        sleep Settings.get_pause_duration
+        goblin.pacify
+    end
+
+    def self.refuse_peace(message)
         SoundManager.play('spell_fart')
         Narrator.write(message)
         sleep Settings.get_pause_duration
