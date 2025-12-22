@@ -84,44 +84,48 @@ class PlayerController
         when '4'
             return Player::ACTED
         when '5'
-            if (interactables.length > 1)
-                choosen_index = Narrator.ask(
-                    LocaleKey::ASK_INTERACTION,
-                    interactables,
-                    -> (element) {
-                        if element == Narrator::RETURN_BUTTON
-                            return Locale.get_localized(LocaleKey::GO_BACK).capitalize
-                        elsif element.kind_of? Pack
-                            return Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + element.get_plural_the
-                        else
-                            return format(Locale.get_localized(LocaleKey::NPC_INTERACT_OPTION), element.get_name)
-                        end
-                    },
-                    @player.get_name
-                )
-                if choosen_index == Narrator::RETURN_BUTTON
-                    return ask_action
-                else
-                    interactable = interactables[choosen_index]
-                end
-            elsif interactables.length == 1
-                interactable = interactables[0]
-            else
-                Narrator.unsupported_choice_error
-                return ask_action
-            end
-            if interactable.kind_of? Pack
-                return attack_monsters
-            else
-                acted = interactable.interact(@player)
-                if !acted
-                    if fighting?
-                        return act
-                    else
+            loop do
+                if (interactables.length > 1)
+                    choosen_index = Narrator.ask(
+                        LocaleKey::ASK_INTERACTION,
+                        interactables,
+                        -> (element) {
+                            if element == Narrator::RETURN_BUTTON
+                                return Locale.get_localized(LocaleKey::GO_BACK).capitalize
+                            elsif element.kind_of? Pack
+                                return Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + element.get_plural_the
+                            else
+                                return format(Locale.get_localized(LocaleKey::NPC_INTERACT_OPTION), element.get_name)
+                            end
+                        },
+                        @player.get_name
+                    )
+                    if choosen_index == Narrator::RETURN_BUTTON
                         return ask_action
+                    else
+                        interactable = interactables[choosen_index]
                     end
+                elsif interactables.length == 1
+                    interactable = interactables[0]
                 else
-                    return Player::ACTED
+                    Narrator.unsupported_choice_error
+                    return ask_action
+                end
+                if interactable.kind_of? Pack
+                    return attack_monsters
+                else
+                    acted = interactable.interact(@player)
+                    if !acted
+                        if (interactables.length <= 1)
+                            if fighting?
+                                return act
+                            else
+                                return ask_action
+                            end
+                        end
+                    else
+                        return Player::ACTED
+                    end
                 end
             end
         when '6'
