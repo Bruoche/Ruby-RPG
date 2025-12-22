@@ -821,7 +821,7 @@ class Narrator
             option_index += 1
         end
         Narrator.write(format(Locale.get_localized(LocaleKey::NPC_OPTION_ATTACK), option_index, name))
-        return Narrator.user_input(player.get_name).to_i
+        return Narrator.user_input_int(player.get_name)
     end
 
     def self.ask_confirmation(question, player_name = NO_NAME_DISPLAYED)
@@ -908,6 +908,31 @@ class Narrator
         return answer
     end
 
+    def self.user_input_int(name = NO_NAME_DISPLAYED, new_screen = true)
+        input = user_input(name, new_screen)
+        if (is_int(input))
+            return input.to_i
+        end
+        return -1
+    end
+
+    def self.is_int(string)
+        return (string.to_i.to_s == remove_leading_zeros_from(string))
+    end
+
+    def self.remove_leading_zeros_from(string_number)
+        if (string_number.to_i == 0)
+            leading_zero_replacement = '0'
+        else
+            leading_zero_replacement = ''
+        end
+        string_with_removal = string_number.sub!(/^[0]+/, leading_zero_replacement)
+        if string_with_removal == nil
+            return string_number
+        end
+        return string_with_removal
+    end
+
     def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
             -> (element, i, to_string) {Narrator.write("    #{i}) #{to_string.call(element).capitalize}")},
@@ -925,7 +950,7 @@ class Narrator
                 options_row.append(getter.call(options[i], i))
             end
             options_row.show
-            input = user_input(player_name).to_i
+            input = user_input_int(player_name)
             if input.between?(1, options.length - 1)
                 return input - 1
             elsif input == 0
@@ -946,7 +971,7 @@ class Narrator
             Narrator.add_space_of(1)
             Narrator.write(question)
             input = user_input(player_name)
-            if input.to_i.between?(1, options.length) && extra_condition.call(input.to_i - 1)
+            if is_int(input) && input.to_i.between?(1, options.length) && extra_condition.call(input.to_i - 1)
                 return input.to_i - 1
             elsif input.capitalize == 'A'
                 options_pages.page_down
@@ -972,7 +997,7 @@ class Narrator
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
-            input = user_input(player_name).to_i
+            input = user_input_int(player_name)
             if input.between?(1, options.length - 1)
                 return input - 1
             elsif input == 0
@@ -990,7 +1015,7 @@ class Narrator
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
-            input = user_input(player_name).to_i
+            input = user_input_int(player_name)
             if input.between?(1, options.length - 1)
                 return options[input]
             elsif input == 0
