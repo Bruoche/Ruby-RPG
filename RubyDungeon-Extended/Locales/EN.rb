@@ -342,7 +342,8 @@ class EN
             "What do you want to change?",
             "    0) Back...",
             "    1) Adjust music volume",
-            "    2) Adjust sound effects volume"
+            "    2) Adjust sound effects volume",
+            "    3) (advanced) Preload music"
         ],
         LocaleKey::ASSET_SIZE_OPTIONS => [
             "Please make sure that the text above the image is readable without scrolling.",
@@ -579,6 +580,11 @@ class EN
             "    1) Yes",
             "    2) No"
         ],
+        LocaleKey::ASK_MAX_SONG_PRELOADED_INTRO => [
+            "Keeping songs loaded allow to avoid loading time upon re-entering already visited area.",
+            "The more songs are kept in memory the more areas you can visit before having to reload old areas on re-visit, but the more memory is used"
+        ],
+        LocaleKey::ASK_MAX_SONG_PRELOADED => "How many songs should be kept in memory at once? (current: %d)",
         LocaleKey::ASK_USE => "What do you want to do with %s?",
         LocaleKey::GIVE_OPTION => "    2) Give",
         LocaleKey::ASK_QUANTITY_GIVEN => "How many %s do you wish to give?",

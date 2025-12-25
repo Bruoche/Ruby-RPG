@@ -40,7 +40,7 @@ class MusicInstance
 
     def initialize_player
         if @currently_played != MusicManager::NO_MUSIC
-            @player = Music.new(SoundManager::SOUND_FOLDER + MusicManager::MUSIC_FOLDER + @currently_played + SoundManager::EXTENSION)
+            @player = PreloadedMusic.get_instance.get(SoundManager::SOUND_FOLDER + MusicManager::MUSIC_FOLDER + @currently_played + SoundManager::EXTENSION)
             @player.loop = true
         end
     end

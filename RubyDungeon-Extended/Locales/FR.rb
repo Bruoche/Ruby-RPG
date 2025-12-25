@@ -342,7 +342,8 @@ class FR
             "Que souhaitez-vous faire ?",
             "    0) Retour...",
             "    1) Modifier le volume de la musique",
-            "    2) Modifier le volume des effets sonores"
+            "    2) Modifier le volume des effets sonores",
+            "    3) (avancé) Pré-charger les musiques"
         ],
         LocaleKey::ASSET_SIZE_OPTIONS => [
             "Vérifiez que le texte au-dessus de l'image est bien lisible sans nécessiter un scroll vers le haut.",
@@ -579,6 +580,11 @@ class FR
             "    1) Oui",
             "    2) Non"
         ],
+        LocaleKey::ASK_MAX_SONG_PRELOADED_INTRO => [
+            "Garder les musiques chargées permet de réduire les temps de chargement lorsque vous retournez dans une zone déjà visitée.",
+            "Le plus de musiques sont gardées en mémoire, le plus de zones peuvent être visitées puis re-visitées sans chargement, mais le plus de mémoire sera utilisé."
+        ],
+        LocaleKey::ASK_MAX_SONG_PRELOADED => "Combien de musiques devraient être gardées en mémoire? (quantité actuelle : %d)",
         LocaleKey::ASK_USE => "Que souhaitez faire avec %s ?",
         LocaleKey::GIVE_OPTION => "    2) Donner",
         LocaleKey::ASK_QUANTITY_GIVEN => "Combien de %s souhaitez-vous donner ?",
@@ -1065,7 +1071,7 @@ class FR
         ],
         LocaleKey::FOREST_DESCRIPTION => [
             "Vous êtes dans ce qui semble être une forêt souterraine.",
-            "Bien que vous soyez dans une cavité rocheuse gigantesque dépourvu de soleil, un micro-cosme riche semble avoir tout de même pu naître.",
+            "Bien que vous soyez dans une cavité rocheuse gigantesque dépourvue de soleil, un microcosme riche semble avoir tout de même pu naître ici.",
             "Vous appercevez de nombreux cristaux logés dans le haut plafond de la grotte, sintillant comme un ciel étoilé."
         ],
         LocaleKey::FOREST_LOOT_ROPE => [

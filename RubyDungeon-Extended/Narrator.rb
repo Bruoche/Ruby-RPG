@@ -1,6 +1,7 @@
 class Narrator
     RETURN_BUTTON = 'return_button'
     NO_NAME_DISPLAYED = nil
+    INFINITE = nil
 
     def self.add_space_of(height)
         height.times do
@@ -764,7 +765,7 @@ class Narrator
     end
 
     def self.ask_desired_volume(current_volume)
-        Narrator.write_formatted(LocaleKey::ASK_VOLUME, current_volume)
+        return ask_range(format(Locale.get_localized(LocaleKey::ASK_VOLUME), current_volume), 0, 100)
     end
 
     def self.ask_if_sound_effects
@@ -1006,6 +1007,23 @@ class Narrator
                 unsupported_choice_error
             end
         end
+    end
+
+    def self.ask_range(question, min_range = 0, max_range = INFINITE, name = NO_NAME_DISPLAYED, new_screen = true)
+    Narrator.write(question)
+    input = Narrator.user_input(name, new_screen)
+        if !is_int(input)
+            Narrator.unsupported_choice_error
+            return ask_range(question, min_range, max_range, name, new_screen)
+        end
+        value = input.to_i
+        if value < min_range
+            return min_range
+        end
+        if (max_range != INFINITE) && (value > max_range)
+            return max_range
+        end
+        return value
     end
 
     def self.ask_hash(question, hash, to_string, return_option, print_operation, player_name = NO_NAME_DISPLAYED)

@@ -44,6 +44,7 @@ TTY::Screen.height.times do
     puts
 end
 PreloadedSFX.get_instance.load_sfxs
+PreloadedMusic.get_instance.boot
 debug = (ARGV[0] == "dev_mode")
 starting_biome_name = ARGV[1]
 if (starting_biome_name != nil) && (Object.const_defined? starting_biome_name)

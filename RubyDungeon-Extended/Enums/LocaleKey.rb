@@ -381,6 +381,8 @@ module LocaleKey
     ASK_SHOP = :ask_shop
     ASK_VOLUME = :ask_volume
     ASK_SOUND_EFFECTS = :ask_sound_effects
+    ASK_MAX_SONG_PRELOADED = :ask_max_song_preloaded
+    ASK_MAX_SONG_PRELOADED_INTRO = :ask_max_song_preloaded_intro
     ASK_USE = :ask_use
     GIVE_OPTION = :give_option
     ASK_QUANTITY_GIVEN = :ask_quantity_given

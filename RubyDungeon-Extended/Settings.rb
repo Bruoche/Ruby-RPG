@@ -4,12 +4,14 @@ class Settings
     MUSIC_VOLUME_SYM = :music_volume
     SOUND_EFFECTS_SYM = :sound_effects
     LOCALE_SYM = :locale
+    NB_PRELOADED_SONGS_SYM = :nb_preloaded_songs
     DEFAULT_SETTINGS = {
         Settings::POP_UP_ON_START_SYM => 'true',
         Settings::PRINT_SMALL_SYM => 'false',
         Settings::MUSIC_VOLUME_SYM => 80,
         Settings::SOUND_EFFECTS_SYM => 80,
-        Settings::LOCALE_SYM => Locale::ID_EN
+        Settings::LOCALE_SYM => Locale::ID_EN,
+        Settings::NB_PRELOADED_SONGS_SYM => 20
     }
     BATTLE_ACTION_PAUSE = 0.3
     BATTLE_ACTION_SPEED_RATIO = 10
@@ -36,6 +38,15 @@ class Settings
 
     def self.locale
         return get_setting(LOCALE_SYM)
+    end
+
+    def self.max_preloaded_songs
+        return get_setting(NB_PRELOADED_SONGS_SYM).to_i
+    end
+
+    def self.set_max_preloaded_songs(nb_preloaded_songs)
+        set_setting(NB_PRELOADED_SONGS_SYM, nb_preloaded_songs)
+        PreloadedMusic.get_instance.check_overflow
     end
 
     def self.set_warning_pop_up_enabled(pop_up_enabled)

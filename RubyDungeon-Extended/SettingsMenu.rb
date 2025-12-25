@@ -87,6 +87,8 @@ class SettingsMenu
             when '2'
                 Settings.set_sound_effects_volume(music_volume_menu(Settings::sound_effects_volume))
                 SoundManager.play("stat_up")
+            when '3'
+                Settings.set_max_preloaded_songs(preloaded_songs_menu(Settings::max_preloaded_songs))
             else
                 Narrator.unsupported_choice_error
             end
@@ -116,20 +118,11 @@ class SettingsMenu
     end
 
     def self.music_volume_menu(current_volume)
-        Narrator.ask_desired_volume(current_volume)
-        new_volume = Narrator.user_input
-        if new_volume.to_i.to_s != new_volume
-            Narrator.unsupported_choice_error
-            return music_volume_menu(current_volume)
-        else
-            new_volume = new_volume.to_i
-        end
-        if new_volume < 0
-            new_volume = 0
-        end
-        if new_volume > 100
-            new_volume = 100
-        end
-        return new_volume
+        return Narrator.ask_desired_volume(current_volume)
+    end
+
+    def self.preloaded_songs_menu(current_preloaded_songs_amount)
+        Narrator.write(LocaleKey::ASK_MAX_SONG_PRELOADED_INTRO)
+        return Narrator.ask_range(format(Locale.get_localized(LocaleKey::ASK_MAX_SONG_PRELOADED), current_preloaded_songs_amount))
     end
 end
