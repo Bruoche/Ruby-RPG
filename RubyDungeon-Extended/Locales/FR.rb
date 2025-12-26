@@ -938,18 +938,18 @@ class FR
         ],
         LocaleKey::CATACOMBS_TRANSITION_PRISON => [
             "Alors que vous vous enfonciez désespérément dans les catacombes,",
-            "Vous remarquez enfin un creux dans le mur similaire à celui par lequel vous êtes entrés.",
+            "Vous remarquez enfin un creux dans le mur similaire à celui par lequel vous êtes entré·e.",
             "Lorsque vous vous y engouffrez, vous êtes accueilli·e par des grands murs de pierres",
             "qui ne sont pas sans rappeler ceux de l'entrée.",
             "",
             "En revanche, quelque chose à propos de ce lieu semble être bien plus ancien que le reste du donjon."
         ],
         LocaleKey::CATACOMBS_TRANSITION_DEEPER => [
-            "Alors que vous vous enfonciez toujours plus profondément dans les catacombes,",
+            "Alors que vous vous enfonciez toujours plus loin dans les catacombes,",
             "Vous remarquez une porte se dérobant dans l'obscurité.",
-            "En vous approchants, vous remarquez qu'elle vous amène encore plus profondément sous terre, et qu'aucune torche n'est placée pour en illuminer les tréfonds.",
+            "En vous approchant, vous voyez un escalier se dérobant encore plus profondément sous terre. Aucune torche n'est placée pour en illuminer les tréfonds.",
             "",
-            "Vous prenez une des torches placées sur le mur près de l'entrée, et vous enfoncez dans l'obscurité."
+            "Vous prenez une des torches placée sur le mur près de l'entrée, et vous enfoncez dans l'obscurité."
         ],
         LocaleKey::DEEP_CATACOMBS_DESCRIPTION => [
             "Vous êtes plongé·e dans l'obscurité, votre torche vascillante servant d'unique source de lumière en ces lieux étroits.",
@@ -1087,7 +1087,7 @@ class FR
         ],
         LocaleKey::FOREST_TRANSITION_SWAMP => [
             "Alors que vous vous enfoncez plus profondément dans la forêt, vous sentez que le sol se gorge d'eau.",
-            "L'irrégularité du terrain semble conserver de plus en plus d'eau stagnante, et alors que la terre laisse place à la boue la végétation se rarifie.",
+            "L'irrégularité du terrain semble retenir de plus en plus d'eau stagnante, et alors que la terre laisse place à la boue la végétation se rarifie.",
             "Vous venez de pénétrer un marais."
         ],
         LocaleKey::SWAMP_DESCRIPTION => [
@@ -1477,8 +1477,8 @@ class FR
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_RESUSCITATE => ["revenu|entre|je|j|aventuriers|aventurier", "morts|mort|tué|tuée|tuées|tués|ressuscité|ressucité|ressucite|ressuscite|resurrecté|resurrecte"],
         LocaleKey::DIAL_SHOPKEEPER_TXT_RESUSCITATE => [
-            "Vous n'êtes pas le seul à dire être revenus d'entre les morts, la plupart de ceux qui ont explorés le donjon sont mort à un moment d'après eux.\nEn tout cas, s'ils ne se sont pas échappé dès qu'ils ont vu le premier monstre évidemment.",
-            "En revanche, d'après vos dires la mort vous ramène au moment où vous êtes entrés dans le donjon, donc à part des souvenirs brumeux vous n'en n'avez pas de preuves concrètes... J'en pense donc que ce sont en fait des hallucinations.",
+            "Vous n'êtes pas le seul à dire être revenu d'entre les morts, la plupart de ceux qui ont explorés le donjon sont mort à un moment d'après eux.\nEn tout cas, s'ils ne se sont pas échappé dès qu'ils ont vu le premier monstre évidemment.",
+            "En revanche, d'après vos dires la mort vous ramène au moment où vous êtes entré dans le donjon, donc à part des souvenirs brumeux vous n'en n'avez pas de preuves concrètes... J'en pense donc que ce sont en fait des hallucinations.",
             "J'veux dire, réfléchissez-y. Peut-être que la tour joue des tours sur votre esprit, ou que quelque chose dans l'air vous fait délirer. Beaucoup de gens ayant été sous l'influence d'hallucinogènes ont des visions morbides de leurs propres morts, ou même de l'après. Ce qui pour moi est bien plus probable."
         ],
         LocaleKey::DIAL_SHOPKEEPER_KEY_DUNGEON_INSIDE => ["catacombes|catacombe|crypte|cryptes|entrée|intérieur|intérieure|intérieurs|dans|dedans|prison|prisons"],
