@@ -239,6 +239,7 @@ module LocaleKey
     WARNING_POP_UP_OPTIONS = :warning_pop_up_options
     WARNING_POP_UP_SETTINGS = :warning_pop_up_settings
     MAIN_MENU_OPTIONS = :main_menu_options
+    SELECT_MULTIPLE_OPTIONS = :select_multiple_options
     PARTY_LIST_TITLE = :party_list_title
     PARTY_MANAGE_OPTIONS = :party_manage_options
     PARTY_MANAGE_REMOVE_OPTION = :party_manage_remove_option
@@ -274,6 +275,7 @@ module LocaleKey
     STAT_UP_AGILITY = :stat_up_agility
     TELEPORT_OPTIONS = :teleport_options
     TELEPORT_JOIN_OPTION = :teleport_join_option
+    ASK_CATALYST_TARGET = :ask_catalyst_targets
     YES_OR_NO = :yes_or_no
     NO_ITEMS_TO_USE = :no_items_to_use
     NO_ITEMS_TO_SELL = :no_items_to_sell
@@ -375,6 +377,7 @@ module LocaleKey
     ELDER_GOBLIN_ARMLESS = :elder_goblin_armless
     GOBLIN_ELDER_BOSS_DEATH_RAGE = :goblin_elder_boss_death_rage
     GOBLIN_ELDER_BOSS_GRIEF_RAGE = :goblin_elder_boss_grief_rage
+    ASK_CONFIRM_RETURN_SELECT = :ask_confirm_return_select
     ASK_NAME = :ask_name
     CURRENT_NAME = :current_name
     ASK_CONFIRM_CHARACTER = :ask_confirm_character

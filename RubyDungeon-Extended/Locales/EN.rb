@@ -271,6 +271,7 @@ class EN
             "    2) Settings",
             "    3) Quit"
         ],
+        LocaleKey::SELECT_MULTIPLE_OPTIONS => "[0] Confirm | [E] Select all | [R] Un-select all",
         LocaleKey::PARTY_LIST_TITLE => "Adventurers entering the dungeon: ",
         LocaleKey::PARTY_MANAGE_OPTIONS => [
             "",
@@ -400,6 +401,7 @@ class EN
             "    1) The exit"
         ],
         LocaleKey::TELEPORT_JOIN_OPTION => "Join ",
+        LocaleKey::ASK_CATALYST_TARGET => "What monsters should be included in the magic attack? (exclude all to abort)",
         LocaleKey::YES_OR_NO => [
             "    1) Yes",
             "    2) No"
@@ -559,6 +561,7 @@ class EN
         LocaleKey::ELDER_GOBLIN_ARMLESS => "As the goblins seems disarmed, unable to use her arms to cast spells, you notice her start to mumble goblin prayers with deep resolve.",
         LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "As the frail gory corpse of the elder goblin hits the ground, her chair loosing balance and crashing down loudly with her, other goblins watch in shock and disbelief. Before turning to you with rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "As the second caretaker of the elder goblin hits the ground, you can see heartbreak distort her face as rage fills her.",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Do you confirm your selection? (%d selected)",
         LocaleKey::ASK_NAME => "What is your name?",
         LocaleKey::CURRENT_NAME => "Current name: ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [

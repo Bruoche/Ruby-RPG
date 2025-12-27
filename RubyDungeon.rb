@@ -15,6 +15,7 @@ def require_if_valid(file)
 end
 
 require "RubyDungeon-Extended/ASCIIPrinter.rb"
+Dir["RubyDungeon-Extended/*/LocaleKey.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*/*.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*/ArmorTypes/*.rb"].each {|file| require_if_valid(file)}

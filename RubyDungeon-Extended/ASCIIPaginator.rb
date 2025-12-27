@@ -1,5 +1,6 @@
 class ASCIIPaginator
     PAGINATION_MINMIMUM_PADDING = 5
+    DEFAULT_RETURN_BUTTON = LocaleKey::RETURN_BUTTON
 
     def initialize(inbetween_space = ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first = false)
         @rows = ASCIIRow.new
@@ -13,17 +14,17 @@ class ASCIIPaginator
         @rows.append(picture)
     end
 
-    def show(vertical_padding = 0)
+    def show(vertical_padding = 0, return_button = DEFAULT_RETURN_BUTTON)
         height_limit = TTY::Screen::height - (PAGINATION_MINMIMUM_PADDING + vertical_padding)
         update_pages(height_limit)
         for row in @pages[@current_page]
             @rows.print_row(row)
         end
         if @pages.length > 1
-            Narrator.put_scrollbar(get_scroll_bar, @current_page, @pages.length)
+            Narrator.put_scrollbar(get_scroll_bar(return_button), @current_page, @pages.length)
         else
             if @show_return_button
-                Narrator.write(LocaleKey::GO_BACK_ENUMERATED)
+                Narrator.write(return_button)
             end
         end
     end
@@ -32,7 +33,7 @@ class ASCIIPaginator
         @show_return_button = show_return_button
     end
 
-    def get_scroll_bar
+    def get_scroll_bar(return_button = DEFAULT_RETURN_BUTTON)
         if precedent_page_accessible?
             left_arrow = Locale.get_localized(LocaleKey::PRECEDENT_PAGE)
         else
@@ -44,7 +45,7 @@ class ASCIIPaginator
             right_arrow = Locale.get_localized(LocaleKey::NEXT_PAGE_UNAVAILABLE)
         end
         if @show_return_button
-            return_button = Locale.get_localized(LocaleKey::RETURN_BUTTON)
+            return_button = Locale.get_localized(return_button)
         else
             return_button = ''
         end
