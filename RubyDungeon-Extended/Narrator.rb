@@ -965,7 +965,7 @@ class Narrator
     end
 
     def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
-        return ask_paginated_general(question, options, getter, player_name, last_first, return_option, extra_condition)
+        return ask_paginated_general(question, options, getter, player_name, last_first, return_option, extra_condition).get
     end
 
     def self.ask_paginated_multiple(question, input_options, getter_available, getter_choosen, player_name = NO_NAME_DISPLAYED, selected_by_default = false, late_first = false, return_button = LocaleKey::SELECT_MULTIPLE_OPTIONS, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
@@ -975,8 +975,11 @@ class Narrator
         else
             choosen_options = []
         end
+        starting_page = ASCIIPaginator::AUTO
         loop do
-            choosen_index = ask_paginated_general(question, options, getter_available, player_name, late_first, return_option, extra_condition, true, getter_choosen, choosen_options, return_button)
+            response = ask_paginated_general(question, options, getter_available, player_name, late_first, return_option, extra_condition, true, getter_choosen, choosen_options, return_button, starting_page)
+            choosen_index = response.get
+            starting_page = response.get_page
             case choosen_index
             when return_option
                 if (choosen_options.length <= 0) || Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ASK_CONFIRM_RETURN_SELECT), choosen_options.length), player_name)
@@ -999,7 +1002,7 @@ class Narrator
 
     private
 
-    def self.ask_paginated_general(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, getter_choosen = getter, choosen_options = [], return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON)
+    def self.ask_paginated_general(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, getter_choosen = getter, choosen_options = [], return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON, starting_page = ASCIIPaginator::AUTO)
         options_pages = ASCIIPaginator.new(ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first)
         for i in 1..(options.length)
             option = options[i - 1]
@@ -1010,6 +1013,14 @@ class Narrator
             end
             options_pages.append(relevent_getter.call(option, i))
         end
+        options_pages.set_page(starting_page)
+        return PaginatedResponse.new(
+            ask_paginated_inner(options_pages, question, options, player_name, return_option, extra_condition, select_multiple, return_button),
+            options_pages.get_page
+        )
+    end
+
+    def self.ask_paginated_inner(options_pages, question, options, player_name, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON)
         loop do
             options_pages.show(2, return_button)
             Narrator.add_space_of(1)

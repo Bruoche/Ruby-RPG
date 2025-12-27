@@ -180,6 +180,9 @@ class ASCIIPicture
 
     def self.get_card(player_data, index = EMPTY_INDEX, unavailable = false)
         if (index != EMPTY_INDEX)
+            if unavailable
+                index = 'X '
+            end
             index = index.to_s.rjust(4) + '|'
         end
         name =                      TextFormatter.truncate(player_data[:name].to_s, 50).ljust(50)

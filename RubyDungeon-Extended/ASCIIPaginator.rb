@@ -1,10 +1,11 @@
 class ASCIIPaginator
     PAGINATION_MINMIMUM_PADDING = 5
     DEFAULT_RETURN_BUTTON = LocaleKey::RETURN_BUTTON
+    AUTO = nil
 
     def initialize(inbetween_space = ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first = false)
         @rows = ASCIIRow.new
-        @current_page = nil
+        @current_page = AUTO
         @pages = []
         @last_first = last_first
         @show_return_button = true
@@ -61,6 +62,14 @@ class ASCIIPaginator
         return @current_page < (@pages.length - 1)
     end
 
+    def get_page
+        return @current_page
+    end
+
+    def set_page(new_index = AUTO)
+        @current_page = new_index
+    end
+
     def page_up
         if next_page_accessible?
             @current_page = @current_page + 1
@@ -98,7 +107,13 @@ class ASCIIPaginator
             end
         end
         @pages.append(current_page)
-        if (@current_page == nil)
+        check_overflow
+    end
+
+    private
+
+    def check_overflow
+        if (@current_page == AUTO)
             if @last_first
                 @current_page = @pages.length - 1
             else
