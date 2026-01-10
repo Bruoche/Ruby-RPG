@@ -8,7 +8,7 @@ class Teleporter < Item
     NO_DESTINATION = nil
 
     def initialize
-        @value = 95
+        @value = 69
     end
 
     def get_description

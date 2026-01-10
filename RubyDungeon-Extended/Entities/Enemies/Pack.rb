@@ -169,19 +169,18 @@ class Pack
     end
 
     def hurt_magic(attack)
-        if (attack.damage > 0)
-            shared_attack = Attack.new(
-                (attack.damage/(1 + (BaseStats::SPELL_DAMAGE_GROUP_DIVISOR_COEFF * (@monsters.length - 1)))).truncate,
-                attack.type,
-                attack.source
-            )
-            nb_killed = 0
-            for i in 0..(@monsters.length - 1)
-                if hurt(i - nb_killed, shared_attack)[:dead]
-                    nb_killed += 1
-                end
-            end
+        attack.hit(@monsters, self)
+    end
+
+    def death_event(monster)
+        SoundManager.play('ennemy_death')
+        Narrator.monster_death(monster.get_name.get_gendered_the)
+        sleep Settings.get_pause_duration
+        @monsters.delete_at(@monsters.index(monster))
+        for loot in monster.get_loots
+            monster.get_room.add_loot(loot)
         end
+        monster.death_event(self)
     end
 
     private
@@ -208,18 +207,5 @@ class Pack
             end
         end
         return response
-    end
-
-    private
-
-    def death_event(monster)
-        SoundManager.play('ennemy_death')
-        Narrator.monster_death(monster.get_name.get_gendered_the)
-        sleep Settings.get_pause_duration
-        @monsters.delete_at(@monsters.index(monster))
-        for loot in monster.get_loots
-            monster.get_room.add_loot(loot)
-        end
-        monster.death_event(self)
     end
 end

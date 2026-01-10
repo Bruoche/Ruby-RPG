@@ -104,7 +104,7 @@ class ASCIIPicture
         @height += 2
     end
 
-    def self.monster_card(monster)
+    def self.monster_card(monster, index = NO_INDEX, horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME)
         if monster.is_a?(Boss)
             width = BOSS_CARD_WIDTH
         else
@@ -115,14 +115,18 @@ class ASCIIPicture
         if monster.get_intelligence > 0
             stat_string = stat_string + ' ♠ ' + monster.get_intelligence_string
         end
+        name = monster.get_name.as_text.capitalize
+        if (index != NO_INDEX)
+            name = "[" + index.to_s + "] " + name
+        end
         monster_info = ASCIIPicture.new([
-            (' ' * MathUtils.positive((width - monster.get_name.as_text.length).div(2))) + TextFormatter.truncate(monster.get_name.as_text.capitalize, width),
+            (' ' * MathUtils.positive((width - name.length).div(2))) + TextFormatter.truncate(name, width),
             (' ' * MONSTER_HEALTH_MARGIN) + monster.healthbar(width - (MONSTER_HEALTH_MARGIN * 2)) + (' ' * MONSTER_HEALTH_MARGIN),
             (' ' * MONSTER_HEALTH_MARGIN) + "(#{monster.get_life_to_string} ♥)",
             TextFormatter.center(" " + monster.get_status_icons, width),
             (' ' * MathUtils.positive((width - stat_string.length).div(2))) + stat_string
         ])
-        monster_info.frame
+        monster_info.frame(horizontal_line, vertical_line)
         monster_info_ascii = []
         for row in monster_info.get_ascii
             monster_info_ascii.append(TextFormatter.center(row, monster.get_picture.width))
@@ -176,6 +180,9 @@ class ASCIIPicture
 
     def self.get_card(player_data, index = EMPTY_INDEX, unavailable = false)
         if (index != EMPTY_INDEX)
+            if unavailable
+                index = 'X '
+            end
             index = index.to_s.rjust(4) + '|'
         end
         name =                      TextFormatter.truncate(player_data[:name].to_s, 50).ljust(50)

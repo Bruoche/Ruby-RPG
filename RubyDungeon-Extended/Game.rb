@@ -106,6 +106,7 @@ class Game
     end
 
     def initialize_party
+        @party = nil
         first_player = get_character
         if first_player == nil
             return (not CHARACTER_SELECTED)

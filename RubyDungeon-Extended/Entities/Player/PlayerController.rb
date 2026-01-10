@@ -37,22 +37,23 @@ class PlayerController
 
     def act
         begin
-            if !(@player.died? || @player.exited?)
-                if @fighting
-                    if @player.get_room.got_monsters?
-                        MusicManager.get_instance.set_state(MusicManager::FIGHTING)
-                        return fight_action
-                    else
-                        stop_fighting
-                        return ask_action
-                    end
+            if (@player.died? || @player.exited?)
+                return
+            end
+            if @fighting
+                if @player.get_room.got_monsters?
+                    MusicManager.get_instance.set_state(MusicManager::FIGHTING)
+                    return fight_action
                 else
-                    MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
-                    if @player.get_room.got_monsters?
-                        return propose_combat
-                    else
-                        return ask_action
-                    end
+                    stop_fighting
+                    return ask_action
+                end
+            else
+                MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
+                if @player.get_room.got_monsters?
+                    return propose_combat
+                else
+                    return ask_action
                 end
             end
         rescue => unexpected_exception
@@ -84,46 +85,7 @@ class PlayerController
         when '4'
             return Player::ACTED
         when '5'
-            if (interactables.length > 1)
-                choosen_index = Narrator.ask(
-                    LocaleKey::ASK_INTERACTION,
-                    interactables,
-                    -> (element) {
-                        if element == Narrator::RETURN_BUTTON
-                            return Locale.get_localized(LocaleKey::GO_BACK).capitalize
-                        elsif element.kind_of? Pack
-                            return Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + element.get_plural_the
-                        else
-                            return format(Locale.get_localized(LocaleKey::NPC_INTERACT_OPTION), element.get_name)
-                        end
-                    },
-                    @player.get_name
-                )
-                if choosen_index == Narrator::RETURN_BUTTON
-                    return ask_action
-                else
-                    interactable = interactables[choosen_index]
-                end
-            elsif interactables.length == 1
-                interactable = interactables[0]
-            else
-                Narrator.unsupported_choice_error
-                return ask_action
-            end
-            if interactable.kind_of? Pack
-                return attack_monsters
-            else
-                acted = interactable.interact(@player)
-                if !acted
-                    if fighting?
-                        return act
-                    else
-                        return ask_action
-                    end
-                else
-                    return Player::ACTED
-                end
-            end
+            return interact_if_possible(interactables)
         when '6'
             @player.print_status
             return ask_action
@@ -277,20 +239,77 @@ class PlayerController
                 sleep Settings.get_pause_duration
             end
             return false
-        else
-            acted = false
-            loop do
-                choosen_object = Narrator.ask(LocaleKey::ASK_ITEM_TAKEN, @player.get_room.get_loot, ->(object){Loot.to_string(object)}, @player.get_name)
-                if choosen_object == Narrator::RETURN_BUTTON
-                    return acted
-                end
-                acted = true
-                @player.give_item(@player.get_room.take(choosen_object))
-                SoundManager.play('taking_object')
-                if @player.get_room.get_loot.length == 0
-                    return acted
+        end
+        took_object = false
+        loop do
+            choosen_object = Narrator.ask(LocaleKey::ASK_ITEM_TAKEN, @player.get_room.get_loot, ->(object){Loot.to_string(object)}, @player.get_name)
+            if choosen_object == Narrator::RETURN_BUTTON
+                return took_object
+            end
+            took_object = true
+            @player.give_item(@player.get_room.take(choosen_object))
+            SoundManager.play('taking_object')
+            if @player.get_room.get_loot.length == 0
+                return took_object
+            end
+        end
+    end
+
+    def interact_if_possible(interactables)
+        loop do
+            interactable = choose_interactable_target(interactables)
+            if interactable == nil
+                return ask_action
+            end
+            if interactable.kind_of? Pack
+                return attack_monsters
+            else
+                if !interactable.interact(@player)
+                    if (interactables.length >= 1)
+                        if fighting?
+                            return act
+                        else
+                            return ask_action
+                        end
+                    end
+                else
+                    return Player::ACTED
                 end
             end
+        end
+    end
+
+    private
+
+    def choose_interactable_target(interactables)
+        if (interactables.length <= 0)
+            Narrator.unsupported_choice_error
+            return nil
+        end
+        if (interactables.length == 1)
+            return interactables[0]
+        end
+        choosen_index = Narrator.ask(
+            LocaleKey::ASK_INTERACTION,
+            interactables,
+            -> (element) {
+                interactable_to_string(element)
+            },
+            @player.get_name
+        )
+        if choosen_index == Narrator::RETURN_BUTTON
+            return nil
+        end
+        return interactables[choosen_index]
+    end
+
+    def interactable_to_string(interactable)
+        if interactable == Narrator::RETURN_BUTTON
+            return Locale.get_localized(LocaleKey::GO_BACK).capitalize
+        elsif interactable.kind_of? Pack
+            return Locale.get_localized(LocaleKey::PLAYER_FIGHT_OPTION) + interactable.get_plural_the
+        else
+            return format(Locale.get_localized(LocaleKey::NPC_INTERACT_OPTION), interactable.get_name)
         end
     end
 end

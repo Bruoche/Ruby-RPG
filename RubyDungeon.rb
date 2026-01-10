@@ -15,6 +15,7 @@ def require_if_valid(file)
 end
 
 require "RubyDungeon-Extended/ASCIIPrinter.rb"
+Dir["RubyDungeon-Extended/*/LocaleKey.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*/*.rb"].each {|file| require_if_valid(file)}
 Dir["RubyDungeon-Extended/*/ArmorTypes/*.rb"].each {|file| require_if_valid(file)}
@@ -44,6 +45,7 @@ TTY::Screen.height.times do
     puts
 end
 PreloadedSFX.get_instance.load_sfxs
+PreloadedMusic.get_instance.boot
 debug = (ARGV[0] == "dev_mode")
 starting_biome_name = ARGV[1]
 if (starting_biome_name != nil) && (Object.const_defined? starting_biome_name)

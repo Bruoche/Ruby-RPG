@@ -28,6 +28,7 @@ class GoblinElder < CharacterData
     LEARN_NAME = -> (player, npc) {player.add_status(NAME_KNOWN.new)}
     GIVE_BADGE = -> (player, npc) {
         if !player.have?(GoblinBadge.new)
+            Narrator.pause_text
             Narrator.write(LocaleKey::GOBLIN_ELDER_GIVE_BADGE)
             Narrator.add_space_of(1)
             player.give_item(Bundle.new(GoblinBadge.new))

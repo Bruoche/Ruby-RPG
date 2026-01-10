@@ -52,6 +52,25 @@ class Attack
         end
     end
 
+    def hit(targets, parent)
+        if targets.kind_of? Array
+            if (damage <= 0)
+                return
+            end
+            shared_attack = Attack.new(
+                (damage/(1 + (BaseStats::SPELL_DAMAGE_GROUP_DIVISOR_COEFF * (targets.length - 1)))).truncate,
+                type,
+                source
+            )
+            ArrayUtils.for_potential(targets) do |target|
+                target.hurt(shared_attack)
+                if target.died?
+                    parent.death_event(target)
+                end
+            end
+        end
+    end
+
     def try_effects(target, effective_damage)
         for effect in @effects
             effect.try(target, self, effective_damage)

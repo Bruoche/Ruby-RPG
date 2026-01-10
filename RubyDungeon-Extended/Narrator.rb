@@ -1,6 +1,9 @@
 class Narrator
     RETURN_BUTTON = 'return_button'
     NO_NAME_DISPLAYED = nil
+    INFINITE = nil
+    SELECT_ALL = 'select_all'
+    SELECT_NONE = 'select_none'
 
     def self.add_space_of(height)
         height.times do
@@ -764,7 +767,7 @@ class Narrator
     end
 
     def self.ask_desired_volume(current_volume)
-        Narrator.write_formatted(LocaleKey::ASK_VOLUME, current_volume)
+        return ask_range(format(Locale.get_localized(LocaleKey::ASK_VOLUME), current_volume), 0, 100)
     end
 
     def self.ask_if_sound_effects
@@ -821,7 +824,7 @@ class Narrator
             option_index += 1
         end
         Narrator.write(format(Locale.get_localized(LocaleKey::NPC_OPTION_ATTACK), option_index, name))
-        return Narrator.user_input(player.get_name).to_i
+        return Narrator.user_input_int(player.get_name)
     end
 
     def self.ask_confirmation(question, player_name = NO_NAME_DISPLAYED)
@@ -908,6 +911,31 @@ class Narrator
         return answer
     end
 
+    def self.user_input_int(name = NO_NAME_DISPLAYED, new_screen = true)
+        input = user_input(name, new_screen)
+        if (is_int(input))
+            return input.to_i
+        end
+        return -1
+    end
+
+    def self.is_int(string)
+        return (string.to_i.to_s == remove_leading_zeros_from(string))
+    end
+
+    def self.remove_leading_zeros_from(string_number)
+        if (string_number.to_i == 0)
+            leading_zero_replacement = '0'
+        else
+            leading_zero_replacement = ''
+        end
+        string_with_removal = string_number.sub!(/^[0]+/, leading_zero_replacement)
+        if string_with_removal == nil
+            return string_number
+        end
+        return string_with_removal
+    end
+
     def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
         ask_general(question, options, to_string, return_option,
             -> (element, i, to_string) {Narrator.write("    #{i}) #{to_string.call(element).capitalize}")},
@@ -925,7 +953,7 @@ class Narrator
                 options_row.append(getter.call(options[i], i))
             end
             options_row.show
-            input = user_input(player_name).to_i
+            input = user_input_int(player_name)
             if input.between?(1, options.length - 1)
                 return input - 1
             elsif input == 0
@@ -937,21 +965,85 @@ class Narrator
     end
 
     def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
+        return ask_paginated_general(question, options, getter, player_name, last_first, return_option, extra_condition).get
+    end
+
+    def self.ask_paginated_multiple(question, input_options, getter_available, getter_choosen, player_name = NO_NAME_DISPLAYED, selected_by_default = false, late_first = false, select_sound = nil, unselect_sound = nil, return_button = LocaleKey::SELECT_MULTIPLE_OPTIONS, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
+        options = input_options.dup
+        if selected_by_default
+            choosen_options = options.dup
+        else
+            choosen_options = []
+        end
+        starting_page = ASCIIPaginator::AUTO
+        loop do
+            response = ask_paginated_general(question, options, getter_available, player_name, late_first, return_option, extra_condition, true, getter_choosen, choosen_options, return_button, starting_page)
+            choosen_index = response.get
+            starting_page = response.get_page
+            case choosen_index
+            when return_option
+                if (choosen_options.length <= 0) || Narrator.ask_confirmation(format(
+                    Locale.get_localized(LocaleKey::ASK_CONFIRM_RETURN_SELECT),{
+                    LocaleKey::F_AMOUNT => choosen_options.length,
+                    LocaleKey::F_TOTAL => options.length
+                }), player_name)
+                    return choosen_options
+                end
+            when SELECT_ALL
+                SoundManager.play(select_sound)
+                choosen_options = options.dup
+            when SELECT_NONE
+                SoundManager.play(unselect_sound)
+                choosen_options = []
+            else
+                choosen = options[choosen_index]
+                if choosen_options.include?(choosen)
+                    SoundManager.play(unselect_sound)
+                    choosen_options.delete(choosen)
+                else
+                    SoundManager.play(select_sound)
+                    choosen_options.append(choosen)
+                end
+            end
+        end
+    end
+
+    private
+
+    def self.ask_paginated_general(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, getter_choosen = getter, choosen_options = [], return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON, starting_page = ASCIIPaginator::AUTO)
         options_pages = ASCIIPaginator.new(ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first)
         for i in 1..(options.length)
-            options_pages.append(getter.call(options[i - 1], i))
+            option = options[i - 1]
+            if choosen_options.include?(option)
+                relevent_getter = getter_choosen
+            else
+                relevent_getter = getter
+            end
+            options_pages.append(relevent_getter.call(option, i))
         end
+        options_pages.set_page(starting_page)
+        return PaginatedResponse.new(
+            ask_paginated_inner(options_pages, question, options, player_name, return_option, extra_condition, select_multiple, return_button),
+            options_pages.get_page
+        )
+    end
+
+    def self.ask_paginated_inner(options_pages, question, options, player_name, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON)
         loop do
-            options_pages.show(2)
+            options_pages.show(2, return_button)
             Narrator.add_space_of(1)
             Narrator.write(question)
             input = user_input(player_name)
-            if input.to_i.between?(1, options.length) && extra_condition.call(input.to_i - 1)
+            if is_int(input) && input.to_i.between?(1, options.length) && extra_condition.call(input.to_i - 1)
                 return input.to_i - 1
             elsif input.capitalize == 'A'
                 options_pages.page_down
             elsif input.capitalize == 'Z'
                 options_pages.page_up
+            elsif (input.capitalize == 'E') && select_multiple
+                return SELECT_ALL
+            elsif (input.capitalize == 'R') && select_multiple
+                return SELECT_NONE
             elsif input == '0'
                 return return_option
             else
@@ -959,8 +1051,6 @@ class Narrator
             end
         end
     end
-
-    private
 
     def self.ask_general(question, options, to_string, return_option, print_operation, player_name = NO_NAME_DISPLAYED)
         if options.is_a? Hash
@@ -972,7 +1062,7 @@ class Narrator
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
-            input = user_input(player_name).to_i
+            input = user_input_int(player_name)
             if input.between?(1, options.length - 1)
                 return input - 1
             elsif input == 0
@@ -983,6 +1073,23 @@ class Narrator
         end
     end
 
+    def self.ask_range(question, min_range = 0, max_range = INFINITE, name = NO_NAME_DISPLAYED, new_screen = true)
+    Narrator.write(question)
+    input = Narrator.user_input(name, new_screen)
+        if !is_int(input)
+            Narrator.unsupported_choice_error
+            return ask_range(question, min_range, max_range, name, new_screen)
+        end
+        value = input.to_i
+        if value < min_range
+            return min_range
+        end
+        if (max_range != INFINITE) && (value > max_range)
+            return max_range
+        end
+        return value
+    end
+
     def self.ask_hash(question, hash, to_string, return_option, print_operation, player_name = NO_NAME_DISPLAYED)
         options = [return_option].concat hash.keys
         loop do
@@ -990,7 +1097,7 @@ class Narrator
             for i in 0..(options.length - 1)
                 print_operation.call(options[i], i, to_string)
             end
-            input = user_input(player_name).to_i
+            input = user_input_int(player_name)
             if input.between?(1, options.length - 1)
                 return options[input]
             elsif input == 0
