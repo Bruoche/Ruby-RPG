@@ -1013,7 +1013,7 @@ class FR
         LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK => "griffe %s.",
         LocaleKey::GOBLIN_ELDER_LEFT_ATTACK => "griffe %s.",
         LocaleKey::GOBLIN_ELDER_BITE_ATTACK => "mords %s.",
-        LocaleKey::GOBLIN_LOOT_BADGE => "Vous voyez un collier brillant attaché autour du cou de la vieille gobline.",
+        LocaleKey::GOBLIN_LOOT_BADGE => ["Vous voyez un collier brillant attaché autour du cou de la vieille gobline."],
         LocaleKey::CAVE_DESCRIPTION => [
             "Vous êtes dans une grotte.",
             "Bien que ce n'est pas le lieu le plus accueillant qui puisse être, et malgré l'obscurité ambiante, cet endroit est bien plus appaisant que les cryptes.",
@@ -1395,6 +1395,9 @@ class FR
         LocaleKey::GOBLIN_BADGE_NAME => "un petit collier",
         LocaleKey::GOBLIN_BADGE_PLURAL => "petits colliers",
         LocaleKey::GOBLIN_BADGE_DESCRIPTION => "représente une main humaine et une patte gobline argentées tenant chaques extrêmités d'un disque doré. Le niveau de détail est surprenant pour un si petit bijou.",
+        LocaleKey::GOBLIN_BADGE_NAME_BLOODY => "un petit collier rouge",
+        LocaleKey::GOBLIN_BADGE_PLURAL_BLOODY => "petits colliers rouges",
+        LocaleKey::GOBLIN_BADGE_DESCRIPTION_BLOODY => "petit mais lourd, teinté de sang goblin.",
         LocaleKey::SHOW_GOBLIN_BADGE => "Vous brandissez fiérement le petit pendentif métallique.",
         LocaleKey::PACIFY_GOBLIN => "%s s'appaise.",
         LocaleKey::GOBLINS_NOT_FORGIVING => "Les goblins refusent de pardonner votre attaque.",

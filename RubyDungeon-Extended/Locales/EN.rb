@@ -1013,7 +1013,7 @@ class EN
         LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK => "claws at %s.",
         LocaleKey::GOBLIN_ELDER_LEFT_ATTACK => "claws at %s.",
         LocaleKey::GOBLIN_ELDER_BITE_ATTACK => "bites %s.",
-        LocaleKey::GOBLIN_LOOT_BADGE => "You find a small shiny necklace around the old goblin's corpse.",
+        LocaleKey::GOBLIN_LOOT_BADGE => ["You find a small shiny necklace around the old goblin's corpse."],
         LocaleKey::CAVE_DESCRIPTION => [
             "You are in a cave.",
             "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
@@ -1395,6 +1395,9 @@ class EN
         LocaleKey::GOBLIN_BADGE_NAME => "a small pendant",
         LocaleKey::GOBLIN_BADGE_PLURAL => "small pendants",
         LocaleKey::GOBLIN_BADGE_DESCRIPTION => "represents a goblin's and a human's hand in silver, both holding the two ends of a thin golden disc. Displaying surprising details for such a small cast.",
+        LocaleKey::GOBLIN_BADGE_NAME_BLOODY => "a small red pendant",
+        LocaleKey::GOBLIN_BADGE_PLURAL_BLOODY => "small red pendants",
+        LocaleKey::GOBLIN_BADGE_DESCRIPTION_BLOODY => "small yet weighty, tainted red by goblin blood.",
         LocaleKey::SHOW_GOBLIN_BADGE => "You pull out the small metallic pendant, showing it off.",
         LocaleKey::PACIFY_GOBLIN => "%s leave peacefully.",
         LocaleKey::GOBLINS_NOT_FORGIVING => "The goblins refuse to forgive your attack.",

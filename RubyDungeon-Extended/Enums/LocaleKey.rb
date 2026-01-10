@@ -863,6 +863,9 @@ module LocaleKey
     GOBLIN_BADGE_NAME = :goblin_badge_name
     GOBLIN_BADGE_PLURAL = :goblin_badge_plural
     GOBLIN_BADGE_DESCRIPTION = :goblin_badge_description
+    GOBLIN_BADGE_NAME_BLOODY = :goblin_badge_name_bloody
+    GOBLIN_BADGE_PLURAL_BLOODY = :goblin_badge_plural_bloody
+    GOBLIN_BADGE_DESCRIPTION_BLOODY = :goblin_badge_description_bloody
     SHOW_GOBLIN_BADGE = :show_goblin_badge
     PACIFY_GOBLIN = :pacify_goblin
     GOBLINS_NOT_FORGIVING = :goblins_not_forgiving
