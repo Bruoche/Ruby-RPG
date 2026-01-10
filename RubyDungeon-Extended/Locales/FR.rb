@@ -561,7 +561,7 @@ class FR
         LocaleKey::ELDER_GOBLIN_ARMLESS => "Alors qu'elle semblait désarmée, ne pouvant plus utiliser ses bras pour se défendre, vous voyez la gobline commencer à marmonner des prières.",
         LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "Alors que le corps frèle et ensenglanté de la gobline s'écrase contre le sol, sa petite chaise tombant bruyamant avec elle, les autres goblins observe sous le choc. Après quelques instants de suspent, ils se tournent vers vous le regard empli de larmes et de rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "Alors que le deuxième aidant de la gobline atteint le sol, immobile, vous pouvez voir le museau de l'ancienne gobline se distordre de rage.",
-        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection? (%d sélectionnés)",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} sélectionnés) (y/n)",
         LocaleKey::ASK_NAME => "Quel est votre nom ?",
         LocaleKey::CURRENT_NAME => "Nom actuel : ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [
@@ -748,7 +748,7 @@ class FR
         LocaleKey::BLACKSMITH_COIN_INSUFFICIENT => "Pas assez... Non.",
         LocaleKey::BLACKSMITH_NO_MONEY => "Non, il faut des pièces.",
         LocaleKey::BLACKSMITH_PURCHASE => "...",
-        LocaleKey::GOBLIN_BLACKSMITH_THANK => "Käda sö Kö Köpoega Degäerk tö sodottöter #{Locale::PLAYER_NAME}.",
+        LocaleKey::GOBLIN_BLACKSMITH_THANK => "Kadä sö Kö Köpoega Degäerk tö sodottöter #{Locale::PLAYER_NAME}.",
         LocaleKey::GOBLIN_BLACKSMITH_FUND_INSUFFICIENT => "Toderköpo kö aüro dëkaobu.\nTöterpo kö aüro kobuköpa köpogur sö sodottöter.",
         LocaleKey::ASK_SHOP_ACTION => "Que souhaitez-vous faire ? (%s ¤)",
         LocaleKey::SHOP_OPTIONS_FIRST => [
@@ -917,7 +917,7 @@ class FR
         LocaleKey::L60_GREAVES_DESC => "Des bottes larges mais légères montant jusqu'au genoux, servant ainsi de genouillière également. Faite sur-mesure pour des proportions humaines en un alliage spécial fait pour être à la fois léger et durable.",
         LocaleKey::L60_HELM_NAME => "casque commissionné",
         LocaleKey::L60_HELM_DESC => "un casque ouvert similaire à ceux des gardes goblins, mais ayant des oreillères allongées pour correspondre à des proportions humaines en offrant une bonne protection à un poids raisonnable.",
-        LocaleKey::L60_PLASTRON_NAME => "comissioned chestplate",
+        LocaleKey::L60_PLASTRON_NAME => "plastron commissionnés",
         LocaleKey::L60_PLASTRON_DESC => "un plastron léger et durable fait sur-mesure pour correspondre à des proportions humaines. Placé sur une jaque légère faite de fin filament métalliques et de coton cousus ensembles.",
         LocaleKey::THE_ARMS => "les bras",
         LocaleKey::THE_LEGS => "les jambes",
@@ -1389,6 +1389,9 @@ class FR
         LocaleKey::TELEPORTER_NAME => "un télé-cristal",
         LocaleKey::TELEPORTER_DESCRIPTION => "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés.",
         LocaleKey::TELEPORTER_PLURAL => "des télé-cristaux",
+        LocaleKey::CATALYST_NAME => "un catalyseur",
+        LocaleKey::CATALYST_PLURAL => "des catalyseurs",
+        LocaleKey::CATALYST_DESCRIPTION => "petit mécanisme focalisant la magie. Permet à son utilisateur de concentrer ses sorts sur des cibles précises au lieu de disperser son énergie sur tout les ennemis.",
         LocaleKey::DETOX_FRUIT_NAME => "un fruit détoxifiant",
         LocaleKey::DETOX_FRUIT_NAME_PLURAL => "des fruits détoxifiants",
         LocaleKey::DETOX_FRUIT_DESCRIPTION => "un fruit bio-luminéscent natif de la forêt souterraine, réstaure %s points de vie et a 50%% de chances de soigner l'empoisonnement.",
@@ -2018,7 +2021,7 @@ class FR
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_INTRO_KNOW_ENGLISH => "Oh?... Et bien, ",
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_LEARNED_HOW => ["comment|quand", "humain|français|parole|parle|parlez|parler|francais"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_LEARNED_HOW => [
-            "Un parole humaine a été enseignée à Kö Pöko Tarkö\nDepuis des générations un portion de notre tribut à gardée cette tradition depuis qu'un passé est passé.\n\nKö Pöko Tarkö à simplement continué cette tradition.",
+            "Un parole humaine a été enseignée à Kö Pöko Tarkö\nDepuis des générations un portion de notre tribu à gardée cette tradition depuis qu'un passé est passé.\n\nKö Pöko Tarkö à simplement continué cette tradition.",
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_RAKROT => ["rakröt|rakrot", "bedes|bëdès|bedès"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_RAKROT => [
@@ -2031,18 +2034,20 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_KO_KOPOEGA_DEGAERK => ["degäerk|degaerk"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_KOPOEGA_DEGAERK => [
-            "Kö Köpoega Degäerk est un forgeron de notre tribut, un bon forgeron. Visite Kö Köpoega si vous souhaite quelques échanges, Kö Köpoega Degäerk peut échanger contre des ors rares et utiles.",
+            "Kö Köpoega Degäerk est un forgeron de notre tribu, un bon forgeron. Visite Kö Köpoega si vous souhaite quelques échanges, Kö Köpoega Degäerk peut échanger contre des ors rares et utiles.",
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_ADVICES => ["totrdëkobu|toderköpo|totrdëkobubo|toderköpobo|totrdëkoburpo|toderköporpo|koptotrdëkobu|koptoderköpo|totrdekobu|toderkopo|koptotrdekobu|koptoderkopo"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_ADVICES => [
-            "Totrdëkobu sö köpodubugurku sö #{Locale::PLAYER_NAME} körkubagedorbu sö #{Locale::PLAYER_NAME} sö këtogubu. ",
+            "Totrdëkobu sö köpodubugurku sö #{Locale::PLAYER_NAME} körkubagedorpo sö #{Locale::PLAYER_NAME} sö këtogubu. ",
             "Krördar sö këtogubu tö köpodukubagedo. Todök toderkoburëkobu sö köpoduk sö këtogubu tötresèop erkö sö köpoduk kö regodarkör këtogubu.",
-            "Kobokrördarbo sö këtogubu sö #{Locale::PLAYER_NAME} körko kobregoburëkobu tötresèop erkokorkëtogubagedopo sö këtogubu.\nTrë sö köpodukubagedo sö këtogubu.",
+            "Kobokrördarpo sö këtogubu sö korkö kopregoburëkobu #{Locale::PLAYER_NAME} tötresèop erkogorkëtogubagedopo sö #{Locale::PLAYER_NAME} sö këtogubu.\nTrë sö këtogubu tö köpodukubagedo.",
+            "Tötresèop kös tö tarkorbakö tö totrdëkobu köpoduk, kosaborkös sö köpodubugurku kopkëtogur kobakëto todök sö #{Locale::PLAYER_NAME} sö këtogubu totrëkobu.",
+            "Köpogur toderköpo këtogur sö tarkorbakö sö këto tödoer, kopkobakëtodutregobu tö köpoduk sö #{Locale::PLAYER_NAME}.",
             "Todpör sö boëdea köpogur totrköpo tö popör köpoduk.",
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_OUTSIDER => ["köpodukubagedo|kopodukubagedo"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_OUTSIDER => [
-            "Tö köpodukubagedo tö rëkobu erkokorkëtogubagedopo këtogubu. Toderbrä sö këtogubu tö köpodukubagedo. Köpoega trë sö toderbrä tö köpodukubagedo.",
+            "Tö köpodukubagedo tö rëkobu erkogorkëtogubagedopo këtogubu. Toderbrä sö këtogubu tö köpodukubagedo. Köpoega trë sö toderbrä tö köpodukubagedo.",
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_HERE_FOOD => ["këtogubu|ketogubu", "trë|todkrördar|krördar|koptrë|koptodkrördar|kopkrördar|krördarpo|todkrördarpo|tre|todkrordar|krordar|koptre|koptodkrordar|kopkrordar|krordarpo|todkrordarpo"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_HERE_FOOD => [
@@ -2050,7 +2055,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_ORIGIN => ["pogurko|koppogurko|pogurkö|koppogurkö|korko|kopogugus|korkö|köpogugus", "pogurko|koppogurko|pogurkö|koppogurkö|korkëtogubu|erkokorkëtogubu|këtogubu|korketogubu|erkokorketogubu|ketogubu"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_ORIGIN => [
-            "Erkokorkëtogubagedopo sö köpoduk erkö sö këtogubu köpogur totoderkoburëkobu korkö erkö sö erkö sö erkö. Erkö sö këtogubu sö kobukörkada köpogur sö rëkobu köpoduk erkö.",
+            "Erkogorkëtogubagedopo sö köpoduk erkö sö këtogubu köpogur totoderkoburëkobu korkö erkö sö erkö sö erkö. Erkö sö këtogubu sö kobukörkada köpogur sö rëkobu köpoduk erkö.",
             "Erkoköpoega kö köpoduk erkö kö regodarkör erkö. Erkododkubuegaredarkör kö regodarkör erkö sö këtogubu. Erkokobukörra kö regodarkör erkö sö köpoduk. Erkotodökpo sö köpoduk sö këtogubu.",
             "Erkokobukörrarko sö köpoduk erkö. Erkorëkobu pökodu sö köpoduk erkö.\nErkokobukörrarko köpa sö köpoduk erkö.\nErkorëkobu korköerkubu sö köpoduk erkö tötresèop erkö sö köpoduk sö trë këtogubu.",
             "Erkododotrëkobugubu sö köpoduk erkö körkubagedo sö këtogubu. Erkokörpo sö köpoduk erkö sö kobakëto köpogur erkosegoburëkobu. Erkododök sö regodarkör köpoduk erkö sö këtogubu köpogur erkorëkobu.",
@@ -2058,7 +2063,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_ATTACKED_ADVENTURERS => ["bedes|bedesoe|tarkorbako|#{Locale::PLAYER_NAME}|bëdès|bëdèsoe|tarkorbakö", "popör|erkobopör|koppopör|popörpo|erkobopörpo|koppopörpo|popor|erkobopor|koppopor|poporpo|erkoboporpo|koppoporpo"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_ATTACKED_ADVENTURERS => [
-            "Körrarko sö köpoduk sö #{Locale::PLAYER_NAME}. Erkotoderkoburëkobu söd sö köpoduk tö köpoduk tötresèop totrëkobu tö bëdèsoe kö köpoduk.\nTordöterbo sö boëdea köpogur toduderkoburëkobu korkö koppopör kö köpoduk korkö todpör sö boëdea köpoduk.",
+            "Körrarko sö köpoduk sö #{Locale::PLAYER_NAME}. Erkotoderkoburëkobu söd sö köpoduk tö köpoduk tötresèop totrëkobu tö bëdèsoe kö köpoduk.\nTordöterpo sö boëdea köpogur toduderkoburëkobu korkö koppopör kö köpoduk korkö todpör sö boëdea köpoduk.",
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_ADVENTURER => ["bëdès|bëdèsoe|bedes|bedesoe"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_ADVENTURER => [
@@ -2129,7 +2134,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_GOBLINS => ["köpoduk|kopoduk"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_GOBLINS => [
-            "Sö köpo sö tökobu köpoduk. Toderkoburëkobu sö köpo tö köpoduk. Trë sö köpo tö köpoduk.\nSö köpo sö köpoduk.",
+            "Sö köpo sö tökobu köpoduk. Toderkoburëkobu sö köpo tö köpoduk. Töter trë sö köpo tö köpoduk.\nSö köpo sö köpoduk.",
             "Tödoer sö köpoduk sö köpagogu. Tödoer sö köpoduk sö kobakëtodutregobu.",
             "Kosaborkös tö tarkorbakö tö köpoduk kö sgëkosabor. Kosaborkös tö tarkorbakö tö köpoduk kö todutrëd. Kös tö tarkorbakö tö kosäpor köpoduk.\nPör dëka tö tarkorbakö tö dëkaos. Pör tökobu tö köpoduk tö dëkaos.",
         ],
@@ -3053,7 +3058,7 @@ class FR
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_RESPECT => [
             "\"Respect\" peut se dire \"Kobakëtogeopra\" en parole gobline."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RESPECT => ["respecter|garder|ses|mains|pour|soi"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_RESPECT => ["respecter"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_RESPECT => [
             "\"Respecter\" peut se dire \"Kobakëtogeopra\" en parole gobline, ou avec \"Erkogobakëtogeopra\" au passé ou \"Kopkobakëtogeopra\" au futur."
         ],
@@ -3345,16 +3350,16 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_GOBLIN_TRIBE => ["köpoduk|kopoduk|erkoköpoduk|erkokopoduk|kopköpoduk|kopkopoduk|köpodukrpo|köpodukpo|kopodukrpo|kopodukpo|erkoköpodukrpo|erkoköpodukpo|erkokopodukrpo|erkokopodukpo|kopköpodukrpo|kopköpodukpo|kopkopodukrpo|kopkopodukpo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_GOBLIN_TRIBE => [
-            "\"Köpoduk\" signifie un goblin ou tribut, ou peux aussi signifier \"Former un tribut\" comme verbe.",
+            "\"Köpoduk\" signifie un goblin ou tribu, ou peux aussi signifier \"Former un tribu\" comme verbe.\nGénéralement \"sö köpoduk\" singulier sans spécifications fait référence à un tribu gobline, là où \"kö köpoduk\" et \"tö köpoduk\" pluriels signigient des goblins.",
             "Quand \"Köpoduk\" est un verbe, il peut également apparaître comme \"Erkoköpoduk\" ou \"Kopköpoduk\" pour un passé et un future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GOBLIN_TRIBE => ["goblin|tribut"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_GOBLIN_TRIBE => ["goblin|tribu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_GOBLIN_TRIBE => [
-            "\"Goblin\" et \"Tribut\" peuvent se dire \"Köpoduk\" en parole gobline."
+            "\"Goblin\" et \"Tribu\" peuvent se dire \"Köpoduk\" en parole gobline."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOBLIN_TRIBE => ["former|un|tribut"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_GOBLIN_TRIBE => ["former|un|tribu"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_GOBLIN_TRIBE => [
-            "\"Former un tribut\" peut se dire \"Köpoduk\" en parole gobline, ou avec \"Erkoköpoduk\" au passé ou \"Kopköpoduk\" au futur."
+            "\"Former un tribu\" peut se dire \"Köpoduk\" en parole gobline, ou avec \"Erkoköpoduk\" au passé ou \"Kopköpoduk\" au futur."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_OUTSIDER_GUEST => ["köpodukubagedo|kopodukubagedo|erkoköpodukubagedo|erkokopodukubagedo|kopköpodukubagedo|kopkopodukubagedo|köpodukubagedorpo|köpodukubagedopo|kopodukubagedorpo|kopodukubagedopo|erkoköpodukubagedorpo|erkoköpodukubagedopo|erkokopodukubagedorpo|erkokopodukubagedopo|kopköpodukubagedorpo|kopköpodukubagedopo|kopkopodukubagedorpo|kopkopodukubagedopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_OUTSIDER_GUEST => [
@@ -4735,7 +4740,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_ALL => ["tökobu|tokobu|erkotökobu|erkotokobu|koptökobu|koptokobu|tökoburpo|tökobupo|tokoburpo|tokobupo|erkotökoburpo|erkotökobupo|erkotokoburpo|erkotokobupo|koptökoburpo|koptökobupo|koptokoburpo|koptokobupo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_ALL => [
-            "\"Tökobu\" signifie un tout, ou peux aussi signifier \"Compléter\" comme verbe.",
+            "\"Tökobu\" signifie un tout, ou peux aussi signifier \"Compléter\" comme verbe.\n\"Tökobu\" peux aussi avoir des connotation religieuses lorsqu'on parle aux humains, étant au plus proche de \"Dieu\" qu'un langue gobline ai.",
             "Quand \"Tökobu\" est un verbe, il peut également apparaître comme \"Erkotökobu\" ou \"Koptökobu\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_ALL => ["tout"],
@@ -4930,7 +4935,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_FOOD => ["trë|tre|erkotrë|erkotre|kobotrë|kobotre|trërpo|trëbo|trerpo|trepo|erkotrërpo|erkotrëbo|erkotrerpo|erkotrepo|kobotrërpo|kobotrëbo|kobotrerpo|kobotrepo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_FOOD => [
-            "\"Trë\" signifie un nourriture, ou peux aussi signifier \"Transformer en nourritur\" comme verbe.",
+            "\"Trë\" signifie un nourriture, ou peux aussi signifier \"Transformer en nourriture\" comme verbe.",
             "Quand \"Trë\" est un verbe, il peut également apparaître comme \"Erkotrë\" ou \"Kobotrë\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_FOOD => ["nourriture"],

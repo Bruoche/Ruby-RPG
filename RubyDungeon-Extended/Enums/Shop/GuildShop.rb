@@ -37,6 +37,7 @@ class GuildShop < Shop
         Bundle.new(HealthStone.new(5, 500), 1),
         Bundle.new(HealthStone.new(5, 600), 1),
         Bundle.new(HealthStone.new(5, 750), 1),
-        Bundle.new(HealthStone.new(5, 900), 1)
+        Bundle.new(HealthStone.new(5, 900), 1),
+        Bundle.new(Catalyst.new, 1)
     ].freeze
 end

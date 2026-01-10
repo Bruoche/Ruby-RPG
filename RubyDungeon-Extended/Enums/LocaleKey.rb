@@ -853,6 +853,9 @@ module LocaleKey
     TELEPORTER_NAME = :teleporter_name
     TELEPORTER_DESCRIPTION = :teleporter_description
     TELEPORTER_PLURAL = :teleporter_plural
+    CATALYST_NAME = :catalyst_name
+    CATALYST_PLURAL = :catalyst_plural
+    CATALYST_DESCRIPTION = :catalyst_description
     DETOX_FRUIT_NAME = :detox_fruit_name
     DETOX_FRUIT_NAME_PLURAL = :detox_fruit_name_plural
     DETOX_FRUIT_DESCRIPTION = :detox_fruit_description

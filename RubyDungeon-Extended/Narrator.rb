@@ -968,7 +968,7 @@ class Narrator
         return ask_paginated_general(question, options, getter, player_name, last_first, return_option, extra_condition).get
     end
 
-    def self.ask_paginated_multiple(question, input_options, getter_available, getter_choosen, player_name = NO_NAME_DISPLAYED, selected_by_default = false, late_first = false, return_button = LocaleKey::SELECT_MULTIPLE_OPTIONS, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
+    def self.ask_paginated_multiple(question, input_options, getter_available, getter_choosen, player_name = NO_NAME_DISPLAYED, selected_by_default = false, late_first = false, select_sound = nil, unselect_sound = nil, return_button = LocaleKey::SELECT_MULTIPLE_OPTIONS, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
         options = input_options.dup
         if selected_by_default
             choosen_options = options.dup
@@ -982,18 +982,26 @@ class Narrator
             starting_page = response.get_page
             case choosen_index
             when return_option
-                if (choosen_options.length <= 0) || Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ASK_CONFIRM_RETURN_SELECT), choosen_options.length), player_name)
+                if (choosen_options.length <= 0) || Narrator.ask_confirmation(format(
+                    Locale.get_localized(LocaleKey::ASK_CONFIRM_RETURN_SELECT),{
+                    LocaleKey::F_AMOUNT => choosen_options.length,
+                    LocaleKey::F_TOTAL => options.length
+                }), player_name)
                     return choosen_options
                 end
             when SELECT_ALL
+                SoundManager.play(select_sound)
                 choosen_options = options.dup
             when SELECT_NONE
+                SoundManager.play(unselect_sound)
                 choosen_options = []
             else
                 choosen = options[choosen_index]
                 if choosen_options.include?(choosen)
+                    SoundManager.play(unselect_sound)
                     choosen_options.delete(choosen)
                 else
+                    SoundManager.play(select_sound)
                     choosen_options.append(choosen)
                 end
             end

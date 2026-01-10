@@ -1,31 +1,36 @@
 class Catalyst < Item
-    NAME = LocaleKey::TELEPORTER_NAME
-    NAME_PLURAL = LocaleKey::TELEPORTER_PLURAL
+    NAME = LocaleKey::CATALYST_NAME
+    NAME_PLURAL = LocaleKey::CATALYST_PLURAL
     SOUND = 'key'
-    PICTURE = 'teleporter'
+    PICTURE = 'catalyst'
     USABLE_ON_OTHERS = false
     TELEPORT_DURATION = 1.2
     NO_DESTINATION = nil
 
     def initialize
-        @value = 95
+        @value = 237
     end
 
     def get_description
-        return LocaleKey::TELEPORTER_DESCRIPTION
+        return LocaleKey::CATALYST_DESCRIPTION
     end
 
     def use(target, user)
         if !user.fighting?
             return super
         end
+        SoundManager.play('taking_object')
         monsters = user.get_room.get_monsters
         targets = Narrator.ask_paginated_multiple(
             LocaleKey::ASK_CATALYST_TARGET,
             monsters.get_all,
             -> (monster, i){return card_unselected(monster, i)},
             -> (monster, i){return card_selected(monster, i)},
-            user.get_name
+            user.get_name,
+            false,
+            false,
+            'ennemy_added',
+            'unequip'
         )
         if (targets.length <= 0)
             return !Player::ACTED
