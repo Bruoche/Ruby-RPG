@@ -1,4 +1,4 @@
-class Item
+class Item < Savable
     PICTURE_PREFIX = 'Items/'
     RESPONSE_PLAYER_ACTED = 'player_acted?'
     RESPONSE_CLOSE_INVENTORY = 'close_inventory?'
@@ -21,29 +21,6 @@ class Item
                 end
             end
         end
-    end
-
-    def self.load(item_data)
-        object = item_data.split('|')[0]
-        parameters = item_data.split('|')[1]
-        if parameters != nil
-            return Object.const_get(object).new(*parameters.split(', '))
-        else
-            return Object.const_get(object).new
-        end
-    end
-
-    def data_as_array
-        data_string = get_save_data.split('|')[1]
-        if data_string != nil
-            return data_string.split(', ')
-        else
-            return []
-        end
-    end
-
-    def get_save_data
-        return self.class.name
     end
 
     def get_name

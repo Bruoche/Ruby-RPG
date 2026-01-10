@@ -36,7 +36,7 @@ class PlayerController
     end
 
     def act
-        begin
+        Logger.try_or_log do
             if (@player.died? || @player.exited?)
                 return
             end
@@ -56,8 +56,6 @@ class PlayerController
                     return ask_action
                 end
             end
-        rescue => unexpected_exception
-            Game.catch_and_log(unexpected_exception)
         end
     end
 

@@ -11,7 +11,7 @@ class AllowedEntry < Status
         return @saved
     end
 
-    def build_save_data
-        return self.class.name + '|' + @duration.to_s + ', ' + @saved.to_s
+    def get_save_data
+        return super(@duration.to_s, @saved.to_s)
     end
 end

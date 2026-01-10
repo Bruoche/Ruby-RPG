@@ -31,6 +31,6 @@ class HealthStone < Item
     end
 
     def get_save_data
-        return "#{self.class.name}|#{@turns}, #{@life}"
+        return super(@turns, @life)
     end
 end

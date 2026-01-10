@@ -84,7 +84,7 @@ class SaveManager
         end
     end
 
-    def self.log(error)
+    def self.log(error_trace)
         save_directory = File.dirname("#{SAVE_DIRECTORY}/*")
         unless File.directory?(save_directory)
             FileUtils.mkdir_p(save_directory)
@@ -95,7 +95,7 @@ class SaveManager
         else
             current_content = ''
         end
-        write(path, current_content + "\n[#{Time.now.utc.strftime('%m/%d/%Y %H:%M %p')}] Error - #{error.class} : #{error.message} \n    #{error.backtrace.join("\n    ")}")
+        write(path, current_content + error_trace)
     end
 
     def self.write(path, content)

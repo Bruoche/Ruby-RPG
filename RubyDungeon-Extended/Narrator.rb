@@ -882,7 +882,7 @@ class Narrator
         Narrator.write(LocaleKey::UNEXPECTED_ERROR)
     end
 
-    def self.user_input(name = NO_NAME_DISPLAYED, new_screen = true)
+    def self.user_input(name = NO_NAME_DISPLAYED, new_screen = true, recursive_error = false)
         Narrator.add_space_of(1)
         if name != NO_NAME_DISPLAYED
             name_prefix = name + ' : '
@@ -892,14 +892,17 @@ class Narrator
         write_same_line("  #{name_prefix}>> ")
         begin
             answer = gets.chomp
-        rescue SystemExit, Interrupt => e
+        rescue Exception => e
             loop do
                 Narrator.write(LocaleKey::CLOSE_GAME_CONFIRM)
-                case user_input(NO_NAME_DISPLAYED, false).capitalize
+                case user_input(NO_NAME_DISPLAYED, false, true).capitalize
                 when 'Y'
                     raise e
                 when 'N'
-                    return user_input
+                    if recursive_error
+                        return 'N'
+                    end
+                    return ''
                 end
             end
         end

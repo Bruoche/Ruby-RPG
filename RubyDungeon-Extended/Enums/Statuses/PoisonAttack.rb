@@ -22,8 +22,8 @@ class PoisonAttack < Status
         )
     ]
 
-    def build_save_data
-        return self.class.name + '|' + @duration.to_s
+    def get_save_data
+        return super(@duration.to_s)
     end
 
     def initialize(nb_attacks = 1)

@@ -6,6 +6,7 @@ class Game
 
     def initialize(in_debug_mode = false, starting_biome = nil)
         @@in_debug_mode = in_debug_mode
+        Logger.set_debug(in_debug_mode)
         if !Settings.initialized?
             SettingsMenu.language_pop_up
         end
@@ -46,27 +47,17 @@ class Game
         end
     end
 
-    def self.catch_and_log(exception)
-        Narrator.unexpected_error
-        SaveManager.log(exception)
-        if @@in_debug_mode
-            raise exception
-        end
-    end
-
     def play(starting_biome = nil)
         entrance = World.get_instance.generate_dungeon(@party, starting_biome)
         @party.set_room(entrance)
         while !(@party.died? || @party.exited?)
             @party.take_turns
             @party.get_fights.each do |room, players|
-                begin
+                Logger.try_or_log do
                     room_instance = World.get_instance.get_room(room)
                     World.get_instance.set_current_room(room_instance)
                     room_instance.get_monsters.take_turns_against(players)
                     @party.check_won_fights
-                rescue => unexpected_exception
-                    Game.catch_and_log(unexpected_exception)
                 end
             end
         end

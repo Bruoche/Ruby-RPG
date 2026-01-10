@@ -30,6 +30,6 @@ class DetoxJuice < Item
     end
 
     def get_save_data
-        return "#{self.class.name}|#{@soin}"
+        return super(@soin)
     end
 end

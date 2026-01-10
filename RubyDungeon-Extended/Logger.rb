@@ -1,0 +1,41 @@
+class Logger
+
+    def self.debug(message, *parameters)
+        if (@@in_debug)
+            string_parameters = []
+            for parameter in parameters
+                string_parameters.append(parameter.to_s)
+            end
+            puts format(message, *string_parameters)
+        end
+    end
+
+    def self.try_or_log(exception = StandardError, silent = false, &block)
+        begin
+            return block.call
+        rescue exception => e
+            catch_and_log(e, silent)
+        end
+        return nil
+    end
+
+    def self.catch_and_log(exception, silent = false)
+        if (!silent || @@in_debug)
+            Narrator.unexpected_error
+        end
+        error_trace = "\n[#{Time.now.utc.strftime('%m/%d/%Y %H:%M %p')}] Error - #{exception.class} : #{exception.message} \n    #{exception.backtrace.join("\n    ")}"
+        SaveManager.log(error_trace)
+        if @@in_debug
+            puts error_trace
+        end
+    end
+
+    def self.set_debug(in_debug = true)
+        @@in_debug = in_debug
+    end
+
+    private
+
+    def initialize
+    end
+end

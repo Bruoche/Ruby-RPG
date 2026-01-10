@@ -1,4 +1,4 @@
-class Status
+class Status < Savable
     INFINITE = nil
 
     def initialize(*args)
@@ -13,12 +13,6 @@ class Status
     def self.inherited(child)
         TracePoint.trace(:end) do |t|
             if child == t.self
-                unless child.const_defined?(:SAVED)
-                    child.const_set(:SAVED, true)
-                end
-                unless child.const_defined?(:FORCE_SAVE)
-                    child.const_set(:FORCE_SAVE, false)
-                end
                 unless child.const_defined?(:HIDDEN)
                     child.const_set(:HIDDEN, false)
                 end
@@ -35,30 +29,8 @@ class Status
         end
     end
 
-    def self.load(status_data)
-        object = status_data.split('|')[0]
-        parameters = status_data.split('|')[1]
-        if parameters != nil
-            return Object.const_get(object).new(*parameters.split(', '))
-        else
-            return Object.const_get(object).new
-        end
-    end
-
-    def get_save_data
-        if self.class::FORCE_SAVE || (@duration == INFINITE && saved?)
-            return build_save_data
-        else
-            return ''
-        end
-    end
-
     def saved?
-        return self.class::SAVED
-    end
-
-    def build_save_data
-        return self.class.name
+        return @duration == INFINITE && super
     end
 
     def length

@@ -15,7 +15,9 @@ class StatusHandler
         if statuses != nil
             for status_data in statuses.split('; ')
                 status = Status.load(status_data)
-                @statuses.append(status)
+                if status != nil
+                    @statuses.append(status)
+                end
             end
         end
     end

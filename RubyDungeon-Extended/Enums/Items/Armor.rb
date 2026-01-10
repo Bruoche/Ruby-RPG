@@ -116,7 +116,7 @@ class Armor < Item
     end
 
     def get_save_data
-        return "#{self.class.name}|#{@armor_data_class.name}, #{@upgrade_level}"
+        return super(@armor_data_class.name, @upgrade_level)
     end
 
     def upgrade
