@@ -44,7 +44,6 @@ class Inventory
                 if (bundles_by_class[item_class] == nil)
                     bundles_by_class[item_class] = []
                 end
-                Logger.debug("%s: %s * %s", item_class, amount, quantity)
                 bundles_by_class[item_class].concat([Bundle.new(item, amount * quantity)])
             end
             bundles_by_class.each do |bundle_class, bundles|

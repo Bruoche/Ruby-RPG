@@ -15,6 +15,7 @@ class Game
         end
         game_running = true
         while game_running
+            MusicManager.get_instance.set_state(!MusicManager::FIGHTING)
             MusicManager.get_instance.start
             MusicManager.get_instance.set_ambiance('Title screen')
             SoundManager.set_volume
