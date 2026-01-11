@@ -1236,6 +1236,18 @@ class FR
             "",
             "D'après sa posture, vous pouvez deviner que vous pouvez dorénavent aller librement dans le village."
         ],
+        LocaleKey::GOBLIN_GUARD_SHOW_BADGE_BLOODY => [
+            "Vous présentez le petit pendentif à la gobline, elle semble être un peu surprise puis ses yeux s'écarquillent, visiblement incrédule.",
+            "Elle reste fixée quelques instant sur le petit objet métallique rouge, avant de se tourner vers vous avec rage.",
+            "",
+            "    \"Sö bëdèsoe... Erkodotrëkobupo sö köpoduk korkö erkokör.",
+            "     Erkodotrëkobupo tö köpoduk dök.",
+            "     Todpör kadä sö toderbrä regoburëkobu köpoduk körko kör sö dök ?! Sö bëdèsoe totrëkobu !",
+            "     ...",
+            "     Regoburëkoburpo.",
+            "",
+            "La gobline se jette sur vous."
+        ],
         LocaleKey::GUARD_NPC_DESCRIPTION => "En haut des portes du village, vous voyez un goblin lourdement armé vous surplombant. Semblant vous surveiller intensément.",
         LocaleKey::GOBLIN_ELDER_NAME => "une gobline ancienne",
         LocaleKey::GOBLIN_ELDER_INTRO_DIALOG => "Pöko sö köpodubugurku sö #{Locale::PLAYER_NAME}.\nKör sö köpodubugurku köpogur sö dëkaos ?",
@@ -3511,12 +3523,12 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TIME => ["korkö|korko|erkogorkö|erkogorko|kopkorkö|kopkorko|korkörpo|korköbo|korkorpo|korkopo|erkogorkörpo|erkogorköbo|erkogorkorpo|erkogorkopo|kopkorkörpo|kopkorköbo|kopkorkorpo|kopkorkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TIME => [
-            "\"Korkö\" signifie un temps, ou peux aussi signifier \"Attendre\" comme verbe.",
+            "\"Korkö\" signifie un temps, quand, ou peux aussi signifier \"Attendre\" comme verbe.",
             "Quand \"Korkö\" est un verbe, il peut également apparaître comme \"Erkogorkö\" ou \"Kopkorkö\" pour un passé et un future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TIME => ["temps"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TIME => [
-            "\"Temps\" peut se dire \"Korkö\" en parole gobline."
+            "\"Temps\" et \"Quand\" peuvent se dire \"Korkö\" en parole gobline."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TIME => ["attendre"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TIME => [

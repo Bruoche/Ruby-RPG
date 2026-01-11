@@ -796,6 +796,7 @@ module LocaleKey
     GOBLIN_GUARD_ALREADY_AUTHORISED = :goblin_guard_already_authorised
     GOBLIN_GUARD_BRIBE = :goblin_guard_bribe
     GOBLIN_GUARD_SHOW_BADGE = :goblin_guard_show_badge
+    GOBLIN_GUARD_SHOW_BADGE_BLOODY = :goblin_gaurd_show_badge_bloody
     GOBLIN_ELDER_NAME = :goblin_elder_name
     GOBLIN_ELDER_INTRO_DIALOG = :goblin_elder_intro_dialog
     GOBLIN_ELDER_IDLE_DIALOGS = :goblin_elder_idle_dialogs

@@ -28,6 +28,15 @@ class GoblinGuard < CharacterData
                     Narrator.pause_text
                     return
                 end
+                if item_presented.get_item.class == GoblinBadgeBloody
+                    player.add_status(GoblinMurderer.new)
+                    Narrator.write(LocaleKey::GOBLIN_GUARD_SHOW_BADGE_BLOODY)
+                    Narrator.pause_text
+                    character.anger_against(player)
+                    character.get_fighter.status_handler.add(Rage.new)
+                    player.start_fighting
+                    return Player::ACTED
+                end
                 is_valuable = item_presented.get_value >= EXPECTED_BRIBE_VALUE
                 is_valuable = (is_valuable || (item_presented.get_item.instance_of?(Coins) && (item_presented.get_quantity >= EXPECTED_BRIBE_VALUE)))
                 if is_valuable

@@ -1233,9 +1233,21 @@ class EN
         LocaleKey::GOBLIN_GUARD_BRIBE => "Show item...",
         LocaleKey::GOBLIN_GUARD_SHOW_BADGE => [
             "As you show the small metallic pendant to the goblin, her posture relax suddently as her eyes widen in surprise.",
-            "    \"Ö... Sö bëdèsoe sö tarkorbakö köpo köpoduk. Kobukör korkëtogubagedo sö dök köpoduk.",
+            "    \"Ö... Sö bëdèsoe sö tarkorbakö köpo köpoduk. Kobukör korkëtogubagedo sö dök köpoduk.\"",
             "",
             "From her posture you can guess that whatever what she said meant, you can now pass freely into the village."
+        ],
+        LocaleKey::GOBLIN_GUARD_SHOW_BADGE_BLOODY => [
+            "You present the small metallic pendant to the goblin, she seems a bit surprised when suddenly her eyes widen, seemingly needing a double take.",
+            "She pause a few instant on the crude red metallic thing, before looking at you with rage.",
+            "",
+            "    \"Sö bëdèsoe... Erkodotrëkobupo sö köpoduk korkö erkokör.",
+            "     Erkodotrëkobupo tö köpoduk dök.",
+            "     Todpör kadä sö toderbrä regoburëkobu köpoduk körko kör sö dök?! Sö bëdèsoe totrëkobu!",
+            "     ...",
+            "     Regoburëkoburpo.",
+            "",
+            "The goblin launches at you."
         ],
         LocaleKey::GUARD_NPC_DESCRIPTION => "You see a heavily armored goblin overlooking you from atop the village's door. Watching over you intensly.",
         LocaleKey::GOBLIN_ELDER_NAME => "an old goblin",
@@ -3511,12 +3523,12 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TIME => ["korkö|korko|erkogorkö|erkogorko|kopkorkö|kopkorko|korkörpo|korköbo|korkorpo|korkopo|erkogorkörpo|erkogorköbo|erkogorkorpo|erkogorkopo|kopkorkörpo|kopkorköbo|kopkorkorpo|kopkorkopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TIME => [
-            "\"Korkö\" means a time, or can also mean \"Waiting\" as a verb.",
+            "\"Korkö\" means a time, when, or can also mean \"Waiting\" as a verb.",
             "When \"Korkö\" is a verb, it can also appear as \"Erkogorkö\" or \"Kopkorkö\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TIME => ["time"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TIME => ["time|when"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TIME => [
-            "\"Time\" can be said \"Korkö\" in a goblin talk."
+            "\"Time\" or \"When\" can be said \"Korkö\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TIME => ["waiting"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TIME => [
@@ -4085,9 +4097,9 @@ class EN
             "\"Regoburëkobu\" means a dead, or can also mean \"Dying\" as a verb.",
             "When \"Regoburëkobu\" is a verb, it can also appear as \"Erkoregoburëkobu\" or \"Kopregoburëkobu\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DYING => ["dead"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_DYING => ["dead|death"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_DYING => [
-            "\"Dying\" can be said \"Regoburëkobu\" in a goblin talk."
+            "\"Dying\", \"Death\" or \"Dead\" can be said \"Regoburëkobu\" in a goblin talk."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_DYING => ["dying"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_DYING => [
