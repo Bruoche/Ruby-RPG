@@ -130,5 +130,6 @@ class GoblinElderBoss < Bestiary
             player.add_status(GoblinMurderer.new)
         end
         boss.get_room.set_exploration_track(MusicManager::NO_MUSIC)
+        Narrator.pause_text
     end
 end

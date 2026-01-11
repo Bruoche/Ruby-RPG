@@ -117,5 +117,6 @@ class LostKnight < Bestiary
         SoundManager.play('player_death')
         Narrator.knight_death2
         sleep Settings.get_pause_duration
+        Narrator.pause_text
     end
 end

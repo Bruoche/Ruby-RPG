@@ -559,7 +559,7 @@ class FR
         LocaleKey::ELDER_GOBLIN_DELEGATE => "%{#{LocaleKey::F_SUBJECT}} signe à %{#{LocaleKey::F_OBJECT}} quoi faire.",
         LocaleKey::ELDER_GOBLIN_LIMB_LOSS => "%s se brise sous votre assault.",
         LocaleKey::ELDER_GOBLIN_ARMLESS => "Alors qu'elle semblait désarmée, ne pouvant plus utiliser ses bras pour se défendre, vous voyez la gobline commencer à marmonner des prières.",
-        LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "Alors que le corps frèle et ensenglanté de la gobline s'écrase contre le sol, sa petite chaise tombant bruyamant avec elle, les autres goblins observe sous le choc. Après quelques instants de suspent, ils se tournent vers vous le regard empli de larmes et de rage.",
+        LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "Alors que le corps frèle et ensenglanté de la gobline s'écrase contre le sol, sa petite chaise tombant bruyamant avec elle, les autres goblins observent sous le choc. Après quelques instants de suspent, ils se tournent vers vous le regard empli de larmes et de rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "Alors que le deuxième aidant de la gobline atteint le sol, immobile, vous pouvez voir le museau de l'ancienne gobline se distordre de rage.",
         LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} sélectionnés) (y/n)",
         LocaleKey::ASK_NAME => "Quel est votre nom ?",
