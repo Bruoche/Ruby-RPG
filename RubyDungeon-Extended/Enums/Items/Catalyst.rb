@@ -19,7 +19,7 @@ class Catalyst < Item
         if !user.fighting?
             return super
         end
-        SoundManager.play('taking_object')
+        SoundManager.play('catalyst_charge')
         monsters = user.get_room.get_monsters
         targets = Narrator.ask_paginated_multiple(
             LocaleKey::ASK_CATALYST_TARGET,
