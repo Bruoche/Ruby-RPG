@@ -34,12 +34,18 @@ class Inventory
         if items != nil
             bundles_by_class = {}
             items.split('; ').tally.each do |item_data, amount|
-                item = Item.load(item_data)
+                bundle_array = item_data.split(Bundle::AMOUNT_SEPARATOR)
+                item = Item.load(bundle_array[0])
+                quantity = bundle_array[1].to_i
+                if quantity <= 0
+                    quantity = 1
+                end
                 item_class = item.class.name
                 if (bundles_by_class[item_class] == nil)
                     bundles_by_class[item_class] = []
                 end
-                bundles_by_class[item_class].append(Bundle.new(item, amount))
+                Logger.debug("%s: %s * %s", item_class, amount, quantity)
+                bundles_by_class[item_class].concat([Bundle.new(item, amount * quantity)])
             end
             bundles_by_class.each do |bundle_class, bundles|
                 loaded_bundle = BundleStack.new(bundle_class)

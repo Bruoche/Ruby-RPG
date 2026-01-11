@@ -1,4 +1,6 @@
 class Bundle
+    AMOUNT_SEPARATOR = ' * '
+
     def initialize(item, quantity = 1)
         @item = item
         @quantity = quantity
@@ -76,7 +78,11 @@ class Bundle
 
     def get_save_data
         if @quantity > 0
-            return (@item.get_save_data + '; ') * @quantity
+            quantity_string = ''
+            if @quantity > 1
+                quantity_string = AMOUNT_SEPARATOR + @quantity.to_s
+            end
+            return @item.get_save_data + quantity_string + '; '
         else
             return ''
         end
