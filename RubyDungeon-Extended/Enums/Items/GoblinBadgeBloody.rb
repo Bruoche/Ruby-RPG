@@ -25,7 +25,7 @@ class GoblinBadgeBloody < Item
     end
 
     def use(target, user)
-        GoblinBadge.act_on_peacefull_goblins(target, user, LocaleKey::SHOW_GOBLIN_BADGE, -> (goblin) {
+        used = GoblinBadge.act_on_peacefull_goblins(target, user, LocaleKey::SHOW_GOBLIN_BADGE, -> (goblin) {
             if [true, false].sample
                 GoblinBadge.appease(goblin)
             else
@@ -35,5 +35,9 @@ class GoblinBadgeBloody < Item
                 goblin.status_handler.add(Rage.new)
             end
         })
+        if !used
+            return super(target, user)
+        end
+        return !Player::ACTED
     end
 end
