@@ -262,16 +262,14 @@ class PlayerController
             if interactable.kind_of? Pack
                 return attack_monsters
             else
-                if !interactable.interact(@player)
-                    if (interactables.length >= 1)
-                        if fighting?
-                            return act
-                        else
-                            return ask_action
-                        end
-                    end
-                else
+                if interactable.interact(@player)
                     return Player::ACTED
+                end
+                if fighting?
+                    return act
+                end
+                if (interactables.length <= 1)
+                    return ask_action
                 end
             end
         end

@@ -94,6 +94,7 @@ class GoblinGuard < CharacterData
         player.add_status(GoblinGuardHearOut.new)
     }
     ANGER = -> (player, npc) {
+        Narrator.pause_text
         npc.anger_against(player)
         return Player::ACTED
     }
