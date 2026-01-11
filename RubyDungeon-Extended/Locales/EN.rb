@@ -2039,6 +2039,7 @@ class EN
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_KOPOEGA_DEGAERK => [
             "Kö Köpoega Degäerk is a blacksmith of a tribe, a great blacksmith. Give Kö Köpoega a visit if you want some trades, a blacksmith is willing to trade for some rare and usable gold.",
         ],
+        LocaleKey::DIAL_GOBLIN_ELDER_REPEAT => "Erkoëkabogu sö köpodubugurku, ",
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_ADVICES => ["totrdëkobu|toderköpo|totrdëkobubo|toderköpobo|totrdëkoburpo|toderköporpo|koptotrdëkobu|koptoderköpo|totrdekobu|toderkopo|koptotrdekobu|koptoderkopo"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_ADVICES => [
             "Totrdëkobu sö köpodubugurku sö #{Locale::PLAYER_NAME} körkubagedorpo sö #{Locale::PLAYER_NAME} sö këtogubu. ",

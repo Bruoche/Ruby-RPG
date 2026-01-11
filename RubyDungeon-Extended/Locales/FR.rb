@@ -2039,6 +2039,7 @@ class FR
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_KO_KOPOEGA_DEGAERK => [
             "Kö Köpoega Degäerk est un forgeron de notre tribu, un bon forgeron. Visite Kö Köpoega si vous souhaite quelques échanges, Kö Köpoega Degäerk peut échanger contre des ors rares et utiles.",
         ],
+        LocaleKey::DIAL_GOBLIN_ELDER_REPEAT => "Erkoëkabogu sö köpodubugurku, ",
         LocaleKey::DIAL_GOBLIN_ELDER_KEY_ADVICES => ["totrdëkobu|toderköpo|totrdëkobubo|toderköpobo|totrdëkoburpo|toderköporpo|koptotrdëkobu|koptoderköpo|totrdekobu|toderkopo|koptotrdekobu|koptoderkopo"],
         LocaleKey::DIAL_GOBLIN_ELDER_TXT_ADVICES => [
             "Totrdëkobu sö köpodubugurku sö #{Locale::PLAYER_NAME} körkubagedorpo sö #{Locale::PLAYER_NAME} sö këtogubu. ",
