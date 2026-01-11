@@ -2022,7 +2022,7 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ARTICLES => ["article|articles|sö|so|kö|ko|tö|to|article|articles|so|so|ko|ko|to|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ARTICLES => [
-            "Les sujets et les objets dans un phrase sont précédé par un article en parole gobline, soit \"Sö\" pour les noms singuliers, \"Kö\" pour les noms pluriels et \"Tö\" pour un totalité d'un groupe.",
+            "Les sujets et les objets dans un phrase sont précédé par un article en parole gobline, soit \"Sö\" pour les noms singuliers, \"Kö\" pour les noms pluriels et \"Tö\" pour un totalité d'un groupe.\nAussi, parfois, si vous voyez \"sö Kö ...\", cela introduit généralement un nom goblin."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_CONJUGAISON => ["conjugaison|conjugaisons|conjugue"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_CONJUGAISON => [

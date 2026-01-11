@@ -2022,7 +2022,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ARTICLES => ["article|articles|sö|so|kö|ko|tö|to|article|articles|so|so|ko|ko|to|to"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ARTICLES => [
-            "All subjects and All objects in a sentence are preceded by a article, either \"Sö\" for singular objects, \"Kö\" for plural objects and \"Tö\" for a totality of a group.",
+            "All subjects and All objects in a sentence are preceded by a article, either \"Sö\" for singular objects, \"Kö\" for plural objects and \"Tö\" for a totality of a group.\nAlso, sometimes if you see \"sö Kö ...\", that will generally be to introduce a goblin name.",
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_CONJUGAISON => ["conjugaison|conjugate"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_CONJUGAISON => [
