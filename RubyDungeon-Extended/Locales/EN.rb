@@ -3879,12 +3879,13 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TALK => ["pöko|poko|erkopöko|erkopoko|koppöko|koppoko|pökorpo|pökopo|pokorpo|pokopo|erkopökorpo|erkopökopo|erkopokorpo|erkopokopo|koppökorpo|koppökopo|koppokorpo|koppokopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TALK => [
-            "\"Pöko\" means a talk, or can also mean \"Talking\" or \"Asking\" as a verb.",
+            "\"Pöko\" means a talk, or can also mean \"Talking\" or \"Asking\" as a verb.\nIt is also often used as a form of greeting.",
+            "When goblins start talking to eachothers goblins generally introduce themselves with \"Pöko sö \" and their name, similar to \"Hey it's me talking\". And the other will answer with \"Pöko sö your name sö ...\", for \"You're talking to ...\", or they'll sometimes say \"Säpogu sö ...\" for \"I'm listening\".",
             "When \"Pöko\" is a verb, it can also appear as \"Erkopöko\" or \"Koppöko\" for past and future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TALK => ["talk"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TALK => ["talk|hello|hi|hey"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TALK => [
-            "\"Talk\" can be said \"Pöko\" in a goblin talk."
+            "\"Talk\" can be said \"Pöko\" in a goblin talk.\nThis also serves as a greeting with people generally introducing themselves with \"Pöko sö \" and their name, and the other answering \"Pöko sö name sö \" and their own name. Or \"Säpogu sö ...\", for \"... is listening\"."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TALK => ["talking|asking"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TALK => [

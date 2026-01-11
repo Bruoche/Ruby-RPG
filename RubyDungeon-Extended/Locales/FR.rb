@@ -3879,12 +3879,13 @@ class FR
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_TALK => ["pöko|poko|erkopöko|erkopoko|koppöko|koppoko|pökorpo|pökopo|pokorpo|pokopo|erkopökorpo|erkopökopo|erkopokorpo|erkopokopo|koppökorpo|koppökopo|koppokorpo|koppokopo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_TALK => [
-            "\"Pöko\" signifie un parole, ou peux aussi signifier \"Paler\" ou \"Demander\" comme verbe.",
+            "\"Pöko\" signifie un parole, ou peux aussi signifier \"Paler\" ou \"Demander\" comme verbe.\nCe mot sert également d'introduction en goblin.",
+            "Pour se présenter lorsqu'ils parlent les goblins diront généralement \"Pöko sö \" et leur nom, un peu comme votre \"Bonjour je m'appelle ...\". Et le goblin en face répondra \"Pöko sö nom sö ...\", pour \"Nom parle à ...\", ou parfois les goblins répondent \"Säpogu sö ...\" pour \"... écoute\".",
             "Quand \"Pöko\" est un verbe, il peut également apparaître comme \"Erkopöko\" ou \"Koppöko\" pour un passé et un future."
         ],
-        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TALK => ["parole"],
+        LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_TALK => ["parole|salut|bonjour"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_NOUN_TALK => [
-            "\"Parole\" peut se dire \"Pöko\" en parole gobline."
+            "\"Parole\" peut se dire \"Pöko\" en parole gobline.\nC'est aussi une forme de salutation, les gens s'introduisant généralement en disant \"Pöko sö \" et leur nom, l'autre répondant \"Pöko sö nom sö \" et leur propre nom. Ou \"Säpogu sö ...\" pour \"... écoute\"."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_VERB_TALK => ["paler|demander"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_ETG_VERB_TALK => [
