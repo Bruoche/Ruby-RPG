@@ -234,7 +234,7 @@ class PlayerController
                 Narrator.everything_taken_already(@player.get_room.get_this_denomination)
             else
                 Narrator.nothing_found
-                sleep Settings.get_pause_duration
+                Game.wait
             end
             return false
         end

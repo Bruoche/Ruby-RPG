@@ -89,7 +89,7 @@ class GoblinElderBoss < Bestiary
                 LocaleKey::F_SUBJECT => Locale.get_localized(name).capitalize,
                 LocaleKey::F_OBJECT => advisor.get_name.get_gendered_the
             }))
-            sleep Settings.get_pause_duration
+            Game.wait
             advisor.act(targets, allies, boss)
             return SpecialMove::END_TURN
         end
@@ -99,7 +99,7 @@ class GoblinElderBoss < Bestiary
     def self.arm_loss(name, boss, other_arm_id)
         SoundManager.play('ennemy_death')
         Narrator.write_formatted(LocaleKey::ELDER_GOBLIN_LIMB_LOSS, name.get_gendered_the)
-        sleep Settings.get_pause_duration
+        Game.wait
         left_arm = boss.get_part_by(other_arm_id)
         if left_arm == nil
             armless(name, boss)
@@ -108,7 +108,7 @@ class GoblinElderBoss < Bestiary
 
     def self.armless(name, boss)
         Narrator.write_formatted(LocaleKey::ELDER_GOBLIN_ARMLESS, boss.get_name.get_gendered_the)
-        sleep Settings.get_pause_duration
+        Game.wait
         head = boss.get_part_by(GoblinElderHead::ID)
         head.set_intelligence(head.get_strength * 6)
     end
@@ -124,7 +124,7 @@ class GoblinElderBoss < Bestiary
         if any_goblin_enraged
             Narrator.write(LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE)
             SoundManager.play('rage')
-            sleep Settings.get_pause_duration
+            Game.wait
         end
         for player in players
             player.add_status(GoblinMurderer.new)

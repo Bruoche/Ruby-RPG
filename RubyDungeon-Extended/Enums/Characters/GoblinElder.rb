@@ -16,7 +16,7 @@ class GoblinElder < CharacterData
         if !World.get_instance.get_players_in(room)[0].have_status?(GoblinMurderer) && first_attacked
             Narrator.write(LocaleKey::ELDER_GOBLIN_SURPRISE_ATTACK_DIRECT)
             SoundManager.play("rage")
-            sleep Settings.get_pause_duration
+            Game.wait
             for goblin in room.get_monsters.get_all
                 if !goblin.is_a? Boss
                     goblin.status_handler.add(Rage.new)

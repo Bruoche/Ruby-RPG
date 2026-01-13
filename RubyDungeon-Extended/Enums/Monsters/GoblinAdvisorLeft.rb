@@ -26,7 +26,7 @@ class GoblinAdvisorLeft < Bestiary
             boss.add_status(Rage.new)
             Narrator.write(LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE)
             SoundManager.play('rage')
-            sleep Settings.get_pause_duration
+            Game.wait
         end
     }
 end

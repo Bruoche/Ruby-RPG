@@ -42,7 +42,7 @@ class PoisonSpider < Bestiary
                     player.add_status(Poison.new(5, 10, monster))
                     Narrator.write(format(Locale.get_localized(LocaleKey::POISONNED), player.get_name.capitalize))
                     SoundManager.play('poison')
-                    sleep Settings.get_pause_duration
+                    Game.wait
                 end
             },
             100,

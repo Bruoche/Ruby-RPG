@@ -72,7 +72,7 @@ class LostKnight < Bestiary
     def self.slash(targets, allies, actor, boss_data)
         SoundManager.play('swoosh')
         Narrator.knight_slash
-        sleep Settings.get_pause_duration
+        Game.wait
         3.times do
             target = actor.choose_target(targets)
             target.hurt(Attack.new((actor.get_strength.div(2)), Attack::PHYSIC_TYPE, actor))
@@ -83,7 +83,7 @@ class LostKnight < Bestiary
     def self.limb_loss(name, boss_data)
         SoundManager.play('ennemy_death')
         Narrator.knight_limb_loss(name.get_gendered_the)
-        sleep Settings.get_pause_duration
+        Game.wait
     end
 
     def self.main_arm_loss(name, boss_data)
@@ -92,10 +92,10 @@ class LostKnight < Bestiary
             limb_loss(name, boss_data)
             SoundManager.play('taking_object')
             Narrator.knight_change_weapon_side(boss_data.get_name.get_gendered_the)
-            sleep Settings.get_pause_duration
+            Game.wait
             SoundManager.play('equip')
             Narrator.knight_phase_change
-            sleep Settings.get_pause_duration
+            Game.wait
             left_arm.add_special_move(SpecialMove.new(100, -> (target, pack, damage, boss_data) {slash(target, pack, damage, boss_data)}))
             left_arm.set_death_event(-> (players, left_arm, boss_data) {defenseless(left_arm.get_name, boss_data)})
         else
@@ -107,16 +107,16 @@ class LostKnight < Bestiary
         limb_loss(name, boss_data)
         SoundManager.play('unequip')
         Narrator.knight_defenseless(boss_data.get_name.get_gendered_the)
-        sleep Settings.get_pause_duration
+        Game.wait
     end
 
     def self.death(name, boss_data)
         SoundManager.play('ennemy_death')
         Narrator.knight_death1(boss_data.get_name.get_gendered_of)
-        sleep Settings.get_pause_duration
+        Game.wait
         SoundManager.play('player_death')
         Narrator.knight_death2
-        sleep Settings.get_pause_duration
+        Game.wait
         Narrator.pause_text
     end
 end

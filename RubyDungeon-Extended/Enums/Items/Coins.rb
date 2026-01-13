@@ -22,17 +22,17 @@ class Coins < Item
         else
             result = Locale.get_localized(LocaleKey::COIN_TAIL)
         end
-        sleep COIN_TOSS_DURATION/4
+        Game.wait COIN_TOSS_DURATION/4
         3.times do
             Narrator.write_same_line('.')
-            sleep COIN_TOSS_DURATION/4
+            Game.wait COIN_TOSS_DURATION/4
         end
         Narrator.add_space_of(1)
         Narrator.coin_toss_suspense
-        sleep SUSPENSE_DURATION/4
+        Game.wait SUSPENSE_DURATION/4
         3.times do
             Narrator.write_same_line('.')
-            sleep SUSPENSE_DURATION/4
+            Game.wait SUSPENSE_DURATION/4
         end
         Narrator.add_space_of(2)
         Narrator.coin_toss(result)

@@ -143,7 +143,7 @@ class Pack
         @initial_monsters.append(monster)
         SoundManager.play('ennemy_added')
         Narrator.write(format(Locale.get_localized(LocaleKey::MONSTER_ADDED), monster.get_name.get_gendered_a.capitalize))
-        sleep Settings.get_pause_duration
+        Game.wait
     end
 
     def leaving(monster)
@@ -175,7 +175,7 @@ class Pack
     def death_event(monster)
         SoundManager.play('ennemy_death')
         Narrator.monster_death(monster.get_name.get_gendered_the)
-        sleep Settings.get_pause_duration
+        Game.wait
         @monsters.delete_at(@monsters.index(monster))
         for loot in monster.get_loots
             monster.get_room.add_loot(loot)

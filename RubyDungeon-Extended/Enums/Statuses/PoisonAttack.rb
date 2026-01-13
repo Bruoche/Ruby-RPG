@@ -14,7 +14,7 @@ class PoisonAttack < Status
                     end
                     Narrator.write(format(Locale.get_localized(LocaleKey::POISONNED), target_name.capitalize))
                     SoundManager.play('poison')
-                    sleep Settings.get_pause_duration
+                    Game.wait
                 end
             },
             100,

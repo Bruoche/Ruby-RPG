@@ -204,4 +204,12 @@ class Game
             ask_continue
         end
     end
+
+    def self.wait(duration = Settings::get_pause_duration)
+        begin
+            sleep duration
+        rescue Exception => e
+            Narrator.ask_quit(e, recursive_error = false)
+        end
+    end
 end

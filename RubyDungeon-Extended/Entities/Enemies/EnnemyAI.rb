@@ -46,7 +46,7 @@ class EnnemyAI
             if is_enraged
                 Narrator.write(format(Locale.get_localized(LocaleKey::RAGING), @denomination.capitalize))
                 SoundManager.play("rage")
-                sleep Settings.get_pause_duration
+                Game.wait
             end
             act_quirky(players, pack, strength, intelligence)
         end
@@ -178,14 +178,14 @@ class EnnemyAI
     def physical_attack(player, strength)
         SoundManager.play('swoosh')
         Narrator.write("#{@denomination.capitalize} #{Locale.get_localized(@basic_attack_messages.sample) % [player.get_name]}")
-        sleep Settings.get_pause_duration
+        Game.wait
         player.hurt(Attack.new(strength, Attack::PHYSIC_TYPE, @body, @attack_effects))
     end
 
     def magic_attack(players, intelligence)
         SoundManager.play('monster_magic_charge')
         Narrator.write("#{@denomination.capitalize} #{@magic_attack_messages.sample}")
-        sleep Settings.get_pause_duration
+        Game.wait
         for player in players do
             player.hurt(Attack.new(intelligence, Attack::MAGIC_TYPE, @body))
         end
@@ -194,7 +194,7 @@ class EnnemyAI
     def heal_ally(ally, intelligence)
         SoundManager.play('monster_heal_spell')
         Narrator.write("#{@denomination.capitalize} #{@heal_messages.sample}")
-        sleep Settings.get_pause_duration
+        Game.wait
         ally.heal(rand(1..intelligence))
     end
 
@@ -204,7 +204,7 @@ class EnnemyAI
             message = @escape_message.sample
         end
         Narrator.write_formatted(message, @denomination.capitalize)
-        sleep Settings.get_pause_duration
+        Game.wait
         @body.leave
     end
 end

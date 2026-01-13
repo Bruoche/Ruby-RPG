@@ -47,7 +47,7 @@ class GoblinBadge < Item
                     first = false
                     SoundManager.play('paper')
                     Narrator.write(badge_message)
-                    sleep Settings.get_pause_duration
+                    Game.wait
                     if room.get_biome == BossGoblinHouse
                         return refuse_peace(LocaleKey::GOBLINS_NOT_FORGIVING)
                     end
@@ -69,14 +69,14 @@ class GoblinBadge < Item
     def self.appease(goblin)
         SoundManager.play('ennemy_footsteps')
         Narrator.write_formatted(LocaleKey::PACIFY_GOBLIN, goblin.get_name.get_gendered_the.capitalize)
-        sleep Settings.get_pause_duration
+        Game.wait
         goblin.pacify
     end
 
     def self.refuse_peace(message)
         SoundManager.play('spell_fart')
         Narrator.write(message)
-        sleep Settings.get_pause_duration
+        Game.wait
         return USED
     end
 end

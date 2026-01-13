@@ -14,7 +14,7 @@ class GoblinAdvisorLeftNpc < CharacterData
         if (surprise_attack?(room) && first_attacked)
             Narrator.write(LocaleKey::ELDER_GOBLIN_SURPRISE_ATTACK_ADVISOR)
             SoundManager.play("rage")
-            sleep Settings.get_pause_duration
+            Game.wait
             for goblin in room.get_monsters.get_all
                 if goblin.get_type == GoblinElderBoss.to_s
                     goblin.add_status(Rage.new)

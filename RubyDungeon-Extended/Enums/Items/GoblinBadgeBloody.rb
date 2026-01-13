@@ -31,7 +31,7 @@ class GoblinBadgeBloody < Item
             else
                 SoundManager.play('rage')
                 Narrator.write_formatted(LocaleKey::RAGING, goblin.get_name.get_gendered_the.capitalize)
-                sleep Settings.get_pause_duration
+                Game.wait
                 goblin.status_handler.add(Rage.new)
             end
         })

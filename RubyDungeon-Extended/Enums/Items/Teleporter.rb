@@ -19,7 +19,7 @@ class Teleporter < Item
         if user.fighting?
             Narrator.teleporter_fail
             SoundManager.play('spell_fart')
-            sleep Settings.get_pause_duration
+            Game.wait
             return Player::ACTED
         else
             Narrator.teleporter_start
@@ -27,7 +27,7 @@ class Teleporter < Item
             if choosen_destination != NO_DESTINATION
                 user.set_room(choosen_destination)
                 SoundManager.play('teleport')
-                sleep TELEPORT_DURATION
+                Game.wait TELEPORT_DURATION
                 return {Item::RESPONSE_PLAYER_ACTED => !Player::ACTED, Item::RESPONSE_CLOSE_INVENTORY => true}
             else
                 !Player::ACTED

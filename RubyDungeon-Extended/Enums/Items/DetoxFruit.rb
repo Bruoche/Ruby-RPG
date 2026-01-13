@@ -23,11 +23,11 @@ class DetoxFruit < Item
             target.remove_status(Poison)
             Narrator.write(LocaleKey::DETOX_DETOX)
             SoundManager.play('poison_cleanse')
-            sleep Settings.get_pause_duration
+            Game.wait
         else
             Narrator.write(LocaleKey::DETOX_FRUIT_NO_EFFECT)
             SoundManager.play('spell_fart')
-            sleep Settings.get_pause_duration
+            Game.wait
         end
         target.heal(@soin)
         @destroyed = true

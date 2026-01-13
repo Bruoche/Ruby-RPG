@@ -20,7 +20,7 @@ class MusicInstance
     def stop
         if @player != OFF
             @player.fadeout(MusicManager::FADEOUT_TIME)
-            sleep (MusicManager::FADEOUT_TIME*1.01)/1000
+            Game.wait (MusicManager::FADEOUT_TIME*1.01)/1000
         end
     end
 

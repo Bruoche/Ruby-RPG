@@ -84,7 +84,7 @@ class Hole
     def roped_by(player)
         Narrator.write(LocaleKey::ATTACH_ROPE)
         SoundManager.play('paper')
-        sleep 1
+        Game.wait 1
         player.remove_item(Rope.new)
         @roped = true
         @top.set_picture("entrance_roped")
@@ -104,7 +104,7 @@ class Hole
             when 'y'
                 Narrator.jump_hole(player)
                 SoundManager.play("swoosh")
-                sleep Settings.get_pause_duration
+                Game.wait
                 player.set_room(@bottom)
                 player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
                 @skip_player = true

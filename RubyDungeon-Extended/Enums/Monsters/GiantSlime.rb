@@ -27,7 +27,7 @@ class GiantSlime < Bestiary
     DEATH_EVENT = -> (players, giant_slime, pack) {
         Narrator.write(format(Locale.get_localized(LocaleKey::SLIME_DIVIDE), giant_slime.get_name.get_gendered_of))
         SoundManager.play('goop')
-        sleep Settings.get_pause_duration
+        Game.wait
         slime_parameters = make_child_parameters(giant_slime)
         NUMBER_OF_CHILDREN.times do
             make_slime_and_add_to(pack, slime_parameters)

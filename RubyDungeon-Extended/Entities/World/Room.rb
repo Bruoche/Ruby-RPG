@@ -302,11 +302,11 @@ class Room
             SoundManager.play('searching')
             Narrator.searching(@name.get_gendered_the)
             3.times do
-                sleep Settings.get_pause_duration
+                Game.wait
                 Narrator.write_same_line('.')
             end
             Narrator.add_space_of(1)
-            sleep Settings.get_pause_duration
+            Game.wait
         end
         if !searched_before?
             @objects = @biome.get_loot
@@ -315,7 +315,7 @@ class Room
             if loot.dropped?
                 bundle = loot.get_item
                 bundle.get_item.play_sound
-                sleep Settings.get_pause_duration
+                Game.wait
                 @objects.append(bundle)
             end
         end

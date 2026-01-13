@@ -34,7 +34,7 @@ class MusicManager
                             switch_and_play_tracks_for(EXPLORATION_TRACK, FIGHTING_TRACK)
                         end
                     end
-                    sleep 0.2
+                    Game.wait 0.2
                 end
                 for track in @tracks
                     track.stop

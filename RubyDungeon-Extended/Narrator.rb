@@ -270,7 +270,7 @@ class Narrator
     def self.pause_text
         Narrator.add_space_of(1)
         Narrator.write(LocaleKey::PRESS_CONTINUE)
-        gets
+        safe_input
         TTY::Screen.height.times do
             Narrator.add_space_of(1)
         end
@@ -653,14 +653,14 @@ class Narrator
         else
             Narrator.write_same_line(LocaleKey::CLIMB_ROPE_UP)
         end
-        SoundManager.play("rope_climb")
-        sleep 1.5
+        SoundManager.play "rope_climb"
+        Game.wait 1.5
         3.times do
             Narrator.write_same_line('.')
-            SoundManager.play("rope_climb")
-            sleep 1.5
+            SoundManager.play "rope_climb"
+            Game.wait 1.5
         end
-        Narrator.add_space_of(1)
+        Narrator.add_space_of 1
     end
 
     def self.jump_hole(player)
@@ -890,28 +890,36 @@ class Narrator
             name_prefix = ''
         end
         write_same_line("  #{name_prefix}>> ")
-        begin
-            answer = gets.chomp
-        rescue Exception => e
-            loop do
-                Narrator.write(LocaleKey::CLOSE_GAME_CONFIRM)
-                case user_input(NO_NAME_DISPLAYED, false, true).capitalize
-                when 'Y'
-                    raise e
-                when 'N'
-                    if recursive_error
-                        return 'N'
-                    end
-                    return ''
-                end
-            end
-        end
+        answer = safe_input(recursive_error).chomp
         if new_screen
             TTY::Screen.height.times do
                 Narrator.add_space_of(1)
             end
         end
         return answer
+    end
+
+    def self.safe_input(recursive_error = false)
+        begin
+            return gets
+        rescue Exception => e
+            ask_quit(e, recursive_error = false)
+        end
+    end
+
+    def self.ask_quit(e, recursive_error = false)
+        loop do
+            Narrator.write(LocaleKey::CLOSE_GAME_CONFIRM)
+            case user_input(NO_NAME_DISPLAYED, false, true).capitalize
+            when 'Y'
+                raise e
+            when 'N'
+                if recursive_error
+                    return 'N'
+                end
+                return ''
+            end
+        end
     end
 
     def self.user_input_int(name = NO_NAME_DISPLAYED, new_screen = true)

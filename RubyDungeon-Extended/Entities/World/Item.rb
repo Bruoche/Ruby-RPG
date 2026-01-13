@@ -59,12 +59,12 @@ class Item < Savable
     def use(target, user)
         Narrator.unknown_use
         SoundManager.play('spell_fart')
-        sleep Settings.get_pause_duration
+        Game.wait
         return !Player::ACTED
     end
 
     def play_sound
         SoundManager.play(self.class::SOUND)
-        sleep Settings.get_pause_duration
+        Game.wait
     end
 end
