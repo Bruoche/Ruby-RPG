@@ -298,7 +298,7 @@ class Room
     end
 
     def search
-        if !searched_before?
+        if !searched_before? || @monster_loots.length > 0
             SoundManager.play('searching')
             Narrator.searching(@name.get_gendered_the)
             3.times do
@@ -307,6 +307,8 @@ class Room
             end
             Narrator.add_space_of(1)
             sleep Settings.get_pause_duration
+        end
+        if !searched_before?
             @objects = @biome.get_loot
         end
         for loot in @monster_loots
