@@ -85,7 +85,7 @@ class OldDungeon < Biome
             PrisonKey
         )
     ]
-    MIN_EXITS = 0
+    MIN_EXITS = 1
     MAX_EXITS = 2
     TRANSITIONS = [
         BiomeTransition.new(
@@ -97,6 +97,11 @@ class OldDungeon < Biome
             BiomeTransition::NO_MESSAGE,
             1,
             'Catacombs'
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            75,
+            'OldDungeonEnd'
         )
     ]
 end

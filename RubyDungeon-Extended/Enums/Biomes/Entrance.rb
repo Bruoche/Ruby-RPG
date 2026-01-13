@@ -85,7 +85,7 @@ class Entrance < Biome
     TRANSITIONS = [
         BiomeTransition.new(
             LocaleKey::ENTRANCE_TRANSITION_CATACOMBS,
-            15,
+            20,
             'Catacombs'
         ),
         BiomeTransition.new(

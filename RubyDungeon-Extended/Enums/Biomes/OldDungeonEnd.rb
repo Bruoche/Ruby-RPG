@@ -1,0 +1,17 @@
+class OldDungeonEnd < Biome
+    EXPECTED_LEVEL = OldDungeon::EXPECTED_LEVEL
+    PICTURE = OldDungeon::PICTURE
+    EXPLORATION_TRACK = OldDungeon::EXPLORATION_TRACK
+    COMBAT_TRACK = OldDungeon::COMBAT_TRACK
+    FEMALE = OldDungeon::FEMALE
+    MALE = OldDungeon::MALE
+    FEMALE_CHANCES = OldDungeon::FEMALE_CHANCES
+    BACKTRACK_CHANCES = OldDungeon::BACKTRACK_CHANCES
+    DESCRIPTION = OldDungeon::DESCRIPTION
+    BESTIARY = OldDungeon::BESTIARY
+    SAFE_CHANCES = OldDungeon::SAFE_CHANCES
+    LOOT = OldDungeon::LOOT
+    MIN_EXITS = 0
+    MAX_EXITS = OldDungeon::MAX_EXITS
+    TRANSITIONS = OldDungeon::TRANSITIONS
+end

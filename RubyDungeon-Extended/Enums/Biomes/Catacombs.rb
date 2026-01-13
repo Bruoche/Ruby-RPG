@@ -82,7 +82,7 @@ class Catacombs < Biome
     TRANSITIONS = [
         BiomeTransition.new(
             LocaleKey::CATACOMBS_TRANSITION_PRISON,
-            7,
+            10,
             'OldDungeon'
         ),
         BiomeTransition.new(
