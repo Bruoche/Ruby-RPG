@@ -480,6 +480,8 @@ module LocaleKey
     PARRIED = :parried
     ASK_HEAL_TARGET = :ask_heal_target
     ASK_DESTINATION = :ask_destination
+    ASK_ROOM_TO_MARK = :ask_room_to_mark
+    ASK_TEXT_WRITTEN = :ask_text_written
     ASK_ITEM_TAKEN = :ask_item_taken
     ASK_ITEM_IN_STACK = :ask_item_in_stack
     ASK_CORPULENCE = :ask_corpulence
@@ -830,6 +832,10 @@ module LocaleKey
     COINS_PLURAL = :coins_plural
     COIN_HEAD = :coin_head
     COIN_TAIL = :coin_tail
+    CHALK_NAME = :chalk_name
+    CHALK_PLURAL = :chalk_plural
+    CHALK_DESCRIPTION = :chalk_description
+    CHALK_USE = :chalk_use
     AMETHYST_NAME = :amethyst_name
     AMETHYST_DESCRIPTION = :amethyst_description
     AMETHYST_PLURAL = :amethyst_plural

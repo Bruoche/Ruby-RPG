@@ -45,6 +45,7 @@ class Room
         @entry_event = @biome::ENTRY_EVENT
         @exploration_track = @biome::EXPLORATION_TRACK
         @combat_track = @biome::COMBAT_TRACK
+        @room_markings = {}
     end
 
     def allow_entry_for(player)
@@ -341,14 +342,29 @@ class Room
         @adjacent_rooms[possible_adjacence.sample] = other_room_id
     end
 
-    def to_string(room_id)
+    def mark_door_of(room_id, mark)
+        @room_markings[room_id] = mark
+    end
+
+    def to_string(room_id, index = nil, self_format = LocaleKey::STAY_IN)
+        prefix_used = false
+        if index != nil
+            prefix = @room_markings[index - 1]
+            if prefix != nil && prefix.to_s.length > 0
+                prefix = format("[%s] ", prefix.to_s)
+                prefix_used = true
+            end
+        end
+        if !prefix_used
+            prefix = ""
+        end
         case room_id
         when Narrator::RETURN_BUTTON
-            return format(Locale.get_localized(LocaleKey::STAY_IN), @name.get_gendered_the)
+            return format(Locale.get_localized(self_format), @name.get_gendered_the)
         when nil
-            return '???'
+            return prefix + '???'
         else
-            return World.get_instance.get_room(room_id).get_denomination
+            return prefix + World.get_instance.get_room(room_id).get_denomination.capitalize
         end
     end
 

@@ -4,6 +4,7 @@ class Narrator
     INFINITE = nil
     SELECT_ALL = 'select_all'
     SELECT_NONE = 'select_none'
+    CALL_WITH_INDEX = -> (element, i, to_string) {to_string.call(element, i)}
 
     def self.add_space_of(height)
         height.times do
@@ -947,9 +948,12 @@ class Narrator
         return string_with_removal
     end
 
-    def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON)
+    def self.ask(question, options, to_string, player_name = NO_NAME_DISPLAYED, return_option = Narrator::RETURN_BUTTON, to_string_caller = -> (element, i, to_string) {to_string.call(element)})
         ask_general(question, options, to_string, return_option,
-            -> (element, i, to_string) {Narrator.write("    #{i}) #{to_string.call(element).capitalize}")},
+            -> (element, i, to_string) {
+                option_name = to_string_caller.call(element, i, to_string)
+                Narrator.write("    #{i}) #{option_name[..0].capitalize + option_name[1..]}")
+            },
             player_name
         )
     end

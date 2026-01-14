@@ -12,18 +12,18 @@ class GoblinForge < Shop
         shop.ask_upgrade(player)
     }
     INVENTORY = [
-        Bundle.new(DetoxJuice.new(10), 1),
-        Bundle.new(Armor.new(M60Greaves), 1),
-        Bundle.new(Armor.new(H60Greaves), 1),
-        Bundle.new(Armor.new(L60Greaves), 1),
-        Bundle.new(Armor.new(M60Gauntlets), 1),
-        Bundle.new(Armor.new(H60Gauntlets), 1),
-        Bundle.new(Armor.new(L60Gauntlets), 1),
-        Bundle.new(Armor.new(M60Plastron), 1),
-        Bundle.new(Armor.new(H60Plastron), 1),
-        Bundle.new(Armor.new(L60Plastron), 1),
-        Bundle.new(Armor.new(M60Helm), 1),
-        Bundle.new(Armor.new(H60Helm), 1),
-        Bundle.new(Armor.new(L60Helm), 1),
+        Bundle.new(DetoxJuice.new(10)),
+        Bundle.new(Armor.new(M60Greaves)),
+        Bundle.new(Armor.new(H60Greaves)),
+        Bundle.new(Armor.new(L60Greaves)),
+        Bundle.new(Armor.new(M60Gauntlets)),
+        Bundle.new(Armor.new(H60Gauntlets)),
+        Bundle.new(Armor.new(L60Gauntlets)),
+        Bundle.new(Armor.new(M60Plastron)),
+        Bundle.new(Armor.new(H60Plastron)),
+        Bundle.new(Armor.new(L60Plastron)),
+        Bundle.new(Armor.new(M60Helm)),
+        Bundle.new(Armor.new(H60Helm)),
+        Bundle.new(Armor.new(L60Helm)),
     ].freeze
 end
