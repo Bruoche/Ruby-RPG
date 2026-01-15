@@ -1,8 +1,8 @@
 class Chalk < Item
     NAME = LocaleKey::CHALK_NAME
     PLURAL_NAME = LocaleKey::CHALK_PLURAL
-    SOUND = 'potion'
-    PICTURE = 'health_potion'
+    SOUND = 'chalk'
+    PICTURE = 'chalk'
     USABLE_ON_OTHERS = false
 
     def initialize
