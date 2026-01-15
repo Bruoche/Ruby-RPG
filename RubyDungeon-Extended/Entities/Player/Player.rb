@@ -245,7 +245,7 @@ class Player
         if damage_taken > 0
             SoundManager.play('player_hurt')
         elsif defense_score > 0
-            SoundManager.play('parry')
+            SoundManager.play(['parry', 'parry1', 'parry2'].sample)
         else
             SoundManager.play('dodge')
         end
