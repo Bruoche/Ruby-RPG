@@ -17,7 +17,7 @@ class GoblinBadgeBloody < Item
     ]
 
     def initialize
-        @value = 0
+        @value = 100
     end
 
     def get_description
