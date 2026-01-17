@@ -904,7 +904,7 @@ class Narrator
         begin
             return gets
         rescue Exception => e
-            ask_quit(e, recursive_error = false)
+            ask_quit(e, recursive_error)
         end
     end
 
