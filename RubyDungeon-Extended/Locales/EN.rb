@@ -5,6 +5,8 @@ class EN
         Locale::ID_EN => "English",
         LocaleKey::YES => "Yes",
         LocaleKey::NO => "No",
+        LocaleKey::YES_INPUT => 'y',
+        LocaleKey::NO_INPUT => 'n',
         # Monster
         LocaleKey::BAT => "bat",
         LocaleKey::GOBLIN_F => "goblin",
@@ -565,7 +567,7 @@ class EN
         LocaleKey::ELDER_GOBLIN_ARMLESS => "As the goblins seems disarmed, unable to use her arms to cast spells, you notice her start to mumble goblin prayers with deep resolve.",
         LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "As the frail gory corpse of the elder goblin hits the ground, her chair loosing balance and crashing down loudly with her, other goblins watch in shock and disbelief. Before turning to you with rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "As the second caretaker of the elder goblin hits the ground, you can see heartbreak distort her face as rage fills her.",
-        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Do you confirm your selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} selected) (y/n)",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Do you confirm your selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} selected)",
         LocaleKey::ASK_NAME => "What is your name?",
         LocaleKey::CURRENT_NAME => "Current name: ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [
@@ -620,7 +622,7 @@ class EN
             "      1) Yes",
             "      2) No"
         ],
-        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Are you sure you want to replace your current armor with %s? (y/n)",
+        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Are you sure you want to replace your current armor with %s?",
         LocaleKey::NPC_QUESTION_INTRO => [
             "What do you want to do?",
             "    0) Back"
@@ -628,7 +630,7 @@ class EN
         LocaleKey::NPC_OPTION_TALK => "    1) Talk to %s",
         LocaleKey::NPC_OPTION_ATTACK => "    %i) Attack %s",
         LocaleKey::NPC_UNAVAILABLE => "Too occupied fighting, %s is unavailable",
-        LocaleKey::NPC_ATTACK_CONFIRM => "Attack %s? (y/n)",
+        LocaleKey::NPC_ATTACK_CONFIRM => "Attack %s?",
         LocaleKey::ASK_INTERACTION => "What do you want to do?",
         LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Invalid choice, Please only write the corresponding number among the given options.",
         LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Cannot go to the next page. Maximal page number reached.",
@@ -658,11 +660,11 @@ class EN
         LocaleKey::CARD_INTELLIGENCE => "Intelligence: ",
         LocaleKey::CARD_PRICE => "Price: ",
         LocaleKey::UNSAVED_RETURN_CONFIRM => [
-            "Are you sure you want to go back? (y/n)",
+            "Are you sure you want to go back?",
             "The change made will not be saved."
         ],
         LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM => [
-            "Are you sure you want to go back? (y/n)",
+            "Are you sure you want to go back?",
             "The selected characters won't be saved."
         ],
         LocaleKey::ASK_MONSTER_AIMED_AT => "What enemy do you want to attack?",
@@ -705,7 +707,7 @@ class EN
         LocaleKey::ASK_ITEM_TO_SELL => "What item do you want to sell?",
         LocaleKey::ASK_ITEM_TO_UPGRADE => "What armor do you want to upgrade? (%s ¤)",
         LocaleKey::ASK_ITEM_TO_SHOW => "What item do you want to show to the goblin?",
-        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Do you want to give %s to the guard? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Do you want to give %s to the guard?",
         LocaleKey::GOBLIN_NOT_INTERESTED => "The goblin guard doesn't seems to show any interest in what you are showing to her.",
         LocaleKey::GOBLIN_ACCEPT_GIFT => [
             "The goblin cautiously observe the item you offer her, before seemingly untensing in agreement. She signal other goblins at the entrance to come to you and get it.",
@@ -714,7 +716,7 @@ class EN
         LocaleKey::LOOT_GOBLIN_GIFT => ["You see the gift that was dealth to the goblins lying among their still warm corpses."],
         LocaleKey::BRIBE_UNNECESSARY => "The goblin already having given you permission to enter, she show no interest in your belongings.",
         LocaleKey::ASK_PLAYER_REMOVED => "Which team member do you want to remove?",
-        LocaleKey::CONFIRM_DELETE_CHARACTER => "Are you sure you want to remove %s?\nThis character has not yet been saved and will be deleted if removed. (y/n)",
+        LocaleKey::CONFIRM_DELETE_CHARACTER => "Are you sure you want to remove %s?\nThis character has not yet been saved and will be deleted if removed.",
         LocaleKey::PARRIED => " parried",
         LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
         LocaleKey::ASK_STATUS => "Who do you want to look the status of?",
@@ -772,10 +774,10 @@ class EN
         ],
         LocaleKey::SELL_OPTION => "Sell",
         LocaleKey::UPGRADE_LABEL => "Upgrade",
-        LocaleKey::ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
-        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Are you sure you want to upgrade %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_SELLING => "Are you sure you want to sell %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins?",
+        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Are you sure you want to upgrade %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins?",
         LocaleKey::ASK_ITEM_BOUGHT => "What item do you want to buy? (%s ¤)",
-        LocaleKey::ASK_CONFIRM_PURCHASE => "Are you sure you want to buy %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins? (y/n)",
+        LocaleKey::ASK_CONFIRM_PURCHASE => "Are you sure you want to buy %{#{LocaleKey::F_ITEM}} for %{#{LocaleKey::F_VALUE}} coins?",
         LocaleKey::ARMORS_PLURAL => "armors",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_NAME => "black leather gloves",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_DESC => "a thin pair of gloves in some sort of black leather, extremely lightweight and flexible, yet incredibly solid",
@@ -1446,19 +1448,17 @@ class EN
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["By examining the spider's corpse, you manage to extract some venom from it's still intact fangs."],
         LocaleKey::THE_EXIT => "the exit",
         LocaleKey::A_HOLE => "a hole",
-        LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down? (y/n)",
+        LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down?",
         LocaleKey::STUCK_DOWN_HOLE => "You observe the hole casting a soft light into the cave, but see no way up to it.",
         LocaleKey::ATTACH_ROPE => "You attach the rope to a nearby pillar that seems solid enough.",
         LocaleKey::CLIMB_ROPE_DOWN => "You start your slow descent into the hole",
         LocaleKey::CLIMB_ROPE_UP => "You painstakingly climb the long rope back up",
-        LocaleKey::ASK_JUMP => [
-            "You approach the hole and look down. You can see nothing but darkness, with no idea of how deep it goes down.",
-            "Jump in the chasm? (y/n)"
-        ],
+        LocaleKey::PREPARE_JUMP => "You approach the hole and look down. You can see nothing but darkness, with no idea of how deep it goes down.",
+        LocaleKey::ASK_JUMP => "Jump in the chasm?",
         LocaleKey::JUMP_HOLE => "%s leap inside of the hole, bracing for impact.",
         LocaleKey::NEVERMIND_HOLE => "Not wanting to hurt yourself, you avoid the hole.",
         LocaleKey::VILLAGE_ENTRANCE => "the village's gates",
-        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (y/n) (%i%% chances of success)",
+        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Do you want to try and sneak through the door? (%i%% chances of success)",
         LocaleKey::GOBLIN_ATTACK => "Seeing you assault their village, all the goblins decide to attack you on sight.",
         LocaleKey::VILLAGE_FORGE => "a small forge",
         LocaleKey::FORGE_EMPTY => [

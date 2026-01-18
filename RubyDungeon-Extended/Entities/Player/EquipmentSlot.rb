@@ -72,7 +72,6 @@ class EquipmentSlot
         if can_equip?(armor)
             precedent_armor = @equippedArmor
             if precedent_armor != NO_ARMOR_EQUIPPED
-                Narrator.ask_armor_replacement_confirmation(armor.get_name)
                 armor_comparison = ASCIIRow.new
                 current_armor_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(precedent_armor, ASCIIPicture::NO_INDEX, 0))
                 new_armor_frame = ASCIIPicture.new(ASCIIPicture.get_selling_card(armor, ASCIIPicture::NO_INDEX, 0))
@@ -82,7 +81,7 @@ class EquipmentSlot
                 armor_comparison.append(ASCIIPicture.new(['', '', '', '', '', '-\\', '-/']))
                 armor_comparison.append(new_armor_frame)
                 armor_comparison.show
-                if Narrator.ask_confirmation('')
+                if Narrator.ask_confirmation(format(Locale.get_localized(LocaleKey::ARMOR_CHANGE_CONFIRMATION), armor.get_name), player_name)
                     return equip(armor, player_name)
                 else
                     return armor

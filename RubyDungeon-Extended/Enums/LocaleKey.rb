@@ -2,6 +2,8 @@ module LocaleKey
     # General
     YES = :yes
     NO = :no
+    YES_INPUT = :yes_input
+    NO_INPUT = :no_input
     # Monsters
     BAT = :bat
     GOBLIN_F = :goblin_f
@@ -903,6 +905,7 @@ module LocaleKey
     ATTACH_ROPE = :attach_rope
     CLIMB_ROPE_DOWN = :climb_rope_down
     CLIMB_ROPE_UP = :climb_rope_up
+    PREPARE_JUMP = :prepare_jump
     ASK_JUMP = :ask_jump
     JUMP_HOLE = :jump_hole
     NEVERMIND_HOLE = :nevermind_hole

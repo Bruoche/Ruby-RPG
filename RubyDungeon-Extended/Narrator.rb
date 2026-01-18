@@ -822,10 +822,6 @@ class Narrator
         return user_input
     end
 
-    def self.ask_armor_replacement_confirmation(armor_name)
-        Narrator.write(format(Locale.get_localized(LocaleKey::ARMOR_CHANGE_CONFIRMATION), armor_name))
-    end
-
     def self.ask_character_options(player, name, special_interactions)
         Narrator.write(LocaleKey::NPC_QUESTION_INTRO)
         Narrator.write(format(Locale.get_localized(LocaleKey::NPC_OPTION_TALK), name))
@@ -838,21 +834,26 @@ class Narrator
         return Narrator.user_input_int(player.get_name)
     end
 
-    def self.ask_confirmation(question, player_name = NO_NAME_DISPLAYED)
+    def self.ask_confirmation(question_asked, player_name = NO_NAME_DISPLAYED)
+        question = Locale.get_localized(question_asked)
         if !question.kind_of?(Array)
             question = [question]
         end
+        yes = Locale.get_localized(LocaleKey::YES_INPUT).downcase
+        no = Locale.get_localized(LocaleKey::NO_INPUT).downcase
+        suffix = ' (' + yes + '/' + no + ')'
         for line in question
-            Narrator.write(line)
+            Narrator.write(line.to_s + suffix)
+            suffix = ''
         end
         case Narrator.user_input(player_name).downcase
-        when 'y'
+        when yes
             return true
-        when 'n'
+        when no
             return false
         else
             Narrator.unsupported_choice_error
-            return self.ask_confirmation(question)
+            return self.ask_confirmation(question_asked)
         end
     end
 
@@ -901,7 +902,7 @@ class Narrator
             name_prefix = ''
         end
         write_same_line("  #{name_prefix}>> ")
-        answer = safe_input(recursive_error).chomp
+        answer = safe_input(recursive_error)
         if new_screen
             TTY::Screen.height.times do
                 Narrator.add_space_of(1)
@@ -912,7 +913,7 @@ class Narrator
 
     def self.safe_input(recursive_error = false)
         begin
-            return gets
+            return gets.chomp
         rescue Exception => e
             ask_quit(e, recursive_error)
         end

@@ -5,6 +5,8 @@ class FR
         Locale::ID_EN => "Anglais",
         LocaleKey::YES => "Oui",
         LocaleKey::NO => "Non",
+        LocaleKey::YES_INPUT => 'o',
+        LocaleKey::NO_INPUT => 'n',
         # Monster
         LocaleKey::BAT => "chauve-souris",
         LocaleKey::GOBLIN_F => "gobeline",
@@ -565,7 +567,7 @@ class FR
         LocaleKey::ELDER_GOBLIN_ARMLESS => "Alors qu'elle semblait désarmée, ne pouvant plus utiliser ses bras pour se défendre, vous voyez la gobline commencer à marmonner des prières.",
         LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "Alors que le corps frèle et ensenglanté de la gobline s'écrase contre le sol, sa petite chaise tombant bruyamant avec elle, les autres goblins observent sous le choc. Après quelques instants de suspent, ils se tournent vers vous le regard empli de larmes et de rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "Alors que le deuxième aidant de la gobline atteint le sol, immobile, vous pouvez voir le museau de l'ancienne gobline se distordre de rage.",
-        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} sélectionnés) (y/n)",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} sélectionnés)",
         LocaleKey::ASK_NAME => "Quel est votre nom ?",
         LocaleKey::CURRENT_NAME => "Nom actuel : ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [
@@ -620,7 +622,7 @@ class FR
             "      1) Oui",
             "      2) Non"
         ],
-        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Êtes-vous sûr·e de vouloir remplacer votre armure actuelle par %s ? (y/n)",
+        LocaleKey::ARMOR_CHANGE_CONFIRMATION => "Êtes-vous sûr·e de vouloir remplacer votre armure actuelle par %s ?",
         LocaleKey::NPC_QUESTION_INTRO => [
             "Que souhaitez-vous faire ?",
             "    0) Retour"
@@ -628,7 +630,7 @@ class FR
         LocaleKey::NPC_OPTION_TALK => "    1) Parler à %s",
         LocaleKey::NPC_OPTION_ATTACK => "    %i) Attaquer %s",
         LocaleKey::NPC_UNAVAILABLE => "Trop occupée à combattre, %s n'est pas disponible.",
-        LocaleKey::NPC_ATTACK_CONFIRM => "Attaquer %s? (y/n)",
+        LocaleKey::NPC_ATTACK_CONFIRM => "Attaquer %s?",
         LocaleKey::ASK_INTERACTION => "Que souhaitez-vous faire ?",
         LocaleKey::UNSUPPORTED_CHOICE_ERROR => "Choix invalide, Veuillez simplement écrire le chiffre correspondant à une des options proposées.",
         LocaleKey::PAGE_UP_IMPOSSIBLE_ERROR => "Impossible de passer à la page suivante. Page maximale atteinte.",
@@ -658,11 +660,11 @@ class FR
         LocaleKey::CARD_INTELLIGENCE => "Intelligence : ",
         LocaleKey::CARD_PRICE => "Prix : ",
         LocaleKey::UNSAVED_RETURN_CONFIRM => [
-            "Êtes-vous sûr·e de vouloir revenir en arrière ? (y/n)",
+            "Êtes-vous sûr·e de vouloir revenir en arrière ?",
             "Les modifications effectuées ne seront pas sauvegardées."
         ],
         LocaleKey::CHARACTER_UNSAVED_RETURN_CONFIRM => [
-            "Êtes-vous sûr·e de vouloir revenir en arrière ? (y/n)",
+            "Êtes-vous sûr·e de vouloir revenir en arrière ?",
             "Les personnages sélectionnés ne seront pas sauvegardés"
         ],
         LocaleKey::ASK_MONSTER_AIMED_AT => "Quel ennemi souhaitez-vous attaquer ?",
@@ -705,7 +707,7 @@ class FR
         LocaleKey::ASK_ITEM_TO_SELL => "Quel objet souhaitez-vous vendre ?",
         LocaleKey::ASK_ITEM_TO_UPGRADE => "Quelle armure souhaitez-vous améliorer ? (%s ¤)",
         LocaleKey::ASK_ITEM_TO_SHOW => "Quel objet souhaitez-vous montrer au goblin ?",
-        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Êtes-vous sûr·e de vouloir donner %s à la garde gobline ? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_GIVING_GOBLIN => "Êtes-vous sûr·e de vouloir donner %s à la garde gobline ?",
         LocaleKey::GOBLIN_NOT_INTERESTED => "La garde gobline ne semble pas intéressée par ce que vous lui montrez.",
         LocaleKey::GOBLIN_ACCEPT_GIFT => [
             "La gobline observe avec attention l'objet que vous lui tendez, sa posture semblant se détendre légèrement. Elle fait signe aux goblins se tenant près de la porte de venir chercher votre offrande.",
@@ -714,7 +716,7 @@ class FR
         LocaleKey::LOOT_GOBLIN_GIFT => ["Vous voyez le cadeau que vous aviez offert au goblins au milieu de leurs corps gisants."],
         LocaleKey::BRIBE_UNNECESSARY => "Vous ayant déjà permit d'entrer, la garde gobline ne semble pas interessée par vos possessions.",
         LocaleKey::ASK_PLAYER_REMOVED => "Quel membre de l'équipe supprimer ?",
-        LocaleKey::CONFIRM_DELETE_CHARACTER => "Êtes-vous sûr de vouloir supprimer %s ?\nLe personnage n'a pas été sauvegardé et sera définitevement perdu. (y/n)",
+        LocaleKey::CONFIRM_DELETE_CHARACTER => "Êtes-vous sûr de vouloir supprimer %s ?\nLe personnage n'a pas été sauvegardé et sera définitevement perdu.",
         LocaleKey::PARRIED => " paré",
         LocaleKey::ASK_HEAL_TARGET => "Qui souhaitez-vous soigner ?",
         LocaleKey::ASK_STATUS => "De qui voulez-vous voir le statut ?",
@@ -772,10 +774,10 @@ class FR
         ],
         LocaleKey::SELL_OPTION => "Vendre",
         LocaleKey::UPGRADE_LABEL => "Améliorer",
-        LocaleKey::ASK_CONFIRMATION_SELLING => "Êtes-vous sûr·e de vouloir vendre %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
-        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Êtes-vous sûr·e de vouloir améliorer %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
+        LocaleKey::ASK_CONFIRMATION_SELLING => "Êtes-vous sûr·e de vouloir vendre %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ?",
+        LocaleKey::ASK_CONFIRMATION_UPGRADING => "Êtes-vous sûr·e de vouloir améliorer %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ?",
         LocaleKey::ASK_ITEM_BOUGHT => "Quel objet souhaitez-vous acheter ? (%s ¤)",
-        LocaleKey::ASK_CONFIRM_PURCHASE => "Êtes-vous sûr·e de vouloir acheter %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ? (y/n)",
+        LocaleKey::ASK_CONFIRM_PURCHASE => "Êtes-vous sûr·e de vouloir acheter %{#{LocaleKey::F_ITEM}} pour %{#{LocaleKey::F_VALUE}} pièces ?",
         LocaleKey::ARMORS_PLURAL => "des armures",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_NAME => "gants en cuir noir",
         LocaleKey::BLACK_LEATHER_GAUNTLETS_DESC => "de fins gants en une sorte de cuir noir souple extrêmement léger mais pourtant surprenamment durable",
@@ -1446,19 +1448,17 @@ class FR
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["En examinant le cadabre de l'araignée, vous parevenez à extraire le venin de ses crocs encore intact."],
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",
-        LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ? (y/n)",
+        LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ?",
         LocaleKey::STUCK_DOWN_HOLE => "Vous observez le trou duquel une douce lumière chute dans la grotte, mais ne voyez aucun moyen de remonter.",
         LocaleKey::ATTACH_ROPE => "Vous attachez la corde à un pillier proche du trou semblant assez solide.",
         LocaleKey::CLIMB_ROPE_DOWN => "Vous entamez votre descente lente le long du trou",
         LocaleKey::CLIMB_ROPE_UP => "Vous remontez tant bien que mal la longue corde jusqu'à la surface",
-        LocaleKey::ASK_JUMP => [
-            "Vous approchez le trou et observez ses tréfonds. Vous ne voyez rien d'autre que l'obscurité, n'ayant aucune idée de sa profondeur.",
-            "Sauter dans le gouffre ? (y/n)"
-        ],
+        LocaleKey::PREPARE_JUMP => "Vous approchez le trou et observez ses tréfonds. Vous ne voyez rien d'autre que l'obscurité, n'ayant aucune idée de sa profondeur.",
+        LocaleKey::ASK_JUMP => "Sauter dans le gouffre ?",
         LocaleKey::JUMP_HOLE => "%s s'élance dans le trou, s'apprétant à l'impact.",
         LocaleKey::NEVERMIND_HOLE => "Ne souhaitant pas vous blesser, vous évitez le trou.",
         LocaleKey::VILLAGE_ENTRANCE => "les portes du village",
-        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Souhaitez vous entrer discrètement dans le village ? (y/n) (%i%% chances de succès)",
+        LocaleKey::ASK_SNEAK_VILLAGE_ENTRANCE => "Souhaitez vous entrer discrètement dans le village ? (%i%% chances de succès)",
         LocaleKey::GOBLIN_ATTACK => "Vous voyant prendre d'attaque leur village, les goblins se jettent sur vous.",
         LocaleKey::VILLAGE_FORGE => "une petite forge",
         LocaleKey::FORGE_EMPTY => [

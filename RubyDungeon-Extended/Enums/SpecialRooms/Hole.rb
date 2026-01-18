@@ -35,33 +35,24 @@ class Hole
         if player.get_room.get_biome == TOP_BIOME
             if @roped
                 move(player, @bottom)
-            else
-                if player.have?(Rope.new)
-                    loop do
-                        Narrator.write(LocaleKey::ASK_USE_ROPE_HOLE)
-                        case Narrator.user_input(player.get_name).downcase
-                        when 'y'
-                            roped_by(player)
-                            move(player, @bottom)
-                            return
-                        when 'n'
-                            ask_jump(player)
-                            return
-                        else
-                            Narrator.unsupported_choice_error
-                        end
-                    end
-                else
-                    ask_jump(player)
+                return false
+            end
+            if player.have?(Rope.new)
+                Narrator.write(LocaleKey::PREPARE_JUMP)
+                if Narrator.ask_confirmation(LocaleKey::ASK_USE_ROPE_HOLE, player.get_name)
+                    roped_by(player)
+                    move(player, @bottom)
+                    return false
                 end
             end
+            ask_jump(player)
+            return false
+        end
+        if @roped
+            move(player, @top)
         else
-            if @roped
-                move(player, @top)
-            else
-                Narrator.write(LocaleKey::STUCK_DOWN_HOLE)
-                Narrator.pause_text
-            end
+            Narrator.write(LocaleKey::STUCK_DOWN_HOLE)
+            Narrator.pause_text
         end
         return false #otherwise the player gets moved inside the hole biome
     end
@@ -98,23 +89,15 @@ class Hole
     end
 
     def ask_jump(player)
-        loop do
-            Narrator.write(LocaleKey::ASK_JUMP)
-            case Narrator.user_input(player.get_name).downcase
-            when 'y'
-                Narrator.jump_hole(player)
-                SoundManager.play("swoosh")
-                Game.wait
-                player.set_room(@bottom)
-                player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
-                @skip_player = true
-                return
-            when 'n'
-                Narrator.write(LocaleKey::NEVERMIND_HOLE)
-                return
-            else
-                Narrator.unsupported_choice_error
-            end
+        if Narrator.ask_confirmation(LocaleKey::ASK_JUMP, player.get_name)
+            Narrator.jump_hole(player)
+            SoundManager.play("swoosh")
+            Game.wait
+            player.set_room(@bottom)
+            player.hurt(Attack.new(100, Attack::FALL_TYPE, nil))
+            @skip_player = true
+        else
+            Narrator.write(LocaleKey::NEVERMIND_HOLE)
         end
     end
 end
