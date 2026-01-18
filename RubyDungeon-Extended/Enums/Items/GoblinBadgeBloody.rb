@@ -1,6 +1,7 @@
 class GoblinBadgeBloody < Item
     NAME = LocaleKey::GOBLIN_BADGE_NAME_BLOODY
     PLURAL_NAME = LocaleKey::GOBLIN_BADGE_PLURAL_BLOODY
+    PICTURE = 'goblin_pendant'
     SOUND = 'key'
     USABLE_ON_OTHERS = false
     DROP_CHANCE_SCALABLE = false
