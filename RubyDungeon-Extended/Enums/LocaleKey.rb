@@ -1250,6 +1250,11 @@ module LocaleKey
     DIAL_GOBLIN_GUARD_TXT_TRADE = :dial_goblin_guard_txt_trade
     DIAL_GOBLIN_GUARD_KEY_LEARN = :dial_goblin_guard_key_learn
     DIAL_GOBLIN_GUARD_TXT_LEARN = :dial_goblin_guard_txt_learn
+    DIAL_GOBLIN_GUARD_KEY_REPEATED = :dial_goblin_guard_key_repeated
+    DIAL_GOBLIN_GUARD_TXT_REPEATED = :dial_goblin_guard_txt_repeated
+    DIAL_GOBLIN_GUARD_KEY_KNOW_GOBLIN = :dial_goblin_guard_key_know_goblin
+    DIAL_GOBLIN_GUARD_TXT_KNOW_GOBLIN = :dial_goblin_guard_txt_know_goblin
+    DIAL_GOBLIN_GUARD_INTRO_KNOW_GOBLIN = :dial_goblin_guard_intro_know_goblin
     DIAL_GOBLIN_GUARD_KEY_ELDER = :dial_goblin_guard_key_elder
     DIAL_GOBLIN_GUARD_TXT_ELDER = :dial_goblin_guard_txt_elder
     DIAL_GOBLIN_GUARD_KEY_ASK_ENTER = :dial_goblin_guard_key_ask_enter

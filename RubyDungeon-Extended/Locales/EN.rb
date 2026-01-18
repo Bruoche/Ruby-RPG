@@ -1951,7 +1951,7 @@ class EN
         LocaleKey::DIAL_ALCHEMIST_INTRO_HEALTH_PELLET => "Oh yeah, I'm really proud of this one.\n",
         LocaleKey::DIAL_BLACKSMITH_REPEAT => "",
         LocaleKey::DIAL_GOBLIN_BLACKSMITH_REPEAT => "",
-        LocaleKey::DIAL_GOBLIN_GUARD_REPEAT => "Dëkabogu sö Kö Rakröt Bëdès ",
+        LocaleKey::DIAL_GOBLIN_GUARD_REPEAT => "Dëkabogu sö Kö Rakröt Bëdès, ",
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME => ["pöko|poko", "#{Locale::PLAYER_NAME}", "köpodugus|kopodugus"],
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ASK_NAME_NICKNAME => ["pöko|poko", "bëdèsoe|bëdesoe|bedèsoe|bedesoe|tarkorbakö|tarkorbako", "köpodugus|kopodugus"],
         LocaleKey::DIAL_GOBLIN_GUARD_TXT_ASK_NAME_HEAR_OUT => ["Kosäpor sö Kö Rakröt Bëdès."],
@@ -1976,11 +1976,18 @@ class EN
             "Erkosodottöter dëkaos sö köpoduk kö tarkorbakö korkö sö erkö sö erkö… Kobukör erköpo sö dök köpoduk.",
             "Koptöter kobakëtodutregobu tö köpoduk todök sö dök köpoduk."
         ],
-        LocaleKey::DIAL_GOBLIN_GUARD_KEY_LEARN => ["tosedorerksäpor|tosedorerksapor|koptosedorerksäpor|koptosedorerksapor|kosäpor|kosapor|kopkosäpor|kopkosapor", "köpoduk|kopoduk|pöko|poko"],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_LEARN => ["kopogur|köpogur", "tosedorerksäpor|tosedorerksapor|koptosedorerksäpor|koptosedorerksapor|kosäpor|kosapor|kopkosäpor|kopkosapor", "köpoduk|kopoduk|pöko|poko"],
         LocaleKey::DIAL_GOBLIN_GUARD_TXT_LEARN => [
             "Sö Kö Rakröt Bëdès sö körragosaborkus tötresèop tödoer sö tarkorbakö kö kosäpor köpoduk. Erkö sö Kö Pöko Tarkö sö dasdöter kosäpor korkö erkokosaborkös erkö sö Kö Pöko Tarkö sö dasdöter kobakëtogospor sö köpoduk.",
             "Kobukör korkëtogubagedo sö #{Locale::PLAYER_NAME} sö dök köpoduk. Koptöter kobakëtodutregobu tö köpoduk todök sö dök köpoduk."
         ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_REPEATED => ["sod|söd", "tosedorerksäpor|tosedorerksapor|koptosedorerksäpor|koptosedorerksapor|kosäpor|kosapor|kopkosäpor|kopkosapor", "köpoduk|kopoduk|pöko|poko"],
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_REPEATED => [
+            "Dëkabogu sö dëkaos pöko Kö Rakröt Bëdès söd. Körkubagedo söd."
+        ],
+        LocaleKey::DIAL_GOBLIN_GUARD_KEY_KNOW_GOBLIN => ["poko|pöko", "tosedorerksäpor|tosedorerksapor|koptosedorerksäpor|koptosedorerksapor|kosäpor|kosapor|kopkosäpor|kopkosapor", "köpoduk|kopoduk|pöko|poko"],
+        LocaleKey::DIAL_GOBLIN_GUARD_INTRO_KNOW_GOBLIN => "Kosäpor sö pöko köpoduk? ",
+        LocaleKey::DIAL_GOBLIN_GUARD_TXT_KNOW_GOBLIN => ["Kobukörkada. Dëkabogu sö dëkaos tödoer köpogur."],
         LocaleKey::DIAL_GOBLIN_GUARD_KEY_ELDER => ["pöko|poko|koppöko|koppoko|kopöko|kopoko|pör|por|koppör|koppor|kopör|kopor|kör|kor|kopkör|kopkor", "köpodubugurku|kopodubugurku"],
         LocaleKey::DIAL_GOBLIN_GUARD_TXT_ELDER => [
             "Pöko sö köpodubugurku?...",

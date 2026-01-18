@@ -170,6 +170,11 @@ class GoblinGuard < CharacterData
             AUTH_ENTER
         ),
         Dialog.new(
+            DialogID::WHAT,
+            LocaleKey::DIAL_GOBLIN_GUARD_KEY_REPEATED,
+            LocaleKey::DIAL_GOBLIN_GUARD_TXT_REPEATED
+        ),
+        Dialog.new(
             DialogID::LEARN,
             LocaleKey::DIAL_GOBLIN_GUARD_KEY_LEARN,
             LocaleKey::DIAL_GOBLIN_GUARD_TXT_LEARN,
@@ -177,6 +182,15 @@ class GoblinGuard < CharacterData
             Dialog::NO_PRECEDENT_DIAL_REQ,
             Dialog::NO_REQUIREMENTS,
             AUTH_ENTER
+        ),
+        Dialog.new(
+            DialogID::KNOW_ENGLISH,
+            LocaleKey::DIAL_GOBLIN_GUARD_KEY_KNOW_GOBLIN,
+            LocaleKey::DIAL_GOBLIN_GUARD_TXT_KNOW_GOBLIN,
+            LocaleKey::DIAL_GOBLIN_GUARD_INTRO_KNOW_GOBLIN,
+            Dialog::NO_PRECEDENT_DIAL_REQ,
+            Dialog::NO_REQUIREMENTS,
+            HEAR_OUT
         ),
         Dialog.new(
             DialogID::ELDER,
