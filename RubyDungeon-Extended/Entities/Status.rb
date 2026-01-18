@@ -22,6 +22,9 @@ class Status < Savable
                 unless child.const_defined?(:DESCRIPTION)
                     child.const_set(:DESCRIPTION, "")
                 end
+                unless child.const_defined?(:DESCRIPTION_SELF)
+                    child.const_set(:DESCRIPTION_SELF, child::DESCRIPTION)
+                end
                 unless child.const_defined?(:ATTACK_EFFECTS)
                     child.const_set(:ATTACK_EFFECTS, [])
                 end
@@ -37,13 +40,18 @@ class Status < Savable
         return @duration
     end
 
-    def get_description
-        if self.class::DESCRIPTION.length > 0
+    def get_description(of_self = true)
+        if of_self
+            description = self.class::DESCRIPTION_SELF
+        else
+            description = self.class::DESCRIPTION
+        end
+        if description.length > 0
             ending = " "
         else
             ending = ""
         end
-        return Locale.get_localized(self.class::DESCRIPTION) + ending
+        return Locale.get_localized(description) + ending
     end
 
     def get_effects

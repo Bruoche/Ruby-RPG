@@ -405,12 +405,12 @@ class Player
         return @inventory.choose_armor_to_upgrade(self, upgrade_tax)
     end
 
-    def print_status
-        Narrator.print_status(self)
+    def print_status(for_self = true)
+        Narrator.print_status(self, for_self)
     end
 
-    def get_statuses_descriptions
-        return @status_handler.get_descriptions
+    def get_statuses_descriptions(for_self = true)
+        return @status_handler.get_descriptions(for_self)
     end
 
     def add_status(status)

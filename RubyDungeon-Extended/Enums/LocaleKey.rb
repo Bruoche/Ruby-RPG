@@ -355,11 +355,15 @@ module LocaleKey
     TELEPORTER_FAIL = :teleporter_fail
     TELEPORTER_START = :teleporter_start
     POISON_DESCRIPTION = :poison_description
+    POISON_DESCRIPTION_SELF = :poison_description_self
     POISONNED = :poisonned
     POISON_AFFECT = :poison_affect
     POISON_ATTACK_DESCRIPTION = :poison_attack_description
+    POISON_ATTACK_DESCRIPTION_SELF = :poison_attack_description_self
     HEALING_DESCRIPTION = :healing_description
+    HEALING_DESCRIPTION_SELF = :healing_description_self
     RAGE_DESCRIPTION = :rage_description
+    RAGE_DESCRIPTION_SELF = :rage_description_self
     RAGING = :raging
     SLIME_DIVIDE = :slime_divide
     KNIGHT_SLASH = :knight_slash
@@ -437,7 +441,9 @@ module LocaleKey
     ASK_MONSTER_AIMED_AT = :ask_monster_aimed_at
     ASK_MEMBER_AIMED_AT = :ask_member_aimed_at
     STATUS_INTRO = :status_intro
+    STATUS_INTRO_SELF = :status_intro_self
     STATUS_STATS = :status_stats
+    STATUS_STATS_SELF = :status_stats_self
     WEIGHT_MAX = :weight_max
     WEIGHT_STRENGTH_REDUCED = :weight_strength_reduced
     WEIGHT_AGI_MAX = :weight_agi_max
@@ -448,6 +454,7 @@ module LocaleKey
     WEIGHT_NONE = :weight_none
     NO_ARMOR = :no_armor
     MONSTER_DESCRIPTION = :monster_description
+    BODYPART_DESCRIPTION = :bodypart_description
     HEALTH_DESCRIPTOR = :health_descriptor
     DAMAGE_DESCRIPTOR = :damage_descriptor
     INTELLIGENCE_DESCRIPTOR = :intelligence_descriptor
@@ -479,6 +486,7 @@ module LocaleKey
     BRIBE_UNNECESSARY = :bribe_unnecessary
     PARRIED = :parried
     ASK_HEAL_TARGET = :ask_heal_target
+    ASK_STATUS = :ask_status
     ASK_DESTINATION = :ask_destination
     ASK_ROOM_TO_MARK = :ask_room_to_mark
     ASK_TEXT_WRITTEN = :ask_text_written

@@ -2,6 +2,7 @@ class Poison < Status
     SAVED = false
     ICON = '☠︎︎ '
     DESCRIPTION = LocaleKey::POISON_DESCRIPTION
+    DESCRIPTION_SELF = LocaleKey::POISON_DESCRIPTION_SELF
 
     def initialize(duration, amount, source)
         super

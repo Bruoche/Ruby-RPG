@@ -37,7 +37,7 @@ class Bodypart
     end
 
     def get_description
-        return @actor.get_description_the
+        return @actor.get_description_the(LocaleKey::BODYPART_DESCRIPTION)
     end
 
     def get_life

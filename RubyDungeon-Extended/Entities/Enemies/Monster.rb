@@ -17,12 +17,12 @@ class Monster
         @type = type
     end
 
-    def get_description
-        return description(@name.get_gendered_a)
+    def get_description(format = LocaleKey::MONSTER_DESCRIPTION)
+        return description(@name.get_gendered_a, format)
     end
 
-    def get_description_the
-        return description(@name.get_gendered_the)
+    def get_description_the(format = LocaleKey::MONSTER_DESCRIPTION)
+        return description(@name.get_gendered_the, format)
     end
 
     def get_name
@@ -91,6 +91,18 @@ class Monster
 
     def get_type
         return @type
+    end
+
+    def print_status(for_self = false)
+        Narrator.write(get_picture.get_ascii)
+        Narrator.add_space_of 1
+        Narrator.write(get_description.capitalize)
+        statuses_description = @status_handler.get_descriptions(for_self)
+        if statuses_description.length > 0
+            Narrator.add_space_of(1)
+            Narrator.write(statuses_description)
+        end
+        Narrator.pause_text
     end
 
     def add_special_move(special_move)
@@ -173,7 +185,7 @@ class Monster
 
     private
 
-    def description(name)
+    def description(name, format = LocaleKey::MONSTER_DESCRIPTION)
         stat_strings = [format(Locale.get_localized(LocaleKey::HEALTH_DESCRIPTOR), get_current_life.to_s)]
         if get_strength > 0
             stat_strings.append(format(Locale.get_localized(LocaleKey::DAMAGE_DESCRIPTOR), get_strength.to_s))
@@ -181,7 +193,7 @@ class Monster
         if get_intelligence > 0
             stat_strings.append(format(Locale.get_localized(LocaleKey::INTELLIGENCE_DESCRIPTOR), get_intelligence.to_s))
         end
-        return format(Locale.get_localized(LocaleKey::MONSTER_DESCRIPTION), name) + TextFormatter.enumerate(stat_strings)
+        return format(Locale.get_localized(format), name) + TextFormatter.enumerate(stat_strings)
     end
 
     def rage_suffix

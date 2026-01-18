@@ -141,6 +141,25 @@ class Boss < Monster
         return @type
     end
 
+    def print_status(for_self = false)
+        Narrator.write(get_picture.get_ascii)
+        Narrator.add_space_of 1
+        Narrator.write(get_description.capitalize)
+        detailed_description = ""
+        for bodypart in @bodyparts
+            detailed_description += bodypart.get_description.capitalize + ". "
+            statuses_description = bodypart.status_handler.get_descriptions(false)
+            if statuses_description.length > 0
+                detailed_description += statuses_description
+            end
+        end
+        if detailed_description.length > 0
+            Narrator.add_space_of 1
+            Narrator.write(detailed_description)
+        end
+        Narrator.pause_text
+    end
+
     def died?
         for bodypart in @bodyparts
             if (!bodypart.died? && bodypart.is_weakpoint?)

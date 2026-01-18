@@ -39,10 +39,10 @@ class StatusHandler
         return icons
     end
 
-    def get_descriptions
+    def get_descriptions(for_self = true)
         descriptions = ""
         for status in @statuses
-            descriptions += format(status.get_description)
+            descriptions += format(status.get_description(for_self))
         end
         return descriptions
     end

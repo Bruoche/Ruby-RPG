@@ -175,6 +175,8 @@ class PlayerController
                 monster_cards_pages
             )
             case input
+            when '0'
+                SettingsMenu.options_menu
             when '1'
                 return @player.get_room.get_monsters.hurt_single(@player.strength_attack)
             when '2'
@@ -192,6 +194,8 @@ class PlayerController
                     Narrator.fail_escape(@player.get_room.get_monsters.plural?)
                     return Player::ACTED
                 end
+            when '6'
+                fighting_status
             else
                 if input.capitalize == 'A'
                     monster_cards_pages.page_down
@@ -201,6 +205,30 @@ class PlayerController
                     Narrator.unsupported_choice_error
                 end
             end
+        end
+    end
+
+    def fighting_status
+        loop do
+            options = World.get_instance.get_players_in(@player.get_room).concat(@player.get_room.get_monsters.get_all)
+            status_index = Narrator.ask(
+                LocaleKey::ASK_STATUS,
+                options, -> (entity) {
+                    if entity == Narrator::RETURN_BUTTON
+                        return Locale.get_localized(LocaleKey::GO_BACK)
+                    end
+                    if entity.kind_of? Player
+                        return @player.to_string(entity)
+                    end
+                    return entity.get_description
+                },
+                @player.get_name
+            )
+            if status_index == Narrator::RETURN_BUTTON
+                return
+            end
+            status_target = options[status_index]
+            status_target.print_status(status_target == @player)
         end
     end
 

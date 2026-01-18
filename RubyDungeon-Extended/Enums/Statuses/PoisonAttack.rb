@@ -2,6 +2,7 @@ class PoisonAttack < Status
     FORCE_SAVE = true
     ICON = '🌢 '
     DESCRIPTION = LocaleKey::POISON_ATTACK_DESCRIPTION
+    DESCRIPTION_SELF = LocaleKey::POISON_ATTACK_DESCRIPTION_SELF
     ATTACK_EFFECTS = [
         AttackEffect.new(
             -> (target, source, inflicted_damage) {

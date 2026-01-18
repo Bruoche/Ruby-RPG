@@ -384,21 +384,30 @@ class Narrator
         end
     end
 
-    def self.print_status(player)
+    def self.print_status(player, for_self = true)
+        if for_self
+            intro_format = LocaleKey::STATUS_INTRO_SELF
+            stats_format = LocaleKey::STATUS_STATS_SELF
+        else
+            intro_format = LocaleKey::STATUS_INTRO
+            stats_format = LocaleKey::STATUS_STATS
+        end
         Narrator.write(player.get_icon.get_ascii)
         Narrator.add_space_of(1)
-        Narrator.write(format(Locale.get_localized(LocaleKey::STATUS_INTRO), {
+        Narrator.write(format(Locale.get_localized(intro_format), {
             LocaleKey::F_SUBJECT => player.get_name,
             LocaleKey::F_LEVEL => player.get_level.to_s
         }))
-        Narrator.write(format(Locale.get_localized(LocaleKey::STATUS_STATS), {
+        Narrator.write(format(Locale.get_localized(stats_format), {
             LocaleKey::F_LIFE => player.health_to_string,
             LocaleKey::F_STRENGTH => player.get_raw_strength.to_s,
             LocaleKey::F_INTELLIGENCE => player.get_intelligence.to_s,
             LocaleKey::F_AGILITY => player.get_raw_agility.to_s
         }))
-        Narrator.print_weight_status(player)
-        statuses_description = player.get_statuses_descriptions
+        if for_self
+            Narrator.print_weight_status(player)
+        end
+        statuses_description = player.get_statuses_descriptions(for_self)
         if statuses_description.length > 0
             Narrator.add_space_of(1)
             Narrator.write(statuses_description)
@@ -797,6 +806,7 @@ class Narrator
     end
 
     def self.ask_fight_action(player, monsters_description, escape_chances, monster_cards_pages)
+        Narrator.write(LocaleKey::OPEN_SETTINGS_OPTION)
         monster_cards_pages.show(25)
         Narrator.add_space_of(1)
         show_player_battle_cards(player)

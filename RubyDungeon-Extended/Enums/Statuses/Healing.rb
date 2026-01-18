@@ -2,6 +2,7 @@ class Healing < Status
     SAVED = false
     ICON = '♥'
     DESCRIPTION = LocaleKey::HEALING_DESCRIPTION
+    DESCRIPTION_SELF = LocaleKey::HEALING_DESCRIPTION_SELF
 
     def initialize(duration, amount)
         super
