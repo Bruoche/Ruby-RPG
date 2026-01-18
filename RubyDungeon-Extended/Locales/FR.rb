@@ -1193,7 +1193,7 @@ class FR
         LocaleKey::GOBLIN_BLACKSMITH_NAME => "goblin blacksmith",
         LocaleKey::GOBLIN_BLACKSMITH_INTRO_DIALOG => "Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö.",
         LocaleKey::GOBLIN_BLACKSMITH_IDLE_DIALOGS => [
-            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
+            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö abadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
             "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
             "Tödoer kö dëkaos ?",
             "Kobukör sodottöter sö köpoduk.",
@@ -1201,7 +1201,7 @@ class FR
         ],
         LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_STARTER => ["Pöko sö Kö Köpoega Degäerk sö #{Locale::PLAYER_NAME}. Koptöter sö Kö Köpoega Degäerk kö dëkaos köpoduk köpogur kö degaerköpo tarkorbakö."],
         LocaleKey::GOBLIN_BLACKSMITH_CONVERSATION_KEEPER => [
-            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö arbadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
+            "Tödoer sö köpoduk kö aüro. Tödoer sö köpoduk kö degaerköpo.\nToderköpo sö köpoduk kö abadurä. Tödoer sö köpoduk kö sëopedar ktötar toderköporaegaobu.\nTöter sö köpoduk kö dëkaos köpogur kö degaerköpo.",
             "Todkobukör kör sö  köpoduk sö #{Locale::PLAYER_NAME}.\nKobukör sodottöter sö köpoduk.",
             "Tödoer kö dëkaos ?",
             "Kobukör sodottöter sö köpoduk.",
