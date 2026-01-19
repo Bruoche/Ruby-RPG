@@ -52,6 +52,13 @@ class BundleStack
     end
 
     def get_quantity(item)
+        if item.is_a? Class
+            if item == @class
+                return get_total_amount
+            else
+                return 0
+            end
+        end
         for bundle in @bundles do
             if bundle.contains?(item)
                 return bundle.get_quantity

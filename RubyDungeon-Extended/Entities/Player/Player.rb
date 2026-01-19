@@ -8,12 +8,14 @@ class Player
         @picture = PlayerIcon.new
         @stats = StatManager.new
         @time_played = TimeManager.new
+        @shortcuts = ShortcutManager.new
         @inventory.load(            player_data[:inventory])
         @status_handler.load(       player_data[:statuses])
         @picture.load(              player_data[:picture])
         @stats.load(                player_data)
         @name =                     player_data[:name]
         @time_played.parse(         player_data[:time_played])
+        @shortcuts.load(            player_data[:shortcuts])
         @savefile = savefile
         @controller = PlayerController.new(self)
     end
@@ -118,6 +120,10 @@ class Player
         return @status_handler.get_icons
     end
 
+    def get_shortcuts_string
+        return @shortcuts.get_shortcut_list_string
+    end
+
     def status_handler
         return @status_handler
     end
@@ -141,6 +147,10 @@ class Player
 
     def have?(item, quantity_min = 1)
         return @inventory.have?(item, quantity_min)
+    end
+
+    def has_any_item?
+        return @inventory.has_any_item?
     end
 
     def get_quantity_of(item)
@@ -381,6 +391,10 @@ class Player
         return @inventory.inventory(self)
     end
 
+    def use_stack_of(item_class)
+        return @inventory.use_stack_of(self, item_class)
+    end
+
     def remove_item(item, quantity = 1)
         return @inventory.remove(item, quantity)
     end
@@ -393,8 +407,8 @@ class Player
         return @stats.get_equipment.manage(@inventory, @name)
     end
 
-    def choose_item(question)
-        return @inventory.choose_item(@name, question)
+    def choose_item(question, just_class = false)
+        return @inventory.choose_item(@name, question, just_class)
     end
 
     def choose_item_to_sell(retail_coeff, specific_question = LocaleKey::ASK_ITEM_TO_SELL)
@@ -427,6 +441,10 @@ class Player
 
     def reduce_duration_of(status_class, amount = 1)
         @status_handler.reduce_of(status_class, amount)
+    end
+
+    def try_shortcut(input)
+        @shortcuts.try(input, self)
     end
 
     def to_string(player)

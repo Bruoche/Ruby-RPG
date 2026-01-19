@@ -305,7 +305,7 @@ class Narrator
 
     def self.describe_room(player, describe_biome, picture)
         Narrator.add_space_of(1)
-        Narrator.write(LocaleKey::OPEN_SETTINGS_OPTION)
+        options_header(player)
         Narrator.add_space_of(1)
         ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)])
         Narrator.add_space_of(1)
@@ -806,7 +806,7 @@ class Narrator
     end
 
     def self.ask_fight_action(player, monsters_description, escape_chances, monster_cards_pages)
-        Narrator.write(LocaleKey::OPEN_SETTINGS_OPTION)
+        options_header(player)
         monster_cards_pages.show(25)
         Narrator.add_space_of(1)
         show_player_battle_cards(player)
@@ -815,6 +815,10 @@ class Narrator
         Narrator.write(LocaleKey::FIGHT_ACTIONS)
         Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
         return input = user_input(player.get_name)
+    end
+
+    def self.options_header(player)
+        Narrator.write(Locale.get_localized(LocaleKey::OPEN_SETTINGS_OPTION) + ' | ' + Locale.get_localized(player.get_shortcuts_string))
     end
 
     def self.ask_continue

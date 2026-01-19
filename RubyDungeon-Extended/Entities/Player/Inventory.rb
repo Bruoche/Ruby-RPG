@@ -13,6 +13,10 @@ class Inventory
         return false
     end
 
+    def has_any_item?
+        return @bundles.length > 0
+    end
+
     def count(item)
         for bundle in @bundles
             if bundle.contains?(item)
@@ -83,24 +87,28 @@ class Inventory
             bundle_index = Narrator.ask(LocaleKey::ASK_ITEM_TO_USE, @bundles, -> (bundle){to_string(bundle)}, player.get_name)
             if bundle_index != Narrator::RETURN_BUTTON
                 bundle = @bundles[bundle_index]
-                potential_allies = World.get_instance.get_players_in(player.get_room)
-                allies = []
-                for ally in potential_allies
-                    if (ally != player) && (ally.fighting? || !player.fighting?)
-                        allies.append(ally)
-                    end
-                end
-                if allies.empty?
-                    return ask_use(player, bundle, allies)
-                else
-                    return ask_usage(player, bundle, allies)
-                end
+                return try_use(player, bundle)
             else
                 return !Player::ACTED
             end
         else
             Narrator.no_items_to_use
             return !Player::ACTED
+        end
+    end
+
+    def try_use(player, bundle)
+        potential_allies = World.get_instance.get_players_in(player.get_room)
+        allies = []
+        for ally in potential_allies
+            if (ally != player) && (ally.fighting? || !player.fighting?)
+                allies.append(ally)
+            end
+        end
+        if allies.empty?
+            return ask_use(player, bundle, allies)
+        else
+            return ask_usage(player, bundle, allies)
         end
     end
 
@@ -122,6 +130,15 @@ class Inventory
             end
         end
         return []
+    end
+
+    def use_stack_of(player, item_type)
+        for bundle in @bundles
+            if bundle.contains_class? item_type
+                return try_use(player, bundle)
+            end
+        end
+        return !Player::ACTED
     end
 
     def ask_usage(player, bundle, allies)
@@ -183,12 +200,15 @@ class Inventory
         return used
     end
 
-    def choose_item(player_name, question)
+    def choose_item(player_name, question, just_class = false)
         bundle_index = Narrator.ask(question, @bundles, -> (bundle){to_string(bundle)}, player_name)
         if bundle_index == Narrator::RETURN_BUTTON
             return nil
         end
         bundle_stack = @bundles[bundle_index]
+        if just_class
+            return bundle_stack.item_class
+        end
         bundle = bundle_stack.choose_bundle(player_name)
         if bundle == nil
             return nil

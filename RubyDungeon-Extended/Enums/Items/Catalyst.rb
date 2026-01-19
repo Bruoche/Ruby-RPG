@@ -1,6 +1,6 @@
 class Catalyst < Item
     NAME = LocaleKey::CATALYST_NAME
-    NAME_PLURAL = LocaleKey::CATALYST_PLURAL
+    PLURAL_NAME = LocaleKey::CATALYST_PLURAL
     SOUND = 'key'
     PICTURE = 'catalyst'
     USABLE_ON_OTHERS = false

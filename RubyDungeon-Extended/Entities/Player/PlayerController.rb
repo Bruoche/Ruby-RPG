@@ -66,7 +66,8 @@ class PlayerController
         npcs_present = @player.get_room.got_npcs?
         interactables = @player.get_room.get_interactables
         Narrator.player_options(@player.get_room.get_the_denomination, npcs_present, monsters_present, interactables)
-        case Narrator.user_input(@player.get_name)
+        input = Narrator.user_input(@player.get_name)
+        case input
         when '0'
             SettingsMenu.options_menu
             return ask_action
@@ -88,7 +89,9 @@ class PlayerController
             @player.print_status
             return ask_action
         else
-            Narrator.unsupported_choice_error
+            if @player.try_shortcut(input)
+                return Player::ACTED
+            end
             return ask_action
         end
     end
@@ -139,7 +142,8 @@ class PlayerController
 
     def propose_combat
         @player.get_room.describe(@player)
-        case Narrator.ask_if_fight(@player.get_escape_chances(@player.get_room.get_monsters.get_current_power), @player.get_name)
+        input = Narrator.ask_if_fight(@player.get_escape_chances(@player.get_room.get_monsters.get_current_power), @player.get_name)
+        case input
         when '0'
             SettingsMenu.options_menu
             return propose_combat
@@ -160,7 +164,9 @@ class PlayerController
             @player.print_status
             return propose_combat
         else
-            Narrator.unsupported_choice_error
+            if @player.try_shortcut(input)
+                return Player::ACTED
+            end
             return propose_combat
         end
     end
@@ -197,12 +203,14 @@ class PlayerController
             when '6'
                 fighting_status
             else
-                if input.capitalize == 'A'
+                if input.capitalize == ShortcutManager::PAGE_DOWN_KEY
                     monster_cards_pages.page_down
-                elsif input.capitalize == 'Z'
+                elsif input.capitalize == ShortcutManager::PAGE_UP_KEY
                     monster_cards_pages.page_up
                 else
-                    Narrator.unsupported_choice_error
+                    if @player.try_shortcut(input)
+                        return Player::ACTED
+                    end
                 end
             end
         end
