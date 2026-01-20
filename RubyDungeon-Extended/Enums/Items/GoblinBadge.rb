@@ -26,7 +26,7 @@ class GoblinBadge < Item
     end
 
     def use(target, user)
-        used = act_on_peacefull_goblins(target, user, LocaleKey::SHOW_GOBLIN_BADGE, -> (goblin) {
+        used = GoblinBadge.act_on_peacefull_goblins(target, user, LocaleKey::SHOW_GOBLIN_BADGE, -> (goblin) {
             appease(goblin)
         })
         if !used
