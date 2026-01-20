@@ -551,7 +551,7 @@ class EN
         LocaleKey::RAGE_DESCRIPTION_SELF => "You are filled with rage.",
         LocaleKey::RAGE_DESCRIPTION => "Is filled with rage, striking wildly with unforseen strength.",
         LocaleKey::RAGING => "%s is filled with rage.",
-        LocaleKey::SLIME_DIVIDE => "Despite being blown into a green puddle, the wet remains %s forment deux slimes.",
+        LocaleKey::SLIME_DIVIDE => "Despite being blown into a green puddle, the wet remains %s reforms into two slimes.",
         LocaleKey::KNIGHT_SLASH => "The knight delivers a powerful strike with his sword, intending to slash his enemy.",
         LocaleKey::KNIGHT_LIMB_LOSS => "%s break under the blows.",
         LocaleKey::KNIGHT_CHANGE_WEAPON_SIDE => "%s switch his weapon to his left hand.",
