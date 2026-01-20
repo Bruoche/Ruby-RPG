@@ -495,6 +495,7 @@ module LocaleKey
     NO_ITEM_TO_USE = :no_item_to_use
     SHORTCUT_ALREADY_USED = :shortcut_already_used
     KEY_UNAVAILABLE = :key_unavailable
+    SHORTCUTS_UNAVAILABLE = :shortcuts_unavailable
     ASK_CONFIRMATION_GIVING_GOBLIN = :ask_confirmation_giving_goblin
     GOBLIN_NOT_INTERESTED = :goblin_not_interested
     GOBLIN_ACCEPT_GIFT = :goblin_accept_gift

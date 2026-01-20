@@ -42,7 +42,7 @@ class ShortcutManager
         return list
     end
 
-    def try(shortcut, player)
+    def try(shortcut, player, accessible = true)
         formatted_shortcut = formated(shortcut)
         if formatted_shortcut == SET_INPUT_SHORTCUT
             manage_shortcuts(player)
@@ -51,6 +51,11 @@ class ShortcutManager
         item_class = @shortcuts[formatted_shortcut]
         if item_class == nil
             Narrator.unsupported_choice_error
+            return !Player::ACTED
+        end
+        if !accessible
+            Narrator.write(LocaleKey::SHORTCUTS_UNAVAILABLE)
+            SoundManager.play('spell_fart')
             return !Player::ACTED
         end
         if !player.have?(item_class)

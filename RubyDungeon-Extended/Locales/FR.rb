@@ -736,6 +736,7 @@ class FR
         LocaleKey::NO_ITEM_TO_USE => "Vous n'avez pas %s à utiliser.",
         LocaleKey::SHORTCUT_ALREADY_USED => "Le raccourci est déjà utilisé.",
         LocaleKey::KEY_UNAVAILABLE => "Ce caractère est déjà réservé pour d'autres actions.",
+        LocaleKey::SHORTCUTS_UNAVAILABLE => "Les raccourcis ne sont pas accessible avant le combat.",
         LocaleKey::PARRIED => " paré",
         LocaleKey::ASK_HEAL_TARGET => "Qui souhaitez-vous soigner ?",
         LocaleKey::ASK_STATUS => "De qui voulez-vous voir le statut ?",

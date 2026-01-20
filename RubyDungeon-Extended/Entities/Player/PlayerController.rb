@@ -164,7 +164,7 @@ class PlayerController
             @player.print_status
             return propose_combat
         else
-            if @player.try_shortcut(input)
+            if @player.try_shortcut(input, false)
                 return Player::ACTED
             end
             return propose_combat

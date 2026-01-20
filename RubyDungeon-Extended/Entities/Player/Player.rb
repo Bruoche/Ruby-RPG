@@ -444,8 +444,8 @@ class Player
         @status_handler.reduce_of(status_class, amount)
     end
 
-    def try_shortcut(input)
-        @shortcuts.try(input, self)
+    def try_shortcut(input, accessible = true)
+        @shortcuts.try(input, self, accessible)
     end
 
     def to_string(player)

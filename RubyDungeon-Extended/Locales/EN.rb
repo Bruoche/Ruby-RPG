@@ -736,6 +736,7 @@ class EN
         LocaleKey::NO_ITEM_TO_USE => "You don't have %s to use.",
         LocaleKey::SHORTCUT_ALREADY_USED => "This shortcut is already used.",
         LocaleKey::KEY_UNAVAILABLE => "This character is already reserved for other actions.",
+        LocaleKey::SHORTCUTS_UNAVAILABLE => "Shortcuts are not available before fighting.",
         LocaleKey::PARRIED => " parried",
         LocaleKey::ASK_HEAL_TARGET => "Who do you want to heal?",
         LocaleKey::ASK_STATUS => "Who do you want to look the status of?",
