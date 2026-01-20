@@ -40,7 +40,8 @@ class Player
             'time_played': @time_played.current_value,
             'inventory': @inventory.get_save_data,
             'picture': @picture.get_save_data,
-            'statuses': @status_handler.get_save_data
+            'statuses': @status_handler.get_save_data,
+            'shortcuts': @shortcuts.get_save_data
         }.merge(@stats.get_equipment.get_save_data)
     end
 

@@ -14,12 +14,12 @@ class ShortcutManager
     def load(shortcuts_data)
         if shortcuts_data != nil && shortcuts_data.length > 0
             for pairing in shortcuts_data.split(SEPARATOR)
-                shortcut_data = pairing.split(SHORTCUT_SEPARATOR)
-                shortcut = shortcut_data[0]
+                shortcut_array = pairing.split(SHORTCUT_SEPARATOR)
+                shortcut = shortcut_array[0]
                 item = Logger.try_or_log(StandardError, true) do
-                    return Object.const_get(shortcut_data[1])
+                    next Object.const_get(shortcut_array[1])
                 end
-                if shortcut != nil && shortcut.length > 0 && item != nil && item.length > 0
+                if shortcut != nil && shortcut.length > 0 && item != nil
                     @shortcuts[shortcut] = item
                 end
             end
@@ -27,9 +27,11 @@ class ShortcutManager
     end
 
     def get_save_data
+        save_data = ""
         @shortcuts.each do |shortcut, item|
-            append shortcut + SHORTCUT_SEPARATOR + item.name
+            save_data += shortcut + SHORTCUT_SEPARATOR + item.name + SEPARATOR
         end
+        return save_data
     end
 
     def get_shortcut_list_string
@@ -69,8 +71,12 @@ class ShortcutManager
             Narrator.write(LocaleKey::SHORTCUT_ALREADY_USED)
             return false
         end
-        if FORBIDDEN_CHARS.include?(input) || (input == input.to_i.to_s)
+        if FORBIDDEN_CHARS.include?(input)
             Narrator.write(LocaleKey::KEY_UNAVAILABLE)
+            return false
+        end
+        if !Name::VALID_PATTERN.match? input
+            Narrator.write(LocaleKey::FORBIDDEN_CHAR_ERROR)
             return false
         end
         if input.length <= 0
@@ -120,6 +126,9 @@ class ShortcutManager
             Narrator.write_formatted(LocaleKey::ASK_SHORTCUT_KEY, Locale.get_localized(item::PLURAL_NAME))
             Narrator.write(LocaleKey::ASK_SHORTCUT_KEY_RECOMMENDATION)
             input = formated(Narrator.user_input)
+            if input == '0'
+                return false
+            end
             if valid? input
                 @shortcuts[input] = item
                 Narrator.write_formatted(LocaleKey::SHORTCUT_CREATED, to_string(input))

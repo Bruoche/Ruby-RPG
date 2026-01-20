@@ -21,8 +21,7 @@ class CharacterCreator
             Narrator.empty_name_error
             return ask_name
         end
-        name_pattern = Regexp.new('^[a-zA-ZÀ-ÖØ-öø-ÿ0-9 \-\'"]+$')
-        if !(name_pattern.match?(choosen_name))
+        if !(Name::VALID_PATTERN.match?(choosen_name))
             Narrator.forbiden_char_error
             return ask_name
         end

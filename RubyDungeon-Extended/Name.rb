@@ -1,5 +1,6 @@
 class Name
     VOWELS = ['a', 'à', 'e', 'é', 'è', 'i', 'î', 'o', 'ô', 'u', 'û']
+    VALID_PATTERN = Regexp.new('^[a-zA-ZÀ-ÖØ-öø-ÿ \-\'"]+$')
 
     def initialize(vocabulary)
         @female = rand(1..100) <= vocabulary::FEMALE_CHANCES
