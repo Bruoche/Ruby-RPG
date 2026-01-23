@@ -1,9 +1,15 @@
+module Alignments
+    LEFT = 'left'
+    RIGHT = 'right'
+    CENTER = 'centered'
+end
+
 class ASCIIPrinter
     PREFIX = 'RubyDungeon-Extended/Assets/'
     UNSCALABLE_PREFIX = 'NotScalable/'
     SMALL_SUFFIX = '_small'
 
-    def self.print(image_or_names)
+    def self.print(image_or_names, alignment = Alignments::LEFT)
         if !image_or_names.kind_of?(Array)
             image_or_names = [image_or_names]
         end
@@ -26,7 +32,10 @@ class ASCIIPrinter
                 image.juxtapose(ASCIIPicture.new(image_or_path, true))
             end
         end
-        Narrator.write(image.get_ascii)
+        padding = " " * TextFormatter.get_padding_for(image.width, alignment)
+        for line in image.get_ascii
+            Narrator.write(padding + line)
+        end
     end
 
     def self.show_card(player_data, index = ASCIIPicture::EMPTY_INDEX)

@@ -257,6 +257,8 @@ module LocaleKey
     SETTINGS_OPTIONS = :settings_options
     ASSET_SIZE_VERIFICATION = :asset_size_verification
     ASSET_SIZE_OPTIONS = :asset_size_options
+    ASSET_OPTIONS = :asset_options
+    ASK_IMAGE_ALIGNMENT = :ask_image_alignment
     CURRENT_MUSIC_VOLUME = :current_music_volume
     CURRENT_SOUND_EFFECTS = :current_sound_effects
     SOUND_OPTIONS = :sound_options

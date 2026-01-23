@@ -30,8 +30,12 @@ class TextFormatter
         end
     end
 
-    def self.center(string, width)
-        return (' ' * MathUtils.positive((width - string.length).div(2))) + string
+    def self.center(string, width = TTY::Screen.width)
+        return (' ' * get_padding_for(string.length, Alignments::CENTER, width)) + string
+    end
+
+    def self.align(string, alignment, width = TTY::Screen.width)
+        return (' ' * get_padding_for(string.length, alignment, width)) + string
     end
 
     def self.align_right(string, width)
@@ -77,6 +81,21 @@ class TextFormatter
             return "(x#{number})"
         else
             return ''
+        end
+    end
+
+    def self.get_padding_for(width, alignment, max_width = TTY::Screen.width)
+        width_difference = max_width - width
+        if width_difference <= 0
+            return 0
+        end
+        case alignment
+        when Alignments::CENTER
+            return (width_difference/2)
+        when Alignments::RIGHT
+            width_difference - 1
+        else
+            return 0
         end
     end
 end

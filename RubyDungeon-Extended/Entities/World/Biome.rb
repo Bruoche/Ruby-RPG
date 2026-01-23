@@ -57,7 +57,9 @@ class Biome
     end
 
     def self.describe
-        Narrator.write(self::DESCRIPTION)
+        for line in Locale.get_localized(self::DESCRIPTION)
+            Narrator.write(TextFormatter.align(line, Settings.picture_alignment))
+        end
     end
 
     def self.is_safe_room(is_new_biome)

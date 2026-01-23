@@ -5,13 +5,15 @@ class Settings
     SOUND_EFFECTS_SYM = :sound_effects
     LOCALE_SYM = :locale
     NB_PRELOADED_SONGS_SYM = :nb_preloaded_songs
+    PICTURE_ALIGNMENT = :picture_alignment
     DEFAULT_SETTINGS = {
         Settings::POP_UP_ON_START_SYM => 'true',
         Settings::PRINT_SMALL_SYM => 'false',
         Settings::MUSIC_VOLUME_SYM => 80,
         Settings::SOUND_EFFECTS_SYM => 80,
         Settings::LOCALE_SYM => Locale::ID_EN,
-        Settings::NB_PRELOADED_SONGS_SYM => 20
+        Settings::NB_PRELOADED_SONGS_SYM => 20,
+        Settings::PICTURE_ALIGNMENT => Alignments::CENTER
     }
     BATTLE_ACTION_PAUSE = 0.3
     BATTLE_ACTION_SPEED_RATIO = 10
@@ -44,6 +46,10 @@ class Settings
         return get_setting(NB_PRELOADED_SONGS_SYM).to_i
     end
 
+    def self.picture_alignment
+        return get_setting(PICTURE_ALIGNMENT)
+    end
+
     def self.set_max_preloaded_songs(nb_preloaded_songs)
         set_setting(NB_PRELOADED_SONGS_SYM, nb_preloaded_songs)
         PreloadedMusic.get_instance.check_overflow
@@ -70,6 +76,10 @@ class Settings
         set_setting(LOCALE_SYM, locale)
     end
 
+    def self.set_picture_alignment(alignment)
+        set_setting(PICTURE_ALIGNMENT, alignment)
+    end
+
     def self.get_pause_duration
         current_player = World.get_instance.get_current_player
         if currently_fighting(current_player)
@@ -90,8 +100,6 @@ class Settings
         end
     end
 
-    private
-
     def self.get_setting(key)
         update_settings
         if @@settings.key?(key)
@@ -105,6 +113,8 @@ class Settings
         @@settings[key] = value
         save_settings
     end
+
+    private
 
     def self.update_settings
         @@settings = SaveManager.get_settings

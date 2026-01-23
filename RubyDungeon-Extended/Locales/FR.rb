@@ -334,7 +334,7 @@ class FR
         LocaleKey::SETTINGS_OPTIONS => [
             "Quelles options souhaitez-vous gérer ?",
             "    0) Retour...",
-            "    1) Hauteur des images",
+            "    1) Graphismes",
             "    2) Audio",
             "    3) Langue",
             "    4) Informations"
@@ -360,6 +360,19 @@ class FR
             "    0) Retour",
             "    1) Grande (recommandée)",
             "    2) Petite"
+        ],
+        LocaleKey::ASSET_OPTIONS => [
+            "Quelles options graphiques souhaitez-vous gérer ?",
+            "    0) Retour",
+            "    1) Hauteur des images",
+            "    2) Alignement des images d'explorations"
+        ],
+        LocaleKey::ASK_IMAGE_ALIGNMENT => [
+            "Où souhaitez-vous que l'image des salles soit alignée ?",
+            "    0) Retour",
+            "    1) Centre",
+            "    2) Gauche",
+            "    3) Droite"
         ],
         LocaleKey::LANGUAGE_SETTINGS_TITLE => "Quelle langue souhaitez-vous ? (Langue actuelle : %s)",
         LocaleKey::LANGUAGE_POP_UP_TITLE => "Quelle langue souhaitez-vous ?",

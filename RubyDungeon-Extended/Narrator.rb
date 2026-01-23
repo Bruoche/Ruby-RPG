@@ -307,7 +307,7 @@ class Narrator
         Narrator.add_space_of(1)
         options_header(player)
         Narrator.add_space_of(1)
-        ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)])
+        ASCIIPrinter.print([picture, ASCIIPicture.get_status(player)], Settings.picture_alignment)
         Narrator.add_space_of(1)
         describe_biome.call
         Narrator.add_space_of(1)
@@ -818,7 +818,10 @@ class Narrator
     end
 
     def self.options_header(player)
-        Narrator.write(Locale.get_localized(LocaleKey::OPEN_SETTINGS_OPTION) + ' | ' + Locale.get_localized(player.get_shortcuts_string))
+        Narrator.write(TextFormatter.align(
+            Locale.get_localized(LocaleKey::OPEN_SETTINGS_OPTION) + ' | ' + Locale.get_localized(player.get_shortcuts_string),
+            Settings.picture_alignment
+        ))
     end
 
     def self.ask_continue

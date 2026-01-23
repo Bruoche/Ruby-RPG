@@ -334,7 +334,7 @@ class EN
         LocaleKey::SETTINGS_OPTIONS => [
             "What settings do you wish to manage?",
             "    0) Back...",
-            "    1) Images height",
+            "    1) Graphics",
             "    2) Audio",
             "    3) Language",
             "    4) Infos"
@@ -360,6 +360,19 @@ class EN
             "    0) Back",
             "    1) Tall (recommended)",
             "    2) Small"
+        ],
+        LocaleKey::ASSET_OPTIONS => [
+            "What graphical setting would you want to manage?",
+            "    0) Back",
+            "    1) Images height",
+            "    2) Exploration image alignment"
+        ],
+        LocaleKey::ASK_IMAGE_ALIGNMENT => [
+            "How would you like the room picture to be aligned?",
+            "    0) Back",
+            "    1) Centered",
+            "    2) Left",
+            "    3) Right"
         ],
         LocaleKey::LANGUAGE_SETTINGS_TITLE => "What language do you prefer? (Current: %s)",
         LocaleKey::LANGUAGE_POP_UP_TITLE => "What language do you prefer?",

@@ -44,7 +44,7 @@ class SettingsMenu
             when '0'
                 return
             when '1'
-                asset_size_menu
+                asset_menu
             when '2'
                 sound_menu
             when '3'
@@ -53,6 +53,20 @@ class SettingsMenu
                 warning_pop_up(false)
             else
                 Narrator.unsupported_choice_error
+            end
+        end
+    end
+
+    def self.asset_menu
+        loop do
+            Narrator.write(LocaleKey::ASSET_OPTIONS)
+            case Narrator.user_input
+            when '0'
+                return
+            when '1'
+                asset_size_menu
+            when '2'
+                asset_alignment_menu
             end
         end
     end
@@ -73,6 +87,27 @@ class SettingsMenu
         else
             Narrator.unsupported_choice_error
             asset_size_menu
+        end
+    end
+
+    def self.asset_alignment_menu
+        loop do
+            Narrator.write(LocaleKey::ASK_IMAGE_ALIGNMENT)
+            case Narrator.user_input
+            when '0'
+                return
+            when '1'
+                Settings.set_picture_alignment(Alignments::CENTER)
+                return
+            when '2'
+                Settings.set_picture_alignment(Alignments::LEFT)
+                return
+            when '3'
+                Settings.set_picture_alignment(Alignments::RIGHT)
+                return
+            else
+                Narrator.unsupported_choice_error
+            end
         end
     end
 

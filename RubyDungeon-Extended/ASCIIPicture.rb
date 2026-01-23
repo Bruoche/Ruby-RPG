@@ -163,7 +163,7 @@ class ASCIIPicture
             picture[5].ljust(ICON_SIZE),
             picture[6].ljust(ICON_SIZE),
             picture[7].ljust(ICON_SIZE),
-            ' ' + ('‾' * (ICON_SIZE - 2)),
+            ' ' + ('‾' * (ICON_SIZE - 2)) + '    ',
             TextFormatter.truncate(' ' + player.get_name, ICON_SIZE),
             Locale.get_localized(LocaleKey::LEVEL_ABBREVIATION) + player.get_level_to_string,
             '',
