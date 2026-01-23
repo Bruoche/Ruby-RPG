@@ -15,6 +15,7 @@ class FR
         LocaleKey::FIGHTER_GOBLIN_M => "garde gobelin",
         LocaleKey::FORAGER_GOBLIN_F => "gobeline cueilleuse",
         LocaleKey::FORAGER_GOBLIN_M => "gobelin cueilleur",
+        LocaleKey::GOLEM_M => "golem",
         LocaleKey::GIANT_SLIME => "slime géant",
         LocaleKey::HARPY => "harpie",
         LocaleKey::KNIGHT_F => "chevalière",
@@ -1071,6 +1072,11 @@ class FR
             "Malgré votre surprise, votre curiosité est piquée et vous quittez les tréfonds.",
             "Enfin l'obscurité est derrière vous."
         ],
+        LocaleKey::CAVES_TRANSITION_CRYSTAL => [
+            "Explorant la grotte de plus en plus profondément, vous voyez l'espace se resserer autour de vous, les murs envahis par les cristaux jusque là éparses.",
+            "Vous avancez dans la grotte progressivement brillante, jusqu'à être encerclé par une quantité suffocante de pierres brillantes violettes.",
+            "La vue est à la fois belle et oppressante."
+        ],
         LocaleKey::OPEN_CAVE => "grande salle ouverte",
         LocaleKey::VILLAGE_ENTRANCE_DESCRIPTION => [
             "Vous êtes dans ce qui semble être une forêt souterraine.",
@@ -1129,6 +1135,11 @@ class FR
             "La boue dans laquelle vous vous tenez monte jusqu'à vos genoux, et les rares flaques d'eau claire tournent au marron lorsque vos pas en remuent le fond.",
             "Alors que vos pieds s'enfoncent dans la terre et que l'eau résiste à tout vos pas, marcher s'avère difficile.",
             "La froideur de la mélasse vous mord les jambes et l'odeur d'oeuf pourris est étouffante."
+        ],
+        LocaleKey::CRYSTAL_CAVE_DESCRIPTION => [
+            "Vous rampez dans une grotte perdue, dans les profondeurs de l'inconnu.",
+            "Les murs sont couverts d'impressionnants cristaux pourpres, votre lumière se reflétant en un millier d'éclats colorés.",
+            "Ces pierres sont pointues, se pressant contre vous de façon inconfortable, et malgré tout vos efforts elles sont trop dures pour être brisées ou délogées de la paroie."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
@@ -1466,6 +1477,7 @@ class FR
         LocaleKey::GOBLIN_LOOT_FRUITS => ["Lorsque vous regardez dans le sac du gobelin, vous y trouvez quelques fruits."],
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un garde goblin."],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["En examinant le cadabre de l'araignée, vous parevenez à extraire le venin de ses crocs encore intact."],
+        LocaleKey::GOLEM_LOOT_AMETHYST => ["Vous récupérez le crystal brisé sur le dos du golem"],
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",
         LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ?",

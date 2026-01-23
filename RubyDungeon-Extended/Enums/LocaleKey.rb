@@ -6,13 +6,14 @@ module LocaleKey
     NO_INPUT = :no_input
     # Monsters
     BAT = :bat
+    GIANT_SLIME = :giant_slime
     GOBLIN_F = :goblin_f
     GOBLIN_M = :goblin_m
+    GOLEM_M = :golem_m
     FIGHTER_GOBLIN_F = :fighter_goblin_f
     FIGHTER_GOBLIN_M = :fighter_goblin_m
     FORAGER_GOBLIN_F = :forager_goblin_f
     FORAGER_GOBLIN_M = :forager_goblin_m
-    GIANT_SLIME = :giant_slime
     HARPY = :harpy
     KNIGHT_F = :knight_f
     KNIGHT_M = :knight_m
@@ -770,6 +771,9 @@ module LocaleKey
     FOREST_LOOT_AMETHYST = :forest_loot_amethyst
     FOREST_TRANSITION_SWAMP = :forest_transition_swamp
     SWAMP_DESCRIPTION = :swamp_description
+    CRYSTAL_CAVE_DESCRIPTION = :crystal_cave_transition_crystal
+    CAVES_TRANSITION_CRYSTAL = :caves_transition_crystal
+    GOLEM_LOOT_AMETHYST = :golem_loot_amethyst
     PLACEHOLDER_ARRAY = :placeholder_array
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog

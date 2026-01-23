@@ -15,6 +15,7 @@ class EN
         LocaleKey::FIGHTER_GOBLIN_M => "goblin guard",
         LocaleKey::FORAGER_GOBLIN_F => "goblin gatherer",
         LocaleKey::FORAGER_GOBLIN_M => "goblin gatherer",
+        LocaleKey::GOLEM_M => "golem",
         LocaleKey::GIANT_SLIME => "giant slime",
         LocaleKey::HARPY => "harpy",
         LocaleKey::KNIGHT_F => "knight",
@@ -1071,6 +1072,11 @@ class EN
             "This is odd at such depth, and your curiosity is now picked. You move forward and out of the cave.",
             "The darkness finally leaves you."
         ],
+        LocaleKey::CAVES_TRANSITION_CRYSTAL => [
+            "Continuing deeper into the cave, you see the walls around you close in the further you go, while also filling up with the crystals that were so rare moments ago.",
+            "You continue through the increasingly shiny caves, up until the wall are now covered in an obnoxious amount of shiny puprle reflection all around you.",
+            "This place is both beautiful and overbearing."
+        ],
         LocaleKey::OPEN_CAVE => "large open room",
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "You are in a cave. To your surprise, this part of the cave seems to recieve light from above.",
@@ -1129,6 +1135,11 @@ class EN
             "You are standing knee-deep within mud, the few paches of clear water turning brown as your steps disturb the earth beneath.",
             "Walking against the resistance of the liquids while your feets are sinking proves difficult, but you dredge through.",
             "You feel the coldness of the sludge biting your legs and the smell of rotten eggs suffocating you."
+        ],
+        LocaleKey::CRYSTAL_CAVE_DESCRIPTION => [
+            "You are crawling through a cave dug deep beneath the known world.",
+            "The walls are entirely covered by impressively large purple crystals, your light reflecting in a miriad of color.",
+            "They are sharp, their points uncomfortable to rest against, and too hard to be broken off the wall despite your best attempts."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",
@@ -1466,6 +1477,7 @@ class EN
         LocaleKey::GOBLIN_LOOT_FRUITS => ["Looking into the goblin's basket, you notice it had a few fruits in a basket."],
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["You find a health potion in one the belt pocket of a goblin guard"],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["By examining the spider's corpse, you manage to extract some venom from it's still intact fangs."],
+        LocaleKey::GOLEM_LOOT_AMETHYST => ["You collect the broken crystals on the golems back"],
         LocaleKey::THE_EXIT => "the exit",
         LocaleKey::A_HOLE => "a hole",
         LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down?",
@@ -4009,7 +4021,7 @@ class EN
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_GTE_BEAUTY => ["poregadä|poregada|erkoboregadä|erkoboregada|kopporegadä|kopporegada|poregadärpo|poregadäbo|poregadarpo|poregadapo|erkoboregadärpo|erkoboregadäbo|erkoboregadarpo|erkoboregadapo|kopporegadärpo|kopporegadäbo|kopporegadarpo|kopporegadapo"],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_TXT_GTE_BEAUTY => [
-            "\"Poregadä\" means a beauty, or can also mean \"Making beautifull\" as a verb.",
+            "\"Poregadä\" means a beauty, or can also mean \"Making beautiful\" as a verb.",
             "When \"Poregadä\" is a verb, it can also appear as \"Erkoboregadä\" or \"Kopporegadä\" for past and future."
         ],
         LocaleKey::DIAL_GOBLIN_TRANSLATOR_KEY_ETG_NOUN_BEAUTY => ["beauty"],

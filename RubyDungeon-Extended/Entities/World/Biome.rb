@@ -14,6 +14,9 @@ class Biome
                 unless child.const_defined?(:MONSTER_POWER_BONUS)
                     child.const_set(:MONSTER_POWER_BONUS, child.const_get(:EXPECTED_LEVEL)*BaseStats::NB_STATS_PER_LEVEL)
                 end
+                unless child.const_defined?(:LOOT)
+                    child.const_set(:LOOT, [])
+                end
                 unless child.const_defined?(:ENTRY_REQUIREMENTS)
                     child.const_set(:ENTRY_REQUIREMENTS, [])
                 end

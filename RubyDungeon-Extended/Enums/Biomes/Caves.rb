@@ -77,6 +77,11 @@ class Caves < Biome
             'UndergroundForest'
         ),
         BiomeTransition.new(
+            LocaleKey::CAVES_TRANSITION_CRYSTAL,
+            16,
+            'CrystalCaves'
+        ),
+        BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             1,
             'DeepCatacombs'
