@@ -92,19 +92,23 @@ class SettingsMenu
 
     def self.asset_alignment_menu
         loop do
+            Narrator.add_space_of 1
+            ASCIIPrinter.print('example', Settings.picture_alignment)
+            Narrator.add_space_of 1
+            for line in Locale.get_localized(LocaleKey::EXAMPLE_DESCRIPTION)
+                Narrator.write(TextFormatter.align(line, Settings.picture_alignment))
+            end
+            Narrator.add_space_of 1
             Narrator.write(LocaleKey::ASK_IMAGE_ALIGNMENT)
             case Narrator.user_input
             when '0'
                 return
             when '1'
-                Settings.set_picture_alignment(Alignments::CENTER)
-                return
-            when '2'
                 Settings.set_picture_alignment(Alignments::LEFT)
-                return
+            when '2'
+                Settings.set_picture_alignment(Alignments::CENTER)
             when '3'
                 Settings.set_picture_alignment(Alignments::RIGHT)
-                return
             else
                 Narrator.unsupported_choice_error
             end

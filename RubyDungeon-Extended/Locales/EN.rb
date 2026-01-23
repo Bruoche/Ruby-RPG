@@ -370,9 +370,14 @@ class EN
         LocaleKey::ASK_IMAGE_ALIGNMENT => [
             "How would you like the room picture to be aligned?",
             "    0) Back",
-            "    1) Centered",
-            "    2) Left",
+            "    1) Left",
+            "    2) Centered",
             "    3) Right"
+        ],
+        LocaleKey::EXAMPLE_DESCRIPTION => [
+            "Example of description for an area,",
+            "Pick an alignment that make it so this flavor text seems to be integrating well on the screen",
+            "Depending on your preference."
         ],
         LocaleKey::LANGUAGE_SETTINGS_TITLE => "What language do you prefer? (Current: %s)",
         LocaleKey::LANGUAGE_POP_UP_TITLE => "What language do you prefer?",

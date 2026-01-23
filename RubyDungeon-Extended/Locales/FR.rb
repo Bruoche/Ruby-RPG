@@ -370,9 +370,14 @@ class FR
         LocaleKey::ASK_IMAGE_ALIGNMENT => [
             "Où souhaitez-vous que l'image des salles soit alignée ?",
             "    0) Retour",
-            "    1) Centre",
-            "    2) Gauche",
+            "    1) Gauche",
+            "    2) Centre",
             "    3) Droite"
+        ],
+        LocaleKey::EXAMPLE_DESCRIPTION => [
+            "Exemple d'une description de zone,",
+            "Choisissez un alignement intégrant cet élément convenablement à l'écran.",
+            "Selon votre préférence."
         ],
         LocaleKey::LANGUAGE_SETTINGS_TITLE => "Quelle langue souhaitez-vous ? (Langue actuelle : %s)",
         LocaleKey::LANGUAGE_POP_UP_TITLE => "Quelle langue souhaitez-vous ?",
