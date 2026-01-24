@@ -35,14 +35,19 @@ class ASCIIRow
         return rows
     end
 
-    def print_row(row, alignment = Alignments::CENTER)
+    def print_row(row, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP)
         more_lines_to_do = true
         y = 0
         while more_lines_to_do
             more_lines_to_do = false
             line_to_print = ''
             for picture in row
-                picture_line = picture.get_ascii[y]
+                row_index = y - TextFormatter.get_vertical_padding_for(picture.height, vertical_alignment, height(row))
+                if row_index >= 0
+                    picture_line = picture.get_ascii[row_index]
+                else
+                    picture_line = nil
+                end
                 if picture_line != nil
                     more_lines_to_do = true
                 else
@@ -53,5 +58,17 @@ class ASCIIRow
             Narrator.write(TextFormatter.align(line_to_print + @space, alignment))
             y += 1
         end
+    end
+
+    private
+
+    def height(row)
+        max_height = 0
+        for picture in row
+            if max_height < picture.height
+                max_height = picture.height
+            end
+        end
+        return max_height
     end
 end

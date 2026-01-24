@@ -1,7 +1,19 @@
+module Paddings
+    NO_PADDING = 'no_padding'
+    HALF_PADDING = 'half_padding'
+    FULL_PADDING = 'full_padding'
+end
+
 module Alignments
-    LEFT = 'left'
-    RIGHT = 'right'
-    CENTER = 'centered'
+    LEFT = Paddings::NO_PADDING
+    RIGHT = Paddings::FULL_PADDING
+    CENTER = Paddings::HALF_PADDING
+end
+
+module VerticalAlignments
+    TOP = Paddings::NO_PADDING
+    BOTTOM = Paddings::FULL_PADDING
+    CENTER = Paddings::HALF_PADDING
 end
 
 class ASCIIPrinter

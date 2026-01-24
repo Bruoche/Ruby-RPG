@@ -84,16 +84,23 @@ class TextFormatter
         end
     end
 
-    def self.get_padding_for(width, alignment, max_width = TTY::Screen.width)
+    def self.get_vertical_padding_for(width, alignment, max_width = TTY::Screen.height, offset = 0)
+        return get_padding_for(width, alignment, max_width, offset)
+    end
+
+    def self.get_padding_for(width, alignment, max_width = TTY::Screen.width, offset = 1)
         width_difference = max_width - width
         if width_difference <= 0
             return 0
+        end
+        if offset > width_difference
+            offset = width_difference
         end
         case alignment
         when Alignments::CENTER
             return (width_difference/2)
         when Alignments::RIGHT
-            width_difference - 1
+            width_difference - offset
         else
             return 0
         end

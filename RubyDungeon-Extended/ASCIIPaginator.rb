@@ -15,11 +15,11 @@ class ASCIIPaginator
         @rows.append(picture)
     end
 
-    def show(vertical_padding = 0, return_button = DEFAULT_RETURN_BUTTON, alignment = Alignments::CENTER)
+    def show(vertical_padding = 0, return_button = DEFAULT_RETURN_BUTTON, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP)
         height_limit = TTY::Screen::height - (PAGINATION_MINMIMUM_PADDING + vertical_padding)
         update_pages(height_limit)
         for row in @pages[@current_page]
-            @rows.print_row(row, alignment)
+            @rows.print_row(row, alignment, vertical_alignment)
         end
         if @pages.length > 1
             Narrator.put_scrollbar(get_scroll_bar(return_button), @current_page, @pages.length)

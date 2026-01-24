@@ -807,7 +807,7 @@ class Narrator
 
     def self.ask_fight_action(player, monsters_description, escape_chances, monster_cards_pages)
         options_header(player)
-        monster_cards_pages.show(25)
+        monster_cards_pages.show(25, ASCIIPaginator::DEFAULT_RETURN_BUTTON, Alignments::CENTER, VerticalAlignments::BOTTOM)
         Narrator.add_space_of(1)
         show_player_battle_cards(player)
         Narrator.write(format(Locale.get_localized(LocaleKey::DESCRIBE_ENNEMIES), monsters_description))
