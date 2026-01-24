@@ -22,7 +22,7 @@ class ASCIIRow
         rows = []
         row = []
         for picture in @pictures
-            if ((current_width + @space.length + picture.width) < (TTY::Screen.width - 1)) || (current_width <= 0)
+            if ((current_width + @space.length*2 + picture.width) < (TTY::Screen.width - 1)) || (current_width <= 0)
                 row.append(picture)
                 current_width += @space.length + picture.width
             else
@@ -35,7 +35,7 @@ class ASCIIRow
         return rows
     end
 
-    def print_row(row)
+    def print_row(row, alignment = Alignments::CENTER)
         more_lines_to_do = true
         y = 0
         while more_lines_to_do
@@ -50,7 +50,7 @@ class ASCIIRow
                 end
                 line_to_print = line_to_print + @space + picture_line.ljust(picture.width)
             end
-            Narrator.write(line_to_print)
+            Narrator.write(TextFormatter.align(line_to_print + @space, alignment))
             y += 1
         end
     end

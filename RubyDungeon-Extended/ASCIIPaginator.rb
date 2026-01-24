@@ -4,7 +4,7 @@ class ASCIIPaginator
     AUTO = nil
 
     def initialize(inbetween_space = ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first = false)
-        @rows = ASCIIRow.new
+        @rows = ASCIIRow.new(inbetween_space)
         @current_page = AUTO
         @pages = []
         @last_first = last_first
@@ -15,11 +15,11 @@ class ASCIIPaginator
         @rows.append(picture)
     end
 
-    def show(vertical_padding = 0, return_button = DEFAULT_RETURN_BUTTON)
+    def show(vertical_padding = 0, return_button = DEFAULT_RETURN_BUTTON, alignment = Alignments::CENTER)
         height_limit = TTY::Screen::height - (PAGINATION_MINMIMUM_PADDING + vertical_padding)
         update_pages(height_limit)
         for row in @pages[@current_page]
-            @rows.print_row(row)
+            @rows.print_row(row, alignment)
         end
         if @pages.length > 1
             Narrator.put_scrollbar(get_scroll_bar(return_button), @current_page, @pages.length)
