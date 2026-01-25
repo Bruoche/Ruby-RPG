@@ -275,6 +275,7 @@ class FR
             "    3) Quitter"
         ],
         LocaleKey::SELECT_MULTIPLE_OPTIONS => "[0] Confirmer | [E] Tout sélectionner | [R] Tout dé-sélectionner",
+        LocaleKey::CONFIRM => "Confirmer",
         LocaleKey::PARTY_LIST_TITLE => "Aventuriers entrant dans le donjon : ",
         LocaleKey::PARTY_MANAGE_OPTIONS => [
             "",
@@ -423,6 +424,7 @@ class FR
         ],
         LocaleKey::TELEPORT_JOIN_OPTION => "Rejoindre ",
         LocaleKey::ASK_CATALYST_TARGET => "Quels monstres souhaitez-vous inclure dans l'attaque magique ? (exclure tous pour annuler)",
+        LocaleKey::ASK_CATALYST_TARGET_LIMB => "Quelles parties du corp %s visez-vous ? (exclure tous pour annuler)",
         LocaleKey::YES_OR_NO => [
             "    1) Oui",
             "    2) Non"

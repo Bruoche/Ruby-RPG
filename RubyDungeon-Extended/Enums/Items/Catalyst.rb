@@ -30,10 +30,34 @@ class Catalyst < Item
             false,
             false,
             'ennemy_added',
-            'unequip'
+            'unequip',
+            Alignments::CENTER,
+            VerticalAlignments::BOTTOM
         )
         if (targets.length <= 0)
             return !Player::ACTED
+        end
+        ArrayUtils.for_potential targets do |monster|
+            if monster.kind_of? Boss
+                limbs_targeted = Narrator.ask_multiple(
+                    format(Locale.get_localized(LocaleKey::ASK_CATALYST_TARGET_LIMB), monster.get_name.get_gendered_of),
+                    monster.get_parts,
+                    -> (limb) {monster.to_string(limb)},
+                    user.get_name,
+                    true,
+                    'ennemy_added',
+                    'unequip'
+                )
+                if limbs_targeted.length <= 0
+                    if targets.length <= 1
+                        return !Player::ACTED
+                    else
+                        return use(target, user)
+                    end
+                end
+                targets.delete(monster)
+                targets.concat limbs_targeted
+            end
         end
         user.magic_attack.hit(targets, monsters)
         return Player::ACTED

@@ -275,6 +275,7 @@ class EN
             "    3) Quit"
         ],
         LocaleKey::SELECT_MULTIPLE_OPTIONS => "[0] Confirm | [E] Select all | [R] Un-select all",
+        LocaleKey::CONFIRM => "Confirm",
         LocaleKey::PARTY_LIST_TITLE => "Adventurers entering the dungeon: ",
         LocaleKey::PARTY_MANAGE_OPTIONS => [
             "",
@@ -423,6 +424,7 @@ class EN
         ],
         LocaleKey::TELEPORT_JOIN_OPTION => "Join ",
         LocaleKey::ASK_CATALYST_TARGET => "What monsters should be included in the magic attack? (exclude all to abort)",
+        LocaleKey::ASK_CATALYST_TARGET_LIMB => "What limbs %s do you aim for? (exclude all to abort)",
         LocaleKey::YES_OR_NO => [
             "    1) Yes",
             "    2) No"

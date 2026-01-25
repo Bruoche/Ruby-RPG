@@ -997,25 +997,84 @@ class Narrator
         end
     end
 
-    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
-        return ask_paginated_general(question, options, getter, player_name, last_first, return_option, extra_condition).get
+    def self.ask_paginated(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP)
+        return ask_paginated_general(question, options, getter, player_name, last_first, return_option, extra_condition, alignment, vertical_alignment).get
     end
 
-    def self.ask_paginated_multiple(question, input_options, getter_available, getter_choosen, player_name = NO_NAME_DISPLAYED, selected_by_default = false, late_first = false, select_sound = nil, unselect_sound = nil, return_button = LocaleKey::SELECT_MULTIPLE_OPTIONS, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
+    def self.ask_multiple(question, input_options, getter, player_name = NO_NAME_DISPLAYED, selected_by_default = false, select_sound = nil, unselect_sound = nil, return_option = Narrator::RETURN_BUTTON, to_string_caller = -> (element, i, to_string) {to_string.call(element)})
+        return ask_multiple_general(
+                -> (options, choosen_options) {
+                    return ask(
+                        question,
+                        options,
+                        getter,
+                        player_name,
+                        return_option,
+                        -> (element, i, to_string) {
+                            if (element == return_option)
+                                return Locale.get_localized(LocaleKey::CONFIRM)
+                            end
+                            checked = '[' + (choosen_options.include?(element) ? 'X' : ' ') + '] '
+                            return checked + to_string_caller.call(element, i, to_string)
+                        },
+                    )
+                },
+                input_options,
+                player_name,
+                selected_by_default,
+                select_sound,
+                unselect_sound,
+                return_option
+        )
+    end
+
+    def self.ask_paginated_multiple(question, input_options, getter_available, getter_choosen, player_name = NO_NAME_DISPLAYED, selected_by_default = false, late_first = false, select_sound = nil, unselect_sound = nil, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP, return_button = LocaleKey::SELECT_MULTIPLE_OPTIONS, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true})
+        starting_page = ASCIIPaginator::AUTO
+        return ask_multiple_general(
+            -> (options, choosen_options) {
+                response = ask_paginated_general(
+                    question,
+                    options,
+                    getter_available,
+                    player_name,
+                    late_first,
+                    return_option,
+                    extra_condition,
+                    alignment,
+                    vertical_alignment,
+                    true,
+                    getter_choosen,
+                    choosen_options,
+                    return_button,
+                    starting_page
+                )
+                starting_page = response.get_page
+                return response.get
+            },
+            input_options,
+            player_name,
+            selected_by_default,
+            select_sound,
+            unselect_sound,
+            return_option
+        )
+    end
+
+    def self.ask_multiple_general(getter, input_options, player_name = NO_NAME_DISPLAYED, selected_by_default = false, select_sound = nil, unselect_sound = nil, return_option = Narrator::RETURN_BUTTON)
         options = input_options.dup
+        if options.length <= 1
+            return options
+        end
         if selected_by_default
             choosen_options = options.dup
         else
             choosen_options = []
         end
-        starting_page = ASCIIPaginator::AUTO
         loop do
-            response = ask_paginated_general(question, options, getter_available, player_name, late_first, return_option, extra_condition, true, getter_choosen, choosen_options, return_button, starting_page)
-            choosen_index = response.get
-            starting_page = response.get_page
+            choosen_index = getter.call(options, choosen_options)
             case choosen_index
             when return_option
-                if (choosen_options.length <= 0) || Narrator.ask_confirmation(format(
+                if (choosen_options.length <= 1) || Narrator.ask_confirmation(format(
                     Locale.get_localized(LocaleKey::ASK_CONFIRM_RETURN_SELECT),{
                     LocaleKey::F_AMOUNT => choosen_options.length,
                     LocaleKey::F_TOTAL => options.length
@@ -1043,7 +1102,7 @@ class Narrator
 
     private
 
-    def self.ask_paginated_general(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, getter_choosen = getter, choosen_options = [], return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON, starting_page = ASCIIPaginator::AUTO)
+    def self.ask_paginated_general(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP, select_multiple = false, getter_choosen = getter, choosen_options = [], return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON, starting_page = ASCIIPaginator::AUTO)
         options_pages = ASCIIPaginator.new(ASCIIRow::DEFAULT_SPACING_BETWEEN, last_first)
         for i in 1..(options.length)
             option = options[i - 1]
@@ -1056,14 +1115,14 @@ class Narrator
         end
         options_pages.set_page(starting_page)
         return PaginatedResponse.new(
-            ask_paginated_inner(options_pages, question, options, player_name, return_option, extra_condition, select_multiple, return_button),
+            ask_paginated_inner(options_pages, question, options, player_name, return_option, extra_condition, select_multiple, return_button, alignment, vertical_alignment),
             options_pages.get_page
         )
     end
 
-    def self.ask_paginated_inner(options_pages, question, options, player_name, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON)
+    def self.ask_paginated_inner(options_pages, question, options, player_name, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, select_multiple = false, return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP)
         loop do
-            options_pages.show(2, return_button)
+            options_pages.show(2, return_button, alignment, vertical_alignment)
             Narrator.add_space_of(1)
             Narrator.write(question)
             input = user_input(player_name)

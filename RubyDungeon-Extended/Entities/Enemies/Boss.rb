@@ -260,8 +260,6 @@ class Boss < Monster
         end
     end
 
-    private
-
     def to_string(bodypart)
         if bodypart != Narrator::RETURN_BUTTON
             return bodypart.get_description

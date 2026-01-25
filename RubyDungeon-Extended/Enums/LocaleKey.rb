@@ -243,6 +243,7 @@ module LocaleKey
     WARNING_POP_UP_SETTINGS = :warning_pop_up_settings
     MAIN_MENU_OPTIONS = :main_menu_options
     SELECT_MULTIPLE_OPTIONS = :select_multiple_options
+    CONFIRM = :confirm
     PARTY_LIST_TITLE = :party_list_title
     PARTY_MANAGE_OPTIONS = :party_manage_options
     PARTY_MANAGE_REMOVE_OPTION = :party_manage_remove_option
@@ -282,6 +283,7 @@ module LocaleKey
     TELEPORT_OPTIONS = :teleport_options
     TELEPORT_JOIN_OPTION = :teleport_join_option
     ASK_CATALYST_TARGET = :ask_catalyst_targets
+    ASK_CATALYST_TARGET_LIMB = :ask_catalyst_target_limb
     YES_OR_NO = :yes_or_no
     NO_ITEMS_TO_USE = :no_items_to_use
     NO_ITEMS_TO_SELL = :no_items_to_sell
