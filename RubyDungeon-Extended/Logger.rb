@@ -2,6 +2,10 @@ class Logger
 
     def self.debug(message, *parameters)
         if (@@in_debug)
+            if message.kind_of? Array
+                puts message
+                return
+            end
             string_parameters = []
             for parameter in parameters
                 string_parameters.append(parameter.to_s)

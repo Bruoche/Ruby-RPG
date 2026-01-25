@@ -43,7 +43,7 @@ class MonsterFactory
         else
             suffix = '_m'
         end
-        picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + monster_type::PICTURE + suffix)
+        picture = make_picture_for(monster_type, PICTURE_PREFIX, suffix)
         return Monster.new(
             room,
             monster_health,
@@ -73,5 +73,9 @@ class MonsterFactory
             stat = minimum
         end
         return stat
+    end
+
+    def self.make_picture_for(monster_type, type_sub_folder = PICTURE_PREFIX, suffix = '')
+       ASCIIPicture.new(ASCIIPrinter::PREFIX + type_sub_folder + monster_type::PICTURE + suffix)
     end
 end

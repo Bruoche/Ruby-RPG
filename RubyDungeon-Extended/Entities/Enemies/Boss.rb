@@ -120,6 +120,16 @@ class Boss < Monster
         return @room
     end
 
+    def get_picture
+        full_picture = ASCIIPicture.new(@picture.get_ascii)
+        for bodypart in @bodyparts
+            if !bodypart.died?
+                full_picture.superpose(bodypart.get_picture)
+            end
+        end
+        return full_picture
+    end
+
     def healthbar(size)
         return Lifebar.healthbar_for(get_current_life, get_max_life, size)
     end

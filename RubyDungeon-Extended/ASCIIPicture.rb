@@ -38,7 +38,8 @@ class ASCIIPicture
         if File.file?(picture_path)
             return File.readlines(picture_path, chomp: single_line);
         else
-            return [format(Locale.get_localized(LocaleKey::NO_IMAGE_FOUND), picture_path)]
+            Logger.debug(format(Locale.get_localized(LocaleKey::NO_IMAGE_FOUND), picture_path))
+            return ['']
         end
     end
 
@@ -51,21 +52,20 @@ class ASCIIPicture
     end
 
     def get_ascii
-        return @picture
+        return @picture.map(&:clone)
     end
 
     def superpose(picture)
         picture.get_ascii.each.with_index(0) do |line, y|
             line.each_char.with_index(0) do |char, x|
+                if @picture[y].length <= x
+                    @picture[y] += ' '
+                end
                 if char != TRANSPARENT_CHARACTER
                     if @picture[y] == nil
                         @picture[y] = ''
                     end
-                    if @picture[y].length > x
-                        @picture[y][x] = char
-                    else
-                        @picture[y] << char
-                    end
+                    @picture[y][x] = char
                 end
             end
             if line.length > @width

@@ -33,6 +33,7 @@ class GoblinElderLeftArm < Bestiary
     HEALING_PROPORTION = 100
     MALE = GoblinElderLeftArmM
     FEMALE_CHANCES = 0
+    PICTURE = 'elder_goblin_left_arm'
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_LEFT_ATTACK]
     SPECIAL_MOVES = [
         SpecialMove.new(100, -> (targets, pack, damage, boss) {GoblinElderBoss.delegate(targets, pack, damage, boss, GoblinAdvisorLeft, GoblinElderLeftArmM::NAMES[0])})
@@ -48,6 +49,7 @@ class GoblinElderRightArm < Bestiary
     HEALING_PROPORTION = 0
     MALE = GoblinElderRightArmM
     FEMALE_CHANCES = 0
+    PICTURE = 'elder_goblin_right_arm'
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK]
     SPECIAL_MOVES = [
         SpecialMove.new(100, -> (target, pack, damage, boss) {GoblinElderBoss.delegate(target, pack, damage, boss, GoblinAdvisorRight, GoblinElderRightArmM::NAMES[0])})

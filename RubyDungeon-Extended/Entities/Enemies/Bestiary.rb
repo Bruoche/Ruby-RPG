@@ -46,6 +46,9 @@ class Bestiary
                         # no death event by default
                     })
                 end
+                unless child.const_defined?(:PICTURE)
+                    child.const_set(:PICTURE, '')
+                end
             end
         end
     end

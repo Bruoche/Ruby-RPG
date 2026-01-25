@@ -21,6 +21,7 @@ class LostKnightHead < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LostKnightHeadF
     FEMALE_CHANCES = 100
+    PICTURE = 'lost_knight_head'
     DEATH_EVENT = -> (players, head, boss_data) {LostKnight.death(head.get_name, boss_data)}
 end
 
@@ -30,6 +31,7 @@ class LostKnightLeftArm < Bestiary
     DAMAGE_MULTIPLIER = 1.2
     MALE = LostKnightLeftArmM
     FEMALE_CHANCES = 0
+    PICTURE = 'lost_knight_left_arm'
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     SPECIAL_MOVES = []
     DEATH_EVENT = -> (players, arm, boss_data) {LostKnight.limb_loss(arm.get_name, boss_data)}
@@ -41,6 +43,7 @@ class LostKnightRightArm < Bestiary
     DAMAGE_MULTIPLIER = 1.5
     MALE = LostKnightRightArmM
     FEMALE_CHANCES = 0
+    PICTURE = 'lost_knight_right_arm'
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     SPECIAL_MOVES = [
         SpecialMove.new(33, -> (target, pack, damage, boss_data) {LostKnight.slash(target, pack, damage, boss_data)})
