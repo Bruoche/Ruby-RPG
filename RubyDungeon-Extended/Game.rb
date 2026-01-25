@@ -76,7 +76,7 @@ class Game
         top_space = empty_space.div(3)
         bottom_space = empty_space - top_space
         Narrator.add_space_of(top_space - (1 + extra_height))
-        ASCIIPrinter.print('title')
+        ASCIIPrinter.print('title', Alignments::LEFT)
         Narrator.main_menu_options
         Narrator.add_space_of(bottom_space)
         case Narrator.user_input

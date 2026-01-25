@@ -12,12 +12,21 @@ class Narrator
         end
     end
 
-    def self.write(text)
-        if text.kind_of?(Array)
-            puts text
-        else
-            puts Locale.get_localized(text)
+    def self.write(text, alignment = Alignments::LEFT)
+        text = prepare(text)
+        for line in text
+            puts TextFormatter.align(line, alignment)
         end
+    end
+
+    def self.prepare(text)
+        if !text.kind_of?(Array)
+            text = Locale.get_localized(text)
+            if !text.kind_of?(Array)
+                text = [text]
+            end
+        end
+        return text
     end
 
     def self.write_same_line(text)
@@ -250,12 +259,12 @@ class Narrator
         ASCIIPrinter.print('title')
         Narrator.add_space_of(1)
         if party.starting?
-            Narrator.write(LocaleKey::FIRST_INTRO)
+            Narrator.write(LocaleKey::FIRST_INTRO, Alignments::CENTER)
         else
             if party.new_members?
-                Narrator.write(LocaleKey::NEW_MEMBERS_INTRO)
+                Narrator.write(LocaleKey::NEW_MEMBERS_INTRO, Alignments::CENTER)
             else
-                Narrator.write(LocaleKey::RETURN_INTRO)
+                Narrator.write(LocaleKey::RETURN_INTRO, Alignments::CENTER)
             end
         end
         Narrator.add_space_of(1)
@@ -503,11 +512,14 @@ class Narrator
 
     def self.exit_dungeon(did_nothing)
         if (did_nothing)
-            write_same_line(LocaleKey::EXIT_SCARED)
+            start = Locale.get_localized(LocaleKey::EXIT_SCARED)
         else
-            write_same_line(LocaleKey::EXIT_DONE)
+            start = Locale.get_localized(LocaleKey::EXIT_DONE)
         end
-        Narrator.write(LocaleKey::EXIT_SURVIVED)
+        for line in prepare(LocaleKey::EXIT_SURVIVED)
+            Narrator.write(start + line, Alignments::CENTER)
+            start = ''
+        end
     end
 
     def self.hurt(denomination, damage)

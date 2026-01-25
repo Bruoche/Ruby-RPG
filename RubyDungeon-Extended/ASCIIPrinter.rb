@@ -21,7 +21,7 @@ class ASCIIPrinter
     UNSCALABLE_PREFIX = 'NotScalable/'
     SMALL_SUFFIX = '_small'
 
-    def self.print(image_or_names, alignment = Alignments::LEFT)
+    def self.print(image_or_names, alignment = Alignments::CENTER)
         if !image_or_names.kind_of?(Array)
             image_or_names = [image_or_names]
         end

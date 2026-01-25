@@ -74,7 +74,7 @@ class SettingsMenu
     def self.asset_size_menu
         Narrator.asset_size_verification_line
         Narrator.add_space_of(3)
-        ASCIIPrinter.print('example')
+        ASCIIPrinter.print('example', Settings.picture_alignment)
         Narrator.asset_size_options
         case Narrator.user_input
         when '0'
