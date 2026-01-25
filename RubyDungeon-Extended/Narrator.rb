@@ -934,6 +934,7 @@ class Narrator
         begin
             return gets.chomp
         rescue Exception => e
+            Logger.check_exit(e)
             ask_quit(e, recursive_error)
         end
     end
@@ -943,6 +944,7 @@ class Narrator
             Narrator.write(LocaleKey::CLOSE_GAME_CONFIRM)
             case user_input(NO_NAME_DISPLAYED, false, true).capitalize
             when 'Y'
+                Logger.exit
                 raise e
             when 'N'
                 if recursive_error

@@ -1,5 +1,11 @@
 class Logger
 
+    @@exited = false
+
+    def self.exited?
+        return @@exited
+    end
+
     def self.debug(message, *parameters)
         if (@@in_debug)
             if message.kind_of? Array
@@ -24,6 +30,7 @@ class Logger
     end
 
     def self.catch_and_log(exception, silent = false)
+        Logger.check_exit(exception)
         if (!silent || @@in_debug)
             Narrator.unexpected_error
         end
@@ -36,6 +43,16 @@ class Logger
 
     def self.set_debug(in_debug = true)
         @@in_debug = in_debug
+    end
+
+    def self.exit
+        @@exited = true
+    end
+
+    def self.check_exit(exception)
+        if @@exited
+            raise exception
+        end
     end
 
     private

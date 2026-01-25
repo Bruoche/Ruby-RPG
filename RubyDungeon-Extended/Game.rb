@@ -209,6 +209,7 @@ class Game
         begin
             sleep duration
         rescue Exception => e
+            Logger.check_exit(e)
             Narrator.ask_quit(e, recursive_error = false)
         end
     end
