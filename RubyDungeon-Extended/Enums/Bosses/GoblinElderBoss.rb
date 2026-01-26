@@ -1,25 +1,9 @@
-module GoblinElderF
-    NAMES = [LocaleKey::GOBLIN_ELDER_BOSS_NAME]
-end
-
-module GoblinElderHeadF
-    NAMES = [LocaleKey::GOBLIN_ELDER_HEAD]
-end
-
-module GoblinElderRightArmM
-    NAMES = [LocaleKey::GOBLIN_ELDER_RIGHT_ARM]
-end
-
-module GoblinElderLeftArmM
-    NAMES = [LocaleKey::GOBLIN_ELDER_LEFT_ARM]
-end
-
 class GoblinElderHead < Bestiary
     ID = 'head'
     IS_WEAKPOINT = true
     HEALTH_MULTIPLIER = 2
     DAMAGE_MULTIPLIER = 0.5
-    FEMALE = GoblinElderHeadF
+    FEMALE = LocaleKey::GOBLIN_ELDER_HEAD
     FEMALE_CHANCES = 100
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_BITE_ATTACK]
     DEATH_EVENT = -> (players, head, boss) {GoblinElderBoss.death(head.get_name, boss, players)}
@@ -31,12 +15,12 @@ class GoblinElderLeftArm < Bestiary
     DAMAGE_MULTIPLIER = 1.25
     MAGIC_PROPORTION = 80
     HEALING_PROPORTION = 100
-    MALE = GoblinElderLeftArmM
+    MALE = LocaleKey::GOBLIN_ELDER_LEFT_ARM
     FEMALE_CHANCES = 0
     PICTURE = 'elder_goblin_left_arm'
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_LEFT_ATTACK]
     SPECIAL_MOVES = [
-        SpecialMove.new(100, -> (targets, pack, damage, boss) {GoblinElderBoss.delegate(targets, pack, damage, boss, GoblinAdvisorLeft, GoblinElderLeftArmM::NAMES[0])})
+        SpecialMove.new(100, -> (targets, pack, damage, boss) {GoblinElderBoss.delegate(targets, pack, damage, boss, GoblinAdvisorLeft, MALE)})
     ]
     DEATH_EVENT = -> (players, arm, boss) {GoblinElderBoss.arm_loss(arm.get_name, boss, GoblinElderRightArm::ID)}
 end
@@ -47,12 +31,12 @@ class GoblinElderRightArm < Bestiary
     DAMAGE_MULTIPLIER = 1.25
     MAGIC_PROPORTION = 80
     HEALING_PROPORTION = 0
-    MALE = GoblinElderRightArmM
+    MALE = LocaleKey::GOBLIN_ELDER_RIGHT_ARM
     FEMALE_CHANCES = 0
     PICTURE = 'elder_goblin_right_arm'
     BASE_MOVES = [LocaleKey::GOBLIN_ELDER_RIGHT_ATTACK]
     SPECIAL_MOVES = [
-        SpecialMove.new(100, -> (target, pack, damage, boss) {GoblinElderBoss.delegate(target, pack, damage, boss, GoblinAdvisorRight, GoblinElderRightArmM::NAMES[0])})
+        SpecialMove.new(100, -> (target, pack, damage, boss) {GoblinElderBoss.delegate(target, pack, damage, boss, GoblinAdvisorRight, MALE)})
     ]
     DEATH_EVENT = -> (players, arm, boss) {GoblinElderBoss.arm_loss(arm.get_name, boss, GoblinElderLeftArm::ID)}
 end
@@ -60,7 +44,7 @@ end
 class GoblinElderBoss < Bestiary
     IS_BOSS = true
     EXPECTED_LEVEL = 12
-    FEMALE = GoblinElderF
+    FEMALE = LocaleKey::GOBLIN_ELDER_BOSS_NAME
     FEMALE_CHANCES = 100
     PICTURE = 'elder_goblin'
     LOOTS = [

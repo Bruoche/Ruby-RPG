@@ -143,6 +143,14 @@ class Boss < Monster
         return nil
     end
 
+    def remove_part_by(part_id)
+        for current_bodypart in @bodyparts
+            if current_bodypart.is?(part_id)
+                return @bodyparts.delete(current_bodypart)
+            end
+        end
+    end
+
     def get_parts
         return @bodyparts
     end

@@ -66,6 +66,20 @@ class Name
     end
 
     def generate(gendered_vocabulary)
+        if gendered_vocabulary.kind_of? Array
+            gendered_vocabulary = gendered_vocabulary.sample
+        end
+        if gendered_vocabulary.kind_of? Symbol
+            gendered_vocabulary = Locale.get_localized(gendered_vocabulary)
+        end
+        if gendered_vocabulary.kind_of? String
+            @name = gendered_vocabulary
+            return
+        end
+        if gendered_vocabulary.kind_of? Array
+            @name = gendered_vocabulary.sample
+            return
+        end
         @name = gendered_vocabulary::NAMES.sample
         if (([true, false, false].sample) && (gendered_vocabulary.const_defined?(:PREFIXES)))
             @prefix = gendered_vocabulary::PREFIXES.sample
