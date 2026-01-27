@@ -770,6 +770,8 @@ module LocaleKey
     GOLEM_RIGHT_ARM = :golem_right_arm
     GOLEM_LEFT_LEG = :golem_left_leg
     GOLEM_RIGHT_LEG = :golem_right_leg
+    GOLEM_HEART_LOOT = :golem_heart_loot
+    GOLEM_BROKEN_HEART_LOOT = :golem_broken_heart_loot
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     CAVES_LOOT_ROPE = :cave_loot_rope

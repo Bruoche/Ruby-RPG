@@ -1,6 +1,7 @@
 class GolemChestCrystal < Bestiary
     ID = 'chest_crystal'
     IS_WEAKPOINT = true
+    UNPREDICTABILITY = 0
     HEALTH_MULTIPLIER = 2
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_CHEST_CRYSTAL
@@ -13,6 +14,7 @@ end
 class GolemHeadCrystal < Bestiary
     ID = 'head_crystal'
     IS_WEAKPOINT = true
+    UNPREDICTABILITY = 0
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_HEAD_CRYSTAL
@@ -25,6 +27,7 @@ end
 class GolemRightArmCrystal < Bestiary
     ID = 'right_arm_crystal'
     IS_WEAKPOINT = true
+    UNPREDICTABILITY = 0
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_RIGHT_ARM_CRYSTAL
@@ -37,6 +40,7 @@ end
 class GolemLeftArmCrystal < Bestiary
     ID = 'left_arm_crystal'
     IS_WEAKPOINT = true
+    UNPREDICTABILITY = 0
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_LEFT_ARM_CRYSTAL
@@ -49,6 +53,7 @@ end
 class GolemRightLegCrystal < Bestiary
     ID = 'right_leg_crystal'
     IS_WEAKPOINT = true
+    UNPREDICTABILITY = 0
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_RIGHT_LEG_CRYSTAL
@@ -61,6 +66,7 @@ end
 class GolemLeftLegCrystal < Bestiary
     ID = 'left_leg_crystal'
     IS_WEAKPOINT = true
+    UNPREDICTABILITY = 0
     HEALTH_MULTIPLIER = 1
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_LEFT_LEG_CRYSTAL
@@ -85,7 +91,7 @@ end
 class GolemBossLeftArm < Bestiary
     ID = 'left_arm'
     HEALTH_MULTIPLIER = 3
-    DAMAGE_MULTIPLIER = 1
+    DAMAGE_MULTIPLIER = 0.72
     MALE = LocaleKey::GOLEM_LEFT_ARM
     FEMALE_CHANCES = 0
     PICTURE = 'lost_knight_left_arm'
@@ -98,7 +104,7 @@ end
 class GolemBossRightArm < Bestiary
     ID = 'right_arm'
     HEALTH_MULTIPLIER = 3
-    DAMAGE_MULTIPLIER = 1
+    DAMAGE_MULTIPLIER = 0.72
     MALE = LocaleKey::GOLEM_RIGHT_ARM
     FEMALE_CHANCES = 0
     PICTURE = 'lost_knight_right_arm'
@@ -111,7 +117,7 @@ end
 class GolemBossLeftLeg < Bestiary
     ID = 'left_leg'
     HEALTH_MULTIPLIER = 4
-    DAMAGE_MULTIPLIER = 1.2
+    DAMAGE_MULTIPLIER = 0.78
     MALE = LocaleKey::GOLEM_LEFT_LEG
     FEMALE_CHANCES = 0
     PICTURE = 'lost_knight_left_arm'
@@ -124,7 +130,7 @@ end
 class GolemBossRightLeg < Bestiary
     ID = 'right_leg'
     HEALTH_MULTIPLIER = 4
-    DAMAGE_MULTIPLIER = 1.2
+    DAMAGE_MULTIPLIER = 0.78
     MALE = LocaleKey::GOLEM_RIGHT_LEG
     FEMALE_CHANCES = 0
     PICTURE = 'lost_knight_right_arm'
@@ -172,7 +178,7 @@ class GolemBoss < Bestiary
             room = boss_data.get_room
             room.get_monsters.add(MonsterFactory.make_monster(
                 nil,
-                CrystalCave,
+                CrystalCaves,
                 5,
                 room,
                 [SmallGolem]
@@ -192,7 +198,7 @@ class GolemBoss < Bestiary
 
     def self.crystal_loss(name, boss_data, related_limb_id)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss
+        Narrator.knight_limb_loss(name)
         Game.wait
         limb = boss_data.get_part_by(related_limb_id)
         if limb != nil
@@ -207,11 +213,11 @@ class GolemBoss < Bestiary
         SoundManager.play('unequip')
         Narrator.knight_defenseless(boss_data.get_name.get_gendered_the)
         Game.wait
-        if heart != nil
+        if heart == nil
             return
         end
         room.add_loot(Loot.new(
-            :golem_heart_loot,
+            LocaleKey::GOLEM_HEART_LOOT,
             100,
             Amethyst
         ))
@@ -220,11 +226,16 @@ class GolemBoss < Bestiary
 
     def self.break_chest_crystal(boss_data)
         for limb in boss_data.get_parts
-            if limb.is_weakpoint?
+            if !limb.is_weakpoint?
                 damage = limb.get_max_life.div(2)
                 limb.hurt(Attack.new(damage, Attack::PHYSIC_TYPE, boss_data))
             end
         end
+        boss_data.get_room.add_loot(Loot.new(
+            LocaleKey::GOLEM_BROKEN_HEART_LOOT,
+            100,
+            Amethyst
+        ))
     end
 
     def self.death(name, boss_data)
