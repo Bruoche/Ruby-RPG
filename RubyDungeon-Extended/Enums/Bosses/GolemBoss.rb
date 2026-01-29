@@ -5,6 +5,7 @@ class GolemChestCrystal < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_CHEST_CRYSTAL
     FEMALE_CHANCES = 100
+    PICTURE = 'boss_golem_chest_crystal'
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.break_chest_crystal(boss_data)
     }
@@ -17,6 +18,7 @@ class GolemHeadCrystal < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_HEAD_CRYSTAL
     FEMALE_CHANCES = 100
+    PICTURE = 'boss_golem_head_crystal'
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossHead::ID)
     }
@@ -29,6 +31,7 @@ class GolemRightArmCrystal < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_RIGHT_ARM_CRYSTAL
     FEMALE_CHANCES = 100
+    PICTURE = 'boss_golem_right_arm_crystal'
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossRightArm::ID)
     }
@@ -41,6 +44,7 @@ class GolemLeftArmCrystal < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_LEFT_ARM_CRYSTAL
     FEMALE_CHANCES = 100
+    PICTURE = 'boss_golem_left_arm_crystal'
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossLeftArm::ID)
     }
@@ -53,6 +57,7 @@ class GolemRightLegCrystal < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_RIGHT_LEG_CRYSTAL
     FEMALE_CHANCES = 100
+    PICTURE = 'boss_golem_right_leg_crystal'
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossRightLeg::ID)
     }
@@ -65,6 +70,7 @@ class GolemLeftLegCrystal < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_LEFT_LEG_CRYSTAL
     FEMALE_CHANCES = 100
+    PICTURE = 'boss_golem_left_leg_crystal'
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossLeftLeg::ID)
     }
@@ -77,6 +83,7 @@ class GolemBossHead < Bestiary
     FEMALE = LocaleKey::GOLEM_HEAD
     FEMALE_CHANCES = 100
     PICTURE = 'lost_knight_head'
+    PICTURE = 'boss_golem_head'
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb.get_name, boss_data, GolemHeadCrystal::ID)
     }
@@ -88,7 +95,7 @@ class GolemBossLeftArm < Bestiary
     DAMAGE_MULTIPLIER = 1
     MALE = LocaleKey::GOLEM_LEFT_ARM
     FEMALE_CHANCES = 0
-    PICTURE = 'lost_knight_left_arm'
+    PICTURE = 'boss_golem_left_arm'
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb.get_name, boss_data, GolemLeftArmCrystal::ID)
@@ -101,7 +108,7 @@ class GolemBossRightArm < Bestiary
     DAMAGE_MULTIPLIER = 1
     MALE = LocaleKey::GOLEM_RIGHT_ARM
     FEMALE_CHANCES = 0
-    PICTURE = 'lost_knight_right_arm'
+    PICTURE = 'boss_golem_right_arm'
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb.get_name, boss_data, GolemRightArmCrystal::ID)
@@ -114,7 +121,7 @@ class GolemBossLeftLeg < Bestiary
     DAMAGE_MULTIPLIER = 1.2
     MALE = LocaleKey::GOLEM_LEFT_LEG
     FEMALE_CHANCES = 0
-    PICTURE = 'lost_knight_left_arm'
+    PICTURE = 'boss_golem_left_leg'
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb.get_name, boss_data, GolemLeftLegCrystal::ID)
@@ -127,7 +134,7 @@ class GolemBossRightLeg < Bestiary
     DAMAGE_MULTIPLIER = 1.2
     MALE = LocaleKey::GOLEM_RIGHT_LEG
     FEMALE_CHANCES = 0
-    PICTURE = 'lost_knight_right_arm'
+    PICTURE = 'boss_golem_right_leg'
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb.get_name, boss_data, GolemRightLegCrystal::ID)
@@ -139,7 +146,7 @@ class GolemBoss < Bestiary
     EXPECTED_LEVEL = 33
     MALE = LocaleKey::GOLEM_NAME
     FEMALE_CHANCES = 0
-    PICTURE = 'lost_knight'
+    PICTURE = 'boss_golem'
     LOOTS = [
         Loot.new(
             LocaleKey::KNIGHT_LOOT_COINS,
@@ -192,7 +199,7 @@ class GolemBoss < Bestiary
 
     def self.crystal_loss(name, boss_data, related_limb_id)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss
+        Narrator.knight_limb_loss(name)
         Game.wait
         limb = boss_data.get_part_by(related_limb_id)
         if limb != nil
