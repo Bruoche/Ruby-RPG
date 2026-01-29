@@ -12,8 +12,8 @@ class Boss < Monster
         for bodypart in boss_data::BODYPARTS
             @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss_data::BODYPARTS.length), room))
         end
+        @initial_bodyparts = @bodyparts.map(&:clone)
         @name = Name.new(boss_data)
-        @initial_power = get_power
         @picture = ASCIIPicture.new(ASCIIPrinter::PREFIX + PICTURE_PREFIX + boss_data::PICTURE)
         @loots = boss_data::LOOTS
         @death_event = boss_data::DEATH_EVENT
@@ -21,15 +21,15 @@ class Boss < Monster
         @status_handler = self
     end
 
-    def get_power
+    def get_power(bodyparts = @bodyparts)
         power = 0
         nb_bodyparts = 0
-        for bodypart in @bodyparts
+        for bodypart in bodyparts
             power += bodypart.get_power
             nb_bodyparts += 1
         end
         health = 0
-        for bodypart in @bodyparts
+        for bodypart in bodyparts
             if bodypart.is_weakpoint?
                 health += bodypart.get_max_life
             end
@@ -38,7 +38,7 @@ class Boss < Monster
     end
 
     def get_xp
-        return @initial_power * 2
+        return get_power(@initial_bodyparts) * 2
     end
 
     def get_strength
@@ -81,7 +81,7 @@ class Boss < Monster
 
     def get_max_life
         max_life = 0
-        for bodypart in @bodyparts
+        for bodypart in @initial_bodyparts
             if bodypart.is_weakpoint?
                 max_life += bodypart.get_max_life
             end
@@ -244,9 +244,13 @@ class Boss < Monster
 
     def hurt_part(target, attack)
         target.hurt(attack)
-        if target.died?
-            target.death_event(self)
-            @bodyparts.delete_at(@bodyparts.index(target))
+        return check_death(target)
+    end
+
+    def check_death(part)
+        if part.died?
+            part.death_event(self)
+            @bodyparts.delete_at(@bodyparts.index(part))
             return PART_KILLED
         end
         return !PART_KILLED
@@ -265,6 +269,7 @@ class Boss < Monster
     def act(players, pack)
         ArrayUtils.for_potential(@bodyparts) do |bodypart|
             bodypart.act(players, pack, self)
+            check_death(bodypart)
         end
     end
 

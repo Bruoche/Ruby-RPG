@@ -1088,6 +1088,8 @@ class FR
         LocaleKey::GOLEM_RIGHT_ARM => "bras droit du golem",
         LocaleKey::GOLEM_LEFT_LEG => "jambe gauche du golem",
         LocaleKey::GOLEM_RIGHT_LEG => "jambe droite du golem",
+        LocaleKey::GOLEM_HEART_LOOT => ["Vous trouvez le coeur encore intact du golem dans les décombres."],
+        LocaleKey::GOLEM_BROKEN_HEART_LOOT => ["Vous trouvez quelques cristaux cassés dans les décombres."],
         LocaleKey::CAVE_DESCRIPTION => [
             "Vous êtes dans une grotte.",
             "Bien que ce n'est pas le lieu le plus accueillant qui puisse être, et malgré l'obscurité ambiante, cet endroit est bien plus appaisant que les cryptes.",

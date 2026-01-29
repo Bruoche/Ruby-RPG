@@ -1088,6 +1088,8 @@ class EN
         LocaleKey::GOLEM_RIGHT_ARM => "right arm of the golem",
         LocaleKey::GOLEM_LEFT_LEG => "left leg of the golem",
         LocaleKey::GOLEM_RIGHT_LEG => "right leg of the golem",
+        LocaleKey::GOLEM_HEART_LOOT => ["You find the still intact heart of the golem among it's crumbling remains."],
+        LocaleKey::GOLEM_BROKEN_HEART_LOOT => ["You find a few broken pieces of cristal among the rubbles."],
         LocaleKey::CAVE_DESCRIPTION => [
             "You are in a cave.",
             "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
