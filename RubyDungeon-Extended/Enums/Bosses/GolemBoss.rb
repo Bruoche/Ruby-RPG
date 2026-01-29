@@ -88,10 +88,9 @@ class GolemBossHead < Bestiary
     DAMAGE_MULTIPLIER = 0
     FEMALE = LocaleKey::GOLEM_HEAD
     FEMALE_CHANCES = 100
-    PICTURE = 'lost_knight_head'
     PICTURE = 'boss_golem_head'
     DEATH_EVENT = -> (players, limb, boss_data) {
-        GolemBoss.limb_loss(limb.get_name, boss_data, GolemHeadCrystal::ID)
+        GolemBoss.lost_head(limb, boss_data)
     }
 end
 
@@ -175,6 +174,11 @@ class GolemBoss < Bestiary
         GolemBossRightLeg,
         GolemRightLegCrystal,
     ]
+
+    def self.lost_head(limb, boss_data)
+        GolemBoss.limb_loss(limb.get_name, boss_data, GolemHeadCrystal::ID)
+        boss_data.add_status(Rage.new)
+    end
 
     def self.limb_loss(name, boss_data, related_crystal_id)
         SoundManager.play('ennemy_death')
