@@ -1090,6 +1090,7 @@ class FR
         LocaleKey::GOLEM_RIGHT_LEG => "jambe droite du golem",
         LocaleKey::GOLEM_HEART_LOOT => ["Vous trouvez le coeur encore intact du golem dans les décombres."],
         LocaleKey::GOLEM_BROKEN_HEART_LOOT => ["Vous trouvez quelques cristaux cassés dans les décombres."],
+        LocaleKey::GOLEM_CRYSTAL_LOOT => ["Vous voyez le large morceau de cristal arraché du golem"],
         LocaleKey::CAVE_DESCRIPTION => [
             "Vous êtes dans une grotte.",
             "Bien que ce n'est pas le lieu le plus accueillant qui puisse être, et malgré l'obscurité ambiante, cet endroit est bien plus appaisant que les cryptes.",
@@ -1511,7 +1512,7 @@ class FR
         LocaleKey::GOBLIN_LOOT_FRUITS => ["Lorsque vous regardez dans le sac du gobelin, vous y trouvez quelques fruits."],
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un garde goblin."],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["En examinant le cadabre de l'araignée, vous parevenez à extraire le venin de ses crocs encore intact."],
-        LocaleKey::GOLEM_LOOT_AMETHYST => ["Vous récupérez le crystal brisé sur le dos du golem"],
+        LocaleKey::GOLEM_LOOT_AMETHYST => ["Le crystal sur le dos du golem semble s'être délogé"],
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",
         LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ?",

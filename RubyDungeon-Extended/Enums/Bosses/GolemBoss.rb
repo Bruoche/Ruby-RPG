@@ -21,6 +21,13 @@ class GolemHeadCrystal < Bestiary
     FEMALE = LocaleKey::GOLEM_HEAD_CRYSTAL
     FEMALE_CHANCES = 100
     PICTURE = 'boss_golem_head_crystal'
+    LOOTS = [
+        Loot.new(
+            LocaleKey::GOLEM_CRYSTAL_LOOT,
+            100,
+            Amethyst
+        )
+    ]
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossHead::ID)
     }
@@ -35,6 +42,13 @@ class GolemRightArmCrystal < Bestiary
     FEMALE = LocaleKey::GOLEM_RIGHT_ARM_CRYSTAL
     FEMALE_CHANCES = 100
     PICTURE = 'boss_golem_right_arm_crystal'
+    LOOTS = [
+        Loot.new(
+            LocaleKey::GOLEM_CRYSTAL_LOOT,
+            100,
+            Amethyst
+        )
+    ]
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossRightArm::ID)
     }
@@ -49,6 +63,13 @@ class GolemLeftArmCrystal < Bestiary
     FEMALE = LocaleKey::GOLEM_LEFT_ARM_CRYSTAL
     FEMALE_CHANCES = 100
     PICTURE = 'boss_golem_left_arm_crystal'
+    LOOTS = [
+        Loot.new(
+            LocaleKey::GOLEM_CRYSTAL_LOOT,
+            100,
+            Amethyst
+        )
+    ]
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossLeftArm::ID)
     }
@@ -63,6 +84,13 @@ class GolemRightLegCrystal < Bestiary
     FEMALE = LocaleKey::GOLEM_RIGHT_LEG_CRYSTAL
     FEMALE_CHANCES = 100
     PICTURE = 'boss_golem_right_leg_crystal'
+    LOOTS = [
+        Loot.new(
+            LocaleKey::GOLEM_CRYSTAL_LOOT,
+            100,
+            Amethyst
+        )
+    ]
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossRightLeg::ID)
     }
@@ -77,6 +105,13 @@ class GolemLeftLegCrystal < Bestiary
     FEMALE = LocaleKey::GOLEM_LEFT_LEG_CRYSTAL
     FEMALE_CHANCES = 100
     PICTURE = 'boss_golem_left_leg_crystal'
+    LOOTS = [
+        Loot.new(
+            LocaleKey::GOLEM_CRYSTAL_LOOT,
+            100,
+            Amethyst
+        )
+    ]
     DEATH_EVENT = -> (players, crystal, boss_data) {
         GolemBoss.crystal_loss(crystal.get_name.get_gendered_the, boss_data, GolemBossLeftLeg::ID)
     }
@@ -103,7 +138,7 @@ class GolemBossLeftArm < Bestiary
     PICTURE = 'boss_golem_left_arm'
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
-        GolemBoss.limb_loss(limb.get_name, boss_data, GolemLeftArmCrystal::ID)
+        GolemBoss.limb_loss(limb, boss_data, GolemLeftArmCrystal::ID)
     }
 end
 
@@ -116,7 +151,7 @@ class GolemBossRightArm < Bestiary
     PICTURE = 'boss_golem_right_arm'
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
-        GolemBoss.limb_loss(limb.get_name, boss_data, GolemRightArmCrystal::ID)
+        GolemBoss.limb_loss(limb, boss_data, GolemRightArmCrystal::ID)
     }
 end
 
@@ -129,7 +164,7 @@ class GolemBossLeftLeg < Bestiary
     PICTURE = 'boss_golem_left_leg'
     BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
-        GolemBoss.limb_loss(limb.get_name, boss_data, GolemLeftLegCrystal::ID)
+        GolemBoss.limb_loss(limb, boss_data, GolemLeftLegCrystal::ID)
     }
 end
 
@@ -142,7 +177,7 @@ class GolemBossRightLeg < Bestiary
     PICTURE = 'boss_golem_right_leg'
     BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
-        GolemBoss.limb_loss(limb.get_name, boss_data, GolemRightLegCrystal::ID)
+        GolemBoss.limb_loss(limb, boss_data, GolemRightLegCrystal::ID)
     }
 end
 
@@ -152,15 +187,6 @@ class GolemBoss < Bestiary
     MALE = LocaleKey::GOLEM_NAME
     FEMALE_CHANCES = 0
     PICTURE = 'boss_golem'
-    LOOTS = [
-        Loot.new(
-            LocaleKey::KNIGHT_LOOT_COINS,
-            100,
-            Coins,
-            [],
-            40
-        )
-    ]
     BODYPARTS = [
         GolemBossHead,
         GolemHeadCrystal,
@@ -176,16 +202,18 @@ class GolemBoss < Bestiary
     ]
 
     def self.lost_head(limb, boss_data)
-        GolemBoss.limb_loss(limb.get_name, boss_data, GolemHeadCrystal::ID)
-        boss_data.add_status(Rage.new)
+        GolemBoss.limb_loss(limb, boss_data, GolemHeadCrystal::ID)
+        boss_data.add_status(Rage.new, -> (bodypart) {
+            return !bodypart.is_weakpoint?
+        })
     end
 
-    def self.limb_loss(name, boss_data, related_crystal_id)
+    def self.limb_loss(limb, boss_data, related_crystal_id)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss(name.get_gendered_the)
+        Narrator.knight_limb_loss(limb.get_name.get_gendered_the)
         Game.wait
         crystal = boss_data.get_part_by(related_crystal_id)
-        if crystal != nil
+        if crystal != nil && !crystal.died?
             room = boss_data.get_room
             room.get_monsters.add(MonsterFactory.make_monster(
                 nil,
@@ -198,12 +226,12 @@ class GolemBoss < Bestiary
         end
         has_limbs_left = false
         for bodypart in boss_data.get_parts
-            if bodypart.is_weakpoint?
+            if !(bodypart.is_weakpoint? || bodypart.is?(GolemBossHead::ID) || bodypart == limb)
                 has_limbs_left = true
             end
         end
         if !has_limbs_left
-            GolemBoss.defenseless(boss_data, room)
+            GolemBoss.defenseless(boss_data)
         end
     end
 
@@ -219,20 +247,31 @@ class GolemBoss < Bestiary
         end
     end
 
-    def self.defenseless(boss_data, room)
+    def self.defenseless(boss_data)
         heart = boss_data.get_part_by(GolemChestCrystal::ID)
         SoundManager.play('unequip')
         Narrator.knight_defenseless(boss_data.get_name.get_gendered_the)
         Game.wait
-        if heart == nil
-            return
+        room = boss_data.get_room
+        if heart != nil
+            room.add_loot(Loot.new(
+                LocaleKey::GOLEM_HEART_LOOT,
+                100,
+                Amethyst
+            ))
         end
-        room.add_loot(Loot.new(
-            LocaleKey::GOLEM_HEART_LOOT,
-            100,
-            Amethyst
-        ))
-        heart.hurt(Attack.new(heart.get_max_life, Attack::PHYSIC_TYPE, boss_data))
+        boss_data.kill(-> (bodypart) {
+            if bodypart.is_weakpoint?
+                room.add_loot(
+                    Loot.new(
+                        LocaleKey::GOLEM_CRYSTAL_LOOT,
+                        100,
+                        Amethyst
+                    )
+                )
+            end
+            return false
+        })
     end
 
     def self.break_chest_crystal(boss_data)

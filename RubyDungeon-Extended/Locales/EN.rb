@@ -1090,6 +1090,7 @@ class EN
         LocaleKey::GOLEM_RIGHT_LEG => "right leg of the golem",
         LocaleKey::GOLEM_HEART_LOOT => ["You find the still intact heart of the golem among it's crumbling remains."],
         LocaleKey::GOLEM_BROKEN_HEART_LOOT => ["You find a few broken pieces of cristal among the rubbles."],
+        LocaleKey::GOLEM_CRYSTAL_LOOT => ["You find the large chunk of crystal broken from the golem's body"],
         LocaleKey::CAVE_DESCRIPTION => [
             "You are in a cave.",
             "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
@@ -1511,7 +1512,7 @@ class EN
         LocaleKey::GOBLIN_LOOT_FRUITS => ["Looking into the goblin's basket, you notice it had a few fruits in a basket."],
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["You find a health potion in one the belt pocket of a goblin guard"],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["By examining the spider's corpse, you manage to extract some venom from it's still intact fangs."],
-        LocaleKey::GOLEM_LOOT_AMETHYST => ["You collect the broken crystals on the golems back"],
+        LocaleKey::GOLEM_LOOT_AMETHYST => ["The large crystal seems disloged from the golem's back."],
         LocaleKey::THE_EXIT => "the exit",
         LocaleKey::A_HOLE => "a hole",
         LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down?",

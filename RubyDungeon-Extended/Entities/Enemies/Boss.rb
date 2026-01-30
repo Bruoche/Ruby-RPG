@@ -10,7 +10,7 @@ class Boss < Monster
         power_bonus = (expected_stats * amount_bonus * multiplayer_scaling).truncate
         @bodyparts = Array.new
         for bodypart in boss_data::BODYPARTS
-            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss_data::BODYPARTS.length), room))
+            @bodyparts.append(Bodypart.new(bodypart, power_bonus.div(boss_data::BODYPARTS.length), room, self))
         end
         @initial_bodyparts = @bodyparts.map(&:clone)
         @name = Name.new(boss_data)
@@ -204,9 +204,11 @@ class Boss < Monster
         return false
     end
 
-    def add_status(status)
+    def add_status(status, extra_condition = -> () {return true})
         for bodypart in @bodyparts
-            bodypart.status_handler.add(status)
+            if extra_condition.call(bodypart)
+                bodypart.status_handler.add(status)
+            end
         end
     end
 
@@ -248,9 +250,12 @@ class Boss < Monster
     end
 
     def check_death(part)
-        if part.died?
+        if part.died? && @bodyparts.include?(part)
             part.death_event(self)
-            @bodyparts.delete_at(@bodyparts.index(part))
+            index = @bodyparts.index(part)
+            if index != nil
+                @bodyparts.delete_at(index)
+            end
             return PART_KILLED
         end
         return !PART_KILLED
@@ -271,6 +276,15 @@ class Boss < Monster
             bodypart.act(players, pack, self)
             check_death(bodypart)
         end
+    end
+
+    def kill(death_event_condition = -> (bodypart) {return true})
+        for bodypart in @bodyparts
+            if death_event_condition.call(bodypart)
+                bodypart.death_event(self)
+            end
+        end
+        @bodyparts = []
     end
 
     def to_string(bodypart)

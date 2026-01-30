@@ -1,5 +1,5 @@
 class Bodypart < Monster
-    def initialize(data, power_bonus, room)
+    def initialize(data, power_bonus, room, parent)
         @id = data::ID
         strength_proportion = 100 - data::MAGIC_PROPORTION
         health = (BaseStats::BASE_HEALTH + power_bonus) * data::HEALTH_MULTIPLIER
@@ -26,6 +26,7 @@ class Bodypart < Monster
             data::SPECIAL_MOVES
         )
         @is_weakpoint = data::IS_WEAKPOINT
+        @parent = parent
     end
 
     def is?(id)
@@ -46,5 +47,10 @@ class Bodypart < Monster
 
     def is_weakpoint?
         return @is_weakpoint
+    end
+
+    def hurt(attack)
+        super(attack)
+        @parent.check_death(self)
     end
 end
