@@ -173,6 +173,10 @@ class Pack
     end
 
     def death_event(monster)
+        if monster.is_a? Bodypart
+            monster.get_parent.check_death(monster)
+            return
+        end
         SoundManager.play('ennemy_death')
         Narrator.monster_death(monster.get_name.get_gendered_the)
         Game.wait

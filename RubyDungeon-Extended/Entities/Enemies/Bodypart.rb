@@ -45,6 +45,10 @@ class Bodypart < Monster
         return status_handler.get_icons.strip
     end
 
+    def get_parent
+        return @parent
+    end
+
     def is_weakpoint?
         return @is_weakpoint
     end
