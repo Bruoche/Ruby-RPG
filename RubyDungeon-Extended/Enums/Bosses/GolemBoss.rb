@@ -261,7 +261,7 @@ class GolemBoss < Bestiary
             ))
         end
         boss_data.kill(-> (bodypart) {
-            if bodypart.is_weakpoint?
+            if bodypart.is_weakpoint? && !bodypart.is?(GolemChestCrystal::ID)
                 room.add_loot(
                     Loot.new(
                         LocaleKey::GOLEM_CRYSTAL_LOOT,

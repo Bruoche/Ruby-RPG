@@ -252,6 +252,9 @@ class Boss < Monster
     def check_death(part)
         if part.died? && @bodyparts.include?(part)
             part.death_event(self)
+            for loot in part.get_loots
+                part.get_room.add_loot(loot)
+            end
             index = @bodyparts.index(part)
             if index != nil
                 @bodyparts.delete_at(index)
