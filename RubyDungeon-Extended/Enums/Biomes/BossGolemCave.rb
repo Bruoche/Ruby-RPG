@@ -1,6 +1,6 @@
 module BossGolemCaveF
     NAMES = [
-        LocaleKey::DISMAL_CELL
+        LocaleKey::GOLEM_CAVE
     ]
 end
 
@@ -9,11 +9,11 @@ class BossGolemCave < Biome
     PICTURE = 'golem_boss_cave'
     COMBAT_TRACK = 'Dog'
     ENTRY_REQUIREMENTS = [
-        BossCellRequireKey
+        BossGolemConfirm
     ]
     FEMALE = BossGolemCaveF
     FEMALE_CHANCES = 100
-    DESCRIPTION = LocaleKey::DISMAL_CELL_DESCRIPTION
+    DESCRIPTION = LocaleKey::GOLEM_CAVE_DESCRIPTION
     SAFE_CHANCES = 0
     LOOT = []
     MIN_EXITS = 0

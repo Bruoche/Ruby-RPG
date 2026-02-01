@@ -69,7 +69,7 @@ class LostKnight < Bestiary
 
     def self.limb_loss(name, boss_data)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss(name.get_gendered_the)
+        Narrator.limb_loss(name.get_gendered_the)
         Game.wait
     end
 

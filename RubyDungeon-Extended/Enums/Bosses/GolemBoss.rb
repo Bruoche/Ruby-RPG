@@ -136,7 +136,6 @@ class GolemBossLeftArm < Bestiary
     MALE = LocaleKey::GOLEM_LEFT_ARM
     FEMALE_CHANCES = 0
     PICTURE = 'boss_golem_left_arm'
-    BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb, boss_data, GolemLeftArmCrystal::ID)
     }
@@ -149,7 +148,6 @@ class GolemBossRightArm < Bestiary
     MALE = LocaleKey::GOLEM_RIGHT_ARM
     FEMALE_CHANCES = 0
     PICTURE = 'boss_golem_right_arm'
-    BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb, boss_data, GolemRightArmCrystal::ID)
     }
@@ -162,7 +160,7 @@ class GolemBossLeftLeg < Bestiary
     MALE = LocaleKey::GOLEM_LEFT_LEG
     FEMALE_CHANCES = 0
     PICTURE = 'boss_golem_left_leg'
-    BASE_MOVES = [LocaleKey::KNIGHT_LEFT_ATTACK]
+    BASE_MOVES = [LocaleKey::GOLEM_CRUSH_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb, boss_data, GolemLeftLegCrystal::ID)
     }
@@ -175,7 +173,7 @@ class GolemBossRightLeg < Bestiary
     MALE = LocaleKey::GOLEM_RIGHT_LEG
     FEMALE_CHANCES = 0
     PICTURE = 'boss_golem_right_leg'
-    BASE_MOVES = [LocaleKey::KNIGHT_RIGHT_ATTACK]
+    BASE_MOVES = [LocaleKey::GOLEM_CRUSH_ATTACK]
     DEATH_EVENT = -> (players, limb, boss_data) {
         GolemBoss.limb_loss(limb, boss_data, GolemRightLegCrystal::ID)
     }
@@ -210,11 +208,14 @@ class GolemBoss < Bestiary
 
     def self.limb_loss(limb, boss_data, related_crystal_id)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss(limb.get_name.get_gendered_the)
+        Narrator.limb_loss(limb.get_name.get_gendered_the)
         Game.wait
         crystal = boss_data.get_part_by(related_crystal_id)
         if crystal != nil && !crystal.died?
             room = boss_data.get_room
+            SoundManager.play('crystal_fall')
+            Narrator.write(LocaleKey::CRYSTAL_FALL)
+            Game.wait
             room.get_monsters.add(MonsterFactory.make_monster(
                 nil,
                 CrystalCaves,
@@ -237,7 +238,7 @@ class GolemBoss < Bestiary
 
     def self.crystal_loss(name, boss_data, related_limb_id)
         SoundManager.play('ennemy_death')
-        Narrator.knight_limb_loss(name)
+        Narrator.limb_loss(name)
         Game.wait
         limb = boss_data.get_part_by(related_limb_id)
         if limb != nil
@@ -250,7 +251,7 @@ class GolemBoss < Bestiary
     def self.defenseless(boss_data)
         heart = boss_data.get_part_by(GolemChestCrystal::ID)
         SoundManager.play('unequip')
-        Narrator.knight_defenseless(boss_data.get_name.get_gendered_the)
+        Narrator.write(LocaleKey::GOLEM_FALL)
         Game.wait
         room = boss_data.get_room
         if heart != nil
@@ -290,10 +291,7 @@ class GolemBoss < Bestiary
 
     def self.death(name, boss_data)
         SoundManager.play('ennemy_death')
-        Narrator.knight_death1(boss_data.get_name.get_gendered_of)
-        Game.wait
-        SoundManager.play('player_death')
-        Narrator.knight_death2
+        Narrator.write(LocaleKey::GOLEM_DEATH)
         Game.wait
         Narrator.pause_text
     end

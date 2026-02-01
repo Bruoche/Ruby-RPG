@@ -574,7 +574,7 @@ class EN
         LocaleKey::RAGING => "%s is filled with rage.",
         LocaleKey::SLIME_DIVIDE => "Despite being blown into a green puddle, the wet remains %s reforms into two slimes.",
         LocaleKey::KNIGHT_SLASH => "The knight delivers a powerful strike with his sword, intending to slash his enemy.",
-        LocaleKey::KNIGHT_LIMB_LOSS => "%s break under the blows.",
+        LocaleKey::LIMB_LOSS => "%s break under the blows.",
         LocaleKey::KNIGHT_CHANGE_WEAPON_SIDE => "%s switch his weapon to his left hand.",
         LocaleKey::KNIGHT_PHASE_CHANGE => "He seems to be taken by a sudden and unforeseen resolution.",
         LocaleKey::KNIGHT_DEFENSELESS => "%s let his sword fall to the ground, powerless.",
@@ -1091,6 +1091,10 @@ class EN
         LocaleKey::GOLEM_HEART_LOOT => ["You find the still intact heart of the golem among it's crumbling remains."],
         LocaleKey::GOLEM_BROKEN_HEART_LOOT => ["You find a few broken pieces of cristal among the rubbles."],
         LocaleKey::GOLEM_CRYSTAL_LOOT => ["You find the large chunk of crystal broken from the golem's body"],
+        LocaleKey::GOLEM_CRUSH_ATTACK => "stomps %s with all it's might.",
+        LocaleKey::CRYSTAL_FALL => "The crystal attached to the now broken limb falls shortly, before seeming to merge with the ground as soon as it makes contact with it.",
+        LocaleKey::GOLEM_FALL => "With no limbs to stand on, the large golem falls suddently. Crumbling under it's own weight loudly.",
+        LocaleKey::GOLEM_DEATH => "The golem shatters into an inert pile of rocks, the whole ground trembling. As the dust clouds settles, all that is left is a pile of rock and cristal shards.",
         LocaleKey::CAVE_DESCRIPTION => [
             "You are in a cave.",
             "Although it is not the most welcoming place, and despite the darkness surrounding you, this place appease you compared to the crypt.",
@@ -1112,6 +1116,8 @@ class EN
             "You continue through the increasingly shiny caves, up until the wall are now covered in an obnoxious amount of shiny puprle reflection all around you.",
             "This place is both beautiful and overbearing."
         ],
+        LocaleKey::GOLEM_CAVE => "dead end",
+        LocaleKey::GOLEM_CAVE_DESCRIPTION => ["You are at the end of the cave, crystals surrounding you on all side.",],
         LocaleKey::OPEN_CAVE => "large open room",
         LocaleKey::OPEN_CAVE_DESCRIPTION => [
             "You are in a cave. To your surprise, this part of the cave seems to recieve light from above.",
@@ -1444,6 +1450,24 @@ class EN
             "As you try to open the door it resist you, seemingly locked by key.",
             "",
             "You turn back."
+        ],
+        LocaleKey::BOSS_GOLEM_CONFIRM_QUESTION => [
+            "You arrive to the end of the cave, opening to a tall final room.",
+            "You see a large rock, one of the few not completely overtaken by crystals.",
+            "Altho, one of those few crystals emerging from the bare stone seems to arbor a strange light.",
+            "",
+            "You have a bad feeling about this. But something bacons you to the slight glimmer.",
+            "Touch the crystal?"
+        ],
+        LocaleKey::BOSS_GOLEM_CONFIRM_ENTRY => [
+            "You approach the large rock, extending a trembling hand toward the crystal embedded in it's center.",
+            "But, before you manage to make contact with it's smooth surface, it's light increase, near blinding, and the ground start trembling,",
+            "The large rock moves on it's own, rising up, pushed by the mud climbing it's solid surface.",
+            "Smaller rocks accumulate up and up around the larger stone, until, towering over you, stands a human form of cold hard sediment and dry mud."
+        ],
+        LocaleKey::BOSS_GOLEM_CONFIRM_REFUSE => [
+            "Something isn't right about that. You can feel it.",
+            "You decide it is best to leave this place alone and turn back."
         ],
         LocaleKey::ARMOR_DESCRIPTION => ", protects from %{#{LocaleKey::F_DEFENSE}} damage and weight %{#{LocaleKey::F_WEIGHT}} Kg",
         LocaleKey::ARMOR_CARD_DESCRIPTION => "%{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",

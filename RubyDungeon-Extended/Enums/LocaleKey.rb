@@ -375,7 +375,7 @@ module LocaleKey
     RAGING = :raging
     SLIME_DIVIDE = :slime_divide
     KNIGHT_SLASH = :knight_slash
-    KNIGHT_LIMB_LOSS = :knight_limb_loss
+    LIMB_LOSS = :limb_loss
     KNIGHT_CHANGE_WEAPON_SIDE = :knight_change_weapon_side
     KNIGHT_PHASE_CHANGE = :knight_phase_change
     KNIGHT_DEFENSELESS = :knight_defenseless
@@ -773,6 +773,10 @@ module LocaleKey
     GOLEM_HEART_LOOT = :golem_heart_loot
     GOLEM_BROKEN_HEART_LOOT = :golem_broken_heart_loot
     GOLEM_CRYSTAL_LOOT = :golem_crystal_loot
+    GOLEM_CRUSH_ATTACK = :golem_crush_attack
+    CRYSTAL_FALL = :crystal_fall
+    GOLEM_FALL = :golem_fall
+    GOLEM_DEATH = :golem_death
     CAVE_DESCRIPTION = :cave_description
     CAVES_LOOT_AMETHYST = :caves_loot_amethyst
     CAVES_LOOT_ROPE = :cave_loot_rope
@@ -793,6 +797,8 @@ module LocaleKey
     SWAMP_DESCRIPTION = :swamp_description
     CRYSTAL_CAVE_DESCRIPTION = :crystal_cave_transition_crystal
     CAVES_TRANSITION_CRYSTAL = :caves_transition_crystal
+    GOLEM_CAVE = :golem_cave
+    GOLEM_CAVE_DESCRIPTION = :golem_cave_description
     GOLEM_LOOT_AMETHYST = :golem_loot_amethyst
     PLACEHOLDER_ARRAY = :placeholder_array
     SHOPKEEPER_NAME = :shopkeeper_name
@@ -871,6 +877,9 @@ module LocaleKey
     BOSS_CELL_REQ_ENTRY = :boss_cell_req_entry
     BOSS_CELL_REQ_REFUSE = :boss_cell_req_refuse
     BOSS_CELL_REQ_CANT = :boss_cell_req_cant
+    BOSS_GOLEM_CONFIRM_QUESTION = :boss_golem_confirm_question
+    BOSS_GOLEM_CONFIRM_ENTRY = :boss_golem_confirm_entry
+    BOSS_GOLEM_CONFIRM_REFUSE = :boss_golem_confirm_refuse
     ARMOR_DESCRIPTION = :armor_description
     ARMOR_CARD_DESCRIPTION = :armor_card_description
     BANDAGES_NAME = :bandages_name

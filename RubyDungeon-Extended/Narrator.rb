@@ -693,8 +693,8 @@ class Narrator
         Narrator.write(LocaleKey::KNIGHT_SLASH)
     end
 
-    def self.knight_limb_loss(limb_name)
-        Narrator.write(format(Locale.get_localized(LocaleKey::KNIGHT_LIMB_LOSS), limb_name.capitalize))
+    def self.limb_loss(limb_name)
+        Narrator.write(format(Locale.get_localized(LocaleKey::LIMB_LOSS), limb_name.capitalize))
     end
 
     def self.knight_change_weapon_side(boss_name)

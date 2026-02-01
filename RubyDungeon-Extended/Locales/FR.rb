@@ -574,7 +574,7 @@ class FR
         LocaleKey::RAGING => "%s est enragé.",
         LocaleKey::SLIME_DIVIDE => "Bien qu'il ai été liquéfié, les résidus verdâtres %s se reforment en deux petits slimes.",
         LocaleKey::KNIGHT_SLASH => "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi.",
-        LocaleKey::KNIGHT_LIMB_LOSS => "%s se brise sous vos coups.",
+        LocaleKey::LIMB_LOSS => "%s se brise sous vos coups.",
         LocaleKey::KNIGHT_CHANGE_WEAPON_SIDE => "%s change son arme de main.",
         LocaleKey::KNIGHT_PHASE_CHANGE => "Il semble être pris d'une résolution soudaine et insoupçonnée.",
         LocaleKey::KNIGHT_DEFENSELESS => "%s laisse son arme tomber au sol, impuissant.",
@@ -1091,6 +1091,10 @@ class FR
         LocaleKey::GOLEM_HEART_LOOT => ["Vous trouvez le coeur encore intact du golem dans les décombres."],
         LocaleKey::GOLEM_BROKEN_HEART_LOOT => ["Vous trouvez quelques cristaux cassés dans les décombres."],
         LocaleKey::GOLEM_CRYSTAL_LOOT => ["Vous voyez le large morceau de cristal arraché du golem"],
+        LocaleKey::GOLEM_CRUSH_ATTACK => "écrase %s de tout son poids.",
+        LocaleKey::CRYSTAL_FALL => "Le cristal attaché au membre que vous venez de briser tombe soudainement, semblant fusionner avec le sol dès qu'il prend contact avec ce dernier.",
+        LocaleKey::GOLEM_FALL => "Sans support pour le tenir, le large golem tombe soudainement. S'éffondrant sous son propre poids bruyamment.",
+        LocaleKey::GOLEM_DEATH => "Le golem se brise en une volée de roche, la cave entière tremblant sous sa chute. Alors que la poussière se dissipe, il ne reste plus qu'une pile de roche et de cristal.",
         LocaleKey::CAVE_DESCRIPTION => [
             "Vous êtes dans une grotte.",
             "Bien que ce n'est pas le lieu le plus accueillant qui puisse être, et malgré l'obscurité ambiante, cet endroit est bien plus appaisant que les cryptes.",
@@ -1112,6 +1116,8 @@ class FR
             "Vous avancez dans la grotte progressivement brillante, jusqu'à être encerclé par une quantité suffocante de pierres brillantes violettes.",
             "La vue est à la fois belle et oppressante."
         ],
+        LocaleKey::GOLEM_CAVE => "cul de sac",
+        LocaleKey::GOLEM_CAVE_DESCRIPTION => ["Vous êtes au bout de la grotte, les cristaux vous encerclant de toutes parts.",],
         LocaleKey::OPEN_CAVE => "grande salle ouverte",
         LocaleKey::VILLAGE_ENTRANCE_DESCRIPTION => [
             "Vous êtes dans ce qui semble être une forêt souterraine.",
@@ -1444,6 +1450,24 @@ class FR
             "Lorsque vous tentez de l'ouvrir celle-ci résiste, semblant être fermée à clef.",
             "",
             "Vous retournez sur vos pas."
+        ],
+        LocaleKey::BOSS_GOLEM_CONFIRM_QUESTION => [
+            "Vous arrivez au bout de la grotte, emergeant dans une large salle.",
+            "Vous voyez un large rocher, l'un des rare n'étant pas couvert de cristaux.",
+            "Mais, l'un des rares cristaux qu'il arbore semblent emettre une lumière étrange.",
+            "",
+            "Vous avez un mauvais présentiment. Mais quelque chose à propos de la lueur vous attire.",
+            "Toucher le cristal?"
+        ],
+        LocaleKey::BOSS_GOLEM_CONFIRM_ENTRY => [
+            "Vous approchez le large rocher, tendant une main tremblante vers le cristal encastré dans la roche.",
+            "En revanche, avant même que vous ne puissiez atteindre la surface lisse de la pierre, la lumière redouble de force, vous aveuglant presque. Le sol se met à trembler.",
+            "Le grand rocher s'élève, poussé par la terre grimpant sa surface.",
+            "Des roches plus petites s'accumulent jusqu'au sommet du rocher, jusqu'à ce qu'une forme humanoïdes faite de pierre et de boue sèche ne vous surplombe."
+        ],
+        LocaleKey::BOSS_GOLEM_CONFIRM_REFUSE => [
+            "Quelque chose cloche. Vous pouvez le sentir.",
+            "Vous décidez de ne pas déranger ce lieu, et faites demi-tour."
         ],
         LocaleKey::ARMOR_DESCRIPTION => ", protège de %{#{LocaleKey::F_DEFENSE}} dégats et pèse %{#{LocaleKey::F_WEIGHT}} Kg",
         LocaleKey::ARMOR_CARD_DESCRIPTION => "%{#{LocaleKey::F_DEFENSE}}\n%{#{LocaleKey::F_WEIGHT}} Kg",
