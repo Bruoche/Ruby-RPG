@@ -7,7 +7,7 @@ end
 class BossGolemCave < Biome
     EXPECTED_LEVEL = 33
     PICTURE = 'golem_boss_cave'
-    COMBAT_TRACK = 'Dog'
+    COMBAT_TRACK = 'Golem'
     ENTRY_REQUIREMENTS = [
         BossGolemConfirm
     ]
