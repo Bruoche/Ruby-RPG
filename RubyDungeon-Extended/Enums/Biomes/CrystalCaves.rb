@@ -59,6 +59,11 @@ class CrystalCaves < Biome
     TRANSITIONS = [
         BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
+            7,
+            'BossGolemCave'
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
             1,
             'Caves'
         )

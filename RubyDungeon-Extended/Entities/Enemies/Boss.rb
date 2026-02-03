@@ -204,7 +204,7 @@ class Boss < Monster
         return false
     end
 
-    def add_status(status, extra_condition = -> () {return true})
+    def add_status(status, extra_condition = -> (bodypart) {return true})
         for bodypart in @bodyparts
             if extra_condition.call(bodypart)
                 bodypart.status_handler.add(status)
