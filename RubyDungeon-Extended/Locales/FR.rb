@@ -1077,7 +1077,7 @@ class FR
         LocaleKey::GOBLIN_ELDER_BITE_ATTACK => "mords %s.",
         LocaleKey::GOBLIN_LOOT_BADGE => ["Vous voyez un collier brillant attaché autour du cou de la vieille gobline."],
         LocaleKey::GOLEM_NAME => "golem géant",
-        LocaleKey::GOLEM_CHEST_CRYSTAL => "cristal encré dans le torse du golem",
+        LocaleKey::GOLEM_CHEST_CRYSTAL => "cristal ancré dans le torse du golem",
         LocaleKey::GOLEM_HEAD_CRYSTAL => "formation cristaline sur la tête du golem",
         LocaleKey::GOLEM_RIGHT_ARM_CRYSTAL => "formation cristaline sur le bras droit du golem",
         LocaleKey::GOLEM_LEFT_ARM_CRYSTAL => "formation cristaline sur le bras gauche du golem",
@@ -1172,15 +1172,32 @@ class FR
             "L'irrégularité du terrain semble retenir de plus en plus d'eau stagnante, et alors que la terre laisse place à la boue la végétation se rarifie.",
             "Vous venez de pénétrer un marais."
         ],
+        LocaleKey::FOREST_TRANSITION_DEEP => [
+            "A force d'avancer de plus en plus loin, vous remarquez que la végétation devient de plus en plus éparse autour de vous.",
+            "Vous avancez dans un terrain vague, pouvant enfin voir le paysage vous entourant.",
+            "Il semble que vous avez contourné le marais et atteint l'autre bout de la grotte."
+        ],
         LocaleKey::SWAMP_DESCRIPTION => [
             "La boue dans laquelle vous vous tenez monte jusqu'à vos genoux, et les rares flaques d'eau claire tournent au marron lorsque vos pas en remuent le fond.",
             "Alors que vos pieds s'enfoncent dans la terre et que l'eau résiste à tout vos pas, marcher s'avère difficile.",
             "La froideur de la mélasse vous mord les jambes et l'odeur d'oeuf pourris est étouffante."
         ],
+        LocaleKey::SWAMP_TRANSITION_DEEP => [
+            "Alors que vous avanciez tant bien que mal à travers la mélasse, vous sentez soudainement la boue froide vous toucher de plus en plus bas à vos pieds.",
+            "Le sol sous vos pas semble prendre du dénivelé en hauteur, vous emenant enfin sur de la terre ferme et sèche.",
+            "Vous êtes soulagés d'être dans un lieu plus salubre, mais un malaise s'empare de vous.",
+            "",
+            "Le chemin se finira ici."
+        ],
         LocaleKey::CRYSTAL_CAVE_DESCRIPTION => [
             "Vous rampez dans une grotte perdue, dans les profondeurs de l'inconnu.",
             "Les murs sont couverts d'impressionnants cristaux pourpres, votre lumière se reflétant en un millier d'éclats colorés.",
             "Ces pierres sont pointues, se pressant contre vous de façon inconfortable, et malgré tout vos efforts elles sont trop dures pour être brisées ou délogées de la paroie."
+        ],
+        LocaleKey::DEEP_FOREST_DESCRIPTION => [
+            "Vous êtes au milieu d'une étendue de terre déserte.",
+            "Seul la mort vous entoure, quelques os entièrement dénudés poussant hors des sols stériles.",
+            "Le silence reigne."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Tenancier",
