@@ -92,6 +92,12 @@ class Entrance < Biome
             BiomeTransition::NO_MESSAGE,
             5,
             'EntranceDrop'
+        ),
+        BiomeTransition.new(
+            BiomeTransition::NO_MESSAGE,
+            10,
+            'EntranceDrop',
+            20
         )
     ]
 end

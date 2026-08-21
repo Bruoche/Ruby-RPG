@@ -73,6 +73,11 @@ class Swamp < Biome
     MAX_EXITS = 4
     TRANSITIONS = [
         BiomeTransition.new(
+            LocaleKey::SWAMP_TRANSITION_DEEP,
+            15,
+            'DeepForest'
+        ),
+        BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             3,
             'UndergroundForest'

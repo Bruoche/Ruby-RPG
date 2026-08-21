@@ -1195,15 +1195,32 @@ class EN
             "The uneaven ground lead to an increasing amount of stagnating water, and as dirt turns to mud the vegetation become increasingly sparse.",
             "You have entered a swamp."
         ],
+        LocaleKey::FOREST_TRANSITION_DEEP => [
+            "Advancing further and further through the forest, you notice the vegetation surrouding you is receeding.",
+            "You step into a desolated ground, finally able to see the landscape ahead and back.",
+            "It seems you have circumvented the swamp and reached the other side of the cave."
+        ],
         LocaleKey::SWAMP_DESCRIPTION => [
             "You are standing knee-deep within mud, the few paches of clear water turning brown as your steps disturb the earth beneath.",
             "Walking against the resistance of the liquids while your feets are sinking proves difficult, but you dredge through.",
             "You feel the coldness of the sludge biting your legs and the smell of rotten eggs suffocating you."
         ],
+        LocaleKey::SWAMP_TRANSITION_DEEP => [
+            "While trudging through the sludge, you suddenly feel the cold mud under you falling lower to your feet.",
+            "The ground beneath you seem to finally slope back up, leading you to firmer and dryer grounds.",
+            "Reaching healthier grounds is a relief, yet you can't help but feel a sense of unease.",
+            "",
+            "This road will end here."
+        ],
         LocaleKey::CRYSTAL_CAVE_DESCRIPTION => [
             "You are crawling through a cave dug deep beneath the known world.",
             "The walls are entirely covered by impressively large purple crystals, your light reflecting in a miriad of color.",
             "They are sharp, their points uncomfortable to rest against, and too hard to be broken off the wall despite your best attempts."
+        ],
+        LocaleKey::DEEP_FOREST_DESCRIPTION => [
+            "You stand among a vast expanse of dirt.",
+            "Only death surrounds you, naked bones being the only thing poking out of the sterile grounds.",
+            "Birds no longer sings. Silence reigns here."
         ],
         LocaleKey::PLACEHOLDER_ARRAY => [],
         LocaleKey::SHOPKEEPER_NAME => "Shop keeper",

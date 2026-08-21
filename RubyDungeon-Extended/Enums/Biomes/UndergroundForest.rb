@@ -90,6 +90,11 @@ class UndergroundForest < Biome
             'VillageExterior'
         ),
         BiomeTransition.new(
+            LocaleKey::FOREST_TRANSITION_DEEP,
+            8,
+            'DeepForest'
+        ),
+        BiomeTransition.new(
             BiomeTransition::NO_MESSAGE,
             5,
             'Caves'

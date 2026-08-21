@@ -806,12 +806,15 @@ module LocaleKey
     FOREST_LOOT_ROPE = :forest_loot_rope
     FOREST_LOOT_AMETHYST = :forest_loot_amethyst
     FOREST_TRANSITION_SWAMP = :forest_transition_swamp
+    FOREST_TRANSITION_DEEP = :forest_transition_deep
     SWAMP_DESCRIPTION = :swamp_description
+    SWAMP_TRANSITION_DEEP = :swamp_transition_deep
     CRYSTAL_CAVE_DESCRIPTION = :crystal_cave_transition_crystal
     CAVES_TRANSITION_CRYSTAL = :caves_transition_crystal
     GOLEM_CAVE = :golem_cave
     GOLEM_CAVE_DESCRIPTION = :golem_cave_description
     GOLEM_LOOT_AMETHYST = :golem_loot_amethyst
+    DEEP_FOREST_DESCRIPTION = :deep_forest_description
     PLACEHOLDER_ARRAY = :placeholder_array
     SHOPKEEPER_NAME = :shopkeeper_name
     SHOPKEEPER_INTRO_DIALOG = :shopkeeper_intro_dialog
