@@ -1,8 +1,8 @@
 class CharacterCreator
     DEFAULT_NAME = nil
 
-    def initialize
-        @name = DEFAULT_NAME
+    def initialize(name = DEFAULT_NAME)
+        @name = name
     end
 
     def make_character
@@ -11,8 +11,6 @@ class CharacterCreator
         @picture.customize
         return creation_menu
     end
-
-    private
 
     def ask_name
         Narrator.ask_name(@name)
@@ -26,7 +24,10 @@ class CharacterCreator
             return ask_name
         end
         @name = choosen_name
+        return choosen_name
     end
+
+    private
 
     def make_player
         return Player.new(make_data)

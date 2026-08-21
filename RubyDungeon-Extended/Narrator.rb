@@ -853,7 +853,8 @@ class Narrator
         return Narrator.user_input_int(player.get_name)
     end
 
-    def self.ask_confirmation(question_asked, player_name = NO_NAME_DISPLAYED)
+    def self.ask_confirmation(question_asked, player_name = NO_NAME_DISPLAYED, question_prefix = '')
+        Narrator.write(question_prefix)
         question = Locale.get_localized(question_asked)
         if !question.kind_of?(Array)
             question = [question]
@@ -872,7 +873,7 @@ class Narrator
             return false
         else
             Narrator.unsupported_choice_error
-            return self.ask_confirmation(question_asked)
+            return self.ask_confirmation(question_asked, player_name, question_prefix)
         end
     end
 

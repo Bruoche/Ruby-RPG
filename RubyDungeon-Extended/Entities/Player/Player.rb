@@ -28,6 +28,10 @@ class Player
         @savefile = savefile
     end
 
+    def load_icon(icon_data)
+        @picture.load(icon_data)
+    end
+
     def get_save_data
         return {
             'name': @name,
@@ -51,6 +55,10 @@ class Player
             returned_picture.superpose(armor_picture)
         end
         return returned_picture
+    end
+
+    def get_icon_data
+        return @picture.get_save_data
     end
 
     def get_name
@@ -229,6 +237,10 @@ class Player
         @savefile = savefile
     end
 
+    def set_name(name)
+        @name = name
+    end
+
     def hurt(attack)
         damage = attack.damage_dealt
         if defense_ignored(attack.type)
@@ -361,6 +373,26 @@ class Player
 
     def give_xp(amount)
         @stats.add_xp(amount, get_name)
+    end
+
+    def prep_respec
+        @stats.prep_respec
+    end
+
+    def ask_respec
+        return @stats.ask_respec(get_name)
+    end
+
+    def get_respec_summary
+        return @stats.respec_summary_card
+    end
+
+    def confirm_respec
+        return @stats.confirm_respec
+    end
+
+    def respec_ready?
+        return @stats.respec_valid? && @stats.respec_different?
     end
 
     def see_items

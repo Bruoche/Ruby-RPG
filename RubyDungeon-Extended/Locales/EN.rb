@@ -417,6 +417,25 @@ class EN
         LocaleKey::STAT_UP_STRENGTH     => "    2) ♣ Strength       (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_INTELLIGENCE => "    3) ♠ Intelligence   (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_AGILITY      => "    4) ♦ Agility        (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
+        LocaleKey::ASK_RESPEC => "What stat would you like to assign? (%{#{LocaleKey::F_CURRENT}}/%{#{LocaleKey::F_TOTAL}} points left to distribute)",
+        LocaleKey::RESPEC_DEFAULT_LABEL => "    Default: ",
+        LocaleKey::ASK_QUIT_RESPEC => [
+            "Are you sure you want to return?",
+            "Current stat attribution will be aborted."
+        ],
+        LocaleKey::ASK_CONFIRM_RESPEC => [
+            "Are you sure you want to confirm these changes?",
+        ],
+        LocaleKey::ASK_STAT_ATTRIBUTION => "How many points do you want to attribute to %{#{LocaleKey::F_NAME}}? (%{#{LocaleKey::F_CURRENT}} points currently attributed out of %{#{LocaleKey::F_TOTAL}} available)",
+        LocaleKey::NO_STAT_TO_ATTRIBUTE => "You have no more points to attribute. Please lower a statistic before raising other ones.",
+        LocaleKey::CRYSTAL_ASK_TRANSFORMATION => [
+            "What change do you want to make?",
+            "    0) Cancel",
+            "    1) Change name...",
+            "    2) Change appearance...",
+            "    3) Reattribute statistics...",
+            "    4) Confirm changes"
+        ],
         LocaleKey::TELEPORT_OPTIONS => [
             "Where do you want to go?",
             "    0) Cancel",
@@ -680,6 +699,10 @@ class EN
         LocaleKey::CARD_AGILITY => "Agility: ",
         LocaleKey::CARD_INTELLIGENCE => "Intelligence: ",
         LocaleKey::CARD_PRICE => "Price: ",
+        LocaleKey::HEALTH => "health",
+        LocaleKey::STRENGTH => "strength",
+        LocaleKey::INTELLIGENCE => "intelligence",
+        LocaleKey::AGILITY => "agility",
         LocaleKey::UNSAVED_RETURN_CONFIRM => [
             "Are you sure you want to go back?",
             "The change made will not be saved."
@@ -700,7 +723,7 @@ class EN
         LocaleKey::WEIGHT_THREE_QUARTER => "The weight of your armor press against your body heavily, slowing you down and greatly reducing your abilty to sneak or dodge against ennemies.",
         LocaleKey::WEIGHT_HALF => "You can feel your armor weighing against you, slowing you down when trying to dodge or sneak past ennemies.",
         LocaleKey::WEIGHT_QUARTER => "Your armor weighs you down slightly when trying to dodge or sneak past ennemies.",
-        LocaleKey::WEIGHT_SMALL => "You can barely feel the weight of your armor, only slightly your ability to dodge and move discretely.",
+        LocaleKey::WEIGHT_SMALL => "You can barely feel the weight of your armor, only slightly affecting your ability to dodge and move discretely.",
         LocaleKey::WEIGHT_NONE => "You cannot even feel the weight of your armor, able to move freely.",
         LocaleKey::NO_ARMOR => "You are not wearing any armor.",
         LocaleKey::MONSTER_DESCRIPTION => "%s with ",

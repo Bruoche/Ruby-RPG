@@ -417,6 +417,26 @@ class FR
         LocaleKey::STAT_UP_STRENGTH     => "    2) ♣ Force          (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_INTELLIGENCE => "    3) ♠ Intelligence   (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_AGILITY      => "    4) ♦ Agilité        (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
+        LocaleKey::ASK_RESPEC => "Quelle statistique souhaitez-vous assigner (%{#{LocaleKey::F_CURRENT}}/%{#{LocaleKey::F_TOTAL}} points restant à répartir)",
+        LocaleKey::RESPEC_DEFAULT_LABEL => "    Par défaut : ",
+        LocaleKey::ASK_QUIT_RESPEC => [
+            "Êtes-vous sûr·e de vouloir revenir en arrière ?",
+            "Les changements faits seront annulés."
+        ],
+        LocaleKey::ASK_CONFIRM_RESPEC => [
+            "Voulez-vous confirmer ces changements ?",
+            "(remettez les statistiques à zero pour annuler le changement)"
+        ],
+        LocaleKey::ASK_STAT_ATTRIBUTION => "Combien de points souhaitez-vous attribuer en %{#{LocaleKey::F_NAME}} ? (%{#{LocaleKey::F_CURRENT}} points attribués sur %{#{LocaleKey::F_TOTAL}} disponibles)",
+        LocaleKey::NO_STAT_TO_ATTRIBUTE => "Vous n'avez plus de points à attribuer. Veuillez réduire une statistique avant d'en augmenter une autre.",
+        LocaleKey::CRYSTAL_ASK_TRANSFORMATION => [
+            "Quel changements souhaitez-vous faire ?",
+            "    0) Annuler",
+            "    1) Changer de nom...",
+            "    2) Changer d'apparence...",
+            "    3) Réattribuer les statistiques...",
+            "    4) Confirmer les changements"
+        ],
         LocaleKey::TELEPORT_OPTIONS => [
             "Où souhaitez-vous aller ?",
             "    0) Annuler",
@@ -680,6 +700,10 @@ class FR
         LocaleKey::CARD_AGILITY => "Agilité : ",
         LocaleKey::CARD_INTELLIGENCE => "Intelligence : ",
         LocaleKey::CARD_PRICE => "Prix : ",
+        LocaleKey::HEALTH => "vie",
+        LocaleKey::STRENGTH => "force",
+        LocaleKey::INTELLIGENCE => "intelligence",
+        LocaleKey::AGILITY => "agilité",
         LocaleKey::UNSAVED_RETURN_CONFIRM => [
             "Êtes-vous sûr·e de vouloir revenir en arrière ?",
             "Les modifications effectuées ne seront pas sauvegardées."
