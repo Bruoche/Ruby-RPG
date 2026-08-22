@@ -182,9 +182,9 @@ class StatManager
     end
 
     def respec_different?
-        return (calculate_stat_from(@selected_health, BaseStats::BASE_HEALTH, BaseStats::HEALTH_UPGRADE_PER_LEVEL) != @lifebar.get_max_life) &&
-            (calculate_stat_from(@selected_strength, BaseStats::BASE_STRENGTH, BaseStats::STRENGTH_UPGRADE_PER_LEVEL) != @strength) &&
-            (calculate_stat_from(@selected_intelligence, BaseStats::BASE_INTELLIGENCE, BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL) != @intelligence) &&
+        return (calculate_stat_from(@selected_health, BaseStats::BASE_HEALTH, BaseStats::HEALTH_UPGRADE_PER_LEVEL) != @lifebar.get_max_life) ||
+            (calculate_stat_from(@selected_strength, BaseStats::BASE_STRENGTH, BaseStats::STRENGTH_UPGRADE_PER_LEVEL) != @strength) ||
+            (calculate_stat_from(@selected_intelligence, BaseStats::BASE_INTELLIGENCE, BaseStats::INTELLIGENCE_UPGRADE_PER_LEVEL) != @intelligence) ||
             (calculate_stat_from(@selected_agility, BaseStats::BASE_AGILITY, BaseStats::AGILITY_UPGRADE_PER_LEVEL) != @agility)
     end
 
@@ -257,7 +257,7 @@ class StatManager
 
     def total_stat
         result = 0
-        for level in 0..@level do
+        for level in 1..@level do
             result += nb_stats_up(level)
         end
         return result
