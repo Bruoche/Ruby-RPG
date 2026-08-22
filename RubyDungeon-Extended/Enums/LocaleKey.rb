@@ -288,6 +288,8 @@ module LocaleKey
     CURRENT_STAT_ATTRIBUTED = :current_stat_attributed
     NO_STAT_TO_ATTRIBUTE = :no_stat_to_attribute
     CRYSTAL_ASK_TRANSFORMATION = :crystal_ask_transformation
+    CRYSTAL_UNUSABLE = :crystal_unusable
+    CRYSTAL_INTRO = :crystal_intro
     TELEPORT_OPTIONS = :teleport_options
     TELEPORT_JOIN_OPTION = :teleport_join_option
     ASK_CATALYST_TARGET = :ask_catalyst_targets
@@ -962,6 +964,13 @@ module LocaleKey
     GOBLIN_LOOT_FRUITS = :goblin_loot_fruits
     GOBLIN_LOOT_HEALTH_POTION = :goblin_loot_health_potion
     POISON_SPIDER_LOOT_POISON = :poison_spider_loot_poison
+    CRYSTAL_SHARDS_NAME = :crystal_shards_name
+    CRYSTAL_SHARDS_PLURAL = :crystal_shards_plural
+    CRYSTAL_SHARDS_DESCRIPTION = :crystal_shards_description
+    TRANS_CRYSTAL_NAME = :trans_crystal_name
+    TRANS_CRYSTAL_PLURAL = :trans_crystal_plural
+    TRANS_CRYSTAL_DESCRIPTION = :trans_crystal_description
+    TRANS_CRYSTAL_OFF_DESCRIPTION = :trans_crystal_off_description
     A_HOLE = :a_hole
     ASK_USE_ROPE_HOLE = :ask_use_rope_hole
     STUCK_DOWN_HOLE = :stuck_down_hole

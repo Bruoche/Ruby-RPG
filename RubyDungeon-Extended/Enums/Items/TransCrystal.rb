@@ -1,6 +1,6 @@
 class TransCrystal < Item
-    NAME = LocaleKey::AMETHYST_NAME
-    PLURAL_NAME = LocaleKey::AMETHYST_PLURAL
+    NAME = LocaleKey::TRANS_CRYSTAL_NAME
+    PLURAL_NAME = LocaleKey::TRANS_CRYSTAL_PLURAL
     SOUND = 'gold_coins'
     PICTURE = 'amethyst'
     USABLE_ON_OTHERS = false
@@ -8,15 +8,28 @@ class TransCrystal < Item
     DROP_QUANTITY_SCALABLE = false
     TRANSFORMATION_DURATION = 3.6
 
-    def initialize
-        @value = 20
+    def initialize(charges = 1)
+        @charges = charges.to_i
+        @value = 25
     end
 
     def get_description
-        return LocaleKey::AMETHYST_DESCRIPTION
+        if @charges <= 0
+            return LocaleKey::TRANS_CRYSTAL_OFF_DESCRIPTION
+        end
+        return LocaleKey::TRANS_CRYSTAL_DESCRIPTION
     end
 
     def use(target, user)
+        if @charges <= 0
+            Narrator.write(LocaleKey::CRYSTAL_UNUSABLE)
+            SoundManager.play('spell_fart')
+            Game.wait
+            return
+        end
+        Narrator.write(LocaleKey::CRYSTAL_INTRO)
+        Narrator.pause_text
+        SoundManager.play('transform_intro')
         user.prep_respec
         new_name = user.get_name
         new_icon = PlayerIcon.new
@@ -58,6 +71,10 @@ class TransCrystal < Item
                     user.load_icon(new_icon.get_save_data)
                     SoundManager.play('transform')
                     Game.wait TRANSFORMATION_DURATION
+                    @charges -= 1
+                    if @charges < 0
+                        @charges = 0
+                    end
                     return Player::ACTED
                 end
             else
@@ -68,5 +85,9 @@ class TransCrystal < Item
 
     def changes_made?(user, new_icon, new_name)
         return user.respec_ready? || (new_icon.get_save_data != user.get_icon_data) || (user.get_name != new_name)
+    end
+
+    def get_save_data
+        return super(@charges)
     end
 end

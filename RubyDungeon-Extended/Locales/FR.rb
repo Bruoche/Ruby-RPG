@@ -437,6 +437,8 @@ class FR
             "    3) Réattribuer les statistiques...",
             "    4) Confirmer les changements"
         ],
+        LocaleKey::CRYSTAL_UNUSABLE => "Vous tentez d'utiliser le crystal, mais rien ne se passe... Il semblerais qu'il soit à court.",
+        LocaleKey::CRYSTAL_INTRO => "Vous prenez le cristal en main, une chaleur en émanant pendant que votre peau semble se déformer à son contact.\nNéanmoins votre prise ne cède pas, une vibration se propageant dans tout votre corps. Vous sentez vos propres muscles se déformer, mais votre esprit reste pourtant calme...",
         LocaleKey::TELEPORT_OPTIONS => [
             "Où souhaitez-vous aller ?",
             "    0) Annuler",
@@ -1578,6 +1580,13 @@ class FR
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un garde goblin."],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["En examinant le cadabre de l'araignée, vous parevenez à extraire le venin de ses crocs encore intact."],
         LocaleKey::GOLEM_LOOT_AMETHYST => ["Le crystal sur le dos du golem semble s'être délogé"],
+        LocaleKey::CRYSTAL_SHARDS_NAME => "éclats de cristal",
+        LocaleKey::CRYSTAL_SHARDS_PLURAL => "éclats de cristaux",
+        LocaleKey::CRYSTAL_SHARDS_DESCRIPTION => "morceaux de cristal brisé. Il semblerait qu'ils se soient brisés dans les feu du combat.",
+        LocaleKey::TRANS_CRYSTAL_NAME => "un coeur de cristal",
+        LocaleKey::TRANS_CRYSTAL_PLURAL => "coeurs de cristal",
+        LocaleKey::TRANS_CRYSTAL_DESCRIPTION => "lourd et plus large que les autres morceaux d'améthyste trouvés dans le donjon. Une lueur pourpre en émane.",
+        LocaleKey::TRANS_CRYSTAL_OFF_DESCRIPTION => "lourd et plus large que les autres morceaux d'améthyste trouvés dans le donjon. La lueur semble s'être éteinte.",
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",
         LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ?",

@@ -436,6 +436,8 @@ class EN
             "    3) Reattribute statistics...",
             "    4) Confirm changes"
         ],
+        LocaleKey::CRYSTAL_UNUSABLE => "You try to use the crystal, but nothing is happening... It seems out of energy.",
+        LocaleKey::CRYSTAL_INTRO => "You take the crystal in your hand, and feel your skin shift as a warmth emanate from it.\nYou hold it yet longer, vibrations radiating from the crystal and spreading to your entire body, your muscles writhing under your very skin, your mind yet calm...",
         LocaleKey::TELEPORT_OPTIONS => [
             "Where do you want to go?",
             "    0) Cancel",
@@ -1577,6 +1579,13 @@ class EN
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["You find a health potion in one the belt pocket of a goblin guard"],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["By examining the spider's corpse, you manage to extract some venom from it's still intact fangs."],
         LocaleKey::GOLEM_LOOT_AMETHYST => ["The large crystal seems disloged from the golem's back."],
+        LocaleKey::CRYSTAL_SHARDS_NAME => "crystal shards",
+        LocaleKey::CRYSTAL_SHARDS_PLURAL => "crystal shards",
+        LocaleKey::CRYSTAL_SHARDS_DESCRIPTION => "pieces of broken crystal. It seems it has been broken in the heat of battle.",
+        LocaleKey::TRANS_CRYSTAL_NAME => "a crystal heart",
+        LocaleKey::TRANS_CRYSTAL_PLURAL => "crystal hearts",
+        LocaleKey::TRANS_CRYSTAL_DESCRIPTION => "heavy, it is slightly larger than the other shards of amethyst. A strange glow emanates from it.",
+        LocaleKey::TRANS_CRYSTAL_OFF_DESCRIPTION => "heavy, it is slightly larger than the other shards of amethyst. It no longer seems to glow.",
         LocaleKey::THE_EXIT => "the exit",
         LocaleKey::A_HOLE => "a hole",
         LocaleKey::ASK_USE_ROPE_HOLE => "Do you wish to use a rope to go down?",
