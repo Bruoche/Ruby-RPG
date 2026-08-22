@@ -1582,7 +1582,7 @@ class FR
         LocaleKey::GOLEM_LOOT_AMETHYST => ["Le crystal sur le dos du golem semble s'être délogé"],
         LocaleKey::CRYSTAL_SHARDS_NAME => "éclats de cristal",
         LocaleKey::CRYSTAL_SHARDS_PLURAL => "éclats de cristaux",
-        LocaleKey::CRYSTAL_SHARDS_DESCRIPTION => "morceaux de cristal brisé. Il semblerait qu'ils se soient brisés dans les feu du combat.",
+        LocaleKey::CRYSTAL_SHARDS_DESCRIPTION => "morceaux de cristal brisé. Il semblerait qu'ils se soient brisés dans les feux du combat.",
         LocaleKey::TRANS_CRYSTAL_NAME => "un coeur de cristal",
         LocaleKey::TRANS_CRYSTAL_PLURAL => "coeurs de cristal",
         LocaleKey::TRANS_CRYSTAL_DESCRIPTION => "lourd et plus large que les autres morceaux d'améthyste trouvés dans le donjon. Une lueur pourpre en émane.",
