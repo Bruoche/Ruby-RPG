@@ -15,7 +15,7 @@ class DialogCorrector
     end
 
     def self.correct(line)
-        if !line.include? "_KEY_GTE_"
+        unless line.include? "_KEY_GTE_"
             return line
         end
         line_array = line.split (/\[|\]/)

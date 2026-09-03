@@ -204,6 +204,7 @@ class Player
 
     def act
         acted = false
+        @status_handler.start_of_turn_actions(self)
         while !acted
             MusicManager.get_instance.set_ambiance(@room.get_exploration_track, @room.get_combat_track)
             acted = @controller.act
@@ -242,12 +243,29 @@ class Player
     end
 
     def hurt(attack)
-        damage = attack.damage_dealt
-        if defense_ignored(attack.type)
+        damage_taken, dodge_score, defense_score = calculate_damage(attack)
+        overload_defense_message = false
+        for effect in @status_handler.get_defense_effects
+            damage_taken, dodge_score, defense_score, overload_defense_message = effect.try(attack, self, damage_taken, dodge_score, defense_score, overload_defense_message)
+        end
+        unless overload_defense_message
+            Narrator.damage_recap(get_name, attack, damage_taken, dodge_score, defense_score, defense_ignored?(attack.type))
+        end
+        @stats.lifebar.damage(damage_taken)
+        attack.try_effects(self, damage_taken)
+        if died?
+            SoundManager.play('player_death')
+            Narrator.player_death(get_name)
+            Game.wait
+        end
+    end
+
+    def calculate_damage(attack)
+      damage = attack.damage_dealt
+        if defense_ignored?(attack.type)
             damage_taken = damage
             dodge_score = 0
             defense_score = 0
-            defense_text = ''
         else
             dodge_score = rand(0..@stats.agility.div(2))
             if dodge_score > damage
@@ -259,32 +277,8 @@ class Player
                 defense_score = damage_recieved
             end
             damage_taken = damage_recieved - defense_score
-            if defense_score > 0
-                defense_text = ', ' + defense_score.to_s + Locale::get_localized(LocaleKey::PARRIED)
-            else
-                defense_text = ''
-            end
         end
-        if damage_taken > 0
-            SoundManager.play('player_hurt')
-        elsif defense_score > 0
-            SoundManager.play(['parry', 'parry1', 'parry2', 'parry3'].sample)
-        else
-            SoundManager.play('dodge')
-        end
-        if defense_ignored(attack.type)
-            Narrator.hurt(get_name, damage_taken)
-        else
-            Narrator.detailed_hurt(get_name, damage_taken, damage, dodge_score, defense_text)
-        end
-        Game.wait
-        @stats.lifebar.damage(damage_taken)
-        attack.try_effects(self, damage_taken)
-        if died?
-            SoundManager.play('player_death')
-            Narrator.player_death(get_name)
-            Game.wait
-        end
+        return damage_taken, dodge_score, defense_score
     end
 
     def strength_attack
@@ -492,21 +486,21 @@ class Player
         end
     end
 
-    private
-
-    def stealth_score
-        return (@stats.agility**2).div(2)
-    end
-
-    def defense_ignored(attack_type)
-        return (attack_type == Attack::POISON_TYPE) || (attack_type == Attack::FALL_TYPE)
-    end
-
     def make_attack(damage, type)
         attack = Attack.new(damage, type, self)
         for effect in @status_handler.get_attack_effects
             attack.add_effect(effect)
         end
         return attack
+    end
+
+    private
+
+    def stealth_score
+        return (@stats.agility**2).div(2)
+    end
+
+    def defense_ignored?(attack_type)
+        return (attack_type == Attack::POISON_TYPE) || (attack_type == Attack::FALL_TYPE)
     end
 end

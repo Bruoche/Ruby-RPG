@@ -20,9 +20,9 @@ class Narrator
     end
 
     def self.prepare(text)
-        if !text.kind_of?(Array)
+        unless text.kind_of?(Array)
             text = Locale.get_localized(text)
-            if !text.kind_of?(Array)
+            unless text.kind_of?(Array)
                 text = [text]
             end
         end
@@ -522,6 +522,26 @@ class Narrator
         end
     end
 
+    def self.damage_recap(player_name, attack, damage_taken, dodge_score, defense_score, defense_ignored)
+      defense_text = ''
+        if defense_score > 0
+            defense_text = ', ' + defense_score.to_s + Locale::get_localized(LocaleKey::PARRIED)
+        end
+        if damage_taken > 0
+            SoundManager.play('player_hurt')
+        elsif defense_score > 0
+            SoundManager.play(['parry', 'parry1', 'parry2', 'parry3'].sample)
+        else
+            SoundManager.play('dodge')
+        end
+        if defense_ignored
+            Narrator.hurt(player_name, damage_taken)
+        else
+            Narrator.detailed_hurt(player_name, damage_taken, attack.damage_dealt, dodge_score, defense_text)
+        end
+        Game.wait
+    end
+
     def self.hurt(denomination, damage)
         Narrator.write(format(Locale.get_localized(LocaleKey::HURT_MESSAGE), {
             LocaleKey::F_TARGET => denomination.capitalize,
@@ -856,7 +876,7 @@ class Narrator
     def self.ask_confirmation(question_asked, player_name = NO_NAME_DISPLAYED, question_prefix = '')
         Narrator.write(question_prefix)
         question = Locale.get_localized(question_asked)
-        if !question.kind_of?(Array)
+        unless question.kind_of?(Array)
             question = [question]
         end
         yes = Locale.get_localized(LocaleKey::YES_INPUT).downcase
@@ -1183,7 +1203,7 @@ class Narrator
     def self.ask_range(question, min_range = 0, max_range = INFINITE, name = NO_NAME_DISPLAYED, new_screen = true)
     Narrator.write(question)
     input = Narrator.user_input(name, new_screen)
-        if !is_int(input)
+        unless is_int(input)
             Narrator.unsupported_choice_error
             return ask_range(question, min_range, max_range, name, new_screen)
         end

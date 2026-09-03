@@ -12,7 +12,7 @@ class MusicManager
     end
 
     def start
-        if !@running
+        unless @running
             @current_volume = Settings.music_volume
             Music.volume = @current_volume
             @tracks = {

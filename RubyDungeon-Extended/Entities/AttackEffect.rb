@@ -17,7 +17,7 @@ class AttackEffect
 
     def activated?(attack_type)
         if (@attack_type_requirement.length > 0)
-            if !(attack_type.in? @attack_type_requirement)
+            unless (attack_type.in? @attack_type_requirement)
                 return false
             end
         end

@@ -19,7 +19,7 @@ class CharacterCreator
             Narrator.empty_name_error
             return ask_name
         end
-        if !(Name::VALID_PATTERN.match?(choosen_name))
+        unless (Name::VALID_PATTERN.match?(choosen_name))
             Narrator.forbiden_char_error
             return ask_name
         end

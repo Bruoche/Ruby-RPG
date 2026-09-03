@@ -31,6 +31,15 @@ class StatusHandler
         return false
     end
 
+    def get(status_type)
+        for status in @statuses
+            if status.class == status_type
+                return status
+            end
+        end
+        return nil
+    end
+
     def get_icons
         icons = ''
         for status in @statuses
@@ -50,11 +59,21 @@ class StatusHandler
     def get_attack_effects
         attack_effects = []
         for status in @statuses
-            for effect in status.get_effects
+            for effect in status.get_attack_effects
                 attack_effects.append(effect)
             end
         end
         return attack_effects
+    end
+
+    def get_defense_effects
+        defense_effects = []
+        for status in @statuses
+            for effect in status.get_defense_effects
+                defense_effects.append(effect)
+            end
+        end
+        return defense_effects
     end
 
     def add(new_status)
@@ -97,6 +116,12 @@ class StatusHandler
                 current_status.reduce_duration_of(amount)
                 current_status.depleted?
             end
+        end
+    end
+
+    def start_of_turn_actions(host)
+        for status in @statuses
+            status.start_of_turn_action(host)
         end
     end
 

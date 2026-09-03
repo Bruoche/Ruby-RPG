@@ -383,6 +383,9 @@ module LocaleKey
     RAGE_DESCRIPTION = :rage_description
     RAGE_DESCRIPTION_SELF = :rage_description_self
     RAGING = :raging
+    COUNTER_POSTURE_DESCRIPTION = :counter_posture_description
+    COUNTER_POSTURE_DESCRIPTION_SELF = :counter_posture_description_self
+    COUNTER_POSTURE_STRIKE = :counter_posture_strike
     SLIME_DIVIDE = :slime_divide
     KNIGHT_SLASH = :knight_slash
     LIMB_LOSS = :limb_loss
@@ -938,6 +941,10 @@ module LocaleKey
     CATALYST_NAME = :catalyst_name
     CATALYST_PLURAL = :catalyst_plural
     CATALYST_DESCRIPTION = :catalyst_description
+    DAGGERS_NAME = :daggers_name
+    DAGGERS_PLURAL = :daggers_plural
+    DAGGERS_DESCRIPTION = :daggers_description
+    DAGGERS_USE = :daggers_use
     DETOX_FRUIT_NAME = :detox_fruit_name
     DETOX_FRUIT_NAME_PLURAL = :detox_fruit_name_plural
     DETOX_FRUIT_DESCRIPTION = :detox_fruit_description

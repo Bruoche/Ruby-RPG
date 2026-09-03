@@ -111,7 +111,7 @@ class Pack
     end
 
     def are_dead
-        for monster in @monsters
+        ArrayUtils.for_potential @monsters do |monster|
             if monster.died?
                 death_event(monster)
             end

@@ -19,7 +19,7 @@ class TextFormatter
             returned_string = ''
             first = true
             for string in array_of_string
-                if !first
+                unless first
                     returned_string << ', '
                 else
                     first = false
