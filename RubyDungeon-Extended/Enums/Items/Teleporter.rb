@@ -20,7 +20,7 @@ class Teleporter < Item
             Narrator.teleporter_fail
             SoundManager.play('spell_fart')
             Game.wait
-            return Player::ACTED
+            return !Player::ACTED
         else
             Narrator.teleporter_start
             choosen_destination = choose_destination(user)
@@ -28,10 +28,8 @@ class Teleporter < Item
                 user.set_room(choosen_destination)
                 SoundManager.play('teleport')
                 Game.wait TELEPORT_DURATION
-                return {Item::RESPONSE_PLAYER_ACTED => !Player::ACTED, Item::RESPONSE_CLOSE_INVENTORY => true}
-            else
-                !Player::ACTED
             end
+            !Player::ACTED
         end
     end
 
