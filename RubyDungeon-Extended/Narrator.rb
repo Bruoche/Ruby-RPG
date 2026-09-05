@@ -474,6 +474,8 @@ class Narrator
         else
             Narrator.write(LocaleKey::FAIL_ESCAPE_SINGLE)
         end
+        SoundManager.play('spell_fart')
+        Game.wait
     end
 
     def self.death_scene(plural)
@@ -489,12 +491,19 @@ class Narrator
         Narrator.write(LocaleKey::ESCAPE)
     end
 
+    def self.ignore_scene
+        SoundManager.play(['parry', 'parry1', 'parry2', 'parry3'].sample)
+        Narrator.write(LocaleKey::IGNORE)
+    end
+
     def self.fail_escape(plural)
         if plural
             Narrator.write(LocaleKey::ESCAPE_FAIL_PLURAL)
         else
             Narrator.write(LocaleKey::ESCAPE_FAIL_SINGLE)
         end
+        SoundManager.play('spell_fart')
+        Game.wait
     end
 
     def self.victory_scene(was_plural, xp)
@@ -831,9 +840,13 @@ class Narrator
         Narrator.write(format(Locale.get_localized(LocaleKey::ASK_QUANTITY_SOLD), item_name))
     end
 
-    def self.ask_if_fight(escape_chances, player_name)
+    def self.ask_if_fight(can_ignore_fight, escape_chances, player_name)
         Narrator.write(LocaleKey::PROPOSE_COMBAT)
-        Narrator.write(format(Locale.get_localized(LocaleKey::PROPOSE_SNEAK), escape_chances))
+        if can_ignore_fight
+            Narrator.write(LocaleKey::PROPOSE_IGNORE)
+        else
+            Narrator.write(format(Locale.get_localized(LocaleKey::PROPOSE_SNEAK), escape_chances))
+        end
         return user_input(player_name)
     end
 
@@ -845,7 +858,11 @@ class Narrator
         Narrator.write(format(Locale.get_localized(LocaleKey::DESCRIBE_ENNEMIES), monsters_description))
         Narrator.add_space_of(1)
         Narrator.write(LocaleKey::FIGHT_ACTIONS)
-        Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
+        if player.is_untouchable?
+            Narrator.write(LocaleKey::IGNORE_COMBAT)
+        else
+            Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
+        end
         return input = user_input(player.get_name)
     end
 

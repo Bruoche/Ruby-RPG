@@ -543,6 +543,7 @@ class FR
         LocaleKey::ESCAPE => "Ce combat ne valant plus la peine pour vous, vous vous échappez.",
         LocaleKey::ESCAPE_FAIL_PLURAL => "Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire.",
         LocaleKey::ESCAPE_FAIL_SINGLE => "Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire.",
+        LocaleKey::IGNORE => "Vous ignorez les monstres vous assaillant.",
         LocaleKey::VICTORY_PLURAL => "Victoire ! Tous les monstres meurent et vous obtenez %d points d'expérience.",
         LocaleKey::VICTORY_SINGLE => "Victoire ! Le monstre meurt et vous laisse %d points d'expérience.",
         LocaleKey::EXPLORATION_CONTINUE => "Vous reprenez votre exploration du donjon.",
@@ -649,6 +650,7 @@ class FR
             "      1) Combattre"
         ],
         LocaleKey::PROPOSE_SNEAK => "      2) Rester discret (%s%% de chances de réussite)",
+        LocaleKey::PROPOSE_IGNORE => "      2) Ignorer",
         LocaleKey::INTERACTIBLES_OPTION => "    5) Intéractions...",
         LocaleKey::NPC_INTERACT_OPTION => "Intéragir avec %s",
         LocaleKey::DESCRIBE_ENNEMIES => "Vous faites face à %s.",
@@ -663,6 +665,7 @@ class FR
             "      4) Utiliser un objet..."
         ],
         LocaleKey::ESCAPE_COMBAT => "      5) Fuir... (%d%% de chances de réussite)",
+        LocaleKey::IGNORE_COMBAT => "      5) Ignore",
         LocaleKey::TRY_AGAIN => [
             "Réessayer ?",
             "      1) Oui",

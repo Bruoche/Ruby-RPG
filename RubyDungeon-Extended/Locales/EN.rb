@@ -542,6 +542,7 @@ class EN
         LocaleKey::ESCAPE => "Deciding the fight isn't worth it, you escape.",
         LocaleKey::ESCAPE_FAIL_PLURAL => "You try to escape, but the monsters do not let you do so.",
         LocaleKey::ESCAPE_FAIL_SINGLE => "You try to escape, but the monster does not let you do so.",
+        LocaleKey::IGNORE => "You ignore the monsters as they attempt to wail on you.",
         LocaleKey::VICTORY_PLURAL => "Victory! Every monster dies and you obtain %d points of experience.",
         LocaleKey::VICTORY_SINGLE => "Victory! The monster dies and you obtain %d points of experience.",
         LocaleKey::EXPLORATION_CONTINUE => "You return to your exploration of the dungeon.",
@@ -648,6 +649,7 @@ class EN
             "      1) Fight"
         ],
         LocaleKey::PROPOSE_SNEAK => "      2) Remain discreet (%s%% success rate)",
+        LocaleKey::PROPOSE_IGNORE => "      2) Ignore",
         LocaleKey::INTERACTIBLES_OPTION => "    5) Interactions...",
         LocaleKey::NPC_INTERACT_OPTION => "Interact with %s",
         LocaleKey::DESCRIBE_ENNEMIES => "You face %s.",
@@ -662,6 +664,7 @@ class EN
             "      4) Use an item..."
         ],
         LocaleKey::ESCAPE_COMBAT => "      5) Escape... (%d%% success rate)",
+        LocaleKey::IGNORE_COMBAT => "      5) Ignore",
         LocaleKey::TRY_AGAIN => [
             "Try again?",
             "      1) Yes",

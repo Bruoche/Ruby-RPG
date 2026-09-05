@@ -336,6 +336,7 @@ module LocaleKey
     ESCAPE = :escape
     ESCAPE_FAIL_PLURAL = :escape_fail_plural
     ESCAPE_FAIL_SINGLE = :escape_fail_single
+    IGNORE = :ignore
     VICTORY_PLURAL = :victory_plural
     VICTORY_SINGLE = :victory_single
     EXPLORATION_CONTINUE = :exploration_continue
@@ -417,6 +418,7 @@ module LocaleKey
     ASK_QUANTITY_SOLD = :ask_quantity_sold
     PROPOSE_COMBAT = :propose_combat
     PROPOSE_SNEAK = :propose_sneak
+    PROPOSE_IGNORE = :propose_ignore
     INTERACTIBLES_OPTION = :interactibles_option
     NPC_INTERACT_OPTION = :npc_interact_option
     DESCRIBE_ENNEMIES = :describe_ennemies
@@ -425,6 +427,7 @@ module LocaleKey
     NPC_FIGHTING_DESCRIPTION = :npc_fighting_description
     FIGHT_ACTIONS = :fight_actions
     ESCAPE_COMBAT = :escape_combat
+    IGNORE_COMBAT = :ignore_combat
     TRY_AGAIN = :try_again
     ARMOR_CHANGE_CONFIRMATION = :armor_change_confirmation
     NPC_QUESTION_INTRO = :npc_question_intro

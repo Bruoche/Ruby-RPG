@@ -154,6 +154,10 @@ class Player
         return perception_score < stealth_score
     end
 
+    def is_untouchable?
+        return @stats.defense() >= @room.get_monsters.get_max_damage
+    end
+
     def have?(item, quantity_min = 1)
         return @inventory.have?(item, quantity_min)
     end
