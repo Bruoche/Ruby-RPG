@@ -2,7 +2,7 @@ class Daggers < Item
     NAME = LocaleKey::DAGGERS_NAME
     PLURAL_NAME = LocaleKey::DAGGERS_PLURAL
     SOUND = 'weapon_equip'
-    PICTURE = 'health_potion'
+    PICTURE = 'daggers'
     USABLE_ON_OTHERS = false
 
     def initialize
