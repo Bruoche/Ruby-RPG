@@ -5,15 +5,15 @@ class DamageEffect < AttackEffect
         super(action, chance, attack_type_requirement)
     end
 
-    def try(attack, target, damage_taken, dodge_score, defense_score, overload_defense_message)
+    def try(status_instance, attack, target, damage_taken, dodge_score, defense_score, overload_defense_message)
         if activated?(attack.type)
-            execute_on(attack, target, damage_taken, dodge_score, defense_score, overload_defense_message)
+            execute_on(status_instance, attack, target, damage_taken, dodge_score, defense_score, overload_defense_message)
         end
     end
 
     private
 
-    def execute_on(attack, target, damage_taken, dodge_score, defense_score, overload_defense_message)
-        @action.call(target, attack, damage_taken, dodge_score, defense_score, overload_defense_message)
+    def execute_on(status_instance, attack, target, damage_taken, dodge_score, defense_score, overload_defense_message)
+        @action.call(status_instance, target, attack, damage_taken, dodge_score, defense_score, overload_defense_message)
     end
 end

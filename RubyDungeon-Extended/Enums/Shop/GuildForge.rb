@@ -48,6 +48,7 @@ class GuildForge < Shop
         Bundle.new(Armor.new(M50Helm)),
         Bundle.new(Armor.new(H50Helm)),
         Bundle.new(Armor.new(L50Helm)),
+        Bundle.new(Shield.new),
         Bundle.new(Daggers.new)
     ].freeze
 end

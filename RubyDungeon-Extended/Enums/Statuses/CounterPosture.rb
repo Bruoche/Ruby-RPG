@@ -6,20 +6,15 @@ class CounterPosture < Status
     COEFF = 0.67
     DEFENSE_EFFECTS = [
         DamageEffect.new(
-            -> (host, attack, damage_taken, dodge_score, defense_score, overload_defense_message) {
+            -> (instance, host, attack, damage_taken, dodge_score, defense_score, overload_defense_message) {
                 if damage_taken + defense_score <= 0
-                    instance = host.status_handler.get(CounterPosture)
-                    if instance != nil
-                        SoundManager.play('counter')
-                        Narrator.write_formatted(LocaleKey::COUNTER_POSTURE_STRIKE, host.get_name())
-                        Game.wait
-                        damage_dealt = instance.damage_dealt(host.get_strength)
-                        instance.update_damage_dealt
-                        attack.source.hurt(host.make_attack(damage_dealt, Attack::PHYSIC_TYPE))
-                        overload_defense_message = true
-                    else
-                        Logger.debug "<< Trying to deal CounterPosture while it is nil >>"
-                    end
+                    SoundManager.play('counter')
+                    Narrator.write_formatted(LocaleKey::COUNTER_POSTURE_STRIKE, host.get_name())
+                    Game.wait
+                    damage_dealt = instance.damage_dealt(host.get_strength)
+                    instance.update_damage_dealt
+                    attack.source.hurt(host.make_attack(damage_dealt, Attack::PHYSIC_TYPE))
+                    overload_defense_message = true
                 end
                 return damage_taken, dodge_score, defense_score, overload_defense_message
             },

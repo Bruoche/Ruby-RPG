@@ -56,24 +56,8 @@ class StatusHandler
         return descriptions
     end
 
-    def get_attack_effects
-        attack_effects = []
-        for status in @statuses
-            for effect in status.get_attack_effects
-                attack_effects.append(effect)
-            end
-        end
-        return attack_effects
-    end
-
-    def get_defense_effects
-        defense_effects = []
-        for status in @statuses
-            for effect in status.get_defense_effects
-                defense_effects.append(effect)
-            end
-        end
-        return defense_effects
+    def get_all
+        return @statuses
     end
 
     def add(new_status)

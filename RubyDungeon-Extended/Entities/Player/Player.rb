@@ -249,8 +249,10 @@ class Player
     def hurt(attack)
         damage_taken, dodge_score, defense_score = calculate_damage(attack)
         overload_defense_message = false
-        for effect in @status_handler.get_defense_effects
-            damage_taken, dodge_score, defense_score, overload_defense_message = effect.try(attack, self, damage_taken, dodge_score, defense_score, overload_defense_message)
+        for status in @status_handler.get_all
+            for effect in status.get_defense_effects
+                damage_taken, dodge_score, defense_score, overload_defense_message = effect.try(status, attack, self, damage_taken, dodge_score, defense_score, overload_defense_message)
+            end
         end
         unless overload_defense_message
             Narrator.damage_recap(get_name, attack, damage_taken, dodge_score, defense_score, defense_ignored?(attack.type))
@@ -492,8 +494,10 @@ class Player
 
     def make_attack(damage, type)
         attack = Attack.new(damage, type, self)
-        for effect in @status_handler.get_attack_effects
-            attack.add_effect(effect)
+        for status in @status_handler.get_all
+            for effect in status.get_attack_effects
+                attack.add_effect(effect)
+            end
         end
         return attack
     end

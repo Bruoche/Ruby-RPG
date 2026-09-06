@@ -387,6 +387,8 @@ module LocaleKey
     COUNTER_POSTURE_DESCRIPTION = :counter_posture_description
     COUNTER_POSTURE_DESCRIPTION_SELF = :counter_posture_description_self
     COUNTER_POSTURE_STRIKE = :counter_posture_strike
+    DEFENSIVE_POSTURE_DESCRIPTION = :defensive_posture_description
+    DEFENSIVE_POSTURE_DESCRIPTION_SELF = :defensive_posture_description_self
     SLIME_DIVIDE = :slime_divide
     KNIGHT_SLASH = :knight_slash
     LIMB_LOSS = :limb_loss
@@ -944,6 +946,10 @@ module LocaleKey
     CATALYST_NAME = :catalyst_name
     CATALYST_PLURAL = :catalyst_plural
     CATALYST_DESCRIPTION = :catalyst_description
+    SHIELD_NAME = :shield_name
+    SHIELD_PLURAL = :shield_plural
+    SHIELD_DESCRIPTION = :shield_description
+    SHIELD_USE = :shield_use
     DAGGERS_NAME = :daggers_name
     DAGGERS_PLURAL = :daggers_plural
     DAGGERS_DESCRIPTION = :daggers_description
