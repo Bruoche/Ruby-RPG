@@ -7,7 +7,7 @@ class Game
     def initialize(in_debug_mode = false, starting_biome = nil)
         @@in_debug_mode = in_debug_mode
         Logger.set_debug(in_debug_mode)
-        if !Settings.initialized?
+        unless Settings.initialized?
             SettingsMenu.language_pop_up
         end
         if Settings.warning_pop_up_enabled

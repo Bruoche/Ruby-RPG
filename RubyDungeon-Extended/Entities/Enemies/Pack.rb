@@ -98,6 +98,19 @@ class Pack
         return power
     end
 
+    def get_max_damage
+        max = 0
+        for monster in @monsters
+            if max < monster.get_strength
+                max = monster.get_strength
+            end
+            if max < monster.get_intelligence
+                max = monster.get_intelligence
+            end
+        end
+        return max
+    end
+
     def length
         return @monsters.length
     end
@@ -111,7 +124,7 @@ class Pack
     end
 
     def are_dead
-        for monster in @monsters
+        ArrayUtils.for_potential @monsters do |monster|
             if monster.died?
                 death_event(monster)
             end

@@ -28,6 +28,9 @@ class Status < Savable
                 unless child.const_defined?(:ATTACK_EFFECTS)
                     child.const_set(:ATTACK_EFFECTS, [])
                 end
+                unless child.const_defined?(:DEFENSE_EFFECTS)
+                    child.const_set(:DEFENSE_EFFECTS, [])
+                end
             end
         end
     end
@@ -54,8 +57,12 @@ class Status < Savable
         return Locale.get_localized(description) + ending
     end
 
-    def get_effects
+    def get_attack_effects
         return self.class::ATTACK_EFFECTS
+    end
+
+    def get_defense_effects
+        return self.class::DEFENSE_EFFECTS
     end
 
     def visible?
@@ -105,6 +112,10 @@ class Status < Savable
         if (@duration != INFINITE) && (@duration > 0)
             @duration -= 1
         end
+    end
+
+    def start_of_turn_action(host)
+        #status do nothing by default
     end
 
     def end_of_turn_action(host)

@@ -23,12 +23,12 @@ class PoisonAttack < Status
         )
     ]
 
-    def get_save_data
-        return super(@duration.to_s)
-    end
-
     def initialize(nb_attacks = 1)
         super
+    end
+
+    def get_save_data
+        return super(@duration.to_s)
     end
 
     def tick_down(duration = 1)

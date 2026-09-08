@@ -142,7 +142,7 @@ class PlayerController
 
     def propose_combat
         @player.get_room.describe(@player)
-        input = Narrator.ask_if_fight(@player.get_escape_chances(@player.get_room.get_monsters.get_current_power), @player.get_name)
+        input = Narrator.ask_if_fight(@player.is_untouchable?, @player.get_escape_chances(@player.get_room.get_monsters.get_current_power), @player.get_name)
         case input
         when '0'
             SettingsMenu.options_menu
@@ -156,9 +156,14 @@ class PlayerController
                 Narrator.avoid_fight(@player.get_room.get_monsters.get_plural_the)
                 return ask_action
             else
-                Narrator.fail_sneak(@player.get_room.get_monsters.plural?)
-                @fighting = true
-                return Player::ACTED
+                if @player.is_untouchable?
+                    Narrator.ignore_scene
+                    return ask_action
+                else
+                    Narrator.fail_sneak(@player.get_room.get_monsters.plural?)
+                    @fighting = true
+                    return Player::ACTED
+                end
             end
         when '6'
             @player.print_status
@@ -195,6 +200,9 @@ class PlayerController
             when '5'
                 if @player.can_escape?(@player.get_room.get_monsters.get_current_power)
                     Narrator.escape_scene
+                    return @player.escape
+                elsif @player.is_untouchable?
+                    Narrator.ignore_scene
                     return @player.escape
                 else
                     Narrator.fail_escape(@player.get_room.get_monsters.plural?)

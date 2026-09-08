@@ -258,7 +258,7 @@ class GolemBoss < Bestiary
             room.add_loot(Loot.new(
                 LocaleKey::GOLEM_HEART_LOOT,
                 100,
-                Amethyst
+                TransCrystal
             ))
         end
         boss_data.kill(-> (bodypart) {
@@ -285,7 +285,7 @@ class GolemBoss < Bestiary
         boss_data.get_room.add_loot(Loot.new(
             LocaleKey::GOLEM_BROKEN_HEART_LOOT,
             100,
-            Amethyst
+            CrystalShards
         ))
     end
 

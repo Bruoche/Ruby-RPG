@@ -417,6 +417,28 @@ class FR
         LocaleKey::STAT_UP_STRENGTH     => "    2) ♣ Force          (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_INTELLIGENCE => "    3) ♠ Intelligence   (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
         LocaleKey::STAT_UP_AGILITY      => "    4) ♦ Agilité        (%{#{LocaleKey::F_CURRENT}} -> %{#{LocaleKey::F_NEW}})",
+        LocaleKey::ASK_RESPEC => "Quelle statistique souhaitez-vous assigner (%{#{LocaleKey::F_CURRENT}}/%{#{LocaleKey::F_TOTAL}} points restant à répartir)",
+        LocaleKey::RESPEC_DEFAULT_LABEL => "    Par défaut : ",
+        LocaleKey::ASK_QUIT_RESPEC => [
+            "Êtes-vous sûr·e de vouloir revenir en arrière ?",
+            "Les changements faits seront annulés."
+        ],
+        LocaleKey::ASK_CONFIRM_RESPEC => [
+            "Voulez-vous confirmer ces changements ?",
+            "(remettez les statistiques à zero pour annuler le changement)"
+        ],
+        LocaleKey::ASK_STAT_ATTRIBUTION => "Combien de points souhaitez-vous attribuer en %{#{LocaleKey::F_NAME}} ? (%{#{LocaleKey::F_CURRENT}} points attribués sur %{#{LocaleKey::F_TOTAL}} disponibles)",
+        LocaleKey::NO_STAT_TO_ATTRIBUTE => "Vous n'avez plus de points à attribuer. Veuillez réduire une statistique avant d'en augmenter une autre.",
+        LocaleKey::CRYSTAL_ASK_TRANSFORMATION => [
+            "Quel changements souhaitez-vous faire ?",
+            "    0) Annuler",
+            "    1) Changer de nom...",
+            "    2) Changer d'apparence...",
+            "    3) Réattribuer les statistiques...",
+            "    4) Confirmer les changements"
+        ],
+        LocaleKey::CRYSTAL_UNUSABLE => "Vous tentez d'utiliser le crystal, mais rien ne se passe... Il semblerais qu'il soit à court.",
+        LocaleKey::CRYSTAL_INTRO => "Vous prenez le cristal en main, une chaleur en émanant pendant que votre peau semble se déformer à son contact.\nNéanmoins votre prise ne cède pas, une vibration se propageant dans tout votre corps. Vous sentez vos propres muscles se déformer, mais votre esprit reste pourtant calme...",
         LocaleKey::TELEPORT_OPTIONS => [
             "Où souhaitez-vous aller ?",
             "    0) Annuler",
@@ -521,6 +543,7 @@ class FR
         LocaleKey::ESCAPE => "Ce combat ne valant plus la peine pour vous, vous vous échappez.",
         LocaleKey::ESCAPE_FAIL_PLURAL => "Vous tentez de vous échapper, mais les monstres ne vous laissent pas faire.",
         LocaleKey::ESCAPE_FAIL_SINGLE => "Vous tentez de vous échapper, mais le monstre ne vous laisse pas faire.",
+        LocaleKey::IGNORE => "Vous ignorez les monstres vous assaillant.",
         LocaleKey::VICTORY_PLURAL => "Victoire ! Tous les monstres meurent et vous obtenez %d points d'expérience.",
         LocaleKey::VICTORY_SINGLE => "Victoire ! Le monstre meurt et vous laisse %d points d'expérience.",
         LocaleKey::EXPLORATION_CONTINUE => "Vous reprenez votre exploration du donjon.",
@@ -572,6 +595,9 @@ class FR
         LocaleKey::RAGE_DESCRIPTION_SELF => "Vous êtes emplis de rage.",
         LocaleKey::RAGE_DESCRIPTION => "Est emplis de rage, frappant fort et aveuglément.",
         LocaleKey::RAGING => "%s est enragé.",
+        LocaleKey::COUNTER_POSTURE_DESCRIPTION_SELF => "Dagues en main, vous vous tenez en position offensive.",
+        LocaleKey::COUNTER_POSTURE_DESCRIPTION => "Dagues en main, se tient en position offensive.",
+        LocaleKey::COUNTER_POSTURE_STRIKE => "%s contre-attaque.",
         LocaleKey::SLIME_DIVIDE => "Bien qu'il ai été liquéfié, les résidus verdâtres %s se reforment en deux petits slimes.",
         LocaleKey::KNIGHT_SLASH => "Le chevalier assène un coup d'épée puissant avec l'objectif de trancher son ennemi.",
         LocaleKey::LIMB_LOSS => "%s se brise sous vos coups.",
@@ -624,6 +650,7 @@ class FR
             "      1) Combattre"
         ],
         LocaleKey::PROPOSE_SNEAK => "      2) Rester discret (%s%% de chances de réussite)",
+        LocaleKey::PROPOSE_IGNORE => "      2) Ignorer",
         LocaleKey::INTERACTIBLES_OPTION => "    5) Intéractions...",
         LocaleKey::NPC_INTERACT_OPTION => "Intéragir avec %s",
         LocaleKey::DESCRIBE_ENNEMIES => "Vous faites face à %s.",
@@ -638,6 +665,7 @@ class FR
             "      4) Utiliser un objet..."
         ],
         LocaleKey::ESCAPE_COMBAT => "      5) Fuir... (%d%% de chances de réussite)",
+        LocaleKey::IGNORE_COMBAT => "      5) Ignore",
         LocaleKey::TRY_AGAIN => [
             "Réessayer ?",
             "      1) Oui",
@@ -680,6 +708,10 @@ class FR
         LocaleKey::CARD_AGILITY => "Agilité : ",
         LocaleKey::CARD_INTELLIGENCE => "Intelligence : ",
         LocaleKey::CARD_PRICE => "Prix : ",
+        LocaleKey::HEALTH => "vie",
+        LocaleKey::STRENGTH => "force",
+        LocaleKey::INTELLIGENCE => "intelligence",
+        LocaleKey::AGILITY => "agilité",
         LocaleKey::UNSAVED_RETURN_CONFIRM => [
             "Êtes-vous sûr·e de vouloir revenir en arrière ?",
             "Les modifications effectuées ne seront pas sauvegardées."
@@ -1527,6 +1559,10 @@ class FR
         LocaleKey::CATALYST_NAME => "un catalyseur",
         LocaleKey::CATALYST_PLURAL => "des catalyseurs",
         LocaleKey::CATALYST_DESCRIPTION => "petit mécanisme focalisant la magie. Permet à son utilisateur de concentrer ses sorts sur des cibles précises au lieu de disperser son énergie sur tout les ennemis.",
+        LocaleKey::DAGGERS_NAME => "une paire de dagues",
+        LocaleKey::DAGGERS_PLURAL => "des dagues",
+        LocaleKey::DAGGERS_DESCRIPTION => "des lames acérées et en parfait état. Légères, elles permettent de prendre une posture offensive en guise d'action et ainsi de contre-attaquer pour chaque attaque esquivée. En revanche chaque contre-attaque consécutive sera moins efficace que la précédente.",
+        LocaleKey::DAGGERS_USE => "%s prend une posture offensive.",
         LocaleKey::DETOX_FRUIT_NAME => "un fruit détoxifiant",
         LocaleKey::DETOX_FRUIT_NAME_PLURAL => "des fruits détoxifiants",
         LocaleKey::DETOX_FRUIT_DESCRIPTION => "un fruit bio-luminéscent natif de la forêt souterraine, réstaure %s points de vie et a 50%% de chances de soigner l'empoisonnement.",
@@ -1554,6 +1590,13 @@ class FR
         LocaleKey::GOBLIN_LOOT_HEALTH_POTION => ["Vous trouvez une potion de soin à la ceinture d'un garde goblin."],
         LocaleKey::POISON_SPIDER_LOOT_POISON => ["En examinant le cadabre de l'araignée, vous parevenez à extraire le venin de ses crocs encore intact."],
         LocaleKey::GOLEM_LOOT_AMETHYST => ["Le crystal sur le dos du golem semble s'être délogé"],
+        LocaleKey::CRYSTAL_SHARDS_NAME => "éclats de cristal",
+        LocaleKey::CRYSTAL_SHARDS_PLURAL => "éclats de cristaux",
+        LocaleKey::CRYSTAL_SHARDS_DESCRIPTION => "morceaux de cristal brisé. Il semblerait qu'ils se soient brisés dans les feux du combat.",
+        LocaleKey::TRANS_CRYSTAL_NAME => "un coeur de cristal",
+        LocaleKey::TRANS_CRYSTAL_PLURAL => "coeurs de cristal",
+        LocaleKey::TRANS_CRYSTAL_DESCRIPTION => "lourd et plus large que les autres morceaux d'améthyste trouvés dans le donjon. Une lueur pourpre en émane.",
+        LocaleKey::TRANS_CRYSTAL_OFF_DESCRIPTION => "lourd et plus large que les autres morceaux d'améthyste trouvés dans le donjon. La lueur semble s'être éteinte.",
         LocaleKey::THE_EXIT => "la sortie",
         LocaleKey::A_HOLE => "un trou",
         LocaleKey::ASK_USE_ROPE_HOLE => "Souhaitez-vous utiliser une corde pour descendre ?",

@@ -20,9 +20,9 @@ class Narrator
     end
 
     def self.prepare(text)
-        if !text.kind_of?(Array)
+        unless text.kind_of?(Array)
             text = Locale.get_localized(text)
-            if !text.kind_of?(Array)
+            unless text.kind_of?(Array)
                 text = [text]
             end
         end
@@ -474,6 +474,8 @@ class Narrator
         else
             Narrator.write(LocaleKey::FAIL_ESCAPE_SINGLE)
         end
+        SoundManager.play('spell_fart')
+        Game.wait
     end
 
     def self.death_scene(plural)
@@ -489,12 +491,19 @@ class Narrator
         Narrator.write(LocaleKey::ESCAPE)
     end
 
+    def self.ignore_scene
+        SoundManager.play(['parry', 'parry1', 'parry2', 'parry3'].sample)
+        Narrator.write(LocaleKey::IGNORE)
+    end
+
     def self.fail_escape(plural)
         if plural
             Narrator.write(LocaleKey::ESCAPE_FAIL_PLURAL)
         else
             Narrator.write(LocaleKey::ESCAPE_FAIL_SINGLE)
         end
+        SoundManager.play('spell_fart')
+        Game.wait
     end
 
     def self.victory_scene(was_plural, xp)
@@ -520,6 +529,26 @@ class Narrator
             Narrator.write(start + line, Alignments::CENTER)
             start = ''
         end
+    end
+
+    def self.damage_recap(player_name, attack, damage_taken, dodge_score, defense_score, defense_ignored)
+      defense_text = ''
+        if defense_score > 0
+            defense_text = ', ' + defense_score.to_s + Locale::get_localized(LocaleKey::PARRIED)
+        end
+        if damage_taken > 0
+            SoundManager.play('player_hurt')
+        elsif defense_score > 0
+            SoundManager.play(['parry', 'parry1', 'parry2', 'parry3'].sample)
+        else
+            SoundManager.play('dodge')
+        end
+        if defense_ignored
+            Narrator.hurt(player_name, damage_taken)
+        else
+            Narrator.detailed_hurt(player_name, damage_taken, attack.damage_dealt, dodge_score, defense_text)
+        end
+        Game.wait
     end
 
     def self.hurt(denomination, damage)
@@ -811,9 +840,13 @@ class Narrator
         Narrator.write(format(Locale.get_localized(LocaleKey::ASK_QUANTITY_SOLD), item_name))
     end
 
-    def self.ask_if_fight(escape_chances, player_name)
+    def self.ask_if_fight(can_ignore_fight, escape_chances, player_name)
         Narrator.write(LocaleKey::PROPOSE_COMBAT)
-        Narrator.write(format(Locale.get_localized(LocaleKey::PROPOSE_SNEAK), escape_chances))
+        if can_ignore_fight
+            Narrator.write(LocaleKey::PROPOSE_IGNORE)
+        else
+            Narrator.write(format(Locale.get_localized(LocaleKey::PROPOSE_SNEAK), escape_chances))
+        end
         return user_input(player_name)
     end
 
@@ -825,7 +858,11 @@ class Narrator
         Narrator.write(format(Locale.get_localized(LocaleKey::DESCRIBE_ENNEMIES), monsters_description))
         Narrator.add_space_of(1)
         Narrator.write(LocaleKey::FIGHT_ACTIONS)
-        Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
+        if player.is_untouchable?
+            Narrator.write(LocaleKey::IGNORE_COMBAT)
+        else
+            Narrator.write(format(Locale.get_localized(LocaleKey::ESCAPE_COMBAT), escape_chances))
+        end
         return input = user_input(player.get_name)
     end
 
@@ -853,9 +890,10 @@ class Narrator
         return Narrator.user_input_int(player.get_name)
     end
 
-    def self.ask_confirmation(question_asked, player_name = NO_NAME_DISPLAYED)
+    def self.ask_confirmation(question_asked, player_name = NO_NAME_DISPLAYED, question_prefix = '')
+        Narrator.write(question_prefix)
         question = Locale.get_localized(question_asked)
-        if !question.kind_of?(Array)
+        unless question.kind_of?(Array)
             question = [question]
         end
         yes = Locale.get_localized(LocaleKey::YES_INPUT).downcase
@@ -872,7 +910,7 @@ class Narrator
             return false
         else
             Narrator.unsupported_choice_error
-            return self.ask_confirmation(question_asked)
+            return self.ask_confirmation(question_asked, player_name, question_prefix)
         end
     end
 
@@ -1182,7 +1220,7 @@ class Narrator
     def self.ask_range(question, min_range = 0, max_range = INFINITE, name = NO_NAME_DISPLAYED, new_screen = true)
     Narrator.write(question)
     input = Narrator.user_input(name, new_screen)
-        if !is_int(input)
+        unless is_int(input)
             Narrator.unsupported_choice_error
             return ask_range(question, min_range, max_range, name, new_screen)
         end
