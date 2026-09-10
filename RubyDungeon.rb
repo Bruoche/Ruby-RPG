@@ -1,6 +1,9 @@
 $:.unshift File.dirname($0)
 puts "Loading..."
 
+# $LOADED_FEATURES.reject! { |f| f =~ /did_you_mean/ }
+# -> Uncomment to show dependency errors in exe build for debug.
+
 EXCLUDED = [
     "RubyDungeon-Extended/DialogGenerator/"
 ]
@@ -40,6 +43,7 @@ require "fileutils" # Manage files (for saving)
 require "time" # Get current time (for playtime)
 require "tty-screen" # Get terminal dimension in char (for clean ascii printing)
 require 'ruby2d' # Play sounds
+require 'unicode_normalize/normalize' # Normalisation of user inputs
 
 TTY::Screen.height.times do
     puts

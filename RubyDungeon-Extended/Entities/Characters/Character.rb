@@ -222,6 +222,7 @@ class Character
             end
         end
         Narrator.write(make_dialog_box(Locale.get_localized(@unknown_dialogs).sample).get_ascii)
+        return false
     end
 
     def print_answer(dialog)
@@ -270,7 +271,7 @@ class Character
         if dialog.kind_of? Array
             formated_dialog = []
             for line in dialog do
-                formated_dialog.append(line.insert_name_single(line))
+                formated_dialog.append(insert_name_single(line))
             end
             return formated_dialog
         else
