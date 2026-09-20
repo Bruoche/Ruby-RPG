@@ -444,6 +444,8 @@ class EN
             "    1) The exit"
         ],
         LocaleKey::TELEPORT_JOIN_OPTION => "Join ",
+        LocaleKey::ASK_AIM_TARGET => "Which monsters do you aim for?",
+        LocaleKey::ASK_AIM_TARGET_LIMB => "What parts %s do you aim for?",
         LocaleKey::ASK_CATALYST_TARGET => "What monsters should be included in the magic attack? (exclude all to abort)",
         LocaleKey::ASK_CATALYST_TARGET_LIMB => "What limbs %s do you aim for? (exclude all to abort)",
         LocaleKey::YES_OR_NO => [
@@ -616,6 +618,7 @@ class EN
         LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "As the frail gory corpse of the elder goblin hits the ground, her chair loosing balance and crashing down loudly with her, other goblins watch in shock and disbelief. Before turning to you with rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "As the second caretaker of the elder goblin hits the ground, you can see heartbreak distort her face as rage fills her.",
         LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Do you confirm your selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} selected)",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT_SIMPLE => "Do you confirm your selection?",
         LocaleKey::ASK_NAME => "What is your name?",
         LocaleKey::CURRENT_NAME => "Current name: ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [
@@ -1557,6 +1560,9 @@ class EN
         LocaleKey::TELEPORTER_NAME => "a tele-crystal",
         LocaleKey::TELEPORTER_DESCRIPTION => "a very rare crystal holding a powerful power, canalised by a magical instrument making it able to transport its bearer to the dungeon exit or to one of their allies.",
         LocaleKey::TELEPORTER_PLURAL => "tele-crystals",
+        LocaleKey::AXE_NAME => "a great axe",
+        LocaleKey::AXE_PLURAL => "great axes",
+        LocaleKey::AXE_DESCRIPTION => "crude and heavy. It's weight slows your attacks down, but it's long range allows to hit three nearby ennemies at the same time. The ennemies at the sides will each take a third of the damage, and the one of the center two thirds of the damage.",
         LocaleKey::CATALYST_NAME => "a catalyst",
         LocaleKey::CATALYST_PLURAL => "catalysts",
         LocaleKey::CATALYST_DESCRIPTION => "a small contraption made to concentrate magic, allowing it's user to focus spells on select targets instead of dispersing them across all ennemies.",

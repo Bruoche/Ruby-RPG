@@ -52,6 +52,10 @@ class Attack
         end
     end
 
+    def set_damage(value)
+        @damage = value
+    end
+
     def hit(targets, parent)
         if targets.kind_of? Array
             if (damage <= 0)

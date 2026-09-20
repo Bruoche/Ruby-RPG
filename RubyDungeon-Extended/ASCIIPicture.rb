@@ -104,7 +104,7 @@ class ASCIIPicture
         @height += 2
     end
 
-    def self.monster_card(monster, index = NO_INDEX, horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME)
+    def self.monster_card(monster, index = NO_INDEX, horizontal_line = DEFAULT_HORIZONTAL_FRAME, vertical_line = DEFAULT_VERTICAL_FRAME, corner_piece = DEFAULT_CORNER_PIECE)
         if monster.is_a?(Boss)
             width = BOSS_CARD_WIDTH
         else
@@ -126,7 +126,7 @@ class ASCIIPicture
             TextFormatter.center(" " + monster.get_status_icons, width),
             (' ' * MathUtils.positive((width - stat_string.length).div(2))) + stat_string
         ])
-        monster_info.frame(horizontal_line, vertical_line)
+        monster_info.frame(horizontal_line, vertical_line, corner_piece)
         monster_info_ascii = []
         for row in monster_info.get_ascii
             monster_info_ascii.append(TextFormatter.center(row, monster.get_picture.width))

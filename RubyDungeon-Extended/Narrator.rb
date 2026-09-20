@@ -1,5 +1,6 @@
 class Narrator
     RETURN_BUTTON = 'return_button'
+    NO_RETURN = 'no_return'
     NO_NAME_DISPLAYED = nil
     INFINITE = nil
     SELECT_ALL = 'select_all'
@@ -1100,7 +1101,7 @@ class Narrator
                     return_button,
                     starting_page
                 )
-                starting_page = response.get_page
+                starting_page = response.get_index
                 return response.get
             },
             input_options,
@@ -1152,6 +1153,27 @@ class Narrator
         end
     end
 
+    def self.ask_area(question, input_options, radius, getter, return_option = Narrator::RETURN_BUTTON)
+        options = input_options.dup
+        if options.length <= 1
+            return IndexedResponse.new(options, 0)
+        end
+        choosen_index = getter.call(
+            question,
+            options,
+            return_option
+        )
+        if choosen_index == return_option
+            return IndexedResponse.new([], 0)
+        end
+        start_index = (choosen_index - radius)
+        if start_index <= 0
+            start_index = 0
+        end
+        center_index = choosen_index - start_index
+        return IndexedResponse.new(options[start_index..choosen_index+radius], center_index)
+    end
+
     private
 
     def self.ask_paginated_general(question, options, getter, player_name = NO_NAME_DISPLAYED, last_first = false, return_option = Narrator::RETURN_BUTTON, extra_condition = -> (i) {return true}, alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP, select_multiple = false, getter_choosen = getter, choosen_options = [], return_button = ASCIIPaginator::DEFAULT_RETURN_BUTTON, starting_page = ASCIIPaginator::AUTO)
@@ -1166,7 +1188,7 @@ class Narrator
             options_pages.append(relevent_getter.call(option, i))
         end
         options_pages.set_page(starting_page)
-        return PaginatedResponse.new(
+        return IndexedResponse.new(
             ask_paginated_inner(options_pages, question, options, player_name, return_option, extra_condition, select_multiple, return_button, alignment, vertical_alignment),
             options_pages.get_page
         )

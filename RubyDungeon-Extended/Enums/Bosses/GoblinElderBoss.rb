@@ -93,10 +93,12 @@ class GoblinElderBoss < Bestiary
     end
 
     def self.armless(name, boss)
-        Narrator.write_formatted(LocaleKey::ELDER_GOBLIN_ARMLESS, boss.get_name.get_gendered_the)
-        Game.wait
         head = boss.get_part_by(GoblinElderHead::ID)
-        head.set_intelligence(head.get_strength * 6)
+        if head != nil
+            Narrator.write_formatted(LocaleKey::ELDER_GOBLIN_ARMLESS, boss.get_name.get_gendered_the)
+            Game.wait
+            head.set_intelligence(head.get_strength * 6)
+        end
     end
 
     def self.death(name, boss, players)

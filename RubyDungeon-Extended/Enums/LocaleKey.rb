@@ -292,6 +292,8 @@ module LocaleKey
     CRYSTAL_INTRO = :crystal_intro
     TELEPORT_OPTIONS = :teleport_options
     TELEPORT_JOIN_OPTION = :teleport_join_option
+    ASK_AIM_TARGET = :ask_aim_target
+    ASK_AIM_TARGET_LIMB = :ask_aim_target_limb
     ASK_CATALYST_TARGET = :ask_catalyst_targets
     ASK_CATALYST_TARGET_LIMB = :ask_catalyst_target_limb
     YES_OR_NO = :yes_or_no
@@ -406,6 +408,7 @@ module LocaleKey
     GOBLIN_ELDER_BOSS_DEATH_RAGE = :goblin_elder_boss_death_rage
     GOBLIN_ELDER_BOSS_GRIEF_RAGE = :goblin_elder_boss_grief_rage
     ASK_CONFIRM_RETURN_SELECT = :ask_confirm_return_select
+    ASK_CONFIRM_RETURN_SELECT_SIMPLE = :ask_confirm_return_select_simple
     ASK_NAME = :ask_name
     CURRENT_NAME = :current_name
     ASK_CONFIRM_CHARACTER = :ask_confirm_character
@@ -943,6 +946,9 @@ module LocaleKey
     TELEPORTER_NAME = :teleporter_name
     TELEPORTER_DESCRIPTION = :teleporter_description
     TELEPORTER_PLURAL = :teleporter_plural
+    AXE_NAME = :axe_name
+    AXE_PLURAL = :axe_plural
+    AXE_DESCRIPTION = :axe_description
     CATALYST_NAME = :catalyst_name
     CATALYST_PLURAL = :catalyst_plural
     CATALYST_DESCRIPTION = :catalyst_description

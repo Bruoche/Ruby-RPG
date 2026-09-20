@@ -445,6 +445,8 @@ class FR
             "    1) La sortie"
         ],
         LocaleKey::TELEPORT_JOIN_OPTION => "Rejoindre ",
+        LocaleKey::ASK_AIM_TARGET => "Quels monstres souhaitez-vous viser ?",
+        LocaleKey::ASK_AIM_TARGET_LIMB => "Quelles parties du corp %s visez-vous ?",
         LocaleKey::ASK_CATALYST_TARGET => "Quels monstres souhaitez-vous inclure dans l'attaque magique ? (exclure tous pour annuler)",
         LocaleKey::ASK_CATALYST_TARGET_LIMB => "Quelles parties du corp %s visez-vous ? (exclure tous pour annuler)",
         LocaleKey::YES_OR_NO => [
@@ -616,7 +618,8 @@ class FR
         LocaleKey::ELDER_GOBLIN_ARMLESS => "Alors qu'elle semblait désarmée, ne pouvant plus utiliser ses bras pour se défendre, vous voyez la gobline commencer à marmonner des prières.",
         LocaleKey::GOBLIN_ELDER_BOSS_DEATH_RAGE => "Alors que le corps frèle et ensenglanté de la gobline s'écrase contre le sol, sa petite chaise tombant bruyamant avec elle, les autres goblins observent sous le choc. Après quelques instants de suspent, ils se tournent vers vous le regard empli de larmes et de rage.",
         LocaleKey::GOBLIN_ELDER_BOSS_GRIEF_RAGE => "Alors que le deuxième aidant de la gobline atteint le sol, immobile, vous pouvez voir le museau de l'ancienne gobline se distordre de rage.",
-        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} sélectionnés)",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT => "Confirmez-vous la selection ? (%{#{LocaleKey::F_AMOUNT}}/%{#{LocaleKey::F_TOTAL}} sélectionnés)",
+        LocaleKey::ASK_CONFIRM_RETURN_SELECT_SIMPLE => "Confirmez-vous la selection ?",
         LocaleKey::ASK_NAME => "Quel est votre nom ?",
         LocaleKey::CURRENT_NAME => "Nom actuel : ",
         LocaleKey::ASK_CONFIRM_CHARACTER => [
@@ -1558,6 +1561,9 @@ class FR
         LocaleKey::TELEPORTER_NAME => "un télé-cristal",
         LocaleKey::TELEPORTER_DESCRIPTION => "un cristal très rare dont une magie puissante émane, canalisée via un instrument magique le rendant capable de transporter son possesseur à la sortie du donjon ou auprès de ses alliés.",
         LocaleKey::TELEPORTER_PLURAL => "des télé-cristaux",
+        LocaleKey::AXE_NAME => "une hache de guerre",
+        LocaleKey::AXE_PLURAL => "haches de guerre",
+        LocaleKey::AXE_DESCRIPTION => "simple et lourde. Son poids ralentis vos attaques, mais sa portée permets de frapper trois ennemis adjacents en un coups. Les ennemis sur les côtés prendrons chacun un tier de dégats, celui du centre prendra deux tiers de dégâts.",
         LocaleKey::CATALYST_NAME => "un catalyseur",
         LocaleKey::CATALYST_PLURAL => "des catalyseurs",
         LocaleKey::CATALYST_DESCRIPTION => "petit mécanisme focalisant la magie. Permet à son utilisateur de concentrer ses sorts sur des cibles précises au lieu de disperser son énergie sur tout les ennemis.",

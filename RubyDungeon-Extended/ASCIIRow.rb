@@ -10,10 +10,10 @@ class ASCIIRow
         @pictures.append(picture)
     end
 
-    def show
+    def show(alignment = Alignments::CENTER, vertical_alignment = VerticalAlignments::TOP)
         rows = get_rows
         for row in rows
-            print_row(row)
+            print_row(row, alignment, vertical_alignment)
         end
     end
 

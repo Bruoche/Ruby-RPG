@@ -263,7 +263,6 @@ class PlayerController
                 acted = acted || next_room_instance.acted?
             end
             return acted
-            World.get_instance.set_current_room(@player.get_room)
         else
             ask_action
         end
