@@ -2,7 +2,7 @@ class Axe < Item
     NAME = LocaleKey::AXE_NAME
     PLURAL_NAME = LocaleKey::AXE_PLURAL
     SOUND = 'weapon_equip'
-    PICTURE = 'catalyst'
+    PICTURE = 'axe'
     USABLE_ON_OTHERS = false
     TELEPORT_DURATION = 1.2
     NO_DESTINATION = nil
