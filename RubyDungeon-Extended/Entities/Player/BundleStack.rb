@@ -163,10 +163,19 @@ class BundleStack
     end
 
     def set(bundles)
-        @bundles = bundles
+        @bundles = []
+        for bundle in bundles
+            append(bundle)
+        end
     end
 
     def append(new_bundle)
+        if !@class::STACKABLE
+            new_bundle.get_quantity.times do
+                @bundles.append(Bundle.new(Item.load(new_bundle.get_item.get_save_data)))
+            end
+            return
+        end
         for bundle in @bundles
             if bundle.contains?(new_bundle.get_item)
                 bundle.add(new_bundle.get_quantity)

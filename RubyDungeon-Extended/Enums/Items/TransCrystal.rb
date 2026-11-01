@@ -7,6 +7,7 @@ class TransCrystal < Item
     DROP_CHANCE_SCALABLE = false
     DROP_QUANTITY_SCALABLE = false
     TRANSFORMATION_DURATION = 3.6
+    STACKABLE = false
 
     def initialize(charges = 1)
         @charges = charges.to_i
@@ -25,7 +26,7 @@ class TransCrystal < Item
             Narrator.write(LocaleKey::CRYSTAL_UNUSABLE)
             SoundManager.play('spell_fart')
             Game.wait
-            return
+            return !Player::ACTED
         end
         Narrator.write(LocaleKey::CRYSTAL_INTRO)
         Narrator.pause_text

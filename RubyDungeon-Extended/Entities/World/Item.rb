@@ -19,6 +19,9 @@ class Item < Savable
                 unless child.const_defined?(:DROP_QUANTITY_SCALABLE)
                     child.const_set(:DROP_QUANTITY_SCALABLE, child::DROP_CHANCE_SCALABLE)
                 end
+                unless child.const_defined?(:STACKABLE)
+                    child.const_set(:STACKABLE, true)
+                end
             end
         end
     end
@@ -54,6 +57,10 @@ class Item < Savable
 
     def drop_chance_scalable?
         return self.class::DROP_CHANCE_SCALABLE
+    end
+
+    def stackable?
+        return self.class::STACKABLE
     end
 
     def use(target, user)
